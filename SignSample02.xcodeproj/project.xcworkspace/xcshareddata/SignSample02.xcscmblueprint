@@ -1,0 +1,32 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "dcdbb401-323c-49cf-88a0-803402807c85++9180",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "dcdbb401-323c-49cf-88a0-803402807c85++9180" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "dcdbb401-323c-49cf-88a0-803402807c85" : 0,
+    "dcdbb401-323c-49cf-88a0-803402807c85++9180" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "84FE79F2-632F-40F8-8E50-DFF0E11A995A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "dcdbb401-323c-49cf-88a0-803402807c85" : "afirma-ios",
+    "dcdbb401-323c-49cf-88a0-803402807c85++9180" : "ios\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SignSample02",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "SignSample02.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/svn-ctt.administracionelectronica.gob.es\/svn\/clienteafirma",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "dcdbb401-323c-49cf-88a0-803402807c85"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/svn-ctt.administracionelectronica.gob.es\/svn\/clienteafirma",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "dcdbb401-323c-49cf-88a0-803402807c85++9180"
+    }
+  ]
+}
