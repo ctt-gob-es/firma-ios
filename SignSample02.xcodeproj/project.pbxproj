@@ -543,6 +543,7 @@
 		B27395CE20A43AF800A7D05A /* images */ = {
 			isa = PBXGroup;
 			children = (
+				E47E065C16E2DC1C00BC7855 /* certificados.png */,
 				B27395CF20A43AF800A7D05A /* cert_menu.png */,
 				B27395D020A43AF800A7D05A /* flecha.png */,
 				B27395D120A43AF800A7D05A /* help.png */,
@@ -552,6 +553,7 @@
 				B27395D520A43AF800A7D05A /* itunes.png */,
 				B27395D620A43AF800A7D05A /* ok_mini.png */,
 				B27395D720A43AF800A7D05A /* warning_mini.png */,
+				C3461CA71696F98C007237D1 /* logo_cliente.png */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -625,10 +627,8 @@
 				C3B3E38C17253C5C00F3D458 /* XML */,
 				C36553FE16F9D0DC0048252D /* SimpleSign */,
 				C3A91DF816F8CD8D009D07AD /* Cliente @firma.entitlements */,
-				E47E065C16E2DC1C00BC7855 /* certificados.png */,
 				C389C78C16DE70CC000382C0 /* Settings.bundle */,
 				B27395CA20A4384300A7D05A /* Constants */,
-				C3461CA71696F98C007237D1 /* logo_cliente.png */,
 				C30B3231163804620072A515 /* SignSample02 */,
 				B27395E120A43E2800A7D05A /* Utils */,
 				C30B322A163804620072A515 /* Frameworks */,
