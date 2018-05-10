@@ -41,6 +41,7 @@
 		B273961320A43E2800A7D05A /* OpenSSLCertificateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B273960120A43E2800A7D05A /* OpenSSLCertificateHelper.m */; };
 		B273961420A43E2800A7D05A /* QuartzUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B273960320A43E2800A7D05A /* QuartzUtils.m */; };
 		B273961620A441FF00A7D05A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B273961520A441FF00A7D05A /* Images.xcassets */; };
+		B273961A20A447DB00A7D05A /* CADESOID.c in Sources */ = {isa = PBXBuildFile; fileRef = B273961820A447DB00A7D05A /* CADESOID.c */; };
 		C30B322C163804620072A515 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30B322B163804620072A515 /* UIKit.framework */; };
 		C30B322E163804620072A515 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30B322D163804620072A515 /* Foundation.framework */; };
 		C30B3230163804620072A515 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30B322F163804620072A515 /* CoreGraphics.framework */; };
@@ -153,7 +154,6 @@
 		C3B11E4416FB642B00C0D623 /* xer_support.c in Sources */ = {isa = PBXBuildFile; fileRef = C3B11DB616FB642B00C0D623 /* xer_support.c */; };
 		C3B14034170AE10000E3FD42 /* ContentHints.c in Sources */ = {isa = PBXBuildFile; fileRef = C3B14032170AE10000E3FD42 /* ContentHints.c */; };
 		C3B14038170AE15E00E3FD42 /* UTF8String.c in Sources */ = {isa = PBXBuildFile; fileRef = C3B14036170AE15E00E3FD42 /* UTF8String.c */; };
-		C3B14041170AFDAC00E3FD42 /* CADESOID.c in Sources */ = {isa = PBXBuildFile; fileRef = C3B14040170AFDAC00E3FD42 /* CADESOID.c */; };
 		C3B14045170B2B7800E3FD42 /* NULL.c in Sources */ = {isa = PBXBuildFile; fileRef = C3B14043170B2B7600E3FD42 /* NULL.c */; };
 		C3B14049170B2BF000E3FD42 /* BOOLEAN.c in Sources */ = {isa = PBXBuildFile; fileRef = C3B14047170B2BEE00E3FD42 /* BOOLEAN.c */; };
 		C3B1404D170B34B500E3FD42 /* EncapsulatedSignedData.c in Sources */ = {isa = PBXBuildFile; fileRef = C3B1404B170B34B100E3FD42 /* EncapsulatedSignedData.c */; };
@@ -249,6 +249,8 @@
 		B273960220A43E2800A7D05A /* QuartzUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuartzUtils.h; sourceTree = "<group>"; };
 		B273960320A43E2800A7D05A /* QuartzUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuartzUtils.m; sourceTree = "<group>"; };
 		B273961520A441FF00A7D05A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B273961820A447DB00A7D05A /* CADESOID.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CADESOID.c; sourceTree = "<group>"; };
+		B273961920A447DB00A7D05A /* CADESOID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADESOID.h; sourceTree = "<group>"; };
 		C30B3227163804620072A515 /* Cliente @firma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cliente @firma.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C30B322B163804620072A515 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C30B322D163804620072A515 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -470,8 +472,6 @@
 		C3B14033170AE10000E3FD42 /* ContentHints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentHints.h; sourceTree = "<group>"; };
 		C3B14036170AE15E00E3FD42 /* UTF8String.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = UTF8String.c; sourceTree = "<group>"; };
 		C3B14037170AE15E00E3FD42 /* UTF8String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UTF8String.h; sourceTree = "<group>"; };
-		C3B1403F170AEE3E00E3FD42 /* CADESOID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CADESOID.h; sourceTree = "<group>"; };
-		C3B14040170AFDAC00E3FD42 /* CADESOID.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CADESOID.c; sourceTree = "<group>"; };
 		C3B14043170B2B7600E3FD42 /* NULL.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NULL.c; sourceTree = "<group>"; };
 		C3B14044170B2B7700E3FD42 /* NULL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NULL.h; sourceTree = "<group>"; };
 		C3B14047170B2BEE00E3FD42 /* BOOLEAN.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BOOLEAN.c; sourceTree = "<group>"; };
@@ -597,6 +597,15 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		B273961720A447DB00A7D05A /* ASN1Constants */ = {
+			isa = PBXGroup;
+			children = (
+				B273961820A447DB00A7D05A /* CADESOID.c */,
+				B273961920A447DB00A7D05A /* CADESOID.h */,
+			);
+			path = ASN1Constants;
+			sourceTree = "<group>";
+		};
 		B9C55C1D1D251B6600F5168E /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -704,8 +713,8 @@
 		C365540016F9D11F0048252D /* Afirma */ = {
 			isa = PBXGroup;
 			children = (
-				C3B1403E170AEDAC00E3FD42 /* ASN1Constants */,
 				C365540116F9D11F0048252D /* Asn1 */,
+				B273961720A447DB00A7D05A /* ASN1Constants */,
 				C365549416F9D11F0048252D /* CADESSignerInfo */,
 				C36554A216F9D11F0048252D /* Utiles */,
 				C3AB70641716CD4C003795F7 /* CADESSigner.c */,
@@ -972,15 +981,6 @@
 			name = "Google Analytics library";
 			sourceTree = "<group>";
 		};
-		C3B1403E170AEDAC00E3FD42 /* ASN1Constants */ = {
-			isa = PBXGroup;
-			children = (
-				C3B1403F170AEE3E00E3FD42 /* CADESOID.h */,
-				C3B14040170AFDAC00E3FD42 /* CADESOID.c */,
-			);
-			name = ASN1Constants;
-			sourceTree = "<group>";
-		};
 		C3B2A67F16F7046300354F90 /* views */ = {
 			isa = PBXGroup;
 			children = (
@@ -1121,6 +1121,7 @@
 				C36554EE16F9D11F0048252D /* CADESSignedAttributes.c in Sources */,
 				C36554F016F9D11F0048252D /* CADESSignerInfo.c in Sources */,
 				C36554F116F9D11F0048252D /* Utiles.c in Sources */,
+				B273961A20A447DB00A7D05A /* CADESOID.c in Sources */,
 				C3B11DB816FB642B00C0D623 /* AlgorithmIdentifier.c in Sources */,
 				C3B11DBA16FB642B00C0D623 /* ANY.c in Sources */,
 				C3B11DBC16FB642B00C0D623 /* asn_codecs_prim.c in Sources */,
@@ -1207,7 +1208,6 @@
 				C3B11E4416FB642B00C0D623 /* xer_support.c in Sources */,
 				C3B14034170AE10000E3FD42 /* ContentHints.c in Sources */,
 				C3B14038170AE15E00E3FD42 /* UTF8String.c in Sources */,
-				C3B14041170AFDAC00E3FD42 /* CADESOID.c in Sources */,
 				C3B14045170B2B7800E3FD42 /* NULL.c in Sources */,
 				C3B14049170B2BF000E3FD42 /* BOOLEAN.c in Sources */,
 				C3B1404D170B34B500E3FD42 /* EncapsulatedSignedData.c in Sources */,
