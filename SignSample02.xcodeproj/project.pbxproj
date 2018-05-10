@@ -44,6 +44,8 @@
 		B273961A20A447DB00A7D05A /* CADESOID.c in Sources */ = {isa = PBXBuildFile; fileRef = B273961820A447DB00A7D05A /* CADESOID.c */; };
 		B273961E20A45C3E00A7D05A /* iPadStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B273961C20A45C3E00A7D05A /* iPadStoryboard.storyboard */; };
 		B273961F20A45C3E00A7D05A /* iPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B273961D20A45C3E00A7D05A /* iPhoneStoryboard.storyboard */; };
+		B273962520A4614400A7D05A /* AOAcercadeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B273962220A4614400A7D05A /* AOAcercadeViewController.m */; };
+		B273962620A4614400A7D05A /* AOHelpMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B273962420A4614400A7D05A /* AOHelpMenuViewController.m */; };
 		C30B322C163804620072A515 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30B322B163804620072A515 /* UIKit.framework */; };
 		C30B322E163804620072A515 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30B322D163804620072A515 /* Foundation.framework */; };
 		C30B3230163804620072A515 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30B322F163804620072A515 /* CoreGraphics.framework */; };
@@ -80,7 +82,6 @@
 		C3A44B87170C3CBF000B551C /* VisibleString.c in Sources */ = {isa = PBXBuildFile; fileRef = C3A44B85170C3CBD000B551C /* VisibleString.c */; };
 		C3A44B8B170C3CE4000B551C /* BMPString.c in Sources */ = {isa = PBXBuildFile; fileRef = C3A44B89170C3CE3000B551C /* BMPString.c */; };
 		C3AB70651716CD4E003795F7 /* CADESSigner.c in Sources */ = {isa = PBXBuildFile; fileRef = C3AB70641716CD4C003795F7 /* CADESSigner.c */; };
-		C3AC11F917677B82003CF900 /* AOHelpMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3AC11F817677B82003CF900 /* AOHelpMenuViewController.m */; };
 		C3AF7F7217FD61EF0084D916 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AF7F7017FD61CE0084D916 /* CoreData.framework */; };
 		C3AF7F7517FD62180084D916 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AF7F7317FD62090084D916 /* SystemConfiguration.framework */; };
 		C3B11DB816FB642B00C0D623 /* AlgorithmIdentifier.c in Sources */ = {isa = PBXBuildFile; fileRef = C3B11D2616FB642A00C0D623 /* AlgorithmIdentifier.c */; };
@@ -162,7 +163,6 @@
 		C3B2A68616F7047D00354F90 /* AOCertificateSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B2A68316F7047D00354F90 /* AOCertificateSelectionViewController.m */; };
 		C3B3E38F17253C8900F3D458 /* AOXMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B3E38E17253C8900F3D458 /* AOXMLReader.m */; };
 		C3B3E39217253CC800F3D458 /* AOEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B3E39117253CC800F3D458 /* AOEntity.m */; };
-		C3B3E53B17689AB9003C9DB6 /* AOAcercadeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B3E53A17689AB9003C9DB6 /* AOAcercadeViewController.m */; };
 		C3B7FF281753770700838251 /* AOManagerStoreScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B7FF271753770700838251 /* AOManagerStoreScreenViewController.m */; };
 		C3D56A1017CF452200D7EBED /* CustomGeneralName.c in Sources */ = {isa = PBXBuildFile; fileRef = C3D56A0A17CF452200D7EBED /* CustomGeneralName.c */; };
 		C3D56A1117CF452200D7EBED /* GeneralNames.c in Sources */ = {isa = PBXBuildFile; fileRef = C3D56A0C17CF452200D7EBED /* GeneralNames.c */; };
@@ -253,6 +253,10 @@
 		B273961920A447DB00A7D05A /* CADESOID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADESOID.h; sourceTree = "<group>"; };
 		B273961C20A45C3E00A7D05A /* iPadStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPadStoryboard.storyboard; sourceTree = "<group>"; };
 		B273961D20A45C3E00A7D05A /* iPhoneStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhoneStoryboard.storyboard; sourceTree = "<group>"; };
+		B273962120A4614400A7D05A /* AOAcercadeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOAcercadeViewController.h; sourceTree = "<group>"; };
+		B273962220A4614400A7D05A /* AOAcercadeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOAcercadeViewController.m; sourceTree = "<group>"; };
+		B273962320A4614400A7D05A /* AOHelpMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOHelpMenuViewController.h; sourceTree = "<group>"; };
+		B273962420A4614400A7D05A /* AOHelpMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOHelpMenuViewController.m; sourceTree = "<group>"; };
 		C30B3227163804620072A515 /* Cliente @firma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cliente @firma.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C30B322B163804620072A515 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C30B322D163804620072A515 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -321,8 +325,6 @@
 		C3A91DF816F8CD8D009D07AD /* Cliente @firma.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Cliente @firma.entitlements"; sourceTree = "<group>"; };
 		C3AB70641716CD4C003795F7 /* CADESSigner.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CADESSigner.c; sourceTree = "<group>"; };
 		C3AB70671716CD62003795F7 /* CADESSigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADESSigner.h; sourceTree = "<group>"; };
-		C3AC11F717677B82003CF900 /* AOHelpMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOHelpMenuViewController.h; sourceTree = "<group>"; };
-		C3AC11F817677B82003CF900 /* AOHelpMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOHelpMenuViewController.m; sourceTree = "<group>"; };
 		C3AF7F6E17FD60C80084D916 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalyticsServices.a; path = lib/libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
 		C3AF7F7017FD61CE0084D916 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		C3AF7F7317FD62090084D916 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -486,8 +488,6 @@
 		C3B3E38E17253C8900F3D458 /* AOXMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AOXMLReader.m; path = XML/AOXMLReader.m; sourceTree = "<group>"; };
 		C3B3E39017253CC800F3D458 /* AOEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AOEntity.h; path = XML/AOEntity.h; sourceTree = "<group>"; };
 		C3B3E39117253CC800F3D458 /* AOEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AOEntity.m; path = XML/AOEntity.m; sourceTree = "<group>"; };
-		C3B3E53917689AB9003C9DB6 /* AOAcercadeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOAcercadeViewController.h; sourceTree = "<group>"; };
-		C3B3E53A17689AB9003C9DB6 /* AOAcercadeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOAcercadeViewController.m; sourceTree = "<group>"; };
 		C3B7FF261753770700838251 /* AOManagerStoreScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOManagerStoreScreenViewController.h; sourceTree = "<group>"; };
 		C3B7FF271753770700838251 /* AOManagerStoreScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOManagerStoreScreenViewController.m; sourceTree = "<group>"; };
 		C3D56A0A17CF452200D7EBED /* CustomGeneralName.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CustomGeneralName.c; sourceTree = "<group>"; };
@@ -617,6 +617,17 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
+		B273962020A4614400A7D05A /* helpViews */ = {
+			isa = PBXGroup;
+			children = (
+				B273962120A4614400A7D05A /* AOAcercadeViewController.h */,
+				B273962220A4614400A7D05A /* AOAcercadeViewController.m */,
+				B273962320A4614400A7D05A /* AOHelpMenuViewController.h */,
+				B273962420A4614400A7D05A /* AOHelpMenuViewController.m */,
+			);
+			path = helpViews;
+			sourceTree = "<group>";
+		};
 		C30B321C163804620072A515 = {
 			isa = PBXGroup;
 			children = (
@@ -668,7 +679,7 @@
 			isa = PBXGroup;
 			children = (
 				B273961B20A45C3E00A7D05A /* Storyboard */,
-				C3AC11F617677B3C003CF900 /* helpViews */,
+				B273962020A4614400A7D05A /* helpViews */,
 				C3B2A67F16F7046300354F90 /* views */,
 				C3121D741666788700C1C80A /* ANF_PF_Activo.p12 */,
 				C30B323A163804620072A515 /* AOAppDelegate.h */,
@@ -953,17 +964,6 @@
 			path = Utiles;
 			sourceTree = "<group>";
 		};
-		C3AC11F617677B3C003CF900 /* helpViews */ = {
-			isa = PBXGroup;
-			children = (
-				C3AC11F717677B82003CF900 /* AOHelpMenuViewController.h */,
-				C3AC11F817677B82003CF900 /* AOHelpMenuViewController.m */,
-				C3B3E53917689AB9003C9DB6 /* AOAcercadeViewController.h */,
-				C3B3E53A17689AB9003C9DB6 /* AOAcercadeViewController.m */,
-			);
-			name = helpViews;
-			sourceTree = "<group>";
-		};
 		C3AF7F6717FD5FFA0084D916 /* Google Analytics library */ = {
 			isa = PBXGroup;
 			children = (
@@ -1127,9 +1127,11 @@
 				C3B11DBC16FB642B00C0D623 /* asn_codecs_prim.c in Sources */,
 				C3B11DBE16FB642B00C0D623 /* asn_SEQUENCE_OF.c in Sources */,
 				B273960920A43E2800A7D05A /* Base64.m in Sources */,
+				B273962520A4614400A7D05A /* AOAcercadeViewController.m in Sources */,
 				C3B11DC016FB642B00C0D623 /* asn_SET_OF.c in Sources */,
 				C3B11DC216FB642B00C0D623 /* Attribute.c in Sources */,
 				B273960D20A43E2800A7D05A /* ColorChart.m in Sources */,
+				B273962620A4614400A7D05A /* AOHelpMenuViewController.m in Sources */,
 				C3B11DC416FB642B00C0D623 /* AttributeType.c in Sources */,
 				C3B11DC616FB642B00C0D623 /* AttributeTypeAndValue.c in Sources */,
 				C3B11DC816FB642B00C0D623 /* AttributeValue.c in Sources */,
@@ -1232,9 +1234,7 @@
 				B273961320A43E2800A7D05A /* OpenSSLCertificateHelper.m in Sources */,
 				C3B3E39217253CC800F3D458 /* AOEntity.m in Sources */,
 				C3B7FF281753770700838251 /* AOManagerStoreScreenViewController.m in Sources */,
-				C3AC11F917677B82003CF900 /* AOHelpMenuViewController.m in Sources */,
 				B273961420A43E2800A7D05A /* QuartzUtils.m in Sources */,
-				C3B3E53B17689AB9003C9DB6 /* AOAcercadeViewController.m in Sources */,
 				C3D56A1017CF452200D7EBED /* CustomGeneralName.c in Sources */,
 				C3D56A1117CF452200D7EBED /* GeneralNames.c in Sources */,
 				C3D56A1217CF452200D7EBED /* IssuerSerial.c in Sources */,
