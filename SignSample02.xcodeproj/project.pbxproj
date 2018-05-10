@@ -40,6 +40,7 @@
 		B273961220A43E2800A7D05A /* NSDateFormatter+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395FF20A43E2800A7D05A /* NSDateFormatter+Utils.m */; };
 		B273961320A43E2800A7D05A /* OpenSSLCertificateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B273960120A43E2800A7D05A /* OpenSSLCertificateHelper.m */; };
 		B273961420A43E2800A7D05A /* QuartzUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B273960320A43E2800A7D05A /* QuartzUtils.m */; };
+		B273961620A441FF00A7D05A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B273961520A441FF00A7D05A /* Images.xcassets */; };
 		C30B322C163804620072A515 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30B322B163804620072A515 /* UIKit.framework */; };
 		C30B322E163804620072A515 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30B322D163804620072A515 /* Foundation.framework */; };
 		C30B3230163804620072A515 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30B322F163804620072A515 /* CoreGraphics.framework */; };
@@ -60,7 +61,6 @@
 		C36554EE16F9D11F0048252D /* CADESSignedAttributes.c in Sources */ = {isa = PBXBuildFile; fileRef = C365549C16F9D11F0048252D /* CADESSignedAttributes.c */; };
 		C36554F016F9D11F0048252D /* CADESSignerInfo.c in Sources */ = {isa = PBXBuildFile; fileRef = C36554A016F9D11F0048252D /* CADESSignerInfo.c */; };
 		C36554F116F9D11F0048252D /* Utiles.c in Sources */ = {isa = PBXBuildFile; fileRef = C36554A316F9D11F0048252D /* Utiles.c */; };
-		C36B00D419AA6AB400646EA1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C36B00D319AA6AB400646EA1 /* Images.xcassets */; };
 		C389C78D16DE70CC000382C0 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C389C78C16DE70CC000382C0 /* Settings.bundle */; };
 		C389C79316DF80CF000382C0 /* AlertProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C389C79216DF80CE000382C0 /* AlertProgressBar.m */; };
 		C39E592016F9EB5100248B0A /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C39E591E16F9EB5100248B0A /* libcrypto.a */; };
@@ -248,6 +248,7 @@
 		B273960120A43E2800A7D05A /* OpenSSLCertificateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenSSLCertificateHelper.m; sourceTree = "<group>"; };
 		B273960220A43E2800A7D05A /* QuartzUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuartzUtils.h; sourceTree = "<group>"; };
 		B273960320A43E2800A7D05A /* QuartzUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuartzUtils.m; sourceTree = "<group>"; };
+		B273961520A441FF00A7D05A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C30B3227163804620072A515 /* Cliente @firma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cliente @firma.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C30B322B163804620072A515 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C30B322D163804620072A515 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -284,7 +285,6 @@
 		C36554A116F9D11F0048252D /* CADESSignerInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADESSignerInfo.h; sourceTree = "<group>"; };
 		C36554A316F9D11F0048252D /* Utiles.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Utiles.c; sourceTree = "<group>"; };
 		C36554A416F9D11F0048252D /* Utiles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utiles.h; sourceTree = "<group>"; };
-		C36B00D319AA6AB400646EA1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Cliente @firma/Images.xcassets"; sourceTree = "<group>"; };
 		C389C78C16DE70CC000382C0 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		C389C79116DF80CE000382C0 /* AlertProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertProgressBar.h; sourceTree = "<group>"; };
 		C389C79216DF80CE000382C0 /* AlertProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertProgressBar.m; sourceTree = "<group>"; };
@@ -610,7 +610,7 @@
 			isa = PBXGroup;
 			children = (
 				3C57FA141AC1BB7100FF7292 /* model */,
-				C36B00D319AA6AB400646EA1 /* Images.xcassets */,
+				B273961520A441FF00A7D05A /* Images.xcassets */,
 				B27395CE20A43AF800A7D05A /* images */,
 				C3AF7F6717FD5FFA0084D916 /* Google Analytics library */,
 				C3B3E38C17253C5C00F3D458 /* XML */,
@@ -1088,6 +1088,7 @@
 				C3461CA81696F98C007237D1 /* logo_cliente.png in Resources */,
 				B27395E020A43AF800A7D05A /* warning_mini.png in Resources */,
 				B27395DB20A43AF800A7D05A /* help2.png in Resources */,
+				B273961620A441FF00A7D05A /* Images.xcassets in Resources */,
 				C389C78D16DE70CC000382C0 /* Settings.bundle in Resources */,
 				E47E065D16E2DC1C00BC7855 /* certificados.png in Resources */,
 				C31E689E1BEA842D0070E5BE /* iPhoneStoryboard.storyboard in Resources */,
@@ -1095,7 +1096,6 @@
 				B27395DF20A43AF800A7D05A /* ok_mini.png in Resources */,
 				B27395DA20A43AF800A7D05A /* help.png in Resources */,
 				C3539C9F17D0BD100072E2B7 /* Localizable.strings in Resources */,
-				C36B00D419AA6AB400646EA1 /* Images.xcassets in Resources */,
 				C31E68A01BEA849F0070E5BE /* iPadStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
