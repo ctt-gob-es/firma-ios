@@ -8,11 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3BC03D5D19D9988300FC1804 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AF7F6E17FD60C80084D916 /* libGoogleAnalyticsServices.a */; };
-		3C57FA101AC1B77A00FF7292 /* AORegisteredCertificatesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C57FA0F1AC1B77A00FF7292 /* AORegisteredCertificatesTVC.m */; };
-		3C57FA131AC1BAF600FF7292 /* AOCertificateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C57FA121AC1BAF600FF7292 /* AOCertificateCell.m */; };
 		3C57FA171AC1BB9D00FF7292 /* AOCertificateInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C57FA161AC1BB9D00FF7292 /* AOCertificateInfo.m */; };
-		3CD199A81AC2D13B007E9E35 /* AOAvailableCertificatesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CD199A71AC2D13B007E9E35 /* AOAvailableCertificatesTVC.m */; };
-		3CD199AB1AC2D570007E9E35 /* AORegisterCertificateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CD199AA1AC2D570007E9E35 /* AORegisterCertificateVC.m */; };
 		B27395CD20A4384300A7D05A /* CADESConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395CC20A4384300A7D05A /* CADESConstants.m */; };
 		B27395D820A43AF800A7D05A /* cert_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = B27395CF20A43AF800A7D05A /* cert_menu.png */; };
 		B27395D920A43AF800A7D05A /* flecha.png in Resources */ = {isa = PBXBuildFile; fileRef = B27395D020A43AF800A7D05A /* flecha.png */; };
@@ -46,6 +42,15 @@
 		B273961F20A45C3E00A7D05A /* iPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B273961D20A45C3E00A7D05A /* iPhoneStoryboard.storyboard */; };
 		B273962520A4614400A7D05A /* AOAcercadeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B273962220A4614400A7D05A /* AOAcercadeViewController.m */; };
 		B273962620A4614400A7D05A /* AOHelpMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B273962420A4614400A7D05A /* AOHelpMenuViewController.m */; };
+		B273969E20A4A8A600A7D05A /* AOAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B273968D20A4A8A600A7D05A /* AOAboutViewController.m */; };
+		B273969F20A4A8A600A7D05A /* AOAvailableCertificatesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B273968F20A4A8A600A7D05A /* AOAvailableCertificatesTVC.m */; };
+		B27396A020A4A8A600A7D05A /* AOCertificateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B273969120A4A8A600A7D05A /* AOCertificateCell.m */; };
+		B27396A120A4A8A600A7D05A /* AOCertificateSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B273969320A4A8A600A7D05A /* AOCertificateSelectionViewController.m */; };
+		B27396A220A4A8A600A7D05A /* AOManagerStoreScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B273969520A4A8A600A7D05A /* AOManagerStoreScreenViewController.m */; };
+		B27396A320A4A8A600A7D05A /* AOPinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B273969720A4A8A600A7D05A /* AOPinViewController.m */; };
+		B27396A420A4A8A600A7D05A /* AORegisterCertificateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B273969920A4A8A600A7D05A /* AORegisterCertificateVC.m */; };
+		B27396A520A4A8A600A7D05A /* AORegisteredCertificatesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B273969B20A4A8A600A7D05A /* AORegisteredCertificatesTVC.m */; };
+		B27396A620A4A8A600A7D05A /* AOSignViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B273969D20A4A8A600A7D05A /* AOSignViewController.m */; };
 		C30B322C163804620072A515 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30B322B163804620072A515 /* UIKit.framework */; };
 		C30B322E163804620072A515 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30B322D163804620072A515 /* Foundation.framework */; };
 		C30B3230163804620072A515 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30B322F163804620072A515 /* CoreGraphics.framework */; };
@@ -57,8 +62,6 @@
 		C32244411BCE7B4300039FAF /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C32244401BCE7B4300039FAF /* libsqlite3.tbd */; };
 		C33A9D0E19AA3CE2002F83B6 /* CertificateUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = C33A9D0D19AA3CE2002F83B6 /* CertificateUtil.c */; };
 		C33B9519163AACB8003D317A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C33B9518163AACB8003D317A /* Security.framework */; };
-		C33E9CBC16F714A0006AC003 /* AOPinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C33E9CBB16F714A0006AC003 /* AOPinViewController.m */; };
-		C33E9CBF16F73E0C006AC003 /* AOSignViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C33E9CBE16F73E0C006AC003 /* AOSignViewController.m */; };
 		C3461CA81696F98C007237D1 /* logo_cliente.png in Resources */ = {isa = PBXBuildFile; fileRef = C3461CA71696F98C007237D1 /* logo_cliente.png */; };
 		C3539C9F17D0BD100072E2B7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C3539CA117D0BD100072E2B7 /* Localizable.strings */; };
 		C36554EE16F9D11F0048252D /* CADESSignedAttributes.c in Sources */ = {isa = PBXBuildFile; fileRef = C365549C16F9D11F0048252D /* CADESSignedAttributes.c */; };
@@ -159,11 +162,8 @@
 		C3B14049170B2BF000E3FD42 /* BOOLEAN.c in Sources */ = {isa = PBXBuildFile; fileRef = C3B14047170B2BEE00E3FD42 /* BOOLEAN.c */; };
 		C3B1404D170B34B500E3FD42 /* EncapsulatedSignedData.c in Sources */ = {isa = PBXBuildFile; fileRef = C3B1404B170B34B100E3FD42 /* EncapsulatedSignedData.c */; };
 		C3B1D23417D9FF5100BD5D9B /* ANF_PF_Activo.p12 in Resources */ = {isa = PBXBuildFile; fileRef = C3121D741666788700C1C80A /* ANF_PF_Activo.p12 */; };
-		C3B2A68416F7047D00354F90 /* AOAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B2A68116F7047D00354F90 /* AOAboutViewController.m */; };
-		C3B2A68616F7047D00354F90 /* AOCertificateSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B2A68316F7047D00354F90 /* AOCertificateSelectionViewController.m */; };
 		C3B3E38F17253C8900F3D458 /* AOXMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B3E38E17253C8900F3D458 /* AOXMLReader.m */; };
 		C3B3E39217253CC800F3D458 /* AOEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B3E39117253CC800F3D458 /* AOEntity.m */; };
-		C3B7FF281753770700838251 /* AOManagerStoreScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B7FF271753770700838251 /* AOManagerStoreScreenViewController.m */; };
 		C3D56A1017CF452200D7EBED /* CustomGeneralName.c in Sources */ = {isa = PBXBuildFile; fileRef = C3D56A0A17CF452200D7EBED /* CustomGeneralName.c */; };
 		C3D56A1117CF452200D7EBED /* GeneralNames.c in Sources */ = {isa = PBXBuildFile; fileRef = C3D56A0C17CF452200D7EBED /* GeneralNames.c */; };
 		C3D56A1217CF452200D7EBED /* IssuerSerial.c in Sources */ = {isa = PBXBuildFile; fileRef = C3D56A0E17CF452200D7EBED /* IssuerSerial.c */; };
@@ -183,16 +183,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3C57FA0E1AC1B77A00FF7292 /* AORegisteredCertificatesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AORegisteredCertificatesTVC.h; sourceTree = "<group>"; };
-		3C57FA0F1AC1B77A00FF7292 /* AORegisteredCertificatesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AORegisteredCertificatesTVC.m; sourceTree = "<group>"; };
-		3C57FA111AC1BAF600FF7292 /* AOCertificateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOCertificateCell.h; sourceTree = "<group>"; };
-		3C57FA121AC1BAF600FF7292 /* AOCertificateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOCertificateCell.m; sourceTree = "<group>"; };
 		3C57FA151AC1BB9D00FF7292 /* AOCertificateInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AOCertificateInfo.h; path = model/AOCertificateInfo.h; sourceTree = "<group>"; };
 		3C57FA161AC1BB9D00FF7292 /* AOCertificateInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AOCertificateInfo.m; path = model/AOCertificateInfo.m; sourceTree = "<group>"; };
-		3CD199A61AC2D13B007E9E35 /* AOAvailableCertificatesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOAvailableCertificatesTVC.h; sourceTree = "<group>"; };
-		3CD199A71AC2D13B007E9E35 /* AOAvailableCertificatesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOAvailableCertificatesTVC.m; sourceTree = "<group>"; };
-		3CD199A91AC2D570007E9E35 /* AORegisterCertificateVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AORegisterCertificateVC.h; sourceTree = "<group>"; };
-		3CD199AA1AC2D570007E9E35 /* AORegisterCertificateVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AORegisterCertificateVC.m; sourceTree = "<group>"; };
 		B27395C020A435F400A7D05A /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = "Google Analytics library/GAIDictionaryBuilder.h"; sourceTree = "<group>"; };
 		B27395C120A435F400A7D05A /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GAIEcommercePromotion.h; path = "Google Analytics library/GAIEcommercePromotion.h"; sourceTree = "<group>"; };
 		B27395C220A435F400A7D05A /* GAITrackedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GAITrackedViewController.h; path = "Google Analytics library/GAITrackedViewController.h"; sourceTree = "<group>"; };
@@ -257,6 +249,24 @@
 		B273962220A4614400A7D05A /* AOAcercadeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOAcercadeViewController.m; sourceTree = "<group>"; };
 		B273962320A4614400A7D05A /* AOHelpMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOHelpMenuViewController.h; sourceTree = "<group>"; };
 		B273962420A4614400A7D05A /* AOHelpMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOHelpMenuViewController.m; sourceTree = "<group>"; };
+		B273968C20A4A8A600A7D05A /* AOAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOAboutViewController.h; sourceTree = "<group>"; };
+		B273968D20A4A8A600A7D05A /* AOAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOAboutViewController.m; sourceTree = "<group>"; };
+		B273968E20A4A8A600A7D05A /* AOAvailableCertificatesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOAvailableCertificatesTVC.h; sourceTree = "<group>"; };
+		B273968F20A4A8A600A7D05A /* AOAvailableCertificatesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOAvailableCertificatesTVC.m; sourceTree = "<group>"; };
+		B273969020A4A8A600A7D05A /* AOCertificateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOCertificateCell.h; sourceTree = "<group>"; };
+		B273969120A4A8A600A7D05A /* AOCertificateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOCertificateCell.m; sourceTree = "<group>"; };
+		B273969220A4A8A600A7D05A /* AOCertificateSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOCertificateSelectionViewController.h; sourceTree = "<group>"; };
+		B273969320A4A8A600A7D05A /* AOCertificateSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOCertificateSelectionViewController.m; sourceTree = "<group>"; };
+		B273969420A4A8A600A7D05A /* AOManagerStoreScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOManagerStoreScreenViewController.h; sourceTree = "<group>"; };
+		B273969520A4A8A600A7D05A /* AOManagerStoreScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOManagerStoreScreenViewController.m; sourceTree = "<group>"; };
+		B273969620A4A8A600A7D05A /* AOPinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOPinViewController.h; sourceTree = "<group>"; };
+		B273969720A4A8A600A7D05A /* AOPinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOPinViewController.m; sourceTree = "<group>"; };
+		B273969820A4A8A600A7D05A /* AORegisterCertificateVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AORegisterCertificateVC.h; sourceTree = "<group>"; };
+		B273969920A4A8A600A7D05A /* AORegisterCertificateVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AORegisterCertificateVC.m; sourceTree = "<group>"; };
+		B273969A20A4A8A600A7D05A /* AORegisteredCertificatesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AORegisteredCertificatesTVC.h; sourceTree = "<group>"; };
+		B273969B20A4A8A600A7D05A /* AORegisteredCertificatesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AORegisteredCertificatesTVC.m; sourceTree = "<group>"; };
+		B273969C20A4A8A600A7D05A /* AOSignViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOSignViewController.h; sourceTree = "<group>"; };
+		B273969D20A4A8A600A7D05A /* AOSignViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOSignViewController.m; sourceTree = "<group>"; };
 		C30B3227163804620072A515 /* Cliente @firma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cliente @firma.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C30B322B163804620072A515 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C30B322D163804620072A515 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -277,10 +287,6 @@
 		C33A9D0C19AA3C27002F83B6 /* CertificateUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CertificateUtil.h; sourceTree = "<group>"; };
 		C33A9D0D19AA3CE2002F83B6 /* CertificateUtil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CertificateUtil.c; sourceTree = "<group>"; };
 		C33B9518163AACB8003D317A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		C33E9CBA16F714A0006AC003 /* AOPinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOPinViewController.h; sourceTree = "<group>"; };
-		C33E9CBB16F714A0006AC003 /* AOPinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOPinViewController.m; sourceTree = "<group>"; };
-		C33E9CBD16F73E0C006AC003 /* AOSignViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOSignViewController.h; sourceTree = "<group>"; };
-		C33E9CBE16F73E0C006AC003 /* AOSignViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOSignViewController.m; sourceTree = "<group>"; };
 		C3461CA71696F98C007237D1 /* logo_cliente.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_cliente.png; sourceTree = "<group>"; };
 		C3539C9B17D0BCB00072E2B7 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C3539CA017D0BD100072E2B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -480,16 +486,10 @@
 		C3B14048170B2BEF00E3FD42 /* BOOLEAN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOOLEAN.h; sourceTree = "<group>"; };
 		C3B1404B170B34B100E3FD42 /* EncapsulatedSignedData.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = EncapsulatedSignedData.c; sourceTree = "<group>"; };
 		C3B1404C170B34B300E3FD42 /* EncapsulatedSignedData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncapsulatedSignedData.h; sourceTree = "<group>"; };
-		C3B2A68016F7047D00354F90 /* AOAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOAboutViewController.h; sourceTree = "<group>"; };
-		C3B2A68116F7047D00354F90 /* AOAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOAboutViewController.m; sourceTree = "<group>"; };
-		C3B2A68216F7047D00354F90 /* AOCertificateSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOCertificateSelectionViewController.h; sourceTree = "<group>"; };
-		C3B2A68316F7047D00354F90 /* AOCertificateSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOCertificateSelectionViewController.m; sourceTree = "<group>"; };
 		C3B3E38D17253C8900F3D458 /* AOXMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AOXMLReader.h; path = XML/AOXMLReader.h; sourceTree = "<group>"; };
 		C3B3E38E17253C8900F3D458 /* AOXMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AOXMLReader.m; path = XML/AOXMLReader.m; sourceTree = "<group>"; };
 		C3B3E39017253CC800F3D458 /* AOEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AOEntity.h; path = XML/AOEntity.h; sourceTree = "<group>"; };
 		C3B3E39117253CC800F3D458 /* AOEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AOEntity.m; path = XML/AOEntity.m; sourceTree = "<group>"; };
-		C3B7FF261753770700838251 /* AOManagerStoreScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOManagerStoreScreenViewController.h; sourceTree = "<group>"; };
-		C3B7FF271753770700838251 /* AOManagerStoreScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOManagerStoreScreenViewController.m; sourceTree = "<group>"; };
 		C3D56A0A17CF452200D7EBED /* CustomGeneralName.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CustomGeneralName.c; sourceTree = "<group>"; };
 		C3D56A0B17CF452200D7EBED /* CustomGeneralName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomGeneralName.h; sourceTree = "<group>"; };
 		C3D56A0C17CF452200D7EBED /* GeneralNames.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GeneralNames.c; sourceTree = "<group>"; };
@@ -628,6 +628,31 @@
 			path = helpViews;
 			sourceTree = "<group>";
 		};
+		B273968B20A4A8A600A7D05A /* views */ = {
+			isa = PBXGroup;
+			children = (
+				B273968C20A4A8A600A7D05A /* AOAboutViewController.h */,
+				B273968D20A4A8A600A7D05A /* AOAboutViewController.m */,
+				B273968E20A4A8A600A7D05A /* AOAvailableCertificatesTVC.h */,
+				B273968F20A4A8A600A7D05A /* AOAvailableCertificatesTVC.m */,
+				B273969020A4A8A600A7D05A /* AOCertificateCell.h */,
+				B273969120A4A8A600A7D05A /* AOCertificateCell.m */,
+				B273969220A4A8A600A7D05A /* AOCertificateSelectionViewController.h */,
+				B273969320A4A8A600A7D05A /* AOCertificateSelectionViewController.m */,
+				B273969420A4A8A600A7D05A /* AOManagerStoreScreenViewController.h */,
+				B273969520A4A8A600A7D05A /* AOManagerStoreScreenViewController.m */,
+				B273969620A4A8A600A7D05A /* AOPinViewController.h */,
+				B273969720A4A8A600A7D05A /* AOPinViewController.m */,
+				B273969820A4A8A600A7D05A /* AORegisterCertificateVC.h */,
+				B273969920A4A8A600A7D05A /* AORegisterCertificateVC.m */,
+				B273969A20A4A8A600A7D05A /* AORegisteredCertificatesTVC.h */,
+				B273969B20A4A8A600A7D05A /* AORegisteredCertificatesTVC.m */,
+				B273969C20A4A8A600A7D05A /* AOSignViewController.h */,
+				B273969D20A4A8A600A7D05A /* AOSignViewController.m */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
 		C30B321C163804620072A515 = {
 			isa = PBXGroup;
 			children = (
@@ -680,12 +705,12 @@
 			children = (
 				B273961B20A45C3E00A7D05A /* Storyboard */,
 				B273962020A4614400A7D05A /* helpViews */,
-				C3B2A67F16F7046300354F90 /* views */,
 				C3121D741666788700C1C80A /* ANF_PF_Activo.p12 */,
 				C30B323A163804620072A515 /* AOAppDelegate.h */,
 				C30B323B163804620072A515 /* AOAppDelegate.m */,
 				C30B3249163804620072A515 /* AOViewController.h */,
 				C30B324A163804620072A515 /* AOViewController.m */,
+				B273968B20A4A8A600A7D05A /* views */,
 				C30B3232163804620072A515 /* Supporting Files */,
 				C389C79116DF80CE000382C0 /* AlertProgressBar.h */,
 				C389C79216DF80CE000382C0 /* AlertProgressBar.m */,
@@ -981,31 +1006,6 @@
 			name = "Google Analytics library";
 			sourceTree = "<group>";
 		};
-		C3B2A67F16F7046300354F90 /* views */ = {
-			isa = PBXGroup;
-			children = (
-				C3B2A68016F7047D00354F90 /* AOAboutViewController.h */,
-				C3B2A68116F7047D00354F90 /* AOAboutViewController.m */,
-				C3B2A68216F7047D00354F90 /* AOCertificateSelectionViewController.h */,
-				C3B2A68316F7047D00354F90 /* AOCertificateSelectionViewController.m */,
-				C33E9CBA16F714A0006AC003 /* AOPinViewController.h */,
-				C33E9CBB16F714A0006AC003 /* AOPinViewController.m */,
-				C33E9CBD16F73E0C006AC003 /* AOSignViewController.h */,
-				C33E9CBE16F73E0C006AC003 /* AOSignViewController.m */,
-				C3B7FF261753770700838251 /* AOManagerStoreScreenViewController.h */,
-				C3B7FF271753770700838251 /* AOManagerStoreScreenViewController.m */,
-				3C57FA0E1AC1B77A00FF7292 /* AORegisteredCertificatesTVC.h */,
-				3C57FA0F1AC1B77A00FF7292 /* AORegisteredCertificatesTVC.m */,
-				3C57FA111AC1BAF600FF7292 /* AOCertificateCell.h */,
-				3C57FA121AC1BAF600FF7292 /* AOCertificateCell.m */,
-				3CD199A61AC2D13B007E9E35 /* AOAvailableCertificatesTVC.h */,
-				3CD199A71AC2D13B007E9E35 /* AOAvailableCertificatesTVC.m */,
-				3CD199A91AC2D570007E9E35 /* AORegisterCertificateVC.h */,
-				3CD199AA1AC2D570007E9E35 /* AORegisterCertificateVC.m */,
-			);
-			name = views;
-			sourceTree = "<group>";
-		};
 		C3B3E38C17253C5C00F3D458 /* XML */ = {
 			isa = PBXGroup;
 			children = (
@@ -1107,17 +1107,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CD199AB1AC2D570007E9E35 /* AORegisterCertificateVC.m in Sources */,
+				B27396A420A4A8A600A7D05A /* AORegisterCertificateVC.m in Sources */,
 				C30B3238163804620072A515 /* main.m in Sources */,
 				C30B323C163804620072A515 /* AOAppDelegate.m in Sources */,
 				C389C79316DF80CF000382C0 /* AlertProgressBar.m in Sources */,
 				B273961120A43E2800A7D05A /* NSDate+Utils.m in Sources */,
-				C3B2A68416F7047D00354F90 /* AOAboutViewController.m in Sources */,
 				B273960B20A43E2800A7D05A /* CADESSignUtils.m in Sources */,
-				C3B2A68616F7047D00354F90 /* AOCertificateSelectionViewController.m in Sources */,
-				C33E9CBC16F714A0006AC003 /* AOPinViewController.m in Sources */,
-				C33E9CBF16F73E0C006AC003 /* AOSignViewController.m in Sources */,
-				3CD199A81AC2D13B007E9E35 /* AOAvailableCertificatesTVC.m in Sources */,
 				C36554EE16F9D11F0048252D /* CADESSignedAttributes.c in Sources */,
 				C36554F016F9D11F0048252D /* CADESSignerInfo.c in Sources */,
 				C36554F116F9D11F0048252D /* Utiles.c in Sources */,
@@ -1130,6 +1125,7 @@
 				B273962520A4614400A7D05A /* AOAcercadeViewController.m in Sources */,
 				C3B11DC016FB642B00C0D623 /* asn_SET_OF.c in Sources */,
 				C3B11DC216FB642B00C0D623 /* Attribute.c in Sources */,
+				B27396A220A4A8A600A7D05A /* AOManagerStoreScreenViewController.m in Sources */,
 				B273960D20A43E2800A7D05A /* ColorChart.m in Sources */,
 				B273962620A4614400A7D05A /* AOHelpMenuViewController.m in Sources */,
 				C3B11DC416FB642B00C0D623 /* AttributeType.c in Sources */,
@@ -1141,7 +1137,6 @@
 				C3B11DCC16FB642B00C0D623 /* ber_tlv_length.c in Sources */,
 				B27395CD20A4384300A7D05A /* CADESConstants.m in Sources */,
 				C3B11DCE16FB642B00C0D623 /* ber_tlv_tag.c in Sources */,
-				3C57FA131AC1BAF600FF7292 /* AOCertificateCell.m in Sources */,
 				C3B11DD016FB642B00C0D623 /* BIT_STRING.c in Sources */,
 				C3B11DD216FB642B00C0D623 /* CertificateSerialNumber.c in Sources */,
 				C3B11DD416FB642B00C0D623 /* CertificateSet.c in Sources */,
@@ -1149,7 +1144,11 @@
 				C3B11DD816FB642B00C0D623 /* CMSVersion.c in Sources */,
 				C3B11DDA16FB642B00C0D623 /* constr_CHOICE.c in Sources */,
 				C3B11DDC16FB642B00C0D623 /* constr_SEQUENCE_OF.c in Sources */,
+				B27396A020A4A8A600A7D05A /* AOCertificateCell.m in Sources */,
+				B273969F20A4A8A600A7D05A /* AOAvailableCertificatesTVC.m in Sources */,
+				B27396A320A4A8A600A7D05A /* AOPinViewController.m in Sources */,
 				B273960620A43E2800A7D05A /* AOCustomSegue.m in Sources */,
+				B27396A520A4A8A600A7D05A /* AORegisteredCertificatesTVC.m in Sources */,
 				B273961020A43E2800A7D05A /* Firma.m in Sources */,
 				C3B11DDE16FB642B00C0D623 /* constr_SEQUENCE.c in Sources */,
 				C3B11DE016FB642B00C0D623 /* constr_SET_OF.c in Sources */,
@@ -1160,9 +1159,11 @@
 				B273960720A43E2800A7D05A /* AOTriphaseData.m in Sources */,
 				C3B11DEA16FB642B00C0D623 /* der_encoder.c in Sources */,
 				C3B11DEC16FB642B00C0D623 /* DigestAlgorithmIdentifier.c in Sources */,
+				B273969E20A4A8A600A7D05A /* AOAboutViewController.m in Sources */,
 				C3B11DEE16FB642B00C0D623 /* DigestAlgorithmIdentifiers.c in Sources */,
 				C3B11DF016FB642B00C0D623 /* EncapsulatedContentInfo.c in Sources */,
 				C3B11DF216FB642B00C0D623 /* ESSCertID.c in Sources */,
+				B27396A620A4A8A600A7D05A /* AOSignViewController.m in Sources */,
 				C3B11DF416FB642B00C0D623 /* ESSCertIDv2.c in Sources */,
 				C3B11DF616FB642B00C0D623 /* GeneralizedTime.c in Sources */,
 				C3B11DFA16FB642B00C0D623 /* Hash.c in Sources */,
@@ -1203,7 +1204,6 @@
 				B273960A20A43E2800A7D05A /* CADESMonoPhase.m in Sources */,
 				C33A9D0E19AA3CE2002F83B6 /* CertificateUtil.c in Sources */,
 				C3B11E3C16FB642B00C0D623 /* UnsignedAttributes.c in Sources */,
-				3C57FA101AC1B77A00FF7292 /* AORegisteredCertificatesTVC.m in Sources */,
 				C3B11E3E16FB642B00C0D623 /* UTCTime.c in Sources */,
 				C3B11E4016FB642B00C0D623 /* xer_decoder.c in Sources */,
 				C3B11E4216FB642B00C0D623 /* xer_encoder.c in Sources */,
@@ -1223,6 +1223,7 @@
 				C3A44B76170C3B60000B551C /* SigPolicyId.c in Sources */,
 				C3A44B77170C3B60000B551C /* SigPolicyQualifierId.c in Sources */,
 				C3A44B78170C3B60000B551C /* SigPolicyQualifierInfo.c in Sources */,
+				B27396A120A4A8A600A7D05A /* AOCertificateSelectionViewController.m in Sources */,
 				C3A44B79170C3B60000B551C /* SPuri.c in Sources */,
 				C3A44B7A170C3B60000B551C /* SPUserNotice.c in Sources */,
 				C3A44B87170C3CBF000B551C /* VisibleString.c in Sources */,
@@ -1233,7 +1234,6 @@
 				C3B3E38F17253C8900F3D458 /* AOXMLReader.m in Sources */,
 				B273961320A43E2800A7D05A /* OpenSSLCertificateHelper.m in Sources */,
 				C3B3E39217253CC800F3D458 /* AOEntity.m in Sources */,
-				C3B7FF281753770700838251 /* AOManagerStoreScreenViewController.m in Sources */,
 				B273961420A43E2800A7D05A /* QuartzUtils.m in Sources */,
 				C3D56A1017CF452200D7EBED /* CustomGeneralName.c in Sources */,
 				C3D56A1117CF452200D7EBED /* GeneralNames.c in Sources */,
