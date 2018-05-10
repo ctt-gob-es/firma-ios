@@ -42,6 +42,8 @@
 		B273961420A43E2800A7D05A /* QuartzUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B273960320A43E2800A7D05A /* QuartzUtils.m */; };
 		B273961620A441FF00A7D05A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B273961520A441FF00A7D05A /* Images.xcassets */; };
 		B273961A20A447DB00A7D05A /* CADESOID.c in Sources */ = {isa = PBXBuildFile; fileRef = B273961820A447DB00A7D05A /* CADESOID.c */; };
+		B273961E20A45C3E00A7D05A /* iPadStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B273961C20A45C3E00A7D05A /* iPadStoryboard.storyboard */; };
+		B273961F20A45C3E00A7D05A /* iPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B273961D20A45C3E00A7D05A /* iPhoneStoryboard.storyboard */; };
 		C30B322C163804620072A515 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30B322B163804620072A515 /* UIKit.framework */; };
 		C30B322E163804620072A515 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30B322D163804620072A515 /* Foundation.framework */; };
 		C30B3230163804620072A515 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30B322F163804620072A515 /* CoreGraphics.framework */; };
@@ -49,8 +51,6 @@
 		C30B3238163804620072A515 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B3237163804620072A515 /* main.m */; };
 		C30B323C163804620072A515 /* AOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B323B163804620072A515 /* AOAppDelegate.m */; };
 		C31649D8175F2A45009F3B67 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C31649D6175F2A3C009F3B67 /* QuartzCore.framework */; };
-		C31E689E1BEA842D0070E5BE /* iPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C31E689D1BEA842D0070E5BE /* iPhoneStoryboard.storyboard */; };
-		C31E68A01BEA849F0070E5BE /* iPadStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C31E689F1BEA849F0070E5BE /* iPadStoryboard.storyboard */; };
 		C322443F1BCE7B3100039FAF /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C322443E1BCE7B3100039FAF /* libz.tbd */; };
 		C32244411BCE7B4300039FAF /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C32244401BCE7B4300039FAF /* libsqlite3.tbd */; };
 		C33A9D0E19AA3CE2002F83B6 /* CertificateUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = C33A9D0D19AA3CE2002F83B6 /* CertificateUtil.c */; };
@@ -251,6 +251,8 @@
 		B273961520A441FF00A7D05A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B273961820A447DB00A7D05A /* CADESOID.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CADESOID.c; sourceTree = "<group>"; };
 		B273961920A447DB00A7D05A /* CADESOID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADESOID.h; sourceTree = "<group>"; };
+		B273961C20A45C3E00A7D05A /* iPadStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPadStoryboard.storyboard; sourceTree = "<group>"; };
+		B273961D20A45C3E00A7D05A /* iPhoneStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhoneStoryboard.storyboard; sourceTree = "<group>"; };
 		C30B3227163804620072A515 /* Cliente @firma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cliente @firma.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C30B322B163804620072A515 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C30B322D163804620072A515 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -265,8 +267,6 @@
 		C30B324A163804620072A515 /* AOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AOViewController.m; sourceTree = "<group>"; };
 		C3121D741666788700C1C80A /* ANF_PF_Activo.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ANF_PF_Activo.p12; sourceTree = "<group>"; };
 		C31649D6175F2A3C009F3B67 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		C31E689D1BEA842D0070E5BE /* iPhoneStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = iPhoneStoryboard.storyboard; path = ../iPhoneStoryboard.storyboard; sourceTree = "<group>"; };
-		C31E689F1BEA849F0070E5BE /* iPadStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPadStoryboard.storyboard; sourceTree = "<group>"; };
 		C322443E1BCE7B3100039FAF /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		C32244401BCE7B4300039FAF /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		C33A9D0B19AA394E002F83B6 /* SigningCertificateCommonTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SigningCertificateCommonTypes.h; sourceTree = "<group>"; };
@@ -608,13 +608,13 @@
 			path = ASN1Constants;
 			sourceTree = "<group>";
 		};
-		B9C55C1D1D251B6600F5168E /* Storyboard */ = {
+		B273961B20A45C3E00A7D05A /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				C31E689D1BEA842D0070E5BE /* iPhoneStoryboard.storyboard */,
-				C31E689F1BEA849F0070E5BE /* iPadStoryboard.storyboard */,
+				B273961C20A45C3E00A7D05A /* iPadStoryboard.storyboard */,
+				B273961D20A45C3E00A7D05A /* iPhoneStoryboard.storyboard */,
 			);
-			name = Storyboard;
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		C30B321C163804620072A515 = {
@@ -667,7 +667,7 @@
 		C30B3231163804620072A515 /* SignSample02 */ = {
 			isa = PBXGroup;
 			children = (
-				B9C55C1D1D251B6600F5168E /* Storyboard */,
+				B273961B20A45C3E00A7D05A /* Storyboard */,
 				C3AC11F617677B3C003CF900 /* helpViews */,
 				C3B2A67F16F7046300354F90 /* views */,
 				C3121D741666788700C1C80A /* ANF_PF_Activo.p12 */,
@@ -1081,6 +1081,8 @@
 			files = (
 				B27395DC20A43AF800A7D05A /* info_mini.png in Resources */,
 				B27395D820A43AF800A7D05A /* cert_menu.png in Resources */,
+				B273961F20A45C3E00A7D05A /* iPhoneStoryboard.storyboard in Resources */,
+				B273961E20A45C3E00A7D05A /* iPadStoryboard.storyboard in Resources */,
 				C3B1D23417D9FF5100BD5D9B /* ANF_PF_Activo.p12 in Resources */,
 				B27395D920A43AF800A7D05A /* flecha.png in Resources */,
 				C30B3236163804620072A515 /* InfoPlist.strings in Resources */,
@@ -1091,12 +1093,10 @@
 				B273961620A441FF00A7D05A /* Images.xcassets in Resources */,
 				C389C78D16DE70CC000382C0 /* Settings.bundle in Resources */,
 				E47E065D16E2DC1C00BC7855 /* certificados.png in Resources */,
-				C31E689E1BEA842D0070E5BE /* iPhoneStoryboard.storyboard in Resources */,
 				B27395DD20A43AF800A7D05A /* information_icon.png in Resources */,
 				B27395DF20A43AF800A7D05A /* ok_mini.png in Resources */,
 				B27395DA20A43AF800A7D05A /* help.png in Resources */,
 				C3539C9F17D0BD100072E2B7 /* Localizable.strings in Resources */,
-				C31E68A01BEA849F0070E5BE /* iPadStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
