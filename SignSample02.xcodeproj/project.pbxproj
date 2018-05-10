@@ -23,6 +23,7 @@
 		3CD199AB1AC2D570007E9E35 /* AORegisterCertificateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CD199AA1AC2D570007E9E35 /* AORegisterCertificateVC.m */; };
 		7F14627A1C3E51C100EAF696 /* Firma.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1462791C3E51C100EAF696 /* Firma.m */; };
 		7F4FB7B11C1AE57100A821E3 /* AOTriphaseData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4FB7B01C1AE57100A821E3 /* AOTriphaseData.m */; };
+		B27395CD20A4384300A7D05A /* CADESConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395CC20A4384300A7D05A /* CADESConstants.m */; };
 		C30B322C163804620072A515 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30B322B163804620072A515 /* UIKit.framework */; };
 		C30B322E163804620072A515 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30B322D163804620072A515 /* Foundation.framework */; };
 		C30B3230163804620072A515 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30B322F163804620072A515 /* CoreGraphics.framework */; };
@@ -49,7 +50,6 @@
 		C36554F116F9D11F0048252D /* Utiles.c in Sources */ = {isa = PBXBuildFile; fileRef = C36554A316F9D11F0048252D /* Utiles.c */; };
 		C36B00D419AA6AB400646EA1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C36B00D319AA6AB400646EA1 /* Images.xcassets */; };
 		C389C77D16DD08F1000382C0 /* CADESSignUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C389C77C16DD08F1000382C0 /* CADESSignUtils.m */; };
-		C389C78116DE1EFB000382C0 /* CADESConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C389C78016DE1EFB000382C0 /* CADESConstants.m */; };
 		C389C78D16DE70CC000382C0 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C389C78C16DE70CC000382C0 /* Settings.bundle */; };
 		C389C79316DF80CF000382C0 /* AlertProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C389C79216DF80CE000382C0 /* AlertProgressBar.m */; };
 		C39E592016F9EB5100248B0A /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C39E591E16F9EB5100248B0A /* libcrypto.a */; };
@@ -224,6 +224,8 @@
 		B27395C720A435F400A7D05A /* GAIEcommerceFields.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceFields.h; path = "Google Analytics library/GAIEcommerceFields.h"; sourceTree = "<group>"; };
 		B27395C820A435F400A7D05A /* GAILogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GAILogger.h; path = "Google Analytics library/GAILogger.h"; sourceTree = "<group>"; };
 		B27395C920A435F400A7D05A /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceProductAction.h; path = "Google Analytics library/GAIEcommerceProductAction.h"; sourceTree = "<group>"; };
+		B27395CB20A4384300A7D05A /* CADESConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADESConstants.h; sourceTree = "<group>"; };
+		B27395CC20A4384300A7D05A /* CADESConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CADESConstants.m; sourceTree = "<group>"; };
 		C30B3227163804620072A515 /* Cliente @firma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cliente @firma.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C30B322B163804620072A515 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C30B322D163804620072A515 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -269,8 +271,6 @@
 		C36B00D319AA6AB400646EA1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Cliente @firma/Images.xcassets"; sourceTree = "<group>"; };
 		C389C77B16DD08F1000382C0 /* CADESSignUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADESSignUtils.h; sourceTree = "<group>"; };
 		C389C77C16DD08F1000382C0 /* CADESSignUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CADESSignUtils.m; sourceTree = "<group>"; };
-		C389C77F16DE1EFB000382C0 /* CADESConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADESConstants.h; sourceTree = "<group>"; };
-		C389C78016DE1EFB000382C0 /* CADESConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CADESConstants.m; sourceTree = "<group>"; };
 		C389C78C16DE70CC000382C0 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		C389C79116DF80CE000382C0 /* AlertProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertProgressBar.h; sourceTree = "<group>"; };
 		C389C79216DF80CE000382C0 /* AlertProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertProgressBar.m; sourceTree = "<group>"; };
@@ -532,6 +532,15 @@
 			name = model;
 			sourceTree = "<group>";
 		};
+		B27395CA20A4384300A7D05A /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				B27395CB20A4384300A7D05A /* CADESConstants.h */,
+				B27395CC20A4384300A7D05A /* CADESConstants.m */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		B9C55C1D1D251B6600F5168E /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -553,7 +562,7 @@
 				C3A91DF816F8CD8D009D07AD /* Cliente @firma.entitlements */,
 				E47E065C16E2DC1C00BC7855 /* certificados.png */,
 				C389C78C16DE70CC000382C0 /* Settings.bundle */,
-				C389C77E16DE1EE4000382C0 /* Constants */,
+				B27395CA20A4384300A7D05A /* Constants */,
 				C33FC07116D37F8F00561AD9 /* images */,
 				C3E3D16216CBA9A200E15214 /* Utils */,
 				C3461CA71696F98C007237D1 /* logo_cliente.png */,
@@ -896,15 +905,6 @@
 			path = Utiles;
 			sourceTree = "<group>";
 		};
-		C389C77E16DE1EE4000382C0 /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-				C389C77F16DE1EFB000382C0 /* CADESConstants.h */,
-				C389C78016DE1EFB000382C0 /* CADESConstants.m */,
-			);
-			name = Constants;
-			sourceTree = "<group>";
-		};
 		C3AC11F617677B3C003CF900 /* helpViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -1116,7 +1116,6 @@
 				C312ABAC16D611A300930BE0 /* CertificateUtils.m in Sources */,
 				C389C77D16DD08F1000382C0 /* CADESSignUtils.m in Sources */,
 				3CD199A11AC2AE52007E9E35 /* NSDateFormatter+Utils.m in Sources */,
-				C389C78116DE1EFB000382C0 /* CADESConstants.m in Sources */,
 				C389C79316DF80CF000382C0 /* AlertProgressBar.m in Sources */,
 				C3B2A68416F7047D00354F90 /* AOAboutViewController.m in Sources */,
 				C3B2A68616F7047D00354F90 /* AOCertificateSelectionViewController.m in Sources */,
@@ -1139,6 +1138,7 @@
 				C3B11DCA16FB642B00C0D623 /* ber_decoder.c in Sources */,
 				3C57FA171AC1BB9D00FF7292 /* AOCertificateInfo.m in Sources */,
 				C3B11DCC16FB642B00C0D623 /* ber_tlv_length.c in Sources */,
+				B27395CD20A4384300A7D05A /* CADESConstants.m in Sources */,
 				C3B11DCE16FB642B00C0D623 /* ber_tlv_tag.c in Sources */,
 				3C57FA131AC1BAF600FF7292 /* AOCertificateCell.m in Sources */,
 				C3B11DD016FB642B00C0D623 /* BIT_STRING.c in Sources */,
