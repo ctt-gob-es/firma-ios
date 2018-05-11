@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		3BC03D5D19D9988300FC1804 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AF7F6E17FD60C80084D916 /* libGoogleAnalyticsServices.a */; };
 		3C57FA171AC1BB9D00FF7292 /* AOCertificateInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C57FA161AC1BB9D00FF7292 /* AOCertificateInfo.m */; };
+		B240772D20A5B87B00A8EE1C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B240772020A5B87B00A8EE1C /* main.m */; };
+		B240772E20A5B87B00A8EE1C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B240772220A5B87B00A8EE1C /* InfoPlist.strings */; };
+		B240772F20A5B87B00A8EE1C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B240772420A5B87B00A8EE1C /* Localizable.strings */; };
+		B240773020A5B87B00A8EE1C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B240772720A5B87B00A8EE1C /* InfoPlist.strings */; };
+		B240773120A5B87B00A8EE1C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B240772920A5B87B00A8EE1C /* Localizable.strings */; };
+		B240773220A5B87B00A8EE1C /* SignSample02-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B240772B20A5B87B00A8EE1C /* SignSample02-Info.plist */; };
 		B27395CD20A4384300A7D05A /* CADESConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395CC20A4384300A7D05A /* CADESConstants.m */; };
 		B27395D820A43AF800A7D05A /* cert_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = B27395CF20A43AF800A7D05A /* cert_menu.png */; };
 		B27395D920A43AF800A7D05A /* flecha.png in Resources */ = {isa = PBXBuildFile; fileRef = B27395D020A43AF800A7D05A /* flecha.png */; };
@@ -54,8 +60,6 @@
 		C30B322C163804620072A515 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30B322B163804620072A515 /* UIKit.framework */; };
 		C30B322E163804620072A515 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30B322D163804620072A515 /* Foundation.framework */; };
 		C30B3230163804620072A515 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30B322F163804620072A515 /* CoreGraphics.framework */; };
-		C30B3236163804620072A515 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C30B3234163804620072A515 /* InfoPlist.strings */; };
-		C30B3238163804620072A515 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B3237163804620072A515 /* main.m */; };
 		C30B323C163804620072A515 /* AOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B323B163804620072A515 /* AOAppDelegate.m */; };
 		C31649D8175F2A45009F3B67 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C31649D6175F2A3C009F3B67 /* QuartzCore.framework */; };
 		C322443F1BCE7B3100039FAF /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C322443E1BCE7B3100039FAF /* libz.tbd */; };
@@ -63,7 +67,6 @@
 		C33A9D0E19AA3CE2002F83B6 /* CertificateUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = C33A9D0D19AA3CE2002F83B6 /* CertificateUtil.c */; };
 		C33B9519163AACB8003D317A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C33B9518163AACB8003D317A /* Security.framework */; };
 		C3461CA81696F98C007237D1 /* logo_cliente.png in Resources */ = {isa = PBXBuildFile; fileRef = C3461CA71696F98C007237D1 /* logo_cliente.png */; };
-		C3539C9F17D0BD100072E2B7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C3539CA117D0BD100072E2B7 /* Localizable.strings */; };
 		C36554EE16F9D11F0048252D /* CADESSignedAttributes.c in Sources */ = {isa = PBXBuildFile; fileRef = C365549C16F9D11F0048252D /* CADESSignedAttributes.c */; };
 		C36554F016F9D11F0048252D /* CADESSignerInfo.c in Sources */ = {isa = PBXBuildFile; fileRef = C36554A016F9D11F0048252D /* CADESSignerInfo.c */; };
 		C36554F116F9D11F0048252D /* Utiles.c in Sources */ = {isa = PBXBuildFile; fileRef = C36554A316F9D11F0048252D /* Utiles.c */; };
@@ -185,6 +188,13 @@
 /* Begin PBXFileReference section */
 		3C57FA151AC1BB9D00FF7292 /* AOCertificateInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AOCertificateInfo.h; path = model/AOCertificateInfo.h; sourceTree = "<group>"; };
 		3C57FA161AC1BB9D00FF7292 /* AOCertificateInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AOCertificateInfo.m; path = model/AOCertificateInfo.m; sourceTree = "<group>"; };
+		B240772020A5B87B00A8EE1C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = "<group>"; };
+		B240772320A5B87B00A8EE1C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
+		B240772520A5B87B00A8EE1C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
+		B240772820A5B87B00A8EE1C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = InfoPlist.strings; sourceTree = "<group>"; };
+		B240772A20A5B87B00A8EE1C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localizable.strings; sourceTree = "<group>"; };
+		B240772B20A5B87B00A8EE1C /* SignSample02-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SignSample02-Info.plist"; path = "Supporting Files/SignSample02-Info.plist"; sourceTree = "<group>"; };
+		B240772C20A5B87B00A8EE1C /* SignSample02-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SignSample02-Prefix.pch"; path = "Supporting Files/SignSample02-Prefix.pch"; sourceTree = "<group>"; };
 		B27395C020A435F400A7D05A /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = "Google Analytics library/GAIDictionaryBuilder.h"; sourceTree = "<group>"; };
 		B27395C120A435F400A7D05A /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GAIEcommercePromotion.h; path = "Google Analytics library/GAIEcommercePromotion.h"; sourceTree = "<group>"; };
 		B27395C220A435F400A7D05A /* GAITrackedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GAITrackedViewController.h; path = "Google Analytics library/GAITrackedViewController.h"; sourceTree = "<group>"; };
@@ -271,10 +281,6 @@
 		C30B322B163804620072A515 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C30B322D163804620072A515 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C30B322F163804620072A515 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		C30B3233163804620072A515 /* SignSample02-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SignSample02-Info.plist"; sourceTree = "<group>"; };
-		C30B3235163804620072A515 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		C30B3237163804620072A515 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C30B3239163804620072A515 /* SignSample02-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SignSample02-Prefix.pch"; sourceTree = "<group>"; };
 		C30B323A163804620072A515 /* AOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOAppDelegate.h; sourceTree = "<group>"; };
 		C30B323B163804620072A515 /* AOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AOAppDelegate.m; sourceTree = "<group>"; };
 		C30B3249163804620072A515 /* AOViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOViewController.h; sourceTree = "<group>"; };
@@ -288,9 +294,6 @@
 		C33A9D0D19AA3CE2002F83B6 /* CertificateUtil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CertificateUtil.c; sourceTree = "<group>"; };
 		C33B9518163AACB8003D317A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		C3461CA71696F98C007237D1 /* logo_cliente.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_cliente.png; sourceTree = "<group>"; };
-		C3539C9B17D0BCB00072E2B7 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		C3539CA017D0BD100072E2B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		C3539CA217D0BD120072E2B7 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C365549C16F9D11F0048252D /* CADESSignedAttributes.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CADESSignedAttributes.c; sourceTree = "<group>"; };
 		C365549D16F9D11F0048252D /* CADESSignedAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADESSignedAttributes.h; sourceTree = "<group>"; };
 		C36554A016F9D11F0048252D /* CADESSignerInfo.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CADESSignerInfo.c; sourceTree = "<group>"; };
@@ -531,6 +534,26 @@
 			name = model;
 			sourceTree = "<group>";
 		};
+		B240772120A5B87B00A8EE1C /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				B240772220A5B87B00A8EE1C /* InfoPlist.strings */,
+				B240772420A5B87B00A8EE1C /* Localizable.strings */,
+			);
+			name = en.lproj;
+			path = "Supporting Files/en.lproj";
+			sourceTree = "<group>";
+		};
+		B240772620A5B87B00A8EE1C /* es.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				B240772720A5B87B00A8EE1C /* InfoPlist.strings */,
+				B240772920A5B87B00A8EE1C /* Localizable.strings */,
+			);
+			name = es.lproj;
+			path = "Supporting Files/es.lproj";
+			sourceTree = "<group>";
+		};
 		B27395CA20A4384300A7D05A /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -714,7 +737,6 @@
 				C30B3232163804620072A515 /* Supporting Files */,
 				C389C79116DF80CE000382C0 /* AlertProgressBar.h */,
 				C389C79216DF80CE000382C0 /* AlertProgressBar.m */,
-				C3539CA117D0BD100072E2B7 /* Localizable.strings */,
 			);
 			path = SignSample02;
 			sourceTree = "<group>";
@@ -722,10 +744,11 @@
 		C30B3232163804620072A515 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C30B3233163804620072A515 /* SignSample02-Info.plist */,
-				C30B3234163804620072A515 /* InfoPlist.strings */,
-				C30B3237163804620072A515 /* main.m */,
-				C30B3239163804620072A515 /* SignSample02-Prefix.pch */,
+				B240772120A5B87B00A8EE1C /* en.lproj */,
+				B240772620A5B87B00A8EE1C /* es.lproj */,
+				B240772020A5B87B00A8EE1C /* main.m */,
+				B240772B20A5B87B00A8EE1C /* SignSample02-Info.plist */,
+				B240772C20A5B87B00A8EE1C /* SignSample02-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1081,22 +1104,25 @@
 			files = (
 				B27395DC20A43AF800A7D05A /* info_mini.png in Resources */,
 				B27395D820A43AF800A7D05A /* cert_menu.png in Resources */,
+				B240773220A5B87B00A8EE1C /* SignSample02-Info.plist in Resources */,
 				B273961F20A45C3E00A7D05A /* iPhoneStoryboard.storyboard in Resources */,
 				B273961E20A45C3E00A7D05A /* iPadStoryboard.storyboard in Resources */,
 				C3B1D23417D9FF5100BD5D9B /* ANF_PF_Activo.p12 in Resources */,
+				B240773120A5B87B00A8EE1C /* Localizable.strings in Resources */,
+				B240772E20A5B87B00A8EE1C /* InfoPlist.strings in Resources */,
 				B27395D920A43AF800A7D05A /* flecha.png in Resources */,
-				C30B3236163804620072A515 /* InfoPlist.strings in Resources */,
 				B27395DE20A43AF800A7D05A /* itunes.png in Resources */,
 				C3461CA81696F98C007237D1 /* logo_cliente.png in Resources */,
 				B27395E020A43AF800A7D05A /* warning_mini.png in Resources */,
+				B240773020A5B87B00A8EE1C /* InfoPlist.strings in Resources */,
 				B27395DB20A43AF800A7D05A /* help2.png in Resources */,
 				B273961620A441FF00A7D05A /* Images.xcassets in Resources */,
 				C389C78D16DE70CC000382C0 /* Settings.bundle in Resources */,
+				B240772F20A5B87B00A8EE1C /* Localizable.strings in Resources */,
 				E47E065D16E2DC1C00BC7855 /* certificados.png in Resources */,
 				B27395DD20A43AF800A7D05A /* information_icon.png in Resources */,
 				B27395DF20A43AF800A7D05A /* ok_mini.png in Resources */,
 				B27395DA20A43AF800A7D05A /* help.png in Resources */,
-				C3539C9F17D0BD100072E2B7 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1108,7 +1134,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B27396A420A4A8A600A7D05A /* AORegisterCertificateVC.m in Sources */,
-				C30B3238163804620072A515 /* main.m in Sources */,
 				C30B323C163804620072A515 /* AOAppDelegate.m in Sources */,
 				C389C79316DF80CF000382C0 /* AlertProgressBar.m in Sources */,
 				B273961120A43E2800A7D05A /* NSDate+Utils.m in Sources */,
@@ -1229,6 +1254,7 @@
 				C3A44B87170C3CBF000B551C /* VisibleString.c in Sources */,
 				C3A44B8B170C3CE4000B551C /* BMPString.c in Sources */,
 				B273960520A43E2800A7D05A /* AOCounterSignXMLParser.m in Sources */,
+				B240772D20A5B87B00A8EE1C /* main.m in Sources */,
 				C3AB70651716CD4E003795F7 /* CADESSigner.c in Sources */,
 				B273960F20A43E2800A7D05A /* DesCypher.m in Sources */,
 				C3B3E38F17253C8900F3D458 /* AOXMLReader.m in Sources */,
@@ -1244,20 +1270,34 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C30B3234163804620072A515 /* InfoPlist.strings */ = {
+		B240772220A5B87B00A8EE1C /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C30B3235163804620072A515 /* en */,
-				C3539C9B17D0BCB00072E2B7 /* es */,
+				B240772320A5B87B00A8EE1C /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		C3539CA117D0BD100072E2B7 /* Localizable.strings */ = {
+		B240772420A5B87B00A8EE1C /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C3539CA017D0BD100072E2B7 /* en */,
-				C3539CA217D0BD120072E2B7 /* es */,
+				B240772520A5B87B00A8EE1C /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		B240772720A5B87B00A8EE1C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B240772820A5B87B00A8EE1C /* es */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B240772920A5B87B00A8EE1C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B240772A20A5B87B00A8EE1C /* es */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1374,9 +1414,9 @@
 				);
 				GCC_NO_COMMON_BLOCKS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SignSample02/SignSample02-Prefix.pch";
+				GCC_PREFIX_HEADER = "SignSample02/Supporting Files/SignSample02-Prefix.pch";
 				HEADER_SEARCH_PATHS = "include/**";
-				INFOPLIST_FILE = "SignSample02/SignSample02-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/SignSample02/Supporting Files/SignSample02-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1412,9 +1452,9 @@
 				);
 				GCC_NO_COMMON_BLOCKS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SignSample02/SignSample02-Prefix.pch";
+				GCC_PREFIX_HEADER = "SignSample02/Supporting Files/SignSample02-Prefix.pch";
 				HEADER_SEARCH_PATHS = "include/**";
-				INFOPLIST_FILE = "SignSample02/SignSample02-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/SignSample02/Supporting Files/SignSample02-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
