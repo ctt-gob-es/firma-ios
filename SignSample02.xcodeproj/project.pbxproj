@@ -15,6 +15,8 @@
 		B240773020A5B87B00A8EE1C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B240772720A5B87B00A8EE1C /* InfoPlist.strings */; };
 		B240773120A5B87B00A8EE1C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B240772920A5B87B00A8EE1C /* Localizable.strings */; };
 		B240773220A5B87B00A8EE1C /* SignSample02-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B240772B20A5B87B00A8EE1C /* SignSample02-Info.plist */; };
+		B240773E20A5CC2200A8EE1C /* MainStoryBoard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B240773C20A5CC2200A8EE1C /* MainStoryBoard_iPhone.storyboard */; };
+		B240773F20A5CC2200A8EE1C /* MainStoryBoard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B240773D20A5CC2200A8EE1C /* MainStoryBoard_iPad.storyboard */; };
 		B27395CD20A4384300A7D05A /* CADESConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395CC20A4384300A7D05A /* CADESConstants.m */; };
 		B27395D820A43AF800A7D05A /* cert_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = B27395CF20A43AF800A7D05A /* cert_menu.png */; };
 		B27395D920A43AF800A7D05A /* flecha.png in Resources */ = {isa = PBXBuildFile; fileRef = B27395D020A43AF800A7D05A /* flecha.png */; };
@@ -195,6 +197,8 @@
 		B240772B20A5B87B00A8EE1C /* SignSample02-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SignSample02-Info.plist"; path = "Supporting Files/SignSample02-Info.plist"; sourceTree = "<group>"; };
 		B240773A20A5C3D600A8EE1C /* SignSample02-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SignSample02-Prefix.pch"; sourceTree = "<group>"; };
 		B240773B20A5CA5F00A8EE1C /* ANF_PF_Activo.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; name = ANF_PF_Activo.p12; path = "Supporting Files/ANF_PF_Activo.p12"; sourceTree = "<group>"; };
+		B240773C20A5CC2200A8EE1C /* MainStoryBoard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryBoard_iPhone.storyboard; sourceTree = "<group>"; };
+		B240773D20A5CC2200A8EE1C /* MainStoryBoard_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryBoard_iPad.storyboard; sourceTree = "<group>"; };
 		B27395C020A435F400A7D05A /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = "Google Analytics library/GAIDictionaryBuilder.h"; sourceTree = "<group>"; };
 		B27395C120A435F400A7D05A /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GAIEcommercePromotion.h; path = "Google Analytics library/GAIEcommercePromotion.h"; sourceTree = "<group>"; };
 		B27395C220A435F400A7D05A /* GAITrackedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GAITrackedViewController.h; path = "Google Analytics library/GAITrackedViewController.h"; sourceTree = "<group>"; };
@@ -633,6 +637,8 @@
 			children = (
 				B273961C20A45C3E00A7D05A /* iPadStoryboard.storyboard */,
 				B273961D20A45C3E00A7D05A /* iPhoneStoryboard.storyboard */,
+				B240773D20A5CC2200A8EE1C /* MainStoryBoard_iPad.storyboard */,
+				B240773C20A5CC2200A8EE1C /* MainStoryBoard_iPhone.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -1098,6 +1104,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B27395DC20A43AF800A7D05A /* info_mini.png in Resources */,
+				B240773E20A5CC2200A8EE1C /* MainStoryBoard_iPhone.storyboard in Resources */,
 				B27395D820A43AF800A7D05A /* cert_menu.png in Resources */,
 				B240773220A5B87B00A8EE1C /* SignSample02-Info.plist in Resources */,
 				B273961F20A45C3E00A7D05A /* iPhoneStoryboard.storyboard in Resources */,
@@ -1116,6 +1123,7 @@
 				E47E065D16E2DC1C00BC7855 /* certificados.png in Resources */,
 				B27395DD20A43AF800A7D05A /* information_icon.png in Resources */,
 				B27395DF20A43AF800A7D05A /* ok_mini.png in Resources */,
+				B240773F20A5CC2200A8EE1C /* MainStoryBoard_iPad.storyboard in Resources */,
 				B27395DA20A43AF800A7D05A /* help.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
