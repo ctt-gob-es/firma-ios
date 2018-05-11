@@ -194,7 +194,7 @@
 		B240772820A5B87B00A8EE1C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = InfoPlist.strings; sourceTree = "<group>"; };
 		B240772A20A5B87B00A8EE1C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localizable.strings; sourceTree = "<group>"; };
 		B240772B20A5B87B00A8EE1C /* SignSample02-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SignSample02-Info.plist"; path = "Supporting Files/SignSample02-Info.plist"; sourceTree = "<group>"; };
-		B240772C20A5B87B00A8EE1C /* SignSample02-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SignSample02-Prefix.pch"; path = "Supporting Files/SignSample02-Prefix.pch"; sourceTree = "<group>"; };
+		B240773A20A5C3D600A8EE1C /* SignSample02-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SignSample02-Prefix.pch"; sourceTree = "<group>"; };
 		B27395C020A435F400A7D05A /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = "Google Analytics library/GAIDictionaryBuilder.h"; sourceTree = "<group>"; };
 		B27395C120A435F400A7D05A /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GAIEcommercePromotion.h; path = "Google Analytics library/GAIEcommercePromotion.h"; sourceTree = "<group>"; };
 		B27395C220A435F400A7D05A /* GAITrackedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GAITrackedViewController.h; path = "Google Analytics library/GAITrackedViewController.h"; sourceTree = "<group>"; };
@@ -726,6 +726,7 @@
 		C30B3231163804620072A515 /* SignSample02 */ = {
 			isa = PBXGroup;
 			children = (
+				B240773A20A5C3D600A8EE1C /* SignSample02-Prefix.pch */,
 				B273961B20A45C3E00A7D05A /* Storyboard */,
 				B273962020A4614400A7D05A /* helpViews */,
 				C3121D741666788700C1C80A /* ANF_PF_Activo.p12 */,
@@ -748,7 +749,6 @@
 				B240772620A5B87B00A8EE1C /* es.lproj */,
 				B240772020A5B87B00A8EE1C /* main.m */,
 				B240772B20A5B87B00A8EE1C /* SignSample02-Info.plist */,
-				B240772C20A5B87B00A8EE1C /* SignSample02-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1414,7 +1414,7 @@
 				);
 				GCC_NO_COMMON_BLOCKS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SignSample02/Supporting Files/SignSample02-Prefix.pch";
+				GCC_PREFIX_HEADER = "SignSample02/SignSample02-Prefix.pch";
 				HEADER_SEARCH_PATHS = "include/**";
 				INFOPLIST_FILE = "$(SRCROOT)/SignSample02/Supporting Files/SignSample02-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1452,7 +1452,7 @@
 				);
 				GCC_NO_COMMON_BLOCKS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SignSample02/Supporting Files/SignSample02-Prefix.pch";
+				GCC_PREFIX_HEADER = "SignSample02/SignSample02-Prefix.pch";
 				HEADER_SEARCH_PATHS = "include/**";
 				INFOPLIST_FILE = "$(SRCROOT)/SignSample02/Supporting Files/SignSample02-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
