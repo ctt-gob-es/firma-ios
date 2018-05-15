@@ -18,6 +18,7 @@
 		B240773E20A5CC2200A8EE1C /* MainStoryBoard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B240773C20A5CC2200A8EE1C /* MainStoryBoard_iPhone.storyboard */; };
 		B240773F20A5CC2200A8EE1C /* MainStoryBoard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B240773D20A5CC2200A8EE1C /* MainStoryBoard_iPad.storyboard */; };
 		B240774220AABBE900A8EE1C /* AlertProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B240774120AABBE900A8EE1C /* AlertProgressBar.m */; };
+		B240774620AABCB000A8EE1C /* AOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B240774520AABCB000A8EE1C /* AOAppDelegate.m */; };
 		B27395CD20A4384300A7D05A /* CADESConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395CC20A4384300A7D05A /* CADESConstants.m */; };
 		B27395D820A43AF800A7D05A /* cert_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = B27395CF20A43AF800A7D05A /* cert_menu.png */; };
 		B27395D920A43AF800A7D05A /* flecha.png in Resources */ = {isa = PBXBuildFile; fileRef = B27395D020A43AF800A7D05A /* flecha.png */; };
@@ -63,7 +64,6 @@
 		C30B322C163804620072A515 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30B322B163804620072A515 /* UIKit.framework */; };
 		C30B322E163804620072A515 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30B322D163804620072A515 /* Foundation.framework */; };
 		C30B3230163804620072A515 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30B322F163804620072A515 /* CoreGraphics.framework */; };
-		C30B323C163804620072A515 /* AOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B323B163804620072A515 /* AOAppDelegate.m */; };
 		C31649D8175F2A45009F3B67 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C31649D6175F2A3C009F3B67 /* QuartzCore.framework */; };
 		C322443F1BCE7B3100039FAF /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C322443E1BCE7B3100039FAF /* libz.tbd */; };
 		C32244411BCE7B4300039FAF /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C32244401BCE7B4300039FAF /* libsqlite3.tbd */; };
@@ -201,6 +201,8 @@
 		B240773D20A5CC2200A8EE1C /* MainStoryBoard_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryBoard_iPad.storyboard; sourceTree = "<group>"; };
 		B240774020AABBE800A8EE1C /* AlertProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertProgressBar.h; sourceTree = "<group>"; };
 		B240774120AABBE900A8EE1C /* AlertProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertProgressBar.m; sourceTree = "<group>"; };
+		B240774420AABCB000A8EE1C /* AOAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOAppDelegate.h; sourceTree = "<group>"; };
+		B240774520AABCB000A8EE1C /* AOAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOAppDelegate.m; sourceTree = "<group>"; };
 		B27395C020A435F400A7D05A /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = "Google Analytics library/GAIDictionaryBuilder.h"; sourceTree = "<group>"; };
 		B27395C120A435F400A7D05A /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GAIEcommercePromotion.h; path = "Google Analytics library/GAIEcommercePromotion.h"; sourceTree = "<group>"; };
 		B27395C220A435F400A7D05A /* GAITrackedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GAITrackedViewController.h; path = "Google Analytics library/GAITrackedViewController.h"; sourceTree = "<group>"; };
@@ -287,8 +289,6 @@
 		C30B322B163804620072A515 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C30B322D163804620072A515 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C30B322F163804620072A515 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		C30B323A163804620072A515 /* AOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOAppDelegate.h; sourceTree = "<group>"; };
-		C30B323B163804620072A515 /* AOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AOAppDelegate.m; sourceTree = "<group>"; };
 		C31649D6175F2A3C009F3B67 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C322443E1BCE7B3100039FAF /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		C32244401BCE7B4300039FAF /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -555,6 +555,15 @@
 			path = "Supporting Files/es.lproj";
 			sourceTree = "<group>";
 		};
+		B240774320AABCB000A8EE1C /* delegate */ = {
+			isa = PBXGroup;
+			children = (
+				B240774420AABCB000A8EE1C /* AOAppDelegate.h */,
+				B240774520AABCB000A8EE1C /* AOAppDelegate.m */,
+			);
+			path = delegate;
+			sourceTree = "<group>";
+		};
 		B27395CA20A4384300A7D05A /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -731,11 +740,10 @@
 		C30B3231163804620072A515 /* SignSample02 */ = {
 			isa = PBXGroup;
 			children = (
+				B240774320AABCB000A8EE1C /* delegate */,
 				B240773A20A5C3D600A8EE1C /* SignSample02-Prefix.pch */,
 				B273961B20A45C3E00A7D05A /* Storyboard */,
 				B273962020A4614400A7D05A /* helpViews */,
-				C30B323A163804620072A515 /* AOAppDelegate.h */,
-				C30B323B163804620072A515 /* AOAppDelegate.m */,
 				B273968B20A4A8A600A7D05A /* views */,
 				C30B3232163804620072A515 /* Supporting Files */,
 			);
@@ -1136,7 +1144,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B27396A420A4A8A600A7D05A /* AORegisterCertificateVC.m in Sources */,
-				C30B323C163804620072A515 /* AOAppDelegate.m in Sources */,
 				B273961120A43E2800A7D05A /* NSDate+Utils.m in Sources */,
 				B273960B20A43E2800A7D05A /* CADESSignUtils.m in Sources */,
 				C36554EE16F9D11F0048252D /* CADESSignedAttributes.c in Sources */,
@@ -1237,6 +1244,7 @@
 				C3B11E4416FB642B00C0D623 /* xer_support.c in Sources */,
 				C3B14034170AE10000E3FD42 /* ContentHints.c in Sources */,
 				C3B14038170AE15E00E3FD42 /* UTF8String.c in Sources */,
+				B240774620AABCB000A8EE1C /* AOAppDelegate.m in Sources */,
 				C3B14045170B2B7800E3FD42 /* NULL.c in Sources */,
 				C3B14049170B2BF000E3FD42 /* BOOLEAN.c in Sources */,
 				C3B1404D170B34B500E3FD42 /* EncapsulatedSignedData.c in Sources */,
