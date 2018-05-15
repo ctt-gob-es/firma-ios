@@ -693,19 +693,19 @@
 		C30B321C163804620072A515 = {
 			isa = PBXGroup;
 			children = (
-				3C57FA141AC1BB7100FF7292 /* model */,
-				B273961520A441FF00A7D05A /* Images.xcassets */,
-				B27395CE20A43AF800A7D05A /* images */,
-				C3AF7F6717FD5FFA0084D916 /* Google Analytics library */,
-				C3B3E38C17253C5C00F3D458 /* XML */,
-				C36553FE16F9D0DC0048252D /* SimpleSign */,
 				C3A91DF816F8CD8D009D07AD /* Cliente @firma.entitlements */,
-				C389C78C16DE70CC000382C0 /* Settings.bundle */,
 				B27395CA20A4384300A7D05A /* Constants */,
-				C30B3231163804620072A515 /* SignSample02 */,
-				B27395E120A43E2800A7D05A /* Utils */,
 				C30B322A163804620072A515 /* Frameworks */,
+				C3AF7F6717FD5FFA0084D916 /* Google Analytics library */,
+				B27395CE20A43AF800A7D05A /* images */,
+				B273961520A441FF00A7D05A /* Images.xcassets */,
+				3C57FA141AC1BB7100FF7292 /* model */,
 				C30B3228163804620072A515 /* Products */,
+				C389C78C16DE70CC000382C0 /* Settings.bundle */,
+				C30B3231163804620072A515 /* SignSample02 */,
+				C36553FE16F9D0DC0048252D /* SimpleSign */,
+				B27395E120A43E2800A7D05A /* Utils */,
+				C3B3E38C17253C5C00F3D458 /* XML */,
 			);
 			sourceTree = "<group>";
 			tabWidth = 5;
