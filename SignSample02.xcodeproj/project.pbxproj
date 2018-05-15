@@ -17,6 +17,7 @@
 		B240773220A5B87B00A8EE1C /* SignSample02-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B240772B20A5B87B00A8EE1C /* SignSample02-Info.plist */; };
 		B240773E20A5CC2200A8EE1C /* MainStoryBoard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B240773C20A5CC2200A8EE1C /* MainStoryBoard_iPhone.storyboard */; };
 		B240773F20A5CC2200A8EE1C /* MainStoryBoard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B240773D20A5CC2200A8EE1C /* MainStoryBoard_iPad.storyboard */; };
+		B240774220AABBE900A8EE1C /* AlertProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B240774120AABBE900A8EE1C /* AlertProgressBar.m */; };
 		B27395CD20A4384300A7D05A /* CADESConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395CC20A4384300A7D05A /* CADESConstants.m */; };
 		B27395D820A43AF800A7D05A /* cert_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = B27395CF20A43AF800A7D05A /* cert_menu.png */; };
 		B27395D920A43AF800A7D05A /* flecha.png in Resources */ = {isa = PBXBuildFile; fileRef = B27395D020A43AF800A7D05A /* flecha.png */; };
@@ -73,7 +74,6 @@
 		C36554F016F9D11F0048252D /* CADESSignerInfo.c in Sources */ = {isa = PBXBuildFile; fileRef = C36554A016F9D11F0048252D /* CADESSignerInfo.c */; };
 		C36554F116F9D11F0048252D /* Utiles.c in Sources */ = {isa = PBXBuildFile; fileRef = C36554A316F9D11F0048252D /* Utiles.c */; };
 		C389C78D16DE70CC000382C0 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C389C78C16DE70CC000382C0 /* Settings.bundle */; };
-		C389C79316DF80CF000382C0 /* AlertProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C389C79216DF80CE000382C0 /* AlertProgressBar.m */; };
 		C39E592016F9EB5100248B0A /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C39E591E16F9EB5100248B0A /* libcrypto.a */; };
 		C39E592216F9EB5100248B0A /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C39E591F16F9EB5100248B0A /* libssl.a */; };
 		C3A44B70170C3B60000B551C /* DisplayText.c in Sources */ = {isa = PBXBuildFile; fileRef = C3A44B5A170C3B60000B551C /* DisplayText.c */; };
@@ -199,6 +199,8 @@
 		B240773B20A5CA5F00A8EE1C /* ANF_PF_Activo.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; name = ANF_PF_Activo.p12; path = "Supporting Files/ANF_PF_Activo.p12"; sourceTree = "<group>"; };
 		B240773C20A5CC2200A8EE1C /* MainStoryBoard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryBoard_iPhone.storyboard; sourceTree = "<group>"; };
 		B240773D20A5CC2200A8EE1C /* MainStoryBoard_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryBoard_iPad.storyboard; sourceTree = "<group>"; };
+		B240774020AABBE800A8EE1C /* AlertProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertProgressBar.h; sourceTree = "<group>"; };
+		B240774120AABBE900A8EE1C /* AlertProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertProgressBar.m; sourceTree = "<group>"; };
 		B27395C020A435F400A7D05A /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = "Google Analytics library/GAIDictionaryBuilder.h"; sourceTree = "<group>"; };
 		B27395C120A435F400A7D05A /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GAIEcommercePromotion.h; path = "Google Analytics library/GAIEcommercePromotion.h"; sourceTree = "<group>"; };
 		B27395C220A435F400A7D05A /* GAITrackedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GAITrackedViewController.h; path = "Google Analytics library/GAITrackedViewController.h"; sourceTree = "<group>"; };
@@ -302,8 +304,6 @@
 		C36554A316F9D11F0048252D /* Utiles.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Utiles.c; sourceTree = "<group>"; };
 		C36554A416F9D11F0048252D /* Utiles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utiles.h; sourceTree = "<group>"; };
 		C389C78C16DE70CC000382C0 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		C389C79116DF80CE000382C0 /* AlertProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertProgressBar.h; sourceTree = "<group>"; };
-		C389C79216DF80CE000382C0 /* AlertProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertProgressBar.m; sourceTree = "<group>"; };
 		C39E591E16F9EB5100248B0A /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = lib/libcrypto.a; sourceTree = "<group>"; };
 		C39E591F16F9EB5100248B0A /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = lib/libssl.a; sourceTree = "<group>"; };
 		C3A44B5A170C3B60000B551C /* DisplayText.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = DisplayText.c; sourceTree = "<group>"; };
@@ -657,6 +657,8 @@
 		B273968B20A4A8A600A7D05A /* views */ = {
 			isa = PBXGroup;
 			children = (
+				B240774020AABBE800A8EE1C /* AlertProgressBar.h */,
+				B240774120AABBE900A8EE1C /* AlertProgressBar.m */,
 				B273968C20A4A8A600A7D05A /* AOAboutViewController.h */,
 				B273968D20A4A8A600A7D05A /* AOAboutViewController.m */,
 				B273968E20A4A8A600A7D05A /* AOAvailableCertificatesTVC.h */,
@@ -736,8 +738,6 @@
 				C30B323B163804620072A515 /* AOAppDelegate.m */,
 				B273968B20A4A8A600A7D05A /* views */,
 				C30B3232163804620072A515 /* Supporting Files */,
-				C389C79116DF80CE000382C0 /* AlertProgressBar.h */,
-				C389C79216DF80CE000382C0 /* AlertProgressBar.m */,
 			);
 			path = SignSample02;
 			sourceTree = "<group>";
@@ -1137,7 +1137,6 @@
 			files = (
 				B27396A420A4A8A600A7D05A /* AORegisterCertificateVC.m in Sources */,
 				C30B323C163804620072A515 /* AOAppDelegate.m in Sources */,
-				C389C79316DF80CF000382C0 /* AlertProgressBar.m in Sources */,
 				B273961120A43E2800A7D05A /* NSDate+Utils.m in Sources */,
 				B273960B20A43E2800A7D05A /* CADESSignUtils.m in Sources */,
 				C36554EE16F9D11F0048252D /* CADESSignedAttributes.c in Sources */,
@@ -1178,6 +1177,7 @@
 				B27396A520A4A8A600A7D05A /* AORegisteredCertificatesTVC.m in Sources */,
 				B273961020A43E2800A7D05A /* Firma.m in Sources */,
 				C3B11DDE16FB642B00C0D623 /* constr_SEQUENCE.c in Sources */,
+				B240774220AABBE900A8EE1C /* AlertProgressBar.m in Sources */,
 				C3B11DE016FB642B00C0D623 /* constr_SET_OF.c in Sources */,
 				C3B11DE216FB642B00C0D623 /* constr_TYPE.c in Sources */,
 				C3B11DE416FB642B00C0D623 /* constraints.c in Sources */,
