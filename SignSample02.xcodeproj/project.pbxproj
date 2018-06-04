@@ -20,8 +20,8 @@
 		B243848220C539DA0087BAE0 /* iPadStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B243847E20C539DA0087BAE0 /* iPadStoryboard.storyboard */; };
 		B243848320C539DA0087BAE0 /* MainStoryBoard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B243847F20C539DA0087BAE0 /* MainStoryBoard_iPad.storyboard */; };
 		B243848420C539DA0087BAE0 /* MainStoryBoard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B243848020C539DA0087BAE0 /* MainStoryBoard_iPhone.storyboard */; };
-		B243848A20C53B9A0087BAE0 /* AOHelpMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B243848820C53B9A0087BAE0 /* AOHelpMenuViewController.m */; };
-		B243848B20C53B9A0087BAE0 /* AOAcercadeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B243848920C53B9A0087BAE0 /* AOAcercadeViewController.m */; };
+		B24384BB20C541620087BAE0 /* AOHelpMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B24384B920C541620087BAE0 /* AOHelpMenuViewController.m */; };
+		B24384BC20C541620087BAE0 /* AOAcercadeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B24384BA20C541620087BAE0 /* AOAcercadeViewController.m */; };
 		B27395CD20A4384300A7D05A /* CADESConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395CC20A4384300A7D05A /* CADESConstants.m */; };
 		B27395D820A43AF800A7D05A /* cert_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = B27395CF20A43AF800A7D05A /* cert_menu.png */; };
 		B27395D920A43AF800A7D05A /* flecha.png in Resources */ = {isa = PBXBuildFile; fileRef = B27395D020A43AF800A7D05A /* flecha.png */; };
@@ -203,10 +203,10 @@
 		B243847E20C539DA0087BAE0 /* iPadStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPadStoryboard.storyboard; sourceTree = "<group>"; };
 		B243847F20C539DA0087BAE0 /* MainStoryBoard_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryBoard_iPad.storyboard; sourceTree = "<group>"; };
 		B243848020C539DA0087BAE0 /* MainStoryBoard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryBoard_iPhone.storyboard; sourceTree = "<group>"; };
-		B243848620C53B9A0087BAE0 /* AOAcercadeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOAcercadeViewController.h; sourceTree = "<group>"; };
-		B243848720C53B9A0087BAE0 /* AOHelpMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOHelpMenuViewController.h; sourceTree = "<group>"; };
-		B243848820C53B9A0087BAE0 /* AOHelpMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOHelpMenuViewController.m; sourceTree = "<group>"; };
-		B243848920C53B9A0087BAE0 /* AOAcercadeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOAcercadeViewController.m; sourceTree = "<group>"; };
+		B24384B720C541620087BAE0 /* AOAcercadeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOAcercadeViewController.h; sourceTree = "<group>"; };
+		B24384B820C541620087BAE0 /* AOHelpMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOHelpMenuViewController.h; sourceTree = "<group>"; };
+		B24384B920C541620087BAE0 /* AOHelpMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOHelpMenuViewController.m; sourceTree = "<group>"; };
+		B24384BA20C541620087BAE0 /* AOAcercadeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOAcercadeViewController.m; sourceTree = "<group>"; };
 		B27395C020A435F400A7D05A /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = "Google Analytics library/GAIDictionaryBuilder.h"; sourceTree = "<group>"; };
 		B27395C120A435F400A7D05A /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GAIEcommercePromotion.h; path = "Google Analytics library/GAIEcommercePromotion.h"; sourceTree = "<group>"; };
 		B27395C220A435F400A7D05A /* GAITrackedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GAITrackedViewController.h; path = "Google Analytics library/GAITrackedViewController.h"; sourceTree = "<group>"; };
@@ -558,7 +558,7 @@
 		B243847B20C539DA0087BAE0 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
-				B243848520C53B9A0087BAE0 /* helpViews */,
+				B24384B620C541620087BAE0 /* helpViews */,
 				B243847C20C539DA0087BAE0 /* Storyboard */,
 			);
 			path = Interface;
@@ -575,16 +575,15 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
-		B243848520C53B9A0087BAE0 /* helpViews */ = {
+		B24384B620C541620087BAE0 /* helpViews */ = {
 			isa = PBXGroup;
 			children = (
-				B243848620C53B9A0087BAE0 /* AOAcercadeViewController.h */,
-				B243848720C53B9A0087BAE0 /* AOHelpMenuViewController.h */,
-				B243848820C53B9A0087BAE0 /* AOHelpMenuViewController.m */,
-				B243848920C53B9A0087BAE0 /* AOAcercadeViewController.m */,
+				B24384B720C541620087BAE0 /* AOAcercadeViewController.h */,
+				B24384B820C541620087BAE0 /* AOHelpMenuViewController.h */,
+				B24384B920C541620087BAE0 /* AOHelpMenuViewController.m */,
+				B24384BA20C541620087BAE0 /* AOAcercadeViewController.m */,
 			);
-			name = helpViews;
-			path = Storyboard/helpViews;
+			path = helpViews;
 			sourceTree = "<group>";
 		};
 		B27395CA20A4384300A7D05A /* Constants */ = {
@@ -1216,7 +1215,7 @@
 				B273960E20A43E2800A7D05A /* DateHelper.m in Sources */,
 				C3B11E1616FB642B00C0D623 /* per_support.c in Sources */,
 				C3B11E1816FB642B00C0D623 /* PolicyInformation.c in Sources */,
-				B243848A20C53B9A0087BAE0 /* AOHelpMenuViewController.m in Sources */,
+				B24384BB20C541620087BAE0 /* AOHelpMenuViewController.m in Sources */,
 				C3B11E1A16FB642B00C0D623 /* PolicyQualifierId.c in Sources */,
 				C3B11E1C16FB642B00C0D623 /* PolicyQualifierInfo.c in Sources */,
 				C3B11E1E16FB642B00C0D623 /* RDNSequence.c in Sources */,
@@ -1230,7 +1229,7 @@
 				C3B11E2C16FB642B00C0D623 /* SignerIdentifier.c in Sources */,
 				C3B11E2E16FB642B00C0D623 /* SignerInfo.c in Sources */,
 				C3B11E3016FB642B00C0D623 /* SignerInfos.c in Sources */,
-				B243848B20C53B9A0087BAE0 /* AOAcercadeViewController.m in Sources */,
+				B24384BC20C541620087BAE0 /* AOAcercadeViewController.m in Sources */,
 				C3B11E3216FB642B00C0D623 /* SigningCertificate.c in Sources */,
 				C3B11E3416FB642B00C0D623 /* SigningCertificateV2.c in Sources */,
 				C3B11E3616FB642B00C0D623 /* SigningTime.c in Sources */,
