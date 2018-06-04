@@ -702,7 +702,7 @@
 				3C57FA141AC1BB7100FF7292 /* model */,
 				C30B3228163804620072A515 /* Products */,
 				C389C78C16DE70CC000382C0 /* Settings.bundle */,
-				C30B3231163804620072A515 /* SignSample02 */,
+				C30B3231163804620072A515 /* Firma_iOS */,
 				C36553FE16F9D0DC0048252D /* SimpleSign */,
 				B27395E120A43E2800A7D05A /* Utils */,
 				C3B3E38C17253C5C00F3D458 /* XML */,
@@ -737,7 +737,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C30B3231163804620072A515 /* SignSample02 */ = {
+		C30B3231163804620072A515 /* Firma_iOS */ = {
 			isa = PBXGroup;
 			children = (
 				B240773A20A5C3D600A8EE1C /* Firma_iOS-Prefix.pch */,
@@ -747,7 +747,7 @@
 				B273968B20A4A8A600A7D05A /* views */,
 				C30B3232163804620072A515 /* Supporting Files */,
 			);
-			path = SignSample02;
+			path = Firma_iOS;
 			sourceTree = "<group>";
 		};
 		C30B3232163804620072A515 /* Supporting Files */ = {
@@ -1424,9 +1424,9 @@
 				);
 				GCC_NO_COMMON_BLOCKS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SignSample02/Firma_iOS-Prefix.pch";
+				GCC_PREFIX_HEADER = "Firma_iOS/Firma_iOS-Prefix.pch";
 				HEADER_SEARCH_PATHS = "include/**";
-				INFOPLIST_FILE = "SignSample02/Supporting Files/Firma_iOS-Info.plist";
+				INFOPLIST_FILE = "Firma_iOS/Supporting Files/Firma_iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1462,9 +1462,9 @@
 				);
 				GCC_NO_COMMON_BLOCKS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SignSample02/Firma_iOS-Prefix.pch";
+				GCC_PREFIX_HEADER = "Firma_iOS/Firma_iOS-Prefix.pch";
 				HEADER_SEARCH_PATHS = "include/**";
-				INFOPLIST_FILE = "SignSample02/Supporting Files/Firma_iOS-Info.plist";
+				INFOPLIST_FILE = "Firma_iOS/Supporting Files/Firma_iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
