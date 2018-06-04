@@ -20,6 +20,8 @@
 		B243848220C539DA0087BAE0 /* iPadStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B243847E20C539DA0087BAE0 /* iPadStoryboard.storyboard */; };
 		B243848320C539DA0087BAE0 /* MainStoryBoard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B243847F20C539DA0087BAE0 /* MainStoryBoard_iPad.storyboard */; };
 		B243848420C539DA0087BAE0 /* MainStoryBoard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B243848020C539DA0087BAE0 /* MainStoryBoard_iPhone.storyboard */; };
+		B243848A20C53B9A0087BAE0 /* AOHelpMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B243848820C53B9A0087BAE0 /* AOHelpMenuViewController.m */; };
+		B243848B20C53B9A0087BAE0 /* AOAcercadeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B243848920C53B9A0087BAE0 /* AOAcercadeViewController.m */; };
 		B27395CD20A4384300A7D05A /* CADESConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395CC20A4384300A7D05A /* CADESConstants.m */; };
 		B27395D820A43AF800A7D05A /* cert_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = B27395CF20A43AF800A7D05A /* cert_menu.png */; };
 		B27395D920A43AF800A7D05A /* flecha.png in Resources */ = {isa = PBXBuildFile; fileRef = B27395D020A43AF800A7D05A /* flecha.png */; };
@@ -49,8 +51,6 @@
 		B273961420A43E2800A7D05A /* QuartzUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B273960320A43E2800A7D05A /* QuartzUtils.m */; };
 		B273961620A441FF00A7D05A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B273961520A441FF00A7D05A /* Images.xcassets */; };
 		B273961A20A447DB00A7D05A /* CADESOID.c in Sources */ = {isa = PBXBuildFile; fileRef = B273961820A447DB00A7D05A /* CADESOID.c */; };
-		B273962520A4614400A7D05A /* AOAcercadeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B273962220A4614400A7D05A /* AOAcercadeViewController.m */; };
-		B273962620A4614400A7D05A /* AOHelpMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B273962420A4614400A7D05A /* AOHelpMenuViewController.m */; };
 		B273969E20A4A8A600A7D05A /* AOAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B273968D20A4A8A600A7D05A /* AOAboutViewController.m */; };
 		B273969F20A4A8A600A7D05A /* AOAvailableCertificatesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B273968F20A4A8A600A7D05A /* AOAvailableCertificatesTVC.m */; };
 		B27396A020A4A8A600A7D05A /* AOCertificateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B273969120A4A8A600A7D05A /* AOCertificateCell.m */; };
@@ -203,6 +203,10 @@
 		B243847E20C539DA0087BAE0 /* iPadStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPadStoryboard.storyboard; sourceTree = "<group>"; };
 		B243847F20C539DA0087BAE0 /* MainStoryBoard_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryBoard_iPad.storyboard; sourceTree = "<group>"; };
 		B243848020C539DA0087BAE0 /* MainStoryBoard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryBoard_iPhone.storyboard; sourceTree = "<group>"; };
+		B243848620C53B9A0087BAE0 /* AOAcercadeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOAcercadeViewController.h; sourceTree = "<group>"; };
+		B243848720C53B9A0087BAE0 /* AOHelpMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOHelpMenuViewController.h; sourceTree = "<group>"; };
+		B243848820C53B9A0087BAE0 /* AOHelpMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOHelpMenuViewController.m; sourceTree = "<group>"; };
+		B243848920C53B9A0087BAE0 /* AOAcercadeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOAcercadeViewController.m; sourceTree = "<group>"; };
 		B27395C020A435F400A7D05A /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = "Google Analytics library/GAIDictionaryBuilder.h"; sourceTree = "<group>"; };
 		B27395C120A435F400A7D05A /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GAIEcommercePromotion.h; path = "Google Analytics library/GAIEcommercePromotion.h"; sourceTree = "<group>"; };
 		B27395C220A435F400A7D05A /* GAITrackedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GAITrackedViewController.h; path = "Google Analytics library/GAITrackedViewController.h"; sourceTree = "<group>"; };
@@ -261,10 +265,6 @@
 		B273961520A441FF00A7D05A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B273961820A447DB00A7D05A /* CADESOID.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CADESOID.c; sourceTree = "<group>"; };
 		B273961920A447DB00A7D05A /* CADESOID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADESOID.h; sourceTree = "<group>"; };
-		B273962120A4614400A7D05A /* AOAcercadeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOAcercadeViewController.h; sourceTree = "<group>"; };
-		B273962220A4614400A7D05A /* AOAcercadeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOAcercadeViewController.m; sourceTree = "<group>"; };
-		B273962320A4614400A7D05A /* AOHelpMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOHelpMenuViewController.h; sourceTree = "<group>"; };
-		B273962420A4614400A7D05A /* AOHelpMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOHelpMenuViewController.m; sourceTree = "<group>"; };
 		B273968C20A4A8A600A7D05A /* AOAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOAboutViewController.h; sourceTree = "<group>"; };
 		B273968D20A4A8A600A7D05A /* AOAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOAboutViewController.m; sourceTree = "<group>"; };
 		B273968E20A4A8A600A7D05A /* AOAvailableCertificatesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOAvailableCertificatesTVC.h; sourceTree = "<group>"; };
@@ -558,6 +558,7 @@
 		B243847B20C539DA0087BAE0 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				B243848520C53B9A0087BAE0 /* helpViews */,
 				B243847C20C539DA0087BAE0 /* Storyboard */,
 			);
 			path = Interface;
@@ -572,6 +573,18 @@
 				B243848020C539DA0087BAE0 /* MainStoryBoard_iPhone.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		B243848520C53B9A0087BAE0 /* helpViews */ = {
+			isa = PBXGroup;
+			children = (
+				B243848620C53B9A0087BAE0 /* AOAcercadeViewController.h */,
+				B243848720C53B9A0087BAE0 /* AOHelpMenuViewController.h */,
+				B243848820C53B9A0087BAE0 /* AOHelpMenuViewController.m */,
+				B243848920C53B9A0087BAE0 /* AOAcercadeViewController.m */,
+			);
+			name = helpViews;
+			path = Storyboard/helpViews;
 			sourceTree = "<group>";
 		};
 		B27395CA20A4384300A7D05A /* Constants */ = {
@@ -649,17 +662,6 @@
 				B273961920A447DB00A7D05A /* CADESOID.h */,
 			);
 			path = ASN1Constants;
-			sourceTree = "<group>";
-		};
-		B273962020A4614400A7D05A /* helpViews */ = {
-			isa = PBXGroup;
-			children = (
-				B273962120A4614400A7D05A /* AOAcercadeViewController.h */,
-				B273962220A4614400A7D05A /* AOAcercadeViewController.m */,
-				B273962320A4614400A7D05A /* AOHelpMenuViewController.h */,
-				B273962420A4614400A7D05A /* AOHelpMenuViewController.m */,
-			);
-			path = helpViews;
 			sourceTree = "<group>";
 		};
 		B273968B20A4A8A600A7D05A /* views */ = {
@@ -743,7 +745,6 @@
 				B2EE5C0F20AC4359000A4A28 /* AOAppDelegate.h */,
 				B2EE5C0E20AC4358000A4A28 /* AOAppDelegate.m */,
 				B243847B20C539DA0087BAE0 /* Interface */,
-				B273962020A4614400A7D05A /* helpViews */,
 				B273968B20A4A8A600A7D05A /* views */,
 				C30B3232163804620072A515 /* Supporting Files */,
 			);
@@ -1155,12 +1156,10 @@
 				C3B11DBC16FB642B00C0D623 /* asn_codecs_prim.c in Sources */,
 				C3B11DBE16FB642B00C0D623 /* asn_SEQUENCE_OF.c in Sources */,
 				B273960920A43E2800A7D05A /* Base64.m in Sources */,
-				B273962520A4614400A7D05A /* AOAcercadeViewController.m in Sources */,
 				C3B11DC016FB642B00C0D623 /* asn_SET_OF.c in Sources */,
 				C3B11DC216FB642B00C0D623 /* Attribute.c in Sources */,
 				B27396A220A4A8A600A7D05A /* AOManagerStoreScreenViewController.m in Sources */,
 				B273960D20A43E2800A7D05A /* ColorChart.m in Sources */,
-				B273962620A4614400A7D05A /* AOHelpMenuViewController.m in Sources */,
 				C3B11DC416FB642B00C0D623 /* AttributeType.c in Sources */,
 				C3B11DC616FB642B00C0D623 /* AttributeTypeAndValue.c in Sources */,
 				C3B11DC816FB642B00C0D623 /* AttributeValue.c in Sources */,
@@ -1217,6 +1216,7 @@
 				B273960E20A43E2800A7D05A /* DateHelper.m in Sources */,
 				C3B11E1616FB642B00C0D623 /* per_support.c in Sources */,
 				C3B11E1816FB642B00C0D623 /* PolicyInformation.c in Sources */,
+				B243848A20C53B9A0087BAE0 /* AOHelpMenuViewController.m in Sources */,
 				C3B11E1A16FB642B00C0D623 /* PolicyQualifierId.c in Sources */,
 				C3B11E1C16FB642B00C0D623 /* PolicyQualifierInfo.c in Sources */,
 				C3B11E1E16FB642B00C0D623 /* RDNSequence.c in Sources */,
@@ -1230,6 +1230,7 @@
 				C3B11E2C16FB642B00C0D623 /* SignerIdentifier.c in Sources */,
 				C3B11E2E16FB642B00C0D623 /* SignerInfo.c in Sources */,
 				C3B11E3016FB642B00C0D623 /* SignerInfos.c in Sources */,
+				B243848B20C53B9A0087BAE0 /* AOAcercadeViewController.m in Sources */,
 				C3B11E3216FB642B00C0D623 /* SigningCertificate.c in Sources */,
 				C3B11E3416FB642B00C0D623 /* SigningCertificateV2.c in Sources */,
 				C3B11E3616FB642B00C0D623 /* SigningTime.c in Sources */,
