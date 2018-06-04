@@ -18,7 +18,6 @@
 #import "AOCounterSignXMLParser.h"
 #import "AOCounterSignPreItems.h"
 #import "CertificateUtils.h"
-#import "AOViewController.h"
 
 @interface AOSignViewController ()
 
