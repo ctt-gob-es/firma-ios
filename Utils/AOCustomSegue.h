@@ -1,6 +1,6 @@
 //
 //  AOCustomSegue.h
-//  SignSample02
+//  Firma_iOS
 //
 //
 

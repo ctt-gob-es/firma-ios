@@ -1,6 +1,6 @@
 //
 //  AOCertificateSelectionViewController.h
-//  SignSample02
+//  Firma_iOS
 //
 //
 

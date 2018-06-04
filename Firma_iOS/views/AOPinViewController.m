@@ -1,6 +1,6 @@
 //
 //  AOPinViewController.m
-//  SignSample02
+//  Firma_iOS
 //
 //
 

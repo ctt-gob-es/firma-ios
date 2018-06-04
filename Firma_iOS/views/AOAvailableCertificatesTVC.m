@@ -1,6 +1,6 @@
 //
 //  AOAvailableCertificatesTVC.m
-//  SignSample02
+//  Firma_iOS
 //
 //  Created by Rocio Tovar on 25/3/15.
 //  Copyright (c) 2015 Atos. All rights reserved.

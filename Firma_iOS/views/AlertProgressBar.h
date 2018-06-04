@@ -1,6 +1,6 @@
 //
 //  AlertProgressBar.h
-//  SignSample02
+//  Firma_iOS
 //
 //
 

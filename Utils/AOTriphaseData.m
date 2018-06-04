@@ -1,6 +1,6 @@
 //
 //  AOTriphaseData.m
-//  SignSample02
+//  Firma_iOS
 //
 //  Created by User1 on 11/12/15.
 //  Copyright © 2015 Atos. All rights reserved.

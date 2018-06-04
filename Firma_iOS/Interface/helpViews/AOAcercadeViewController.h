@@ -1,6 +1,6 @@
 //
 //  AOAcercadeViewController.h
-//  SignSample02
+//  Firma_iOS
 //
 //
 

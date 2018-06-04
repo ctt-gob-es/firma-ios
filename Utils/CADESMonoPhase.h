@@ -1,6 +1,6 @@
 //
 //  CADESMonoPhase.h
-//  SignSample02
+//  Firma_iOS
 //
 //
 

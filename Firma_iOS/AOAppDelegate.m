@@ -1,6 +1,6 @@
  //
 //  AOAppDelegate.m
-//  SignSample02
+//  Firma_iOS
 //
 
 #import "AOAppDelegate.h"

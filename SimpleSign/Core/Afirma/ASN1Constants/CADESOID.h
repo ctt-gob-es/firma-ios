@@ -1,6 +1,6 @@
 //
 //  CADESOID.h
-//  SignSample02
+//  Firma_iOS
 //
 //
 #import "OBJECT_IDENTIFIER.h"
