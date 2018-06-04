@@ -9,16 +9,16 @@
 /* Begin PBXBuildFile section */
 		3BC03D5D19D9988300FC1804 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AF7F6E17FD60C80084D916 /* libGoogleAnalyticsServices.a */; };
 		3C57FA171AC1BB9D00FF7292 /* AOCertificateInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C57FA161AC1BB9D00FF7292 /* AOCertificateInfo.m */; };
-		B2406EF020C5C0DE008ED085 /* AlertProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406EEE20C5C0DE008ED085 /* AlertProgressBar.m */; };
-		B2406EF320C5C112008ED085 /* AOAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406EF120C5C111008ED085 /* AOAboutViewController.m */; };
-		B2406EF620C5C122008ED085 /* AOAvailableCertificatesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406EF520C5C121008ED085 /* AOAvailableCertificatesTVC.m */; };
-		B2406EF920C5C142008ED085 /* AOCertificateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406EF820C5C142008ED085 /* AOCertificateCell.m */; };
-		B2406EFC20C5C151008ED085 /* AOCertificateSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406EFA20C5C151008ED085 /* AOCertificateSelectionViewController.m */; };
-		B2406EFF20C5C165008ED085 /* AOManagerStoreScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406EFE20C5C165008ED085 /* AOManagerStoreScreenViewController.m */; };
-		B2406F0220C5C17B008ED085 /* AOPinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F0020C5C17B008ED085 /* AOPinViewController.m */; };
-		B2406F0520C5C18E008ED085 /* AORegisterCertificateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F0420C5C18E008ED085 /* AORegisterCertificateVC.m */; };
-		B2406F0820C5C1A0008ED085 /* AORegisteredCertificatesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F0720C5C1A0008ED085 /* AORegisteredCertificatesTVC.m */; };
-		B2406F2520C5C373008ED085 /* AOSignViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F2420C5C373008ED085 /* AOSignViewController.m */; };
+		B2406F2D20C5CACA008ED085 /* AOCertificateSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F2820C5CACA008ED085 /* AOCertificateSelectionViewController.m */; };
+		B2406F2E20C5CACA008ED085 /* AORegisteredCertificatesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F2920C5CACA008ED085 /* AORegisteredCertificatesTVC.m */; };
+		B2406F2F20C5CACA008ED085 /* AOAvailableCertificatesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F2A20C5CACA008ED085 /* AOAvailableCertificatesTVC.m */; };
+		B2406F3320C5CB8E008ED085 /* AlertProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F3220C5CB8D008ED085 /* AlertProgressBar.m */; };
+		B2406F3620C5CD4D008ED085 /* AOCertificateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F3420C5CD4D008ED085 /* AOCertificateCell.m */; };
+		B2406F3920C5CE6F008ED085 /* AORegisterCertificateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F3720C5CE6F008ED085 /* AORegisterCertificateVC.m */; };
+		B2406F3D20C5CF89008ED085 /* AOAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F3C20C5CF89008ED085 /* AOAboutViewController.m */; };
+		B2406F4020C5D043008ED085 /* AOSignViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F3F20C5D043008ED085 /* AOSignViewController.m */; };
+		B2406F4320C5D04E008ED085 /* AOPinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F4120C5D04D008ED085 /* AOPinViewController.m */; };
+		B2406F4720C5D0EC008ED085 /* AOManagerStoreScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F4620C5D0EC008ED085 /* AOManagerStoreScreenViewController.m */; };
 		B240772D20A5B87B00A8EE1C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B240772020A5B87B00A8EE1C /* main.m */; };
 		B240772E20A5B87B00A8EE1C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B240772220A5B87B00A8EE1C /* InfoPlist.strings */; };
 		B240772F20A5B87B00A8EE1C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B240772420A5B87B00A8EE1C /* Localizable.strings */; };
@@ -189,26 +189,26 @@
 /* Begin PBXFileReference section */
 		3C57FA151AC1BB9D00FF7292 /* AOCertificateInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AOCertificateInfo.h; path = model/AOCertificateInfo.h; sourceTree = "<group>"; };
 		3C57FA161AC1BB9D00FF7292 /* AOCertificateInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AOCertificateInfo.m; path = model/AOCertificateInfo.m; sourceTree = "<group>"; };
-		B2406EEE20C5C0DE008ED085 /* AlertProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertProgressBar.m; sourceTree = "<group>"; };
-		B2406EEF20C5C0DE008ED085 /* AlertProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertProgressBar.h; sourceTree = "<group>"; };
-		B2406EF120C5C111008ED085 /* AOAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOAboutViewController.m; sourceTree = "<group>"; };
-		B2406EF220C5C111008ED085 /* AOAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOAboutViewController.h; sourceTree = "<group>"; };
-		B2406EF420C5C121008ED085 /* AOAvailableCertificatesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOAvailableCertificatesTVC.h; sourceTree = "<group>"; };
-		B2406EF520C5C121008ED085 /* AOAvailableCertificatesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOAvailableCertificatesTVC.m; sourceTree = "<group>"; };
-		B2406EF720C5C142008ED085 /* AOCertificateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOCertificateCell.h; sourceTree = "<group>"; };
-		B2406EF820C5C142008ED085 /* AOCertificateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOCertificateCell.m; sourceTree = "<group>"; };
-		B2406EFA20C5C151008ED085 /* AOCertificateSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOCertificateSelectionViewController.m; sourceTree = "<group>"; };
-		B2406EFB20C5C151008ED085 /* AOCertificateSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOCertificateSelectionViewController.h; sourceTree = "<group>"; };
-		B2406EFD20C5C165008ED085 /* AOManagerStoreScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOManagerStoreScreenViewController.h; sourceTree = "<group>"; };
-		B2406EFE20C5C165008ED085 /* AOManagerStoreScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOManagerStoreScreenViewController.m; sourceTree = "<group>"; };
-		B2406F0020C5C17B008ED085 /* AOPinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOPinViewController.m; sourceTree = "<group>"; };
-		B2406F0120C5C17B008ED085 /* AOPinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOPinViewController.h; sourceTree = "<group>"; };
-		B2406F0320C5C18E008ED085 /* AORegisterCertificateVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AORegisterCertificateVC.h; sourceTree = "<group>"; };
-		B2406F0420C5C18E008ED085 /* AORegisterCertificateVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AORegisterCertificateVC.m; sourceTree = "<group>"; };
-		B2406F0620C5C1A0008ED085 /* AORegisteredCertificatesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AORegisteredCertificatesTVC.h; sourceTree = "<group>"; };
-		B2406F0720C5C1A0008ED085 /* AORegisteredCertificatesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AORegisteredCertificatesTVC.m; sourceTree = "<group>"; };
-		B2406F2320C5C372008ED085 /* AOSignViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOSignViewController.h; sourceTree = "<group>"; };
-		B2406F2420C5C373008ED085 /* AOSignViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOSignViewController.m; sourceTree = "<group>"; };
+		B2406F2720C5CACA008ED085 /* AOAvailableCertificatesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOAvailableCertificatesTVC.h; sourceTree = "<group>"; };
+		B2406F2820C5CACA008ED085 /* AOCertificateSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOCertificateSelectionViewController.m; sourceTree = "<group>"; };
+		B2406F2920C5CACA008ED085 /* AORegisteredCertificatesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AORegisteredCertificatesTVC.m; sourceTree = "<group>"; };
+		B2406F2A20C5CACA008ED085 /* AOAvailableCertificatesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOAvailableCertificatesTVC.m; sourceTree = "<group>"; };
+		B2406F2B20C5CACA008ED085 /* AOCertificateSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOCertificateSelectionViewController.h; sourceTree = "<group>"; };
+		B2406F2C20C5CACA008ED085 /* AORegisteredCertificatesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AORegisteredCertificatesTVC.h; sourceTree = "<group>"; };
+		B2406F3120C5CB8D008ED085 /* AlertProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertProgressBar.h; sourceTree = "<group>"; };
+		B2406F3220C5CB8D008ED085 /* AlertProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertProgressBar.m; sourceTree = "<group>"; };
+		B2406F3420C5CD4D008ED085 /* AOCertificateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOCertificateCell.m; sourceTree = "<group>"; };
+		B2406F3520C5CD4D008ED085 /* AOCertificateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOCertificateCell.h; sourceTree = "<group>"; };
+		B2406F3720C5CE6F008ED085 /* AORegisterCertificateVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AORegisterCertificateVC.m; sourceTree = "<group>"; };
+		B2406F3820C5CE6F008ED085 /* AORegisterCertificateVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AORegisterCertificateVC.h; sourceTree = "<group>"; };
+		B2406F3B20C5CF89008ED085 /* AOAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOAboutViewController.h; sourceTree = "<group>"; };
+		B2406F3C20C5CF89008ED085 /* AOAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOAboutViewController.m; sourceTree = "<group>"; };
+		B2406F3E20C5D043008ED085 /* AOSignViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOSignViewController.h; sourceTree = "<group>"; };
+		B2406F3F20C5D043008ED085 /* AOSignViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOSignViewController.m; sourceTree = "<group>"; };
+		B2406F4120C5D04D008ED085 /* AOPinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOPinViewController.m; sourceTree = "<group>"; };
+		B2406F4220C5D04E008ED085 /* AOPinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOPinViewController.h; sourceTree = "<group>"; };
+		B2406F4520C5D0EC008ED085 /* AOManagerStoreScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOManagerStoreScreenViewController.h; sourceTree = "<group>"; };
+		B2406F4620C5D0EC008ED085 /* AOManagerStoreScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOManagerStoreScreenViewController.m; sourceTree = "<group>"; };
 		B240772020A5B87B00A8EE1C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = "<group>"; };
 		B240772320A5B87B00A8EE1C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
 		B240772520A5B87B00A8EE1C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
@@ -538,28 +538,60 @@
 		B2406EED20C5C0A9008ED085 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				B2406EEF20C5C0DE008ED085 /* AlertProgressBar.h */,
-				B2406EEE20C5C0DE008ED085 /* AlertProgressBar.m */,
-				B2406EF220C5C111008ED085 /* AOAboutViewController.h */,
-				B2406EF120C5C111008ED085 /* AOAboutViewController.m */,
-				B2406EF420C5C121008ED085 /* AOAvailableCertificatesTVC.h */,
-				B2406EF520C5C121008ED085 /* AOAvailableCertificatesTVC.m */,
-				B2406EF720C5C142008ED085 /* AOCertificateCell.h */,
-				B2406EF820C5C142008ED085 /* AOCertificateCell.m */,
-				B2406EFB20C5C151008ED085 /* AOCertificateSelectionViewController.h */,
-				B2406EFA20C5C151008ED085 /* AOCertificateSelectionViewController.m */,
-				B2406EFD20C5C165008ED085 /* AOManagerStoreScreenViewController.h */,
-				B2406EFE20C5C165008ED085 /* AOManagerStoreScreenViewController.m */,
-				B2406F0120C5C17B008ED085 /* AOPinViewController.h */,
-				B2406F0020C5C17B008ED085 /* AOPinViewController.m */,
-				B2406F0320C5C18E008ED085 /* AORegisterCertificateVC.h */,
-				B2406F0420C5C18E008ED085 /* AORegisterCertificateVC.m */,
-				B2406F0620C5C1A0008ED085 /* AORegisteredCertificatesTVC.h */,
-				B2406F0720C5C1A0008ED085 /* AORegisteredCertificatesTVC.m */,
-				B2406F2320C5C372008ED085 /* AOSignViewController.h */,
-				B2406F2420C5C373008ED085 /* AOSignViewController.m */,
+				B2406F3A20C5CF89008ED085 /* about */,
+				B2406F3020C5CB8D008ED085 /* alerts */,
+				B2406F2620C5CACA008ED085 /* certificates */,
+				B2406F4420C5D0EC008ED085 /* storeScreen */,
 			);
 			path = views;
+			sourceTree = "<group>";
+		};
+		B2406F2620C5CACA008ED085 /* certificates */ = {
+			isa = PBXGroup;
+			children = (
+				B2406F2720C5CACA008ED085 /* AOAvailableCertificatesTVC.h */,
+				B2406F2A20C5CACA008ED085 /* AOAvailableCertificatesTVC.m */,
+				B2406F2B20C5CACA008ED085 /* AOCertificateSelectionViewController.h */,
+				B2406F2820C5CACA008ED085 /* AOCertificateSelectionViewController.m */,
+				B2406F3520C5CD4D008ED085 /* AOCertificateCell.h */,
+				B2406F3420C5CD4D008ED085 /* AOCertificateCell.m */,
+				B2406F4220C5D04E008ED085 /* AOPinViewController.h */,
+				B2406F4120C5D04D008ED085 /* AOPinViewController.m */,
+				B2406F3820C5CE6F008ED085 /* AORegisterCertificateVC.h */,
+				B2406F3720C5CE6F008ED085 /* AORegisterCertificateVC.m */,
+				B2406F2C20C5CACA008ED085 /* AORegisteredCertificatesTVC.h */,
+				B2406F2920C5CACA008ED085 /* AORegisteredCertificatesTVC.m */,
+				B2406F3E20C5D043008ED085 /* AOSignViewController.h */,
+				B2406F3F20C5D043008ED085 /* AOSignViewController.m */,
+			);
+			path = certificates;
+			sourceTree = "<group>";
+		};
+		B2406F3020C5CB8D008ED085 /* alerts */ = {
+			isa = PBXGroup;
+			children = (
+				B2406F3120C5CB8D008ED085 /* AlertProgressBar.h */,
+				B2406F3220C5CB8D008ED085 /* AlertProgressBar.m */,
+			);
+			path = alerts;
+			sourceTree = "<group>";
+		};
+		B2406F3A20C5CF89008ED085 /* about */ = {
+			isa = PBXGroup;
+			children = (
+				B2406F3B20C5CF89008ED085 /* AOAboutViewController.h */,
+				B2406F3C20C5CF89008ED085 /* AOAboutViewController.m */,
+			);
+			path = about;
+			sourceTree = "<group>";
+		};
+		B2406F4420C5D0EC008ED085 /* storeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B2406F4520C5D0EC008ED085 /* AOManagerStoreScreenViewController.h */,
+				B2406F4620C5D0EC008ED085 /* AOManagerStoreScreenViewController.m */,
+			);
+			path = storeScreen;
 			sourceTree = "<group>";
 		};
 		B240772120A5B87B00A8EE1C /* en.lproj */ = {
@@ -1144,16 +1176,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				B273961120A43E2800A7D05A /* NSDate+Utils.m in Sources */,
-				B2406F0220C5C17B008ED085 /* AOPinViewController.m in Sources */,
+				B2406F3920C5CE6F008ED085 /* AORegisterCertificateVC.m in Sources */,
 				B273960B20A43E2800A7D05A /* CADESSignUtils.m in Sources */,
 				C36554EE16F9D11F0048252D /* CADESSignedAttributes.c in Sources */,
 				C36554F016F9D11F0048252D /* CADESSignerInfo.c in Sources */,
 				C36554F116F9D11F0048252D /* Utiles.c in Sources */,
 				B273961A20A447DB00A7D05A /* CADESOID.c in Sources */,
-				B2406EF620C5C122008ED085 /* AOAvailableCertificatesTVC.m in Sources */,
 				C3B11DB816FB642B00C0D623 /* AlgorithmIdentifier.c in Sources */,
 				C3B11DBA16FB642B00C0D623 /* ANY.c in Sources */,
 				C3B11DBC16FB642B00C0D623 /* asn_codecs_prim.c in Sources */,
+				B2406F4720C5D0EC008ED085 /* AOManagerStoreScreenViewController.m in Sources */,
 				C3B11DBE16FB642B00C0D623 /* asn_SEQUENCE_OF.c in Sources */,
 				B273960920A43E2800A7D05A /* Base64.m in Sources */,
 				C3B11DC016FB642B00C0D623 /* asn_SET_OF.c in Sources */,
@@ -1163,7 +1195,6 @@
 				C3B11DC616FB642B00C0D623 /* AttributeTypeAndValue.c in Sources */,
 				C3B11DC816FB642B00C0D623 /* AttributeValue.c in Sources */,
 				C3B11DCA16FB642B00C0D623 /* ber_decoder.c in Sources */,
-				B2406F0520C5C18E008ED085 /* AORegisterCertificateVC.m in Sources */,
 				B273961220A43E2800A7D05A /* NSDateFormatter+Utils.m in Sources */,
 				3C57FA171AC1BB9D00FF7292 /* AOCertificateInfo.m in Sources */,
 				C3B11DCC16FB642B00C0D623 /* ber_tlv_length.c in Sources */,
@@ -1179,31 +1210,33 @@
 				B273960620A43E2800A7D05A /* AOCustomSegue.m in Sources */,
 				B273961020A43E2800A7D05A /* Firma.m in Sources */,
 				C3B11DDE16FB642B00C0D623 /* constr_SEQUENCE.c in Sources */,
-				B2406EF020C5C0DE008ED085 /* AlertProgressBar.m in Sources */,
 				C3B11DE016FB642B00C0D623 /* constr_SET_OF.c in Sources */,
 				C3B11DE216FB642B00C0D623 /* constr_TYPE.c in Sources */,
 				C3B11DE416FB642B00C0D623 /* constraints.c in Sources */,
 				C3B11DE616FB642B00C0D623 /* ContentType.c in Sources */,
 				C3B11DE816FB642B00C0D623 /* CPSuri.c in Sources */,
+				B2406F2E20C5CACA008ED085 /* AORegisteredCertificatesTVC.m in Sources */,
 				B273960720A43E2800A7D05A /* AOTriphaseData.m in Sources */,
+				B2406F3320C5CB8E008ED085 /* AlertProgressBar.m in Sources */,
 				C3B11DEA16FB642B00C0D623 /* der_encoder.c in Sources */,
 				C3B11DEC16FB642B00C0D623 /* DigestAlgorithmIdentifier.c in Sources */,
 				C3B11DEE16FB642B00C0D623 /* DigestAlgorithmIdentifiers.c in Sources */,
 				C3B11DF016FB642B00C0D623 /* EncapsulatedContentInfo.c in Sources */,
 				C3B11DF216FB642B00C0D623 /* ESSCertID.c in Sources */,
 				C3B11DF416FB642B00C0D623 /* ESSCertIDv2.c in Sources */,
+				B2406F3D20C5CF89008ED085 /* AOAboutViewController.m in Sources */,
 				C3B11DF616FB642B00C0D623 /* GeneralizedTime.c in Sources */,
+				B2406F2F20C5CACA008ED085 /* AOAvailableCertificatesTVC.m in Sources */,
 				C3B11DFA16FB642B00C0D623 /* Hash.c in Sources */,
-				B2406F0820C5C1A0008ED085 /* AORegisteredCertificatesTVC.m in Sources */,
 				C3B11DFC16FB642B00C0D623 /* IA5String.c in Sources */,
 				C3B11DFE16FB642B00C0D623 /* INTEGER.c in Sources */,
 				C3B11E0016FB642B00C0D623 /* IssuerAndSerialNumber.c in Sources */,
 				C3B11E0416FB642B00C0D623 /* MessageDigest.c in Sources */,
+				B2406F2D20C5CACA008ED085 /* AOCertificateSelectionViewController.m in Sources */,
 				C3B11E0616FB642B00C0D623 /* Name.c in Sources */,
 				B273960420A43E2800A7D05A /* AOCounterSignPreItems.m in Sources */,
 				C3B11E0816FB642B00C0D623 /* NativeEnumerated.c in Sources */,
 				C3B11E0A16FB642B00C0D623 /* NativeInteger.c in Sources */,
-				B2406EF320C5C112008ED085 /* AOAboutViewController.m in Sources */,
 				C3B11E0C16FB642B00C0D623 /* OBJECT_IDENTIFIER.c in Sources */,
 				C3B11E0E16FB642B00C0D623 /* OCTET_STRING.c in Sources */,
 				C3B11E1016FB642B00C0D623 /* per_decoder.c in Sources */,
@@ -1219,7 +1252,7 @@
 				C3B11E2016FB642B00C0D623 /* RelativeDistinguishedName.c in Sources */,
 				C3B11E2216FB642B00C0D623 /* RevocationInfoChoices.c in Sources */,
 				C3B11E2416FB642B00C0D623 /* SignatureAlgorithmIdentifier.c in Sources */,
-				B2406F2520C5C373008ED085 /* AOSignViewController.m in Sources */,
+				B2406F4020C5D043008ED085 /* AOSignViewController.m in Sources */,
 				B273960C20A43E2800A7D05A /* CertificateUtils.m in Sources */,
 				C3B11E2616FB642B00C0D623 /* SignatureValue.c in Sources */,
 				C3B11E2816FB642B00C0D623 /* SignedAttributes.c in Sources */,
@@ -1247,13 +1280,11 @@
 				C3B14049170B2BF000E3FD42 /* BOOLEAN.c in Sources */,
 				C3B1404D170B34B500E3FD42 /* EncapsulatedSignedData.c in Sources */,
 				C3A44B70170C3B60000B551C /* DisplayText.c in Sources */,
-				B2406EFC20C5C151008ED085 /* AOCertificateSelectionViewController.m in Sources */,
 				B273960820A43E2800A7D05A /* AOUtils.m in Sources */,
 				C3A44B71170C3B60000B551C /* NoticeReference.c in Sources */,
 				C3A44B72170C3B60000B551C /* OtherHashAlgAndValue.c in Sources */,
-				B2406EF920C5C142008ED085 /* AOCertificateCell.m in Sources */,
-				B2406EFF20C5C165008ED085 /* AOManagerStoreScreenViewController.m in Sources */,
 				C3A44B73170C3B60000B551C /* OtherHashValue.c in Sources */,
+				B2406F3620C5CD4D008ED085 /* AOCertificateCell.m in Sources */,
 				C3A44B74170C3B60000B551C /* SignaturePolicyId.c in Sources */,
 				C3A44B75170C3B60000B551C /* SigPolicyHash.c in Sources */,
 				C3A44B76170C3B60000B551C /* SigPolicyId.c in Sources */,
@@ -1273,6 +1304,7 @@
 				B273961420A43E2800A7D05A /* QuartzUtils.m in Sources */,
 				C3D56A1017CF452200D7EBED /* CustomGeneralName.c in Sources */,
 				C3D56A1117CF452200D7EBED /* GeneralNames.c in Sources */,
+				B2406F4320C5D04E008ED085 /* AOPinViewController.m in Sources */,
 				C3D56A1217CF452200D7EBED /* IssuerSerial.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
