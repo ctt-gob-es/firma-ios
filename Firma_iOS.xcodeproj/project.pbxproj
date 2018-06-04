@@ -526,27 +526,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3C57FA141AC1BB7100FF7292 /* model */ = {
+		3C57FA141AC1BB7100FF7292 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				3C57FA151AC1BB9D00FF7292 /* AOCertificateInfo.h */,
 				3C57FA161AC1BB9D00FF7292 /* AOCertificateInfo.m */,
 			);
-			name = model;
+			name = Model;
 			sourceTree = "<group>";
 		};
-		B2406EED20C5C0A9008ED085 /* views */ = {
+		B2406EED20C5C0A9008ED085 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B2406F3A20C5CF89008ED085 /* about */,
-				B2406F3020C5CB8D008ED085 /* alerts */,
-				B2406F2620C5CACA008ED085 /* certificates */,
-				B2406F4420C5D0EC008ED085 /* storeScreen */,
+				B2406F3A20C5CF89008ED085 /* About */,
+				B2406F3020C5CB8D008ED085 /* Alerts */,
+				B2406F2620C5CACA008ED085 /* Certificates */,
+				B2406F4420C5D0EC008ED085 /* StoreScreen */,
 			);
-			path = views;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		B2406F2620C5CACA008ED085 /* certificates */ = {
+		B2406F2620C5CACA008ED085 /* Certificates */ = {
 			isa = PBXGroup;
 			children = (
 				B2406F2720C5CACA008ED085 /* AOAvailableCertificatesTVC.h */,
@@ -564,34 +564,34 @@
 				B2406F3E20C5D043008ED085 /* AOSignViewController.h */,
 				B2406F3F20C5D043008ED085 /* AOSignViewController.m */,
 			);
-			path = certificates;
+			path = Certificates;
 			sourceTree = "<group>";
 		};
-		B2406F3020C5CB8D008ED085 /* alerts */ = {
+		B2406F3020C5CB8D008ED085 /* Alerts */ = {
 			isa = PBXGroup;
 			children = (
 				B2406F3120C5CB8D008ED085 /* AlertProgressBar.h */,
 				B2406F3220C5CB8D008ED085 /* AlertProgressBar.m */,
 			);
-			path = alerts;
+			path = Alerts;
 			sourceTree = "<group>";
 		};
-		B2406F3A20C5CF89008ED085 /* about */ = {
+		B2406F3A20C5CF89008ED085 /* About */ = {
 			isa = PBXGroup;
 			children = (
 				B2406F3B20C5CF89008ED085 /* AOAboutViewController.h */,
 				B2406F3C20C5CF89008ED085 /* AOAboutViewController.m */,
 			);
-			path = about;
+			path = About;
 			sourceTree = "<group>";
 		};
-		B2406F4420C5D0EC008ED085 /* storeScreen */ = {
+		B2406F4420C5D0EC008ED085 /* StoreScreen */ = {
 			isa = PBXGroup;
 			children = (
 				B2406F4520C5D0EC008ED085 /* AOManagerStoreScreenViewController.h */,
 				B2406F4620C5D0EC008ED085 /* AOManagerStoreScreenViewController.m */,
 			);
-			path = storeScreen;
+			path = StoreScreen;
 			sourceTree = "<group>";
 		};
 		B240772120A5B87B00A8EE1C /* en.lproj */ = {
@@ -617,9 +617,9 @@
 		B243847B20C539DA0087BAE0 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
-				B24384B620C541620087BAE0 /* helpViews */,
+				B24384B620C541620087BAE0 /* HelpViews */,
 				B243847C20C539DA0087BAE0 /* Storyboard */,
-				B2406EED20C5C0A9008ED085 /* views */,
+				B2406EED20C5C0A9008ED085 /* Views */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -635,7 +635,7 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
-		B24384B620C541620087BAE0 /* helpViews */ = {
+		B24384B620C541620087BAE0 /* HelpViews */ = {
 			isa = PBXGroup;
 			children = (
 				B24384B720C541620087BAE0 /* AOAcercadeViewController.h */,
@@ -643,7 +643,7 @@
 				B24384B920C541620087BAE0 /* AOHelpMenuViewController.m */,
 				B24384BA20C541620087BAE0 /* AOAcercadeViewController.m */,
 			);
-			path = helpViews;
+			path = HelpViews;
 			sourceTree = "<group>";
 		};
 		B27395CA20A4384300A7D05A /* Constants */ = {
@@ -655,7 +655,7 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
-		B27395CE20A43AF800A7D05A /* images */ = {
+		B27395CE20A43AF800A7D05A /* Images */ = {
 			isa = PBXGroup;
 			children = (
 				E47E065C16E2DC1C00BC7855 /* certificados.png */,
@@ -670,7 +670,7 @@
 				B27395D720A43AF800A7D05A /* warning_mini.png */,
 				C3461CA71696F98C007237D1 /* logo_cliente.png */,
 			);
-			path = images;
+			path = Images;
 			sourceTree = "<group>";
 		};
 		B27395E120A43E2800A7D05A /* Utils */ = {
@@ -730,9 +730,9 @@
 				B27395CA20A4384300A7D05A /* Constants */,
 				C30B322A163804620072A515 /* Frameworks */,
 				C3AF7F6717FD5FFA0084D916 /* Google Analytics library */,
-				B27395CE20A43AF800A7D05A /* images */,
+				B27395CE20A43AF800A7D05A /* Images */,
 				B273961520A441FF00A7D05A /* Images.xcassets */,
-				3C57FA141AC1BB7100FF7292 /* model */,
+				3C57FA141AC1BB7100FF7292 /* Model */,
 				C30B3228163804620072A515 /* Products */,
 				C389C78C16DE70CC000382C0 /* Settings.bundle */,
 				C30B3231163804620072A515 /* Firma_iOS */,
