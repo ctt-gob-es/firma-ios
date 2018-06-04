@@ -36,7 +36,7 @@ SecKeyRef privateKeyPkcs12 = NULL;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	[[self navigationController] setNavigationBarHidden:YES animated:YES];
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
     [self.navigationController.navigationBar setTintColor:THEME_COLOR];
     
     //etiqueta con el nombre del almacen seleccionado
@@ -120,14 +120,10 @@ SecKeyRef privateKeyPkcs12 = NULL;
         NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
         UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
         [imageView setImage:bkgImg];
-        [bkgImg release];
-        [path release];
         
         [alert addSubview:imageView];
-        [imageView release];
         
         [alert show];
-        [alert release];
         
         [self.pinTextField setText:nil];
         
@@ -141,14 +137,10 @@ SecKeyRef privateKeyPkcs12 = NULL;
         NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
         UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
         [imageView setImage:bkgImg];
-        [bkgImg release];
-        [path release];
         
         [alert addSubview:imageView];
-        [imageView release];
         
         [alert show];
-        [alert release];
         
         [self.pinTextField setText:nil];
     }    
@@ -180,14 +172,14 @@ SecKeyRef privateKeyPkcs12 = NULL;
     }
     
     OSStatus status = noErr;
-	SecIdentityRef myIdentity;
-	SecTrustRef myTrust;
+    SecIdentityRef myIdentity;
+    SecTrustRef myTrust;
     
-	status = [CADESSignUtils extractIdentityAndTrust:inPKCS12Data :pin :&myIdentity :&myTrust];
-	
-	if (status != 0) {
+    status = [CADESSignUtils extractIdentityAndTrust:inPKCS12Data :pin :&myIdentity :&myTrust];
+    
+    if (status != 0) {
         return status;
-	}
+    }
     
     SecCertificateRef myReturnedCertificate = NULL;
     status = SecIdentityCopyCertificate (myIdentity, &myReturnedCertificate);
@@ -205,7 +197,7 @@ SecKeyRef privateKeyPkcs12 = NULL;
     }
     
     CFStringRef certSummary = SecCertificateCopySubjectSummary(myReturnedCertificate);
-    NSString* summaryString = [[NSString alloc] initWithString:(NSString*)certSummary];
+    NSString* summaryString = [[NSString alloc] initWithString:(__bridge NSString*)certSummary];
     
     self.certificateName = summaryString;
     
@@ -228,12 +220,6 @@ SecKeyRef privateKeyPkcs12 = NULL;
     // Dispose of any resources that can be recreated.
 }
 
-- (void)dealloc {
-    [_nombreCert release];
-    [_pinTextField release];
-    [_pinButton release];
-    [super dealloc];
-}
 - (void)viewDidUnload {
     [self setNombreCert:nil];
     [self setNombreCert:nil];

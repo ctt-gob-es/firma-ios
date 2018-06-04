@@ -8,8 +8,8 @@
 
 @interface AlertProgressBar : NSObject
 
-@property (nonatomic, retain) UIAlertView *av;
-@property (nonatomic, retain) UIActivityIndicatorView *spinner;
+@property (nonatomic, strong) UIAlertView *av;
+@property (nonatomic, strong) UIActivityIndicatorView *spinner;
 
 -(void) createProgressBar:(UIView*)view;
 -(void) destroy;

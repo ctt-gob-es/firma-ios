@@ -12,9 +12,9 @@
         IBOutlet UIButton *selectionButton;
 }
 
-@property (retain, nonatomic) IBOutlet UITableView *tblView;
-@property (nonatomic, retain) UIButton *selectionButton;
-@property (nonatomic, retain) NSString *startUrl;
-@property (nonatomic, retain) NSDictionary *parameters;
+@property (strong, nonatomic) IBOutlet UITableView *tblView;
+@property (nonatomic, strong) UIButton *selectionButton;
+@property (nonatomic, strong) NSString *startUrl;
+@property (nonatomic, strong) NSDictionary *parameters;
 
 @end

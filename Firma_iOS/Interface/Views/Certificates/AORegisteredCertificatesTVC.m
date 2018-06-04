@@ -248,14 +248,10 @@
             NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
             UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
             [imageView setImage:bkgImg];
-            [bkgImg release];
-            [path release];
             
             [alert addSubview:imageView];
-            [imageView release];
             
             [alert show];
-            [alert release];
             
             [self.editTableView setAllowsSelection:NO];
         } else {
@@ -289,14 +285,10 @@
                 NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
                 UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
                 [imageView setImage:bkgImg];
-                [bkgImg release];
-                [path release];
                 
                 [alert addSubview:imageView];
-                [imageView release];
                 
                 [alert show];
-                [alert release];
                 
                 [self.editTableView setAllowsSelection:NO];
             }
@@ -509,8 +501,6 @@ NSString *receivedStringCert = NULL;
     }
     
     // release the connection, and the data object
-    [connection release];
-    [receivedDataCert release];
 }
 
 /**************************/
@@ -546,7 +536,6 @@ NSString *receivedStringCert = NULL;
   didFailWithError:(NSError *)error
 {
     // Liberar la conexión
-    [connection release];
     NSLog(@"---------------------------------------");
     NSLog(@"AORegisteredCertificatesTVC Error de conexión - %@ %@",
           [error localizedDescription],

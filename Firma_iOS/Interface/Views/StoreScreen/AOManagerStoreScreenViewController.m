@@ -31,7 +31,7 @@ NSString *cellSelectedManager = NULL;
     [super viewDidLoad];
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
     [self.navigationController.navigationBar setTintColor:THEME_COLOR];
-			
+            
     cellSelectedManager = NULL;
     
     //Rellenamos la tabla de certificados con los facilitados por iTunes y si hay almacenes, habilitamos el botón de seleccion.
@@ -65,14 +65,10 @@ NSString *cellSelectedManager = NULL;
         NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"info_mini.png"]];
         UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
         [imageView setImage:bkgImg];
-        [bkgImg release];
-        [path release];
         
         [alert addSubview:imageView];
-        [imageView release];
         
         [alert show];
-        [alert release];
         
     }
     else{
@@ -83,14 +79,10 @@ NSString *cellSelectedManager = NULL;
         NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"info_mini.png"]];
         UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
         [imageView setImage:bkgImg];
-        [bkgImg release];
-        [path release];
         
         [alert addSubview:imageView];
-        [imageView release];
         
         [alert show];
-        [alert release];
     }
 }
 
@@ -109,7 +101,6 @@ NSString *cellSelectedManager = NULL;
 
 - (void)viewDidUnload
 {
-    [deleteButton release];
     deleteButton = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
@@ -117,11 +108,6 @@ NSString *cellSelectedManager = NULL;
 }
 
 
-- (void)dealloc
-{
-    [deleteButton release];
-    [super dealloc];
-}
 
 #pragma mark -
 #pragma mark UIAlertViewDelegate methods
@@ -134,11 +120,11 @@ NSString *cellSelectedManager = NULL;
     
     /*
      Si se da al boton cancelar, no se hace nada.
-	if (index != alertView.cancelButtonIndex) {
-		[[DBSession sharedSession] linkUserId:relinkUserId fromController:self];
-	}
-	[relinkUserId release];
-	relinkUserId = nil;
+    if (index != alertView.cancelButtonIndex) {
+        [[DBSession sharedSession] linkUserId:relinkUserId fromController:self];
+    }
+    [relinkUserId release];
+    relinkUserId = nil;
      */
 }
 
@@ -201,7 +187,6 @@ NSString *cellSelectedManager = NULL;
         [imageView release];
         */
         [alert show];
-        [alert release];
     }
 #endif
     //establecemos el primer elemento como seleccionado
@@ -249,14 +234,10 @@ NSString *cellSelectedManager = NULL;
         NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
         UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
         [imageView setImage:bkgImg];
-        [bkgImg release];
-        [path release];
         
         [alert addSubview:imageView];
-        [imageView release];
         
         [alert show];
-        [alert release];
         
         NSLog(@"No se ha podido eliminar el fichero %@",cellSelectedManager);
     }
@@ -291,7 +272,7 @@ NSString *cellSelectedManager = NULL;
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     //Cell View

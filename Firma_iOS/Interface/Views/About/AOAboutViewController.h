@@ -13,8 +13,8 @@
     NSString *relinkUserId;
 }
 
-@property (retain, nonatomic) IBOutlet UIButton *manageStoreButton;
-@property (nonatomic, retain) NSNotification *onReadUrl;
+@property (strong, nonatomic) IBOutlet UIButton *manageStoreButton;
+@property (nonatomic, strong) NSNotification *onReadUrl;
 
 -(void)createNotification;
 

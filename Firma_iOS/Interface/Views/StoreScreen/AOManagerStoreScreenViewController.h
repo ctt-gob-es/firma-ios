@@ -7,14 +7,14 @@
 #import <UIKit/UIKit.h>
 #import "GAITrackedViewController.h"
 
-@interface AOManagerStoreScreenViewController : GAITrackedViewController <UITableViewDelegate>{	
-	NSString *relinkUserId;
+@interface AOManagerStoreScreenViewController : GAITrackedViewController <UITableViewDelegate>{    
+    NSString *relinkUserId;
     IBOutlet UITableView *tblViewManager;
     IBOutlet UIButton *deleteButton;
     
 }
-@property (retain, nonatomic) IBOutlet UITableView *tblViewManager;
-@property (retain, nonatomic) NSMutableArray *tableDataManager;
+@property (strong, nonatomic) IBOutlet UITableView *tblViewManager;
+@property (strong, nonatomic) NSMutableArray *tableDataManager;
 -(IBAction)deleteButtonPressed:(id)sender;
 
 @end

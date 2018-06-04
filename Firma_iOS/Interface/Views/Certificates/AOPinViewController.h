@@ -9,22 +9,22 @@
 
 @interface AOPinViewController : GAITrackedViewController
 
-@property (retain, nonatomic) IBOutlet UITextView *nombreCert;
+@property (strong, nonatomic) IBOutlet UITextView *nombreCert;
 
-@property (retain, nonatomic) IBOutlet UITextField *pinTextField;
+@property (strong, nonatomic) IBOutlet UITextField *pinTextField;
 
-@property (retain, nonatomic) IBOutlet UIButton *pinButton;
+@property (strong, nonatomic) IBOutlet UIButton *pinButton;
 -(IBAction)pinButtonPressed:(id)sender;
 
-@property(nonatomic, retain) NSString *nombreCertInUse;
+@property(nonatomic, strong) NSString *nombreCertInUse;
 
-@property(nonatomic, retain) NSString *pkcs12Path;
+@property(nonatomic, strong) NSString *pkcs12Path;
 
-@property(nonatomic, retain) NSString *base64UrlSafeCertificateData;
+@property(nonatomic, strong) NSString *base64UrlSafeCertificateData;
 
-@property(nonatomic, retain) NSString *certificateName;
+@property(nonatomic, strong) NSString *certificateName;
 
-@property (nonatomic, retain) NSDictionary *parameters;
+@property (nonatomic, strong) NSDictionary *parameters;
 
 
 @end

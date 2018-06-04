@@ -12,6 +12,6 @@
 }
 
 
-@property (retain, nonatomic) IBOutlet UITableView *tblViewHelp;
+@property (strong, nonatomic) IBOutlet UITableView *tblViewHelp;
 
 @end

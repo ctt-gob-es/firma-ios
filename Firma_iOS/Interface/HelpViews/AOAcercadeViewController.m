@@ -25,7 +25,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onGoingToBackGround:) name:UIApplicationDidEnterBackgroundNotification object:nil];
     
@@ -53,10 +53,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)dealloc {
-    [_masInfoButton release];
-    [super dealloc];
-}
 - (void)viewDidUnload {
     [self setMasInfoButton:nil];
     [super viewDidUnload];

@@ -15,12 +15,12 @@
     NSString *stServletField;
 }
 
-@property (nonatomic, retain) NSString *datField;
-@property (nonatomic, retain) NSString *formatField;
-@property (nonatomic, retain) NSString *algorithmField;
-@property (nonatomic, retain) NSString *propertiesField;
-@property (nonatomic, retain) NSString *idField;
-@property (nonatomic, retain) NSString *stServletField;
+@property (nonatomic, strong) NSString *datField;
+@property (nonatomic, strong) NSString *formatField;
+@property (nonatomic, strong) NSString *algorithmField;
+@property (nonatomic, strong) NSString *propertiesField;
+@property (nonatomic, strong) NSString *idField;
+@property (nonatomic, strong) NSString *stServletField;
 
 
 @end

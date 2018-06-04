@@ -19,7 +19,7 @@ typedef NS_ENUM (NSInteger, AORegisteredCertificatesTVCMode)
 @property (nonatomic, assign) AORegisteredCertificatesTVCMode mode;
 @property (nonatomic, strong) NSString *startURL;
 @property (strong, nonatomic) NSMutableArray *_certificatesArray;
-@property (retain, nonatomic) IBOutlet UITableView *editTableView;
+@property (strong, nonatomic) IBOutlet UITableView *editTableView;
 
 
 @end

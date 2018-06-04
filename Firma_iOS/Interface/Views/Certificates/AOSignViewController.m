@@ -173,14 +173,10 @@ SecKeyRef privateKey = NULL;
             NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
             UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
             [imageView setImage:bkgImg];
-            [bkgImg release];
-            [path release];
             
             [alert addSubview:imageView];
-            [imageView release];
             
             [alert show];
-            [alert release];
             
             self.signButton.userInteractionEnabled = NO;
             return;
@@ -211,14 +207,10 @@ SecKeyRef privateKey = NULL;
                 NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
                 UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
                 [imageView setImage:bkgImg];
-                [bkgImg release];
-                [path release];
                 
                 [alert addSubview:imageView];
-                [imageView release];
                 
                 [alert show];
-                [alert release];
                 
                 self.signButton.userInteractionEnabled = NO;
                 return;
@@ -245,14 +237,10 @@ SecKeyRef privateKey = NULL;
         NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
         UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
         [imageView setImage:bkgImg];
-        [bkgImg release];
-        [path release];
         
         [alert addSubview:imageView];
-        [imageView release];
         
         [alert show];
-        [alert release];
         
         self.signButton.userInteractionEnabled = NO;
         return;
@@ -334,14 +322,10 @@ SecKeyRef privateKey = NULL;
                 NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
                 UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
                 [imageView setImage:bkgImg];
-                [bkgImg release];
-                [path release];
                 
                 [alert addSubview:imageView];
-                [imageView release];
                 
                 [alert show];
-                [alert release];
                 
                 self.signButton.userInteractionEnabled = NO;
                 return;
@@ -391,14 +375,10 @@ SecKeyRef privateKey = NULL;
         NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
         UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
         [imageView setImage:bkgImg];
-        [bkgImg release];
-        [path release];
         
         [alert addSubview:imageView];
-        [imageView release];
         
         [alert show];
-        [alert release];
         self.signButton.userInteractionEnabled = NO;
         return;
     }
@@ -413,14 +393,10 @@ SecKeyRef privateKey = NULL;
         NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
         UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
         [imageView setImage:bkgImg];
-        [bkgImg release];
-        [path release];
         
         [alert addSubview:imageView];
-        [imageView release];
         
         [alert show];
-        [alert release];
         self.signButton.userInteractionEnabled = NO;
         return;
     }
@@ -442,14 +418,10 @@ SecKeyRef privateKey = NULL;
         NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
         UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
         [imageView setImage:bkgImg];
-        [bkgImg release];
-        [path release];
         
         [alert addSubview:imageView];
-        [imageView release];
         
         [alert show];
-        [alert release];
         
         self.signButton.userInteractionEnabled = NO;
         return;
@@ -469,14 +441,10 @@ SecKeyRef privateKey = NULL;
         NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
         UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
         [imageView setImage:bkgImg];
-        [bkgImg release];
-        [path release];
         
         [alert addSubview:imageView];
-        [imageView release];
         
         [alert show];
-        [alert release];
         
         self.signButton.userInteractionEnabled = NO;
         return;
@@ -500,14 +468,10 @@ SecKeyRef privateKey = NULL;
         NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
         UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
         [imageView setImage:bkgImg];
-        [bkgImg release];
-        [path release];
         
         [alert addSubview:imageView];
-        [imageView release];
         
         [alert show];
-        [alert release];
         self.signButton.userInteractionEnabled = NO;
         return;
     }
@@ -837,14 +801,10 @@ SecKeyRef privateKey = NULL;
             NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"ok_mini.png"]];
             UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
             [imageView setImage:bkgImg];
-            [bkgImg release];
-            [path release];
             
             [alert addSubview:imageView];
-            [imageView release];
             
             [alert show];
-            [alert release];
         }
         else {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"error",nil)  message: NSLocalizedString(@"error_proceso_firma",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"cerrar",nil) otherButtonTitles:nil];
@@ -854,14 +814,10 @@ SecKeyRef privateKey = NULL;
             NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
             UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
             [imageView setImage:bkgImg];
-            [bkgImg release];
-            [path release];
             
             [alert addSubview:imageView];
-            [imageView release];
             
             [alert show];
-            [alert release];
         }
     }
     // Se recogen los datos del servidor
@@ -930,14 +886,10 @@ SecKeyRef privateKey = NULL;
             NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
             UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
             [imageView setImage:bkgImg];
-            [bkgImg release];
-            [path release];
             
             [alert addSubview:imageView];
-            [imageView release];
             
             [alert show];
-            [alert release];
         }
     }
     // la respuesta a un reporte de error
@@ -954,8 +906,6 @@ SecKeyRef privateKey = NULL;
     }
     
     // release the connection, and the data object
-    [connection release];
-    [receivedData release];
 }
 
 /**************************/
@@ -987,7 +937,6 @@ SecKeyRef privateKey = NULL;
   didFailWithError:(NSError *)error
 {
     // Liberar la conexión
-    [connection release];
     NSLog(@"\n\nnAOSignViewController -> Conection => %@", connection);
     NSLog(@"\n\nAOSignViewController -> Error => %@ %@",
           [error localizedDescription],
@@ -1011,14 +960,10 @@ SecKeyRef privateKey = NULL;
     NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
     UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
     [imageView setImage:bkgImg];
-    [bkgImg release];
-    [path release];
     
     [alert addSubview:imageView];
-    [imageView release];
     
     [alert show];
-    [alert release];
     
     self.signButton.userInteractionEnabled = NO;
     self.signButton.enabled=NO;
@@ -1067,14 +1012,10 @@ SecKeyRef privateKey = NULL;
             NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
             UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
             [imageView setImage:bkgImg];
-            [bkgImg release];
-            [path release];
             
             [alert addSubview:imageView];
-            [imageView release];
             
             [alert show];
-            [alert release];
             
             return;
         }
@@ -1394,12 +1335,6 @@ SecKeyRef privateKey = NULL;
     // Dispose of any resources that can be recreated.
 }
 
-- (void)dealloc
-{
-    [_nombreCert release];
-    [_signButton release];
-    [super dealloc];
-}
 
 - (void)viewDidUnload
 {

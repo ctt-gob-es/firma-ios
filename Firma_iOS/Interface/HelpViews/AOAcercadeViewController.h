@@ -9,6 +9,6 @@
 
 @interface AOAcercadeViewController : GAITrackedViewController
 
-@property (retain, nonatomic) IBOutlet UIButton *masInfoButton;
+@property (strong, nonatomic) IBOutlet UIButton *masInfoButton;
 -(IBAction)buttonPressed:(id)sender;
 @end
