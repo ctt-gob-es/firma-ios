@@ -14,7 +14,7 @@
 		B240772F20A5B87B00A8EE1C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B240772420A5B87B00A8EE1C /* Localizable.strings */; };
 		B240773020A5B87B00A8EE1C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B240772720A5B87B00A8EE1C /* InfoPlist.strings */; };
 		B240773120A5B87B00A8EE1C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B240772920A5B87B00A8EE1C /* Localizable.strings */; };
-		B240773220A5B87B00A8EE1C /* SignSample02-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B240772B20A5B87B00A8EE1C /* SignSample02-Info.plist */; };
+		B240773220A5B87B00A8EE1C /* Firma_iOS-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B240772B20A5B87B00A8EE1C /* Firma_iOS-Info.plist */; };
 		B240774220AABBE900A8EE1C /* AlertProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B240774120AABBE900A8EE1C /* AlertProgressBar.m */; };
 		B243848120C539DA0087BAE0 /* iPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B243847D20C539DA0087BAE0 /* iPhoneStoryboard.storyboard */; };
 		B243848220C539DA0087BAE0 /* iPadStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B243847E20C539DA0087BAE0 /* iPadStoryboard.storyboard */; };
@@ -194,8 +194,8 @@
 		B240772520A5B87B00A8EE1C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		B240772820A5B87B00A8EE1C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = InfoPlist.strings; sourceTree = "<group>"; };
 		B240772A20A5B87B00A8EE1C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localizable.strings; sourceTree = "<group>"; };
-		B240772B20A5B87B00A8EE1C /* SignSample02-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SignSample02-Info.plist"; path = "Supporting Files/SignSample02-Info.plist"; sourceTree = "<group>"; };
-		B240773A20A5C3D600A8EE1C /* SignSample02-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SignSample02-Prefix.pch"; sourceTree = "<group>"; };
+		B240772B20A5B87B00A8EE1C /* Firma_iOS-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Firma_iOS-Info.plist"; path = "Supporting Files/Firma_iOS-Info.plist"; sourceTree = "<group>"; };
+		B240773A20A5C3D600A8EE1C /* Firma_iOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Firma_iOS-Prefix.pch"; sourceTree = "<group>"; };
 		B240773B20A5CA5F00A8EE1C /* ANF_PF_Activo.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; name = ANF_PF_Activo.p12; path = "Supporting Files/ANF_PF_Activo.p12"; sourceTree = "<group>"; };
 		B240774020AABBE800A8EE1C /* AlertProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertProgressBar.h; sourceTree = "<group>"; };
 		B240774120AABBE900A8EE1C /* AlertProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertProgressBar.m; sourceTree = "<group>"; };
@@ -740,7 +740,7 @@
 		C30B3231163804620072A515 /* SignSample02 */ = {
 			isa = PBXGroup;
 			children = (
-				B240773A20A5C3D600A8EE1C /* SignSample02-Prefix.pch */,
+				B240773A20A5C3D600A8EE1C /* Firma_iOS-Prefix.pch */,
 				B2EE5C0F20AC4359000A4A28 /* AOAppDelegate.h */,
 				B2EE5C0E20AC4358000A4A28 /* AOAppDelegate.m */,
 				B243847B20C539DA0087BAE0 /* Interface */,
@@ -757,7 +757,7 @@
 				B240772120A5B87B00A8EE1C /* en.lproj */,
 				B240772620A5B87B00A8EE1C /* es.lproj */,
 				B240772020A5B87B00A8EE1C /* main.m */,
-				B240772B20A5B87B00A8EE1C /* SignSample02-Info.plist */,
+				B240772B20A5B87B00A8EE1C /* Firma_iOS-Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1087,7 +1087,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C30B3221163804620072A515 /* Build configuration list for PBXProject "SignSample02" */;
+			buildConfigurationList = C30B3221163804620072A515 /* Build configuration list for PBXProject "Firma_iOS" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1114,7 +1114,7 @@
 				B243848420C539DA0087BAE0 /* MainStoryBoard_iPhone.storyboard in Resources */,
 				B27395DC20A43AF800A7D05A /* info_mini.png in Resources */,
 				B27395D820A43AF800A7D05A /* cert_menu.png in Resources */,
-				B240773220A5B87B00A8EE1C /* SignSample02-Info.plist in Resources */,
+				B240773220A5B87B00A8EE1C /* Firma_iOS-Info.plist in Resources */,
 				B243848320C539DA0087BAE0 /* MainStoryBoard_iPad.storyboard in Resources */,
 				B240773120A5B87B00A8EE1C /* Localizable.strings in Resources */,
 				B240772E20A5B87B00A8EE1C /* InfoPlist.strings in Resources */,
@@ -1424,9 +1424,9 @@
 				);
 				GCC_NO_COMMON_BLOCKS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SignSample02/SignSample02-Prefix.pch";
+				GCC_PREFIX_HEADER = "SignSample02/Firma_iOS-Prefix.pch";
 				HEADER_SEARCH_PATHS = "include/**";
-				INFOPLIST_FILE = "$(SRCROOT)/SignSample02/Supporting Files/SignSample02-Info.plist";
+				INFOPLIST_FILE = "SignSample02/Supporting Files/Firma_iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1462,9 +1462,9 @@
 				);
 				GCC_NO_COMMON_BLOCKS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SignSample02/SignSample02-Prefix.pch";
+				GCC_PREFIX_HEADER = "SignSample02/Firma_iOS-Prefix.pch";
 				HEADER_SEARCH_PATHS = "include/**";
-				INFOPLIST_FILE = "$(SRCROOT)/SignSample02/Supporting Files/SignSample02-Info.plist";
+				INFOPLIST_FILE = "SignSample02/Supporting Files/Firma_iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1486,7 +1486,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C30B3221163804620072A515 /* Build configuration list for PBXProject "SignSample02" */ = {
+		C30B3221163804620072A515 /* Build configuration list for PBXProject "Firma_iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C30B3261163804620072A515 /* Debug */,
