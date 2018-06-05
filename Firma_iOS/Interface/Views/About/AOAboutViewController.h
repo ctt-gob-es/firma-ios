@@ -1,0 +1,21 @@
+//
+//  AOAboutViewController.h
+//  Firma_iOS
+//
+//
+
+#import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
+
+@interface AOAboutViewController : GAITrackedViewController <UITabBarControllerDelegate> {
+    
+    IBOutlet UITabBar *tabBar;
+    NSString *relinkUserId;
+}
+
+@property (retain, nonatomic) IBOutlet UIButton *manageStoreButton;
+@property (nonatomic, retain) NSNotification *onReadUrl;
+
+-(void)createNotification;
+
+@end
