@@ -49,7 +49,7 @@
 		B273960920A43E2800A7D05A /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395ED20A43E2800A7D05A /* Base64.m */; };
 		B273960A20A43E2800A7D05A /* CADESMonoPhase.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395EF20A43E2800A7D05A /* CADESMonoPhase.m */; };
 		B273960B20A43E2800A7D05A /* CADESSignUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395F120A43E2800A7D05A /* CADESSignUtils.m */; };
-		B273960C20A43E2800A7D05A /* CertificateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395F320A43E2800A7D05A /* CertificateUtils.m */; };
+		B273960C20A43E2800A7D05A /* CertificateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395F320A43E2800A7D05A /* CertificateUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B273960D20A43E2800A7D05A /* ColorChart.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395F520A43E2800A7D05A /* ColorChart.m */; };
 		B273960E20A43E2800A7D05A /* DateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395F720A43E2800A7D05A /* DateHelper.m */; };
 		B273960F20A43E2800A7D05A /* DesCypher.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395F920A43E2800A7D05A /* DesCypher.m */; };
