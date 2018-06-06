@@ -21,10 +21,10 @@
 @property (nonatomic, assign) SecKeyRef publicKey;
 @property (nonatomic, assign) SecKeyRef privateKey;
 @property (nonatomic, assign) SecIdentityRef myIdentity;
-@property (strong, nonatomic) NSString *summaryString;
-@property (strong, nonatomic) NSData *publicKeyBits;
+@property (retain, nonatomic) NSString *summaryString;
+@property (retain, nonatomic) NSData *publicKeyBits;
 @property (nonatomic, strong) NSString *selectedCertificateName;
-@property (nonatomic, strong) NSString *base64UrlSafeCertificateData;
+@property (nonatomic, retain) NSString *base64UrlSafeCertificateData;
 
 
 + (CertificateUtils *)sharedWrapper;

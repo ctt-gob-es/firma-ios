@@ -108,7 +108,7 @@ static CertificateUtils *_sharedWrapper = nil;
         PKCS12Data = [[NSData alloc] initWithContentsOfFile:thePath];
     }
     
-    CFDataRef inPKCS12Data = (__bridge CFDataRef)PKCS12Data;
+    CFDataRef inPKCS12Data = (CFDataRef)PKCS12Data;
     OSStatus status = noErr;
     SecTrustRef myTrust;
     
@@ -126,7 +126,7 @@ static CertificateUtils *_sharedWrapper = nil;
     
     status = SecIdentityCopyCertificate(_myIdentity, &_certificateRef);  // 1
     CFStringRef certSummary = SecCertificateCopySubjectSummary(_certificateRef);  // 2
-    _summaryString = [[NSString alloc]initWithString:(__bridge NSString *)certSummary];
+    _summaryString = [[NSString alloc]initWithString:(NSString *)certSummary];
     
     _publicKey = SecTrustCopyPublicKey(myTrust);
     if (certSummary) {
@@ -154,7 +154,7 @@ static CertificateUtils *_sharedWrapper = nil;
 {
     OSStatus securityError = errSecSuccess;
     
-    CFStringRef password = (__bridge CFStringRef)pass;
+    CFStringRef password = (CFStringRef)pass;
     const void *keys[] = { kSecImportExportPassphrase };
     const void *values[] = { password };
     
@@ -187,7 +187,7 @@ static CertificateUtils *_sharedWrapper = nil;
     
     NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
     // [dict setObject:(id)kSecClassIdentity forKey:(id) kSecClass];
-    [dict setObject:(__bridge id)_myIdentity forKey:(id)kSecValueRef];
+    [dict setObject:(id)_myIdentity forKey:(id)kSecValueRef];
     
 #if TARGET_IPHONE_SIMULATOR
     // Ignore the access group if running on the iPhone simulator.
@@ -208,7 +208,7 @@ static CertificateUtils *_sharedWrapper = nil;
     sanityCheck = SecItemAdd((CFDictionaryRef)dict, NULL);
     
     if (dict) {
-        CFRelease((__bridge CFTypeRef)(dict));
+        CFRelease(dict);
     }
     
     return sanityCheck;
@@ -224,7 +224,7 @@ static CertificateUtils *_sharedWrapper = nil;
     
     NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
     [dict setObject:(id)kSecClassIdentity forKey:kSecClass];
-    [dict setObject:(__bridge id _Nonnull)((CFTypeRef)certLabel) forKey:kSecAttrLabel];
+    [dict setObject:(CFTypeRef)certLabel forKey:kSecAttrLabel];
     [dict setObject:[NSNumber numberWithBool:YES] forKey:kSecReturnRef];
     
     if (certLabel) {
@@ -247,7 +247,7 @@ static CertificateUtils *_sharedWrapper = nil;
     status = SecItemCopyMatching((CFDictionaryRef)dict, &result);
     
     if (dict) {
-        CFRelease((__bridge CFTypeRef)(dict));
+        CFRelease(dict);
     }
     
     if (status != noErr) {
@@ -272,7 +272,7 @@ static CertificateUtils *_sharedWrapper = nil;
     
     CFDataRef certificateData2 = SecCertificateCopyData(certificate);
     
-    NSData *publicKey2 = (__bridge NSData *)certificateData2;
+    NSData *publicKey2 = (NSData *)certificateData2;
     
     NSString *certificateString2 = [Base64 encode:publicKey2];
     
@@ -308,7 +308,7 @@ static CertificateUtils *_sharedWrapper = nil;
 
 - (NSData *)getHashBytesSHA1:(NSData *)plainText
 {
-    CC_SHA1_CTX ctx;    
+    CC_SHA1_CTX ctx;
     uint8_t * hashBytes = NULL;
     NSData * hash = nil;
     
@@ -429,7 +429,7 @@ static CertificateUtils *_sharedWrapper = nil;
     memset((void *)signedHashBytes, 0x0, signedHashBytesSize);
     
     const uint8_t *hashMessage=[[self getHashBytesSHA1:plainText] bytes];
-
+    
     uint8_t * digestInfo = malloc((CC_SHA1_DIGEST_LENGTH + SHA1_DIGESTINFO_HEADER_LENGTH)* sizeof(uint8_t));
     
     memcpy(digestInfo, SHA1_DIGESTINFO_HEADER, SHA1_DIGESTINFO_HEADER_LENGTH);
@@ -551,7 +551,7 @@ static CertificateUtils *_sharedWrapper = nil;
     if (digestInfo) free(digestInfo);
     
     return signedHash;
-
+    
 }
 
 
@@ -575,9 +575,9 @@ static CertificateUtils *_sharedWrapper = nil;
     //SHA512_DIGESTINFO_HEADER+hashMessage
     
     uint8_t * digestInfo = malloc((CC_SHA512_DIGEST_LENGTH + SHA512_DIGESTINFO_HEADER_LENGTH)* sizeof(uint8_t));
-       
+    
     memcpy(digestInfo, SHA512_DIGESTINFO_HEADER, SHA512_DIGESTINFO_HEADER_LENGTH);
-   
+    
     for (int i=SHA512_DIGESTINFO_HEADER_LENGTH; i<(CC_SHA512_DIGEST_LENGTH + SHA512_DIGESTINFO_HEADER_LENGTH); i++)
     {
         digestInfo[i] = (uint8_t) hashMessage[i-SHA512_DIGESTINFO_HEADER_LENGTH];
@@ -606,7 +606,11 @@ static CertificateUtils *_sharedWrapper = nil;
     _publicKey = nil;
     _privateKey = nil;
     _myIdentity = nil;
+    _summaryString = nil;
+    _publicKeyBits = nil;
+    _selectedCertificateName = nil;
     
+    [super dealloc];
 }
 
 @end
