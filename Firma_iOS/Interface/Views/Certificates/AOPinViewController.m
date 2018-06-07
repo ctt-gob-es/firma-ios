@@ -106,46 +106,50 @@ SecKeyRef privateKeyPkcs12 = NULL;
 
 -(BOOL) checkPin:(NSString*)pin {
     OSStatus status = [self openPkcs12Store:pin];
-    
     if (status == 0) {
         [self.pinTextField setText:nil];
         return YES;
     }
     if (status == -25293) {
-                
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"error",nil) message: NSLocalizedString(@"error_contrasenia",nil) delegate:self cancelButtonTitle: NSLocalizedString(@"cerrar",nil) otherButtonTitles:nil];
-        
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(75, 6, 40, 40)];
-        
-        NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
-        UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
-        [imageView setImage:bkgImg];
-        
-        [alert addSubview:imageView];
-        
-        [alert show];
-        
-        [self.pinTextField setText:nil];
-        
+        [self showAlertWithMessage:NSLocalizedString(@"error_contrasenia",nil)];
     }
     else {
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_carga_almacen",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"cerrar",nil) otherButtonTitles:nil];
-        
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(75, 6, 40, 40)];
-        
-        NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
-        UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
-        [imageView setImage:bkgImg];
-        
-        [alert addSubview:imageView];
-        
-        [alert show];
-        
-        [self.pinTextField setText:nil];
-    }    
+        [self showAlertWithMessage:NSLocalizedString(@"error_carga_almacen",nil)];
+    }
     return NO;
 }
+
+- (void) showAlertWithMessage:(NSString *)message
+{
+    UIAlertController *alert= [UIAlertController alertControllerWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_contrasenia",nil) preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"cerrar",nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    }]];
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(75, 6, 40, 40)];
+    
+    NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
+    UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
+    [imageView setImage:bkgImg];
+    
+    [alert.view addSubview:imageView];
+    
+    [[self currentTopViewController] dismissViewControllerAnimated:true completion:nil];
+    
+    [self.pinTextField setText:nil];
+}
+
+
+- (UIViewController *)currentTopViewController
+{
+    UIViewController *topVC = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
+    while (topVC.presentedViewController)
+    {
+        topVC = topVC.presentedViewController;
+    }
+    return topVC;
+}
+
 
 
 -(OSStatus) openPkcs12Store:(NSString*)pin {
