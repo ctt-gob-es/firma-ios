@@ -12,24 +12,28 @@
 @synthesize spinner;
 
 - (void) createProgressBar:(UIView*)view{
-    
-    av = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"processing",nil) message:@"" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
-    
+    av = [UIAlertController alertControllerWithTitle: NSLocalizedString(@"processing",nil) message:@"" preferredStyle:UIAlertControllerStyleAlert];
     spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    
     spinner.center = CGPointMake(140, 70);
-    
     spinner.hidesWhenStopped = YES;
-    
     [spinner startAnimating];
-    [av addSubview:spinner];
-    [av show];
-
+    [av.view addSubview:spinner];
+    [[self currentTopViewController] presentViewController:av animated:YES completion:nil];
 }
 
 -(void) destroy {
     [spinner stopAnimating];
-    [av dismissWithClickedButtonIndex:0 animated:true];
+    [[self currentTopViewController] dismissViewControllerAnimated:true completion:nil];
+}
+
+- (UIViewController *)currentTopViewController
+{
+    UIViewController *topVC = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
+    while (topVC.presentedViewController)
+    {
+        topVC = topVC.presentedViewController;
+    }
+    return topVC;
 }
 
 @end
