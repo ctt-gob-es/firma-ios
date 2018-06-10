@@ -9,6 +9,7 @@
 #import "AORegisterCertificateVC.h"
 #import "CertificateUtils.h"
 #import "ColorChart.h"
+#import "CommonAlert.h"
 
 @interface AORegisterCertificateVC ()
 {
@@ -89,13 +90,8 @@
             [_delegate certificateAdded];
         }
         
-        UIAlertView *alert = [[UIAlertView alloc]
-                              initWithTitle:@"Certificado cargado"
-                              message:@"El certificado se ha cargado correctamente en su aplicación."
-                              delegate:nil
-                              cancelButtonTitle:@"OK"
-                              otherButtonTitles:nil];
-        [alert show];
+        [CommonAlert createAlertWithTitle: @"Certificado cargado" message:@"El certificado se ha cargado correctamente en su aplicación." cancelButtonTitle:@"OK"];
+
     }
     
     UIFont *currentFont = _messageLabel.font;

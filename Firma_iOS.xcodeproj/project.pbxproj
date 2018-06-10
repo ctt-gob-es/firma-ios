@@ -60,6 +60,7 @@
 		B273961420A43E2800A7D05A /* QuartzUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B273960320A43E2800A7D05A /* QuartzUtils.m */; };
 		B273961620A441FF00A7D05A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B273961520A441FF00A7D05A /* Images.xcassets */; };
 		B273961A20A447DB00A7D05A /* CADESOID.c in Sources */ = {isa = PBXBuildFile; fileRef = B273961820A447DB00A7D05A /* CADESOID.c */; };
+		B2D0158D20CA7F9400FD4102 /* CommonAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D0158C20CA7F9400FD4102 /* CommonAlert.m */; };
 		B2EE5C1020AC4359000A4A28 /* AOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B2EE5C0E20AC4358000A4A28 /* AOAppDelegate.m */; };
 		C30B322C163804620072A515 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30B322B163804620072A515 /* UIKit.framework */; };
 		C30B322E163804620072A515 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30B322D163804620072A515 /* Foundation.framework */; };
@@ -283,6 +284,8 @@
 		B273961520A441FF00A7D05A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B273961820A447DB00A7D05A /* CADESOID.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CADESOID.c; sourceTree = "<group>"; };
 		B273961920A447DB00A7D05A /* CADESOID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADESOID.h; sourceTree = "<group>"; };
+		B2D0158B20CA7F9400FD4102 /* CommonAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonAlert.h; sourceTree = "<group>"; };
+		B2D0158C20CA7F9400FD4102 /* CommonAlert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonAlert.m; sourceTree = "<group>"; };
 		B2EE5C0E20AC4358000A4A28 /* AOAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOAppDelegate.m; sourceTree = "<group>"; };
 		B2EE5C0F20AC4359000A4A28 /* AOAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOAppDelegate.h; sourceTree = "<group>"; };
 		C30B3227163804620072A515 /* Cliente @firma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cliente @firma.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -572,6 +575,8 @@
 			children = (
 				B2406F3120C5CB8D008ED085 /* AlertProgressBar.h */,
 				B2406F3220C5CB8D008ED085 /* AlertProgressBar.m */,
+				B2D0158B20CA7F9400FD4102 /* CommonAlert.h */,
+				B2D0158C20CA7F9400FD4102 /* CommonAlert.m */,
 			);
 			path = Alerts;
 			sourceTree = "<group>";
@@ -1200,6 +1205,7 @@
 				C3B11DCC16FB642B00C0D623 /* ber_tlv_length.c in Sources */,
 				B27395CD20A4384300A7D05A /* CADESConstants.m in Sources */,
 				C3B11DCE16FB642B00C0D623 /* ber_tlv_tag.c in Sources */,
+				B2D0158D20CA7F9400FD4102 /* CommonAlert.m in Sources */,
 				C3B11DD016FB642B00C0D623 /* BIT_STRING.c in Sources */,
 				C3B11DD216FB642B00C0D623 /* CertificateSerialNumber.c in Sources */,
 				C3B11DD416FB642B00C0D623 /* CertificateSet.c in Sources */,
