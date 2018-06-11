@@ -18,6 +18,7 @@
 #import "AOCounterSignXMLParser.h"
 #import "AOCounterSignPreItems.h"
 #import "CertificateUtils.h"
+#import "CommonAlert.h"
 
 @interface AOSignViewController ()
 
@@ -166,17 +167,24 @@ SecKeyRef privateKey = NULL;
             errorToSend = [errorToSend stringByAppendingString:ERROR_SEPARATOR];
             errorToSend = [errorToSend stringByAppendingString:DESC_ERROR_MISSING_DATA];
             
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"error",nil) message: NSLocalizedString(@"error_datos_firmar",nil) delegate:self cancelButtonTitle: NSLocalizedString(@"cerrar",nil) otherButtonTitles:nil];
-            
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(75, 6, 40, 40)];
             
             NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
             UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
             [imageView setImage:bkgImg];
             
-            [alert addSubview:imageView];
+            //            UIAlertView *alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"error",nil) message: NSLocalizedString(@"error_datos_firmar",nil) delegate:self cancelButtonTitle: NSLocalizedString(@"cerrar",nil) otherButtonTitles:nil];
+            //
+            //            [alert addSubview:imageView];
+            //
+            //            [alert show];
             
-            [alert show];
+            
+            //TEST IT the dissmis delegate!!! in everyone!!!
+            
+            [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView onComplete:^{
+                [self backToAboutViewController];
+            }];
             
             self.signButton.userInteractionEnabled = NO;
             return;
@@ -200,17 +208,24 @@ SecKeyRef privateKey = NULL;
                 
                 [self errorReportAsync:errorToSend];
                 
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"error",nil) message: NSLocalizedString(@"error_datos_firmar",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"cerrar",nil) otherButtonTitles:nil];
-                
                 UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(75, 6, 40, 40)];
                 
                 NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
                 UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
                 [imageView setImage:bkgImg];
                 
-                [alert addSubview:imageView];
+                //                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"error",nil) message: NSLocalizedString(@"error_datos_firmar",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"cerrar",nil) otherButtonTitles:nil];
+                //
+                //                [alert addSubview:imageView];
+                //
+                //                [alert show];
                 
-                [alert show];
+                //TEST IT
+                [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView onComplete:^{
+                    [self backToAboutViewController];
+                }];
+                
+                
                 
                 self.signButton.userInteractionEnabled = NO;
                 return;
@@ -230,17 +245,21 @@ SecKeyRef privateKey = NULL;
         
         [self errorReportAsync:errorToSend];
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_datos_firmar",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"cerrar",nil) otherButtonTitles:nil];
-        
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(75, 6, 40, 40)];
         
         NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
         UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
         [imageView setImage:bkgImg];
         
-        [alert addSubview:imageView];
+        //        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_datos_firmar",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"cerrar",nil) otherButtonTitles:nil];
+        //        [alert addSubview:imageView];
+        //
+        //        [alert show];
         
-        [alert show];
+        //TEST IT
+        [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView onComplete:^{
+            [self backToAboutViewController];
+        }];
         
         self.signButton.userInteractionEnabled = NO;
         return;
@@ -315,17 +334,21 @@ SecKeyRef privateKey = NULL;
                 
                 [self errorReportAsync:errorToSend];
                 
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_objetivo_contrafirma",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"cerrar",nil) otherButtonTitles:nil];
-                
                 UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(75, 6, 40, 40)];
                 
                 NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
                 UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
                 [imageView setImage:bkgImg];
                 
-                [alert addSubview:imageView];
+                //                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_objetivo_contrafirma",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"cerrar",nil) otherButtonTitles:nil];
+                //                [alert addSubview:imageView];
+                //
+                //                [alert show];
                 
-                [alert show];
+                // TEST IT
+                [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_objetivo_contrafirma",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView onComplete:^{
+                    [self backToAboutViewController];
+                }];
                 
                 self.signButton.userInteractionEnabled = NO;
                 return;
@@ -367,18 +390,25 @@ SecKeyRef privateKey = NULL;
         //hay que hacer esta llamada asincrona!!!
         [self errorReportAsync:errorToSend];
         
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_codigo_desconocido",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"cerrar",nil)  otherButtonTitles:nil];
-        
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(75, 6, 40, 40)];
         
         NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
         UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
         [imageView setImage:bkgImg];
         
-        [alert addSubview:imageView];
+        //        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_codigo_desconocido",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"cerrar",nil)  otherButtonTitles:nil];
+        //
+        //        [alert addSubview:imageView];
+        //
+        //        [alert show];
         
-        [alert show];
+        //TEST IT
+        [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_codigo_desconocido",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView onComplete:^{
+            [self backToAboutViewController];
+        }];
+        
+        
+        
         self.signButton.userInteractionEnabled = NO;
         return;
     }
@@ -386,17 +416,23 @@ SecKeyRef privateKey = NULL;
     if (urlServlet == nil)
     {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"error",nil) message:  NSLocalizedString(@"error_url_servidor",nil) delegate:self cancelButtonTitle: NSLocalizedString(@"cerrar",nil) otherButtonTitles:nil];
-        
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(75, 6, 40, 40)];
         
         NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
         UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
         [imageView setImage:bkgImg];
         
-        [alert addSubview:imageView];
+        //        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"error",nil) message:  NSLocalizedString(@"error_url_servidor",nil) delegate:self cancelButtonTitle: NSLocalizedString(@"cerrar",nil) otherButtonTitles:nil];
+        //
+        //        [alert addSubview:imageView];
+        //
+        //        [alert show];
         
-        [alert show];
+        //TEST IT
+        [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_url_servidor",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView onComplete:^{
+            [self backToAboutViewController];
+        }];
+        
         self.signButton.userInteractionEnabled = NO;
         return;
     }
@@ -411,17 +447,22 @@ SecKeyRef privateKey = NULL;
         
         [self errorReportAsync:errorToSend];
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"error",nil) message: NSLocalizedString(@"error_formato_firma",nil) delegate:self cancelButtonTitle: NSLocalizedString(@"cerrar",nil) otherButtonTitles:nil];
-        
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(75, 6, 40, 40)];
         
         NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
         UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
         [imageView setImage:bkgImg];
         
-        [alert addSubview:imageView];
+        //        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"error",nil) message: NSLocalizedString(@"error_formato_firma",nil) delegate:self cancelButtonTitle: NSLocalizedString(@"cerrar",nil) otherButtonTitles:nil];
+        //
+        //        [alert addSubview:imageView];
+        //
+        //        [alert show];
         
-        [alert show];
+        //TEST IT
+        [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_formato_firma",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView onComplete:^{
+            [self backToAboutViewController];
+        }];
         
         self.signButton.userInteractionEnabled = NO;
         return;
@@ -434,7 +475,7 @@ SecKeyRef privateKey = NULL;
                || [signFormat isEqualToString:XADES_FORMAT]))
     {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"error",nil) message:  NSLocalizedString(@"error_formato_no_soportado",nil) delegate:self cancelButtonTitle: NSLocalizedString(@"cerrar",nil) otherButtonTitles:nil];
+        
         
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(75, 6, 40, 40)];
         
@@ -442,9 +483,16 @@ SecKeyRef privateKey = NULL;
         UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
         [imageView setImage:bkgImg];
         
-        [alert addSubview:imageView];
+        //        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"error",nil) message:  NSLocalizedString(@"error_formato_no_soportado",nil) delegate:self cancelButtonTitle: NSLocalizedString(@"cerrar",nil) otherButtonTitles:nil];
+        //
+        //        [alert addSubview:imageView];
+        //
+        //        [alert show];
         
-        [alert show];
+        //TEST IT
+        [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_formato_no_soportado",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView onComplete:^{
+            [self backToAboutViewController];
+        }];
         
         self.signButton.userInteractionEnabled = NO;
         return;
@@ -461,17 +509,21 @@ SecKeyRef privateKey = NULL;
         
         [self errorReportAsync:errorToSend];
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_algoritmo_no_soportado",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"cerrar",nil) otherButtonTitles:nil];
-        
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(75, 6, 40, 40)];
         
         NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
         UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
         [imageView setImage:bkgImg];
         
-        [alert addSubview:imageView];
+        //        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_algoritmo_no_soportado",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"cerrar",nil) otherButtonTitles:nil];
+        //        [alert addSubview:imageView];
+        //
+        //        [alert show];
+        //TEST IT
+        [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_algoritmo_no_soportado",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView onComplete:^{
+            [self backToAboutViewController];
+        }];
         
-        [alert show];
         self.signButton.userInteractionEnabled = NO;
         return;
     }
@@ -544,7 +596,7 @@ SecKeyRef privateKey = NULL;
         //parámetro de algoritmo precalculado
         if([dictExtraParams objectForKey:PROPERTIES_PARAMETER_PRECALCULATEDHASHALGORITHM]!=NULL)
         {
-        
+            
             //tenemos que deshacer el formato "http://www.w3.org/2000/09/xmldsig#sha256"
             NSString *auxPreCalculatedHashAlg = [dictExtraParams objectForKey:PROPERTIES_PARAMETER_PRECALCULATEDHASHALGORITHM];
             NSRange range = [auxPreCalculatedHashAlg rangeOfString:@"#" options:NSBackwardsSearch];
@@ -693,7 +745,7 @@ SecKeyRef privateKey = NULL;
     
     //la siguiente línea quita el ultimo caracter que debe ser de nueva línea "\n" esto estaba
     //fastidiando los demás parámetros.
-//    certificate = [certificate substringToIndex:[certificate length] - 1];
+    //    certificate = [certificate substringToIndex:[certificate length] - 1];
     certificate = [certificate stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     NSLog(@"\n\ncertificado: %@", certificate);
     
@@ -789,12 +841,10 @@ SecKeyRef privateKey = NULL;
         
         //quitamos el progressbar indefinido
         [alertpb destroy];
-    
+        
         //se procesa la respuesta del servidor.
         if([responseString hasPrefix: @"OK"])
         {
-            
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"ok",nil) message: NSLocalizedString(@"proceso_finalizado_trifasico",nil) delegate:self cancelButtonTitle: NSLocalizedString(@"cerrar",nil) otherButtonTitles: nil];
             
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(75, 6, 40, 40)];
             
@@ -802,12 +852,16 @@ SecKeyRef privateKey = NULL;
             UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
             [imageView setImage:bkgImg];
             
-            [alert addSubview:imageView];
-            
-            [alert show];
+            //            UIAlertView *alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"ok",nil) message: NSLocalizedString(@"proceso_finalizado_trifasico",nil) delegate:self cancelButtonTitle: NSLocalizedString(@"cerrar",nil) otherButtonTitles: nil];
+            //            [alert addSubview:imageView];
+            //
+            //            [alert show];
+            //TEST IT
+            [CommonAlert createAlertWithTitle:NSLocalizedString(@"ok",nil) message:NSLocalizedString(@"proceso_finalizado_trifasico",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView onComplete:^{
+                [self backToAboutViewController];
+            }];
         }
         else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"error",nil)  message: NSLocalizedString(@"error_proceso_firma",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"cerrar",nil) otherButtonTitles:nil];
             
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(75, 6, 40, 40)];
             
@@ -815,9 +869,14 @@ SecKeyRef privateKey = NULL;
             UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
             [imageView setImage:bkgImg];
             
-            [alert addSubview:imageView];
-            
-            [alert show];
+            //            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"error",nil)  message: NSLocalizedString(@"error_proceso_firma",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"cerrar",nil) otherButtonTitles:nil];
+            //            [alert addSubview:imageView];
+            //
+            //            [alert show];
+            //TEST IT
+            [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_proceso_firma",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView onComplete:^{
+                [self backToAboutViewController];
+            }];
         }
     }
     // Se recogen los datos del servidor
@@ -879,17 +938,22 @@ SecKeyRef privateKey = NULL;
             
             //Se muestra el mensaje de respuesta al usuario.
             
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"error",nil) message: NSLocalizedString(@"error_proceso_firma",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"cerrar",nil) otherButtonTitles:nil];
-            
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(75, 6, 40, 40)];
             
             NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
             UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
             [imageView setImage:bkgImg];
             
-            [alert addSubview:imageView];
+            //                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"error",nil) message: NSLocalizedString(@"error_proceso_firma",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"cerrar",nil) otherButtonTitles:nil];
+            //
+            //            [alert addSubview:imageView];
+            //
+            //            [alert show];
+            //TEST IT
+            [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_proceso_firma",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView onComplete:^{
+                [self backToAboutViewController];
+            }];
             
-            [alert show];
         }
     }
     // la respuesta a un reporte de error
@@ -953,7 +1017,7 @@ SecKeyRef privateKey = NULL;
     
     // Mostramos un mensaje con el error producido.
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_conexion_servidor",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"cerrar",nil) otherButtonTitles:nil];
+    
     
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(75, 6, 40, 40)];
     
@@ -961,9 +1025,16 @@ SecKeyRef privateKey = NULL;
     UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
     [imageView setImage:bkgImg];
     
-    [alert addSubview:imageView];
+    //        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_conexion_servidor",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"cerrar",nil) otherButtonTitles:nil];
+    //
+    //    [alert addSubview:imageView];
+    //
+    //    [alert show];
     
-    [alert show];
+    //TEST IT
+    [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_conexion_servidor",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView onComplete:^{
+        [self backToAboutViewController];
+    }];
     
     self.signButton.userInteractionEnabled = NO;
     self.signButton.enabled=NO;
@@ -985,7 +1056,7 @@ SecKeyRef privateKey = NULL;
     NSLog(@"Datos recibidos para firmar antes de decodificarlos -> %@", dataReceivedb64);
     NSData *dataReceived = [Base64 decode:dataReceivedb64 urlSafe: true];
     
-   // NSString* stringDataReceived = [NSString stringWithUTF8String:[dataReceived bytes]];
+    // NSString* stringDataReceived = [NSString stringWithUTF8String:[dataReceived bytes]];
     
     NSString* stringDataReceived = [[NSString alloc] initWithData:dataReceived encoding:NSUTF8StringEncoding];
     
@@ -1005,17 +1076,21 @@ SecKeyRef privateKey = NULL;
         if(firma == NULL){
             NSLog(@"El servidor no ha devuelto la prefirma correctamente: %@", stringDataReceived);
             
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"error",nil) message: NSLocalizedString(@"error_proceso_firma",nil) delegate:self cancelButtonTitle: NSLocalizedString(@"cerrar",nil) otherButtonTitles:nil];
-            
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(75, 6, 40, 40)];
             
             NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
             UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
             [imageView setImage:bkgImg];
             
-            [alert addSubview:imageView];
+            //                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"error",nil) message: NSLocalizedString(@"error_proceso_firma",nil) delegate:self cancelButtonTitle: NSLocalizedString(@"cerrar",nil) otherButtonTitles:nil];
+            //            [alert addSubview:imageView];
+            //
+            //            [alert show];
             
-            [alert show];
+            //TEST IT
+            [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_proceso_firma",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView onComplete:^{
+                [self backToAboutViewController];
+            }];
             
             return;
         }
@@ -1034,7 +1109,7 @@ SecKeyRef privateKey = NULL;
             NSData *dataSigned = [CADESSignUtils signPkcs1: signAlgoInUse privateKey: &privateKey data: data];
             
             // Contiene las prefirmas firmadas
-            NSString *stringSigned = [Base64 encode:dataSigned]; 
+            NSString *stringSigned = [Base64 encode:dataSigned];
             NSLog(@"\n\nstringSigned pkcs1 => %@\n", stringSigned);
             [firma.params setValue: stringSigned forKey:@"PK1"];
         }
@@ -1309,9 +1384,7 @@ SecKeyRef privateKey = NULL;
     }
 }
 
-#pragma mark AlertView Delegate
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
-{
+- (void) backToAboutViewController {
     UIStoryboard *mainStoryboard;
     if ([(NSString*)[UIDevice currentDevice].model hasPrefix:@"iPad"] ) {
         

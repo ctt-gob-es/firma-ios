@@ -15,19 +15,22 @@
 }
 
 + (void) createAlertWithTitle:(NSString*)title message:(NSString*)message cancelButtonTitle:(NSString*)cancelButtonTitle withImageView:(UIImageView*) imageView {
+    [self createAlertWithTitle:title message:message cancelButtonTitle:cancelButtonTitle withImageView:imageView onComplete:nil];
+}
+
++ (void) createAlertWithTitle:(NSString*)title message:(NSString*)message cancelButtonTitle:(NSString*)cancelButtonTitle withImageView:(UIImageView*) imageView onComplete:(void(^)(void))onComplete {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle: title message:message preferredStyle:UIAlertControllerStyleAlert];
     if (![cancelButtonTitle isEqualToString:@""]){
-        UIAlertAction* cancelButton = [UIAlertAction
-                                    actionWithTitle:cancelButtonTitle
-                                    style:UIAlertActionStyleDefault
-                                    handler:^(UIAlertAction * action) {
-                                    }];
+        UIAlertAction* cancelButton = [UIAlertAction actionWithTitle: cancelButtonTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            if (onComplete != nil) {
+                onComplete();
+            }
+        }];
         [alert addAction:cancelButton];
     }
     if (imageView.image != nil){
         [alert.view addSubview:imageView];
     }
-
     [[[[[UIApplication sharedApplication] delegate] window] rootViewController] presentViewController:alert animated:true completion:nil];
 }
 

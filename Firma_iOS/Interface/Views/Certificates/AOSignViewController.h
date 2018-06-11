@@ -7,7 +7,7 @@
 #import <UIKit/UIKit.h>
 #import "GAITrackedViewController.h"
 
-@interface AOSignViewController : GAITrackedViewController < UIAlertViewDelegate>
+@interface AOSignViewController : GAITrackedViewController
 @property (strong, nonatomic) IBOutlet UILabel *nombreCert;
 @property (strong, nonatomic) IBOutlet UIButton *signButton;
 
