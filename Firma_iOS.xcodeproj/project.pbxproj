@@ -18,7 +18,6 @@
 		B2406F3D20C5CF89008ED085 /* AOAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F3C20C5CF89008ED085 /* AOAboutViewController.m */; };
 		B2406F4020C5D043008ED085 /* AOSignViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F3F20C5D043008ED085 /* AOSignViewController.m */; };
 		B2406F4320C5D04E008ED085 /* AOPinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F4120C5D04D008ED085 /* AOPinViewController.m */; };
-		B2406F4720C5D0EC008ED085 /* AOManagerStoreScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F4620C5D0EC008ED085 /* AOManagerStoreScreenViewController.m */; };
 		B240772D20A5B87B00A8EE1C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B240772020A5B87B00A8EE1C /* main.m */; };
 		B240772E20A5B87B00A8EE1C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B240772220A5B87B00A8EE1C /* InfoPlist.strings */; };
 		B240772F20A5B87B00A8EE1C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B240772420A5B87B00A8EE1C /* Localizable.strings */; };
@@ -208,8 +207,6 @@
 		B2406F3F20C5D043008ED085 /* AOSignViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOSignViewController.m; sourceTree = "<group>"; };
 		B2406F4120C5D04D008ED085 /* AOPinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOPinViewController.m; sourceTree = "<group>"; };
 		B2406F4220C5D04E008ED085 /* AOPinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOPinViewController.h; sourceTree = "<group>"; };
-		B2406F4520C5D0EC008ED085 /* AOManagerStoreScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOManagerStoreScreenViewController.h; sourceTree = "<group>"; };
-		B2406F4620C5D0EC008ED085 /* AOManagerStoreScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOManagerStoreScreenViewController.m; sourceTree = "<group>"; };
 		B240772020A5B87B00A8EE1C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = "<group>"; };
 		B240772320A5B87B00A8EE1C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
 		B240772520A5B87B00A8EE1C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
@@ -544,7 +541,6 @@
 				B2406F3A20C5CF89008ED085 /* About */,
 				B2406F3020C5CB8D008ED085 /* Alerts */,
 				B2406F2620C5CACA008ED085 /* Certificates */,
-				B2406F4420C5D0EC008ED085 /* StoreScreen */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -588,15 +584,6 @@
 				B2406F3C20C5CF89008ED085 /* AOAboutViewController.m */,
 			);
 			path = About;
-			sourceTree = "<group>";
-		};
-		B2406F4420C5D0EC008ED085 /* StoreScreen */ = {
-			isa = PBXGroup;
-			children = (
-				B2406F4520C5D0EC008ED085 /* AOManagerStoreScreenViewController.h */,
-				B2406F4620C5D0EC008ED085 /* AOManagerStoreScreenViewController.m */,
-			);
-			path = StoreScreen;
 			sourceTree = "<group>";
 		};
 		B240772120A5B87B00A8EE1C /* en.lproj */ = {
@@ -1190,7 +1177,6 @@
 				C3B11DB816FB642B00C0D623 /* AlgorithmIdentifier.c in Sources */,
 				C3B11DBA16FB642B00C0D623 /* ANY.c in Sources */,
 				C3B11DBC16FB642B00C0D623 /* asn_codecs_prim.c in Sources */,
-				B2406F4720C5D0EC008ED085 /* AOManagerStoreScreenViewController.m in Sources */,
 				C3B11DBE16FB642B00C0D623 /* asn_SEQUENCE_OF.c in Sources */,
 				B273960920A43E2800A7D05A /* Base64.m in Sources */,
 				C3B11DC016FB642B00C0D623 /* asn_SET_OF.c in Sources */,
