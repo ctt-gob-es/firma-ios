@@ -182,7 +182,7 @@ SecKeyRef privateKey = NULL;
             
             //TEST IT the dissmis delegate!!! in everyone!!!
             
-            [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView onComplete:^{
+            [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView showOn:self onComplete:^{
                 [self backToAboutViewController];
             }];
             
@@ -221,7 +221,7 @@ SecKeyRef privateKey = NULL;
                 //                [alert show];
                 
                 //TEST IT
-                [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView onComplete:^{
+                [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView showOn:self onComplete:^{
                     [self backToAboutViewController];
                 }];
                 
@@ -257,7 +257,7 @@ SecKeyRef privateKey = NULL;
         //        [alert show];
         
         //TEST IT
-        [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView onComplete:^{
+        [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView showOn:self onComplete:^{
             [self backToAboutViewController];
         }];
         
@@ -346,7 +346,7 @@ SecKeyRef privateKey = NULL;
                 //                [alert show];
                 
                 // TEST IT
-                [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_objetivo_contrafirma",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView onComplete:^{
+                [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_objetivo_contrafirma",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView showOn:self onComplete:^{
                     [self backToAboutViewController];
                 }];
                 
@@ -403,7 +403,7 @@ SecKeyRef privateKey = NULL;
         //        [alert show];
         
         //TEST IT
-        [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_codigo_desconocido",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView onComplete:^{
+        [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_codigo_desconocido",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView showOn:self onComplete:^{
             [self backToAboutViewController];
         }];
         
@@ -429,7 +429,7 @@ SecKeyRef privateKey = NULL;
         //        [alert show];
         
         //TEST IT
-        [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_url_servidor",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView onComplete:^{
+        [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_url_servidor",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView showOn:self onComplete:^{
             [self backToAboutViewController];
         }];
         
@@ -460,7 +460,7 @@ SecKeyRef privateKey = NULL;
         //        [alert show];
         
         //TEST IT
-        [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_formato_firma",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView onComplete:^{
+        [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_formato_firma",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView showOn:self onComplete:^{
             [self backToAboutViewController];
         }];
         
@@ -490,7 +490,7 @@ SecKeyRef privateKey = NULL;
         //        [alert show];
         
         //TEST IT
-        [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_formato_no_soportado",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView onComplete:^{
+        [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_formato_no_soportado",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView showOn:self onComplete:^{
             [self backToAboutViewController];
         }];
         
@@ -520,7 +520,7 @@ SecKeyRef privateKey = NULL;
         //
         //        [alert show];
         //TEST IT
-        [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_algoritmo_no_soportado",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView onComplete:^{
+        [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_algoritmo_no_soportado",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView showOn:self onComplete:^{
             [self backToAboutViewController];
         }];
         
@@ -687,7 +687,7 @@ SecKeyRef privateKey = NULL;
     
     //iniciamos la barra de progreso.
     alertpb = [[AlertProgressBar alloc]init];
-    [alertpb createProgressBar:self.view];
+    [alertpb createProgressBar:self];
     
     //invocamos al almacenamiento de la firma
     NSString *finalSignature = [Base64 encode:signature urlSafe:true];
@@ -790,7 +790,7 @@ SecKeyRef privateKey = NULL;
     
     //iniciamos la barra de progreso.
     alertpb = [[AlertProgressBar alloc]init];
-    [alertpb createProgressBar:self.view];
+    [alertpb createProgressBar:self];
 }
 
 /* METODOS DONDE SE RECIBE LA RESPUESTA DE LA CONEXION ASINCRONA */
@@ -839,49 +839,34 @@ SecKeyRef privateKey = NULL;
         //Obtenemos la respuesta del servidor.
         NSString* responseString = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
         
-        //quitamos el progressbar indefinido
-        [alertpb destroy];
+        //quitamos el progressbar indefinido        
+        [alertpb destroy:^{
+            //se procesa la respuesta del servidor.
+            
+            NSString* title = NSLocalizedString(([responseString hasPrefix: @"OK"]) ? @"ok" : @"error", nil);
+            
+//            [CommonAlert createAlertWithTitle:NSLocalizedString(@"ok",nil) message:NSLocalizedString(@"proceso_finalizado_trifasico",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:nil onComplete:^{
+//                [self backToAboutViewController];
+//            }];
+            
+            if([responseString hasPrefix: @"OK"]) {
+                
+                //TEST IT
+                [CommonAlert createAlertWithTitle: title message:NSLocalizedString(@"proceso_finalizado_trifasico",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:nil showOn:self onComplete:^{
+                    [self backToAboutViewController];
+                }];
+            } else {
+                
+                //TEST IT
+                [CommonAlert createAlertWithTitle: title message:NSLocalizedString(@"error_proceso_firma",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:nil showOn:self onComplete:^{
+                    [self backToAboutViewController];
+                }];
+            }
+        }];
         
-        //se procesa la respuesta del servidor.
-        if([responseString hasPrefix: @"OK"])
-        {
-            
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(75, 6, 40, 40)];
-            
-            NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"ok_mini.png"]];
-            UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
-            [imageView setImage:bkgImg];
-            
-            //            UIAlertView *alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"ok",nil) message: NSLocalizedString(@"proceso_finalizado_trifasico",nil) delegate:self cancelButtonTitle: NSLocalizedString(@"cerrar",nil) otherButtonTitles: nil];
-            //            [alert addSubview:imageView];
-            //
-            //            [alert show];
-            //TEST IT
-            [CommonAlert createAlertWithTitle:NSLocalizedString(@"ok",nil) message:NSLocalizedString(@"proceso_finalizado_trifasico",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView onComplete:^{
-                [self backToAboutViewController];
-            }];
-        }
-        else {
-            
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(75, 6, 40, 40)];
-            
-            NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
-            UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
-            [imageView setImage:bkgImg];
-            
-            //            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"error",nil)  message: NSLocalizedString(@"error_proceso_firma",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"cerrar",nil) otherButtonTitles:nil];
-            //            [alert addSubview:imageView];
-            //
-            //            [alert show];
-            //TEST IT
-            [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_proceso_firma",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView onComplete:^{
-                [self backToAboutViewController];
-            }];
-        }
     }
     // Se recogen los datos del servidor
-    else if (retrievingDataFromServlet)
-    {
+    else if (retrievingDataFromServlet) {
         retrievingDataFromServlet = false;
         //Obtenemos la respuesta del servidor.
         NSString* responseString = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
@@ -950,7 +935,7 @@ SecKeyRef privateKey = NULL;
             //
             //            [alert show];
             //TEST IT
-            [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_proceso_firma",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView onComplete:^{
+            [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_proceso_firma",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView showOn:self onComplete:^{
                 [self backToAboutViewController];
             }];
             
@@ -1032,7 +1017,7 @@ SecKeyRef privateKey = NULL;
     //    [alert show];
     
     //TEST IT
-    [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_conexion_servidor",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView onComplete:^{
+    [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_conexion_servidor",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView showOn:self onComplete:^{
         [self backToAboutViewController];
     }];
     
@@ -1088,7 +1073,7 @@ SecKeyRef privateKey = NULL;
             //            [alert show];
             
             //TEST IT
-            [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_proceso_firma",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView onComplete:^{
+            [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_proceso_firma",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView showOn:self onComplete:^{
                 [self backToAboutViewController];
             }];
             

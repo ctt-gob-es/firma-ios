@@ -124,7 +124,7 @@
                 break;
         }
         
-        [CommonAlert createAlertWithTitle: errorMessage message:@"" cancelButtonTitle:@"OK"];
+        [CommonAlert createAlertWithTitle: errorMessage message:@"" cancelButtonTitle:@"OK" showOn:self];
         
         [self reloadCertificates];
         [editTableView endUpdates];
@@ -175,7 +175,7 @@
         [self performSegueWithIdentifier:@"showSignVC" sender: self];
     }
     else {
-        [CommonAlert createAlertWithTitle: @"Se ha producido un error al cargar el certificado" message:@"" cancelButtonTitle:@"OK"];
+        [CommonAlert createAlertWithTitle: @"Se ha producido un error al cargar el certificado" message:@"" cancelButtonTitle:@"OK" showOn:self];
     }
 }
 
@@ -242,8 +242,7 @@
             UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
             [imageView setImage:bkgImg];
             
-            [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"no_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView];
-
+            [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"no_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView showOn:self];
             [self.editTableView setAllowsSelection:NO];
         } else {
             if([_opParameters objectForKey:PARAMETER_NAME_RTSERVLET]!= NULL) {
@@ -277,7 +276,7 @@
                 UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
                 [imageView setImage:bkgImg];
 
-                [CommonAlert createAlertWithTitle: NSLocalizedString(@"error",nil) message:NSLocalizedString(@"no_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView: imageView];
+                [CommonAlert createAlertWithTitle: NSLocalizedString(@"error",nil) message:NSLocalizedString(@"no_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView: imageView showOn:self];
                 
                 [self.editTableView setAllowsSelection:NO];
             }

@@ -85,13 +85,10 @@
         }
     } else {
         _message = @"El certificado se ha cargado correctamente";
-        
         if (_delegate) {
             [_delegate certificateAdded];
         }
-        
-        [CommonAlert createAlertWithTitle: @"Certificado cargado" message:@"El certificado se ha cargado correctamente en su aplicación." cancelButtonTitle:@"OK"];
-
+        [CommonAlert createAlertWithTitle: @"Certificado cargado" message:@"El certificado se ha cargado correctamente en su aplicación." cancelButtonTitle:@"OK" showOn:self];
     }
     
     UIFont *currentFont = _messageLabel.font;
