@@ -233,16 +233,8 @@
             
             if(_stServletCert != NULL & _idDocCert != NULL)
                 [self errorReportAsync:errorToSend];
-            
-
-            
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(75, 6, 40, 40)];
-            
-            NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
-            UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
-            [imageView setImage:bkgImg];
-            
-            [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"no_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView:imageView showOn:self];
+            //TEST IT
+            [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"no_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self];
             [self.editTableView setAllowsSelection:NO];
         } else {
             if([_opParameters objectForKey:PARAMETER_NAME_RTSERVLET]!= NULL) {
@@ -267,17 +259,8 @@
                     //[self errorReportAsync:errorToSend urlServlet:stServlet docId:idDoc];
                     [self errorReportAsync:errorToSend];
                 }
-                
-
-                
-                UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(75, 6, 40, 40)];
-                
-                NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
-                UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
-                [imageView setImage:bkgImg];
-
-                [CommonAlert createAlertWithTitle: NSLocalizedString(@"error",nil) message:NSLocalizedString(@"no_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) withImageView: imageView showOn:self];
-                
+//TEST IT
+                [CommonAlert createAlertWithTitle: NSLocalizedString(@"error",nil) message:NSLocalizedString(@"no_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self];
                 [self.editTableView setAllowsSelection:NO];
             }
         }
