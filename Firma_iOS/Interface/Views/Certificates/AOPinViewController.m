@@ -9,6 +9,7 @@
 #import "AOSignViewController.h"
 #import "Base64.h"
 #import "ColorChart.h"
+#import "CommonAlert.h"
 
 @interface AOPinViewController ()
 
@@ -121,21 +122,7 @@ SecKeyRef privateKeyPkcs12 = NULL;
 
 - (void) showAlertWithMessage:(NSString *)message
 {
-    UIAlertController *alert= [UIAlertController alertControllerWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_contrasenia",nil) preferredStyle:UIAlertControllerStyleAlert];
-    
-    [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"cerrar",nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-    }]];
-    
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(75, 6, 40, 40)];
-    
-    NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
-    UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
-    [imageView setImage:bkgImg];
-    
-    [alert.view addSubview:imageView];
-    
-    [[self currentTopViewController] dismissViewControllerAnimated:true completion:nil];
-    
+    [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_contrasenia",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self];
     [self.pinTextField setText:nil];
 }
 
