@@ -46,7 +46,7 @@
 "error_proceso_firma" = "Error signing. Please, go back to the browser where you started the operation and try again later";
 "error_conexion_servidor" = "Couldn't open connection to server. Please, go back to the browser where you started the operation and try again later";
 "certificate_not_found" = "Certificate not found.";
-"error_password" = "Wrong password.";
+"wrong_password" = "Wrong password.";
 "certificate_already_loaded" = "Certificate already loaded.";
 "an_error_occurred" = "An error occurred %d";
 "enter_your_certificate_password" = "Please enter your certificate password.";

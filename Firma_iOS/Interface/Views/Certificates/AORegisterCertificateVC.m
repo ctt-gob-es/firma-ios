@@ -43,7 +43,6 @@
     _password = _passwordTextField.text;
     
     if (!_password || [_password isEqualToString:@""]) {
-        //test THIS
         _messageLabel.text = NSLocalizedString(@"enter_your_certificate_password", nil);
     } else {
         [self registerWithCertificate];
