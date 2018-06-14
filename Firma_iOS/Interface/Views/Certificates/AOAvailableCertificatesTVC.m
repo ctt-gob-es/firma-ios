@@ -33,8 +33,7 @@ static NSString *const kAOAvailableCertificatesTVCCellIdentifier = @"AOCertifica
     _filesArray = [self findFiles:@[@"p12", @"pfx"]];
     
     if (_filesArray.count == 0) {
-        
-        _messageLabel.text = @"La aplicación esta solicitando acceso a su almacen de certificados y no dispone de ninguno registrado.\n\n  Para instalar su certificado :\n 1. Conecte su dispositivo a su PC o Mac.\n 2. Localice el certificado que desea instalar ....(debe conocer el pin del certificado)\n3. En iTunes seleccione su certificado y arrástrelo a la ventana de documentos...\n4. Vuelva a esta pantalla y registrelo en el almacen del dispositivo.\n";
+        _messageLabel.text = NSLocalizedString(@"certificate_instructions", nil);
     }
     
     [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];

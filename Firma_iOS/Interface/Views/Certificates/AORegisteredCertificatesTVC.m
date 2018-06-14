@@ -102,7 +102,8 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return @"Eliminar";
+    //test THIS
+    return NSLocalizedString(@"remove", nil);
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -117,10 +118,12 @@
         switch (status) {
             case noErr :
             case errSecItemNotFound:
-                errorMessage = @"Se ha eliminado el certificado correctamente";
+                //test THIS
+                errorMessage = NSLocalizedString(@"certificate_successfully_deleted", nil);
                 break;
             default:
-                errorMessage = @"Se ha producido un error";
+                //test THIS
+                errorMessage = NSLocalizedString(@"an_error_occurred", nil);
                 break;
         }
         
@@ -175,7 +178,8 @@
         [self performSegueWithIdentifier:@"showSignVC" sender: self];
     }
     else {
-        [CommonAlert createAlertWithTitle: @"Se ha producido un error al cargar el certificado" message:@"" cancelButtonTitle:@"OK" showOn:self];
+        //test THIS
+        [CommonAlert createAlertWithTitle: NSLocalizedString(@"error_ocurred_while_loading_the_certificate", nil) message:@"" cancelButtonTitle:@"OK" showOn:self];
     }
 }
 

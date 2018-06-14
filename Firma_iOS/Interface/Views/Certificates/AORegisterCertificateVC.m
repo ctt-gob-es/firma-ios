@@ -43,7 +43,8 @@
     _password = _passwordTextField.text;
     
     if (!_password || [_password isEqualToString:@""]) {
-        _messageLabel.text = @"Por favor, introduce la contraseña del certificado";
+        //test THIS
+        _messageLabel.text = NSLocalizedString(@"enter_your_certificate_password", nil);
     } else {
         [self registerWithCertificate];
     }
@@ -71,24 +72,30 @@
     if (status != noErr) {
         switch (status) {
             case errSecItemNotFound:
-                _message = @"No se ha encontrado el certificado";
+                //test THIS
+                _message = NSLocalizedString(@"certificate_not_found", nil);
                 break;
             case errSecAuthFailed:
-                _message = @"Contraseña incorrecta";
+                //test THIS
+                _message = NSLocalizedString(@"wrong_password", nil);
                 break;
             case errSecDuplicateItem:
-                _message = @"El certificado ya estaba cargado";
+                //test THIS
+                _message = NSLocalizedString(@"certificate_already_loaded",nil);
                 break;
             default:
-                _message = [NSString stringWithFormat:@"Se ha producido un error(%d)", (int)status];
+                //test THIS
+                _message = [NSString stringWithFormat:NSLocalizedString(@"an_error_occurred", nil), (int)status];
                 break;
         }
     } else {
-        _message = @"El certificado se ha cargado correctamente";
+        //test THIS
+        _message = NSLocalizedString(@"certificate_successfully_loaded", nil);
         if (_delegate) {
             [_delegate certificateAdded];
         }
-        [CommonAlert createAlertWithTitle: @"Certificado cargado" message:@"El certificado se ha cargado correctamente en su aplicación." cancelButtonTitle:@"OK" showOn:self];
+        //test THIS
+        [CommonAlert createAlertWithTitle: NSLocalizedString(@"certificate_loaded", nil) message:@"certificate_successfully_loaded_in_app" cancelButtonTitle:@"OK" showOn:self];
     }
     
     UIFont *currentFont = _messageLabel.font;

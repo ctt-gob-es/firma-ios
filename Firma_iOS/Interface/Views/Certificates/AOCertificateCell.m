@@ -10,7 +10,6 @@
 #import "ColorChart.h"
 #import "QuartzUtils.h"
 
-static NSString *const kCertificateCellDateFormatString = @"Válido desde %@ hasta %@";
 static const NSTimeInterval kCertificateCellDate15DaysTimeInterval = -(15*24*60*60);
 
 @interface AOCertificateCell ()
@@ -33,7 +32,7 @@ static const NSTimeInterval kCertificateCellDate15DaysTimeInterval = -(15*24*60*
     [_subjectLabel setText:certificateInfo.subject];
     [_issuerLabel setText:certificateInfo.issuer];
     [_purposeLabel setText:[certificateInfo getPurposeString]];
-    [_dateLabel setText:[NSString stringWithFormat:kCertificateCellDateFormatString,[certificateInfo getCreationDateString], [certificateInfo getExpirationDateString]]];
+    [_dateLabel setText:[NSString stringWithFormat:NSLocalizedString(@"valid_from_to", nil),[certificateInfo getCreationDateString], [certificateInfo getExpirationDateString]]];
     if (isEditing) {
         [_expirationLabel setHidden:YES];
     } else {
