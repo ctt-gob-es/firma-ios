@@ -20,7 +20,7 @@ BOOL isURL = NO;
 
 - (void)viewDidLoad
 {
-	// Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.
 
     [super viewDidLoad];
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
@@ -110,16 +110,12 @@ BOOL isURL = NO;
 
 - (void)dealloc {
     
-    [_manageStoreButton release];
-    [tabBar release];
-    [super dealloc];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"urlReaded" object:nil];
 }
 
 - (void)viewDidUnload {
     
     [self setManageStoreButton:nil];
-    [tabBar release];
     tabBar = nil;
     [super viewDidUnload];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"urlReaded" object:nil];

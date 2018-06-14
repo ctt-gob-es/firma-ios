@@ -24,7 +24,7 @@
 
 @property (nonatomic, assign) BOOL error;
 
-@property (nonatomic, assign) NSString *currentParam;
+@property (nonatomic, weak) NSString *currentParam;
 
 
 @end

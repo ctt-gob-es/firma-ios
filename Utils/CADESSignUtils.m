@@ -126,7 +126,7 @@
 
 // Decode a percent escape encoded string.
 + (NSString*) decodeFromPercentEscapeString:(NSString *) string {
-    return (NSString *) CFURLCreateStringByReplacingPercentEscapesUsingEncoding(NULL,(CFStringRef) string, CFSTR(""),kCFStringEncodingUTF8);
+    return (NSString *) CFBridgingRelease(CFURLCreateStringByReplacingPercentEscapesUsingEncoding(NULL,(CFStringRef) string, CFSTR(""),kCFStringEncodingUTF8));
 }
 
 /**
@@ -221,32 +221,32 @@
  
  */
 + (OSStatus) extractIdentityAndTrust:(CFDataRef) inPKCS12Data :(NSString *)pass :(SecIdentityRef *)outIdentity :(SecTrustRef *)outTrust {
-	OSStatus securityError = errSecSuccess;
-	
-	CFStringRef password = (CFStringRef)pass;
-	const void *keys[] = {kSecImportExportPassphrase};
-	const void *values[] = {password};
-	
-	CFDictionaryRef optionsDictionary = CFDictionaryCreate(NULL, keys, values, 1, NULL, NULL);
-	
-	CFArrayRef items = CFArrayCreate(NULL, 0, 0, NULL);
-	securityError = SecPKCS12Import(inPKCS12Data, optionsDictionary, &items);
-	
-	if (securityError == 0) {
-		CFDictionaryRef myIdentityAndTrust = CFArrayGetValueAtIndex(items, 0);
-		const void *tempIdentity = NULL;
-		tempIdentity = CFDictionaryGetValue (myIdentityAndTrust, kSecImportItemIdentity);
-		*outIdentity = (SecIdentityRef)tempIdentity;
-		const void *tempTrust = NULL;
-		tempTrust = CFDictionaryGetValue(myIdentityAndTrust, kSecImportItemTrust);
-		*outTrust = (SecTrustRef)tempTrust;
-	}
-	
-	if (optionsDictionary) {
-		CFRelease(optionsDictionary);
+    OSStatus securityError = errSecSuccess;
+    
+    CFStringRef password = (__bridge CFStringRef)pass;
+    const void *keys[] = {kSecImportExportPassphrase};
+    const void *values[] = {password};
+    
+    CFDictionaryRef optionsDictionary = CFDictionaryCreate(NULL, keys, values, 1, NULL, NULL);
+    
+    CFArrayRef items = CFArrayCreate(NULL, 0, 0, NULL);
+    securityError = SecPKCS12Import(inPKCS12Data, optionsDictionary, &items);
+    
+    if (securityError == 0) {
+        CFDictionaryRef myIdentityAndTrust = CFArrayGetValueAtIndex(items, 0);
+        const void *tempIdentity = NULL;
+        tempIdentity = CFDictionaryGetValue (myIdentityAndTrust, kSecImportItemIdentity);
+        *outIdentity = (SecIdentityRef)tempIdentity;
+        const void *tempTrust = NULL;
+        tempTrust = CFDictionaryGetValue(myIdentityAndTrust, kSecImportItemTrust);
+        *outTrust = (SecTrustRef)tempTrust;
     }
-	
-	return securityError;
+    
+    if (optionsDictionary) {
+        CFRelease(optionsDictionary);
+    }
+    
+    return securityError;
 }
 
 /**

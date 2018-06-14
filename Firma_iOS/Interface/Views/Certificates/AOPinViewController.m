@@ -9,6 +9,7 @@
 #import "AOSignViewController.h"
 #import "Base64.h"
 #import "ColorChart.h"
+#import "CommonAlert.h"
 
 @interface AOPinViewController ()
 
@@ -36,7 +37,7 @@ SecKeyRef privateKeyPkcs12 = NULL;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	[[self navigationController] setNavigationBarHidden:YES animated:YES];
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
     [self.navigationController.navigationBar setTintColor:THEME_COLOR];
     
     //etiqueta con el nombre del almacen seleccionado
@@ -106,54 +107,36 @@ SecKeyRef privateKeyPkcs12 = NULL;
 
 -(BOOL) checkPin:(NSString*)pin {
     OSStatus status = [self openPkcs12Store:pin];
-    
     if (status == 0) {
         [self.pinTextField setText:nil];
         return YES;
     }
     if (status == -25293) {
-                
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"error",nil) message: NSLocalizedString(@"error_contrasenia",nil) delegate:self cancelButtonTitle: NSLocalizedString(@"cerrar",nil) otherButtonTitles:nil];
-        
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(75, 6, 40, 40)];
-        
-        NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
-        UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
-        [imageView setImage:bkgImg];
-        [bkgImg release];
-        [path release];
-        
-        [alert addSubview:imageView];
-        [imageView release];
-        
-        [alert show];
-        [alert release];
-        
-        [self.pinTextField setText:nil];
-        
+        [self showAlertWithMessage:NSLocalizedString(@"error_contrasenia",nil)];
     }
     else {
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_carga_almacen",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"cerrar",nil) otherButtonTitles:nil];
-        
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(75, 6, 40, 40)];
-        
-        NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
-        UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
-        [imageView setImage:bkgImg];
-        [bkgImg release];
-        [path release];
-        
-        [alert addSubview:imageView];
-        [imageView release];
-        
-        [alert show];
-        [alert release];
-        
-        [self.pinTextField setText:nil];
-    }    
+        [self showAlertWithMessage:NSLocalizedString(@"error_carga_almacen",nil)];
+    }
     return NO;
 }
+
+- (void) showAlertWithMessage:(NSString *)message
+{
+    [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_contrasenia",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self];
+    [self.pinTextField setText:nil];
+}
+
+
+- (UIViewController *)currentTopViewController
+{
+    UIViewController *topVC = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
+    while (topVC.presentedViewController)
+    {
+        topVC = topVC.presentedViewController;
+    }
+    return topVC;
+}
+
 
 
 -(OSStatus) openPkcs12Store:(NSString*)pin {
@@ -180,14 +163,14 @@ SecKeyRef privateKeyPkcs12 = NULL;
     }
     
     OSStatus status = noErr;
-	SecIdentityRef myIdentity;
-	SecTrustRef myTrust;
+    SecIdentityRef myIdentity;
+    SecTrustRef myTrust;
     
-	status = [CADESSignUtils extractIdentityAndTrust:inPKCS12Data :pin :&myIdentity :&myTrust];
-	
-	if (status != 0) {
+    status = [CADESSignUtils extractIdentityAndTrust:inPKCS12Data :pin :&myIdentity :&myTrust];
+    
+    if (status != 0) {
         return status;
-	}
+    }
     
     SecCertificateRef myReturnedCertificate = NULL;
     status = SecIdentityCopyCertificate (myIdentity, &myReturnedCertificate);
@@ -205,7 +188,7 @@ SecKeyRef privateKeyPkcs12 = NULL;
     }
     
     CFStringRef certSummary = SecCertificateCopySubjectSummary(myReturnedCertificate);
-    NSString* summaryString = [[NSString alloc] initWithString:(NSString*)certSummary];
+    NSString* summaryString = [[NSString alloc] initWithString:(__bridge NSString*)certSummary];
     
     self.certificateName = summaryString;
     
@@ -228,12 +211,6 @@ SecKeyRef privateKeyPkcs12 = NULL;
     // Dispose of any resources that can be recreated.
 }
 
-- (void)dealloc {
-    [_nombreCert release];
-    [_pinTextField release];
-    [_pinButton release];
-    [super dealloc];
-}
 - (void)viewDidUnload {
     [self setNombreCert:nil];
     [self setNombreCert:nil];

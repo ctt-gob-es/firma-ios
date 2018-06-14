@@ -130,7 +130,6 @@ NSString *URLString, *state = @"Inactive";
     }
     
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaultsToRegister];
-    [defaultsToRegister release];
 }
 
 @end

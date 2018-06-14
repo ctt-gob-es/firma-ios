@@ -308,28 +308,28 @@ static CertificateUtils *_sharedWrapper = nil;
 
 - (NSData *)getHashBytesSHA1:(NSData *)plainText
 {
-    CC_SHA1_CTX ctx;	
+    CC_SHA1_CTX ctx;
     uint8_t * hashBytes = NULL;
     NSData * hash = nil;
     
-	// Malloc a buffer to hold hash.
+    // Malloc a buffer to hold hash.
     hashBytes = malloc( kChosenDigestLength * sizeof(uint8_t) );
     memset((void *)hashBytes, 0x0, kChosenDigestLength);
-	
+    
     // Initialize the context.
     CC_SHA1_Init(&ctx);
-	
+    
     // Perform the hash.
     CC_SHA1_Update (&ctx, (void *)[plainText bytes], (CC_LONG)[plainText length]);
-	
+    
     // Finalize the output.
     CC_SHA1_Final(hashBytes, &ctx);
-	
+    
     // Build up the SHA1 blob.
     hash = [NSData dataWithBytes:(const void *)hashBytes length:(NSUInteger)kChosenDigestLength];
     
     if (hashBytes) free(hashBytes);
-	
+    
     return hash;
 }
 
@@ -339,24 +339,24 @@ static CertificateUtils *_sharedWrapper = nil;
     uint8_t * hashBytes = NULL;
     NSData * hash = nil;
     
-	// Malloc a buffer to hold hash.
+    // Malloc a buffer to hold hash.
     hashBytes = malloc( CC_SHA512_DIGEST_LENGTH * sizeof(uint8_t) );
     memset((void *)hashBytes, 0x0, CC_SHA512_DIGEST_LENGTH);
-	
+    
     // Initialize the context.
     CC_SHA512_Init(&ctx);
-	
+    
     // Perform the hash.
     CC_SHA512_Update (&ctx, (void *)[plainText bytes], (CC_LONG)[plainText length]);
-	
+    
     // Finalize the output.
     CC_SHA512_Final(hashBytes, &ctx);
-	
+    
     // Build up the SHA1 blob.
     hash = [NSData dataWithBytes:(const void *)hashBytes length:(NSUInteger)CC_SHA512_DIGEST_LENGTH];
     
     if (hashBytes) free(hashBytes);
-	
+    
     return hash;
 }
 
@@ -366,24 +366,24 @@ static CertificateUtils *_sharedWrapper = nil;
     uint8_t * hashBytes = NULL;
     NSData * hash = nil;
     
-	// Malloc a buffer to hold hash.
+    // Malloc a buffer to hold hash.
     hashBytes = malloc( CC_SHA256_DIGEST_LENGTH * sizeof(uint8_t) );
     memset((void *)hashBytes, 0x0, CC_SHA256_DIGEST_LENGTH);
-	
+    
     // Initialize the context.
     CC_SHA256_Init(&ctx);
-	
+    
     // Perform the hash.
     CC_SHA256_Update (&ctx, (void *)[plainText bytes], (CC_LONG)[plainText length]);
-	
+    
     // Finalize the output.
     CC_SHA256_Final(hashBytes, &ctx);
-	
+    
     // Build up the SHA1 blob.
     hash = [NSData dataWithBytes:(const void *)hashBytes length:(NSUInteger)CC_SHA256_DIGEST_LENGTH];
     
     if (hashBytes) free(hashBytes);
-	
+    
     return hash;
 }
 
@@ -393,43 +393,43 @@ static CertificateUtils *_sharedWrapper = nil;
     uint8_t * hashBytes = NULL;
     NSData * hash = nil;
     
-	// Malloc a buffer to hold hash.
+    // Malloc a buffer to hold hash.
     hashBytes = malloc( CC_SHA384_DIGEST_LENGTH * sizeof(uint8_t) );
     memset((void *)hashBytes, 0x0, CC_SHA384_DIGEST_LENGTH);
-	
+    
     // Initialize the context.
     CC_SHA384_Init(&ctx);
-	
+    
     // Perform the hash.
     CC_SHA384_Update (&ctx, (void *)[plainText bytes], (CC_LONG)[plainText length]);
-	
+    
     // Finalize the output.
     CC_SHA384_Final(hashBytes, &ctx);
-	
+    
     // Build up the SHA1 blob.
     hash = [NSData dataWithBytes:(const void *)hashBytes length:(NSUInteger)CC_SHA384_DIGEST_LENGTH];
     
     if (hashBytes) free(hashBytes);
-	
+    
     return hash;
 }
 
 - (NSData *)getSignatureBytesSHA1:(NSData *)plainText
 {
-	OSStatus sanityCheck = noErr;
-	NSData * signedHash = nil;
-	
-	uint8_t * signedHashBytes = NULL;
-	size_t signedHashBytesSize = 0;
-	
-	signedHashBytesSize = SecKeyGetBlockSize(_privateKey);
-	
-	// Malloc a buffer to hold signature.
-	signedHashBytes = malloc( signedHashBytesSize * sizeof(uint8_t) );
-	memset((void *)signedHashBytes, 0x0, signedHashBytesSize);
-	
+    OSStatus sanityCheck = noErr;
+    NSData * signedHash = nil;
+    
+    uint8_t * signedHashBytes = NULL;
+    size_t signedHashBytesSize = 0;
+    
+    signedHashBytesSize = SecKeyGetBlockSize(_privateKey);
+    
+    // Malloc a buffer to hold signature.
+    signedHashBytes = malloc( signedHashBytesSize * sizeof(uint8_t) );
+    memset((void *)signedHashBytes, 0x0, signedHashBytesSize);
+    
     const uint8_t *hashMessage=[[self getHashBytesSHA1:plainText] bytes];
-
+    
     uint8_t * digestInfo = malloc((CC_SHA1_DIGEST_LENGTH + SHA1_DIGESTINFO_HEADER_LENGTH)* sizeof(uint8_t));
     
     memcpy(digestInfo, SHA1_DIGESTINFO_HEADER, SHA1_DIGESTINFO_HEADER_LENGTH);
@@ -440,44 +440,44 @@ static CertificateUtils *_sharedWrapper = nil;
     }
     
     // Sign the SHA1 hash.
-	sanityCheck = SecKeyRawSign(_privateKey,
-								kSecPaddingPKCS1,
-								digestInfo,
-								CC_SHA1_DIGEST_LENGTH + SHA1_DIGESTINFO_HEADER_LENGTH,
+    sanityCheck = SecKeyRawSign(_privateKey,
+                                kSecPaddingPKCS1,
+                                digestInfo,
+                                CC_SHA1_DIGEST_LENGTH + SHA1_DIGESTINFO_HEADER_LENGTH,
                                 (uint8_t *)signedHashBytes,
-								&signedHashBytesSize
-								);
-	
-	NSLog(@"sanityCheck::Return code=%d",(int)sanityCheck);
+                                &signedHashBytesSize
+                                );
     
-	// Build up signed SHA1 blob.
-	signedHash = [NSData dataWithBytes:(const void *)signedHashBytes length:(NSUInteger)signedHashBytesSize];
-	
+    NSLog(@"sanityCheck::Return code=%d",(int)sanityCheck);
+    
+    // Build up signed SHA1 blob.
+    signedHash = [NSData dataWithBytes:(const void *)signedHashBytes length:(NSUInteger)signedHashBytesSize];
+    
     if (signedHashBytes){
         free(signedHashBytes);
     }
     if (digestInfo){
         free(digestInfo);
     }
-	
-	return signedHash;
+    
+    return signedHash;
 }
 
 
 - (NSData *)getSignatureBytesSHA256:(NSData *)plainText
 {
     OSStatus sanityCheck = noErr;
-	NSData * signedHash = nil;
-	
-	uint8_t * signedHashBytes = NULL;
-	size_t signedHashBytesSize = 0;
-	
-	signedHashBytesSize = SecKeyGetBlockSize(_privateKey);
-	
-	// Malloc a buffer to hold signature.
-	signedHashBytes = malloc( signedHashBytesSize * sizeof(uint8_t) );
-	memset((void *)signedHashBytes, 0x0, signedHashBytesSize);
-	
+    NSData * signedHash = nil;
+    
+    uint8_t * signedHashBytes = NULL;
+    size_t signedHashBytesSize = 0;
+    
+    signedHashBytesSize = SecKeyGetBlockSize(_privateKey);
+    
+    // Malloc a buffer to hold signature.
+    signedHashBytes = malloc( signedHashBytesSize * sizeof(uint8_t) );
+    memset((void *)signedHashBytes, 0x0, signedHashBytesSize);
+    
     const uint8_t *hashMessage=[[self getHashBytesSHA256:plainText] bytes];
     
     uint8_t * digestInfo = malloc((CC_SHA256_DIGEST_LENGTH + SHA256_DIGESTINFO_HEADER_LENGTH)* sizeof(uint8_t));
@@ -487,42 +487,42 @@ static CertificateUtils *_sharedWrapper = nil;
     {
         digestInfo[i] = (uint8_t) hashMessage[i-SHA256_DIGESTINFO_HEADER_LENGTH];
     }
-	
-    // Sign the SHA1 hash.
-	sanityCheck = SecKeyRawSign(_privateKey,
-								kSecPaddingPKCS1,
-								digestInfo,
-								CC_SHA256_DIGEST_LENGTH + SHA256_DIGESTINFO_HEADER_LENGTH,
-                                (uint8_t *)signedHashBytes,
-								&signedHashBytesSize
-								);
-	
-	NSLog(@"sanityCheck::Return code=%d",(int)sanityCheck);
     
-	// Build up signed SHA256 blob.
-	signedHash = [NSData dataWithBytes:(const void *)signedHashBytes length:(NSUInteger)signedHashBytesSize];
-	
+    // Sign the SHA1 hash.
+    sanityCheck = SecKeyRawSign(_privateKey,
+                                kSecPaddingPKCS1,
+                                digestInfo,
+                                CC_SHA256_DIGEST_LENGTH + SHA256_DIGESTINFO_HEADER_LENGTH,
+                                (uint8_t *)signedHashBytes,
+                                &signedHashBytesSize
+                                );
+    
+    NSLog(@"sanityCheck::Return code=%d",(int)sanityCheck);
+    
+    // Build up signed SHA256 blob.
+    signedHash = [NSData dataWithBytes:(const void *)signedHashBytes length:(NSUInteger)signedHashBytesSize];
+    
     if (signedHashBytes) free(signedHashBytes);
-	if (digestInfo) free(digestInfo);
-	
-	return signedHash;
+    if (digestInfo) free(digestInfo);
+    
+    return signedHash;
 }
 
 
 - (NSData *)getSignatureBytesSHA384:(NSData *)plainText
 {
     OSStatus sanityCheck = noErr;
-	NSData * signedHash = nil;
-	
-	uint8_t * signedHashBytes = NULL;
-	size_t signedHashBytesSize = 0;
-	
-	signedHashBytesSize = SecKeyGetBlockSize(_privateKey);
-	
-	// Malloc a buffer to hold signature.
-	signedHashBytes = malloc( signedHashBytesSize * sizeof(uint8_t) );
-	memset((void *)signedHashBytes, 0x0, signedHashBytesSize);
-	
+    NSData * signedHash = nil;
+    
+    uint8_t * signedHashBytes = NULL;
+    size_t signedHashBytesSize = 0;
+    
+    signedHashBytesSize = SecKeyGetBlockSize(_privateKey);
+    
+    // Malloc a buffer to hold signature.
+    signedHashBytes = malloc( signedHashBytesSize * sizeof(uint8_t) );
+    memset((void *)signedHashBytes, 0x0, signedHashBytesSize);
+    
     const uint8_t *hashMessage=[[self getHashBytesSHA384:plainText] bytes];
     
     uint8_t * digestInfo = malloc((CC_SHA384_DIGEST_LENGTH + SHA384_DIGESTINFO_HEADER_LENGTH)* sizeof(uint8_t));
@@ -532,73 +532,73 @@ static CertificateUtils *_sharedWrapper = nil;
     {
         digestInfo[i] = (uint8_t) hashMessage[i-SHA384_DIGESTINFO_HEADER_LENGTH];
     }
-	
-    // Sign the SHA1 hash.
-	sanityCheck = SecKeyRawSign(_privateKey,
-								kSecPaddingPKCS1,
-								digestInfo,
-								CC_SHA384_DIGEST_LENGTH + SHA384_DIGESTINFO_HEADER_LENGTH,
-                                (uint8_t *)signedHashBytes,
-								&signedHashBytesSize
-								);
-	
-	NSLog(@"sanityCheck::Return code=%d",(int)sanityCheck);
     
-	// Build up signed SHA256 blob.
-	signedHash = [NSData dataWithBytes:(const void *)signedHashBytes length:(NSUInteger)signedHashBytesSize];
-	
+    // Sign the SHA1 hash.
+    sanityCheck = SecKeyRawSign(_privateKey,
+                                kSecPaddingPKCS1,
+                                digestInfo,
+                                CC_SHA384_DIGEST_LENGTH + SHA384_DIGESTINFO_HEADER_LENGTH,
+                                (uint8_t *)signedHashBytes,
+                                &signedHashBytesSize
+                                );
+    
+    NSLog(@"sanityCheck::Return code=%d",(int)sanityCheck);
+    
+    // Build up signed SHA256 blob.
+    signedHash = [NSData dataWithBytes:(const void *)signedHashBytes length:(NSUInteger)signedHashBytesSize];
+    
     if (signedHashBytes) free(signedHashBytes);
-	if (digestInfo) free(digestInfo);
-	
-	return signedHash;
-
+    if (digestInfo) free(digestInfo);
+    
+    return signedHash;
+    
 }
 
 
 
 - (NSData *)getSignatureBytesSHA512:(NSData *)plainText
 {
-	OSStatus sanityCheck = noErr;
-	NSData * signedHash = nil;
-	
-	uint8_t * signedHashBytes = NULL;
-	size_t signedHashBytesSize = 0;
-	
-	signedHashBytesSize = SecKeyGetBlockSize(_privateKey);
-	
-	// Malloc a buffer to hold signature.
-	signedHashBytes = malloc( signedHashBytesSize * sizeof(uint8_t) );
-	memset((void *)signedHashBytes, 0x0, signedHashBytesSize);
-	
+    OSStatus sanityCheck = noErr;
+    NSData * signedHash = nil;
+    
+    uint8_t * signedHashBytes = NULL;
+    size_t signedHashBytesSize = 0;
+    
+    signedHashBytesSize = SecKeyGetBlockSize(_privateKey);
+    
+    // Malloc a buffer to hold signature.
+    signedHashBytes = malloc( signedHashBytesSize * sizeof(uint8_t) );
+    memset((void *)signedHashBytes, 0x0, signedHashBytesSize);
+    
     const uint8_t *hashMessage=[[self getHashBytesSHA512:plainText] bytes];
     // Concatenamos SHA512
     //SHA512_DIGESTINFO_HEADER+hashMessage
     
     uint8_t * digestInfo = malloc((CC_SHA512_DIGEST_LENGTH + SHA512_DIGESTINFO_HEADER_LENGTH)* sizeof(uint8_t));
-       
+    
     memcpy(digestInfo, SHA512_DIGESTINFO_HEADER, SHA512_DIGESTINFO_HEADER_LENGTH);
-   
+    
     for (int i=SHA512_DIGESTINFO_HEADER_LENGTH; i<(CC_SHA512_DIGEST_LENGTH + SHA512_DIGESTINFO_HEADER_LENGTH); i++)
     {
         digestInfo[i] = (uint8_t) hashMessage[i-SHA512_DIGESTINFO_HEADER_LENGTH];
     }
-	
-    // Sign the SHA1 hash.
-	sanityCheck = SecKeyRawSign(_privateKey,
-								kSecPaddingPKCS1,
-								digestInfo,
-								CC_SHA512_DIGEST_LENGTH + SHA512_DIGESTINFO_HEADER_LENGTH,
-                                (uint8_t *)signedHashBytes,
-								&signedHashBytesSize
-								);
     
-	// Build up signed SHA1 blob.
-	signedHash = [NSData dataWithBytes:(const void *)signedHashBytes length:(NSUInteger)signedHashBytesSize];
-	
+    // Sign the SHA1 hash.
+    sanityCheck = SecKeyRawSign(_privateKey,
+                                kSecPaddingPKCS1,
+                                digestInfo,
+                                CC_SHA512_DIGEST_LENGTH + SHA512_DIGESTINFO_HEADER_LENGTH,
+                                (uint8_t *)signedHashBytes,
+                                &signedHashBytesSize
+                                );
+    
+    // Build up signed SHA1 blob.
+    signedHash = [NSData dataWithBytes:(const void *)signedHashBytes length:(NSUInteger)signedHashBytesSize];
+    
     if (signedHashBytes) free(signedHashBytes);
-	if (digestInfo) free(digestInfo);
-	
-	return signedHash;
+    if (digestInfo) free(digestInfo);
+    
+    return signedHash;
 }
 
 - (void)dealloc {
@@ -610,7 +610,7 @@ static CertificateUtils *_sharedWrapper = nil;
     _publicKeyBits = nil;
     _selectedCertificateName = nil;
     
-	[super dealloc];
+    [super dealloc];
 }
 
 @end

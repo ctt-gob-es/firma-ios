@@ -18,6 +18,7 @@
 #import "AOEntity.h"
 #import "DesCypher.h"
 #import "AOXMLReader.h"
+#import "CommonAlert.h"
 
 @interface AORegisteredCertificatesTVC ()
 {
@@ -123,11 +124,7 @@
                 break;
         }
         
-        [[[UIAlertView alloc]
-          initWithTitle:errorMessage
-          message:@"" delegate:nil
-          cancelButtonTitle:@"OK"
-          otherButtonTitles:nil] show];
+        [CommonAlert createAlertWithTitle: errorMessage message:@"" cancelButtonTitle:@"OK" showOn:self];
         
         [self reloadCertificates];
         [editTableView endUpdates];
@@ -178,11 +175,7 @@
         [self performSegueWithIdentifier:@"showSignVC" sender: self];
     }
     else {
-        [[[UIAlertView alloc] initWithTitle:@"Se ha producido un error al cargar el certificado"
-                                    message:@""
-                                   delegate:nil
-                          cancelButtonTitle:@"OK"
-                          otherButtonTitles:nil] show];
+        [CommonAlert createAlertWithTitle: @"Se ha producido un error al cargar el certificado" message:@"" cancelButtonTitle:@"OK" showOn:self];
     }
 }
 
@@ -240,23 +233,7 @@
             
             if(_stServletCert != NULL & _idDocCert != NULL)
                 [self errorReportAsync:errorToSend];
-            
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"error",nil) message:NSLocalizedString(@"no_datos_firmar",nil) delegate:self cancelButtonTitle: NSLocalizedString(@"cerrar",nil) otherButtonTitles:nil];
-            
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(75, 6, 40, 40)];
-            
-            NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
-            UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
-            [imageView setImage:bkgImg];
-            [bkgImg release];
-            [path release];
-            
-            [alert addSubview:imageView];
-            [imageView release];
-            
-            [alert show];
-            [alert release];
-            
+            [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"no_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self];
             [self.editTableView setAllowsSelection:NO];
         } else {
             if([_opParameters objectForKey:PARAMETER_NAME_RTSERVLET]!= NULL) {
@@ -281,23 +258,7 @@
                     //[self errorReportAsync:errorToSend urlServlet:stServlet docId:idDoc];
                     [self errorReportAsync:errorToSend];
                 }
-                
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"no_datos_firmar",nil) delegate:self cancelButtonTitle: NSLocalizedString(@"cerrar",nil) otherButtonTitles:nil];
-                
-                UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(75, 6, 40, 40)];
-                
-                NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
-                UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
-                [imageView setImage:bkgImg];
-                [bkgImg release];
-                [path release];
-                
-                [alert addSubview:imageView];
-                [imageView release];
-                
-                [alert show];
-                [alert release];
-                
+                [CommonAlert createAlertWithTitle: NSLocalizedString(@"error",nil) message:NSLocalizedString(@"no_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self];
                 [self.editTableView setAllowsSelection:NO];
             }
         }
@@ -509,8 +470,6 @@ NSString *receivedStringCert = NULL;
     }
     
     // release the connection, and the data object
-    [connection release];
-    [receivedDataCert release];
 }
 
 /**************************/
@@ -546,7 +505,6 @@ NSString *receivedStringCert = NULL;
   didFailWithError:(NSError *)error
 {
     // Liberar la conexión
-    [connection release];
     NSLog(@"---------------------------------------");
     NSLog(@"AORegisteredCertificatesTVC Error de conexión - %@ %@",
           [error localizedDescription],

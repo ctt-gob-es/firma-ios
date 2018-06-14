@@ -7,13 +7,13 @@
 #import <UIKit/UIKit.h>
 #import "GAITrackedViewController.h"
 
-@interface AOSignViewController : GAITrackedViewController < UIAlertViewDelegate>
-@property (retain, nonatomic) IBOutlet UILabel *nombreCert;
-@property (retain, nonatomic) IBOutlet UIButton *signButton;
+@interface AOSignViewController : GAITrackedViewController
+@property (strong, nonatomic) IBOutlet UILabel *nombreCert;
+@property (strong, nonatomic) IBOutlet UIButton *signButton;
 
-@property (nonatomic, retain) NSDictionary *parameters;
-@property(nonatomic, retain) NSString *certificateName;
-@property(nonatomic, retain) NSString *base64UrlSafeCertificateData;
+@property (nonatomic, strong) NSDictionary *parameters;
+@property(nonatomic, strong) NSString *certificateName;
+@property(nonatomic, strong) NSString *base64UrlSafeCertificateData;
 
 -(void)setPrivateKey:(SecKeyRef) thePrivateKey;
 
