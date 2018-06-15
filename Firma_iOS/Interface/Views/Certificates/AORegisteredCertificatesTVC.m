@@ -102,7 +102,6 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //test THIS
     return NSLocalizedString(@"remove", nil);
 }
 
@@ -118,11 +117,9 @@
         switch (status) {
             case noErr :
             case errSecItemNotFound:
-                //test THIS
                 errorMessage = NSLocalizedString(@"certificate_successfully_deleted", nil);
                 break;
             default:
-                //test THIS
                 errorMessage = NSLocalizedString(@"an_error_occurred", nil);
                 break;
         }

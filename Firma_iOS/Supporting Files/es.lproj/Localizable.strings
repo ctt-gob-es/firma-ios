@@ -45,10 +45,11 @@
 "proceso_finalizado_trifasico" = "Se ha completado el proceso de firma. Por favor, vuelva al navegador desde el que inició la operación para continuar";
 "error_proceso_firma" = "Se ha producido un error en el proceso de firma. Por favor, vuelva de nuevo al navegador donde inició la operación e inténtelo de nuevo más tarde";
 "error_conexion_servidor" = "No se ha podido establecer la conexión con el servidor. Por favor, vuelva de nuevo al navegador donde inició la operación e intentelo de nuevo.";
-"certificate_not_found" = "No se ha encontrado el certificado";
+"certificate_not_found" = "No se ha encontrado el certificado.";
 "wrong_password" = "Contraseña incorrecta.";
 "certificate_already_loaded" = "El certificado ya estaba cargado.";
-"an_error_occurred" = "Se ha producido un error %d";
+"an_error_occurred_with_number" = "Se ha producido un error %d";
+"an_error_occurred" = "Se ha producido un error.";
 "enter_your_certificate_password" = "Por favor, introduce la contraseña del certificado";
 "certificate_successfully_loaded" = "El certificado se ha cargado correctamente";
 "certificate_loaded" = "Certificado cargado.";

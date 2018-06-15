@@ -48,7 +48,8 @@
 "certificate_not_found" = "Certificate not found.";
 "wrong_password" = "Wrong password.";
 "certificate_already_loaded" = "Certificate already loaded.";
-"an_error_occurred" = "An error occurred %d";
+"an_error_occurred_with_number" = "An error occurred %d";
+"an_error_occurred" = "An error occurred.";
 "enter_your_certificate_password" = "Please enter your certificate password.";
 "certificate_successfully_loaded" = "Certificate has been successfully loaded.";
 "certificate_loaded" = "Certificate loaded.";

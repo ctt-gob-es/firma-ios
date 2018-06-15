@@ -71,20 +71,16 @@
     if (status != noErr) {
         switch (status) {
             case errSecItemNotFound:
-                //test THIS
                 _message = NSLocalizedString(@"certificate_not_found", nil);
                 break;
             case errSecAuthFailed:
-                //test THIS
                 _message = NSLocalizedString(@"wrong_password", nil);
                 break;
             case errSecDuplicateItem:
-                //test THIS
                 _message = NSLocalizedString(@"certificate_already_loaded",nil);
                 break;
             default:
-                //test THIS
-                _message = [NSString stringWithFormat:NSLocalizedString(@"an_error_occurred", nil), (int)status];
+                _message = [NSString stringWithFormat:NSLocalizedString(@"an_error_occurred_with_number", nil), (int)status];
                 break;
         }
     } else {
@@ -94,7 +90,7 @@
             [_delegate certificateAdded];
         }
         //test THIS
-        [CommonAlert createAlertWithTitle: NSLocalizedString(@"certificate_loaded", nil) message:@"certificate_successfully_loaded_in_app" cancelButtonTitle:@"OK" showOn:self];
+        [CommonAlert createAlertWithTitle: NSLocalizedString(@"certificate_loaded", nil) message:_message cancelButtonTitle:@"OK" showOn:self];
     }
     
     UIFont *currentFont = _messageLabel.font;
