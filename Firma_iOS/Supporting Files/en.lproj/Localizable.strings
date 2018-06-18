@@ -66,3 +66,4 @@
 "sign_certificate_selector_label" = "The next certificate is selected from the keychain: ";
 "signCertificateDescriptionLabel" = "This certificate is going to be use in the signing procedure. Please, push the \"Sign\" button to start the process.";
 "help_menu_description_label" = "This section contents are specific to the mobile version of the service. For more general information about it, visit the web\nhttp://administracionelectronica.gob.es/";
+"help_menu_title" = "Help";

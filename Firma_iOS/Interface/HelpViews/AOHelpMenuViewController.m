@@ -40,6 +40,7 @@ NSMutableArray *tableData = NULL;
     self.tblViewHelp.scrollEnabled=NO;
     self.screenName = @"IOS AOHelpMenuViewController - Help menu";
     [self.helpMenuDescriptionLabel setText:NSLocalizedString(@"help_menu_description_label", nil)];
+    [self.helpMenuTitle setText:NSLocalizedString(@"help_menu_title", nil)];
 }
 - (IBAction)goBackHome:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];

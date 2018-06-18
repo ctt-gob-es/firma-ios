@@ -625,6 +625,7 @@ http://administracionelectronica.gob.es/</string>
                     <navigationItem key="navigationItem" title="Help" id="0cD-Ye-V9d"/>
                     <connections>
                         <outlet property="helpMenuDescriptionLabel" destination="ZZp-Bf-KNI" id="HPy-78-UVK"/>
+                        <outlet property="helpMenuTitle" destination="AFA-Aj-TuJ" id="sFP-WQ-cqP"/>
                         <outlet property="tblViewHelp" destination="VRk-By-NUt" id="Wcm-y0-jly"/>
                     </connections>
                 </viewController>
