@@ -53,11 +53,11 @@
         [self parseUrl:_startURL];
         [self.navigationItem setHidesBackButton:YES animated:YES];
     }
+    [self.descriptionLabel setText:NSLocalizedString(@"certificate_description_label", nil)];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    
     [super viewWillAppear:animated];
     [self reloadCertificates];
     [self.editTableView reloadData];
@@ -163,7 +163,7 @@
 #pragma mark - Navigation
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    // This method can not be reached because the rows are marked as not selected in the stroyboard.
     NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
     _selectedCertificate = _certificatesArray[selectedIndexPath.row];
     NSLog(@"You selected cell number -> %ld", (long)indexPath.row);
@@ -175,7 +175,6 @@
         [self performSegueWithIdentifier:@"showSignVC" sender: self];
     }
     else {
-        //test THIS
         [CommonAlert createAlertWithTitle: NSLocalizedString(@"error_ocurred_while_loading_the_certificate", nil) message:@"" cancelButtonTitle:@"OK" showOn:self];
     }
 }

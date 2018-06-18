@@ -84,13 +84,13 @@
                 break;
         }
     } else {
-        //test THIS
         _message = NSLocalizedString(@"certificate_successfully_loaded", nil);
-        if (_delegate) {
-            [_delegate certificateAdded];
-        }
-        //test THIS
-        [CommonAlert createAlertWithTitle: NSLocalizedString(@"certificate_loaded", nil) message:_message cancelButtonTitle:@"OK" showOn:self];
+
+        [CommonAlert createAlertWithTitle:NSLocalizedString(@"certificate_loaded", nil) message:_message cancelButtonTitle:@"OK" showOn:self onComplete:^{
+            if (_delegate) {
+                [_delegate certificateAdded];
+            }
+        }];
     }
     
     UIFont *currentFont = _messageLabel.font;
