@@ -80,10 +80,9 @@ SecKeyRef privateKey = NULL;
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     //Establecemos el nombre del certificado del almacen
     self.nombreCert.text = [CertificateUtils sharedWrapper].selectedCertificateName;
-    
     [self preloadData];
-    
     self.screenName = @"IOS AOSignViewController - Start signature process window";
+    [self.signCertificateSelectorLabel setText:NSLocalizedString(@"sign_certificate_selector_label", nil)];
 }
 
 -(IBAction)didClickSignButton:(id)sender

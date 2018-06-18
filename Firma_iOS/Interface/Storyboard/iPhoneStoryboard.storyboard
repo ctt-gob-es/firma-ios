@@ -424,6 +424,7 @@
                     <navigationItem key="navigationItem" title="Sign" id="cR5-HC-qzW"/>
                     <connections>
                         <outlet property="nombreCert" destination="hrY-8D-j5N" id="KEc-Ow-Umz"/>
+                        <outlet property="signCertificateSelectorLabel" destination="xR1-Ki-Le2" id="gsN-TB-vEO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xJp-1k-mAw" sceneMemberID="firstResponder"/>
