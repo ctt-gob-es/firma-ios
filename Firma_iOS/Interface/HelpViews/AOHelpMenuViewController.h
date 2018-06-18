@@ -13,5 +13,6 @@
 
 
 @property (strong, nonatomic) IBOutlet UITableView *tblViewHelp;
+@property (strong, nonatomic) IBOutlet UITextView *helpMenuDescriptionLabel;
 
 @end
