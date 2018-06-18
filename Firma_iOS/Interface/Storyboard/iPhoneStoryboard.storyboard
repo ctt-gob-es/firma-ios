@@ -309,6 +309,7 @@
                     <connections>
                         <outlet property="messageLabel" destination="Jlr-oA-gUB" id="XPO-be-U1e"/>
                         <outlet property="passwordTextField" destination="OT0-A9-Zc7" id="Z5T-2b-LHc"/>
+                        <outlet property="registerCertificateDescriptionLabel" destination="Jlr-oA-gUB" id="YTh-n7-b02"/>
                         <outlet property="selectedCertificateLabel" destination="VSc-e5-kdx" id="aYm-kW-NuX"/>
                     </connections>
                 </viewController>

@@ -62,3 +62,4 @@
 "certificate_description_label" = "This section allows you import new certificates to perform your own signatures or delete certificates already installed on device.";
 "home_description_label" = "Welcome to \"Cliente @firma iOS\" 1.4.8/nThis application allows to sign electronically in the supported websites of services providers.\nIn order to run the application properly, an electronic certificate and its private key must be installed in your device using iTunes. Check your iOS documentation and consult with your provider of certification services.";
 "available_certificates_description_label" = "Certificates available on your device. Please select the certificate you want to register.";
+"register_certificate_description_label" = "Enter the password for the selected certificate to be registered.";

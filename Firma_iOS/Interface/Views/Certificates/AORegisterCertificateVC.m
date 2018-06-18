@@ -29,6 +29,7 @@
     [self.navigationController.navigationBar setTintColor:THEME_COLOR];
     [_selectedCertificateLabel setText:_selectedCertificate];
     [_passwordTextField becomeFirstResponder];
+    [self.registerCertificateDescriptionLabel setText:NSLocalizedString(@"register_certificate_description_label", nil)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,7 +44,7 @@
     _password = _passwordTextField.text;
     
     if (!_password || [_password isEqualToString:@""]) {
-        _messageLabel.text = NSLocalizedString(@"enter_your_certificate_password", nil);
+        _registerCertificateDescriptionLabel.text = NSLocalizedString(@"enter_your_certificate_password", nil);
     } else {
         [self registerWithCertificate];
     }
@@ -93,14 +94,14 @@
         }];
     }
     
-    UIFont *currentFont = _messageLabel.font;
+    UIFont *currentFont = _registerCertificateDescriptionLabel.font;
     UIFont *newFont = [UIFont fontWithName:[NSString stringWithFormat:@"%@-Bold",currentFont.fontName] size:currentFont.pointSize];
-    _messageLabel.font = newFont;
-    _messageLabel.textColor = [UIColor redColor];
-    _messageLabel.text = _message;
+    _registerCertificateDescriptionLabel.font = newFont;
+    _registerCertificateDescriptionLabel.textColor = [UIColor redColor];
+    _registerCertificateDescriptionLabel.text = _message;
     
     NSLog(@"Message -> %@", _message);
-    NSLog(@"MessageLabel -> %@", _messageLabel.text);
+    NSLog(@"MessageLabel -> %@", _registerCertificateDescriptionLabel.text);
     
     return;
 }

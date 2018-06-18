@@ -62,3 +62,4 @@
 "certificate_description_label" = "Desde esta pantalla puede añadir nuevos certificados con los que procesar sus firmas, o eliminar los certificados instalados en el dispositivo delizando la fila hacia la izquierda.";
 "home_description_label" = "Bienvenido a \"Cliente @firma iOS\" 1.4.8\nEsta aplicación permite realizar firmas electrónicas en las páginas de los proveedores de servicios que lo soporten.\nPara funcionar correctamente debe instalar un certificado electrónico y su clave privada en su dispositivo a través de iTunes. Consulte la documentación de su sistema iOS y con su proveedor de servicios de  certificación.";
 "available_certificates_description_label" = "Certificados disponibles en tu dispositivo. Por favor selecciona el certificado que quieres registrar.";
+"register_certificate_description_label" = "Introduce la contraseña para el registrar el certificado seleccionado.";
