@@ -20,6 +20,7 @@ typedef NS_ENUM (NSInteger, AORegisteredCertificatesTVCMode)
 @property (nonatomic, strong) NSString *startURL;
 @property (strong, nonatomic) NSMutableArray *_certificatesArray;
 @property (strong, nonatomic) IBOutlet UITableView *editTableView;
+@property (strong, nonatomic) IBOutlet UILabel *certificatesDescriptionLabel;
 
 
 @end

@@ -53,7 +53,7 @@
         [self parseUrl:_startURL];
         [self.navigationItem setHidesBackButton:YES animated:YES];
     }
-    [self.descriptionLabel setText:NSLocalizedString(@"certificate_description_label", nil)];
+    [self.certificatesDescriptionLabel setText:NSLocalizedString(@"certificate_description_label", nil)];
 }
 
 - (void)viewWillAppear:(BOOL)animated

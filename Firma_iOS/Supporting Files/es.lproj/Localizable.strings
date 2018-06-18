@@ -59,3 +59,5 @@
 "error_ocurred_while_loading_the_certificate" = "Se ha producido un error al cargar el certificado";
 "valid_from_to" = "Válido desde %@ hasta %@";
 "certificate_instructions" = "La aplicación esta solicitando acceso a su almacen de certificados y no dispone de ninguno registrado.\n\n  Para instalar su certificado :\n 1. Conecte su dispositivo a su PC o Mac.\n 2. Localice el certificado que desea instalar ....(debe conocer el pin del certificado)\n3. En iTunes seleccione su certificado y arrástrelo a la ventana de documentos...\n4. Vuelva a esta pantalla y registrelo en el almacen del dispositivo.\n";
+"certificate_description_label" = "Desde esta pantalla puede añadir nuevos certificados con los que procesar sus firmas, o eliminar los certificados instalados en el dispositivo delizando la fila hacia la izquierda.";
+
