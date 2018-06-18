@@ -64,3 +64,4 @@
 "available_certificates_description_label" = "Certificados disponibles en tu dispositivo. Por favor selecciona el certificado que quieres registrar.";
 "register_certificate_description_label" = "Introduce la contraseña para el registrar el certificado seleccionado.";
 "sign_certificate_selector_label" = "Se ha seleccionado el siguiente certificado del almacén:";
+"sign_certificate_description_label" = "Se va a utilizar este certificado para realizar la firma. Pulse el siguiente botón para iniciar el proceso.";

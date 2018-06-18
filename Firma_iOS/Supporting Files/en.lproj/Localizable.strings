@@ -64,3 +64,4 @@
 "available_certificates_description_label" = "Certificates available on your device. Please select the certificate you want to register.";
 "register_certificate_description_label" = "Enter the password for the selected certificate to be registered.";
 "sign_certificate_selector_label" = "The next certificate is selected from the keychain: ";
+"signCertificateDescriptionLabel" = "This certificate is going to be use in the signing procedure. Please, push the \"Sign\" button to start the process.";

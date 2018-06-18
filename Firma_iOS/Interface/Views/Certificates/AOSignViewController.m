@@ -83,6 +83,7 @@ SecKeyRef privateKey = NULL;
     [self preloadData];
     self.screenName = @"IOS AOSignViewController - Start signature process window";
     [self.signCertificateSelectorLabel setText:NSLocalizedString(@"sign_certificate_selector_label", nil)];
+    [self.signCertificateDescriptionLabel setText:NSLocalizedString(@"sign_certificate_description_label", nil)];
 }
 
 -(IBAction)didClickSignButton:(id)sender
