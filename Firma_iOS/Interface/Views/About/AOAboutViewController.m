@@ -28,6 +28,7 @@ BOOL isURL = NO;
     [self createNotification];
     
     self.screenName = @"IOS AOAboutViewController - Main window";
+    [self.homeDescriptionLabel setText:NSLocalizedString(@"home_description_label", nil)];
 }
 
 - (void)didReceiveMemoryWarning
