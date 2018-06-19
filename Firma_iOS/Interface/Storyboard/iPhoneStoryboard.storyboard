@@ -516,6 +516,7 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                         <barButtonItem key="backBarButtonItem" title="Atras" id="nzi-QB-0Gz"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="aboutDescriptionLabel" destination="qh1-9N-LpB" id="vrB-7d-yjZ"/>
                         <outlet property="aboutTitleLabel" destination="RvU-hc-GZw" id="9sf-94-Uf7"/>
                     </connections>
                 </viewController>

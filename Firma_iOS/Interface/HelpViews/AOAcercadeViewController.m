@@ -31,6 +31,7 @@
     
     self.screenName = @"IOS AOAboutViewController - Help Screen";
     [self.aboutTitleLabel setText:NSLocalizedString(@"about_title_label", nil)];
+    [self.aboutDescriptionLabel setText:NSLocalizedString(@"about_description_label", nil)];
     
 }
 
