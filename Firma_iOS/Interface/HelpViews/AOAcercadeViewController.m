@@ -33,7 +33,9 @@
     [self.aboutTitleLabel setText:NSLocalizedString(@"about_title_label", nil)];
     [self.aboutDescriptionLabel setText:NSLocalizedString(@"about_description_label", nil)];
     [self.howToInstallCertificatesTitle setText:NSLocalizedString(@"how_to_install_certificates_title", nil)];
-    
+    [self.iTunesInstructionsLabel setText:NSLocalizedString(@"iTunes_instructions_label", nil)];
+    [self.certificateInstructionsLabel setText:NSLocalizedString(@"certificate_instructions_label", nil)];
+    [self.masInfoButton setTitle:NSLocalizedString(@"more_info_button", nil) forState:UIControlStateNormal];
 }
 
 -(IBAction)buttonPressed:(id)sender {
