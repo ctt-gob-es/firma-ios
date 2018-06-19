@@ -712,6 +712,7 @@ In order to run the application properly, an electronic certificate and its priv
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="homeDescriptionLabel" destination="wea-WN-cIK" id="z1r-cB-wxc"/>
+                        <outlet property="homeFooterLabel" destination="UJV-8n-EZ7" id="H6L-Xk-3Ag"/>
                         <outlet property="tabBar" destination="YGN-hy-HXm" id="zpp-uq-Nhw"/>
                         <segue destination="vLA-A2-0w5" kind="show" identifier="toHelpScreen" id="gtw-Bd-7qn"/>
                         <segue destination="1JQ-sz-Nah" kind="show" identifier="showStoredCertificatesToManage" id="QIm-SY-KYp"/>
