@@ -15,5 +15,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *howToInstallCertificatesTitle;
 @property (strong, nonatomic) IBOutlet UITextView *iTunesInstructionsLabel;
 @property (strong, nonatomic) IBOutlet UITextView *certificateInstructionsLabel;
+@property (strong, nonatomic) IBOutlet UILabel *frequentlyAskedQuestionsTitleLabel;
+@property (strong, nonatomic) IBOutlet UITextView *frequentlyAskedQuestionsDescriptionLabel;
 -(IBAction)buttonPressed:(id)sender;
 @end

@@ -873,6 +873,10 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                     <navigationItem key="navigationItem" title="Questions" id="tIc-gI-F7W">
                         <barButtonItem key="backBarButtonItem" title="Atras" id="yir-z6-xlc"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="frequentlyAskedQuestionsDescriptionLabel" destination="RdQ-UM-sfh" id="u1q-S1-Ki9"/>
+                        <outlet property="frequentlyAskedQuestionsTitleLabel" destination="8TS-VU-W3b" id="A5A-QT-jUy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qhk-Bs-DO0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
