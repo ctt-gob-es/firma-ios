@@ -30,6 +30,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onGoingToBackGround:) name:UIApplicationDidEnterBackgroundNotification object:nil];
     
     self.screenName = @"IOS AOAboutViewController - Help Screen";
+    [self.aboutTitleLabel setText:NSLocalizedString(@"about_title_label", nil)];
     
 }
 

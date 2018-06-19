@@ -67,3 +67,4 @@
 "sign_certificate_description_label" = "Se va a utilizar este certificado para realizar la firma. Pulse el siguiente botón para iniciar el proceso.";
 "help_menu_description_label" = "Los contenidos de esta sección son específicos de la versión móvil del servicio. Si desea consultar información general sobre el mismo, puede visitar la web\nhttp://administracionelectronica.gob.es/";
 "help_menu_title" = "Ayuda";
+"about_title_label" = "Acerca de...";
