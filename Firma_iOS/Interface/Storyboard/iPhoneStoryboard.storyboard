@@ -993,6 +993,7 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                         <barButtonItem key="backBarButtonItem" title="Atras" id="pAo-HS-ask"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="howToInstallCertificatesTitle" destination="Kk8-eE-cQL" id="pQo-Ou-tKP"/>
                         <outlet property="masInfoButton" destination="QZv-qe-ul0" id="Uf3-39-TYX"/>
                     </connections>
                 </viewController>

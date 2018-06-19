@@ -69,3 +69,4 @@
 "help_menu_title" = "Ayuda";
 "about_title_label" = "Acerca de...";
 "about_description_label" = "\"Cliente @firma para Apple iOS\" v1.4.8\n2013 Gobierno de España\n\nEl Cliente @firma para Apple iOS es Software Libre; puedes redistribuirlo y/o modificarlo bajo los términos de la siguiente licencia: \"European Software License 1.1\", cuyo texto completo puede consultarse en la siguiente página Web: http://ec.europa.eu/idabc/eupl.html\n\nEl código fuente de este programa, así como del resto de los componentes del proyecto se pueden descargar libremente desde: http://forja-ctt.administracionelectronica.gob.es\n\nEl proyecto Cliente @firma es un proyecto colaborativo, si desea participar en él, no dude en unirse a la comunidad, accesible desde la siguiente página Web:\n\nhttp://forja-ctt.administracionelectronica.gob.es/web/clienteafirma";
+"how_to_install_certificates_title" = "Cómo instalar certificados";

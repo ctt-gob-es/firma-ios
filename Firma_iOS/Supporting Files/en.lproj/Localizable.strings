@@ -69,3 +69,4 @@
 "help_menu_title" = "Help";
 "about_title_label" = "About...";
 "about_description_label" = "\"Cliente @firma for Apple iOS\" v1.4.8\n2013 Gobierno de España\n\nCliente @firma for Apple iOS is open source; is available for redistribution and/or modification using the EUPL license: \"European Software License 1.1\", the complete text can be found in the next Web: http://ec.europa.eu/idabc/eupl.html\n\nThe source code of this software, as well as all the components used in this project are available to download freely from: http://forja-ctt.administracionelectronica.gob.es\n\nThe project Cliente @firma is a cooperative project, and if you want to participate on it, you shouldn't doubt about joining the community, available in the next Web:\n\nhttp://forja-ctt.administracionelectronica.gob.es/web/clienteafirma ";
+"how_to_install_certificates_title" = "How to install certificates";
