@@ -91,3 +91,5 @@
 "about_navigation_title" = "About";
 "how_to_navigation_title" = "How to";
 "questions_navigation_title" = "Questions";
+"keystore_manager_bar_item" = "Keystore Manager";
+"help_bar_item" = "Help";

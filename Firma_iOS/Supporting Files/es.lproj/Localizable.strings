@@ -91,3 +91,5 @@
 "about_navigation_title" = "Acerca de";
 "how_to_navigation_title" = "Como instalar Certificados";
 "questions_navigation_title" = "Preguntas";
+"keystore_manager_bar_item" = "Gestión de Certificados";
+"help_bar_item" = "Ayuda";

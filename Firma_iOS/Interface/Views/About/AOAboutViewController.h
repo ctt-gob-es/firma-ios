@@ -17,6 +17,8 @@
 @property (nonatomic, strong) NSNotification *onReadUrl;
 @property (strong, nonatomic) IBOutlet UITextView *homeDescriptionLabel;
 @property (strong, nonatomic) IBOutlet UILabel *homeFooterLabel;
+@property (strong, nonatomic) IBOutlet UITabBarItem *keystoreManagerBarItem;
+@property (strong, nonatomic) IBOutlet UITabBarItem *helpBarItem;
 
 -(void)createNotification;
 
