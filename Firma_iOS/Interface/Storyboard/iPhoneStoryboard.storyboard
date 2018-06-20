@@ -517,6 +517,7 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                     </navigationItem>
                     <connections>
                         <outlet property="aboutDescriptionLabel" destination="qh1-9N-LpB" id="vrB-7d-yjZ"/>
+                        <outlet property="aboutNavigationItem" destination="tvV-Ho-jvq" id="t8N-Nf-WFc"/>
                         <outlet property="aboutTitleLabel" destination="RvU-hc-GZw" id="9sf-94-Uf7"/>
                     </connections>
                 </viewController>
@@ -546,7 +547,7 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                                     <constraint firstAttribute="height" constant="154" id="cNz-Qg-WpX"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="1" id="pex-iP-Azk">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="1" id="pex-iP-Azk">
                                         <rect key="frame" x="0.0" y="22" width="335" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pex-iP-Azk" id="CAA-Cb-5xH">
@@ -557,7 +558,7 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                                             <segue destination="iwh-Um-Nbl" kind="show" identifier="toAcerca" id="Bn7-Fr-7tb"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="2" id="Wcg-kQ-r23">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="2" id="Wcg-kQ-r23">
                                         <rect key="frame" x="0.0" y="66" width="335" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wcg-kQ-r23" id="aZd-Hu-Jrg">
@@ -568,7 +569,7 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                                             <segue destination="rrS-Su-Td3" kind="show" identifier="toPregFrecuentes" id="GoS-dN-5Vj"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="3" id="vbt-ji-MCa">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="3" id="vbt-ji-MCa">
                                         <rect key="frame" x="0.0" y="110" width="335" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vbt-ji-MCa" id="88h-EJ-m5b">
@@ -877,6 +878,7 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                     <connections>
                         <outlet property="frequentlyAskedQuestionsDescriptionLabel" destination="RdQ-UM-sfh" id="u1q-S1-Ki9"/>
                         <outlet property="frequentlyAskedQuestionsTitleLabel" destination="8TS-VU-W3b" id="A5A-QT-jUy"/>
+                        <outlet property="questionsNavigationItem" destination="tIc-gI-F7W" id="uKn-Ki-n7B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qhk-Bs-DO0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1000,6 +1002,7 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                     <connections>
                         <outlet property="certificateInstructionsLabel" destination="uZ3-48-Zky" id="jBL-GX-fWo"/>
                         <outlet property="howToInstallCertificatesTitle" destination="Kk8-eE-cQL" id="pQo-Ou-tKP"/>
+                        <outlet property="howToNavigationItem" destination="C72-VG-evJ" id="5GW-kp-2cA"/>
                         <outlet property="iTunesInstructionsLabel" destination="s3J-tc-eTj" id="hRH-Rh-YUQ"/>
                         <outlet property="masInfoButton" destination="QZv-qe-ul0" id="Uf3-39-TYX"/>
                     </connections>

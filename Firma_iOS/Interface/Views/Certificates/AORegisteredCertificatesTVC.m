@@ -54,6 +54,7 @@
         [self.navigationItem setHidesBackButton:YES animated:YES];
     }
     [self.certificatesDescriptionLabel setText:NSLocalizedString(@"certificate_description_label", nil)];
+    self.title = NSLocalizedString(@"registered_certificates", nil);
 }
 
 - (void)viewWillAppear:(BOOL)animated

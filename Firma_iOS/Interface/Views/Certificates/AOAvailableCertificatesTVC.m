@@ -38,6 +38,7 @@ static NSString *const kAOAvailableCertificatesTVCCellIdentifier = @"AOCertifica
     
     [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
     [self.availableCertificatesDescriptionLabel setText:NSLocalizedString(@"available_certificates_description_label", nil)];
+    self.title = NSLocalizedString(@"available_certificates", nil);
 }
 
 - (void)didReceiveMemoryWarning

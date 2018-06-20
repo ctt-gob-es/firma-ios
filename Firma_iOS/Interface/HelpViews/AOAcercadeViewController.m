@@ -37,6 +37,9 @@
     [self.certificateInstructionsLabel setText:NSLocalizedString(@"certificate_instructions_label", nil)];
     [self.masInfoButton setTitle:NSLocalizedString(@"more_info_button", nil) forState:UIControlStateNormal];
     [self fillTextForFrequentlyAskedQuestionsTitleLabel];
+    self.aboutNavigationItem.title = NSLocalizedString(@"about_navigation_title", nil);;
+    self.howToNavigationItem.title = NSLocalizedString(@"how_to_navigation_title", nil);
+    self.questionsNavigationItem.title = NSLocalizedString(@"questions_navigation_title", nil);
 }
 
 -(void)fillTextForFrequentlyAskedQuestionsTitleLabel{

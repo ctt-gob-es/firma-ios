@@ -41,6 +41,7 @@ NSMutableArray *tableData = NULL;
     self.screenName = @"IOS AOHelpMenuViewController - Help menu";
     [self.helpMenuDescriptionLabel setText:NSLocalizedString(@"help_menu_description_label", nil)];
     [self.helpMenuTitle setText:NSLocalizedString(@"help_menu_title", nil)];
+    self.title = NSLocalizedString(@"help", nil) ;
 }
 - (IBAction)goBackHome:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
@@ -134,7 +135,6 @@ NSMutableArray *tableData = NULL;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear: animated];
-    self.title = @"Help";
 }
 
 

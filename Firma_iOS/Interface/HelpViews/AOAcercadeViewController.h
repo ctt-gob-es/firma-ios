@@ -17,5 +17,8 @@
 @property (strong, nonatomic) IBOutlet UITextView *certificateInstructionsLabel;
 @property (strong, nonatomic) IBOutlet UILabel *frequentlyAskedQuestionsTitleLabel;
 @property (strong, nonatomic) IBOutlet UITextView *frequentlyAskedQuestionsDescriptionLabel;
+@property (strong, nonatomic) IBOutlet UINavigationItem *aboutNavigationItem;
+@property (strong, nonatomic) IBOutlet UINavigationItem *howToNavigationItem;
+@property (strong, nonatomic) IBOutlet UINavigationItem *questionsNavigationItem;
 -(IBAction)buttonPressed:(id)sender;
 @end

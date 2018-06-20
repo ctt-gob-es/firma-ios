@@ -83,3 +83,11 @@
 "frequently_asked_questions_description_label_7" = "I successfully imported my certificates to Cliente @firma for Apple iOS, but I cannot use them to authenticate in electronic head offices and other websites where they are required. Why?\n\n";
 "frequently_asked_questions_description_label_8" = "Imported certificates to Cliente @firma for Apple iOS are used only in websites designed for electronic signing. In order to use a digital certificate to authenticate in a web, you should follow your browser and Apple instructions, about the certificates and keys installation process in iOS operating system and in your own browser if needed.";
 "home_footer_label" = "Cliente @firma for Apple iOS 1.4.8 \n© Copyright: Gobierno de España, 2013 ";
+"home_title" = "Home";
+"registered_certificates" = "Registered Certificates";
+"sign" = "Sign";
+"help" = "Help";
+"available_certificates" = "Available Certificates";
+"about_navigation_title" = "About";
+"how_to_navigation_title" = "How to";
+"questions_navigation_title" = "Questions";
