@@ -921,6 +921,10 @@ Los certificados importados en el Cliente @firma para Apple iOS son de uso exclu
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Preguntas" id="bfZ-U2-mHZ"/>
+                    <connections>
+                        <outlet property="frequentlyAskedQuestionsDescriptionLabel" destination="QkQ-7P-9PZ" id="Ery-48-YWi"/>
+                        <outlet property="frequentlyAskedQuestionsTitleLabel" destination="B04-xr-H96" id="8Bj-4j-eFG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YTS-18-55J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
