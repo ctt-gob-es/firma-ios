@@ -1025,6 +1025,9 @@ Los certificados importados en el Cliente @firma para Apple iOS son de uso exclu
                     </view>
                     <navigationItem key="navigationItem" title="Instalación" id="U4u-Ok-FO7"/>
                     <connections>
+                        <outlet property="certificateInstructionsLabel" destination="Ll0-PS-fWJ" id="35u-Df-2Wt"/>
+                        <outlet property="howToInstallCertificatesTitle" destination="e1s-e6-GQT" id="h8d-L6-KVB"/>
+                        <outlet property="iTunesInstructionsLabel" destination="kMf-er-nEQ" id="D5i-3k-KpX"/>
                         <outlet property="masInfoButton" destination="E0R-Xx-TIt" id="dzo-xQ-rFB"/>
                     </connections>
                 </viewController>
