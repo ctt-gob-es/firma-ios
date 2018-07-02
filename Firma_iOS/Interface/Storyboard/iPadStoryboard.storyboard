@@ -565,6 +565,7 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma</string>
                     <navigationItem key="navigationItem" title="Acerca" id="i7n-kA-43N"/>
                     <connections>
                         <outlet property="aboutDescriptionLabel" destination="rmY-CM-YMa" id="eWe-cP-G8G"/>
+                        <outlet property="aboutNavigationItem" destination="i7n-kA-43N" id="mF9-ox-ofm"/>
                         <outlet property="aboutTitleLabel" destination="Akc-AJ-Nyw" id="r9W-AV-MHf"/>
                     </connections>
                 </viewController>
@@ -925,6 +926,7 @@ Los certificados importados en el Cliente @firma para Apple iOS son de uso exclu
                     <connections>
                         <outlet property="frequentlyAskedQuestionsDescriptionLabel" destination="QkQ-7P-9PZ" id="Ery-48-YWi"/>
                         <outlet property="frequentlyAskedQuestionsTitleLabel" destination="B04-xr-H96" id="8Bj-4j-eFG"/>
+                        <outlet property="questionsNavigationItem" destination="bfZ-U2-mHZ" id="boG-in-o4A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YTS-18-55J" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1032,6 +1034,7 @@ Los certificados importados en el Cliente @firma para Apple iOS son de uso exclu
                     <connections>
                         <outlet property="certificateInstructionsLabel" destination="Ll0-PS-fWJ" id="35u-Df-2Wt"/>
                         <outlet property="howToInstallCertificatesTitle" destination="e1s-e6-GQT" id="h8d-L6-KVB"/>
+                        <outlet property="howToNavigationItem" destination="U4u-Ok-FO7" id="aYr-VK-gKZ"/>
                         <outlet property="iTunesInstructionsLabel" destination="kMf-er-nEQ" id="D5i-3k-KpX"/>
                         <outlet property="masInfoButton" destination="E0R-Xx-TIt" id="dzo-xQ-rFB"/>
                     </connections>
