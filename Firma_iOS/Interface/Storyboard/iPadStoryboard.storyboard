@@ -563,6 +563,10 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Acerca" id="i7n-kA-43N"/>
+                    <connections>
+                        <outlet property="aboutDescriptionLabel" destination="rmY-CM-YMa" id="eWe-cP-G8G"/>
+                        <outlet property="aboutTitleLabel" destination="Akc-AJ-Nyw" id="r9W-AV-MHf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dy1-vc-VZD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
