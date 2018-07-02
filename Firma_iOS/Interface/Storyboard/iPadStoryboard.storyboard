@@ -690,6 +690,8 @@ http://administracionelectronica.gob.es/</string>
                     </view>
                     <navigationItem key="navigationItem" title="Ayuda" id="q7G-K3-Ev7"/>
                     <connections>
+                        <outlet property="helpMenuDescriptionLabel" destination="3bn-Vu-wJo" id="8sX-q3-DBI"/>
+                        <outlet property="helpMenuTitle" destination="q8h-x8-F2s" id="bWL-yT-aEx"/>
                         <outlet property="tblViewHelp" destination="ubm-WH-Rbo" id="8wn-Eh-HoG"/>
                     </connections>
                 </viewController>
