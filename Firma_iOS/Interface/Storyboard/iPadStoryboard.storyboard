@@ -348,8 +348,8 @@
                         <barButtonItem key="backBarButtonItem" title="Cancelar" id="ih1-Mw-5RL"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="messageLabel" destination="FQW-DW-bdd" id="5Wj-lO-SVg"/>
                         <outlet property="passwordTextField" destination="ikR-fm-VEk" id="WGF-f7-BTX"/>
+                        <outlet property="registerCertificateDescriptionLabel" destination="FQW-DW-bdd" id="GbG-mu-gua"/>
                         <outlet property="selectedCertificateLabel" destination="iPQ-f0-LDS" id="ISv-Yb-Jni"/>
                     </connections>
                 </viewController>
