@@ -38,9 +38,10 @@ NSMutableArray *tableData = NULL;
     self.tblViewHelp.layer.borderColor = [[UIColor grayColor] CGColor];
     self.tblViewHelp.layer.cornerRadius = 6.0f;
     self.tblViewHelp.scrollEnabled=NO;
-    
     self.screenName = @"IOS AOHelpMenuViewController - Help menu";
-
+    [self.helpMenuDescriptionLabel setText:NSLocalizedString(@"help_menu_description_label", nil)];
+    [self.helpMenuTitle setText:NSLocalizedString(@"help_menu_title", nil)];
+    self.title = NSLocalizedString(@"help", nil) ;
 }
 - (IBAction)goBackHome:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
@@ -134,7 +135,6 @@ NSMutableArray *tableData = NULL;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear: animated];
-    self.title = @"Help";
 }
 
 

@@ -10,5 +10,6 @@
 #import "AORegisterCertificateVC.h"
 
 @interface AOAvailableCertificatesTVC : UITableViewController<AORegisterCertificateVCDelegate>
+@property (strong, nonatomic) IBOutlet UILabel *availableCertificatesDescriptionLabel;
 
 @end

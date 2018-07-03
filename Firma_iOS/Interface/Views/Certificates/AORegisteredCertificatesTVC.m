@@ -53,11 +53,12 @@
         [self parseUrl:_startURL];
         [self.navigationItem setHidesBackButton:YES animated:YES];
     }
+    [self.certificatesDescriptionLabel setText:NSLocalizedString(@"certificate_description_label", nil)];
+    self.title = NSLocalizedString(@"registered_certificates", nil);
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    
     [super viewWillAppear:animated];
     [self reloadCertificates];
     [self.editTableView reloadData];
@@ -102,7 +103,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return @"Eliminar";
+    return NSLocalizedString(@"remove", nil);
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -117,10 +118,10 @@
         switch (status) {
             case noErr :
             case errSecItemNotFound:
-                errorMessage = @"Se ha eliminado el certificado correctamente";
+                errorMessage = NSLocalizedString(@"certificate_successfully_deleted", nil);
                 break;
             default:
-                errorMessage = @"Se ha producido un error";
+                errorMessage = NSLocalizedString(@"an_error_occurred", nil);
                 break;
         }
         
@@ -163,7 +164,7 @@
 #pragma mark - Navigation
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    // This method can not be reached because the rows are marked as not selected in the stroyboard.
     NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
     _selectedCertificate = _certificatesArray[selectedIndexPath.row];
     NSLog(@"You selected cell number -> %ld", (long)indexPath.row);
@@ -175,7 +176,7 @@
         [self performSegueWithIdentifier:@"showSignVC" sender: self];
     }
     else {
-        [CommonAlert createAlertWithTitle: @"Se ha producido un error al cargar el certificado" message:@"" cancelButtonTitle:@"OK" showOn:self];
+        [CommonAlert createAlertWithTitle: NSLocalizedString(@"error_ocurred_while_loading_the_certificate", nil) message:@"" cancelButtonTitle:@"OK" showOn:self];
     }
 }
 

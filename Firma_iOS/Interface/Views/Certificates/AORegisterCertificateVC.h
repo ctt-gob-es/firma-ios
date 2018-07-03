@@ -22,5 +22,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *selectedCertificateLabel;
 @property (strong, nonatomic) IBOutlet UILabel *messageLabel;
 @property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (strong, nonatomic) IBOutlet UILabel *registerCertificateDescriptionLabel;
 
 @end

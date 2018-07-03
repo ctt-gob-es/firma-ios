@@ -29,6 +29,7 @@
     [self.navigationController.navigationBar setTintColor:THEME_COLOR];
     [_selectedCertificateLabel setText:_selectedCertificate];
     [_passwordTextField becomeFirstResponder];
+    [self.registerCertificateDescriptionLabel setText:NSLocalizedString(@"register_certificate_description_label", nil)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,7 +44,7 @@
     _password = _passwordTextField.text;
     
     if (!_password || [_password isEqualToString:@""]) {
-        _messageLabel.text = @"Por favor, introduce la contraseña del certificado";
+        _registerCertificateDescriptionLabel.text = NSLocalizedString(@"enter_your_certificate_password", nil);
     } else {
         [self registerWithCertificate];
     }
@@ -71,34 +72,36 @@
     if (status != noErr) {
         switch (status) {
             case errSecItemNotFound:
-                _message = @"No se ha encontrado el certificado";
+                _message = NSLocalizedString(@"certificate_not_found", nil);
                 break;
             case errSecAuthFailed:
-                _message = @"Contraseña incorrecta";
+                _message = NSLocalizedString(@"wrong_password", nil);
                 break;
             case errSecDuplicateItem:
-                _message = @"El certificado ya estaba cargado";
+                _message = NSLocalizedString(@"certificate_already_loaded",nil);
                 break;
             default:
-                _message = [NSString stringWithFormat:@"Se ha producido un error(%d)", (int)status];
+                _message = [NSString stringWithFormat:NSLocalizedString(@"an_error_occurred_with_number", nil), (int)status];
                 break;
         }
     } else {
-        _message = @"El certificado se ha cargado correctamente";
-        if (_delegate) {
-            [_delegate certificateAdded];
-        }
-        [CommonAlert createAlertWithTitle: @"Certificado cargado" message:@"El certificado se ha cargado correctamente en su aplicación." cancelButtonTitle:@"OK" showOn:self];
+        _message = NSLocalizedString(@"certificate_successfully_loaded", nil);
+
+        [CommonAlert createAlertWithTitle:NSLocalizedString(@"certificate_loaded", nil) message:_message cancelButtonTitle:@"OK" showOn:self onComplete:^{
+            if (_delegate) {
+                [_delegate certificateAdded];
+            }
+        }];
     }
     
-    UIFont *currentFont = _messageLabel.font;
+    UIFont *currentFont = _registerCertificateDescriptionLabel.font;
     UIFont *newFont = [UIFont fontWithName:[NSString stringWithFormat:@"%@-Bold",currentFont.fontName] size:currentFont.pointSize];
-    _messageLabel.font = newFont;
-    _messageLabel.textColor = [UIColor redColor];
-    _messageLabel.text = _message;
+    _registerCertificateDescriptionLabel.font = newFont;
+    _registerCertificateDescriptionLabel.textColor = [UIColor redColor];
+    _registerCertificateDescriptionLabel.text = _message;
     
     NSLog(@"Message -> %@", _message);
-    NSLog(@"MessageLabel -> %@", _messageLabel.text);
+    NSLog(@"MessageLabel -> %@", _registerCertificateDescriptionLabel.text);
     
     return;
 }
