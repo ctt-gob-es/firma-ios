@@ -32,7 +32,7 @@ BOOL isURL = NO;
     [self.homeFooterLabel setText:NSLocalizedString(@"home_footer_label", nil)];
     self.keystoreManagerBarItem.title = NSLocalizedString(@"keystore_manager_bar_item", nil);;
     self.helpBarItem.title = NSLocalizedString(@"help_bar_item", nil);
-    self.title = NSLocalizedString(@"home_title", nil);
+    self.homeNavitationItem.title = NSLocalizedString(@"home_title", nil);
 }
 
 - (void)didReceiveMemoryWarning

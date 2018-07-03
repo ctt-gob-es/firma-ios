@@ -715,6 +715,7 @@ In order to run the application properly, an electronic certificate and its priv
                         <outlet property="helpBarItem" destination="qsl-TR-wha" id="UA3-tn-aCe"/>
                         <outlet property="homeDescriptionLabel" destination="wea-WN-cIK" id="z1r-cB-wxc"/>
                         <outlet property="homeFooterLabel" destination="UJV-8n-EZ7" id="H6L-Xk-3Ag"/>
+                        <outlet property="homeNavitationItem" destination="QfF-uh-q3e" id="0kn-ea-eL7"/>
                         <outlet property="keystoreManagerBarItem" destination="kJF-BT-0mB" id="j6g-db-dlT"/>
                         <outlet property="tabBar" destination="YGN-hy-HXm" id="zpp-uq-Nhw"/>
                         <segue destination="vLA-A2-0w5" kind="show" identifier="toHelpScreen" id="gtw-Bd-7qn"/>
