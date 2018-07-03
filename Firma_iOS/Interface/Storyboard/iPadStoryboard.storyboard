@@ -777,7 +777,10 @@ Para funcionar correctamente debe instalar un certificado electrónico y su clav
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Inicio" id="SY6-mt-k47"/>
                     <connections>
+                        <outlet property="helpBarItem" destination="neN-W0-9vx" id="Prj-QO-nVg"/>
+                        <outlet property="homeDescriptionLabel" destination="aP4-9e-dRv" id="Nau-Cx-GAX"/>
                         <outlet property="homeFooterLabel" destination="PET-dd-39J" id="zdx-1y-xFH"/>
+                        <outlet property="keystoreManagerBarItem" destination="Dea-Zs-0WA" id="Ngk-NI-QfE"/>
                         <outlet property="tabBar" destination="I0p-Xi-caV" id="7qi-9a-usb"/>
                         <segue destination="YHM-Th-eEX" kind="show" identifier="toHelpScreen" id="rze-Nc-Nlf"/>
                         <segue destination="sgo-6f-C4t" kind="show" identifier="showStoredCertificatesToManage" id="W2n-kP-MXc"/>
