@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Certificates-->
+        <!--Certificados Registrados-->
         <scene sceneID="JuI-wq-lm7">
             <objects>
                 <tableViewController storyboardIdentifier="AORegisteredCertificatesTVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1JQ-sz-Nah" customClass="AORegisteredCertificatesTVC" sceneMemberID="viewController">
@@ -127,15 +127,10 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Certificates" id="qwJ-zr-qdz">
-                        <barButtonItem key="leftBarButtonItem" id="ROY-g3-8p7">
+                    <navigationItem key="navigationItem" title="Certificados Registrados" id="f09-tA-974">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="ZNl-SL-MLS"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="oAU-tb-OaO">
                             <color key="tintColor" red="0.59864145520000001" green="0.0" blue="0.091977573930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="nyq-iZ-xvd">
-                            <color key="tintColor" red="0.59864145517349243" green="0.0" blue="0.091977573931217194" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <segue destination="aD3-ci-8Jt" kind="show" id="Bap-z6-ye4"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
