@@ -128,9 +128,12 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Certificados Registrados" id="f09-tA-974">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="ZNl-SL-MLS"/>
+                        <barButtonItem key="backBarButtonItem" id="ZNl-SL-MLS"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="oAU-tb-OaO">
                             <color key="tintColor" red="0.59864145520000001" green="0.0" blue="0.091977573930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="aD3-ci-8Jt" kind="presentation" id="CyS-20-lK0"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
