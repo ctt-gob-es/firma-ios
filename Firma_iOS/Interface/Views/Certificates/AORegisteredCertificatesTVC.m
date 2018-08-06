@@ -54,6 +54,7 @@
         [self.navigationItem setHidesBackButton:YES animated:YES];
     }
     [self.certificatesDescriptionLabel setText:NSLocalizedString(@"certificate_description_label", nil)];
+    self.navigationItem.backBarButtonItem.tintColor = [UIColor greenColor];
     self.title = NSLocalizedString(@"registered_certificates", nil);
 }
 
