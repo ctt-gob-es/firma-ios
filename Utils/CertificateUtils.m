@@ -280,7 +280,7 @@ static CertificateUtils *_sharedWrapper = nil;
     
     self.base64UrlSafeCertificateData = certificateString2; //[Base64 encode:CFBridgingRelease(SecCertificateCopyData(certificate))];
     
-    NSLog(@"\n\ncertificado: %@", self.base64UrlSafeCertificateData);
+    NSLog(@"\n\ncertificado CertificateUtils: %@", self.base64UrlSafeCertificateData);
     
     SecPolicyRef myPolicy   = SecPolicyCreateBasicX509();
     SecTrustRef myTrust;
