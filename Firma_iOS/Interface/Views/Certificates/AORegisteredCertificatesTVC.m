@@ -52,6 +52,7 @@
     if (_mode == AORegisteredCertificatesTVCModeSign) {
         [self parseUrl:_startURL];
         [self.navigationItem setHidesBackButton:YES animated:YES];
+        NSLog(@"Start URL AORegisteredCertificatesTVC => %@", _startURL);
     }
     [self.certificatesDescriptionLabel setText:NSLocalizedString(@"certificate_description_label", nil)];
     self.navigationItem.backBarButtonItem.tintColor = [UIColor greenColor];
