@@ -66,6 +66,7 @@ static NSString *const kAOAvailableCertificatesTVCCellIdentifier = @"AOCertifica
     
     [arrayCertsMut addObject:@"ANF_PF_Activo"];
     [arrayCertsMut addObject:@"PFActivoFirSHA1"];
+    [arrayCertsMut addObject:@"pruebas_portafirmas"];
     
     return arrayCertsMut;
     
