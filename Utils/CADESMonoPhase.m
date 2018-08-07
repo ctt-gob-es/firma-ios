@@ -151,9 +151,9 @@
     NSString *contentDataString = NULL;
     if([mode isEqualToString:PROPERTIES_PARAMETER_MODE_IMPLICIT])
     {
-        NSLog(@"F - stringWithUTF8String de los datos: %@", contentData);
+        NSLog(@"F - NSString de los datos: %@", contentData);
         
-        contentDataString = [NSString stringWithUTF8String:[contentData bytes]];
+        contentDataString = [[NSString alloc] initWithData:contentData encoding:NSUTF8StringEncoding];
     }
     /*** GENERAMOS LA ESTRUCTURA CADES ****/
     getSignedDataStructure(&signedData,
