@@ -284,6 +284,9 @@
 		B273961920A447DB00A7D05A /* CADESOID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADESOID.h; sourceTree = "<group>"; };
 		B2952CB320D981F700A4467B /* UITextView+Boldify.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+Boldify.h"; sourceTree = "<group>"; };
 		B2952CB420D981F700A4467B /* UITextView+Boldify.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Boldify.m"; sourceTree = "<group>"; };
+		B2A7C4C72119F0D70071BF69 /* ANF_PF_Activo.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ANF_PF_Activo.p12; sourceTree = "<group>"; };
+		B2A7C4C82119F5A00071BF69 /* pruebas_portafirmas.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = pruebas_portafirmas.p12; sourceTree = "<group>"; };
+		B2A7C4C92119F5A10071BF69 /* PFActivoFirSHA1.pfx */ = {isa = PBXFileReference; lastKnownFileType = file; path = PFActivoFirSHA1.pfx; sourceTree = "<group>"; };
 		B2D0158B20CA7F9400FD4102 /* CommonAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonAlert.h; sourceTree = "<group>"; };
 		B2D0158C20CA7F9400FD4102 /* CommonAlert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonAlert.m; sourceTree = "<group>"; };
 		B2EE5C0E20AC4358000A4A28 /* AOAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOAppDelegate.m; sourceTree = "<group>"; };
@@ -770,6 +773,9 @@
 		C30B3231163804620072A515 /* Firma_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				B2A7C4C72119F0D70071BF69 /* ANF_PF_Activo.p12 */,
+				B2A7C4C92119F5A10071BF69 /* PFActivoFirSHA1.pfx */,
+				B2A7C4C82119F5A00071BF69 /* pruebas_portafirmas.p12 */,
 				B240773A20A5C3D600A8EE1C /* Firma_iOS-Prefix.pch */,
 				B2EE5C0F20AC4359000A4A28 /* AOAppDelegate.h */,
 				B2EE5C0E20AC4358000A4A28 /* AOAppDelegate.m */,
