@@ -59,6 +59,9 @@
 		B273961420A43E2800A7D05A /* QuartzUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B273960320A43E2800A7D05A /* QuartzUtils.m */; };
 		B273961620A441FF00A7D05A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B273961520A441FF00A7D05A /* Images.xcassets */; };
 		B273961A20A447DB00A7D05A /* CADESOID.c in Sources */ = {isa = PBXBuildFile; fileRef = B273961820A447DB00A7D05A /* CADESOID.c */; };
+		B281A194211ACB5F0032FB86 /* ANF_PF_Activo.p12 in Resources */ = {isa = PBXBuildFile; fileRef = B2A7C4C72119F0D70071BF69 /* ANF_PF_Activo.p12 */; };
+		B281A195211ACB9E0032FB86 /* PFActivoFirSHA1.pfx in Resources */ = {isa = PBXBuildFile; fileRef = B2A7C4C92119F5A10071BF69 /* PFActivoFirSHA1.pfx */; };
+		B281A196211ACBE10032FB86 /* pruebas_portafirmas.p12 in Resources */ = {isa = PBXBuildFile; fileRef = B2A7C4C82119F5A00071BF69 /* pruebas_portafirmas.p12 */; };
 		B2952CB520D981F700A4467B /* UITextView+Boldify.m in Sources */ = {isa = PBXBuildFile; fileRef = B2952CB420D981F700A4467B /* UITextView+Boldify.m */; };
 		B2D0158D20CA7F9400FD4102 /* CommonAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D0158C20CA7F9400FD4102 /* CommonAlert.m */; };
 		B2EE5C1020AC4359000A4A28 /* AOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B2EE5C0E20AC4358000A4A28 /* AOAppDelegate.m */; };
@@ -1146,6 +1149,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B281A196211ACBE10032FB86 /* pruebas_portafirmas.p12 in Resources */,
+				B281A195211ACB9E0032FB86 /* PFActivoFirSHA1.pfx in Resources */,
+				B281A194211ACB5F0032FB86 /* ANF_PF_Activo.p12 in Resources */,
 				B243848420C539DA0087BAE0 /* MainStoryBoard_iPhone.storyboard in Resources */,
 				B27395DC20A43AF800A7D05A /* info_mini.png in Resources */,
 				B27395D820A43AF800A7D05A /* cert_menu.png in Resources */,
