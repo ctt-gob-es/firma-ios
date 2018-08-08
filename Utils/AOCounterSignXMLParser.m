@@ -77,20 +77,9 @@
 }
 
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
-    
-    if ( [elementName isEqualToString:@"firmas"]) {
-        
-        return;
-    }
-    
     if ( [elementName isEqualToString:@"firma"] ) {
-        
         [self.firmas addObject: self.currentFirma];
-        return;
-    }
-    
-    if ( [elementName isEqualToString:@"param"] ) {
-        
+    } else if ( [elementName isEqualToString:@"param"] ) {
         [self.currentFirma.params setValue:self.currentStringValue forKey:self.currentParam];
         self.currentStringValue = nil;
     }
