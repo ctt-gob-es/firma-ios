@@ -86,14 +86,12 @@
     if ( [elementName isEqualToString:@"firma"] ) {
         
         [self.firmas addObject: self.currentFirma];
-        self.currentFirma;
         return;
     }
     
     if ( [elementName isEqualToString:@"param"] ) {
         
         [self.currentFirma.params setValue:self.currentStringValue forKey:self.currentParam];
-        self.currentStringValue;
         self.currentStringValue = nil;
     }
 }
