@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Certificados Registrados-->
+        <!--Registered Certificates-->
         <scene sceneID="JuI-wq-lm7">
             <objects>
                 <tableViewController storyboardIdentifier="AORegisteredCertificatesTVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1JQ-sz-Nah" customClass="AORegisteredCertificatesTVC" sceneMemberID="viewController">
@@ -705,9 +705,7 @@ In order to run the application properly, an electronic certificate and its priv
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="Home" id="QfF-uh-q3e">
-                        <barButtonItem key="backBarButtonItem" title="Inicio" id="jLs-o2-ayN"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Home" id="QfF-uh-q3e"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="helpBarItem" destination="qsl-TR-wha" id="UA3-tn-aCe"/>
