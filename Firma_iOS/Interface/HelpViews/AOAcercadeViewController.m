@@ -80,8 +80,4 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidUnload {
-    [self setMasInfoButton:nil];
-    [super viewDidUnload];
-}
 @end
