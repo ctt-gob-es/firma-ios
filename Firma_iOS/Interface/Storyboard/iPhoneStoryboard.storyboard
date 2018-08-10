@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Registered Certificates-->
+        <!--Certificados Registrados-->
         <scene sceneID="JuI-wq-lm7">
             <objects>
                 <tableViewController storyboardIdentifier="AORegisteredCertificatesTVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1JQ-sz-Nah" customClass="AORegisteredCertificatesTVC" sceneMemberID="viewController">
@@ -335,7 +335,7 @@
         <!--Firma Electrónica-->
         <scene sceneID="PvP-4b-ZNT">
             <objects>
-                <viewController title="Firma Electrónica" wantsFullScreenLayout="YES" id="dHx-VS-5XU" customClass="AOSignViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AOSignViewController" title="Firma Electrónica" wantsFullScreenLayout="YES" id="dHx-VS-5XU" customClass="AOSignViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2Vl-fg-lFX"/>
                         <viewControllerLayoutGuide type="bottom" id="kPR-XQ-rIO"/>
@@ -645,11 +645,11 @@ http://administracionelectronica.gob.es/</string>
                         <viewControllerLayoutGuide type="bottom" id="cKi-TO-cYK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6xF-zd-Toc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wea-WN-cIK">
-                                <rect key="frame" x="20" y="119" width="335" height="317"/>
+                                <rect key="frame" x="20" y="173" width="335" height="327"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">Welcome to "Cliente @firma iOS" 1.4.8
 
@@ -660,7 +660,7 @@ In order to run the application properly, an electronic certificate and its priv
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YGN-hy-HXm">
-                                <rect key="frame" x="0.0" y="554" width="375" height="49"/>
+                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <tabBarItem tag="2" title="Keystore manager" image="cert_menu.png" id="kJF-BT-0mB"/>
@@ -671,7 +671,7 @@ In order to run the application properly, an electronic certificate and its priv
                                 </connections>
                             </tabBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJV-8n-EZ7">
-                                <rect key="frame" x="76" y="512" width="225.5" height="39"/>
+                                <rect key="frame" x="76" y="576" width="225.5" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="Opp-V2-jg7"/>
                                 </constraints>
@@ -682,7 +682,7 @@ In order to run the application properly, an electronic certificate and its priv
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="BN6-I6-Kca">
-                                <rect key="frame" x="41" y="10" width="295" height="85"/>
+                                <rect key="frame" x="41" y="64" width="295" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="85" id="p3e-uc-ddE"/>
                                 </constraints>
@@ -695,16 +695,15 @@ In order to run the application properly, an electronic certificate and its priv
                             <constraint firstItem="wea-WN-cIK" firstAttribute="leading" secondItem="6xF-zd-Toc" secondAttribute="leading" constant="20" symbolic="YES" id="AWX-16-jLQ"/>
                             <constraint firstItem="YGN-hy-HXm" firstAttribute="trailing" secondItem="6xF-zd-Toc" secondAttribute="trailing" id="Epu-H7-SP9"/>
                             <constraint firstItem="BN6-I6-Kca" firstAttribute="leading" secondItem="6xF-zd-Toc" secondAttribute="leading" constant="41" id="IDO-6R-pIR"/>
+                            <constraint firstItem="BN6-I6-Kca" firstAttribute="top" secondItem="6xF-zd-Toc" secondAttribute="topMargin" id="W2F-4v-ahM"/>
                             <constraint firstItem="wea-WN-cIK" firstAttribute="top" secondItem="BN6-I6-Kca" secondAttribute="bottom" constant="24" id="elw-cg-XI4"/>
                             <constraint firstAttribute="trailing" secondItem="wea-WN-cIK" secondAttribute="trailing" constant="20" symbolic="YES" id="nVo-HU-hKZ"/>
                             <constraint firstItem="cKi-TO-cYK" firstAttribute="top" secondItem="wea-WN-cIK" secondAttribute="bottom" constant="167" id="njM-2z-l6y"/>
-                            <constraint firstItem="BN6-I6-Kca" firstAttribute="top" secondItem="6xF-zd-Toc" secondAttribute="top" constant="10" id="qES-hc-kEp"/>
                             <constraint firstItem="UJV-8n-EZ7" firstAttribute="centerX" secondItem="6xF-zd-Toc" secondAttribute="centerX" constant="1" id="v1f-RQ-dqa"/>
                             <constraint firstAttribute="trailing" secondItem="BN6-I6-Kca" secondAttribute="trailing" constant="39" id="v4d-M5-Tii"/>
                             <constraint firstItem="YGN-hy-HXm" firstAttribute="top" secondItem="UJV-8n-EZ7" secondAttribute="bottom" constant="3" id="w0m-76-93V"/>
                         </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Home" id="QfF-uh-q3e"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
@@ -721,7 +720,7 @@ In order to run the application properly, an electronic certificate and its priv
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yXs-VS-Y73" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9" y="-340"/>
+            <point key="canvasLocation" x="8.8000000000000007" y="-340.47976011994007"/>
         </scene>
         <!--Questions-->
         <scene sceneID="1iL-QU-YgA">
