@@ -10,6 +10,7 @@
 #import "Base64.h"
 #import "ColorChart.h"
 #import "CommonAlert.h"
+#import "GlobalConstants.h"
 
 @interface AOPinViewController ()
 
@@ -146,7 +147,7 @@ SecKeyRef privateKeyPkcs12 = NULL;
 #if TARGET_IPHONE_SIMULATOR
     
     // Cargamos el PKCS#12 como un recurso
-    thePath = [[NSBundle mainBundle] pathForResource:@"ANF_PF_Activo" ofType:@"p12"];
+    thePath = [[NSBundle mainBundle] pathForResource:ANF_PF_ACTIVO ofType:@"p12"];
     
 #else
     
