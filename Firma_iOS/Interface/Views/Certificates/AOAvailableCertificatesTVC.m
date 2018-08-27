@@ -77,7 +77,7 @@ static NSString *const kAOAvailableCertificatesTVCCellIdentifier = @"AOCertifica
     NSFileManager *fManager = [NSFileManager defaultManager];
     NSString *item;
     NSString *ext;
-    NSArray *contents = [fManager contentsOfDirectoryAtPath:[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] error:nil];
+    NSArray *contents = [fManager contentsOfDirectoryAtPath:[NSHomeDirectory() stringByAppendingPathComponent:DOCUMENTS] error:nil];
     
     for (item in contents) {
         for (ext in extensions) {

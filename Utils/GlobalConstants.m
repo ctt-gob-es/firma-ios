@@ -23,5 +23,16 @@ NSString *const BACKGROUND = @"Background";
 NSString *const PREFERENCE_SPECIFIERS = @"PreferenceSpecifiers";
 NSString *const KEY = @"Key";
 NSString *const DEFAULT_VALUE = @"DefaultValue";
+NSString *const DOCUMENTS = @"Documents";
+NSString *const OK = @"OK";
+NSString *const POST = @"POST";
+NSString *const BINARY = @"binary";
+NSString *const PRE = @"PRE";
+NSString *const STRING_FALSE = @"false";
+NSString *const SERVER_URL = @"server_url";
+NSString *const SIGNATURES = @"firmas";
+NSString *const SIGNATURE = @"firma";
+NSString *const PARAMETERS = @"param";
+NSString *const WITH = @"with";
 
 @end

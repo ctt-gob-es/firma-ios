@@ -10,6 +10,7 @@
 #import "CertificateUtils.h"
 #import "ColorChart.h"
 #import "CommonAlert.h"
+#import "GlobalConstants.h"
 
 @interface AORegisterCertificateVC ()
 {
@@ -87,7 +88,7 @@
     } else {
         _message = NSLocalizedString(@"certificate_successfully_loaded", nil);
 
-        [CommonAlert createAlertWithTitle:NSLocalizedString(@"certificate_loaded", nil) message:_message cancelButtonTitle:@"OK" showOn:self onComplete:^{
+        [CommonAlert createAlertWithTitle:NSLocalizedString(@"certificate_loaded", nil) message:_message cancelButtonTitle: OK showOn:self onComplete:^{
             if (_delegate) {
                 [_delegate certificateAdded];
             }
