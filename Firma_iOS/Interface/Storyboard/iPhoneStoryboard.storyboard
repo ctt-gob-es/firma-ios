@@ -911,11 +911,11 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4RE-R6-kNT">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4RE-R6-kNT">
                                 <rect key="frame" x="20" y="206" width="335" height="441"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QZv-qe-ul0">
-                                        <rect key="frame" x="67.5" y="235" width="201" height="42"/>
+                                        <rect key="frame" x="67" y="235" width="201" height="42"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="42" id="auy-6x-3L6"/>
                                             <constraint firstAttribute="width" constant="201" id="glx-aO-Wef"/>
@@ -928,16 +928,17 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="itunes.png" translatesAutoresizingMaskIntoConstraints="NO" id="jvc-1v-KRv">
-                                        <rect key="frame" x="-4.5" y="35" width="58" height="58"/>
+                                        <rect key="frame" x="8" y="35" width="58" height="58"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="58" id="qgN-ua-wjp"/>
                                             <constraint firstAttribute="width" constant="58" id="wEr-ee-Kgt"/>
                                         </constraints>
                                     </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZ3-48-Zky">
-                                        <rect key="frame" x="60.5" y="123" width="214" height="104"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="uZ3-48-Zky">
+                                        <rect key="frame" x="79" y="123" width="214" height="104"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="214" id="BSF-hj-i8C"/>
                                             <constraint firstAttribute="height" constant="104" id="ozj-ij-QmR"/>
                                         </constraints>
                                         <string key="text">Allowed file extensions: .p12 and .pfx. Keep in mind that you need the password to export your certificate, and it must include the private key.</string>
@@ -945,13 +946,13 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="certificados.png" translatesAutoresizingMaskIntoConstraints="NO" id="ydP-6D-VuB">
-                                        <rect key="frame" x="-4.5" y="154" width="58" height="42"/>
+                                        <rect key="frame" x="8" y="154" width="64" height="42"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="42" id="bmv-yH-Xeq"/>
                                         </constraints>
                                     </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3J-tc-eTj">
-                                        <rect key="frame" x="60.5" y="13" width="214" height="102"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="s3J-tc-eTj">
+                                        <rect key="frame" x="73" y="13" width="214" height="102"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="214" id="1BV-Xh-m4r"/>
@@ -963,31 +964,28 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                                     </textView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="ydP-6D-VuB" firstAttribute="leading" secondItem="jvc-1v-KRv" secondAttribute="leading" id="4Vf-tH-cH6"/>
-                                    <constraint firstItem="uZ3-48-Zky" firstAttribute="leading" secondItem="s3J-tc-eTj" secondAttribute="leading" id="5HL-T2-fVw"/>
-                                    <constraint firstItem="uZ3-48-Zky" firstAttribute="centerX" secondItem="QZv-qe-ul0" secondAttribute="centerX" id="Bv6-wk-qUT"/>
-                                    <constraint firstItem="uZ3-48-Zky" firstAttribute="trailing" secondItem="s3J-tc-eTj" secondAttribute="trailing" id="D08-lK-Sh3"/>
+                                    <constraint firstItem="s3J-tc-eTj" firstAttribute="centerY" secondItem="jvc-1v-KRv" secondAttribute="centerY" id="C6g-EJ-Myy"/>
                                     <constraint firstItem="QZv-qe-ul0" firstAttribute="top" secondItem="uZ3-48-Zky" secondAttribute="bottom" constant="8" id="Mlo-qF-HLo"/>
                                     <constraint firstItem="uZ3-48-Zky" firstAttribute="top" secondItem="s3J-tc-eTj" secondAttribute="bottom" constant="8" symbolic="YES" id="Z26-7L-Q0r"/>
-                                    <constraint firstItem="s3J-tc-eTj" firstAttribute="centerY" secondItem="jvc-1v-KRv" secondAttribute="centerY" id="dWO-E9-Kta"/>
+                                    <constraint firstItem="jvc-1v-KRv" firstAttribute="leading" secondItem="4RE-R6-kNT" secondAttribute="leading" constant="8" id="dlx-wh-dn6"/>
                                     <constraint firstItem="uZ3-48-Zky" firstAttribute="leading" secondItem="ydP-6D-VuB" secondAttribute="trailing" constant="7" id="e6m-zI-OGX"/>
                                     <constraint firstItem="s3J-tc-eTj" firstAttribute="leading" secondItem="jvc-1v-KRv" secondAttribute="trailing" constant="7" id="krz-Oh-jfr"/>
-                                    <constraint firstAttribute="trailing" secondItem="s3J-tc-eTj" secondAttribute="trailing" constant="173" id="nkk-i9-UtJ"/>
                                     <constraint firstAttribute="bottom" secondItem="QZv-qe-ul0" secondAttribute="bottom" constant="97" id="qwh-N1-vyz"/>
+                                    <constraint firstItem="ydP-6D-VuB" firstAttribute="leading" secondItem="4RE-R6-kNT" secondAttribute="leading" constant="8" id="s4v-in-hfx"/>
                                     <constraint firstItem="QZv-qe-ul0" firstAttribute="centerX" secondItem="4RE-R6-kNT" secondAttribute="centerX" id="sbX-mq-nKC"/>
                                     <constraint firstItem="s3J-tc-eTj" firstAttribute="top" secondItem="4RE-R6-kNT" secondAttribute="top" constant="13" id="wzI-HY-ALx"/>
-                                    <constraint firstItem="ydP-6D-VuB" firstAttribute="centerY" secondItem="uZ3-48-Zky" secondAttribute="centerY" id="zCw-qc-Z7U"/>
+                                    <constraint firstItem="ydP-6D-VuB" firstAttribute="centerY" secondItem="uZ3-48-Zky" secondAttribute="centerY" id="y2O-Rd-Qsh"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="XYx-PU-XUl" firstAttribute="top" secondItem="OJg-gb-JGo" secondAttribute="top" constant="74" id="AGx-Qj-Tfq"/>
-                            <constraint firstItem="4RE-R6-kNT" firstAttribute="leading" secondItem="OJg-gb-JGo" secondAttribute="leading" constant="20" symbolic="YES" id="H9L-ez-9ij"/>
                             <constraint firstItem="XYx-PU-XUl" firstAttribute="leading" secondItem="OJg-gb-JGo" secondAttribute="leading" constant="27" id="Js0-kF-8eX"/>
-                            <constraint firstAttribute="trailing" secondItem="4RE-R6-kNT" secondAttribute="trailing" constant="20" symbolic="YES" id="MwK-36-pm4"/>
                             <constraint firstItem="Kk8-eE-cQL" firstAttribute="top" secondItem="XYx-PU-XUl" secondAttribute="bottom" constant="6" id="Qq1-38-9eg"/>
                             <constraint firstAttribute="trailing" secondItem="XYx-PU-XUl" secondAttribute="trailing" constant="28" id="Rz6-90-LiP"/>
+                            <constraint firstItem="4RE-R6-kNT" firstAttribute="leading" secondItem="OJg-gb-JGo" secondAttribute="leadingMargin" constant="4" id="Wa9-JH-yzW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4RE-R6-kNT" secondAttribute="trailing" constant="4" id="aQL-6U-Lnh"/>
                             <constraint firstAttribute="bottom" secondItem="4RE-R6-kNT" secondAttribute="bottom" constant="20" id="cs1-P4-JHH"/>
                             <constraint firstItem="Kk8-eE-cQL" firstAttribute="leading" secondItem="OJg-gb-JGo" secondAttribute="leading" constant="20" symbolic="YES" id="dyY-6u-IPv"/>
                             <constraint firstItem="4RE-R6-kNT" firstAttribute="top" secondItem="Kk8-eE-cQL" secondAttribute="bottom" constant="8" symbolic="YES" id="moX-YG-x39"/>
@@ -1007,7 +1005,7 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rw5-vv-TcS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="829" y="1348"/>
+            <point key="canvasLocation" x="828" y="1347.9760119940031"/>
         </scene>
     </scenes>
     <resources>
