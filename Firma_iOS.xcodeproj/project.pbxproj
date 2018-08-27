@@ -63,6 +63,7 @@
 		B281A195211ACB9E0032FB86 /* PFActivoFirSHA1.pfx in Resources */ = {isa = PBXBuildFile; fileRef = B2A7C4C92119F5A10071BF69 /* PFActivoFirSHA1.pfx */; };
 		B281A196211ACBE10032FB86 /* pruebas_portafirmas.p12 in Resources */ = {isa = PBXBuildFile; fileRef = B2A7C4C82119F5A00071BF69 /* pruebas_portafirmas.p12 */; };
 		B2952CB520D981F700A4467B /* UITextView+Boldify.m in Sources */ = {isa = PBXBuildFile; fileRef = B2952CB420D981F700A4467B /* UITextView+Boldify.m */; };
+		B2AE16992133E3330082C892 /* GlobalConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = B2AE16982133E3330082C892 /* GlobalConstants.m */; };
 		B2D0158D20CA7F9400FD4102 /* CommonAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D0158C20CA7F9400FD4102 /* CommonAlert.m */; };
 		B2EE5C1020AC4359000A4A28 /* AOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B2EE5C0E20AC4358000A4A28 /* AOAppDelegate.m */; };
 		C30B322C163804620072A515 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30B322B163804620072A515 /* UIKit.framework */; };
@@ -290,6 +291,8 @@
 		B2A7C4C72119F0D70071BF69 /* ANF_PF_Activo.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ANF_PF_Activo.p12; sourceTree = "<group>"; };
 		B2A7C4C82119F5A00071BF69 /* pruebas_portafirmas.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = pruebas_portafirmas.p12; sourceTree = "<group>"; };
 		B2A7C4C92119F5A10071BF69 /* PFActivoFirSHA1.pfx */ = {isa = PBXFileReference; lastKnownFileType = file; path = PFActivoFirSHA1.pfx; sourceTree = "<group>"; };
+		B2AE16972133E3330082C892 /* GlobalConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalConstants.h; sourceTree = "<group>"; };
+		B2AE16982133E3330082C892 /* GlobalConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalConstants.m; sourceTree = "<group>"; };
 		B2D0158B20CA7F9400FD4102 /* CommonAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonAlert.h; sourceTree = "<group>"; };
 		B2D0158C20CA7F9400FD4102 /* CommonAlert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonAlert.m; sourceTree = "<group>"; };
 		B2EE5C0E20AC4358000A4A28 /* AOAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOAppDelegate.m; sourceTree = "<group>"; };
@@ -713,6 +716,8 @@
 				B273960320A43E2800A7D05A /* QuartzUtils.m */,
 				B2952CB320D981F700A4467B /* UITextView+Boldify.h */,
 				B2952CB420D981F700A4467B /* UITextView+Boldify.m */,
+				B2AE16972133E3330082C892 /* GlobalConstants.h */,
+				B2AE16982133E3330082C892 /* GlobalConstants.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1240,6 +1245,7 @@
 				C3B11DFC16FB642B00C0D623 /* IA5String.c in Sources */,
 				C3B11DFE16FB642B00C0D623 /* INTEGER.c in Sources */,
 				C3B11E0016FB642B00C0D623 /* IssuerAndSerialNumber.c in Sources */,
+				B2AE16992133E3330082C892 /* GlobalConstants.m in Sources */,
 				C3B11E0416FB642B00C0D623 /* MessageDigest.c in Sources */,
 				B2406F2D20C5CACA008ED085 /* AOCertificateSelectionViewController.m in Sources */,
 				C3B11E0616FB642B00C0D623 /* Name.c in Sources */,

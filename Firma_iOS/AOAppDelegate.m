@@ -7,6 +7,7 @@
 #import "AOAboutViewController.h"
 #import "AORegisteredCertificatesTVC.h"
 #import "GAI.h"
+#import "GlobalConstants.h"
 
 @implementation AOAppDelegate
 
@@ -68,7 +69,7 @@ NSString *URLString, *state = @"Inactive";
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             dispatch_sync(dispatch_get_main_queue(), ^{
                 
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"urlReaded" object:URLString];
+                [[NSNotificationCenter defaultCenter] postNotificationName:URL_READED object:URLString];
                 NSLog(@"\n\n ** URL AppDelegate => %@", URLString);
             });
         });
