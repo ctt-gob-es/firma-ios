@@ -82,7 +82,7 @@
 "frequently_asked_questions_description_label_6" = "The certificates are stored in your device with a powerful encryption algorithm protected with password. However, as every encryption system, once it is out of the owner hands it could be compromised. In this situation you must contact your certification services provider straightaway to revoke the certificated contained in the lost device.\n\n";
 "frequently_asked_questions_description_label_7" = "I successfully imported my certificates to Cliente @firma for Apple iOS, but I cannot use them to authenticate in electronic head offices and other websites where they are required. Why?\n\n";
 "frequently_asked_questions_description_label_8" = "Imported certificates to Cliente @firma for Apple iOS are used only in websites designed for electronic signing. In order to use a digital certificate to authenticate in a web, you should follow your browser and Apple instructions, about the certificates and keys installation process in iOS operating system and in your own browser if needed.";
-"home_footer_label" = "Cliente @firma for Apple iOS 1.4.9 \n© Copyright: Gobierno de España, 2013 ";
+"home_footer_label" = "Cliente @firma for Apple iOS 1.4.9 \n© Copyright: Gobierno de España, 2018 ";
 "home_title" = "Home";
 "registered_certificates" = "Registered Certificates";
 "sign" = "Sign";

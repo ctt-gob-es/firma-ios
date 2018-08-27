@@ -676,7 +676,7 @@ In order to run the application properly, an electronic certificate and its priv
                                     <constraint firstAttribute="height" constant="39" id="Opp-V2-jg7"/>
                                 </constraints>
                                 <string key="text">Cliente @firma for Apple iOS 1.4.8
-© Copyright: Gobierno de España, 2013</string>
+© Copyright: Gobierno de España, 2018</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
