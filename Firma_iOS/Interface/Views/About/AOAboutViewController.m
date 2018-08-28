@@ -8,6 +8,7 @@
 #import "AORegisteredCertificatesTVC.h"
 #import "CADESConstants.h"
 #import "ColorChart.h"
+#import "GlobalConstants.h"
 
 @interface AOAboutViewController ()
 
@@ -47,7 +48,7 @@ BOOL isURL = NO;
     [[NSNotificationCenter defaultCenter]
      addObserver:self
      selector:@selector(onReadUrl:)
-     name:@"urlReaded"
+     name:URL_READED
      object:nil
      ];
 }
@@ -116,16 +117,7 @@ BOOL isURL = NO;
 
 - (void)dealloc {
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"urlReaded" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:URL_READED object:nil];
 }
-
-- (void)viewDidUnload {
-    
-    [self setManageStoreButton:nil];
-    tabBar = nil;
-    [super viewDidUnload];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"urlReaded" object:nil];
-}
-
 
 @end

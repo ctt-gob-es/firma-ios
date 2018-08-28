@@ -199,7 +199,7 @@ static CertificateUtils *_sharedWrapper = nil;
     // If a SecItem contains an access group attribute, SecItemAdd and SecItemUpdate on the
     // simulator will return -25243 (errSecNoAccessForItem).
 #else
-    [dict setObject:[CertificateUtils accessgroup] forKey:kSecAttrAccessGroup];
+    [dict setObject:[CertificateUtils accessgroup] forKey:(id)kSecAttrAccessGroup];
 #endif
     // Remove any existing instance of the key
     sanityCheck = SecItemDelete((CFDictionaryRef)dict);
@@ -223,9 +223,9 @@ static CertificateUtils *_sharedWrapper = nil;
     CFStringRef certLabel = CFStringCreateWithCString(NULL, certLabelString, kCFStringEncodingUTF8);
     
     NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
-    [dict setObject:(id)kSecClassIdentity forKey:kSecClass];
-    [dict setObject:(CFTypeRef)certLabel forKey:kSecAttrLabel];
-    [dict setObject:[NSNumber numberWithBool:YES] forKey:kSecReturnRef];
+    [dict setObject:(id)kSecClassIdentity forKey:(id)kSecClass];
+    [dict setObject:(CFTypeRef)certLabel forKey:(id)kSecAttrLabel];
+    [dict setObject:[NSNumber numberWithBool:YES] forKey:(id)kSecReturnRef];
     
     if (certLabel) {
         CFRelease(certLabel);
@@ -241,7 +241,7 @@ static CertificateUtils *_sharedWrapper = nil;
     // If a SecItem contains an access group attribute, SecItemAdd and SecItemUpdate on the
     // simulator will return -25243 (errSecNoAccessForItem).
 #else
-    [dict setObject:[CertificateUtils accessgroup] forKey:kSecAttrAccessGroup];
+    [dict setObject:[CertificateUtils accessgroup] forKey:(id)kSecAttrAccessGroup];
 #endif
     
     status = SecItemCopyMatching((CFDictionaryRef)dict, &result);
@@ -280,7 +280,7 @@ static CertificateUtils *_sharedWrapper = nil;
     
     self.base64UrlSafeCertificateData = certificateString2; //[Base64 encode:CFBridgingRelease(SecCertificateCopyData(certificate))];
     
-    NSLog(@"\n\ncertificado: %@", self.base64UrlSafeCertificateData);
+    NSLog(@"\n\ncertificado CertificateUtils: %@", self.base64UrlSafeCertificateData);
     
     SecPolicyRef myPolicy   = SecPolicyCreateBasicX509();
     SecTrustRef myTrust;

@@ -19,6 +19,7 @@
 #import "AOCounterSignPreItems.h"
 #import "CertificateUtils.h"
 #import "CommonAlert.h"
+#import "GlobalConstants.h"
 
 @interface AOSignViewController ()
 
@@ -140,6 +141,30 @@ SecKeyRef privateKey = NULL;
     else
     {
         NSLog(@"NO han llegado los datos a firmar a AOSignViewController");
+        //Notificamos del error al servidor si es posible
+        NSString *errorToSend = @"";
+        errorToSend = [errorToSend stringByAppendingString:ERROR_MISSING_DATA];
+        errorToSend = [errorToSend stringByAppendingString:ERROR_SEPARATOR];
+        errorToSend = [errorToSend stringByAppendingString:DESC_ERROR_MISSING_DATA];
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"error",nil) message: NSLocalizedString(@"error_datos_firmar",nil) delegate:self cancelButtonTitle: NSLocalizedString(@"cerrar",nil) otherButtonTitles:nil];
+        
+        CGFloat imageViewOriginX = 75;
+        CGFloat imageViewOriginY = 6;
+        CGFloat imageViewWidth = 40;
+        CGFloat imageViewHeight = 40;
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(imageViewOriginX, imageViewOriginY, imageViewWidth, imageViewHeight)];
+        
+        NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
+        UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
+        [imageView setImage:bkgImg];
+        
+        [alert addSubview:imageView];
+        
+        [alert show];
+        self.signButton.userInteractionEnabled = NO;
+        return;
+
     }
     
     
@@ -228,6 +253,7 @@ SecKeyRef privateKey = NULL;
     if([urlParameters objectForKey:PARAMETER_NAME_STSERVLET] != NULL) {
         urlServlet = [[NSString alloc] initWithString:[urlParameters objectForKey:PARAMETER_NAME_STSERVLET]];
         urlServlet = [urlServlet stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
+        NSLog(@"URL Servlet => %@", urlServlet);
     }
     
     //parámetro "format" que indica el formato de firma.
@@ -244,12 +270,14 @@ SecKeyRef privateKey = NULL;
         extraParams = [urlParameters objectForKey:PARAMETER_NAME_PROPERTIES];
         
         //URL DECODE
-        NSLog(@"\n\nextraParams -> %@", extraParams);
+        NSLog(@"\n\nextraParams en Base64: %@", extraParams);
         NSData *dataReceived = [Base64 decode:extraParams urlSafe:true];
         
-        NSLog(@"\n\nA - stringWithUTF8String de los datos: %@", dataReceived);
+        NSLog(@"\n\nExtraparams en binario tras decodificar el Base64: %@", dataReceived);
+       
+        NSString* stringDataReceived = [[NSString alloc] initWithData:dataReceived encoding:NSUTF8StringEncoding];
         
-        NSString* stringDataReceived = [NSString stringWithUTF8String:[dataReceived bytes]];
+        NSLog(@"\n\nExtraparams: %@", stringDataReceived);
         
         NSDictionary *dict = [CADESSignUtils javaProperties2Dictionary:stringDataReceived];
         dictExtraParams = dict;
@@ -261,7 +289,7 @@ SecKeyRef privateKey = NULL;
             triphasicServerURL = [triphasicServerURL substringToIndex:[triphasicServerURL length] - 1];
             NSLog(@"he entrado en el if así que el último caracter no es e -> %@", [dict objectForKey:PARAMETER_NAME_TRIPHASIC_SERVER_URL]);
         }
-        NSLog(@"server url -> %@", [dict objectForKey:PARAMETER_NAME_TRIPHASIC_SERVER_URL]);
+        NSLog(@"Server URL: -> %@", [dict objectForKey:PARAMETER_NAME_TRIPHASIC_SERVER_URL]);
     }
     
     if([urlParameters objectForKey:PARAMETER_NAME_TARGET] != NULL)
@@ -304,12 +332,12 @@ SecKeyRef privateKey = NULL;
     NSLog(@"Operacion: %@", operation);
     NSLog(@"Documento: %@", docId);
     NSLog(@"Servlet: %@", urlServlet);
-    NSLog(@"Datos: %@", datosInUse);
     NSLog(@"Formato: %@", signFormat);
     NSLog(@"Algoritmo: %@", signAlgoInUse);
     NSLog(@"Clave de cifrado: %@", cipherKey);
-    if(extraParams != NULL)
+    if(extraParams != NULL) {
         NSLog(@"Propiedades: %@", extraParams);
+    }
     
     if (!([operation isEqualToString:OPERATION_SIGN]
           || [operation isEqualToString:OPERATION_COSIGN]
@@ -338,8 +366,7 @@ SecKeyRef privateKey = NULL;
         return;
     }
     
-    if (signFormat == nil)
-    {
+    if (signFormat == nil) {
         //Notificamos del error al servidor si es posible
         NSString *errorToSend = @"";
         errorToSend = [errorToSend stringByAppendingString:ERROR_NOT_SUPPORTED_FORMAT];
@@ -419,13 +446,12 @@ SecKeyRef privateKey = NULL;
     NSLog(@"\n\ndatosInUse -> %@", datosInUse);
     NSData *contentData = [Base64 decode:datosInUse urlSafe:true];
     
-    NSLog(@"B - stringWithUTF8String de los datos: %@", contentData);
+    NSLog(@"B - NSString de los datos: %@", contentData);
     
-    
-    NSLog(@"%@",[NSString stringWithUTF8String:[contentData bytes]]);
+    NSLog(@"%@",[[NSString alloc] initWithData:contentData encoding:NSUTF8StringEncoding]);
     
     NSString *contentDescription = [[NSString alloc]init];
-    contentDescription=@"binary";
+    contentDescription = BINARY;
     NSString *policyOID = NULL;
     NSString *policyHash = NULL;
     NSString *policyUri = NULL;
@@ -597,11 +623,7 @@ SecKeyRef privateKey = NULL;
     
     NSString *certificate = [Base64 urlSafeEncode: self.base64UrlSafeCertificateData];
     
-    //la siguiente línea quita el ultimo caracter que debe ser de nueva línea "\n" esto estaba
-    //fastidiando los demás parámetros.
-    //    certificate = [certificate substringToIndex:[certificate length] - 1];
     certificate = [certificate stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-    NSLog(@"\n\ncertificado: %@", certificate);
     
     post = [post stringByAppendingString:certificate];
     
@@ -630,17 +652,20 @@ SecKeyRef privateKey = NULL;
         NSLog(@"\n\nA - Usamos la ruta de servidor trifasico preestablecido: %@", rtServlet);
     }
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30.0];
-    [request setHTTPMethod:@"POST"];
+    [request setHTTPMethod:POST];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [request setValue:@"Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" forHTTPHeaderField:@"User-Agent"];
     [request setValue:@"text/plain,text/html,application/xhtml+xml,application/xml" forHTTPHeaderField:@"Accept"];
     [request setHTTPBody:postData];
-    
-    NSLog(@"\n\nInicio de la llamada a PRE con la siguiente URL: %@", post);
-    
+    NSLog(@"\n\nInicio de la llamada a PREFIRMA");
     NSURLConnection* connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    [connection start];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            
+            [connection start];
+        });
+    });
     
     //iniciamos la barra de progreso.
     alertpb = [[AlertProgressBar alloc]init];
@@ -657,8 +682,7 @@ SecKeyRef privateKey = NULL;
  data:           Datos recibidos del servidor.
  */
 //los datos van llegando por "rafagas". Lo que hay que ir haciendo es ir juntandolos todos.
--(void)connection:(NSURLConnection *)connection didReceiveData:
-(NSData *)data
+-(void)connection:(NSURLConnection *)connection didReceiveData: (NSData *)data
 {
     // Append the new data to the receivedData.
     [receivedData appendData:data];
@@ -668,7 +692,7 @@ SecKeyRef privateKey = NULL;
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:
 (NSURLResponse *)response
 {
-    // Discard all previously received data.
+    NSLog(@"** didReceiveResponse **");
     receivedData = [[NSMutableData alloc] init];
 }
 
@@ -682,7 +706,6 @@ SecKeyRef privateKey = NULL;
     // Convert received data into string.
     receivedString = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
     NSLog( @"\n\nAOSignViewController: Descarga finalizada");
-    NSLog( @"\n\nAOSignViewController: connectionDidFinishLoading -> Datos recibidos: %@", receivedString);
     
     //se procesa la respuesta del servidor.
     //Se recoge el resultado de la petición de almacenamiento
@@ -692,12 +715,13 @@ SecKeyRef privateKey = NULL;
         
         //Obtenemos la respuesta del servidor.
         NSString* responseString = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
+        NSLog(@"\nLa invocación a POST ha devuelto la siguiente respuesta AOSignViewController: %@", responseString);
         
-        //quitamos el progressbar indefinido        
+        //quitamos el progressbar indefinido
         [alertpb destroy:^{
             //se procesa la respuesta del servidor.
-            NSString* title = NSLocalizedString(([responseString hasPrefix: @"OK"]) ? @"ok" : @"error", nil);
-            NSString* message = NSLocalizedString(([responseString hasPrefix: @"OK"]) ? @"proceso_finalizado_trifasico" : @"error_proceso_firma", nil);
+            NSString* title = NSLocalizedString(([responseString hasPrefix: OK]) ? @"ok" : @"error", nil);
+            NSString* message = NSLocalizedString(([responseString hasPrefix: OK]) ? @"proceso_finalizado_trifasico" : @"error_proceso_firma", nil);
             [CommonAlert createAlertWithTitle: title message: message cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self onComplete:^{
                 [self backToAboutViewController];
             }];
@@ -728,11 +752,9 @@ SecKeyRef privateKey = NULL;
         
         //Obtenemos la respuesta del servidor.
         NSString* responseString = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
-        
         NSLog(@"La invocación a POST ha devuelto la siguiente respuesta: %@", responseString);
-        
         //se valida si la respuesta es correcta
-        if([responseString hasPrefix: @"OK"]){
+        if([responseString hasPrefix: OK]){
             NSLog(@"se preparan los datos para realizar el storage.");
             NSRange range = [responseString rangeOfString: @"="];
             if(range.length > 0)
@@ -744,7 +766,7 @@ SecKeyRef privateKey = NULL;
         }
         else
         {
-            NSLog(@"La respuesta no es correcta. Se informa al usuario y se para el proceso");
+            NSLog(@"\nLa respuesta no es correcta. Se informa al usuario y se para el proceso");
             //destruimos la barra de progreso
             [alertpb destroy];
             
@@ -806,11 +828,10 @@ SecKeyRef privateKey = NULL;
  connection:        Conexión establecida asíncrona.
  didFailWithError:  Error producido.
  */
-- (void)connection:(NSURLConnection *)connection
-  didFailWithError:(NSError *)error
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
     // Liberar la conexión
-    NSLog(@"\n\nnAOSignViewController -> Conection => %@", connection);
+    NSLog(@"\n\nnAOSignViewController -> Connection => %@", connection);
     NSLog(@"\n\nAOSignViewController -> Error => %@ %@",
           [error localizedDescription],
           [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
@@ -843,15 +864,11 @@ SecKeyRef privateKey = NULL;
 -(void) Sign: (NSString*) dataReceivedb64
 {
     //Se reciben los datos en base64 y se decodifican
-    NSLog(@"Datos recibidos para firmar antes de decodificarlos -> %@", dataReceivedb64);
+    NSLog(@"\nDatos recibidos para firmar antes de decodificarlos -> %@\n", dataReceivedb64);
     NSData *dataReceived = [Base64 decode:dataReceivedb64 urlSafe: true];
-    
-    // NSString* stringDataReceived = [NSString stringWithUTF8String:[dataReceived bytes]];
-    
     NSString* stringDataReceived = [[NSString alloc] initWithData:dataReceived encoding:NSUTF8StringEncoding];
-    
     NSLog(@"\n\nDatos recibidos en respuesta a la PREFIRMA: %@\n", stringDataReceived);
-    NSLog(@"\n\n**************Fin de los datos recibidos **************");
+    NSLog(@"\n\n************** Fin de los datos recibidos **************");
     
     // Usado para almacenar las properties que se reciben en la URL (no se usa en el proceso de contrafirma).
     NSDictionary *dict = [[NSDictionary alloc] init];
@@ -872,7 +889,7 @@ SecKeyRef privateKey = NULL;
             }];
         }
         
-        NSString *pre = [firma.params objectForKey:@"PRE"];
+        NSString *pre = [firma.params objectForKey:PRE];
         pre = [pre stringByReplacingOccurrencesOfString:@"\n" withString:@""];
         NSLog(@"\n\nObjeto PRE: %@", pre);
         
@@ -919,7 +936,7 @@ SecKeyRef privateKey = NULL;
     post = [post stringByAppendingString:HTTP_AND];
     
     NSString *needData = [dict objectForKey:PROPERTY_NAME_NEED_DATA];
-    if (![needData isEqualToString:@"false"]) {
+    if (![needData isEqualToString:STRING_FALSE]) {
         // Atributo DOC
         post = [post stringByAppendingString:PARAMETER_NAME_DOCID];
         post = [post stringByAppendingString:HTTP_EQUALS];
@@ -974,11 +991,11 @@ SecKeyRef privateKey = NULL;
     }
     else
     {
-        requestUrl = [[NSURL alloc] initWithString:[[NSUserDefaults standardUserDefaults] stringForKey:@"server_url"]];
+        requestUrl = [[NSURL alloc] initWithString:[[NSUserDefaults standardUserDefaults] stringForKey:SERVER_URL]];
         NSLog(@"\n\nB - Usamos la ruta de servidor trifasico preestablecido: %@", [[NSUserDefaults standardUserDefaults] stringForKey:@"server_url"]);
     }
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval: 30.0];
-    [request setHTTPMethod:@"POST"];
+    [request setHTTPMethod:POST];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [request setValue:@"Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" forHTTPHeaderField:@"User-Agent"];
@@ -988,10 +1005,13 @@ SecKeyRef privateKey = NULL;
     postSign = true;
     
     NSLog(@"\n\nURL de la postfirma -> %@\n\n", request);
-    NSLog(@"\n\nContenido de la URL de la postfirma -> %@\n\n", post);
     
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    [connection start];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            [connection start];
+        });
+    });
 }
 
 
@@ -1022,7 +1042,7 @@ SecKeyRef privateKey = NULL;
     post = [post stringByAppendingString:HTTP_AND];
     
     //cifrado de la firma
-    NSLog(@"\n\ndataSign -> %@", dataSign);
+    NSLog(@"Inicio del cifrado de la firma");
     NSData *data = [Base64 decode:dataSign urlSafe:true];
     NSString *encryptedDataB64 = [DesCypher cypherData:data sk:[cipherKey dataUsingEncoding:NSUTF8StringEncoding]];
     
@@ -1039,19 +1059,23 @@ SecKeyRef privateKey = NULL;
     NSURL* requestUrl = [[NSURL alloc] initWithString:urlServlet];
     NSLog(@"URL del servidor => : %@", requestUrl);
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval: 30.0];
-    [request setHTTPMethod:@"POST"];
+    [request setHTTPMethod:POST];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [request setValue:@"Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" forHTTPHeaderField:@"User-Agent"];
     [request setValue:@"text/plain,text/html,application/xhtml+xml,application/xml" forHTTPHeaderField:@"Accept"];
     [request setHTTPBody:postData];
     
-    NSLog(@"\n\nRealizamos el storage de la firma con los siguientes parámetros: %@\n\n", post);
+    NSLog(@"\n\nRealizamos el storage de la firma");
     
     storingData = true;
     
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    [connection start];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            [connection start];
+        });
+    });
 }
 
 /**
@@ -1090,7 +1114,7 @@ SecKeyRef privateKey = NULL;
         // Obtenemos la URL del servidor de la pantalla de preferencias
         NSURL* requestUrl = [[NSURL alloc] initWithString:rtServlet];
         NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30.0];
-        [request setHTTPMethod:@"POST"];
+        [request setHTTPMethod:POST];
         [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
         [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
         [request setValue:@"Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" forHTTPHeaderField:@"User-Agent"];
@@ -1102,7 +1126,11 @@ SecKeyRef privateKey = NULL;
         retrievingDataFromServlet = true;
         
         NSURLConnection* connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-        [connection start];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                [connection start];
+            });
+        });
     }
     return responseString;
 }
@@ -1119,7 +1147,7 @@ SecKeyRef privateKey = NULL;
 -(void) errorReportAsync:(NSString*) error
 {
     
-    if(urlServlet != NULL && docId != NULL){
+    if(urlServlet != NULL && docId != NULL) {
         //Creamos la cadena de envío al servidor POST
         NSString *post =@"";
         post = [post stringByAppendingString:PARAMETER_NAME_OPERATION];
@@ -1146,7 +1174,7 @@ SecKeyRef privateKey = NULL;
         // Obtenemos la URL del servidor de la pantalla de preferencias
         NSURL* requestUrl = [[NSURL alloc] initWithString:urlServlet];
         NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30.0];
-        [request setHTTPMethod:@"POST"];
+        [request setHTTPMethod:POST];
         [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
         [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
         [request setValue:@"Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" forHTTPHeaderField:@"User-Agent"];
@@ -1157,20 +1185,24 @@ SecKeyRef privateKey = NULL;
         
         reportError = true;
         NSURLConnection* connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-        [connection start];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                [connection start];
+            });
+        });
     }
 }
 
 - (void) backToAboutViewController {
     UIStoryboard *mainStoryboard;
-    if ([(NSString*)[UIDevice currentDevice].model hasPrefix:@"iPad"] ) {
+    if ([(NSString*)[UIDevice currentDevice].model hasPrefix:IPAD] ) {
         
-        mainStoryboard = [UIStoryboard storyboardWithName:@"iPadStoryboard"
+        mainStoryboard = [UIStoryboard storyboardWithName:IPAD_STORYBOARD
                                                    bundle: nil];
     }
     else {
         
-        mainStoryboard = [UIStoryboard storyboardWithName:@"iPhoneStoryboard"
+        mainStoryboard = [UIStoryboard storyboardWithName:IPHONE_STORYBOARD
                                                    bundle: nil];
     }
     
@@ -1187,11 +1219,4 @@ SecKeyRef privateKey = NULL;
     // Dispose of any resources that can be recreated.
 }
 
-
-- (void)viewDidUnload
-{
-    [self setNombreCert:nil];
-    [self setSignButton:nil];
-    [super viewDidUnload];
-}
 @end

@@ -82,14 +82,14 @@
     SignedAttributes_t *CADESSignedAttributes;
     getCADESSignedAttributes(&CADESSignedAttributes,
                              certificateX509,
-                             [dataHash bytes],
+                             (char*)[dataHash bytes],
                              (int)[dataHash length],
-                             [contentDescription UTF8String],
-                             [policyOID UTF8String],
-                             [policyHash UTF8String],
+                             (char*)[contentDescription UTF8String],
+                             (char*)[policyOID UTF8String],
+                             (char*)[policyHash UTF8String],
                              policyHashAlg,
-                             [policyUri UTF8String],
-                             [certHash bytes],
+                             (char*)[policyUri UTF8String],
+                             (char*)[certHash bytes],
                              (int)[certHash length],
                              hashAlgorithm,
                              signingCertificateV2,
@@ -151,26 +151,26 @@
     NSString *contentDataString = NULL;
     if([mode isEqualToString:PROPERTIES_PARAMETER_MODE_IMPLICIT])
     {
-        NSLog(@"F - stringWithUTF8String de los datos: %@", contentData);
+        NSLog(@"F - NSString de los datos: %@", contentData);
         
-        contentDataString = [NSString stringWithUTF8String:[contentData bytes]];
+        contentDataString = [[NSString alloc] initWithData:contentData encoding:NSUTF8StringEncoding];
     }
     /*** GENERAMOS LA ESTRUCTURA CADES ****/
     getSignedDataStructure(&signedData,
                            certificateX509,
-                           [contentDataString UTF8String],
+                           (char*)[contentDataString UTF8String],
                            [sCertificate bytes],
                            (int)[sCertificate length],
-                           [dataSigned bytes],
+                           (char*)[dataSigned bytes],
                            (int)[dataSigned length],
-                           [dataHash bytes],
+                           (char*)[dataHash bytes],
                            (int)[dataHash length],
-                           [contentDescription UTF8String],
-                           [policyOID UTF8String],
-                           [policyHash UTF8String],
+                           (char*)[contentDescription UTF8String],
+                           (char*)[policyOID UTF8String],
+                           (char*)[policyHash UTF8String],
                            policyHashAlg,
-                           [policyUri UTF8String],
-                           [certHash bytes],
+                           (char*)[policyUri UTF8String],
+                           (char*)[certHash bytes],
                            (int)[certHash length],
                            hashAlgorithm,
                            signingCertificateV2,

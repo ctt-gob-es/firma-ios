@@ -743,7 +743,7 @@ Para funcionar correctamente debe instalar un certificado electrónico y su clav
                                     <constraint firstAttribute="height" constant="43" id="z5b-Yi-VSZ"/>
                                 </constraints>
                                 <string key="text">Cliente @firma para Apple iOS 1.4.8
-© Derechos de copia: Gobierno de España, 2013 </string>
+© Derechos de copia: Gobierno de España, 2018 </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>

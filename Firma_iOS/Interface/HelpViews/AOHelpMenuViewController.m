@@ -92,10 +92,18 @@ NSMutableArray *tableData = NULL;
     }
     
     //Cell View
-    UIView *cellView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 65)];
+    CGFloat cellOriginX = 0;
+    CGFloat cellOriginY = 0;
+    CGFloat cellWidth = 320;
+    CGFloat cellHeight = 65;
+    UIView *cellView = [[UIView alloc]initWithFrame:CGRectMake(cellOriginX, cellOriginY, cellWidth, cellHeight)];
        
     //Label
-    UILabel *lblFor = [[UILabel alloc]initWithFrame:CGRectMake(10, 15, 200, 21)];
+    CGFloat lblForOriginX = 10;
+    CGFloat lblForOriginY = 15;
+    CGFloat lblForWidth = 200;
+    CGFloat lblForHeight = 21;
+    UILabel *lblFor = [[UILabel alloc]initWithFrame:CGRectMake(lblForOriginX, lblForOriginY, lblForWidth, lblForHeight)];
     lblFor.text = [tableData objectAtIndex:indexPath.row];
     lblFor.backgroundColor = [UIColor clearColor];
     lblFor.font = [UIFont fontWithName:@"ArialMT" size:14];

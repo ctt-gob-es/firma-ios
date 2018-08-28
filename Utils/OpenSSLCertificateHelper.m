@@ -151,7 +151,7 @@
 
 + (PFCertificateInfoPurpose)getPurposeFromCertificate:(X509 *)certificateX509
 {
-    PFCertificateInfoPurpose purpose = nil;
+    PFCertificateInfoPurpose purpose = 0;
     X509_get_ext_d2i(certificateX509, NID_key_usage, NULL, (int *)&purpose);
     
     return purpose;
