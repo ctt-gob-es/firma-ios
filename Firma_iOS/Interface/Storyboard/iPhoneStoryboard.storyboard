@@ -915,7 +915,7 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4RE-R6-kNT">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4RE-R6-kNT">
                                 <rect key="frame" x="20" y="206" width="335" height="441"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QZv-qe-ul0">
@@ -938,28 +938,28 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                                             <constraint firstAttribute="width" constant="58" id="wEr-ee-Kgt"/>
                                         </constraints>
                                     </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="uZ3-48-Zky">
-                                        <rect key="frame" x="79" y="123" width="214" height="104"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZ3-48-Zky">
+                                        <rect key="frame" x="73" y="123" width="212" height="102"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="214" id="BSF-hj-i8C"/>
-                                            <constraint firstAttribute="height" constant="104" id="ozj-ij-QmR"/>
+                                            <constraint firstAttribute="width" constant="212" id="BSF-hj-i8C"/>
+                                            <constraint firstAttribute="height" constant="102" id="ozj-ij-QmR"/>
                                         </constraints>
                                         <string key="text">Allowed file extensions: .p12 and .pfx. Keep in mind that you need the password to export your certificate, and it must include the private key.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="certificados.png" translatesAutoresizingMaskIntoConstraints="NO" id="ydP-6D-VuB">
-                                        <rect key="frame" x="8" y="154" width="64" height="42"/>
+                                        <rect key="frame" x="8" y="154" width="58" height="42"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="42" id="bmv-yH-Xeq"/>
                                         </constraints>
                                     </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="s3J-tc-eTj">
-                                        <rect key="frame" x="73" y="13" width="214" height="102"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3J-tc-eTj">
+                                        <rect key="frame" x="73" y="13" width="212" height="102"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="214" id="1BV-Xh-m4r"/>
+                                            <constraint firstAttribute="width" constant="212" id="1BV-Xh-m4r"/>
                                             <constraint firstAttribute="height" constant="102" id="FBv-tu-XHB"/>
                                         </constraints>
                                         <string key="text">Connect your device with iTunes, go to "Application" tab and select "Cliente @firma" from the list, in order to drag and drop your certificates.</string>
@@ -969,7 +969,7 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="s3J-tc-eTj" firstAttribute="centerY" secondItem="jvc-1v-KRv" secondAttribute="centerY" id="C6g-EJ-Myy"/>
-                                    <constraint firstItem="QZv-qe-ul0" firstAttribute="top" secondItem="uZ3-48-Zky" secondAttribute="bottom" constant="8" id="Mlo-qF-HLo"/>
+                                    <constraint firstItem="QZv-qe-ul0" firstAttribute="top" secondItem="uZ3-48-Zky" secondAttribute="bottom" constant="10" id="Mlo-qF-HLo"/>
                                     <constraint firstItem="uZ3-48-Zky" firstAttribute="top" secondItem="s3J-tc-eTj" secondAttribute="bottom" constant="8" symbolic="YES" id="Z26-7L-Q0r"/>
                                     <constraint firstItem="jvc-1v-KRv" firstAttribute="leading" secondItem="4RE-R6-kNT" secondAttribute="leading" constant="8" id="dlx-wh-dn6"/>
                                     <constraint firstItem="uZ3-48-Zky" firstAttribute="leading" secondItem="ydP-6D-VuB" secondAttribute="trailing" constant="7" id="e6m-zI-OGX"/>
@@ -977,8 +977,10 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                                     <constraint firstAttribute="bottom" secondItem="QZv-qe-ul0" secondAttribute="bottom" constant="97" id="qwh-N1-vyz"/>
                                     <constraint firstItem="ydP-6D-VuB" firstAttribute="leading" secondItem="4RE-R6-kNT" secondAttribute="leading" constant="8" id="s4v-in-hfx"/>
                                     <constraint firstItem="QZv-qe-ul0" firstAttribute="centerX" secondItem="4RE-R6-kNT" secondAttribute="centerX" id="sbX-mq-nKC"/>
+                                    <constraint firstAttribute="trailing" secondItem="uZ3-48-Zky" secondAttribute="trailing" constant="10" id="wIR-4i-WM2"/>
                                     <constraint firstItem="s3J-tc-eTj" firstAttribute="top" secondItem="4RE-R6-kNT" secondAttribute="top" constant="13" id="wzI-HY-ALx"/>
-                                    <constraint firstItem="ydP-6D-VuB" firstAttribute="centerY" secondItem="uZ3-48-Zky" secondAttribute="centerY" id="y2O-Rd-Qsh"/>
+                                    <constraint firstItem="ydP-6D-VuB" firstAttribute="centerY" secondItem="uZ3-48-Zky" secondAttribute="centerY" constant="1" id="y2O-Rd-Qsh"/>
+                                    <constraint firstAttribute="trailing" secondItem="s3J-tc-eTj" secondAttribute="trailing" constant="10" id="z4h-QX-gCv"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
