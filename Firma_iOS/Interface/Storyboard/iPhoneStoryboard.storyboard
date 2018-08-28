@@ -755,7 +755,7 @@ In order to run the application properly, an electronic certificate and its priv
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RdQ-UM-sfh">
-                                <rect key="frame" x="20" y="206" width="335" height="461"/>
+                                <rect key="frame" x="20" y="206" width="335" height="441"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <attributedString key="attributedText">
                                     <fragment>
@@ -865,7 +865,7 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                             <constraint firstItem="a0p-d7-fgJ" firstAttribute="leading" secondItem="Ber-2P-5hd" secondAttribute="leading" constant="27" id="58n-wR-BXi"/>
                             <constraint firstAttribute="trailing" secondItem="RdQ-UM-sfh" secondAttribute="trailing" constant="20" symbolic="YES" id="9Of-Fi-VHF"/>
                             <constraint firstItem="RdQ-UM-sfh" firstAttribute="top" secondItem="8TS-VU-W3b" secondAttribute="bottom" constant="8" symbolic="YES" id="AYa-B6-0A3"/>
-                            <constraint firstItem="RdQ-UM-sfh" firstAttribute="bottom" secondItem="5Hp-qh-q6s" secondAttribute="top" id="HLV-gA-rXM"/>
+                            <constraint firstItem="RdQ-UM-sfh" firstAttribute="bottom" secondItem="5Hp-qh-q6s" secondAttribute="top" constant="-20" id="HLV-gA-rXM"/>
                             <constraint firstItem="RdQ-UM-sfh" firstAttribute="leading" secondItem="Ber-2P-5hd" secondAttribute="leading" constant="20" symbolic="YES" id="LSs-nP-Anw"/>
                             <constraint firstItem="8TS-VU-W3b" firstAttribute="top" secondItem="a0p-d7-fgJ" secondAttribute="bottom" constant="6" id="QdN-mh-6UH"/>
                             <constraint firstAttribute="trailing" secondItem="a0p-d7-fgJ" secondAttribute="trailing" constant="28" id="b2V-xD-8dN"/>
@@ -885,7 +885,7 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qhk-Bs-DO0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8" y="1348"/>
+            <point key="canvasLocation" x="7.5" y="1347.5"/>
         </scene>
         <!--How to-->
         <scene sceneID="xaa-sP-Dhf">

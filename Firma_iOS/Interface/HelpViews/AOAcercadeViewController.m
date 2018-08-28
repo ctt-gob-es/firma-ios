@@ -45,6 +45,7 @@
 - (void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
     [self.aboutDescriptionLabel setContentOffset:CGPointZero animated:NO];
+    [self.frequentlyAskedQuestionsDescriptionLabel setContentOffset:CGPointZero animated:NO];
 }
 
 -(void)fillTextForFrequentlyAskedQuestionsTitleLabel{
