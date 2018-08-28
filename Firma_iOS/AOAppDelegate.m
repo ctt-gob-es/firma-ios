@@ -7,6 +7,7 @@
 #import "AOAboutViewController.h"
 #import "AORegisteredCertificatesTVC.h"
 #import "GAI.h"
+#import "GlobalConstants.h"
 
 @implementation AOAppDelegate
 
@@ -41,19 +42,19 @@ NSString *URLString, *state = @"Inactive";
 -(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
     
     URLString = [url absoluteString];
-    [[NSUserDefaults standardUserDefaults] setObject:URLString forKey:@"url"];
+    [[NSUserDefaults standardUserDefaults] setObject:URLString forKey:URL];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    if ([state isEqualToString:@"Inactive"]) {
+    if ([state isEqualToString:INACTIVE]) {
         
         UIStoryboard *mainStoryboard;
-        if ([(NSString*)[UIDevice currentDevice].model hasPrefix:@"iPad"] ) {
+        if ([(NSString*)[UIDevice currentDevice].model hasPrefix:IPAD] ) {
             
-            mainStoryboard = [UIStoryboard storyboardWithName:@"iPadStoryboard"
+            mainStoryboard = [UIStoryboard storyboardWithName:IPAD_STORYBOARD
                                                                      bundle: nil];
         }
         else {
             
-            mainStoryboard = [UIStoryboard storyboardWithName:@"iPhoneStoryboard"
+            mainStoryboard = [UIStoryboard storyboardWithName:IPHONE_STORYBOARD
                                                        bundle: nil];
         }
         
@@ -68,7 +69,7 @@ NSString *URLString, *state = @"Inactive";
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             dispatch_sync(dispatch_get_main_queue(), ^{
                 
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"urlReaded" object:URLString];
+                [[NSNotificationCenter defaultCenter] postNotificationName:URL_READED object:URLString];
                 NSLog(@"\n\n ** URL AppDelegate => %@", URLString);
             });
         });
@@ -81,7 +82,7 @@ NSString *URLString, *state = @"Inactive";
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-    state = @"Background";
+    state = BACKGROUND;
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -121,12 +122,12 @@ NSString *URLString, *state = @"Inactive";
     }
     
     NSDictionary *settings = [NSDictionary dictionaryWithContentsOfFile:[settingsBundle stringByAppendingPathComponent:@"Root.plist"]];
-    NSArray *preferences = [settings objectForKey:@"PreferenceSpecifiers"];
+    NSArray *preferences = [settings objectForKey:PREFERENCE_SPECIFIERS];
     
     NSMutableDictionary *defaultsToRegister = [[NSMutableDictionary alloc] initWithCapacity:[preferences count]];
     for(NSDictionary *prefSpecification in preferences)
     {
-        NSString *key = [prefSpecification objectForKey:@"Key"];
+        NSString *key = [prefSpecification objectForKey:KEY];
         if(key)
         {
             [defaultsToRegister setObject:[prefSpecification objectForKey:@"DefaultValue"] forKey:key];

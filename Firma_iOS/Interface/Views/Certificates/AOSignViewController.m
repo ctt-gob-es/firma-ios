@@ -19,6 +19,7 @@
 #import "AOCounterSignPreItems.h"
 #import "CertificateUtils.h"
 #import "CommonAlert.h"
+#import "GlobalConstants.h"
 
 @interface AOSignViewController ()
 
@@ -148,7 +149,11 @@ SecKeyRef privateKey = NULL;
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"error",nil) message: NSLocalizedString(@"error_datos_firmar",nil) delegate:self cancelButtonTitle: NSLocalizedString(@"cerrar",nil) otherButtonTitles:nil];
         
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(75, 6, 40, 40)];
+        CGFloat imageViewOriginX = 75;
+        CGFloat imageViewOriginY = 6;
+        CGFloat imageViewWidth = 40;
+        CGFloat imageViewHeight = 40;
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(imageViewOriginX, imageViewOriginY, imageViewWidth, imageViewHeight)];
         
         NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
         UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
@@ -446,7 +451,7 @@ SecKeyRef privateKey = NULL;
     NSLog(@"%@",[[NSString alloc] initWithData:contentData encoding:NSUTF8StringEncoding]);
     
     NSString *contentDescription = [[NSString alloc]init];
-    contentDescription=@"binary";
+    contentDescription = BINARY;
     NSString *policyOID = NULL;
     NSString *policyHash = NULL;
     NSString *policyUri = NULL;
@@ -647,7 +652,7 @@ SecKeyRef privateKey = NULL;
         NSLog(@"\n\nA - Usamos la ruta de servidor trifasico preestablecido: %@", rtServlet);
     }
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30.0];
-    [request setHTTPMethod:@"POST"];
+    [request setHTTPMethod:POST];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [request setValue:@"Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" forHTTPHeaderField:@"User-Agent"];
@@ -712,11 +717,11 @@ SecKeyRef privateKey = NULL;
         NSString* responseString = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
         NSLog(@"\nLa invocación a POST ha devuelto la siguiente respuesta AOSignViewController: %@", responseString);
         
-        //quitamos el progressbar indefinido        
+        //quitamos el progressbar indefinido
         [alertpb destroy:^{
             //se procesa la respuesta del servidor.
-            NSString* title = NSLocalizedString(([responseString hasPrefix: @"OK"]) ? @"ok" : @"error", nil);
-            NSString* message = NSLocalizedString(([responseString hasPrefix: @"OK"]) ? @"proceso_finalizado_trifasico" : @"error_proceso_firma", nil);
+            NSString* title = NSLocalizedString(([responseString hasPrefix: OK]) ? @"ok" : @"error", nil);
+            NSString* message = NSLocalizedString(([responseString hasPrefix: OK]) ? @"proceso_finalizado_trifasico" : @"error_proceso_firma", nil);
             [CommonAlert createAlertWithTitle: title message: message cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self onComplete:^{
                 [self backToAboutViewController];
             }];
@@ -749,7 +754,7 @@ SecKeyRef privateKey = NULL;
         NSString* responseString = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
         NSLog(@"La invocación a POST ha devuelto la siguiente respuesta: %@", responseString);
         //se valida si la respuesta es correcta
-        if([responseString hasPrefix: @"OK"]){
+        if([responseString hasPrefix: OK]){
             NSLog(@"se preparan los datos para realizar el storage.");
             NSRange range = [responseString rangeOfString: @"="];
             if(range.length > 0)
@@ -884,7 +889,7 @@ SecKeyRef privateKey = NULL;
             }];
         }
         
-        NSString *pre = [firma.params objectForKey:@"PRE"];
+        NSString *pre = [firma.params objectForKey:PRE];
         pre = [pre stringByReplacingOccurrencesOfString:@"\n" withString:@""];
         NSLog(@"\n\nObjeto PRE: %@", pre);
         
@@ -931,7 +936,7 @@ SecKeyRef privateKey = NULL;
     post = [post stringByAppendingString:HTTP_AND];
     
     NSString *needData = [dict objectForKey:PROPERTY_NAME_NEED_DATA];
-    if (![needData isEqualToString:@"false"]) {
+    if (![needData isEqualToString:STRING_FALSE]) {
         // Atributo DOC
         post = [post stringByAppendingString:PARAMETER_NAME_DOCID];
         post = [post stringByAppendingString:HTTP_EQUALS];
@@ -986,11 +991,11 @@ SecKeyRef privateKey = NULL;
     }
     else
     {
-        requestUrl = [[NSURL alloc] initWithString:[[NSUserDefaults standardUserDefaults] stringForKey:@"server_url"]];
+        requestUrl = [[NSURL alloc] initWithString:[[NSUserDefaults standardUserDefaults] stringForKey:SERVER_URL]];
         NSLog(@"\n\nB - Usamos la ruta de servidor trifasico preestablecido: %@", [[NSUserDefaults standardUserDefaults] stringForKey:@"server_url"]);
     }
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval: 30.0];
-    [request setHTTPMethod:@"POST"];
+    [request setHTTPMethod:POST];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [request setValue:@"Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" forHTTPHeaderField:@"User-Agent"];
@@ -1054,7 +1059,7 @@ SecKeyRef privateKey = NULL;
     NSURL* requestUrl = [[NSURL alloc] initWithString:urlServlet];
     NSLog(@"URL del servidor => : %@", requestUrl);
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval: 30.0];
-    [request setHTTPMethod:@"POST"];
+    [request setHTTPMethod:POST];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [request setValue:@"Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" forHTTPHeaderField:@"User-Agent"];
@@ -1109,7 +1114,7 @@ SecKeyRef privateKey = NULL;
         // Obtenemos la URL del servidor de la pantalla de preferencias
         NSURL* requestUrl = [[NSURL alloc] initWithString:rtServlet];
         NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30.0];
-        [request setHTTPMethod:@"POST"];
+        [request setHTTPMethod:POST];
         [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
         [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
         [request setValue:@"Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" forHTTPHeaderField:@"User-Agent"];
@@ -1169,7 +1174,7 @@ SecKeyRef privateKey = NULL;
         // Obtenemos la URL del servidor de la pantalla de preferencias
         NSURL* requestUrl = [[NSURL alloc] initWithString:urlServlet];
         NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30.0];
-        [request setHTTPMethod:@"POST"];
+        [request setHTTPMethod:POST];
         [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
         [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
         [request setValue:@"Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" forHTTPHeaderField:@"User-Agent"];
@@ -1190,14 +1195,14 @@ SecKeyRef privateKey = NULL;
 
 - (void) backToAboutViewController {
     UIStoryboard *mainStoryboard;
-    if ([(NSString*)[UIDevice currentDevice].model hasPrefix:@"iPad"] ) {
+    if ([(NSString*)[UIDevice currentDevice].model hasPrefix:IPAD] ) {
         
-        mainStoryboard = [UIStoryboard storyboardWithName:@"iPadStoryboard"
+        mainStoryboard = [UIStoryboard storyboardWithName:IPAD_STORYBOARD
                                                    bundle: nil];
     }
     else {
         
-        mainStoryboard = [UIStoryboard storyboardWithName:@"iPhoneStoryboard"
+        mainStoryboard = [UIStoryboard storyboardWithName:IPHONE_STORYBOARD
                                                    bundle: nil];
     }
     AOAboutViewController *controller = (AOAboutViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"AOAboutViewController"];

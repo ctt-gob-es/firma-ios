@@ -7,6 +7,7 @@
 //
 
 #import "AOAvailableCertificatesTVC.h"
+#import "GlobalConstants.h"
 
 static NSString *const kAOAvailableCertificatesTVCCellIdentifier = @"AOCertificateFileCell";
 
@@ -64,9 +65,9 @@ static NSString *const kAOAvailableCertificatesTVCCellIdentifier = @"AOCertifica
     
     NSMutableArray *arrayCertsMut = [[NSMutableArray alloc] init];
     
-    [arrayCertsMut addObject:@"ANF_PF_Activo"];
-    [arrayCertsMut addObject:@"PFActivoFirSHA1"];
-    [arrayCertsMut addObject:@"pruebas_portafirmas"];
+    [arrayCertsMut addObject:ANF_PF_ACTIVO];
+    [arrayCertsMut addObject:PF_ACTIVO_FIR_SHA1];
+    [arrayCertsMut addObject:PRUEBAS_PORTAFIRMAS];
     
     return arrayCertsMut;
     
@@ -76,7 +77,7 @@ static NSString *const kAOAvailableCertificatesTVCCellIdentifier = @"AOCertifica
     NSFileManager *fManager = [NSFileManager defaultManager];
     NSString *item;
     NSString *ext;
-    NSArray *contents = [fManager contentsOfDirectoryAtPath:[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] error:nil];
+    NSArray *contents = [fManager contentsOfDirectoryAtPath:[NSHomeDirectory() stringByAppendingPathComponent:DOCUMENTS] error:nil];
     
     for (item in contents) {
         for (ext in extensions) {

@@ -9,6 +9,7 @@
 #import "AOCounterSignXMLParser.h"
 #import "AOCounterSignPreItems.h"
 #import "Firma.h"
+#import "GlobalConstants.h"
 
 @implementation AOCounterSignXMLParser
 
@@ -77,9 +78,9 @@
 }
 
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
-    if ( [elementName isEqualToString:@"firma"] ) {
+    if ( [elementName isEqualToString:SIGNATURE] ) {
         [self.firmas addObject: self.currentFirma];
-    } else if ( [elementName isEqualToString:@"param"] ) {
+    } else if ( [elementName isEqualToString:PARAMETERS] ) {
         [self.currentFirma.params setValue:self.currentStringValue forKey:self.currentParam];
         self.currentStringValue = nil;
     }

@@ -12,6 +12,7 @@
 #import "CADESConstants.h"
 #import "CADESOID.h"
 #import "Base64.h"
+#import "GlobalConstants.h"
 
 @implementation CADESSignUtils
 
@@ -142,7 +143,7 @@
     //Con los datos de la prefirma decodificados, se pasa a realizar la firma pkcs1.
 //    CertificateUtils *certUtils = [[CertificateUtils alloc] init];
 //    [certUtils setPrivateKey:*privateKey];
-    NSArray *listItems = [algorithm componentsSeparatedByString:@"with"];
+    NSArray *listItems = [algorithm componentsSeparatedByString:WITH];
     if([listItems count] > 0){
         NSString *alg = [listItems objectAtIndex:0];
         if ([[alg uppercaseString] isEqualToString:@"SHA1"] ) {
@@ -178,7 +179,7 @@
 +(NSData*) hashData:(NSString*) algorithm data:(NSData*)dataPreSign{
     //Con los datos de la prefirma decodificados, se pasa a realizar la firma pkcs1.
     CertificateUtils *certUtils = [[CertificateUtils alloc] init];
-    NSArray *listItems = [algorithm componentsSeparatedByString:@"with"];
+    NSArray *listItems = [algorithm componentsSeparatedByString:WITH];
     if([listItems count] >0){
         NSString *alg = [listItems objectAtIndex:0];
         if ([[alg uppercaseString] isEqualToString:@"SHA1"] ) {
@@ -262,7 +263,7 @@
  
  */
 +(char*)getAlgorithmOID:(NSString*)algorithm {
-    NSArray *listItems = [algorithm componentsSeparatedByString:@"with"];
+    NSArray *listItems = [algorithm componentsSeparatedByString:WITH];
     if([listItems count] > 0){
         NSString *alg = [listItems objectAtIndex:0];
         if ([[alg uppercaseString] isEqualToString:@"SHA1"] ) {
