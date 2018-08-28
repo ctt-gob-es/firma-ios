@@ -32,7 +32,7 @@
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="3FJ-eL-Nfr">
                                     <rect key="frame" x="40" y="10" width="295" height="85"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="85" id="ZuB-EK-twV"/>
+                                        <constraint firstAttribute="height" constant="85" id="53w-Mc-CXd"/>
                                     </constraints>
                                 </imageView>
                             </subviews>
@@ -537,6 +537,9 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="sKN-gb-ucT">
                                 <rect key="frame" x="27" y="74" width="320" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="Lad-gb-KUQ"/>
+                                </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VRk-By-NUt">
                                 <rect key="frame" x="20" y="206" width="335" height="154"/>
@@ -648,17 +651,23 @@ http://administracionelectronica.gob.es/</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YGN-hy-HXm">
-                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                <items>
-                                    <tabBarItem tag="2" title="Keystore manager" image="cert_menu.png" id="kJF-BT-0mB"/>
-                                    <tabBarItem title="Help" image="help.png" id="qsl-TR-wha"/>
-                                </items>
-                                <connections>
-                                    <outlet property="delegate" destination="ZbB-7n-KzP" id="mrX-x8-Fec"/>
-                                </connections>
-                            </tabBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="BN6-I6-Kca">
+                                <rect key="frame" x="40" y="74" width="295" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="9hJ-N1-TIf"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wea-WN-cIK">
+                                <rect key="frame" x="20" y="179" width="335" height="382"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <string key="text">Welcome to "Cliente @firma iOS" 1.4.8
+
+This application allows to sign electronically in the supported websites of services providers.
+
+In order to run the application properly, an electronic certificate and its private key must be installed in your device using iTunes. Check your iOS documentation and consult with your provider of certification services.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJV-8n-EZ7">
                                 <rect key="frame" x="76" y="576" width="225.5" height="39"/>
                                 <constraints>
@@ -670,38 +679,32 @@ http://administracionelectronica.gob.es/</string>
                                 <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="BN6-I6-Kca">
-                                <rect key="frame" x="41" y="74" width="295" height="85"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="85" id="p3e-uc-ddE"/>
-                                </constraints>
-                            </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wea-WN-cIK">
-                                <rect key="frame" x="20" y="169" width="335" height="392"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <string key="text">Welcome to "Cliente @firma iOS" 1.4.8
-
-This application allows to sign electronically in the supported websites of services providers.
-
-In order to run the application properly, an electronic certificate and its private key must be installed in your device using iTunes. Check your iOS documentation and consult with your provider of certification services.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YGN-hy-HXm">
+                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <items>
+                                    <tabBarItem tag="2" title="Keystore manager" image="cert_menu.png" id="kJF-BT-0mB"/>
+                                    <tabBarItem title="Help" image="help.png" id="qsl-TR-wha"/>
+                                </items>
+                                <connections>
+                                    <outlet property="delegate" destination="ZbB-7n-KzP" id="mrX-x8-Fec"/>
+                                </connections>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wea-WN-cIK" firstAttribute="top" secondItem="BN6-I6-Kca" secondAttribute="bottom" constant="10" id="0co-bg-TmO"/>
+                            <constraint firstItem="wea-WN-cIK" firstAttribute="top" secondItem="BN6-I6-Kca" secondAttribute="bottom" constant="20" id="0co-bg-TmO"/>
+                            <constraint firstAttribute="trailing" secondItem="BN6-I6-Kca" secondAttribute="trailing" constant="40" id="2m9-O8-AGd"/>
                             <constraint firstItem="YGN-hy-HXm" firstAttribute="leading" secondItem="6xF-zd-Toc" secondAttribute="leading" id="3zw-3h-mqO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wea-WN-cIK" secondAttribute="trailing" constant="4" id="8Dz-B1-jFY"/>
                             <constraint firstItem="YGN-hy-HXm" firstAttribute="bottom" secondItem="6xF-zd-Toc" secondAttribute="bottom" id="9oS-eP-KSU"/>
                             <constraint firstItem="YGN-hy-HXm" firstAttribute="trailing" secondItem="6xF-zd-Toc" secondAttribute="trailing" id="Epu-H7-SP9"/>
-                            <constraint firstItem="BN6-I6-Kca" firstAttribute="leading" secondItem="6xF-zd-Toc" secondAttribute="leading" constant="41" id="IDO-6R-pIR"/>
                             <constraint firstItem="wea-WN-cIK" firstAttribute="centerX" secondItem="6xF-zd-Toc" secondAttribute="centerX" id="QHE-KD-2dm"/>
                             <constraint firstItem="BN6-I6-Kca" firstAttribute="top" secondItem="sYJ-q4-WYx" secondAttribute="bottom" constant="10" id="W2F-4v-ahM"/>
+                            <constraint firstItem="BN6-I6-Kca" firstAttribute="leading" secondItem="6xF-zd-Toc" secondAttribute="leading" constant="40" id="WR7-nc-2CM"/>
                             <constraint firstItem="UJV-8n-EZ7" firstAttribute="top" secondItem="wea-WN-cIK" secondAttribute="bottom" constant="15" id="pr7-sO-Ut9"/>
                             <constraint firstItem="wea-WN-cIK" firstAttribute="leading" secondItem="6xF-zd-Toc" secondAttribute="leadingMargin" constant="4" id="tdS-gp-iuG"/>
                             <constraint firstItem="UJV-8n-EZ7" firstAttribute="centerX" secondItem="6xF-zd-Toc" secondAttribute="centerX" constant="1" id="v1f-RQ-dqa"/>
-                            <constraint firstAttribute="trailing" secondItem="BN6-I6-Kca" secondAttribute="trailing" constant="39" id="v4d-M5-Tii"/>
                             <constraint firstItem="YGN-hy-HXm" firstAttribute="top" secondItem="UJV-8n-EZ7" secondAttribute="bottom" constant="3" id="w0m-76-93V"/>
                         </constraints>
                     </view>
