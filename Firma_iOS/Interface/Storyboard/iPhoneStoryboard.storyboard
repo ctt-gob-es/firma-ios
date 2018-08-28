@@ -479,7 +479,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qh1-9N-LpB">
-                                <rect key="frame" x="20" y="206" width="335" height="382"/>
+                                <rect key="frame" x="20" y="206" width="335" height="441"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">"Cliente @firma for Apple iOS" v1.4.8
 2013 Gobierno de España
@@ -502,7 +502,7 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                             <constraint firstItem="UwO-vE-gDz" firstAttribute="top" secondItem="eY5-0N-2wb" secondAttribute="top" constant="74" id="BMI-Cx-2j6"/>
                             <constraint firstItem="qh1-9N-LpB" firstAttribute="top" secondItem="RvU-hc-GZw" secondAttribute="bottom" constant="8" symbolic="YES" id="DQc-I5-bBX"/>
                             <constraint firstAttribute="trailing" secondItem="UwO-vE-gDz" secondAttribute="trailing" constant="35" id="eJ2-zc-8tR"/>
-                            <constraint firstItem="qh1-9N-LpB" firstAttribute="bottom" secondItem="TR2-DV-x29" secondAttribute="top" constant="-79" id="hEQ-L8-giO"/>
+                            <constraint firstItem="qh1-9N-LpB" firstAttribute="bottom" secondItem="TR2-DV-x29" secondAttribute="top" constant="-20" id="hEQ-L8-giO"/>
                             <constraint firstItem="UwO-vE-gDz" firstAttribute="leading" secondItem="eY5-0N-2wb" secondAttribute="leading" constant="20" symbolic="YES" id="nHc-qD-Gfh"/>
                             <constraint firstAttribute="trailing" secondItem="qh1-9N-LpB" secondAttribute="trailing" constant="20" symbolic="YES" id="r9r-wI-lJn"/>
                             <constraint firstItem="RvU-hc-GZw" firstAttribute="leading" secondItem="eY5-0N-2wb" secondAttribute="leading" constant="20" symbolic="YES" id="tsC-VM-eUH"/>
@@ -648,17 +648,6 @@ http://administracionelectronica.gob.es/</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wea-WN-cIK">
-                                <rect key="frame" x="20" y="173" width="335" height="327"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <string key="text">Welcome to "Cliente @firma iOS" 1.4.8
-
-This application allows to sign electronically in the supported websites of services providers.
-
-In order to run the application properly, an electronic certificate and its private key must be installed in your device using iTunes. Check your iOS documentation and consult with your provider of certification services.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YGN-hy-HXm">
                                 <rect key="frame" x="0.0" y="618" width="375" height="49"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -682,23 +671,35 @@ In order to run the application properly, an electronic certificate and its priv
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="BN6-I6-Kca">
-                                <rect key="frame" x="41" y="64" width="295" height="85"/>
+                                <rect key="frame" x="41" y="74" width="295" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="85" id="p3e-uc-ddE"/>
                                 </constraints>
                             </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wea-WN-cIK">
+                                <rect key="frame" x="20" y="169" width="335" height="332"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <string key="text">Welcome to "Cliente @firma iOS" 1.4.8
+
+This application allows to sign electronically in the supported websites of services providers.
+
+In order to run the application properly, an electronic certificate and its private key must be installed in your device using iTunes. Check your iOS documentation and consult with your provider of certification services.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="wea-WN-cIK" firstAttribute="top" secondItem="BN6-I6-Kca" secondAttribute="bottom" constant="10" id="0co-bg-TmO"/>
                             <constraint firstItem="YGN-hy-HXm" firstAttribute="leading" secondItem="6xF-zd-Toc" secondAttribute="leading" id="3zw-3h-mqO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wea-WN-cIK" secondAttribute="trailing" constant="4" id="8Dz-B1-jFY"/>
                             <constraint firstItem="YGN-hy-HXm" firstAttribute="bottom" secondItem="6xF-zd-Toc" secondAttribute="bottom" id="9oS-eP-KSU"/>
-                            <constraint firstItem="wea-WN-cIK" firstAttribute="leading" secondItem="6xF-zd-Toc" secondAttribute="leading" constant="20" symbolic="YES" id="AWX-16-jLQ"/>
                             <constraint firstItem="YGN-hy-HXm" firstAttribute="trailing" secondItem="6xF-zd-Toc" secondAttribute="trailing" id="Epu-H7-SP9"/>
                             <constraint firstItem="BN6-I6-Kca" firstAttribute="leading" secondItem="6xF-zd-Toc" secondAttribute="leading" constant="41" id="IDO-6R-pIR"/>
-                            <constraint firstItem="BN6-I6-Kca" firstAttribute="top" secondItem="6xF-zd-Toc" secondAttribute="topMargin" id="W2F-4v-ahM"/>
-                            <constraint firstItem="wea-WN-cIK" firstAttribute="top" secondItem="BN6-I6-Kca" secondAttribute="bottom" constant="24" id="elw-cg-XI4"/>
-                            <constraint firstAttribute="trailing" secondItem="wea-WN-cIK" secondAttribute="trailing" constant="20" symbolic="YES" id="nVo-HU-hKZ"/>
-                            <constraint firstItem="cKi-TO-cYK" firstAttribute="top" secondItem="wea-WN-cIK" secondAttribute="bottom" constant="167" id="njM-2z-l6y"/>
+                            <constraint firstItem="wea-WN-cIK" firstAttribute="centerX" secondItem="6xF-zd-Toc" secondAttribute="centerX" id="QHE-KD-2dm"/>
+                            <constraint firstItem="BN6-I6-Kca" firstAttribute="top" secondItem="sYJ-q4-WYx" secondAttribute="bottom" constant="10" id="W2F-4v-ahM"/>
+                            <constraint firstItem="UJV-8n-EZ7" firstAttribute="top" secondItem="wea-WN-cIK" secondAttribute="bottom" constant="75" id="pr7-sO-Ut9"/>
+                            <constraint firstItem="wea-WN-cIK" firstAttribute="leading" secondItem="6xF-zd-Toc" secondAttribute="leadingMargin" constant="4" id="tdS-gp-iuG"/>
                             <constraint firstItem="UJV-8n-EZ7" firstAttribute="centerX" secondItem="6xF-zd-Toc" secondAttribute="centerX" constant="1" id="v1f-RQ-dqa"/>
                             <constraint firstAttribute="trailing" secondItem="BN6-I6-Kca" secondAttribute="trailing" constant="39" id="v4d-M5-Tii"/>
                             <constraint firstItem="YGN-hy-HXm" firstAttribute="top" secondItem="UJV-8n-EZ7" secondAttribute="bottom" constant="3" id="w0m-76-93V"/>
