@@ -14,6 +14,5 @@
 + (NSString *)getStringFromDate:(NSDate *)date withFormat:(NSString *)format;
 + (NSDate *)getDateFromString:(NSString *)stringDate;
 + (NSDate *)getDateFromString:(NSString *)stringDate withFormat:(NSString *)format;
-+ (NSDate *)getGreaterDate:(NSArray *)datesArray;
 
 @end

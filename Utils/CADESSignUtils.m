@@ -80,7 +80,7 @@
  -----------
  algorithm: Algoritmo utilizado para el cifrado.
  */
-+(bool*) isValidAlgorithm:(NSString*)algorithm{
++(bool) isValidAlgorithm:(NSString*)algorithm{
     bool isValid = false;
     if ([[algorithm uppercaseString] isEqualToString:@"SHA1WITHRSA"] ) {
         isValid = true;

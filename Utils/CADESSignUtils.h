@@ -10,7 +10,7 @@
 
 +(NSString*) dictionary2JavaProperties: (NSDictionary*) dict;
 +(NSDictionary*) javaProperties2Dictionary:(NSString*) urlString;
-+(bool*) isValidAlgorithm:(NSString*)algorithm;
++(bool) isValidAlgorithm:(NSString*)algorithm;
 +(NSDictionary*) parseUrl:(NSString*) urlString;
 
 +(NSData*) signPkcs1:(NSString*)algorithm privateKey:(SecKeyRef*)privateKey data:(NSData*)dataPreSign;

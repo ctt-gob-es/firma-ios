@@ -78,23 +78,10 @@
 }
 
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
-    
-    if ( [elementName isEqualToString:SIGNATURES]) {
-        
-        return;
-    }
-    
     if ( [elementName isEqualToString:SIGNATURE] ) {
-        
         [self.firmas addObject: self.currentFirma];
-        self.currentFirma;
-        return;
-    }
-    
-    if ( [elementName isEqualToString:PARAMETERS] ) {
-        
+    } else if ( [elementName isEqualToString:PARAMETERS] ) {
         [self.currentFirma.params setValue:self.currentStringValue forKey:self.currentParam];
-        self.currentStringValue;
         self.currentStringValue = nil;
     }
 }

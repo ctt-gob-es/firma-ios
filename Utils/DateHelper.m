@@ -47,17 +47,4 @@ static NSString *const kAODefaultDateFormat = @"dd/MM/yyyy";
     return nil;
 }
 
-+ (NSDate *)getGreaterDate:(NSArray *)datesArray
-{
-    NSArray *sortedDatesArray = [datesArray sortedArrayUsingComparator:^NSComparisonResult (id obj1, id obj2) {
-                                     if ([obj1 isKindOfClass:[NSDate class]] && [obj2 isKindOfClass:[NSDate class]]) {
-                                         return [(NSDate *)obj1 compare : (NSDate *)obj2];
-                                     }
-
-                                     return nil;
-                                 }];
-
-    return sortedDatesArray[0];
-}
-
 @end

@@ -119,13 +119,4 @@ BOOL isURL = NO;
     [[NSNotificationCenter defaultCenter] removeObserver:self name:URL_READED object:nil];
 }
 
-- (void)viewDidUnload {
-    
-    [self setManageStoreButton:nil];
-    tabBar = nil;
-    [super viewDidUnload];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:URL_READED object:nil];
-}
-
-
 @end

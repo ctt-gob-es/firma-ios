@@ -1217,11 +1217,4 @@ SecKeyRef privateKey = NULL;
     // Dispose of any resources that can be recreated.
 }
 
-
-- (void)viewDidUnload
-{
-    [self setNombreCert:nil];
-    [self setSignButton:nil];
-    [super viewDidUnload];
-}
 @end
