@@ -42,6 +42,11 @@
     self.questionsNavigationItem.title = NSLocalizedString(@"questions_navigation_title", nil);
 }
 
+- (void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    [self.aboutDescriptionLabel setContentOffset:CGPointZero animated:NO];
+}
+
 -(void)fillTextForFrequentlyAskedQuestionsTitleLabel{
     [self.frequentlyAskedQuestionsTitleLabel setText:NSLocalizedString(@"frequently_asked_questions_title_label", nil)];
     NSString* string1 = NSLocalizedString(@"frequently_asked_questions_description_label_1", nil);

@@ -502,7 +502,7 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                             <constraint firstItem="UwO-vE-gDz" firstAttribute="top" secondItem="eY5-0N-2wb" secondAttribute="top" constant="74" id="BMI-Cx-2j6"/>
                             <constraint firstItem="qh1-9N-LpB" firstAttribute="top" secondItem="RvU-hc-GZw" secondAttribute="bottom" constant="8" symbolic="YES" id="DQc-I5-bBX"/>
                             <constraint firstAttribute="trailing" secondItem="UwO-vE-gDz" secondAttribute="trailing" constant="35" id="eJ2-zc-8tR"/>
-                            <constraint firstItem="qh1-9N-LpB" firstAttribute="bottom" secondItem="TR2-DV-x29" secondAttribute="top" constant="-20" id="hEQ-L8-giO"/>
+                            <constraint firstItem="qh1-9N-LpB" firstAttribute="bottom" secondItem="eY5-0N-2wb" secondAttribute="bottom" constant="-20" id="hEQ-L8-giO"/>
                             <constraint firstItem="UwO-vE-gDz" firstAttribute="leading" secondItem="eY5-0N-2wb" secondAttribute="leading" constant="20" symbolic="YES" id="nHc-qD-Gfh"/>
                             <constraint firstAttribute="trailing" secondItem="qh1-9N-LpB" secondAttribute="trailing" constant="20" symbolic="YES" id="r9r-wI-lJn"/>
                             <constraint firstItem="RvU-hc-GZw" firstAttribute="leading" secondItem="eY5-0N-2wb" secondAttribute="leading" constant="20" symbolic="YES" id="tsC-VM-eUH"/>
@@ -521,7 +521,7 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7I3-Lf-6FG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="829.60000000000002" y="478.11094452773619"/>
+            <point key="canvasLocation" x="829.5" y="477.5"/>
         </scene>
         <!--Help-->
         <scene sceneID="EfI-NW-A0n">
