@@ -361,18 +361,18 @@ Si no aparecen almacenes en la lista, podrá importarlos desde las opciones de l
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wiD-pw-MlF">
                                 <rect key="frame" x="20" y="111" width="335" height="536"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <string key="text">Bienvenido a "Cliente @firma iOS" 0.1 Beta.
+                                <mutableString key="text">Bienvenido a "Cliente @firma iOS" 0.1 Beta.
 
 Esta aplicación permite realizar firmas electrónicas en las páginas de los proveedores de servicios que lo soporten.
 
 Para funcionar correctamente debe instalar un certificado electrónico y su clave privada en su dispositivo a través de iTunes. Consulte la documentación de su sitema iOs y con su proveedor de servicios de  certificación.
 
 Cliente @firma para Apple iOS v0.1.
-© Derechos de copia: Gobierno de España, 2013 (Ministerio de Hacienda y Administraciones Públicas, Secretaría de Estado de Administraciones Públicas).
+© Derechos de copia: Gobierno de España, 2018 (Ministerio de Hacienda y Administraciones Públicas, Secretaría de Estado de Administraciones Públicas).
 
 El Cliente @firma para Apple iOS es software libre y puede ser distribuido y/o modificado bajo los términos de la licencia EUPL (European Software License) versión 1.1.
 
-Puede contactar con el tenedor de los derechos de copia en la siguiente dirección de correo electrónico: soporte.afirma@seap.minhap.es.</string>
+Puede contactar con el tenedor de los derechos de copia en la siguiente dirección de correo electrónico: soporte.afirma@seap.minhap.es.</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -407,7 +407,6 @@ Puede contactar con el tenedor de los derechos de copia en la siguiente direcci�
         <image name="logo_cliente.png" width="726" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ikw-GK-xXo"/>
         <segue reference="Au9-Gn-8dC"/>
     </inferredMetricsTieBreakers>
 </document>

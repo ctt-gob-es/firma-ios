@@ -54,7 +54,11 @@ static const NSTimeInterval kCertificateCellDate15DaysTimeInterval = -(15*24*60*
     }
     
     if (color) {
-        _expirationIconLayer = [QuartzUtils circleWithColor:color andRect:_expirationLabel.frame];
+        CGFloat frameOriginXOffset = 10;
+        CGFloat frameOriginYOffset = 20;
+        CGFloat frameSizeWidthMultiplier = 0.01;
+        CGFloat frameSizeHeightMultiplier = 0.01;
+        _expirationIconLayer = [QuartzUtils circleWithColor:color andRect: CGRectMake(_expirationLabel.frame.origin.x + frameOriginXOffset, _expirationLabel.frame.origin.y + frameOriginYOffset, (_expirationLabel.frame.size.width * frameSizeWidthMultiplier), (_expirationLabel.frame.size.height * frameSizeHeightMultiplier))];
         [self.contentView.layer insertSublayer:_expirationIconLayer atIndex:0];
         [_expirationLabel setHidden:NO];
     } else {

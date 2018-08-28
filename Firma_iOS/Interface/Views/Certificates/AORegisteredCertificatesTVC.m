@@ -19,6 +19,7 @@
 #import "DesCypher.h"
 #import "AOXMLReader.h"
 #import "CommonAlert.h"
+#import "GlobalConstants.h"
 
 @interface AORegisteredCertificatesTVC ()
 {
@@ -52,6 +53,7 @@
     if (_mode == AORegisteredCertificatesTVCModeSign) {
         [self parseUrl:_startURL];
         [self.navigationItem setHidesBackButton:YES animated:YES];
+        NSLog(@"Start URL AORegisteredCertificatesTVC => %@", _startURL);
     }
     [self.certificatesDescriptionLabel setText:NSLocalizedString(@"certificate_description_label", nil)];
     self.navigationItem.backBarButtonItem.tintColor = [UIColor greenColor];
@@ -126,7 +128,7 @@
                 break;
         }
         
-        [CommonAlert createAlertWithTitle: errorMessage message:@"" cancelButtonTitle:@"OK" showOn:self];
+        [CommonAlert createAlertWithTitle: errorMessage message:@"" cancelButtonTitle:OK showOn:self];
         
         [self reloadCertificates];
         [editTableView endUpdates];
@@ -177,7 +179,7 @@
         [self performSegueWithIdentifier:@"showSignVC" sender: self];
     }
     else {
-        [CommonAlert createAlertWithTitle: NSLocalizedString(@"error_ocurred_while_loading_the_certificate", nil) message:@"" cancelButtonTitle:@"OK" showOn:self];
+        [CommonAlert createAlertWithTitle: NSLocalizedString(@"error_ocurred_while_loading_the_certificate", nil) message:@"" cancelButtonTitle:OK showOn:self];
     }
 }
 
@@ -304,7 +306,7 @@
         // Obtenemos la URL del servidor de la pantalla de preferencias
         NSURL* requestUrl = [[NSURL alloc] initWithString:_stServletCert];
         NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30.0];
-        [request setHTTPMethod:@"POST"];
+        [request setHTTPMethod:POST];
         [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
         [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
         [request setValue:@"Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" forHTTPHeaderField:@"User-Agent"];
@@ -352,7 +354,7 @@
     // Obtenemos la URL del servidor de la pantalla de preferencias
     NSURL* requestUrl = [[NSURL alloc] initWithString:_rtServletCert];
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30.0];
-    [request setHTTPMethod:@"POST"];
+    [request setHTTPMethod:POST];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [request setValue:@"Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" forHTTPHeaderField:@"User-Agent"];
