@@ -29,6 +29,7 @@ BOOL isURL = NO;
     
     self.screenName = @"IOS AOAboutViewController - Main window";
     [self.homeDescriptionLabel setText:NSLocalizedString(@"home_description_label", nil)];
+    self.homeDescriptionLabel.scrollEnabled = NO;
     [self.homeFooterLabel setText:NSLocalizedString(@"home_footer_label", nil)];
     self.keystoreManagerBarItem.title = NSLocalizedString(@"keystore_manager_bar_item", nil);
     self.helpBarItem.title = NSLocalizedString(@"help_bar_item", nil);

@@ -676,8 +676,8 @@ http://administracionelectronica.gob.es/</string>
                                     <constraint firstAttribute="height" constant="85" id="p3e-uc-ddE"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wea-WN-cIK">
-                                <rect key="frame" x="20" y="169" width="335" height="332"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wea-WN-cIK">
+                                <rect key="frame" x="20" y="169" width="335" height="392"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">Welcome to "Cliente @firma iOS" 1.4.8
 
@@ -698,7 +698,7 @@ In order to run the application properly, an electronic certificate and its priv
                             <constraint firstItem="BN6-I6-Kca" firstAttribute="leading" secondItem="6xF-zd-Toc" secondAttribute="leading" constant="41" id="IDO-6R-pIR"/>
                             <constraint firstItem="wea-WN-cIK" firstAttribute="centerX" secondItem="6xF-zd-Toc" secondAttribute="centerX" id="QHE-KD-2dm"/>
                             <constraint firstItem="BN6-I6-Kca" firstAttribute="top" secondItem="sYJ-q4-WYx" secondAttribute="bottom" constant="10" id="W2F-4v-ahM"/>
-                            <constraint firstItem="UJV-8n-EZ7" firstAttribute="top" secondItem="wea-WN-cIK" secondAttribute="bottom" constant="75" id="pr7-sO-Ut9"/>
+                            <constraint firstItem="UJV-8n-EZ7" firstAttribute="top" secondItem="wea-WN-cIK" secondAttribute="bottom" constant="15" id="pr7-sO-Ut9"/>
                             <constraint firstItem="wea-WN-cIK" firstAttribute="leading" secondItem="6xF-zd-Toc" secondAttribute="leadingMargin" constant="4" id="tdS-gp-iuG"/>
                             <constraint firstItem="UJV-8n-EZ7" firstAttribute="centerX" secondItem="6xF-zd-Toc" secondAttribute="centerX" constant="1" id="v1f-RQ-dqa"/>
                             <constraint firstAttribute="trailing" secondItem="BN6-I6-Kca" secondAttribute="trailing" constant="39" id="v4d-M5-Tii"/>
