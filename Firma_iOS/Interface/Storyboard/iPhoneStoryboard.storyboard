@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nbz-mF-dNH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nbz-mF-dNH">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment version="2064" identifier="iOS"/>
+        <deployment version="2320" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -235,10 +236,6 @@
         <scene sceneID="UMo-Ld-79w">
             <objects>
                 <viewController id="5hk-Si-nSF" customClass="AORegisterCertificateVC" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jN5-Zn-xCI"/>
-                        <viewControllerLayoutGuide type="bottom" id="ykR-d1-rjp"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="0Ca-Nb-IJd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -290,7 +287,7 @@
                             <constraint firstItem="h3c-dt-n2m" firstAttribute="trailing" secondItem="OT0-A9-Zc7" secondAttribute="trailing" id="3Km-XM-6Cp"/>
                             <constraint firstItem="OT0-A9-Zc7" firstAttribute="top" secondItem="Jlr-oA-gUB" secondAttribute="bottom" constant="10" id="73b-PO-cKK"/>
                             <constraint firstItem="Jlr-oA-gUB" firstAttribute="trailing" secondItem="VSc-e5-kdx" secondAttribute="trailing" id="H8O-E7-E2J"/>
-                            <constraint firstItem="VSc-e5-kdx" firstAttribute="top" secondItem="jN5-Zn-xCI" secondAttribute="bottom" constant="10" id="Jqa-HE-OpX"/>
+                            <constraint firstItem="VSc-e5-kdx" firstAttribute="top" secondItem="cdf-zu-0RG" secondAttribute="top" constant="10" id="Jqa-HE-OpX"/>
                             <constraint firstItem="Jlr-oA-gUB" firstAttribute="top" secondItem="VSc-e5-kdx" secondAttribute="bottom" constant="10" id="St6-on-vUW"/>
                             <constraint firstItem="Jlr-oA-gUB" firstAttribute="leading" secondItem="OT0-A9-Zc7" secondAttribute="leading" id="TPT-fW-dot"/>
                             <constraint firstItem="h3c-dt-n2m" firstAttribute="trailing" secondItem="0Ca-Nb-IJd" secondAttribute="trailingMargin" id="Thr-fR-9jQ"/>
@@ -300,6 +297,7 @@
                             <constraint firstItem="VSc-e5-kdx" firstAttribute="leading" secondItem="0Ca-Nb-IJd" secondAttribute="leadingMargin" id="pXi-r3-5s9"/>
                             <constraint firstItem="h3c-dt-n2m" firstAttribute="leading" secondItem="OT0-A9-Zc7" secondAttribute="leading" id="sWY-84-GNH"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="cdf-zu-0RG"/>
                     </view>
                     <navigationItem key="navigationItem" title="Register Certificate" id="a2Y-R3-p11">
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="clP-r6-5S6"/>
@@ -336,10 +334,6 @@
         <scene sceneID="PvP-4b-ZNT">
             <objects>
                 <viewController storyboardIdentifier="AOSignViewController" title="Firma Electrónica" wantsFullScreenLayout="YES" id="dHx-VS-5XU" customClass="AOSignViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="2Vl-fg-lFX"/>
-                        <viewControllerLayoutGuide type="bottom" id="kPR-XQ-rIO"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="FQn-wY-29a">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -403,11 +397,11 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="H0L-7Z-bG6" firstAttribute="top" secondItem="2Vl-fg-lFX" secondAttribute="bottom" constant="10" id="0aO-uA-TiE"/>
-                            <constraint firstItem="xR1-Ki-Le2" firstAttribute="centerX" secondItem="FQn-wY-29a" secondAttribute="centerX" constant="1" id="Kf7-mj-ALf"/>
+                            <constraint firstItem="H0L-7Z-bG6" firstAttribute="top" secondItem="NUO-qo-Yju" secondAttribute="top" constant="10" id="0aO-uA-TiE"/>
+                            <constraint firstItem="xR1-Ki-Le2" firstAttribute="centerX" secondItem="NUO-qo-Yju" secondAttribute="centerX" constant="1" id="Kf7-mj-ALf"/>
                             <constraint firstItem="931-34-4yN" firstAttribute="trailing" secondItem="tjW-1q-7Ig" secondAttribute="trailing" id="LSh-Z8-T23"/>
                             <constraint firstItem="tjW-1q-7Ig" firstAttribute="top" secondItem="hrY-8D-j5N" secondAttribute="bottom" constant="10" id="LVV-fM-IOw"/>
-                            <constraint firstItem="H0L-7Z-bG6" firstAttribute="leading" secondItem="FQn-wY-29a" secondAttribute="leading" constant="40" id="RHC-vH-YrZ"/>
+                            <constraint firstItem="H0L-7Z-bG6" firstAttribute="leading" secondItem="NUO-qo-Yju" secondAttribute="leading" constant="40" id="RHC-vH-YrZ"/>
                             <constraint firstItem="xR1-Ki-Le2" firstAttribute="top" secondItem="H0L-7Z-bG6" secondAttribute="bottom" constant="25" id="ZtF-vr-ROR"/>
                             <constraint firstItem="tjW-1q-7Ig" firstAttribute="leading" secondItem="931-34-4yN" secondAttribute="leading" id="bMa-aN-Vgl"/>
                             <constraint firstItem="hrY-8D-j5N" firstAttribute="top" secondItem="xR1-Ki-Le2" secondAttribute="bottom" constant="15" id="cXt-0a-gNK"/>
@@ -415,9 +409,10 @@
                             <constraint firstItem="hrY-8D-j5N" firstAttribute="leading" secondItem="xR1-Ki-Le2" secondAttribute="leading" id="dDB-3s-ddR"/>
                             <constraint firstItem="931-34-4yN" firstAttribute="top" secondItem="tjW-1q-7Ig" secondAttribute="bottom" constant="20" id="jIE-Sc-dra"/>
                             <constraint firstItem="931-34-4yN" firstAttribute="leading" secondItem="tjW-1q-7Ig" secondAttribute="trailing" constant="-288" id="rR0-b2-COv"/>
-                            <constraint firstAttribute="trailing" secondItem="H0L-7Z-bG6" secondAttribute="trailing" constant="40" id="sgs-jO-z9s"/>
-                            <constraint firstItem="931-34-4yN" firstAttribute="centerX" secondItem="FQn-wY-29a" secondAttribute="centerX" constant="1" id="wiz-MA-qkP"/>
+                            <constraint firstItem="NUO-qo-Yju" firstAttribute="trailing" secondItem="H0L-7Z-bG6" secondAttribute="trailing" constant="40" id="sgs-jO-z9s"/>
+                            <constraint firstItem="931-34-4yN" firstAttribute="centerX" secondItem="NUO-qo-Yju" secondAttribute="centerX" constant="1" id="wiz-MA-qkP"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="NUO-qo-Yju"/>
                     </view>
                     <navigationItem key="navigationItem" title="Sign" id="cR5-HC-qzW"/>
                     <connections>
@@ -454,22 +449,18 @@
         <scene sceneID="kFT-2M-17u">
             <objects>
                 <viewController id="iwh-Um-Nbl" customClass="AOAcercadeViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Fsx-V9-0wR"/>
-                        <viewControllerLayoutGuide type="bottom" id="TR2-DV-x29"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="eY5-0N-2wb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="UwO-vE-gDz">
-                                <rect key="frame" x="20" y="74" width="320" height="85"/>
+                                <rect key="frame" x="0.0" y="74" width="340" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="85" id="VJv-Ds-asd"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="About... " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RvU-hc-GZw">
-                                <rect key="frame" x="20" y="165" width="335" height="33"/>
+                                <rect key="frame" x="0.0" y="165" width="375" height="33"/>
                                 <color key="backgroundColor" red="0.91620524879999998" green="0.91620524879999998" blue="0.91620524879999998" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="lxx-sw-trH"/>
@@ -479,7 +470,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qh1-9N-LpB">
-                                <rect key="frame" x="20" y="206" width="335" height="441"/>
+                                <rect key="frame" x="0.0" y="206" width="375" height="441"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">"Cliente @firma for Apple iOS" v1.4.8
 2013 Gobierno de España
@@ -498,17 +489,18 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="RvU-hc-GZw" secondAttribute="trailing" constant="20" symbolic="YES" id="8Ih-fn-VZH"/>
+                            <constraint firstItem="KIx-St-Rhd" firstAttribute="trailing" secondItem="RvU-hc-GZw" secondAttribute="trailing" constant="20" symbolic="YES" id="8Ih-fn-VZH"/>
                             <constraint firstItem="UwO-vE-gDz" firstAttribute="top" secondItem="eY5-0N-2wb" secondAttribute="top" constant="74" id="BMI-Cx-2j6"/>
                             <constraint firstItem="qh1-9N-LpB" firstAttribute="top" secondItem="RvU-hc-GZw" secondAttribute="bottom" constant="8" symbolic="YES" id="DQc-I5-bBX"/>
-                            <constraint firstAttribute="trailing" secondItem="UwO-vE-gDz" secondAttribute="trailing" constant="35" id="eJ2-zc-8tR"/>
+                            <constraint firstItem="KIx-St-Rhd" firstAttribute="trailing" secondItem="UwO-vE-gDz" secondAttribute="trailing" constant="35" id="eJ2-zc-8tR"/>
                             <constraint firstItem="qh1-9N-LpB" firstAttribute="bottom" secondItem="eY5-0N-2wb" secondAttribute="bottom" constant="-20" id="hEQ-L8-giO"/>
-                            <constraint firstItem="UwO-vE-gDz" firstAttribute="leading" secondItem="eY5-0N-2wb" secondAttribute="leading" constant="20" symbolic="YES" id="nHc-qD-Gfh"/>
-                            <constraint firstAttribute="trailing" secondItem="qh1-9N-LpB" secondAttribute="trailing" constant="20" symbolic="YES" id="r9r-wI-lJn"/>
-                            <constraint firstItem="RvU-hc-GZw" firstAttribute="leading" secondItem="eY5-0N-2wb" secondAttribute="leading" constant="20" symbolic="YES" id="tsC-VM-eUH"/>
-                            <constraint firstItem="qh1-9N-LpB" firstAttribute="leading" secondItem="eY5-0N-2wb" secondAttribute="leading" constant="20" symbolic="YES" id="x3y-eT-9FF"/>
+                            <constraint firstItem="UwO-vE-gDz" firstAttribute="leading" secondItem="KIx-St-Rhd" secondAttribute="leading" constant="20" symbolic="YES" id="nHc-qD-Gfh"/>
+                            <constraint firstItem="KIx-St-Rhd" firstAttribute="trailing" secondItem="qh1-9N-LpB" secondAttribute="trailing" constant="20" symbolic="YES" id="r9r-wI-lJn"/>
+                            <constraint firstItem="RvU-hc-GZw" firstAttribute="leading" secondItem="KIx-St-Rhd" secondAttribute="leading" constant="20" symbolic="YES" id="tsC-VM-eUH"/>
+                            <constraint firstItem="qh1-9N-LpB" firstAttribute="leading" secondItem="KIx-St-Rhd" secondAttribute="leading" constant="20" symbolic="YES" id="x3y-eT-9FF"/>
                             <constraint firstItem="RvU-hc-GZw" firstAttribute="top" secondItem="UwO-vE-gDz" secondAttribute="bottom" constant="6" id="zd1-gH-H6B"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="KIx-St-Rhd"/>
                     </view>
                     <navigationItem key="navigationItem" title="About" id="tvV-Ho-jvq">
                         <barButtonItem key="backBarButtonItem" title="Atras" id="nzi-QB-0Gz"/>
@@ -527,10 +519,6 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
         <scene sceneID="EfI-NW-A0n">
             <objects>
                 <viewController id="vLA-A2-0w5" customClass="AOHelpMenuViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="epR-BA-Q3v"/>
-                        <viewControllerLayoutGuide type="bottom" id="DaE-pK-Ts3"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="P92-9D-N6s">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -542,17 +530,17 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VRk-By-NUt">
-                                <rect key="frame" x="20" y="206" width="335" height="154"/>
+                                <rect key="frame" x="0.0" y="206" width="375" height="154"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="154" id="cNz-Qg-WpX"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="1" id="pex-iP-Azk">
-                                        <rect key="frame" x="0.0" y="22" width="335" height="44"/>
+                                        <rect key="frame" x="0.0" y="22" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pex-iP-Azk" id="CAA-Cb-5xH">
-                                            <rect key="frame" x="0.0" y="0.0" width="302" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -560,10 +548,10 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="2" id="Wcg-kQ-r23">
-                                        <rect key="frame" x="0.0" y="66" width="335" height="44"/>
+                                        <rect key="frame" x="0.0" y="66" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wcg-kQ-r23" id="aZd-Hu-Jrg">
-                                            <rect key="frame" x="0.0" y="0.0" width="302" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -571,10 +559,10 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="3" id="vbt-ji-MCa">
-                                        <rect key="frame" x="0.0" y="110" width="335" height="44"/>
+                                        <rect key="frame" x="0.0" y="110" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vbt-ji-MCa" id="88h-EJ-m5b">
-                                            <rect key="frame" x="0.0" y="0.0" width="302" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -588,7 +576,7 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                                 </connections>
                             </tableView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Help" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFA-Aj-TuJ">
-                                <rect key="frame" x="20" y="165" width="335" height="33"/>
+                                <rect key="frame" x="0.0" y="165" width="375" height="33"/>
                                 <color key="backgroundColor" red="0.91620524879999998" green="0.91620524879999998" blue="0.91620524879999998" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="pOY-GE-mzc"/>
@@ -598,7 +586,7 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZZp-Bf-KNI">
-                                <rect key="frame" x="20" y="385" width="335" height="94"/>
+                                <rect key="frame" x="0.0" y="385" width="375" height="94"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="94" id="rHj-LP-Fsp"/>
@@ -613,20 +601,21 @@ http://administracionelectronica.gob.es/</string>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="VRk-By-NUt" secondAttribute="trailing" constant="20" symbolic="YES" id="3yd-o8-GTN"/>
-                            <constraint firstItem="sKN-gb-ucT" firstAttribute="leading" secondItem="P92-9D-N6s" secondAttribute="leading" constant="27" id="5iQ-s6-25D"/>
-                            <constraint firstAttribute="trailing" secondItem="AFA-Aj-TuJ" secondAttribute="trailing" constant="20" symbolic="YES" id="5yA-qD-l6q"/>
+                            <constraint firstItem="oOa-M7-VDf" firstAttribute="trailing" secondItem="VRk-By-NUt" secondAttribute="trailing" constant="20" symbolic="YES" id="3yd-o8-GTN"/>
+                            <constraint firstItem="sKN-gb-ucT" firstAttribute="leading" secondItem="oOa-M7-VDf" secondAttribute="leading" constant="27" id="5iQ-s6-25D"/>
+                            <constraint firstItem="oOa-M7-VDf" firstAttribute="trailing" secondItem="AFA-Aj-TuJ" secondAttribute="trailing" constant="20" symbolic="YES" id="5yA-qD-l6q"/>
                             <constraint firstItem="ZZp-Bf-KNI" firstAttribute="top" secondItem="VRk-By-NUt" secondAttribute="bottom" constant="25" id="8Jd-x7-7TZ"/>
                             <constraint firstItem="VRk-By-NUt" firstAttribute="top" secondItem="AFA-Aj-TuJ" secondAttribute="bottom" constant="8" symbolic="YES" id="A1n-Vb-aeS"/>
-                            <constraint firstAttribute="trailing" secondItem="ZZp-Bf-KNI" secondAttribute="trailing" constant="20" symbolic="YES" id="BOo-Y9-tiI"/>
-                            <constraint firstAttribute="trailing" secondItem="sKN-gb-ucT" secondAttribute="trailing" constant="28" id="CVz-cL-ZV4"/>
+                            <constraint firstItem="oOa-M7-VDf" firstAttribute="trailing" secondItem="ZZp-Bf-KNI" secondAttribute="trailing" constant="20" symbolic="YES" id="BOo-Y9-tiI"/>
+                            <constraint firstItem="oOa-M7-VDf" firstAttribute="trailing" secondItem="sKN-gb-ucT" secondAttribute="trailing" constant="28" id="CVz-cL-ZV4"/>
                             <constraint firstItem="AFA-Aj-TuJ" firstAttribute="top" secondItem="sKN-gb-ucT" secondAttribute="bottom" constant="6" id="Cch-oU-6t1"/>
                             <constraint firstItem="sKN-gb-ucT" firstAttribute="top" secondItem="P92-9D-N6s" secondAttribute="top" constant="74" id="I1i-IV-b4i"/>
-                            <constraint firstItem="AFA-Aj-TuJ" firstAttribute="leading" secondItem="P92-9D-N6s" secondAttribute="leading" constant="20" symbolic="YES" id="Zai-W2-QIM"/>
-                            <constraint firstItem="ZZp-Bf-KNI" firstAttribute="leading" secondItem="P92-9D-N6s" secondAttribute="leading" constant="20" symbolic="YES" id="oyH-zY-dbR"/>
+                            <constraint firstItem="AFA-Aj-TuJ" firstAttribute="leading" secondItem="oOa-M7-VDf" secondAttribute="leading" constant="20" symbolic="YES" id="Zai-W2-QIM"/>
+                            <constraint firstItem="ZZp-Bf-KNI" firstAttribute="leading" secondItem="oOa-M7-VDf" secondAttribute="leading" constant="20" symbolic="YES" id="oyH-zY-dbR"/>
                             <constraint firstItem="VRk-By-NUt" firstAttribute="top" secondItem="P92-9D-N6s" secondAttribute="top" constant="206" id="pD9-Ge-0Oo"/>
-                            <constraint firstItem="VRk-By-NUt" firstAttribute="leading" secondItem="P92-9D-N6s" secondAttribute="leading" constant="20" symbolic="YES" id="s7b-lF-t4l"/>
+                            <constraint firstItem="VRk-By-NUt" firstAttribute="leading" secondItem="oOa-M7-VDf" secondAttribute="leading" constant="20" symbolic="YES" id="s7b-lF-t4l"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="oOa-M7-VDf"/>
                     </view>
                     <navigationItem key="navigationItem" title="Help" id="0cD-Ye-V9d"/>
                     <connections>
@@ -643,11 +632,7 @@ http://administracionelectronica.gob.es/</string>
         <scene sceneID="TTr-aB-itN">
             <objects>
                 <viewController storyboardIdentifier="AOAboutViewController" wantsFullScreenLayout="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZbB-7n-KzP" customClass="AOAboutViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="sYJ-q4-WYx"/>
-                        <viewControllerLayoutGuide type="bottom" id="cKi-TO-cYK"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="6xF-zd-Toc">
+                    <view key="view" contentMode="scaleAspectFit" id="6xF-zd-Toc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -694,19 +679,20 @@ In order to run the application properly, an electronic certificate and its priv
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wea-WN-cIK" firstAttribute="top" secondItem="BN6-I6-Kca" secondAttribute="bottom" constant="20" id="0co-bg-TmO"/>
-                            <constraint firstAttribute="trailing" secondItem="BN6-I6-Kca" secondAttribute="trailing" constant="40" id="2m9-O8-AGd"/>
-                            <constraint firstItem="YGN-hy-HXm" firstAttribute="leading" secondItem="6xF-zd-Toc" secondAttribute="leading" id="3zw-3h-mqO"/>
+                            <constraint firstItem="ri3-HI-mVr" firstAttribute="trailing" secondItem="BN6-I6-Kca" secondAttribute="trailing" constant="40" id="2m9-O8-AGd"/>
+                            <constraint firstItem="YGN-hy-HXm" firstAttribute="leading" secondItem="ri3-HI-mVr" secondAttribute="leading" id="3zw-3h-mqO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wea-WN-cIK" secondAttribute="trailing" constant="4" id="8Dz-B1-jFY"/>
-                            <constraint firstItem="YGN-hy-HXm" firstAttribute="bottom" secondItem="6xF-zd-Toc" secondAttribute="bottom" id="9oS-eP-KSU"/>
-                            <constraint firstItem="YGN-hy-HXm" firstAttribute="trailing" secondItem="6xF-zd-Toc" secondAttribute="trailing" id="Epu-H7-SP9"/>
-                            <constraint firstItem="wea-WN-cIK" firstAttribute="centerX" secondItem="6xF-zd-Toc" secondAttribute="centerX" id="QHE-KD-2dm"/>
-                            <constraint firstItem="BN6-I6-Kca" firstAttribute="top" secondItem="sYJ-q4-WYx" secondAttribute="bottom" constant="10" id="W2F-4v-ahM"/>
-                            <constraint firstItem="BN6-I6-Kca" firstAttribute="leading" secondItem="6xF-zd-Toc" secondAttribute="leading" constant="40" id="WR7-nc-2CM"/>
+                            <constraint firstItem="YGN-hy-HXm" firstAttribute="bottom" secondItem="ri3-HI-mVr" secondAttribute="bottom" id="9oS-eP-KSU"/>
+                            <constraint firstItem="YGN-hy-HXm" firstAttribute="trailing" secondItem="ri3-HI-mVr" secondAttribute="trailing" id="Epu-H7-SP9"/>
+                            <constraint firstItem="wea-WN-cIK" firstAttribute="centerX" secondItem="ri3-HI-mVr" secondAttribute="centerX" id="QHE-KD-2dm"/>
+                            <constraint firstItem="BN6-I6-Kca" firstAttribute="top" secondItem="ri3-HI-mVr" secondAttribute="top" constant="10" id="W2F-4v-ahM"/>
+                            <constraint firstItem="BN6-I6-Kca" firstAttribute="leading" secondItem="ri3-HI-mVr" secondAttribute="leading" constant="40" id="WR7-nc-2CM"/>
                             <constraint firstItem="UJV-8n-EZ7" firstAttribute="top" secondItem="wea-WN-cIK" secondAttribute="bottom" constant="15" id="pr7-sO-Ut9"/>
                             <constraint firstItem="wea-WN-cIK" firstAttribute="leading" secondItem="6xF-zd-Toc" secondAttribute="leadingMargin" constant="4" id="tdS-gp-iuG"/>
-                            <constraint firstItem="UJV-8n-EZ7" firstAttribute="centerX" secondItem="6xF-zd-Toc" secondAttribute="centerX" constant="1" id="v1f-RQ-dqa"/>
+                            <constraint firstItem="UJV-8n-EZ7" firstAttribute="centerX" secondItem="ri3-HI-mVr" secondAttribute="centerX" constant="1" id="v1f-RQ-dqa"/>
                             <constraint firstItem="YGN-hy-HXm" firstAttribute="top" secondItem="UJV-8n-EZ7" secondAttribute="bottom" constant="3" id="w0m-76-93V"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="ri3-HI-mVr"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="QfF-uh-q3e"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -730,10 +716,6 @@ In order to run the application properly, an electronic certificate and its priv
         <scene sceneID="1iL-QU-YgA">
             <objects>
                 <viewController id="rrS-Su-Td3" customClass="AOAcercadeViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="gFq-UC-el2"/>
-                        <viewControllerLayoutGuide type="bottom" id="5Hp-qh-q6s"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ber-2P-5hd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -745,7 +727,7 @@ In order to run the application properly, an electronic certificate and its priv
                                 </constraints>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Frequently asked questions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8TS-VU-W3b">
-                                <rect key="frame" x="20" y="165" width="335" height="33"/>
+                                <rect key="frame" x="0.0" y="165" width="375" height="33"/>
                                 <color key="backgroundColor" red="0.91620524879999998" green="0.91620524879999998" blue="0.91620524879999998" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="pVK-ZM-ICc"/>
@@ -755,7 +737,7 @@ In order to run the application properly, an electronic certificate and its priv
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RdQ-UM-sfh">
-                                <rect key="frame" x="20" y="206" width="335" height="441"/>
+                                <rect key="frame" x="0.0" y="206" width="375" height="441"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <attributedString key="attributedText">
                                     <fragment>
@@ -862,17 +844,18 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="a0p-d7-fgJ" firstAttribute="leading" secondItem="Ber-2P-5hd" secondAttribute="leading" constant="27" id="58n-wR-BXi"/>
-                            <constraint firstAttribute="trailing" secondItem="RdQ-UM-sfh" secondAttribute="trailing" constant="20" symbolic="YES" id="9Of-Fi-VHF"/>
+                            <constraint firstItem="a0p-d7-fgJ" firstAttribute="leading" secondItem="LEi-QF-IQT" secondAttribute="leading" constant="27" id="58n-wR-BXi"/>
+                            <constraint firstItem="LEi-QF-IQT" firstAttribute="trailing" secondItem="RdQ-UM-sfh" secondAttribute="trailing" constant="20" symbolic="YES" id="9Of-Fi-VHF"/>
                             <constraint firstItem="RdQ-UM-sfh" firstAttribute="top" secondItem="8TS-VU-W3b" secondAttribute="bottom" constant="8" symbolic="YES" id="AYa-B6-0A3"/>
-                            <constraint firstItem="RdQ-UM-sfh" firstAttribute="bottom" secondItem="5Hp-qh-q6s" secondAttribute="top" constant="-20" id="HLV-gA-rXM"/>
-                            <constraint firstItem="RdQ-UM-sfh" firstAttribute="leading" secondItem="Ber-2P-5hd" secondAttribute="leading" constant="20" symbolic="YES" id="LSs-nP-Anw"/>
+                            <constraint firstItem="RdQ-UM-sfh" firstAttribute="bottom" secondItem="LEi-QF-IQT" secondAttribute="bottom" constant="-20" id="HLV-gA-rXM"/>
+                            <constraint firstItem="RdQ-UM-sfh" firstAttribute="leading" secondItem="LEi-QF-IQT" secondAttribute="leading" constant="20" symbolic="YES" id="LSs-nP-Anw"/>
                             <constraint firstItem="8TS-VU-W3b" firstAttribute="top" secondItem="a0p-d7-fgJ" secondAttribute="bottom" constant="6" id="QdN-mh-6UH"/>
-                            <constraint firstAttribute="trailing" secondItem="a0p-d7-fgJ" secondAttribute="trailing" constant="28" id="b2V-xD-8dN"/>
-                            <constraint firstAttribute="trailing" secondItem="8TS-VU-W3b" secondAttribute="trailing" constant="20" symbolic="YES" id="bn2-64-NBH"/>
+                            <constraint firstItem="LEi-QF-IQT" firstAttribute="trailing" secondItem="a0p-d7-fgJ" secondAttribute="trailing" constant="28" id="b2V-xD-8dN"/>
+                            <constraint firstItem="LEi-QF-IQT" firstAttribute="trailing" secondItem="8TS-VU-W3b" secondAttribute="trailing" constant="20" symbolic="YES" id="bn2-64-NBH"/>
                             <constraint firstItem="a0p-d7-fgJ" firstAttribute="top" secondItem="Ber-2P-5hd" secondAttribute="top" constant="74" id="gXr-cE-DTa"/>
-                            <constraint firstItem="8TS-VU-W3b" firstAttribute="leading" secondItem="Ber-2P-5hd" secondAttribute="leading" constant="20" symbolic="YES" id="vON-DW-Nez"/>
+                            <constraint firstItem="8TS-VU-W3b" firstAttribute="leading" secondItem="LEi-QF-IQT" secondAttribute="leading" constant="20" symbolic="YES" id="vON-DW-Nez"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="LEi-QF-IQT"/>
                     </view>
                     <navigationItem key="navigationItem" title="Questions" id="tIc-gI-F7W">
                         <barButtonItem key="backBarButtonItem" title="Atras" id="yir-z6-xlc"/>
@@ -891,10 +874,6 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
         <scene sceneID="xaa-sP-Dhf">
             <objects>
                 <viewController id="Xwb-1q-ada" customClass="AOAcercadeViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="kqz-zI-w4i"/>
-                        <viewControllerLayoutGuide type="bottom" id="Zmc-LE-UyW"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="OJg-gb-JGo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -906,7 +885,7 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                                 </constraints>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="How to install certificates" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kk8-eE-cQL">
-                                <rect key="frame" x="20" y="165" width="335" height="33"/>
+                                <rect key="frame" x="0.0" y="165" width="375" height="33"/>
                                 <color key="backgroundColor" red="0.91620524879999998" green="0.91620524879999998" blue="0.91620524879999998" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="9B4-kE-aZn"/>
@@ -987,16 +966,17 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="XYx-PU-XUl" firstAttribute="top" secondItem="OJg-gb-JGo" secondAttribute="top" constant="74" id="AGx-Qj-Tfq"/>
-                            <constraint firstItem="XYx-PU-XUl" firstAttribute="leading" secondItem="OJg-gb-JGo" secondAttribute="leading" constant="27" id="Js0-kF-8eX"/>
+                            <constraint firstItem="XYx-PU-XUl" firstAttribute="leading" secondItem="EHE-Xd-nj4" secondAttribute="leading" constant="27" id="Js0-kF-8eX"/>
                             <constraint firstItem="Kk8-eE-cQL" firstAttribute="top" secondItem="XYx-PU-XUl" secondAttribute="bottom" constant="6" id="Qq1-38-9eg"/>
-                            <constraint firstAttribute="trailing" secondItem="XYx-PU-XUl" secondAttribute="trailing" constant="28" id="Rz6-90-LiP"/>
+                            <constraint firstItem="EHE-Xd-nj4" firstAttribute="trailing" secondItem="XYx-PU-XUl" secondAttribute="trailing" constant="28" id="Rz6-90-LiP"/>
                             <constraint firstItem="4RE-R6-kNT" firstAttribute="leading" secondItem="OJg-gb-JGo" secondAttribute="leadingMargin" constant="4" id="Wa9-JH-yzW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4RE-R6-kNT" secondAttribute="trailing" constant="4" id="aQL-6U-Lnh"/>
                             <constraint firstAttribute="bottom" secondItem="4RE-R6-kNT" secondAttribute="bottom" constant="20" id="cs1-P4-JHH"/>
-                            <constraint firstItem="Kk8-eE-cQL" firstAttribute="leading" secondItem="OJg-gb-JGo" secondAttribute="leading" constant="20" symbolic="YES" id="dyY-6u-IPv"/>
+                            <constraint firstItem="Kk8-eE-cQL" firstAttribute="leading" secondItem="EHE-Xd-nj4" secondAttribute="leading" constant="20" symbolic="YES" id="dyY-6u-IPv"/>
                             <constraint firstItem="4RE-R6-kNT" firstAttribute="top" secondItem="Kk8-eE-cQL" secondAttribute="bottom" constant="8" symbolic="YES" id="moX-YG-x39"/>
-                            <constraint firstAttribute="trailing" secondItem="Kk8-eE-cQL" secondAttribute="trailing" constant="20" symbolic="YES" id="yEE-Uq-fWB"/>
+                            <constraint firstItem="EHE-Xd-nj4" firstAttribute="trailing" secondItem="Kk8-eE-cQL" secondAttribute="trailing" constant="20" symbolic="YES" id="yEE-Uq-fWB"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="EHE-Xd-nj4"/>
                     </view>
                     <navigationItem key="navigationItem" title="How to" id="C72-VG-evJ">
                         <barButtonItem key="backBarButtonItem" title="Atras" id="pAo-HS-ask"/>
@@ -1024,6 +1004,6 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
         <image name="logo_cliente.png" width="726" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QIm-SY-KYp"/>
+        <segue reference="0Le-aU-8MM"/>
     </inferredMetricsTieBreakers>
 </document>
