@@ -454,13 +454,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="UwO-vE-gDz">
-                                <rect key="frame" x="0.0" y="74" width="340" height="85"/>
+                                <rect key="frame" x="20" y="74" width="335" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="85" id="VJv-Ds-asd"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="About... " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RvU-hc-GZw">
-                                <rect key="frame" x="0.0" y="165" width="375" height="33"/>
+                                <rect key="frame" x="20" y="165" width="335" height="33"/>
                                 <color key="backgroundColor" red="0.91620524879999998" green="0.91620524879999998" blue="0.91620524879999998" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="lxx-sw-trH"/>
@@ -470,7 +470,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qh1-9N-LpB">
-                                <rect key="frame" x="0.0" y="206" width="375" height="441"/>
+                                <rect key="frame" x="20" y="206" width="335" height="441"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">"Cliente @firma for Apple iOS" v1.4.8
 2013 Gobierno de España
@@ -489,15 +489,15 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="KIx-St-Rhd" firstAttribute="trailing" secondItem="RvU-hc-GZw" secondAttribute="trailing" constant="20" symbolic="YES" id="8Ih-fn-VZH"/>
-                            <constraint firstItem="UwO-vE-gDz" firstAttribute="top" secondItem="eY5-0N-2wb" secondAttribute="top" constant="74" id="BMI-Cx-2j6"/>
+                            <constraint firstItem="KIx-St-Rhd" firstAttribute="trailing" secondItem="RvU-hc-GZw" secondAttribute="trailing" constant="20" id="8Ih-fn-VZH"/>
+                            <constraint firstItem="UwO-vE-gDz" firstAttribute="top" secondItem="KIx-St-Rhd" secondAttribute="top" constant="10" id="BMI-Cx-2j6"/>
                             <constraint firstItem="qh1-9N-LpB" firstAttribute="top" secondItem="RvU-hc-GZw" secondAttribute="bottom" constant="8" symbolic="YES" id="DQc-I5-bBX"/>
-                            <constraint firstItem="KIx-St-Rhd" firstAttribute="trailing" secondItem="UwO-vE-gDz" secondAttribute="trailing" constant="35" id="eJ2-zc-8tR"/>
+                            <constraint firstItem="KIx-St-Rhd" firstAttribute="trailing" secondItem="UwO-vE-gDz" secondAttribute="trailing" constant="20" id="eJ2-zc-8tR"/>
                             <constraint firstItem="qh1-9N-LpB" firstAttribute="bottom" secondItem="eY5-0N-2wb" secondAttribute="bottom" constant="-20" id="hEQ-L8-giO"/>
-                            <constraint firstItem="UwO-vE-gDz" firstAttribute="leading" secondItem="KIx-St-Rhd" secondAttribute="leading" constant="20" symbolic="YES" id="nHc-qD-Gfh"/>
-                            <constraint firstItem="KIx-St-Rhd" firstAttribute="trailing" secondItem="qh1-9N-LpB" secondAttribute="trailing" constant="20" symbolic="YES" id="r9r-wI-lJn"/>
-                            <constraint firstItem="RvU-hc-GZw" firstAttribute="leading" secondItem="KIx-St-Rhd" secondAttribute="leading" constant="20" symbolic="YES" id="tsC-VM-eUH"/>
-                            <constraint firstItem="qh1-9N-LpB" firstAttribute="leading" secondItem="KIx-St-Rhd" secondAttribute="leading" constant="20" symbolic="YES" id="x3y-eT-9FF"/>
+                            <constraint firstItem="UwO-vE-gDz" firstAttribute="leading" secondItem="KIx-St-Rhd" secondAttribute="leading" constant="20" id="nHc-qD-Gfh"/>
+                            <constraint firstItem="KIx-St-Rhd" firstAttribute="trailing" secondItem="qh1-9N-LpB" secondAttribute="trailing" constant="20" id="r9r-wI-lJn"/>
+                            <constraint firstItem="RvU-hc-GZw" firstAttribute="leading" secondItem="KIx-St-Rhd" secondAttribute="leading" constant="20" id="tsC-VM-eUH"/>
+                            <constraint firstItem="qh1-9N-LpB" firstAttribute="leading" secondItem="KIx-St-Rhd" secondAttribute="leading" constant="20" id="x3y-eT-9FF"/>
                             <constraint firstItem="RvU-hc-GZw" firstAttribute="top" secondItem="UwO-vE-gDz" secondAttribute="bottom" constant="6" id="zd1-gH-H6B"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KIx-St-Rhd"/>
@@ -879,13 +879,13 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="XYx-PU-XUl">
-                                <rect key="frame" x="27" y="74" width="320" height="85"/>
+                                <rect key="frame" x="20" y="74" width="335" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="85" id="ROg-1c-I4o"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="How to install certificates" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kk8-eE-cQL">
-                                <rect key="frame" x="0.0" y="165" width="375" height="33"/>
+                                <rect key="frame" x="20" y="165" width="335" height="33"/>
                                 <color key="backgroundColor" red="0.91620524879999998" green="0.91620524879999998" blue="0.91620524879999998" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="9B4-kE-aZn"/>
@@ -965,16 +965,16 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="XYx-PU-XUl" firstAttribute="top" secondItem="OJg-gb-JGo" secondAttribute="top" constant="74" id="AGx-Qj-Tfq"/>
-                            <constraint firstItem="XYx-PU-XUl" firstAttribute="leading" secondItem="EHE-Xd-nj4" secondAttribute="leading" constant="27" id="Js0-kF-8eX"/>
+                            <constraint firstItem="XYx-PU-XUl" firstAttribute="top" secondItem="EHE-Xd-nj4" secondAttribute="top" constant="10" id="AGx-Qj-Tfq"/>
+                            <constraint firstItem="XYx-PU-XUl" firstAttribute="leading" secondItem="EHE-Xd-nj4" secondAttribute="leading" constant="20" id="Js0-kF-8eX"/>
                             <constraint firstItem="Kk8-eE-cQL" firstAttribute="top" secondItem="XYx-PU-XUl" secondAttribute="bottom" constant="6" id="Qq1-38-9eg"/>
-                            <constraint firstItem="EHE-Xd-nj4" firstAttribute="trailing" secondItem="XYx-PU-XUl" secondAttribute="trailing" constant="28" id="Rz6-90-LiP"/>
+                            <constraint firstItem="EHE-Xd-nj4" firstAttribute="trailing" secondItem="XYx-PU-XUl" secondAttribute="trailing" constant="20" id="Rz6-90-LiP"/>
                             <constraint firstItem="4RE-R6-kNT" firstAttribute="leading" secondItem="OJg-gb-JGo" secondAttribute="leadingMargin" constant="4" id="Wa9-JH-yzW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4RE-R6-kNT" secondAttribute="trailing" constant="4" id="aQL-6U-Lnh"/>
                             <constraint firstAttribute="bottom" secondItem="4RE-R6-kNT" secondAttribute="bottom" constant="20" id="cs1-P4-JHH"/>
-                            <constraint firstItem="Kk8-eE-cQL" firstAttribute="leading" secondItem="EHE-Xd-nj4" secondAttribute="leading" constant="20" symbolic="YES" id="dyY-6u-IPv"/>
+                            <constraint firstItem="Kk8-eE-cQL" firstAttribute="leading" secondItem="EHE-Xd-nj4" secondAttribute="leading" constant="20" id="dyY-6u-IPv"/>
                             <constraint firstItem="4RE-R6-kNT" firstAttribute="top" secondItem="Kk8-eE-cQL" secondAttribute="bottom" constant="8" symbolic="YES" id="moX-YG-x39"/>
-                            <constraint firstItem="EHE-Xd-nj4" firstAttribute="trailing" secondItem="Kk8-eE-cQL" secondAttribute="trailing" constant="20" symbolic="YES" id="yEE-Uq-fWB"/>
+                            <constraint firstItem="EHE-Xd-nj4" firstAttribute="trailing" secondItem="Kk8-eE-cQL" secondAttribute="trailing" constant="20" id="yEE-Uq-fWB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EHE-Xd-nj4"/>
                     </view>
