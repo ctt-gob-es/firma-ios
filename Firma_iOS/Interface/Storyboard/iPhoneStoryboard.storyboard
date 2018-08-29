@@ -525,6 +525,9 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="sKN-gb-ucT">
                                 <rect key="frame" x="20" y="74" width="335" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="Rp5-xu-oe9"/>
+                                </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VRk-By-NUt">
                                 <rect key="frame" x="20" y="206" width="335" height="154"/>
@@ -604,13 +607,13 @@ http://administracionelectronica.gob.es/</string>
                             <constraint firstItem="VRk-By-NUt" firstAttribute="top" secondItem="AFA-Aj-TuJ" secondAttribute="bottom" constant="8" symbolic="YES" id="A1n-Vb-aeS"/>
                             <constraint firstItem="oOa-M7-VDf" firstAttribute="trailing" secondItem="ZZp-Bf-KNI" secondAttribute="trailing" constant="20" id="BOo-Y9-tiI"/>
                             <constraint firstItem="AFA-Aj-TuJ" firstAttribute="top" secondItem="sKN-gb-ucT" secondAttribute="bottom" constant="6" id="Cch-oU-6t1"/>
-                            <constraint firstAttribute="trailing" secondItem="sKN-gb-ucT" secondAttribute="trailing" constant="20" id="DUg-dw-hdL"/>
+                            <constraint firstItem="oOa-M7-VDf" firstAttribute="trailing" secondItem="sKN-gb-ucT" secondAttribute="trailing" constant="20" id="DUg-dw-hdL"/>
                             <constraint firstItem="sKN-gb-ucT" firstAttribute="top" secondItem="oOa-M7-VDf" secondAttribute="top" constant="10" id="I1i-IV-b4i"/>
                             <constraint firstItem="AFA-Aj-TuJ" firstAttribute="leading" secondItem="oOa-M7-VDf" secondAttribute="leading" constant="20" id="Zai-W2-QIM"/>
                             <constraint firstItem="sKN-gb-ucT" firstAttribute="leading" secondItem="oOa-M7-VDf" secondAttribute="leading" constant="20" id="gQK-nW-aLO"/>
                             <constraint firstItem="ZZp-Bf-KNI" firstAttribute="leading" secondItem="oOa-M7-VDf" secondAttribute="leading" constant="20" id="oyH-zY-dbR"/>
-                            <constraint firstItem="VRk-By-NUt" firstAttribute="top" secondItem="P92-9D-N6s" secondAttribute="top" constant="206" id="pD9-Ge-0Oo"/>
                             <constraint firstItem="VRk-By-NUt" firstAttribute="leading" secondItem="oOa-M7-VDf" secondAttribute="leading" constant="20" id="s7b-lF-t4l"/>
+                            <constraint firstItem="VRk-By-NUt" firstAttribute="top" secondItem="AFA-Aj-TuJ" secondAttribute="bottom" constant="8" id="ub9-ut-zt2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oOa-M7-VDf"/>
                     </view>
