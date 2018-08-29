@@ -524,23 +524,20 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="sKN-gb-ucT">
-                                <rect key="frame" x="27" y="74" width="320" height="85"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="85" id="Lad-gb-KUQ"/>
-                                </constraints>
+                                <rect key="frame" x="20" y="74" width="335" height="85"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VRk-By-NUt">
-                                <rect key="frame" x="0.0" y="206" width="375" height="154"/>
+                                <rect key="frame" x="20" y="206" width="335" height="154"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="154" id="cNz-Qg-WpX"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="1" id="pex-iP-Azk">
-                                        <rect key="frame" x="0.0" y="22" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="22" width="335" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pex-iP-Azk" id="CAA-Cb-5xH">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="302" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -548,10 +545,10 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="2" id="Wcg-kQ-r23">
-                                        <rect key="frame" x="0.0" y="66" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="66" width="335" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wcg-kQ-r23" id="aZd-Hu-Jrg">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="302" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -559,10 +556,10 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="3" id="vbt-ji-MCa">
-                                        <rect key="frame" x="0.0" y="110" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="110" width="335" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vbt-ji-MCa" id="88h-EJ-m5b">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="302" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -576,7 +573,7 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                                 </connections>
                             </tableView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Help" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFA-Aj-TuJ">
-                                <rect key="frame" x="0.0" y="165" width="375" height="33"/>
+                                <rect key="frame" x="20" y="165" width="335" height="33"/>
                                 <color key="backgroundColor" red="0.91620524879999998" green="0.91620524879999998" blue="0.91620524879999998" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="pOY-GE-mzc"/>
@@ -586,7 +583,7 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZZp-Bf-KNI">
-                                <rect key="frame" x="0.0" y="385" width="375" height="94"/>
+                                <rect key="frame" x="20" y="385" width="335" height="94"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="94" id="rHj-LP-Fsp"/>
@@ -601,19 +598,19 @@ http://administracionelectronica.gob.es/</string>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="oOa-M7-VDf" firstAttribute="trailing" secondItem="VRk-By-NUt" secondAttribute="trailing" constant="20" symbolic="YES" id="3yd-o8-GTN"/>
-                            <constraint firstItem="sKN-gb-ucT" firstAttribute="leading" secondItem="oOa-M7-VDf" secondAttribute="leading" constant="27" id="5iQ-s6-25D"/>
-                            <constraint firstItem="oOa-M7-VDf" firstAttribute="trailing" secondItem="AFA-Aj-TuJ" secondAttribute="trailing" constant="20" symbolic="YES" id="5yA-qD-l6q"/>
+                            <constraint firstItem="oOa-M7-VDf" firstAttribute="trailing" secondItem="VRk-By-NUt" secondAttribute="trailing" constant="20" id="3yd-o8-GTN"/>
+                            <constraint firstItem="oOa-M7-VDf" firstAttribute="trailing" secondItem="AFA-Aj-TuJ" secondAttribute="trailing" constant="20" id="5yA-qD-l6q"/>
                             <constraint firstItem="ZZp-Bf-KNI" firstAttribute="top" secondItem="VRk-By-NUt" secondAttribute="bottom" constant="25" id="8Jd-x7-7TZ"/>
                             <constraint firstItem="VRk-By-NUt" firstAttribute="top" secondItem="AFA-Aj-TuJ" secondAttribute="bottom" constant="8" symbolic="YES" id="A1n-Vb-aeS"/>
-                            <constraint firstItem="oOa-M7-VDf" firstAttribute="trailing" secondItem="ZZp-Bf-KNI" secondAttribute="trailing" constant="20" symbolic="YES" id="BOo-Y9-tiI"/>
-                            <constraint firstItem="oOa-M7-VDf" firstAttribute="trailing" secondItem="sKN-gb-ucT" secondAttribute="trailing" constant="28" id="CVz-cL-ZV4"/>
+                            <constraint firstItem="oOa-M7-VDf" firstAttribute="trailing" secondItem="ZZp-Bf-KNI" secondAttribute="trailing" constant="20" id="BOo-Y9-tiI"/>
                             <constraint firstItem="AFA-Aj-TuJ" firstAttribute="top" secondItem="sKN-gb-ucT" secondAttribute="bottom" constant="6" id="Cch-oU-6t1"/>
-                            <constraint firstItem="sKN-gb-ucT" firstAttribute="top" secondItem="P92-9D-N6s" secondAttribute="top" constant="74" id="I1i-IV-b4i"/>
-                            <constraint firstItem="AFA-Aj-TuJ" firstAttribute="leading" secondItem="oOa-M7-VDf" secondAttribute="leading" constant="20" symbolic="YES" id="Zai-W2-QIM"/>
-                            <constraint firstItem="ZZp-Bf-KNI" firstAttribute="leading" secondItem="oOa-M7-VDf" secondAttribute="leading" constant="20" symbolic="YES" id="oyH-zY-dbR"/>
+                            <constraint firstAttribute="trailing" secondItem="sKN-gb-ucT" secondAttribute="trailing" constant="20" id="DUg-dw-hdL"/>
+                            <constraint firstItem="sKN-gb-ucT" firstAttribute="top" secondItem="oOa-M7-VDf" secondAttribute="top" constant="10" id="I1i-IV-b4i"/>
+                            <constraint firstItem="AFA-Aj-TuJ" firstAttribute="leading" secondItem="oOa-M7-VDf" secondAttribute="leading" constant="20" id="Zai-W2-QIM"/>
+                            <constraint firstItem="sKN-gb-ucT" firstAttribute="leading" secondItem="oOa-M7-VDf" secondAttribute="leading" constant="20" id="gQK-nW-aLO"/>
+                            <constraint firstItem="ZZp-Bf-KNI" firstAttribute="leading" secondItem="oOa-M7-VDf" secondAttribute="leading" constant="20" id="oyH-zY-dbR"/>
                             <constraint firstItem="VRk-By-NUt" firstAttribute="top" secondItem="P92-9D-N6s" secondAttribute="top" constant="206" id="pD9-Ge-0Oo"/>
-                            <constraint firstItem="VRk-By-NUt" firstAttribute="leading" secondItem="oOa-M7-VDf" secondAttribute="leading" constant="20" symbolic="YES" id="s7b-lF-t4l"/>
+                            <constraint firstItem="VRk-By-NUt" firstAttribute="leading" secondItem="oOa-M7-VDf" secondAttribute="leading" constant="20" id="s7b-lF-t4l"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oOa-M7-VDf"/>
                     </view>
@@ -1004,6 +1001,6 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
         <image name="logo_cliente.png" width="726" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0Le-aU-8MM"/>
+        <segue reference="QIm-SY-KYp"/>
     </inferredMetricsTieBreakers>
 </document>
