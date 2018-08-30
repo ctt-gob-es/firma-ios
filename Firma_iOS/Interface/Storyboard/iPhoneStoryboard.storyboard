@@ -643,8 +643,11 @@ http://administracionelectronica.gob.es/</string>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wea-WN-cIK">
-                                <rect key="frame" x="20" y="179" width="335" height="382"/>
+                                <rect key="frame" x="20" y="179" width="335" height="372"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="372" id="CO9-3a-elb"/>
+                                </constraints>
                                 <string key="text">Welcome to "Cliente @firma iOS" 1.4.8
 
 This application allows to sign electronically in the supported websites of services providers.
@@ -654,9 +657,10 @@ In order to run the application properly, an electronic certificate and its priv
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJV-8n-EZ7">
-                                <rect key="frame" x="76" y="576" width="225.5" height="39"/>
+                                <rect key="frame" x="76" y="566" width="225.5" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="Opp-V2-jg7"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="39" id="sNf-CI-REl"/>
                                 </constraints>
                                 <string key="text">Cliente @firma for Apple iOS 1.4.8
 © Copyright: Gobierno de España, 2018</string>
@@ -664,33 +668,58 @@ In order to run the application properly, an electronic certificate and its priv
                                 <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YGN-hy-HXm">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8iB-4z-0cW" userLabel="TabBarView">
                                 <rect key="frame" x="0.0" y="618" width="375" height="49"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                <items>
-                                    <tabBarItem tag="2" title="Keystore manager" image="cert_menu.png" id="kJF-BT-0mB"/>
-                                    <tabBarItem title="Help" image="help.png" id="qsl-TR-wha"/>
-                                </items>
-                                <connections>
-                                    <outlet property="delegate" destination="ZbB-7n-KzP" id="mrX-x8-Fec"/>
-                                </connections>
-                            </tabBar>
+                                <subviews>
+                                    <tabBar contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YGN-hy-HXm">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <items>
+                                            <tabBarItem tag="2" title="Keystore manager" image="cert_menu.png" id="kJF-BT-0mB">
+                                                <color key="badgeColor" red="0.61902413479999996" green="1" blue="0.43314577059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </tabBarItem>
+                                            <tabBarItem title="Help" image="help.png" id="qsl-TR-wha"/>
+                                        </items>
+                                        <connections>
+                                            <outlet property="delegate" destination="ZbB-7n-KzP" id="mrX-x8-Fec"/>
+                                        </connections>
+                                    </tabBar>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="YGN-hy-HXm" secondAttribute="trailing" id="GrB-Kk-yyv"/>
+                                    <constraint firstItem="YGN-hy-HXm" firstAttribute="top" secondItem="8iB-4z-0cW" secondAttribute="top" id="SgY-fM-S0w"/>
+                                    <constraint firstItem="YGN-hy-HXm" firstAttribute="leading" secondItem="8iB-4z-0cW" secondAttribute="leading" id="UUC-9K-eJG"/>
+                                    <constraint firstAttribute="height" constant="49" id="yoc-us-TF1"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="96q-B5-oTb"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EXO-Ut-wnh" userLabel="SafeAreExtraSpaceView">
+                                <rect key="frame" x="0.0" y="667" width="375" height="75"/>
+                                <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="Y4U-ie-DWF"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="pow-8A-0Mo"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wea-WN-cIK" firstAttribute="top" secondItem="BN6-I6-Kca" secondAttribute="bottom" constant="20" id="0co-bg-TmO"/>
                             <constraint firstItem="ri3-HI-mVr" firstAttribute="trailing" secondItem="BN6-I6-Kca" secondAttribute="trailing" constant="40" id="2m9-O8-AGd"/>
-                            <constraint firstItem="YGN-hy-HXm" firstAttribute="leading" secondItem="ri3-HI-mVr" secondAttribute="leading" id="3zw-3h-mqO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wea-WN-cIK" secondAttribute="trailing" constant="4" id="8Dz-B1-jFY"/>
-                            <constraint firstItem="YGN-hy-HXm" firstAttribute="bottom" secondItem="ri3-HI-mVr" secondAttribute="bottom" id="9oS-eP-KSU"/>
-                            <constraint firstItem="YGN-hy-HXm" firstAttribute="trailing" secondItem="ri3-HI-mVr" secondAttribute="trailing" id="Epu-H7-SP9"/>
+                            <constraint firstItem="8iB-4z-0cW" firstAttribute="bottom" secondItem="ri3-HI-mVr" secondAttribute="bottom" id="B2W-sK-h0R"/>
+                            <constraint firstItem="EXO-Ut-wnh" firstAttribute="leading" secondItem="6xF-zd-Toc" secondAttribute="leading" id="Hn9-eT-Qzj"/>
+                            <constraint firstItem="8iB-4z-0cW" firstAttribute="top" secondItem="UJV-8n-EZ7" secondAttribute="bottom" constant="13" id="Mzr-L9-X5h"/>
                             <constraint firstItem="wea-WN-cIK" firstAttribute="centerX" secondItem="ri3-HI-mVr" secondAttribute="centerX" id="QHE-KD-2dm"/>
+                            <constraint firstAttribute="trailing" secondItem="EXO-Ut-wnh" secondAttribute="trailing" id="Sgi-yE-cEr"/>
                             <constraint firstItem="BN6-I6-Kca" firstAttribute="top" secondItem="ri3-HI-mVr" secondAttribute="top" constant="10" id="W2F-4v-ahM"/>
                             <constraint firstItem="BN6-I6-Kca" firstAttribute="leading" secondItem="ri3-HI-mVr" secondAttribute="leading" constant="40" id="WR7-nc-2CM"/>
-                            <constraint firstItem="UJV-8n-EZ7" firstAttribute="top" secondItem="wea-WN-cIK" secondAttribute="bottom" constant="15" id="pr7-sO-Ut9"/>
+                            <constraint firstItem="EXO-Ut-wnh" firstAttribute="top" secondItem="8iB-4z-0cW" secondAttribute="bottom" id="aF5-la-k0w"/>
+                            <constraint firstItem="8iB-4z-0cW" firstAttribute="leading" secondItem="6xF-zd-Toc" secondAttribute="leading" id="b77-Fb-W3n"/>
+                            <constraint firstAttribute="trailing" secondItem="8iB-4z-0cW" secondAttribute="trailing" id="suX-kO-QSN"/>
                             <constraint firstItem="wea-WN-cIK" firstAttribute="leading" secondItem="6xF-zd-Toc" secondAttribute="leadingMargin" constant="4" id="tdS-gp-iuG"/>
                             <constraint firstItem="UJV-8n-EZ7" firstAttribute="centerX" secondItem="ri3-HI-mVr" secondAttribute="centerX" constant="1" id="v1f-RQ-dqa"/>
-                            <constraint firstItem="YGN-hy-HXm" firstAttribute="top" secondItem="UJV-8n-EZ7" secondAttribute="bottom" constant="3" id="w0m-76-93V"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ri3-HI-mVr"/>
                     </view>
@@ -721,13 +750,13 @@ In order to run the application properly, an electronic certificate and its priv
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="a0p-d7-fgJ">
-                                <rect key="frame" x="27" y="74" width="320" height="85"/>
+                                <rect key="frame" x="20" y="74" width="335" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="85" id="RyG-ZC-GIM"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Frequently asked questions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8TS-VU-W3b">
-                                <rect key="frame" x="0.0" y="165" width="375" height="33"/>
+                                <rect key="frame" x="20" y="165" width="335" height="33"/>
                                 <color key="backgroundColor" red="0.91620524879999998" green="0.91620524879999998" blue="0.91620524879999998" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="pVK-ZM-ICc"/>
@@ -737,7 +766,7 @@ In order to run the application properly, an electronic certificate and its priv
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RdQ-UM-sfh">
-                                <rect key="frame" x="0.0" y="206" width="375" height="441"/>
+                                <rect key="frame" x="20" y="206" width="335" height="441"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <attributedString key="attributedText">
                                     <fragment>
@@ -844,16 +873,16 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="a0p-d7-fgJ" firstAttribute="leading" secondItem="LEi-QF-IQT" secondAttribute="leading" constant="27" id="58n-wR-BXi"/>
-                            <constraint firstItem="LEi-QF-IQT" firstAttribute="trailing" secondItem="RdQ-UM-sfh" secondAttribute="trailing" constant="20" symbolic="YES" id="9Of-Fi-VHF"/>
+                            <constraint firstItem="a0p-d7-fgJ" firstAttribute="leading" secondItem="LEi-QF-IQT" secondAttribute="leading" constant="20" id="58n-wR-BXi"/>
+                            <constraint firstItem="LEi-QF-IQT" firstAttribute="trailing" secondItem="RdQ-UM-sfh" secondAttribute="trailing" constant="20" id="9Of-Fi-VHF"/>
                             <constraint firstItem="RdQ-UM-sfh" firstAttribute="top" secondItem="8TS-VU-W3b" secondAttribute="bottom" constant="8" symbolic="YES" id="AYa-B6-0A3"/>
-                            <constraint firstItem="RdQ-UM-sfh" firstAttribute="bottom" secondItem="LEi-QF-IQT" secondAttribute="bottom" constant="-20" id="HLV-gA-rXM"/>
-                            <constraint firstItem="RdQ-UM-sfh" firstAttribute="leading" secondItem="LEi-QF-IQT" secondAttribute="leading" constant="20" symbolic="YES" id="LSs-nP-Anw"/>
+                            <constraint firstItem="RdQ-UM-sfh" firstAttribute="leading" secondItem="LEi-QF-IQT" secondAttribute="leading" constant="20" id="LSs-nP-Anw"/>
+                            <constraint firstItem="LEi-QF-IQT" firstAttribute="bottom" secondItem="RdQ-UM-sfh" secondAttribute="bottom" constant="20" id="OpS-lx-80t"/>
                             <constraint firstItem="8TS-VU-W3b" firstAttribute="top" secondItem="a0p-d7-fgJ" secondAttribute="bottom" constant="6" id="QdN-mh-6UH"/>
-                            <constraint firstItem="LEi-QF-IQT" firstAttribute="trailing" secondItem="a0p-d7-fgJ" secondAttribute="trailing" constant="28" id="b2V-xD-8dN"/>
-                            <constraint firstItem="LEi-QF-IQT" firstAttribute="trailing" secondItem="8TS-VU-W3b" secondAttribute="trailing" constant="20" symbolic="YES" id="bn2-64-NBH"/>
-                            <constraint firstItem="a0p-d7-fgJ" firstAttribute="top" secondItem="Ber-2P-5hd" secondAttribute="top" constant="74" id="gXr-cE-DTa"/>
-                            <constraint firstItem="8TS-VU-W3b" firstAttribute="leading" secondItem="LEi-QF-IQT" secondAttribute="leading" constant="20" symbolic="YES" id="vON-DW-Nez"/>
+                            <constraint firstItem="LEi-QF-IQT" firstAttribute="trailing" secondItem="a0p-d7-fgJ" secondAttribute="trailing" constant="20" id="b2V-xD-8dN"/>
+                            <constraint firstItem="LEi-QF-IQT" firstAttribute="trailing" secondItem="8TS-VU-W3b" secondAttribute="trailing" constant="20" id="bn2-64-NBH"/>
+                            <constraint firstItem="a0p-d7-fgJ" firstAttribute="top" secondItem="LEi-QF-IQT" secondAttribute="top" constant="10" id="gXr-cE-DTa"/>
+                            <constraint firstItem="8TS-VU-W3b" firstAttribute="leading" secondItem="LEi-QF-IQT" secondAttribute="leading" constant="20" id="vON-DW-Nez"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LEi-QF-IQT"/>
                     </view>
@@ -868,7 +897,7 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qhk-Bs-DO0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7.5" y="1347.5"/>
+            <point key="canvasLocation" x="7.2000000000000002" y="1346.176911544228"/>
         </scene>
         <!--How to-->
         <scene sceneID="xaa-sP-Dhf">
