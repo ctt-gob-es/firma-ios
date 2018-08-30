@@ -59,6 +59,7 @@
 		B281A196211ACBE10032FB86 /* pruebas_portafirmas.p12 in Resources */ = {isa = PBXBuildFile; fileRef = B2A7C4C82119F5A00071BF69 /* pruebas_portafirmas.p12 */; };
 		B2952CB520D981F700A4467B /* UITextView+Boldify.m in Sources */ = {isa = PBXBuildFile; fileRef = B2952CB420D981F700A4467B /* UITextView+Boldify.m */; };
 		B2AE16992133E3330082C892 /* GlobalConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = B2AE16982133E3330082C892 /* GlobalConstants.m */; };
+		B2B0369C21369663009E57BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2B0369B21369663009E57BB /* LaunchScreen.storyboard */; };
 		B2D0158D20CA7F9400FD4102 /* CommonAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D0158C20CA7F9400FD4102 /* CommonAlert.m */; };
 		B2EE5C1020AC4359000A4A28 /* AOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B2EE5C0E20AC4358000A4A28 /* AOAppDelegate.m */; };
 		C30B322C163804620072A515 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30B322B163804620072A515 /* UIKit.framework */; };
@@ -282,6 +283,7 @@
 		B2A7C4C92119F5A10071BF69 /* PFActivoFirSHA1.pfx */ = {isa = PBXFileReference; lastKnownFileType = file; path = PFActivoFirSHA1.pfx; sourceTree = "<group>"; };
 		B2AE16972133E3330082C892 /* GlobalConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalConstants.h; sourceTree = "<group>"; };
 		B2AE16982133E3330082C892 /* GlobalConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalConstants.m; sourceTree = "<group>"; };
+		B2B0369B21369663009E57BB /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B2D0158B20CA7F9400FD4102 /* CommonAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonAlert.h; sourceTree = "<group>"; };
 		B2D0158C20CA7F9400FD4102 /* CommonAlert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonAlert.m; sourceTree = "<group>"; };
 		B2EE5C0E20AC4358000A4A28 /* AOAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOAppDelegate.m; sourceTree = "<group>"; };
@@ -618,6 +620,7 @@
 			children = (
 				B243847D20C539DA0087BAE0 /* iPhoneStoryboard.storyboard */,
 				B243847E20C539DA0087BAE0 /* iPadStoryboard.storyboard */,
+				B2B0369B21369663009E57BB /* LaunchScreen.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -1146,6 +1149,7 @@
 				B240772E20A5B87B00A8EE1C /* InfoPlist.strings in Resources */,
 				B27395D920A43AF800A7D05A /* flecha.png in Resources */,
 				B27395DE20A43AF800A7D05A /* itunes.png in Resources */,
+				B2B0369C21369663009E57BB /* LaunchScreen.storyboard in Resources */,
 				C3461CA81696F98C007237D1 /* logo_cliente.png in Resources */,
 				B27395E020A43AF800A7D05A /* warning_mini.png in Resources */,
 				B240773020A5B87B00A8EE1C /* InfoPlist.strings in Resources */,
@@ -1391,7 +1395,7 @@
 					"include/**",
 					"./lib/**",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "Cliente @firma Móvil";
 				PROVISIONING_PROFILE = "c08ed7da-989b-4719-b284-d895789fd7db";
@@ -1443,7 +1447,7 @@
 					"include/**",
 					"./lib/**",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "Cliente @firma Móvil";
 				PROVISIONING_PROFILE = "c08ed7da-989b-4719-b284-d895789fd7db";
@@ -1473,7 +1477,7 @@
 				GCC_PREFIX_HEADER = "Firma_iOS/Firma_iOS-Prefix.pch";
 				HEADER_SEARCH_PATHS = "include/**";
 				INFOPLIST_FILE = "Firma_iOS/Supporting Files/Firma_iOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					lib,
@@ -1511,7 +1515,7 @@
 				GCC_PREFIX_HEADER = "Firma_iOS/Firma_iOS-Prefix.pch";
 				HEADER_SEARCH_PATHS = "include/**";
 				INFOPLIST_FILE = "Firma_iOS/Supporting Files/Firma_iOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					lib,

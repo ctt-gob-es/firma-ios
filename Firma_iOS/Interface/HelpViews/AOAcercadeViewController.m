@@ -31,7 +31,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onGoingToBackGround:) name:UIApplicationDidEnterBackgroundNotification object:nil];
     self.screenName = @"IOS AOAboutViewController - Help Screen";
     [self.aboutTitleLabel setText:NSLocalizedString(@"about_title_label", nil)];
-    [self.aboutDescriptionLabel setText:NSLocalizedString(@"about_description_label", nil)];
+    [self.aboutDescriptionLabel setText:[NSString stringWithFormat:NSLocalizedString(@"about_description_label", nil),[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]]];
     [self.howToInstallCertificatesTitle setText:NSLocalizedString(@"how_to_install_certificates_title", nil)];
     [self.iTunesInstructionsLabel setText:NSLocalizedString(@"iTunes_instructions_label", nil)];
     [self.certificateInstructionsLabel setText:NSLocalizedString(@"certificate_instructions_label", nil)];
@@ -40,6 +40,12 @@
     self.aboutNavigationItem.title = NSLocalizedString(@"about_navigation_title", nil);;
     self.howToNavigationItem.title = NSLocalizedString(@"how_to_navigation_title", nil);
     self.questionsNavigationItem.title = NSLocalizedString(@"questions_navigation_title", nil);
+}
+
+- (void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    [self.aboutDescriptionLabel setContentOffset:CGPointZero animated:NO];
+    [self.frequentlyAskedQuestionsDescriptionLabel setContentOffset:CGPointZero animated:NO];
 }
 
 -(void)fillTextForFrequentlyAskedQuestionsTitleLabel{

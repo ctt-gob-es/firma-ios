@@ -1205,10 +1205,12 @@ SecKeyRef privateKey = NULL;
         mainStoryboard = [UIStoryboard storyboardWithName:IPHONE_STORYBOARD
                                                    bundle: nil];
     }
-    AOAboutViewController *controller = (AOAboutViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"AOAboutViewController"];
-    [self presentViewController: controller animated:NO completion:nil];
     
-    [self.navigationController popToRootViewControllerAnimated: NO];
+    
+    UIViewController *homeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AOAboutViewController"];
+    UINavigationController *objectNav = [[UINavigationController alloc] initWithRootViewController:homeViewController];
+    [self presentViewController:objectNav animated:YES completion:nil];
+
 }
 
 - (void)didReceiveMemoryWarning

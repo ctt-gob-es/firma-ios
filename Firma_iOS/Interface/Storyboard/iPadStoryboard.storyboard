@@ -169,9 +169,8 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Certificados Registrados" id="IQM-oW-Jlf">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="g9U-XC-DmN"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="eqk-ro-f7g">
-                            <color key="tintColor" red="0.59864145517349243" green="0.0" blue="0.091977573931217194" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.55686274509803924" green="0.0" blue="0.090196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="3LC-CA-znm" kind="presentation" id="nil-0M-s5V"/>
                             </connections>
