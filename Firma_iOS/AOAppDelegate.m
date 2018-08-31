@@ -18,6 +18,7 @@ NSString *URLString, *state = @"Inactive";
     //[self.window makeKeyAndVisible];
     
     [self registerDefaultsFromSettingsBundle];
+    [self setupLogger];
 
 /*    // Optional: automatically send uncaught exceptions to Google Analytics.
     [GAI sharedInstance].trackUncaughtExceptions = YES;
@@ -106,6 +107,17 @@ NSString *URLString, *state = @"Inactive";
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     NSLog(@"Will Terminate ");
+}
+
+- (void)setupLogger
+{
+    [DDLog addLogger:[DDTTYLogger sharedInstance]]; // TTY = Xcode console
+    [DDLog addLogger:[DDASLLogger sharedInstance]]; // ASL = Apple System Logs
+    
+    DDFileLogger *fileLogger = [[DDFileLogger alloc] init]; // File Logger
+    fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
+    fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
+    [DDLog addLogger:fileLogger];
 }
 
 /**
