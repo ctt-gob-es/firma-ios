@@ -132,7 +132,7 @@ SecKeyRef privateKey = NULL;
     if([urlParameters objectForKey:PARAMETER_NAME_DAT] != NULL)
     {
         
-        NSLog(@"SI han llegado los datos a firmar a AOSignViewController");
+        DDLogDebug(@"SI han llegado los datos a firmar a AOSignViewController");
         
         NSString *data =[urlParameters objectForKey:PARAMETER_NAME_DAT];
         data = [data stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -140,7 +140,7 @@ SecKeyRef privateKey = NULL;
     }
     else
     {
-        NSLog(@"NO han llegado los datos a firmar a AOSignViewController");
+        DDLogError(@"NO han llegado los datos a firmar a AOSignViewController");
         //Notificamos del error al servidor si es posible
         NSString *errorToSend = @"";
         errorToSend = [errorToSend stringByAppendingString:ERROR_MISSING_DATA];
@@ -204,7 +204,7 @@ SecKeyRef privateKey = NULL;
         {
             if(cipherKey != NULL && rtServlet != NULL)
             {
-                NSLog(@"No hay datos en URL pero hay direccion de recuperación y clave de cifrado, se descargarán los datos a firmar");
+                DDLogDebug(@"No hay datos en URL pero hay direccion de recuperación y clave de cifrado, se descargarán los datos a firmar");
                 [self loadDataFromRtservlet:fileId rtServlet:rtServlet];
             }
             // Si no teniamos clave de cifrado o dirección del servidor intermedio es un error
@@ -253,7 +253,7 @@ SecKeyRef privateKey = NULL;
     if([urlParameters objectForKey:PARAMETER_NAME_STSERVLET] != NULL) {
         urlServlet = [[NSString alloc] initWithString:[urlParameters objectForKey:PARAMETER_NAME_STSERVLET]];
         urlServlet = [urlServlet stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
-        NSLog(@"URL Servlet => %@", urlServlet);
+        DDLogDebug(@"URL Servlet => %@", urlServlet);
     }
     
     //parámetro "format" que indica el formato de firma.
@@ -270,14 +270,14 @@ SecKeyRef privateKey = NULL;
         extraParams = [urlParameters objectForKey:PARAMETER_NAME_PROPERTIES];
         
         //URL DECODE
-        NSLog(@"\n\nextraParams en Base64: %@", extraParams);
+        DDLogDebug(@"\n\nextraParams en Base64: %@", extraParams);
         NSData *dataReceived = [Base64 decode:extraParams urlSafe:true];
         
-        NSLog(@"\n\nExtraparams en binario tras decodificar el Base64: %@", dataReceived);
+        DDLogDebug(@"\n\nExtraparams en binario tras decodificar el Base64: %@", dataReceived);
        
         NSString* stringDataReceived = [[NSString alloc] initWithData:dataReceived encoding:NSUTF8StringEncoding];
         
-        NSLog(@"\n\nExtraparams: %@", stringDataReceived);
+        DDLogDebug(@"\n\nExtraparams: %@", stringDataReceived);
         
         NSDictionary *dict = [CADESSignUtils javaProperties2Dictionary:stringDataReceived];
         dictExtraParams = dict;
@@ -287,9 +287,9 @@ SecKeyRef privateKey = NULL;
         if (![[triphasicServerURL substringFromIndex:[triphasicServerURL length] - 1]  isEqual: @"e"]) {
             
             triphasicServerURL = [triphasicServerURL substringToIndex:[triphasicServerURL length] - 1];
-            NSLog(@"he entrado en el if así que el último caracter no es e -> %@", [dict objectForKey:PARAMETER_NAME_TRIPHASIC_SERVER_URL]);
+            DDLogDebug(@"he entrado en el if así que el último caracter no es e -> %@", [dict objectForKey:PARAMETER_NAME_TRIPHASIC_SERVER_URL]);
         }
-        NSLog(@"Server URL: -> %@", [dict objectForKey:PARAMETER_NAME_TRIPHASIC_SERVER_URL]);
+        DDLogDebug(@"Server URL: -> %@", [dict objectForKey:PARAMETER_NAME_TRIPHASIC_SERVER_URL]);
     }
     
     if([urlParameters objectForKey:PARAMETER_NAME_TARGET] != NULL)
@@ -298,7 +298,7 @@ SecKeyRef privateKey = NULL;
         
         if(extraParams2 != NULL)
         {
-            NSLog(@"extraParams2 -> %@", extraParams2);
+            DDLogDebug(@"extraParams2 -> %@", extraParams2);
             extraParams2 = [[NSString alloc] initWithData:[Base64 decode:extraParams2 urlSafe:true] encoding:NSUTF8StringEncoding];
             
             NSMutableDictionary *aux = [NSMutableDictionary dictionaryWithDictionary:dictExtraParams];
@@ -329,14 +329,14 @@ SecKeyRef privateKey = NULL;
         }
     }
     
-    NSLog(@"Operacion: %@", operation);
-    NSLog(@"Documento: %@", docId);
-    NSLog(@"Servlet: %@", urlServlet);
-    NSLog(@"Formato: %@", signFormat);
-    NSLog(@"Algoritmo: %@", signAlgoInUse);
-    NSLog(@"Clave de cifrado: %@", cipherKey);
+    DDLogDebug(@"Operacion: %@", operation);
+    DDLogDebug(@"Documento: %@", docId);
+    DDLogDebug(@"Servlet: %@", urlServlet);
+    DDLogDebug(@"Formato: %@", signFormat);
+    DDLogDebug(@"Algoritmo: %@", signAlgoInUse);
+    DDLogDebug(@"Clave de cifrado: %@", cipherKey);
     if(extraParams != NULL) {
-        NSLog(@"Propiedades: %@", extraParams);
+        DDLogDebug(@"Propiedades: %@", extraParams);
     }
     
     if (!([operation isEqualToString:OPERATION_SIGN]
@@ -415,7 +415,7 @@ SecKeyRef privateKey = NULL;
             //Invocamos la firma monofasica
             [self cadesMonoPhasic];
         } else{
-            NSLog(@"Se realiza la cofirma CADES de forma trifasica.");
+            DDLogDebug(@"Se realiza la cofirma CADES de forma trifasica.");
             [self cadesTriPhasic];
         }
     }
@@ -443,12 +443,12 @@ SecKeyRef privateKey = NULL;
  */
 -(void)cadesMonoPhasic
 {
-    NSLog(@"\n\ndatosInUse -> %@", datosInUse);
+    DDLogDebug(@"\n\ndatosInUse -> %@", datosInUse);
     NSData *contentData = [Base64 decode:datosInUse urlSafe:true];
     
-    NSLog(@"B - NSString de los datos: %@", contentData);
+    DDLogDebug(@"B - NSString de los datos: %@", contentData);
     
-    NSLog(@"%@",[[NSString alloc] initWithData:contentData encoding:NSUTF8StringEncoding]);
+    DDLogDebug(@"%@",[[NSString alloc] initWithData:contentData encoding:NSUTF8StringEncoding]);
     
     NSString *contentDescription = [[NSString alloc]init];
     contentDescription = BINARY;
@@ -643,13 +643,13 @@ SecKeyRef privateKey = NULL;
     NSURL* requestUrl = NULL;
     if(triphasicServerURL != NULL)
     {
-        NSLog(@"\n\nA - Usamos la ruta de servidor trifasico configurado: %@", triphasicServerURL);
+        DDLogDebug(@"\n\nA - Usamos la ruta de servidor trifasico configurado: %@", triphasicServerURL);
         requestUrl = [[NSURL alloc] initWithString:triphasicServerURL];
     }
     else
     {
         requestUrl = [[NSURL alloc] initWithString: rtServlet];
-        NSLog(@"\n\nA - Usamos la ruta de servidor trifasico preestablecido: %@", rtServlet);
+        DDLogDebug(@"\n\nA - Usamos la ruta de servidor trifasico preestablecido: %@", rtServlet);
     }
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30.0];
     [request setHTTPMethod:POST];
@@ -658,7 +658,7 @@ SecKeyRef privateKey = NULL;
     [request setValue:@"Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" forHTTPHeaderField:@"User-Agent"];
     [request setValue:@"text/plain,text/html,application/xhtml+xml,application/xml" forHTTPHeaderField:@"Accept"];
     [request setHTTPBody:postData];
-    NSLog(@"\n\nInicio de la llamada a PREFIRMA");
+    DDLogDebug(@"\n\nInicio de la llamada a PREFIRMA");
     NSURLConnection* connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         dispatch_sync(dispatch_get_main_queue(), ^{
@@ -692,20 +692,20 @@ SecKeyRef privateKey = NULL;
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:
 (NSURLResponse *)response
 {
-    NSLog(@"** didReceiveResponse **");
+    DDLogDebug(@"** didReceiveResponse **");
     receivedData = [[NSMutableData alloc] init];
 }
 
 //cuando se ha terminado de leer los datos recibidos, terminamos ya la conexion y se pasa a la prefirma.
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    NSLog(@"connectionDidFinishLoading => %@", connection);
+    DDLogDebug(@"connectionDidFinishLoading => %@", connection);
     // Connection succeeded in downloading the request.
-    NSLog( @"AOSignViewController: Final de la recepción! se han recibido %d bytes", (int)[receivedData length]);
+    DDLogDebug( @"AOSignViewController: Final de la recepción! se han recibido %d bytes", (int)[receivedData length]);
     
     // Convert received data into string.
     receivedString = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
-    NSLog( @"\n\nAOSignViewController: Descarga finalizada");
+    DDLogDebug( @"\n\nAOSignViewController: Descarga finalizada");
     
     //se procesa la respuesta del servidor.
     //Se recoge el resultado de la petición de almacenamiento
