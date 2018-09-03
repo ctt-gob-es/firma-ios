@@ -715,7 +715,7 @@ SecKeyRef privateKey = NULL;
         
         //Obtenemos la respuesta del servidor.
         NSString* responseString = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
-        NSLog(@"\nLa invocación a POST ha devuelto la siguiente respuesta AOSignViewController: %@", responseString);
+        DDLogDebug(@"\nLa invocación a POST ha devuelto la siguiente respuesta AOSignViewController: %@", responseString);
         
         //quitamos el progressbar indefinido
         [alertpb destroy:^{
@@ -733,7 +733,7 @@ SecKeyRef privateKey = NULL;
         retrievingDataFromServlet = false;
         //Obtenemos la respuesta del servidor.
         NSString* responseString = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
-        NSLog(@"\n\nRespuesta del rtserver: %@", responseString);
+        DDLogDebug(@"\n\nRespuesta del rtserver: %@", responseString);
         
         @try
         {
@@ -743,7 +743,7 @@ SecKeyRef privateKey = NULL;
         }
         @catch (NSException *exception)
         {
-            NSLog(@"Se ha producido un error al obtener el fichero: %@", exception.description );
+            DDLogError(@"Se ha producido un error al obtener el fichero: %@", exception.description );
         }
     }
     //Obtenemos la postfirma
@@ -752,7 +752,7 @@ SecKeyRef privateKey = NULL;
         
         //Obtenemos la respuesta del servidor.
         NSString* responseString = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
-        NSLog(@"La invocación a POST ha devuelto la siguiente respuesta: %@", responseString);
+        DDLogDebug(@"La invocación a POST ha devuelto la siguiente respuesta: %@", responseString);
         //se valida si la respuesta es correcta
         if([responseString hasPrefix: OK]){
             NSLog(@"se preparan los datos para realizar el storage.");
