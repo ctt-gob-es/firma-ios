@@ -65,8 +65,8 @@ static CertificateUtils *_sharedWrapper = nil;
                            @"", kSecAttrService,
                            (id)kCFBooleanTrue, kSecReturnAttributes,
                            nil];
-    NSLog(@"---------------------------------------");
-    NSLog(@"CertificateUtils: Query -> %@", query);
+    DDLogDebug(@"---------------------------------------");
+    DDLogDebug(@"CertificateUtils: Query -> %@", query);
     CFDictionaryRef result = nil;
     OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef *)&result);
     
@@ -280,7 +280,7 @@ static CertificateUtils *_sharedWrapper = nil;
     
     self.base64UrlSafeCertificateData = certificateString2; //[Base64 encode:CFBridgingRelease(SecCertificateCopyData(certificate))];
     
-    NSLog(@"\n\ncertificado CertificateUtils: %@", self.base64UrlSafeCertificateData);
+    DDLogDebug(@"\n\ncertificado CertificateUtils: %@", self.base64UrlSafeCertificateData);
     
     SecPolicyRef myPolicy   = SecPolicyCreateBasicX509();
     SecTrustRef myTrust;
@@ -448,7 +448,7 @@ static CertificateUtils *_sharedWrapper = nil;
                                 &signedHashBytesSize
                                 );
     
-    NSLog(@"sanityCheck::Return code=%d",(int)sanityCheck);
+    DDLogDebug(@"sanityCheck::Return code=%d",(int)sanityCheck);
     
     // Build up signed SHA1 blob.
     signedHash = [NSData dataWithBytes:(const void *)signedHashBytes length:(NSUInteger)signedHashBytesSize];
@@ -497,7 +497,7 @@ static CertificateUtils *_sharedWrapper = nil;
                                 &signedHashBytesSize
                                 );
     
-    NSLog(@"sanityCheck::Return code=%d",(int)sanityCheck);
+    DDLogDebug(@"sanityCheck::Return code=%d",(int)sanityCheck);
     
     // Build up signed SHA256 blob.
     signedHash = [NSData dataWithBytes:(const void *)signedHashBytes length:(NSUInteger)signedHashBytesSize];
@@ -542,7 +542,7 @@ static CertificateUtils *_sharedWrapper = nil;
                                 &signedHashBytesSize
                                 );
     
-    NSLog(@"sanityCheck::Return code=%d",(int)sanityCheck);
+    DDLogDebug(@"sanityCheck::Return code=%d",(int)sanityCheck);
     
     // Build up signed SHA256 blob.
     signedHash = [NSData dataWithBytes:(const void *)signedHashBytes length:(NSUInteger)signedHashBytesSize];

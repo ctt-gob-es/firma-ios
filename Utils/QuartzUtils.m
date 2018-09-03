@@ -44,7 +44,7 @@
                 CGContextFillRect(c, rect);
                 result = UIGraphicsGetImageFromCurrentImageContext();
             } else {
-                NSLog(@"No context?");
+                DDLogDebug(@"No context?");
             }
             UIGraphicsEndImageContext();
         }

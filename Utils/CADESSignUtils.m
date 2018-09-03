@@ -56,7 +56,6 @@
     NSArray *listItems = [urlString componentsSeparatedByString:@"\n"];
     NSMutableDictionary *keyValues = [NSMutableDictionary dictionaryWithCapacity:listItems.count];
     for (NSString *item in listItems) {
-        //NSLog(@"Item %@",item);
         @try
         {
             NSRange range = [item rangeOfString:@"="];
@@ -159,12 +158,12 @@
             return [[CertificateUtils sharedWrapper] getSignatureBytesSHA512:dataPreSign];
         }
         else{
-            NSLog(@"Algoritmo no soportado: %@",alg);
+            DDLogDebug(@"Algoritmo no soportado: %@",alg);
             return NULL;
         }
     }
     else{
-        NSLog(@"Algoritmo no reconocido: %@",algorithm);
+        DDLogDebug(@"Algoritmo no reconocido: %@",algorithm);
         return NULL;
     }
 }
@@ -195,12 +194,12 @@
             return [certUtils getHashBytesSHA512:dataPreSign];
         }
         else{
-            NSLog(@"Algoritmo no soportado: %@",alg);
+            DDLogDebug(@"Algoritmo no soportado: %@",alg);
             return NULL;
         }
     }
     else{
-        NSLog(@"Algoritmo no reconocido: %@",algorithm);
+        DDLogError(@"Algoritmo no reconocido: %@",algorithm);
         return NULL;
     }
 }
@@ -279,12 +278,12 @@
             return SHA512_OID;
         }
         else{
-            NSLog(@"Algoritmo no soportado: %@",alg);
+            DDLogError(@"Algoritmo no soportado: %@",alg);
             return NULL;
         }
     }
     else{
-        NSLog(@"Algoritmo no reconocido: %@",algorithm);
+        DDLogError(@"Algoritmo no reconocido: %@",algorithm);
         return NULL;
     }
 
@@ -317,7 +316,7 @@
         return SHA512_OID;
     }
     else{
-        NSLog(@"Algoritmo no soportado: %@",algorithm);
+        DDLogError(@"Algoritmo no soportado: %@",algorithm);
         return NULL;
     }
         
