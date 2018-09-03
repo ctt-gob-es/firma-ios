@@ -31,7 +31,7 @@
 
 // Cuando se produce un error durante el proceso de parseo, invalidamos el resultado.
 -(void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError{
-    NSLog(@"Error durante la realizacion del parseo del XML: %@", [parseError localizedDescription]);
+    DDLogError(@"Error durante la realizacion del parseo del XML: %@", [parseError localizedDescription]);
     self.error = true;
 }
 
