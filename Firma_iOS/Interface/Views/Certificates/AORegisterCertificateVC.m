@@ -89,8 +89,8 @@
         _message = NSLocalizedString(@"certificate_successfully_loaded", nil);
 
         [CommonAlert createAlertWithTitle:NSLocalizedString(@"certificate_loaded", nil) message:_message cancelButtonTitle: OK showOn:self onComplete:^{
-            if (_delegate) {
-                [_delegate certificateAdded];
+            if (self->_delegate) {
+                [self->_delegate certificateAdded];
             }
         }];
     }
