@@ -101,8 +101,8 @@
     _registerCertificateDescriptionLabel.textColor = [UIColor redColor];
     _registerCertificateDescriptionLabel.text = _message;
     
-    NSLog(@"Message -> %@", _message);
-    NSLog(@"MessageLabel -> %@", _registerCertificateDescriptionLabel.text);
+    DDLogDebug(@"Message -> %@", _message);
+    DDLogDebug(@"MessageLabel -> %@", _registerCertificateDescriptionLabel.text);
     
     return;
 }

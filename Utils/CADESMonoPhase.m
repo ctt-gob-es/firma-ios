@@ -32,12 +32,10 @@
   precalculatedHashAlgorithm:(char*)precalculatedHashAlgorithm
            precalculatedHash:(NSData*)precalculatedHash {
     
-    NSLog(@"\n\nbase64UrlSafeCertificateData -> %@", base64UrlSafeCertificateData);
+    DDLogDebug(@"\n\nbase64UrlSafeCertificateData -> %@", base64UrlSafeCertificateData);
     NSData *sCertificate = [Base64 decode:base64UrlSafeCertificateData urlSafe:true];
 
-    NSLog(@"certificado sin trip: %@", sCertificate);
-    
-    //NSLog(@"%@", SecCertificateCopySubjectSummary(SecCertificateCreateWithData(kCFAllocatorDefault, (CFDataRef)(sCertificate))));
+    DDLogDebug(@"certificado sin trip: %@", sCertificate);
     
     const unsigned char *certificateDataBytes = (const unsigned char *)[sCertificate bytes];
     X509 *certificateX509 = d2i_X509(NULL, &certificateDataBytes, [sCertificate length]);
@@ -54,7 +52,7 @@
     }
     else{
          hashAlgorithm = [CADESSignUtils getAlgorithmOID:signAlgoInUse];
-        NSLog(@"CADESMonoPhase: algoritmo hash -> %s", hashAlgorithm);
+        DDLogDebug(@"CADESMonoPhase: algoritmo hash -> %s", hashAlgorithm);
     }
     
     /*** EL SIGNING TIME LO CALCULAMOS FUERA. ESTO ES PORQUE AL GENERAR PRIMERO LOS ATRIBUTOS DEL FIRMANTE  PARA FIRMARLOS Y LUEGO VOLVER A GENERARLOS PARA CREAR LA ESTRUCTURA CADES, LAS FECHAS NO COINCIDIRÍAN. ***/
@@ -117,7 +115,6 @@
     
     NSString *directory = [tmpDir path];
     directory= [directory stringByAppendingString:@"/firmantes.csig"];
-    //NSLog(@"Fichero temporal creado en: %@",directory);
     char *nombre2 = (char*)[directory UTF8String];
     /* Codificamos los atributos firmados y los guardamos en un fichero */
     FILE *fichero2;
@@ -151,8 +148,7 @@
     NSString *contentDataString = NULL;
     if([mode isEqualToString:PROPERTIES_PARAMETER_MODE_IMPLICIT])
     {
-        NSLog(@"F - NSString de los datos: %@", contentData);
-        
+        DDLogDebug(@"F - NSString de los datos: %@", contentData);
         contentDataString = [[NSString alloc] initWithData:contentData encoding:NSUTF8StringEncoding];
     }
     /*** GENERAMOS LA ESTRUCTURA CADES ****/
@@ -181,7 +177,6 @@
     
     NSString *directorySign = [tmpDir path];
     directorySign= [directorySign stringByAppendingString:@"/sign.csig"];
-    //NSLog(@"Fichero temporal creado en: %@",directorySign);
     char *rutaSign = (char*)[directorySign UTF8String];
     
     /* Codificamos la firma y los guardamos en un fichero */
@@ -194,9 +189,9 @@
     NSData *sign = [[NSFileManager defaultManager] contentsAtPath: directorySign];
     
     /* devolvemos la firma */
-    NSLog(@"\n\n\n");
-    NSLog(@"CADESMonoPhase -> getCadesMonoPhase => \n%@", sign);
-    NSLog(@"\n\n\n");
+    DDLogDebug(@"\n\n\n");
+    DDLogDebug(@"CADESMonoPhase -> getCadesMonoPhase => \n%@", sign);
+    DDLogDebug(@"\n\n\n");
     return sign;  
        
 }
