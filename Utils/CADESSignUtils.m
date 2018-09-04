@@ -106,7 +106,7 @@
  */
 +(NSDictionary*) parseUrl:(NSString*) urlString {
     urlString =  [self decodeFromPercentEscapeString:urlString];
-    NSString* webStringURL = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString* webStringURL = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]];
     NSURL * url = [NSURL URLWithString:webStringURL];
     NSArray *listItems = [[url query] componentsSeparatedByString:@"&"];
     NSMutableDictionary *keyValues = [NSMutableDictionary dictionaryWithCapacity:listItems.count];
