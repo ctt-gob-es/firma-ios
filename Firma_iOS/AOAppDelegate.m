@@ -4,6 +4,9 @@
 //
 
 #import "AOAppDelegate.h"
+#import "DDASLLogger.h"
+#import "DDTTYLogger.h"
+#import "DDFileLogger.h"
 #import "AOAboutViewController.h"
 #import "AORegisteredCertificatesTVC.h"
 #import "GAI.h"
@@ -15,8 +18,10 @@ NSString *URLString, *state = @"Inactive";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //[self.window makeKeyAndVisible];
-    
+    // Configure CocoaLumberjack
+    [DDLog addLogger:[DDASLLogger sharedInstance]];
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+
     [self registerDefaultsFromSettingsBundle];
     [self setupLogger];
 
