@@ -252,7 +252,7 @@ SecKeyRef privateKey = NULL;
     //parámetro del servlet donde se almacena la firma "servlet"
     if([urlParameters objectForKey:PARAMETER_NAME_STSERVLET] != NULL) {
         urlServlet = [[NSString alloc] initWithString:[urlParameters objectForKey:PARAMETER_NAME_STSERVLET]];
-        urlServlet = [urlServlet stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
+        urlServlet = [urlServlet stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]];
         DDLogDebug(@"URL Servlet => %@", urlServlet);
     }
     
