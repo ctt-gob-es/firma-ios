@@ -135,7 +135,7 @@ SecKeyRef privateKey = NULL;
         DDLogDebug(@"SI han llegado los datos a firmar a AOSignViewController");
         
         NSString *data =[urlParameters objectForKey:PARAMETER_NAME_DAT];
-        data = [data stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        data = [data stringByRemovingPercentEncoding];
         datosInUse = [[NSString alloc] initWithString:data];
     }
     else
