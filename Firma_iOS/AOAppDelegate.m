@@ -40,13 +40,8 @@ NSString *URLString, *state = @"Inactive";
     return YES;
 }
 
-//- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *, id> *)options {
-//   
-//    return YES;    
-//}
+-(BOOL)application:(UIApplication *)application openURL:(nonnull NSURL *)url options:(nonnull NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
 
--(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    
     URLString = [url absoluteString];
     [[NSUserDefaults standardUserDefaults] setObject:URLString forKey:URL];
     [[NSUserDefaults standardUserDefaults] synchronize];
