@@ -67,13 +67,8 @@ NSString *URLString, *state = @"Inactive";
         self.window.rootViewController = registeredCertificatesTVC;
     }
     else {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            dispatch_sync(dispatch_get_main_queue(), ^{
-                
-                [[NSNotificationCenter defaultCenter] postNotificationName:URL_READED object:URLString];
-                DDLogDebug(@"\n\n ** URL AppDelegate => %@", URLString);
-            });
-        });
+        [[NSNotificationCenter defaultCenter] postNotificationName:URL_READED object:URLString];
+        DDLogDebug(@"\n\n ** URL AppDelegate => %@", URLString);
     }
     
     return YES;
