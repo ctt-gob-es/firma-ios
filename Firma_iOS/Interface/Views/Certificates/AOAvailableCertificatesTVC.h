@@ -1,0 +1,15 @@
+//
+//  AOAvailableCertificatesTVC.h
+//  Firma_iOS
+//
+//  Created by Rocio Tovar on 25/3/15.
+//  Copyright (c) 2015 Atos. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import "AORegisterCertificateVC.h"
+
+@interface AOAvailableCertificatesTVC : UITableViewController<AORegisterCertificateVCDelegate>
+@property (strong, nonatomic) IBOutlet UILabel *availableCertificatesDescriptionLabel;
+
+@end

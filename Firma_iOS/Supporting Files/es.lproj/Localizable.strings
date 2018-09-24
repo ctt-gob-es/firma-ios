@@ -1,0 +1,95 @@
+/* 
+  Localizable.strings
+  Firma_iOS
+
+  Created by Tomas on 30/08/13.
+ 
+ NSLocalizedString(@"cerrar",nil)
+ 
+*/
+"processing" = "Procesando...";
+"atencion" = "¡Atención!";
+"cerrar" = "Cerrar";
+"conectar" = "Conectar";
+"url_forja" = "http://blogs.forja.cenatic.es/clienteafirma/?p=42";
+"seleccion_almacen" = "Por favor, seleccione un almacen de claves y certificados";
+"no_almacenes" = "No dispone de almacenes de claves y certificados en la aplicación. Para añadir almacenes de claves y certificados a la aplicación, por favor, añádalos desde la configuración de la aplicación en iTunes.";
+"error" = "Error";
+"no_datos_firmar" = "No se han indicado datos para firmar. Por favor, vuelva de nuevo al navegador donde inició la operación e inténtelo de nuevo";
+"seleccion_almacen_guradar" = "Seleccione un almacén para guardar";
+"error_descarga_fichero" = "Se ha producido un error al intentar descargar el fichero. Inténtelo de nuevo más tarde.";
+"ok" = "¡OK!";
+"finalizado" = "Proceso finalizado. Se ha completado el proceso de firma y se ha guardado la firma correctamente en la nube:";
+"error_guardar_firma" = "Se ha Producido un error al guardar la firma:";
+"help_acercade" = "Acerca de...";
+"help_instalar_certificados" ="Cómo instalar certificados";
+"help_preguntas" = "Preguntas más comunes";
+"preg_borrar_almacen" = "¿Desea borrar el almacén ";
+"borrar" = "Borrar";
+"seleccion_almacen_borrar" = "Por favor, seleccione el almacen de claves y certificados que desea eliminar";
+"bienvenida" = "¡Bienvenido al Cliente @firma!";
+"bienvenida_msg" = "Para empezar a usar el Cliente @firma debe instalar un almacén de claves y certificados. Puede importar un almacén desde una la configuración de la aplicación de iTunes.";
+"error_borrar_almacen" = "No se ha podido borrar el almacén seleccionado.";
+"introducir_contrasenia" = "Por favor, introduzca la contraseña del almacén de claves ";
+"error_contrasenia" = "La contraseña del almacén de claves es incorrecta";
+"error_carga_almacen" = "No se ha podido cargar el almacén de claves";
+"seleccion_fichero_firma" = "Seleccione un fichero para proceder con la firma";
+"error_descarga_fichero" = "Se ha producido un error al intentar descargar el fichero. Inténtelo de nuevo más tarde.";
+"error_datos_firmar" = "No se han indicado datos para firmar. Por favor, vuelva de nuevo al navegador donde inició la operación e inténtelo de nuevo más tarde.";
+"error_objetivo_contrafirma" = "El objetivo indicado para la contrafirma no está soportado";
+"error_codigo_desconocido" = "Código de operación desconocido. Por favor, vuelva de nuevo al navegador donde inició la operación e inténtelo de nuevo más tarde";
+"error_url_servidor" = "No se ha indicado la URL del servidor. Por favor, vuelva de nuevo al navegador donde inició la operación e inténtelo de nuevo más tarde";
+"error_formato_firma" = "No se ha indicado un formato de firma. Por favor, vuelva de nuevo al navegador donde inició la operación e inténtelo de nuevo más tarde";
+"error_formato_no_soportado" = "Formato no soportado";
+"error_algoritmo_no_soportado" = "El Algoritmo no es váLido o no está soportado. Por favor, vuelva de nuevo al navegador donde inició la operación e inténtelo de nuevo más tarde";
+"proceso_finalizado_trifasico" = "Se ha completado el proceso de firma. Por favor, vuelva al navegador desde el que inició la operación para continuar";
+"error_proceso_firma" = "Se ha producido un error en el proceso de firma. Por favor, vuelva de nuevo al navegador donde inició la operación e inténtelo de nuevo más tarde";
+"error_conexion_servidor" = "No se ha podido establecer la conexión con el servidor. Por favor, vuelva de nuevo al navegador donde inició la operación e intentelo de nuevo.";
+"certificate_not_found" = "No se ha encontrado el certificado.";
+"wrong_password" = "Contraseña incorrecta.";
+"certificate_already_loaded" = "El certificado ya estaba cargado.";
+"an_error_occurred_with_number" = "Se ha producido un error %d";
+"an_error_occurred" = "Se ha producido un error.";
+"enter_your_certificate_password" = "Por favor, introduce la contraseña del certificado";
+"certificate_successfully_loaded" = "El certificado se ha cargado correctamente";
+"certificate_loaded" = "Certificado cargado.";
+"certificate_successfully_loaded_in_app" = "El certificado se ha cargado correctamente en su aplicación.";
+"remove" = "Eliminar";
+"certificate_successfully_deleted" = "Se ha eliminado el certificado correctamente";
+"error_ocurred_while_loading_the_certificate" = "Se ha producido un error al cargar el certificado";
+"valid_from_to" = "Válido desde %@ hasta %@";
+"certificate_instructions" = "La aplicación esta solicitando acceso a su almacen de certificados y no dispone de ninguno registrado.\n\n  Para instalar su certificado :\n 1. Conecte su dispositivo a su PC o Mac.\n 2. Localice el certificado que desea instalar ....(debe conocer el pin del certificado)\n3. En iTunes seleccione su certificado y arrástrelo a la ventana de documentos...\n4. Vuelva a esta pantalla y registrelo en el almacen del dispositivo.\n";
+"certificate_description_label" = "Desde esta pantalla puede añadir nuevos certificados con los que procesar sus firmas, o eliminar los certificados instalados en el dispositivo delizando la fila hacia la izquierda.";
+"home_description_label" = "Bienvenido a \"Cliente @firma iOS\" %@\nEsta aplicación permite realizar firmas electrónicas en las páginas de los proveedores de servicios que lo soporten.\nPara funcionar correctamente debe instalar un certificado electrónico y su clave privada en su dispositivo a través de iTunes. Consulte la documentación de su sistema iOS y con su proveedor de servicios de  certificación.";
+"available_certificates_description_label" = "Certificados disponibles en tu dispositivo. Por favor selecciona el certificado que quieres registrar.";
+"register_certificate_description_label" = "Introduce la contraseña para el registrar el certificado seleccionado.";
+"sign_certificate_selector_label" = "Se ha seleccionado el siguiente certificado del almacén:";
+"sign_certificate_description_label" = "Se va a utilizar este certificado para realizar la firma. Pulse el siguiente botón para iniciar el proceso.";
+"help_menu_description_label" = "Los contenidos de esta sección son específicos de la versión móvil del servicio. Si desea consultar información general sobre el mismo, puede visitar la web\nhttp://administracionelectronica.gob.es/";
+"help_menu_title" = "Ayuda";
+"about_title_label" = "Acerca de...";
+"about_description_label" = "\"Cliente @firma para Apple iOS\" v%@\n2013 Gobierno de España\n\nEl Cliente @firma para Apple iOS es Software Libre; puedes redistribuirlo y/o modificarlo bajo los términos de la siguiente licencia: \"European Software License 1.1\", cuyo texto completo puede consultarse en la siguiente página Web: http://ec.europa.eu/idabc/eupl.html\n\nEl código fuente de este programa, así como del resto de los componentes del proyecto se pueden descargar libremente desde: http://forja-ctt.administracionelectronica.gob.es\n\nEl proyecto Cliente @firma es un proyecto colaborativo, si desea participar en él, no dude en unirse a la comunidad, accesible desde la siguiente página Web:\n\nhttp://forja-ctt.administracionelectronica.gob.es/web/clienteafirma";
+"how_to_install_certificates_title" = "Cómo instalar certificados";
+"iTunes_instructions_label" = "Conecte su dispositivo a iTunes, vaya a la pestaña \"Aplicaciones\" y escoja \"Cliente @firma\" en la lista, para arrastrar sus certificados.";
+"certificate_instructions_label" = "Extensiones permitidas: .p12 y .pfx. Recuerde que necesita la contraseña de exportación de su certificado, y que éste debe de incluir la clave privada.";
+"more_info_button" = "  Más información";
+"frequently_asked_questions_title_label" = "Preguntas más comunes";
+"frequently_asked_questions_description_label_1" = "¿Cómo puedo realizar firmas electrónicas con este programa?\n\n";
+"frequently_asked_questions_description_label_2" = "El Cliente @firma iOS permite tanto la firma de ficheros de usuario en la nube como la firma de trámites web.\nPuede firmar ficheros en la nube a través de la opción \"Firmar\" de la pantalla principal de la aplicación. La firma generada se almacenará también en la nube, desde la que podrá descargarla a través de los medios proporcionados por la plataforma en cuestión que utilice.\nPara la firma de trámites web realice los trámites normalmente a través de su navegador. Si el trámite está preparado para la firma con el Cliente @firma móvil, este se ejecutará en el momento de la firma para que el usuario seleccione su certificado y ejecute la operación.\n\n";
+"frequently_asked_questions_description_label_3" = "Ciertas operaciones iniciadas desde páginas Web diseñadas para operar con el Cliente @firma terminan en error, aunque esas mismas operaciones se completan correctamente en otros sistemas (Mac OS X, etc.) ¿Por qué?\n\n";
+"frequently_asked_questions_description_label_4" = "El Cliente @firma para Apple iOS carece aún de ciertas funcionalidades que sí están presentes en versiones para otros sistemas operativos. Futuras actualizaciones del producto solventarán estas carencias. Mientras tanto, utilice otro sistema operativo y notifique si lo considera preciso a su proveedor de servicios.\n\n";
+"frequently_asked_questions_description_label_5" = "¿Corren peligro mis certificados si pierdo el dispositivo?\n\n";
+"frequently_asked_questions_description_label_6" = "Los certificados se almacenan en su dispositivo con un potente cifrado protegido con contraseña, pero como cualquier sistema criptográfico, en el momento que este está fuera del control de propietario corre el riesgo de ser comprometido. Si pierde el dispositivo debe contactar lo antes posible con su proveedor de servicios de certificación para revocar de inmediato los certificados que este contenía.\n\n";
+"frequently_asked_questions_description_label_7" = "He importado los certificados correctamente en el Cliente @firma para Apple iOS, pero aun así no consigo identificarme con ellos en las sedes electrónicas y demás páginas Web que lo requieren ¿Por qué?\n\n";
+"frequently_asked_questions_description_label_8" = "Los certificados importados en el Cliente @firma para Apple iOS son de uso exclusivo para firma electrónica en páginas Web diseñadas a tal efecto. Para usar un certificado digital en una autenticación Web segura debe seguir las instrucciones de su navegador Web y de Apple respecto al proceso de instalación de los certificados y sus claves en el sistema operativo iOS y en el propio navegador Web si fuese preciso.";
+"home_footer_label" = "Cliente @firma para Apple iOS %@ \n© Derecho de autor: Gobierno de España, 2018";
+"home_title" = "Inicio";
+"registered_certificates" = "Certificados Registrados";
+"sign" = "Firma electrónica";
+"help" = "Ayuda";
+"available_certificates" = "Certificados Disponibles";
+"about_navigation_title" = "Acerca de";
+"how_to_navigation_title" = "Como instalar Certificados";
+"questions_navigation_title" = "Preguntas";
+"keystore_manager_bar_item" = "Gestión de Certificados";
+"help_bar_item" = "Ayuda";
