@@ -1,6 +1,6 @@
 //
 //  AOEntity.m
-//  Firma_iOS
+//  SignSample02
 //
 //
 

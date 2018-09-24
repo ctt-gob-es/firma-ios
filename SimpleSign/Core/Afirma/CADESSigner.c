@@ -1,6 +1,6 @@
 //
 //  CADESSigner.c
-//  Firma_iOS
+//  SignSample02
 //
 //
 

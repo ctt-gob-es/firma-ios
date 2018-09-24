@@ -1,6 +1,6 @@
 //
 //  AOXMLReader.m
-//  Firma_iOS
+//  SignSample02
 //
 //
 

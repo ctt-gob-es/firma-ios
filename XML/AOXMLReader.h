@@ -1,6 +1,6 @@
 //
 //  AOXMLReader.h
-//  Firma_iOS
+//  SignSample02
 //
 //
 
@@ -9,10 +9,10 @@
 
 @interface AOXMLReader : NSObject <NSXMLParserDelegate>{
     NSMutableString *currentNodeContent;
-    NSXMLParser *parser;
-    AOEntity *currentEntidad;
+	NSXMLParser *parser;
+	AOEntity *currentEntidad;
 }
-@property (nonatomic, strong) NSMutableArray *entidades;
+@property (nonatomic, retain) NSMutableArray *entidades;
 
 -(id) loadXMLByString:(NSString *)xmlString;
 
