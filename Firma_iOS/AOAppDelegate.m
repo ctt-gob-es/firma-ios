@@ -40,13 +40,8 @@ NSString *URLString, *state = @"Inactive";
     return YES;
 }
 
-//- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *, id> *)options {
-//   
-//    return YES;    
-//}
+-(BOOL)application:(UIApplication *)application openURL:(nonnull NSURL *)url options:(nonnull NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
 
--(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    
     URLString = [url absoluteString];
     [[NSUserDefaults standardUserDefaults] setObject:URLString forKey:URL];
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -72,13 +67,8 @@ NSString *URLString, *state = @"Inactive";
         self.window.rootViewController = registeredCertificatesTVC;
     }
     else {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            dispatch_sync(dispatch_get_main_queue(), ^{
-                
-                [[NSNotificationCenter defaultCenter] postNotificationName:URL_READED object:URLString];
-                DDLogDebug(@"\n\n ** URL AppDelegate => %@", URLString);
-            });
-        });
+        [[NSNotificationCenter defaultCenter] postNotificationName:URL_READED object:URLString];
+        DDLogDebug(@"\n\n ** URL AppDelegate => %@", URLString);
     }
     
     return YES;

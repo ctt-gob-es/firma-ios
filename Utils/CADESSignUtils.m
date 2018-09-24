@@ -126,7 +126,7 @@
 
 // Decode a percent escape encoded string.
 + (NSString*) decodeFromPercentEscapeString:(NSString *) string {
-    return (NSString *) CFBridgingRelease(CFURLCreateStringByReplacingPercentEscapesUsingEncoding(NULL,(CFStringRef) string, CFSTR(""),kCFStringEncodingUTF8));
+    return (NSString *) CFBridgingRelease(CFURLCreateStringByReplacingPercentEscapes(NULL,(CFStringRef) string, CFSTR("")));
 }
 
 /**

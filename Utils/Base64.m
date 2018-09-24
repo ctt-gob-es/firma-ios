@@ -24,7 +24,7 @@
     if(str != NULL) {
         
         return [[NSData alloc] initWithBase64EncodedString:[
-                                                            str stringByReplacingPercentEscapesUsingEncoding: NSUTF8StringEncoding]
+                                                            str stringByRemovingPercentEncoding]
                                                             options:NSDataBase64DecodingIgnoreUnknownCharacters];
     }
     else {

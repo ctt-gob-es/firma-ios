@@ -135,7 +135,7 @@ SecKeyRef privateKey = NULL;
         DDLogDebug(@"SI han llegado los datos a firmar a AOSignViewController");
         
         NSString *data =[urlParameters objectForKey:PARAMETER_NAME_DAT];
-        data = [data stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        data = [data stringByRemovingPercentEncoding];
         datosInUse = [[NSString alloc] initWithString:data];
     }
     else
@@ -146,22 +146,7 @@ SecKeyRef privateKey = NULL;
         errorToSend = [errorToSend stringByAppendingString:ERROR_MISSING_DATA];
         errorToSend = [errorToSend stringByAppendingString:ERROR_SEPARATOR];
         errorToSend = [errorToSend stringByAppendingString:DESC_ERROR_MISSING_DATA];
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"error",nil) message: NSLocalizedString(@"error_datos_firmar",nil) delegate:self cancelButtonTitle: NSLocalizedString(@"cerrar",nil) otherButtonTitles:nil];
-        
-        CGFloat imageViewOriginX = 75;
-        CGFloat imageViewOriginY = 6;
-        CGFloat imageViewWidth = 40;
-        CGFloat imageViewHeight = 40;
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(imageViewOriginX, imageViewOriginY, imageViewWidth, imageViewHeight)];
-        
-        NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"warning_mini.png"]];
-        UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
-        [imageView setImage:bkgImg];
-        
-        [alert addSubview:imageView];
-        
-        [alert show];
+        [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self];                        
         self.signButton.userInteractionEnabled = NO;
         return;
 
@@ -252,7 +237,7 @@ SecKeyRef privateKey = NULL;
     //parámetro del servlet donde se almacena la firma "servlet"
     if([urlParameters objectForKey:PARAMETER_NAME_STSERVLET] != NULL) {
         urlServlet = [[NSString alloc] initWithString:[urlParameters objectForKey:PARAMETER_NAME_STSERVLET]];
-        urlServlet = [urlServlet stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
+        urlServlet = [urlServlet stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]];
         DDLogDebug(@"URL Servlet => %@", urlServlet);
     }
     
