@@ -9,6 +9,7 @@
 @implementation CADESConstants
 
 NSString *const OPERATION_SIGN = @"sign";
+NSString *const OPERATION_SELECT_CERTIFICATE = @"selectcert";
 NSString *const OPERATION_COSIGN = @"cosign";
 NSString *const OPERATION_COUNTERSIGN = @"countersign";
 NSString *const OPERATION_PRESIGN = @"pre";

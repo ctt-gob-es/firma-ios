@@ -223,7 +223,7 @@
         _idDocCert = [[NSString alloc] initWithString:[_opParameters objectForKey:PARAMETER_NAME_ID]];
     }
     
-    if (datosInUseCert == nil) {
+    if (datosInUseCert == nil && [[_opParameters objectForKey:PARAMETER_NAME_OPERATION] isEqualToString: OPERATION_SIGN]) {
         if([_opParameters objectForKey:PARAMETER_NAME_FILE_ID]!= NULL)
             _fileIdCert = [[NSString alloc] initWithString:[_opParameters objectForKey:PARAMETER_NAME_FILE_ID]];
         
@@ -265,6 +265,12 @@
                 [self.editTableView setAllowsSelection:NO];
             }
         }
+    }
+    
+    // Check if the operation is certificate selection
+    if ([[_opParameters objectForKey:PARAMETER_NAME_OPERATION] isEqualToString: OPERATION_SELECT_CERTIFICATE]) {
+        // DO THE SELECT CERTIFICATE FLOW
+        NSLog(@"SELECT CERTIFICATE CODE WILL BE HERE");
     }
 }
 
