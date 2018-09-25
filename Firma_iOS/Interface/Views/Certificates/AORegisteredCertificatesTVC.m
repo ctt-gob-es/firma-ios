@@ -208,70 +208,74 @@
     _opParameters = [urlParameters mutableCopy];
     NSString *datosInUseCert = NULL;
     
-    //Leemos si existen datos en la url
-    if([_opParameters objectForKey:PARAMETER_NAME_DAT] != NULL) {
-        datosInUseCert = [[NSString alloc] initWithString:[_opParameters objectForKey:PARAMETER_NAME_DAT]];
-    }
-    
-    //leemos la url del servlet de almacenamiento
-    if([_opParameters objectForKey:PARAMETER_NAME_STSERVLET] != NULL) {
-        _stServletCert = [[NSString alloc] initWithString:[_opParameters objectForKey:PARAMETER_NAME_STSERVLET]];
-    }
-    
-    //leemos el identificador del usuario
-    if([_opParameters objectForKey:PARAMETER_NAME_ID] != NULL) {
-        _idDocCert = [[NSString alloc] initWithString:[_opParameters objectForKey:PARAMETER_NAME_ID]];
-    }
-    
-    if (datosInUseCert == nil && [[_opParameters objectForKey:PARAMETER_NAME_OPERATION] isEqualToString: OPERATION_SIGN]) {
-        if([_opParameters objectForKey:PARAMETER_NAME_FILE_ID]!= NULL)
-            _fileIdCert = [[NSString alloc] initWithString:[_opParameters objectForKey:PARAMETER_NAME_FILE_ID]];
+    // Check if the operation is certificate selection
+    if ([[_opParameters objectForKey:PARAMETER_NAME_OPERATION] isEqualToString: OPERATION_SELECT_CERTIFICATE]) {
+        //leemos la url del servlet de almacenamiento
+        if([_opParameters objectForKey:PARAMETER_NAME_STSERVLET] != NULL) {
+            _stServletCert = [[NSString alloc] initWithString:[_opParameters objectForKey:PARAMETER_NAME_STSERVLET]];
+        }
+        //leemos el identificador del usuario
+        if([_opParameters objectForKey:PARAMETER_NAME_ID] != NULL) {
+            _idDocCert = [[NSString alloc] initWithString:[_opParameters objectForKey:PARAMETER_NAME_ID]];
+        }
+    } else {
+        //Leemos si existen datos en la url
+        if([_opParameters objectForKey:PARAMETER_NAME_DAT] != NULL) {
+            datosInUseCert = [[NSString alloc] initWithString:[_opParameters objectForKey:PARAMETER_NAME_DAT]];
+        }
         
-        if(_fileIdCert == nil){
-            //Notificamos del error al servidor si es posible
-            NSString *errorToSend = @"";
-            errorToSend = [errorToSend stringByAppendingString:ERROR_MISSING_DATA];
-            errorToSend = [errorToSend stringByAppendingString:ERROR_SEPARATOR];
-            errorToSend = [errorToSend stringByAppendingString:DESC_ERROR_MISSING_DATA];
-            
-            if(_stServletCert != NULL & _idDocCert != NULL)
-                [self errorReportAsync:errorToSend];
-            [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"no_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self];
-            [self.editTableView setAllowsSelection:NO];
-        } else {
-            if([_opParameters objectForKey:PARAMETER_NAME_RTSERVLET]!= NULL) {
-                _rtServletCert = [[NSString alloc] initWithString:[_opParameters objectForKey:PARAMETER_NAME_RTSERVLET]];
-            }
-            
-            if([_opParameters objectForKey:PARAMETER_NAME_CIPHER_KEY]!= NULL) {
-                _cipherKeyCert  = [[NSString alloc] initWithString:[_opParameters objectForKey:PARAMETER_NAME_CIPHER_KEY]];
-            }
-            
-            if(_cipherKeyCert != NULL && _rtServletCert != NULL) {
-                [self loadDataFromRtservlet];
-            }
-            else {
+        //leemos la url del servlet de almacenamiento
+        if([_opParameters objectForKey:PARAMETER_NAME_STSERVLET] != NULL) {
+            _stServletCert = [[NSString alloc] initWithString:[_opParameters objectForKey:PARAMETER_NAME_STSERVLET]];
+        }
+        
+        //leemos el identificador del usuario
+        if([_opParameters objectForKey:PARAMETER_NAME_ID] != NULL) {
+            _idDocCert = [[NSString alloc] initWithString:[_opParameters objectForKey:PARAMETER_NAME_ID]];
+        }
+        
+        if (datosInUseCert == nil) {
+            if([_opParameters objectForKey:PARAMETER_NAME_FILE_ID]!= NULL)
+                _fileIdCert = [[NSString alloc] initWithString:[_opParameters objectForKey:PARAMETER_NAME_FILE_ID]];
+            if(_fileIdCert == nil){
                 //Notificamos del error al servidor si es posible
                 NSString *errorToSend = @"";
                 errorToSend = [errorToSend stringByAppendingString:ERROR_MISSING_DATA];
                 errorToSend = [errorToSend stringByAppendingString:ERROR_SEPARATOR];
                 errorToSend = [errorToSend stringByAppendingString:DESC_ERROR_MISSING_DATA];
                 
-                if(_stServletCert != NULL & _idDocCert != NULL) {
-                    //[self errorReportAsync:errorToSend urlServlet:stServlet docId:idDoc];
+                if(_stServletCert != NULL & _idDocCert != NULL)
                     [self errorReportAsync:errorToSend];
-                }
-                [CommonAlert createAlertWithTitle: NSLocalizedString(@"error",nil) message:NSLocalizedString(@"no_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self];
+                [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"no_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self];
                 [self.editTableView setAllowsSelection:NO];
+            } else {
+                if([_opParameters objectForKey:PARAMETER_NAME_RTSERVLET]!= NULL) {
+                    _rtServletCert = [[NSString alloc] initWithString:[_opParameters objectForKey:PARAMETER_NAME_RTSERVLET]];
+                }
+                if([_opParameters objectForKey:PARAMETER_NAME_CIPHER_KEY]!= NULL) {
+                    _cipherKeyCert  = [[NSString alloc] initWithString:[_opParameters objectForKey:PARAMETER_NAME_CIPHER_KEY]];
+                }
+                if(_cipherKeyCert != NULL && _rtServletCert != NULL) {
+                    [self loadDataFromRtservlet];
+                }
+                else {
+                    //Notificamos del error al servidor si es posible
+                    NSString *errorToSend = @"";
+                    errorToSend = [errorToSend stringByAppendingString:ERROR_MISSING_DATA];
+                    errorToSend = [errorToSend stringByAppendingString:ERROR_SEPARATOR];
+                    errorToSend = [errorToSend stringByAppendingString:DESC_ERROR_MISSING_DATA];
+                    
+                    if(_stServletCert != NULL & _idDocCert != NULL) {
+                        //[self errorReportAsync:errorToSend urlServlet:stServlet docId:idDoc];
+                        [self errorReportAsync:errorToSend];
+                    }
+                    [CommonAlert createAlertWithTitle: NSLocalizedString(@"error",nil) message:NSLocalizedString(@"no_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self];
+                    [self.editTableView setAllowsSelection:NO];
+                }
             }
         }
     }
     
-    // Check if the operation is certificate selection
-    if ([[_opParameters objectForKey:PARAMETER_NAME_OPERATION] isEqualToString: OPERATION_SELECT_CERTIFICATE]) {
-        // DO THE SELECT CERTIFICATE FLOW
-        NSLog(@"SELECT CERTIFICATE CODE WILL BE HERE");
-    }
 }
 
 /**
