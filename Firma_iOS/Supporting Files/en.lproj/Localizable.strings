@@ -63,6 +63,9 @@
 "home_description_label" = "Welcome to \"Cliente @firma iOS\" v%@ \nThis application allows to sign electronically in the supported websites of services providers.\nIn order to run the application properly, an electronic certificate and its private key must be installed in your device using iTunes. Check your iOS documentation and consult with your provider of certification services.";
 "available_certificates_description_label" = "Certificates available on your device. Please select the certificate you want to register.";
 "register_certificate_description_label" = "Enter the password for the selected certificate to be registered.";
+"selectcert_certificate_selector_label" = "The next certificate is selected from the keychain: ";
+"selectcert_certificate_description_label" = "This certificate is going to be use in the send certificate procedure. Please, push the \"Send\" button to start the process.";
+"send" = "Send";
 "sign_certificate_selector_label" = "The next certificate is selected from the keychain: ";
 "sign_certificate_description_label" = "This certificate is going to be use in the signing procedure. Please, push the \"Sign\" button to start the process.";
 "help_menu_description_label" = "This section contents are specific to the mobile version of the service. For more general information about it, visit the web\nhttp://administracionelectronica.gob.es/";

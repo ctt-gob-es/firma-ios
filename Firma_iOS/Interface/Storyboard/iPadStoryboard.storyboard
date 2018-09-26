@@ -458,6 +458,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="nombreCert" destination="3B4-eC-jL3" id="uli-xw-y9z"/>
+                        <outlet property="signButton" destination="rRw-wY-ncA" id="B3D-iW-wOu"/>
                         <outlet property="signCertificateDescriptionLabel" destination="Q9n-WW-Wbv" id="jeF-Oy-L2h"/>
                         <outlet property="signCertificateSelectorLabel" destination="eK5-Is-6ed" id="EfU-dc-HC4"/>
                     </connections>

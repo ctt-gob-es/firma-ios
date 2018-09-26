@@ -85,15 +85,17 @@ SecKeyRef privateKey = NULL;
         //MODIFY THIS CODE TO ADAPT THE VIEW AND LOAD THE CORRECT DATA
         [self preloadData];
         self.screenName = @"IOS AOSignViewController - Start signature process window";
-        [self.signCertificateSelectorLabel setText:@"Certificate selection mode"];
-        [self.signCertificateDescriptionLabel setText:NSLocalizedString(@"text for certificate selection mode", nil)];
-        self.title = @"send";
+        [self.signCertificateSelectorLabel setText:NSLocalizedString(@"selectcert_certificate_selector_label", nil)];
+        [self.signCertificateDescriptionLabel setText:NSLocalizedString(@"selectcert_certificate_description_label", nil)];
+        self.title = NSLocalizedString(@"send", nil);
+        [self.signButton setTitle:NSLocalizedString(@"send", nil) forState:UIControlStateNormal];
     } else {
         [self preloadData];
         self.screenName = @"IOS AOSignViewController - Start signature process window";
         [self.signCertificateSelectorLabel setText:NSLocalizedString(@"sign_certificate_selector_label", nil)];
         [self.signCertificateDescriptionLabel setText:NSLocalizedString(@"sign_certificate_description_label", nil)];
         self.title = NSLocalizedString(@"sign", nil);
+        [self.signButton setTitle:NSLocalizedString(@"sign", nil) forState:UIControlStateNormal];
     }
     
 }
