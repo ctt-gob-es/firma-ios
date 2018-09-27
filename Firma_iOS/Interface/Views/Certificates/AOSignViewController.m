@@ -528,6 +528,19 @@ SecKeyRef privateKey = NULL;
 
 -(void)sendCertificate{
     
+    //iniciamos la barra de progreso.
+    alertpb = [[AlertProgressBar alloc]init];
+    [alertpb createProgressBar:self];
+    
+    // Get the certificate
+    NSString * certificateString = [Base64 urlSafeEncode: self.base64UrlSafeCertificateData];
+    NSLog(@"TEST CERTIFICATE: %@", certificateString);
+    
+    
+    
+    
+    
+    
 }
 
 
