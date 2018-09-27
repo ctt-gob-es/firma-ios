@@ -97,13 +97,55 @@ SecKeyRef privateKey = NULL;
         self.title = NSLocalizedString(@"sign", nil);
         [self.signButton setTitle:NSLocalizedString(@"sign", nil) forState:UIControlStateNormal];
     }
-    
 }
 
 -(IBAction)didClickSignButton:(id)sender
 {
     if([[self.parameters objectForKey:PARAMETER_NAME_OPERATION] isEqualToString: OPERATION_SELECT_CERTIFICATE]){
         NSLog(@"test to send the certificate");
+        
+        NSDictionary *urlParameters = self.parameters;
+
+        [self startSendingProcess];
+        
+        
+        
+        
+        //esto siguiente es para trackear en Google Analitics
+//
+//        id<GAITracker> tracker= [[GAI sharedInstance] defaultTracker];
+////        NSDictionary *urlParameters = self.parameters;
+//
+//        NSString *format = @"";
+//        if([urlParameters objectForKey:PARAMETER_NAME_FORMAT] != NULL)
+//            format = [[NSString alloc] initWithString:[urlParameters objectForKey:PARAMETER_NAME_FORMAT]];
+//        NSString *algorithm = @"";
+//        if([urlParameters objectForKey:PARAMETER_NAME_ALGORITHM2] != NULL)
+//            algorithm  = [[NSString alloc] initWithString:[urlParameters objectForKey:PARAMETER_NAME_ALGORITHM2]];
+//
+//        NSString *label=@"Operacion='1', formato='";
+//        label=[label stringByAppendingString:format];
+//        label=[label stringByAppendingString:@"', algoritmo='"];
+//        label=[label stringByAppendingString:algorithm];
+//        label=[label stringByAppendingString:@"'"];
+//
+//        [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"IOS Signature"     // Event category (required)
+//                                                              action:@"Signature"  // Event action (required)
+//                                                               label:label          // Event label
+//                                                               value:nil] build]];    // Event value
+//
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     } else {
         [self startSignatureProcess];
         
@@ -144,6 +186,12 @@ SecKeyRef privateKey = NULL;
 {
     NSDictionary *urlParameters = self.parameters;
     if ([[urlParameters objectForKey:PARAMETER_NAME_OPERATION] isEqualToString: OPERATION_SELECT_CERTIFICATE]) {
+        
+        //parámetro de la clave de cifrado con el servidor "key"
+        if([urlParameters objectForKey:PARAMETER_NAME_CIPHER_KEY] != NULL)
+            cipherKey  = [[NSString alloc] initWithString:[urlParameters objectForKey:PARAMETER_NAME_CIPHER_KEY]];
+        if([urlParameters objectForKey:PARAMETER_NAME_ID])
+            docId      = [[NSString alloc] initWithString:[urlParameters objectForKey:PARAMETER_NAME_ID]];
         
     } else {
         //parámetro donde se recogen los datos originales. El documento llega dentro del parámetro "dat"
@@ -427,6 +475,62 @@ SecKeyRef privateKey = NULL;
     self.signButton.enabled = NO;
     
 }
+
+
+-(void) startSendingProcess{
+    NSDictionary *urlParameters = self.parameters;
+    
+    //parámetro de operacion "op"
+    if([urlParameters objectForKey:PARAMETER_NAME_OPERATION] != NULL)
+        operation  = [[NSString alloc] initWithString:[urlParameters objectForKey:PARAMETER_NAME_OPERATION]];
+    
+    //parámetro del servlet donde se almacena la firma "servlet"
+    if([urlParameters objectForKey:PARAMETER_NAME_STSERVLET] != NULL) {
+        urlServlet = [[NSString alloc] initWithString:[urlParameters objectForKey:PARAMETER_NAME_STSERVLET]];
+        urlServlet = [urlServlet stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]];
+        DDLogDebug(@"URL Servlet => %@", urlServlet);
+    }
+    
+    DDLogDebug(@"Operacion: %@", operation);
+    DDLogDebug(@"Documento: %@", docId);
+    DDLogDebug(@"Servlet: %@", urlServlet);
+//    DDLogDebug(@"Formato: %@", signFormat);
+//    DDLogDebug(@"Algoritmo: %@", signAlgoInUse);
+    DDLogDebug(@"Clave de cifrado: %@", cipherKey);
+//    if(extraParams != NULL) {
+//        DDLogDebug(@"Propiedades: %@", extraParams);
+//    }
+    
+    
+    //Notify the error if this parameter does not exist
+    if (urlServlet == nil)
+    {
+        [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_url_servidor",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self onComplete:^{
+            [self backToAboutViewController];
+        }];
+        self.signButton.userInteractionEnabled = NO;
+        return;
+    }
+    
+    [self sendCertificate];
+    
+    self.signButton.userInteractionEnabled = NO;
+    self.signButton.enabled = NO;
+    
+    
+    
+    
+}
+
+/*
+ Method for send the certificate
+  */
+
+-(void)sendCertificate{
+    
+}
+
+
 
 /**
  Método donde se realiza la firma monofasica.
