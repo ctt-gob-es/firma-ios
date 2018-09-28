@@ -548,7 +548,7 @@ SecKeyRef privateKey = NULL;
     post = [post stringByAppendingString:HTTP_AND];
     
     //cifrado del certificado
-    DDLogDebug(@"Inicio del cifrado de la firma");
+    DDLogDebug(@"Inicio del cifrado del certificado");
     
     // Get the certificate
     NSString * certificateString = [Base64 urlSafeEncode: self.base64UrlSafeCertificateData];
