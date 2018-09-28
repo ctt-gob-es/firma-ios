@@ -532,18 +532,59 @@ SecKeyRef privateKey = NULL;
     alertpb = [[AlertProgressBar alloc]init];
     [alertpb createProgressBar:self];
     
+    //Creamos la cadena de envío al servidor POST
+    NSString *post = @"";
+    post = [post stringByAppendingString:PARAMETER_NAME_OPERATION];
+    post = [post stringByAppendingString:HTTP_EQUALS];
+    post = [post stringByAppendingString:OPERATION_PUT];
+    post = [post stringByAppendingString:HTTP_AND];
+    post = [post stringByAppendingString:PARAMETER_NAME_VERSION];
+    post = [post stringByAppendingString:HTTP_EQUALS];
+    post = [post stringByAppendingString:PARAMETER_NAME_VERSION_1_0];
+    post = [post stringByAppendingString:HTTP_AND];
+    post = [post stringByAppendingString:PARAMETER_NAME_ID];
+    post = [post stringByAppendingString:HTTP_EQUALS];
+    post = [post stringByAppendingString:docId];
+    post = [post stringByAppendingString:HTTP_AND];
+    
+    //cifrado del certificado
+    DDLogDebug(@"Inicio del cifrado de la firma");
+    
     // Get the certificate
     NSString * certificateString = [Base64 urlSafeEncode: self.base64UrlSafeCertificateData];
-    NSLog(@"TEST CERTIFICATE: %@", certificateString);
+    NSData *data = [certificateString dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *encryptedDataB64 = [DesCypher cypherData:data sk:[cipherKey dataUsingEncoding:NSUTF8StringEncoding]];
     
+    // Se envia el certificado cifrado y en base64
+    post = [post stringByAppendingString:PARAMETER_NAME_DAT];
+    post = [post stringByAppendingString:HTTP_EQUALS];
+    post = [post stringByAppendingString:encryptedDataB64];
     
+    //Codificamos la url de post
+    NSData *postData = [post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%d", (int)[postData length]];
     
+    // Obtenemos la URL del servidor de la pantalla de preferencias
+    NSURL* requestUrl = [[NSURL alloc] initWithString:urlServlet];
+    DDLogDebug(@"URL del servidor => : %@", requestUrl);
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval: 30.0];
+    [request setHTTPMethod:POST];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:@"Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" forHTTPHeaderField:@"User-Agent"];
+    [request setValue:@"text/plain,text/html,application/xhtml+xml,application/xml" forHTTPHeaderField:@"Accept"];
+    [request setHTTPBody:postData];
+    DDLogDebug(@"\n\nRealizamos el storage del certificado");
     
+    storingData = true;
     
-    
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            [connection start];
+        });
+    });
 }
-
-
 
 /**
  Método donde se realiza la firma monofasica.
