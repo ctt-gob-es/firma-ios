@@ -116,7 +116,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OpY-Kt-XLE">
-                                            <rect key="frame" x="20" y="38" width="15" height="10"/>
+                                            <rect key="frame" x="20" y="38" width="15" height="10.5"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -206,7 +206,7 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Certificates available on your device. Please select the certificate you want to register." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j4T-bl-INh">
-                                    <rect key="frame" x="270" y="120" width="295" height="103"/>
+                                    <rect key="frame" x="269.5" y="120" width="295" height="103"/>
                                     <constraints>
                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="189" id="dMw-Kd-ecV"/>
                                         <constraint firstAttribute="width" constant="295" id="iVx-bV-t5f"/>
@@ -285,7 +285,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Introduce la contraseña para el registrar el certificado seleccionado." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQW-DW-bdd">
-                                <rect key="frame" x="20" y="170" width="794" height="28"/>
+                                <rect key="frame" x="20" y="176" width="794" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="PqE-rI-0ns"/>
                                 </constraints>
@@ -294,13 +294,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Certificate Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPQ-f0-LDS">
-                                <rect key="frame" x="20" y="80" width="794" height="80"/>
+                                <rect key="frame" x="20" y="86" width="794" height="80"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="74A-Ax-zwi">
-                                <rect key="frame" x="273" y="311" width="288" height="50"/>
+                                <rect key="frame" x="273" y="317" width="288" height="50"/>
                                 <color key="backgroundColor" red="0.59864145517349243" green="0.0" blue="0.091977573931217194" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="288" id="HKU-hX-phC"/>
@@ -316,7 +316,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ikR-fm-VEk">
-                                <rect key="frame" x="20" y="208" width="794" height="30"/>
+                                <rect key="frame" x="20" y="214" width="794" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="icq-4T-JCv"/>
                                 </constraints>
@@ -362,7 +362,7 @@
                 <navigationController id="3LC-CA-znm" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="w5K-pc-uwV"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5QD-Y2-zXN">
-                        <rect key="frame" x="0.0" y="20" width="834" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="834" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -522,7 +522,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rmY-CM-YMa">
-                                <rect key="frame" x="29" y="201" width="776" height="858"/>
+                                <rect key="frame" x="29" y="201" width="777" height="858"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">"Cliente @firma para Apple iOS" v1.4.8
 2013 Gobierno de España
@@ -667,7 +667,7 @@ http://administracionelectronica.gob.es/</string>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="xg7-Ze-4Jb">
-                                <rect key="frame" x="157" y="30" width="520" height="100"/>
+                                <rect key="frame" x="156.5" y="30" width="520" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="520" id="8ZE-F0-zhc"/>
                                     <constraint firstAttribute="height" constant="100" id="Mcw-GU-ciC"/>
@@ -728,7 +728,7 @@ Para funcionar correctamente debe instalar un certificado electrónico y su clav
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I0p-Xi-caV">
-                                <rect key="frame" x="0.0" y="1063" width="834" height="49"/>
+                                <rect key="frame" x="0.0" y="1062" width="834" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <tabBarItem tag="2" title="Gestión de Certificados" image="cert_menu.png" id="Dea-Zs-0WA"/>
@@ -739,7 +739,7 @@ Para funcionar correctamente debe instalar un certificado electrónico y su clav
                                 </connections>
                             </tabBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PET-dd-39J">
-                                <rect key="frame" x="76" y="1010" width="682" height="43"/>
+                                <rect key="frame" x="76" y="1009" width="682" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="z5b-Yi-VSZ"/>
                                 </constraints>

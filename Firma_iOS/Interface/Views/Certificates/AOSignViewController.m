@@ -529,9 +529,7 @@ SecKeyRef privateKey = NULL;
 
 -(void)sendCertificate{
     
-    //iniciamos la barra de progreso.
-    alertpb = [[AlertProgressBar alloc]init];
-    [alertpb createProgressBar:self];
+
     
     //Creamos la cadena de envío al servidor POST
     NSString *post = @"";
@@ -576,15 +574,18 @@ SecKeyRef privateKey = NULL;
     [request setValue:@"text/plain,text/html,application/xhtml+xml,application/xml" forHTTPHeaderField:@"Accept"];
     [request setHTTPBody:postData];
     DDLogDebug(@"\n\nRealizamos el storage del certificado");
-    
     storingData = true;
-    
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         dispatch_sync(dispatch_get_main_queue(), ^{
             [connection start];
         });
     });
+    
+    //iniciamos la barra de progreso.
+    alertpb = [[AlertProgressBar alloc]init];
+    [alertpb createProgressBar:self];
+    
 }
 
 /**
