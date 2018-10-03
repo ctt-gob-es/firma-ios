@@ -51,11 +51,12 @@
 "an_error_occurred_with_number" = "Se ha producido un error %d";
 "an_error_occurred" = "Se ha producido un error.";
 "enter_your_certificate_password" = "Por favor, introduce la contraseña del certificado";
+"certificate_successfully_deleted" = "Se ha eliminado el certificado correctamente";
 "certificate_successfully_loaded" = "El certificado se ha cargado correctamente";
+"certificate_successfully_selected" = "Certificado seleccionado correctamente. Por favor, vuelva al navegador desde el que inició la operación para continuar.";
 "certificate_loaded" = "Certificado cargado.";
 "certificate_successfully_loaded_in_app" = "El certificado se ha cargado correctamente en su aplicación.";
 "remove" = "Eliminar";
-"certificate_successfully_deleted" = "Se ha eliminado el certificado correctamente";
 "error_ocurred_while_loading_the_certificate" = "Se ha producido un error al cargar el certificado";
 "valid_from_to" = "Válido desde %@ hasta %@";
 "certificate_instructions" = "La aplicación esta solicitando acceso a su almacen de certificados y no dispone de ninguno registrado.\n\n  Para instalar su certificado :\n 1. Conecte su dispositivo a su PC o Mac.\n 2. Localice el certificado que desea instalar ....(debe conocer el pin del certificado)\n3. En iTunes seleccione su certificado y arrástrelo a la ventana de documentos...\n4. Vuelva a esta pantalla y registrelo en el almacen del dispositivo.\n";

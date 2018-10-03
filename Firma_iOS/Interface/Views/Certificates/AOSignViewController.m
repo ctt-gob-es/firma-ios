@@ -838,7 +838,7 @@ SecKeyRef privateKey = NULL;
         [alertpb destroy:^{
             //se procesa la respuesta del servidor.
             NSString* title = NSLocalizedString(([responseString hasPrefix: OK]) ? @"ok" : @"error", nil);
-            NSString* message = NSLocalizedString(([responseString hasPrefix: OK]) ? @"proceso_finalizado_trifasico" : @"error_proceso_firma", nil);
+            NSString* message = NSLocalizedString(([responseString hasPrefix: OK]) ? [[self.parameters objectForKey:PARAMETER_NAME_OPERATION] isEqualToString: OPERATION_SELECT_CERTIFICATE]?@"certificate_successfully_selected":@"proceso_finalizado_trifasico" : @"error_proceso_firma", nil);
             [CommonAlert createAlertWithTitle: title message: message cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self onComplete:^{
                 [self backToAboutViewController];
             }];

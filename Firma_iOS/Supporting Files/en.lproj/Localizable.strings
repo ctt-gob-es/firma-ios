@@ -51,11 +51,12 @@
 "an_error_occurred_with_number" = "An error occurred %d";
 "an_error_occurred" = "An error occurred.";
 "enter_your_certificate_password" = "Please enter your certificate password.";
+"certificate_successfully_deleted" = "Certificate has been successfully deleted.";
 "certificate_successfully_loaded" = "Certificate has been successfully loaded.";
+"certificate_successfully_selected" = "Certificate has been successfully selected. Please, go back to the browser where you started the operation to continue.";
 "certificate_loaded" = "Certificate loaded.";
 "certificate_successfully_loaded_in_app" = "Certificate has been successfully loaded in your app.";
 "remove" = "Remove";
-"certificate_successfully_deleted" = "Certificate has been successfully deleted.";
 "error_ocurred_while_loading_the_certificate" = "An error occurred while loading the certificate.";
 "valid_from_to" = "Valid from %@ to %@";
 "certificate_instructions" = "The application is requesting access to stored certificates and there are none registered.\n\n  To install a certificate :\n 1. Connect your device to your PC or Mac.\n 2. Locate the certificate you want to install ....(you must know the PIN code of the certificate)\n3 In iTunes select your certificate and drag it to the document window....\n4. Go back to this screen and register it in the device's storage.\n";
