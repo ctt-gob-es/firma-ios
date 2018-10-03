@@ -81,37 +81,59 @@ SecKeyRef privateKey = NULL;
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     //Establecemos el nombre del certificado del almacen
     self.nombreCert.text = [CertificateUtils sharedWrapper].selectedCertificateName;
-    [self preloadData];
     self.screenName = @"IOS AOSignViewController - Start signature process window";
+    [self preloadData];
+    if ([[self.parameters objectForKey:PARAMETER_NAME_OPERATION] isEqualToString: OPERATION_SELECT_CERTIFICATE]){
+        [self applySelectCertificateText];
+    } else {
+        [self applySignCertificateText];
+    }
+}
+
+-(void) applySelectCertificateText {
+    [self.signCertificateSelectorLabel setText:NSLocalizedString(@"selectcert_certificate_selector_label", nil)];
+    [self.signCertificateDescriptionLabel setText:NSLocalizedString(@"selectcert_certificate_description_label", nil)];
+    self.title = NSLocalizedString(@"send", nil);
+    [self.signButton setTitle:NSLocalizedString(@"send", nil) forState:UIControlStateNormal];
+}
+
+-(void) applySignCertificateText {
     [self.signCertificateSelectorLabel setText:NSLocalizedString(@"sign_certificate_selector_label", nil)];
     [self.signCertificateDescriptionLabel setText:NSLocalizedString(@"sign_certificate_description_label", nil)];
     self.title = NSLocalizedString(@"sign", nil);
+    [self.signButton setTitle:NSLocalizedString(@"sign", nil) forState:UIControlStateNormal];
 }
+
 
 -(IBAction)didClickSignButton:(id)sender
 {
-    [self startSignatureProcess];
-    
-    id<GAITracker> tracker= [[GAI sharedInstance] defaultTracker];
-    NSDictionary *urlParameters = self.parameters;
-    
-    NSString *format = @"";
-    if([urlParameters objectForKey:PARAMETER_NAME_FORMAT] != NULL)
-        format = [[NSString alloc] initWithString:[urlParameters objectForKey:PARAMETER_NAME_FORMAT]];
-    NSString *algorithm = @"";
-    if([urlParameters objectForKey:PARAMETER_NAME_ALGORITHM2] != NULL)
-        algorithm  = [[NSString alloc] initWithString:[urlParameters objectForKey:PARAMETER_NAME_ALGORITHM2]];
-    
-    NSString *label=@"Operacion='1', formato='";
-    label=[label stringByAppendingString:format];
-    label=[label stringByAppendingString:@"', algoritmo='"];
-    label=[label stringByAppendingString:algorithm];
-    label=[label stringByAppendingString:@"'"];
-    
-    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"IOS Signature"     // Event category (required)
-                                                          action:@"Signature"  // Event action (required)
-                                                           label:label          // Event label
-                                                           value:nil] build]];    // Event value
+    if([[self.parameters objectForKey:PARAMETER_NAME_OPERATION] isEqualToString: OPERATION_SELECT_CERTIFICATE]){
+        [self startSendingProcess];
+        //This process will not be tracked by Google Analytics
+    } else {
+        [self startSignatureProcess];
+        
+        id<GAITracker> tracker= [[GAI sharedInstance] defaultTracker];
+        NSDictionary *urlParameters = self.parameters;
+        
+        NSString *format = @"";
+        if([urlParameters objectForKey:PARAMETER_NAME_FORMAT] != NULL)
+            format = [[NSString alloc] initWithString:[urlParameters objectForKey:PARAMETER_NAME_FORMAT]];
+        NSString *algorithm = @"";
+        if([urlParameters objectForKey:PARAMETER_NAME_ALGORITHM2] != NULL)
+            algorithm  = [[NSString alloc] initWithString:[urlParameters objectForKey:PARAMETER_NAME_ALGORITHM2]];
+        
+        NSString *label=@"Operacion='1', formato='";
+        label=[label stringByAppendingString:format];
+        label=[label stringByAppendingString:@"', algoritmo='"];
+        label=[label stringByAppendingString:algorithm];
+        label=[label stringByAppendingString:@"'"];
+        
+        [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"IOS Signature"     // Event category (required)
+                                                              action:@"Signature"  // Event action (required)
+                                                               label:label          // Event label
+                                                               value:nil] build]];    // Event value
+    }
 }
 
 -(void)onGoingToBackGround:(NSNotification*) notification
@@ -127,102 +149,101 @@ SecKeyRef privateKey = NULL;
 -(void) preloadData
 {
     NSDictionary *urlParameters = self.parameters;
-    
-    //parámetro donde se recogen los datos originales. El documento llega dentro del parámetro "dat"
-    if([urlParameters objectForKey:PARAMETER_NAME_DAT] != NULL)
-    {
+    if ([[urlParameters objectForKey:PARAMETER_NAME_OPERATION] isEqualToString: OPERATION_SELECT_CERTIFICATE]) {
         
-        DDLogDebug(@"SI han llegado los datos a firmar a AOSignViewController");
+        //parámetro de la clave de cifrado con el servidor "key"
+        if([urlParameters objectForKey:PARAMETER_NAME_CIPHER_KEY] != NULL)
+            cipherKey  = [[NSString alloc] initWithString:[urlParameters objectForKey:PARAMETER_NAME_CIPHER_KEY]];
+        if([urlParameters objectForKey:PARAMETER_NAME_ID])
+            docId      = [[NSString alloc] initWithString:[urlParameters objectForKey:PARAMETER_NAME_ID]];
         
-        NSString *data =[urlParameters objectForKey:PARAMETER_NAME_DAT];
-        data = [data stringByRemovingPercentEncoding];
-        datosInUse = [[NSString alloc] initWithString:data];
-    }
-    else
-    {
-        DDLogError(@"NO han llegado los datos a firmar a AOSignViewController");
-        //Notificamos del error al servidor si es posible
-        NSString *errorToSend = @"";
-        errorToSend = [errorToSend stringByAppendingString:ERROR_MISSING_DATA];
-        errorToSend = [errorToSend stringByAppendingString:ERROR_SEPARATOR];
-        errorToSend = [errorToSend stringByAppendingString:DESC_ERROR_MISSING_DATA];
-        [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self];                        
-        self.signButton.userInteractionEnabled = NO;
-        return;
-
-    }
-    
-    
-    if([urlParameters objectForKey:PARAMETER_NAME_FILE_ID] != NULL)
-        fileId = [[NSString alloc] initWithString:[urlParameters objectForKey:PARAMETER_NAME_FILE_ID]];
-    
-    if([urlParameters objectForKey:PARAMETER_NAME_RTSERVLET] != NULL)
-        rtServlet = [[NSString alloc] initWithString:[urlParameters objectForKey:PARAMETER_NAME_RTSERVLET]];
-    
-    //parámetro de la clave de cifrado con el servidor "key"
-    if([urlParameters objectForKey:PARAMETER_NAME_CIPHER_KEY] != NULL)
-        cipherKey  = [[NSString alloc] initWithString:[urlParameters objectForKey:PARAMETER_NAME_CIPHER_KEY]];
-    
-    if([urlParameters objectForKey:PARAMETER_NAME_ID])
-        docId      = [[NSString alloc] initWithString:[urlParameters objectForKey:PARAMETER_NAME_ID]];
-    
-    // Si no tenemos datos es que hay que recojerlos del servidor
-    if (datosInUse == nil)
-    {
-        // Si no hay identificador de datos es un error, porque ni hay datos ni podemos recogerlos del servidor
-        if(fileId == nil)
-        {
+    } else {
+        //parámetro donde se recogen los datos originales. El documento llega dentro del parámetro "dat"
+        if([urlParameters objectForKey:PARAMETER_NAME_DAT] != NULL) {
+            DDLogDebug(@"SI han llegado los datos a firmar a AOSignViewController");
+            NSString *data =[urlParameters objectForKey:PARAMETER_NAME_DAT];
+            data = [data stringByRemovingPercentEncoding];
+            datosInUse = [[NSString alloc] initWithString:data];
+        } else {
+            DDLogError(@"NO han llegado los datos a firmar a AOSignViewController");
             //Notificamos del error al servidor si es posible
             NSString *errorToSend = @"";
             errorToSend = [errorToSend stringByAppendingString:ERROR_MISSING_DATA];
             errorToSend = [errorToSend stringByAppendingString:ERROR_SEPARATOR];
             errorToSend = [errorToSend stringByAppendingString:DESC_ERROR_MISSING_DATA];
-            [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self onComplete:^{
-                [self backToAboutViewController];
-            }];
-            
+            [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self];
             self.signButton.userInteractionEnabled = NO;
             return;
         }
-        // En este punto buscamos los datos en el servidor intermedio
-        else
+        if([urlParameters objectForKey:PARAMETER_NAME_FILE_ID] != NULL)
+            fileId = [[NSString alloc] initWithString:[urlParameters objectForKey:PARAMETER_NAME_FILE_ID]];
+        
+        if([urlParameters objectForKey:PARAMETER_NAME_RTSERVLET] != NULL)
+            rtServlet = [[NSString alloc] initWithString:[urlParameters objectForKey:PARAMETER_NAME_RTSERVLET]];
+        
+        //parámetro de la clave de cifrado con el servidor "key"
+        if([urlParameters objectForKey:PARAMETER_NAME_CIPHER_KEY] != NULL)
+            cipherKey  = [[NSString alloc] initWithString:[urlParameters objectForKey:PARAMETER_NAME_CIPHER_KEY]];
+        
+        if([urlParameters objectForKey:PARAMETER_NAME_ID])
+            docId      = [[NSString alloc] initWithString:[urlParameters objectForKey:PARAMETER_NAME_ID]];
+        
+        // Si no tenemos datos es que hay que recojerlos del servidor
+        if (datosInUse == nil)
         {
-            if(cipherKey != NULL && rtServlet != NULL)
-            {
-                DDLogDebug(@"No hay datos en URL pero hay direccion de recuperación y clave de cifrado, se descargarán los datos a firmar");
-                [self loadDataFromRtservlet:fileId rtServlet:rtServlet];
-            }
-            // Si no teniamos clave de cifrado o dirección del servidor intermedio es un error
-            else
+            // Si no hay identificador de datos es un error, porque ni hay datos ni podemos recogerlos del servidor
+            if(fileId == nil)
             {
                 //Notificamos del error al servidor si es posible
                 NSString *errorToSend = @"";
                 errorToSend = [errorToSend stringByAppendingString:ERROR_MISSING_DATA];
                 errorToSend = [errorToSend stringByAppendingString:ERROR_SEPARATOR];
                 errorToSend = [errorToSend stringByAppendingString:DESC_ERROR_MISSING_DATA];
-                [self errorReportAsync:errorToSend];
                 [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self onComplete:^{
                     [self backToAboutViewController];
                 }];
                 self.signButton.userInteractionEnabled = NO;
                 return;
             }
+            // En este punto buscamos los datos en el servidor intermedio
+            else
+            {
+                if(cipherKey != NULL && rtServlet != NULL)
+                {
+                    DDLogDebug(@"No hay datos en URL pero hay direccion de recuperación y clave de cifrado, se descargarán los datos a firmar");
+                    [self loadDataFromRtservlet:fileId rtServlet:rtServlet];
+                }
+                // Si no teniamos clave de cifrado o dirección del servidor intermedio es un error
+                else
+                {
+                    //Notificamos del error al servidor si es posible
+                    NSString *errorToSend = @"";
+                    errorToSend = [errorToSend stringByAppendingString:ERROR_MISSING_DATA];
+                    errorToSend = [errorToSend stringByAppendingString:ERROR_SEPARATOR];
+                    errorToSend = [errorToSend stringByAppendingString:DESC_ERROR_MISSING_DATA];
+                    [self errorReportAsync:errorToSend];
+                    [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self onComplete:^{
+                        [self backToAboutViewController];
+                    }];
+                    self.signButton.userInteractionEnabled = NO;
+                    return;
+                }
+            }
         }
-    }
-    
-    if (docId == nil)
-    {
-        //Notificamos del error al servidor si es posible
-        NSString *errorToSend = @"";
-        errorToSend = [errorToSend stringByAppendingString:ERROR_MISSING_DATA_ID];
-        errorToSend = [errorToSend stringByAppendingString:ERROR_SEPARATOR];
-        errorToSend = [errorToSend stringByAppendingString:DESC_ERROR_MISSING_DATA_ID];
-        [self errorReportAsync:errorToSend];
-        [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self onComplete:^{
-            [self backToAboutViewController];
-        }];
-        self.signButton.userInteractionEnabled = NO;
-        return;
+        if (docId == nil)
+        {
+            //Notificamos del error al servidor si es posible
+            NSString *errorToSend = @"";
+            errorToSend = [errorToSend stringByAppendingString:ERROR_MISSING_DATA_ID];
+            errorToSend = [errorToSend stringByAppendingString:ERROR_SEPARATOR];
+            errorToSend = [errorToSend stringByAppendingString:DESC_ERROR_MISSING_DATA_ID];
+            [self errorReportAsync:errorToSend];
+            [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self onComplete:^{
+                [self backToAboutViewController];
+            }];
+            self.signButton.userInteractionEnabled = NO;
+            return;
+        }
     }
 }
 
@@ -416,6 +437,117 @@ SecKeyRef privateKey = NULL;
     
     self.signButton.userInteractionEnabled = NO;
     self.signButton.enabled = NO;
+    
+}
+
+
+-(void) startSendingProcess{
+    NSDictionary *urlParameters = self.parameters;
+    
+    //parámetro de operacion "op"
+    if([urlParameters objectForKey:PARAMETER_NAME_OPERATION] != NULL)
+        operation  = [[NSString alloc] initWithString:[urlParameters objectForKey:PARAMETER_NAME_OPERATION]];
+    
+    //parámetro del servlet donde se almacena la firma "servlet"
+    if([urlParameters objectForKey:PARAMETER_NAME_STSERVLET] != NULL) {
+        urlServlet = [[NSString alloc] initWithString:[urlParameters objectForKey:PARAMETER_NAME_STSERVLET]];
+        urlServlet = [urlServlet stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]];
+        DDLogDebug(@"URL Servlet => %@", urlServlet);
+    }
+    
+    DDLogDebug(@"Operacion: %@", operation);
+    DDLogDebug(@"Documento: %@", docId);
+    DDLogDebug(@"Servlet: %@", urlServlet);
+//    DDLogDebug(@"Formato: %@", signFormat);
+//    DDLogDebug(@"Algoritmo: %@", signAlgoInUse);
+    DDLogDebug(@"Clave de cifrado: %@", cipherKey);
+//    if(extraParams != NULL) {
+//        DDLogDebug(@"Propiedades: %@", extraParams);
+//    }
+    
+    
+    //Notify the error if this parameter does not exist
+    if (urlServlet == nil)
+    {
+        [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_url_servidor",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self onComplete:^{
+            [self backToAboutViewController];
+        }];
+        self.signButton.userInteractionEnabled = NO;
+        return;
+    }
+    
+    [self sendCertificate];
+    
+    self.signButton.userInteractionEnabled = NO;
+    self.signButton.enabled = NO;
+    
+    
+    
+    
+}
+
+/*
+ Method for send the certificate
+  */
+
+-(void)sendCertificate{
+    
+
+    
+    //Creamos la cadena de envío al servidor POST
+    NSString *post = @"";
+    post = [post stringByAppendingString:PARAMETER_NAME_OPERATION];
+    post = [post stringByAppendingString:HTTP_EQUALS];
+    post = [post stringByAppendingString:OPERATION_PUT];
+    post = [post stringByAppendingString:HTTP_AND];
+    post = [post stringByAppendingString:PARAMETER_NAME_VERSION];
+    post = [post stringByAppendingString:HTTP_EQUALS];
+    post = [post stringByAppendingString:PARAMETER_NAME_VERSION_1_0];
+    post = [post stringByAppendingString:HTTP_AND];
+    post = [post stringByAppendingString:PARAMETER_NAME_ID];
+    post = [post stringByAppendingString:HTTP_EQUALS];
+    post = [post stringByAppendingString:docId];
+    post = [post stringByAppendingString:HTTP_AND];
+    
+    //cifrado del certificado
+    DDLogDebug(@"Inicio del cifrado del certificado");
+    
+    // Get the certificate
+    NSString * certificateString = [Base64 urlSafeEncode: self.base64UrlSafeCertificateData];
+    NSData *data = [certificateString dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *encryptedDataB64 = [DesCypher cypherData:data sk:[cipherKey dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    // Se envia el certificado cifrado y en base64
+    post = [post stringByAppendingString:PARAMETER_NAME_DAT];
+    post = [post stringByAppendingString:HTTP_EQUALS];
+    post = [post stringByAppendingString:encryptedDataB64];
+    
+    //Codificamos la url de post
+    NSData *postData = [post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%d", (int)[postData length]];
+    
+    // Obtenemos la URL del servidor de la pantalla de preferencias
+    NSURL* requestUrl = [[NSURL alloc] initWithString:urlServlet];
+    DDLogDebug(@"URL del servidor => : %@", requestUrl);
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval: 30.0];
+    [request setHTTPMethod:POST];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:@"Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" forHTTPHeaderField:@"User-Agent"];
+    [request setValue:@"text/plain,text/html,application/xhtml+xml,application/xml" forHTTPHeaderField:@"Accept"];
+    [request setHTTPBody:postData];
+    DDLogDebug(@"\n\nRealizamos el storage del certificado");
+    storingData = true;
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            [connection start];
+        });
+    });
+    
+    //iniciamos la barra de progreso.
+    alertpb = [[AlertProgressBar alloc]init];
+    [alertpb createProgressBar:self];
     
 }
 
@@ -706,12 +838,11 @@ SecKeyRef privateKey = NULL;
         [alertpb destroy:^{
             //se procesa la respuesta del servidor.
             NSString* title = NSLocalizedString(([responseString hasPrefix: OK]) ? @"ok" : @"error", nil);
-            NSString* message = NSLocalizedString(([responseString hasPrefix: OK]) ? @"proceso_finalizado_trifasico" : @"error_proceso_firma", nil);
+            NSString* message = [[self.parameters objectForKey:PARAMETER_NAME_OPERATION] isEqualToString: OPERATION_SELECT_CERTIFICATE] ? [self selectCertificateAlertText: responseString]:[self signAlertText:responseString];
             [CommonAlert createAlertWithTitle: title message: message cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self onComplete:^{
                 [self backToAboutViewController];
             }];
         }];
-        
     }
     // Se recogen los datos del servidor
     else if (retrievingDataFromServlet) {
@@ -786,6 +917,15 @@ SecKeyRef privateKey = NULL;
     }
     
     // release the connection, and the data object
+}
+
+
+- (NSString *) selectCertificateAlertText:(NSString*)responseString {
+    return NSLocalizedString(([responseString hasPrefix: OK]) ? @"certificate_successfully_selected" : @"error_process_select_certificate", nil);
+}
+
+- (NSString *) signAlertText:(NSString*)responseString {
+    return NSLocalizedString(([responseString hasPrefix: OK]) ? @"proceso_finalizado_trifasico" : @"error_proceso_firma", nil);
 }
 
 /**************************/
@@ -1196,12 +1336,6 @@ SecKeyRef privateKey = NULL;
     UINavigationController *objectNav = [[UINavigationController alloc] initWithRootViewController:homeViewController];
     [self presentViewController:objectNav animated:YES completion:nil];
 
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

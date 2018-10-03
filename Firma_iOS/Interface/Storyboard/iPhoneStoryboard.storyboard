@@ -417,6 +417,7 @@
                     <navigationItem key="navigationItem" title="Sign" id="cR5-HC-qzW"/>
                     <connections>
                         <outlet property="nombreCert" destination="hrY-8D-j5N" id="KEc-Ow-Umz"/>
+                        <outlet property="signButton" destination="931-34-4yN" id="SVY-cT-Jbr"/>
                         <outlet property="signCertificateDescriptionLabel" destination="tjW-1q-7Ig" id="NUG-OP-tfW"/>
                         <outlet property="signCertificateSelectorLabel" destination="xR1-Ki-Le2" id="gsN-TB-vEO"/>
                     </connections>
