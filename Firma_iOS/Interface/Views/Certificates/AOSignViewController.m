@@ -108,45 +108,8 @@ SecKeyRef privateKey = NULL;
 -(IBAction)didClickSignButton:(id)sender
 {
     if([[self.parameters objectForKey:PARAMETER_NAME_OPERATION] isEqualToString: OPERATION_SELECT_CERTIFICATE]){
-        NSLog(@"test to send the certificate");
-        
         [self startSendingProcess];
-        
-        //esto siguiente es para trackear en Google Analitics
-//
-//        id<GAITracker> tracker= [[GAI sharedInstance] defaultTracker];
-////        NSDictionary *urlParameters = self.parameters;
-//
-//        NSString *format = @"";
-//        if([urlParameters objectForKey:PARAMETER_NAME_FORMAT] != NULL)
-//            format = [[NSString alloc] initWithString:[urlParameters objectForKey:PARAMETER_NAME_FORMAT]];
-//        NSString *algorithm = @"";
-//        if([urlParameters objectForKey:PARAMETER_NAME_ALGORITHM2] != NULL)
-//            algorithm  = [[NSString alloc] initWithString:[urlParameters objectForKey:PARAMETER_NAME_ALGORITHM2]];
-//
-//        NSString *label=@"Operacion='1', formato='";
-//        label=[label stringByAppendingString:format];
-//        label=[label stringByAppendingString:@"', algoritmo='"];
-//        label=[label stringByAppendingString:algorithm];
-//        label=[label stringByAppendingString:@"'"];
-//
-//        [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"IOS Signature"     // Event category (required)
-//                                                              action:@"Signature"  // Event action (required)
-//                                                               label:label          // Event label
-//                                                               value:nil] build]];    // Event value
-//
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        //This process will not be tracked by Google Analytics
     } else {
         [self startSignatureProcess];
         
