@@ -44,6 +44,7 @@
 "error_algoritmo_no_soportado" = "Algorithm not valid or supported. Please, go back to the browser where you started the operation and try again later";
 "proceso_finalizado_trifasico" = "Signing process complete. Please, go back to the browser where you started the operation to continue";
 "error_proceso_firma" = "Error signing. Please, go back to the browser where you started the operation and try again later";
+"error_process_select_certificate" = "Error in select certificate process. Please, go back to the browser where you started the operation and try again later";
 "error_conexion_servidor" = "Couldn't open connection to server. Please, go back to the browser where you started the operation and try again later";
 "certificate_not_found" = "Certificate not found.";
 "wrong_password" = "Wrong password.";

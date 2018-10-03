@@ -44,6 +44,7 @@
 "error_algoritmo_no_soportado" = "El Algoritmo no es váLido o no está soportado. Por favor, vuelva de nuevo al navegador donde inició la operación e inténtelo de nuevo más tarde";
 "proceso_finalizado_trifasico" = "Se ha completado el proceso de firma. Por favor, vuelva al navegador desde el que inició la operación para continuar";
 "error_proceso_firma" = "Se ha producido un error en el proceso de firma. Por favor, vuelva de nuevo al navegador donde inició la operación e inténtelo de nuevo más tarde";
+"error_process_select_certificate" = "Se ha producido un error en el proceso de selección de certificado. Por favor, vuelva de nuevo al navegador donde inició la operación e inténtelo de nuevo más tarde";
 "error_conexion_servidor" = "No se ha podido establecer la conexión con el servidor. Por favor, vuelva de nuevo al navegador donde inició la operación e intentelo de nuevo.";
 "certificate_not_found" = "No se ha encontrado el certificado.";
 "wrong_password" = "Contraseña incorrecta.";

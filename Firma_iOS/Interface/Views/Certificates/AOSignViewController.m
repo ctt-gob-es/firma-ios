@@ -838,12 +838,11 @@ SecKeyRef privateKey = NULL;
         [alertpb destroy:^{
             //se procesa la respuesta del servidor.
             NSString* title = NSLocalizedString(([responseString hasPrefix: OK]) ? @"ok" : @"error", nil);
-            NSString* message = NSLocalizedString(([responseString hasPrefix: OK]) ? [[self.parameters objectForKey:PARAMETER_NAME_OPERATION] isEqualToString: OPERATION_SELECT_CERTIFICATE]?@"certificate_successfully_selected":@"proceso_finalizado_trifasico" : @"error_proceso_firma", nil);
+            NSString* message = [[self.parameters objectForKey:PARAMETER_NAME_OPERATION] isEqualToString: OPERATION_SELECT_CERTIFICATE] ? [self selectCertificateAlertText: responseString]:[self signAlertText:responseString];
             [CommonAlert createAlertWithTitle: title message: message cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self onComplete:^{
                 [self backToAboutViewController];
             }];
         }];
-        
     }
     // Se recogen los datos del servidor
     else if (retrievingDataFromServlet) {
@@ -918,6 +917,15 @@ SecKeyRef privateKey = NULL;
     }
     
     // release the connection, and the data object
+}
+
+
+- (NSString *) selectCertificateAlertText:(NSString*)responseString {
+    return NSLocalizedString(([responseString hasPrefix: OK]) ? @"certificate_successfully_selected" : @"error_process_select_certificate", nil);
+}
+
+- (NSString *) signAlertText:(NSString*)responseString {
+    return NSLocalizedString(([responseString hasPrefix: OK]) ? @"proceso_finalizado_trifasico" : @"error_proceso_firma", nil);
 }
 
 /**************************/
