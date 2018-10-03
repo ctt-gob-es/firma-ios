@@ -266,7 +266,6 @@
                     errorToSend = [errorToSend stringByAppendingString:DESC_ERROR_MISSING_DATA];
                     
                     if(_stServletCert != NULL & _idDocCert != NULL) {
-                        //[self errorReportAsync:errorToSend urlServlet:stServlet docId:idDoc];
                         [self errorReportAsync:errorToSend];
                     }
                     [CommonAlert createAlertWithTitle: NSLocalizedString(@"error",nil) message:NSLocalizedString(@"no_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self];
