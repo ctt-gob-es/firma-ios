@@ -481,9 +481,6 @@ SecKeyRef privateKey = NULL;
     self.signButton.userInteractionEnabled = NO;
     self.signButton.enabled = NO;
     
-    
-    
-    
 }
 
 /*
@@ -491,8 +488,6 @@ SecKeyRef privateKey = NULL;
   */
 
 -(void)sendCertificate{
-    
-
     
     //Creamos la cadena de envío al servidor POST
     NSString *post = @"";
@@ -514,7 +509,7 @@ SecKeyRef privateKey = NULL;
     
     // Get the certificate
     NSString * certificateString = [Base64 urlSafeEncode: self.base64UrlSafeCertificateData];
-    NSData *data = [certificateString dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *data = [Base64 decode:certificateString urlSafe:true];
     NSString *encryptedDataB64 = [DesCypher cypherData:data sk:[cipherKey dataUsingEncoding:NSUTF8StringEncoding]];
     
     // Se envia el certificado cifrado y en base64
