@@ -8,6 +8,7 @@
 
 #import "AOAvailableCertificatesTVC.h"
 #import "GlobalConstants.h"
+#import <MobileCoreServices/MobileCoreServices.h>
 
 static NSString *const kAOAvailableCertificatesTVCCellIdentifier = @"AOCertificateFileCell";
 
@@ -55,6 +56,27 @@ static NSString *const kAOAvailableCertificatesTVCCellIdentifier = @"AOCertifica
 - (IBAction)didClickCancelButton:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)filesAppButtonTapped:(id)sender {
+//	let importMenu = UIDocumentMenuViewController(documentTypes: [String(kUTTypePDF)], in: .import)
+//	importMenu.delegate = self
+//	importMenu.modalPresentationStyle = .formSheet
+//	self.present(importMenu, animated: true, completion: nil)
+    
+//    UIDocumentMenuViewController *documentProviderMenu =
+//    [[UIDocumentMenuViewController alloc] initWithDocumentTypes:[self UTIs]
+//											  inMode:UIDocumentPickerModeImport];
+    
+    UIDocumentMenuViewController *documentProviderMenu = [[UIDocumentMenuViewController alloc] initWithDocumentTypes:@[@"public.item"] inMode:UIDocumentPickerModeImport];
+    
+    documentProviderMenu.delegate = self;
+    [self presentViewController:documentProviderMenu animated:YES completion:nil];
+    
+    NSLog(@"filesAppButtonTapped");
+    
+    
+    
 }
 
 #pragma mark - Certificates Methods
@@ -135,6 +157,81 @@ static NSString *const kAOAvailableCertificatesTVCCellIdentifier = @"AOCertifica
 - (void)certificateAdded
 {
     [self didClickCancelButton:nil];
+}
+
+- (void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentAtURL:(NSURL *)url {
+    if (controller.documentPickerMode == UIDocumentPickerModeImport) {
+	   NSString *alertMessage = [NSString stringWithFormat:@"Successfully imported %@", [url lastPathComponent]];
+	   dispatch_async(dispatch_get_main_queue(), ^{
+		  UIAlertController *alertController = [UIAlertController
+										alertControllerWithTitle:@"Import"
+										message:alertMessage
+										preferredStyle:UIAlertControllerStyleAlert];
+		  [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
+		  [self presentViewController:alertController animated:YES completion:nil];
+	   });
+	   
+	   
+	   //process file here
+	   
+	   
+    }
+}
+
+//- (void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentAtURL:(NSURL *)url {
+//
+//}
+
+
+- (void)documentMenu:(nonnull UIDocumentMenuViewController *)documentMenu didPickDocumentPicker:(nonnull UIDocumentPickerViewController *)documentPicker {
+    
+    documentPicker.delegate = self;
+    [self presentViewController:documentPicker animated:YES completion:nil];
+
+}
+
+- (void)encodeWithCoder:(nonnull NSCoder *)aCoder {
+    
+}
+
+- (void)traitCollectionDidChange:(nullable UITraitCollection *)previousTraitCollection {
+    
+}
+
+- (void)preferredContentSizeDidChangeForChildContentContainer:(nonnull id<UIContentContainer>)container {
+    
+}
+
+- (CGSize)sizeForChildContentContainer:(nonnull id<UIContentContainer>)container withParentContainerSize:(CGSize)parentSize {
+    
+}
+
+- (void)systemLayoutFittingSizeDidChangeForChildContentContainer:(nonnull id<UIContentContainer>)container {
+    
+}
+
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(nonnull id<UIViewControllerTransitionCoordinator>)coordinator {
+    
+}
+
+- (void)willTransitionToTraitCollection:(nonnull UITraitCollection *)newCollection withTransitionCoordinator:(nonnull id<UIViewControllerTransitionCoordinator>)coordinator {
+    
+}
+
+- (void)didUpdateFocusInContext:(nonnull UIFocusUpdateContext *)context withAnimationCoordinator:(nonnull UIFocusAnimationCoordinator *)coordinator {
+    
+}
+
+- (void)setNeedsFocusUpdate {
+    
+}
+
+- (BOOL)shouldUpdateFocusInContext:(nonnull UIFocusUpdateContext *)context {
+    
+}
+
+- (void)updateFocusIfNeeded {
+    
 }
 
 @end
