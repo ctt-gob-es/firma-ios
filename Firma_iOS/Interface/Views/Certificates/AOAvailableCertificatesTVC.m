@@ -41,6 +41,7 @@ static NSString *const kAOAvailableCertificatesTVCCellIdentifier = @"AOCertifica
     [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
     [self.availableCertificatesDescriptionLabel setText:NSLocalizedString(@"available_certificates_description_label", nil)];
     self.title = NSLocalizedString(@"available_certificates", nil);
+    [self.filesAppButton setTitle:NSLocalizedString(@"files_app_button", nil) forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning
@@ -149,7 +150,7 @@ static NSString *const kAOAvailableCertificatesTVCCellIdentifier = @"AOCertifica
 
 	   NSString* fileType = [url.lastPathComponent pathExtension];
 	   Boolean correctFileType = false ;
-	   NSString *alertMessage = [NSString stringWithFormat:@"El fichero %@ no es un certificado válido", [url lastPathComponent]];
+	   NSString *alertMessage = [NSString stringWithFormat:NSLocalizedString(@"files_app_alert_message_incorrect_file", nil), [url lastPathComponent]];
 	   if ([fileType  isEqualToString: @"p12"] || [fileType  isEqualToString: @"pfx"]) {
 		  correctFileType = true;
 	   }
@@ -162,11 +163,11 @@ static NSString *const kAOAvailableCertificatesTVCCellIdentifier = @"AOCertifica
 		  [fileManager copyItemAtURL:url toURL: fileDirectory error:&copyError];
 		  if (!copyError)
 		  {
-			 alertMessage = [NSString stringWithFormat:@"El fichero %@ se ha añadido correctamente", [url lastPathComponent]];
+			 alertMessage = [NSString stringWithFormat:NSLocalizedString(@"files_app_alert_message_success", nil), [url lastPathComponent]];
 		  }
 		  else
 		  {
-			 alertMessage = [NSString stringWithFormat:@"El fichero %@ no se ha añadido correctamente", [url lastPathComponent]];
+			 alertMessage = [NSString stringWithFormat:NSLocalizedString(@"files_app_alert_message_cannot_add_certificate", nil), [url lastPathComponent]];
 		  }
 		   _filesArray = [self findFiles:@[@"p12", @"pfx"]];
 		  [self.tableView reloadData];
@@ -174,10 +175,10 @@ static NSString *const kAOAvailableCertificatesTVCCellIdentifier = @"AOCertifica
 	   
 	   dispatch_async(dispatch_get_main_queue(), ^{
 		  UIAlertController *alertController = [UIAlertController
-										alertControllerWithTitle:@"Import"
+										alertControllerWithTitle: nil
 										message:alertMessage
 										preferredStyle:UIAlertControllerStyleAlert];
-		  [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
+		  [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"files_app_alert_affirmative_button", nil) style:UIAlertActionStyleDefault handler:nil]];
 		  [self presentViewController:alertController animated:YES completion:nil];
 
 	   });

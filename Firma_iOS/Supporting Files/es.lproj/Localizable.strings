@@ -98,3 +98,8 @@
 "questions_navigation_title" = "Preguntas";
 "keystore_manager_bar_item" = "Gestión de Certificados";
 "help_bar_item" = "Ayuda";
+"files_app_button" = "Añadir más certificados desde Files App";
+"files_app_alert_affirmative_button" = "Aceptar";
+"files_app_alert_message_incorrect_file" = "El fichero %@ no es un certificado válido.";
+"files_app_alert_message_success" = "El fichero %@ se ha añadido correctamente.";
+"files_app_alert_message_cannot_add_certificate" = "El fichero %@ no se ha añadido correctamente.";

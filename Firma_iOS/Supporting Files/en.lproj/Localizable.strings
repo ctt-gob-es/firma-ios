@@ -98,3 +98,8 @@
 "questions_navigation_title" = "Questions";
 "keystore_manager_bar_item" = "Keystore Manager";
 "help_bar_item" = "Help";
+"files_app_button" = "Add more certificates from Files App";
+"files_app_alert_affirmative_button" = "OK";
+"files_app_alert_message_incorrect_file" = "The file %@ is not a valid certificate.";
+"files_app_alert_message_success" = "The file %@ has been successfully added";
+"files_app_alert_message_cannot_add_certificate" = "The file %@ has not been added correctly";
