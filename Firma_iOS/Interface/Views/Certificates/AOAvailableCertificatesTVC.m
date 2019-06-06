@@ -146,7 +146,32 @@ static NSString *const kAOAvailableCertificatesTVCCellIdentifier = @"AOCertifica
 
 - (void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentAtURL:(NSURL *)url {
     if (controller.documentPickerMode == UIDocumentPickerModeImport) {
-	   NSString *alertMessage = [NSString stringWithFormat:@"Successfully imported %@", [url lastPathComponent]];
+
+	   NSString* fileType = [url.lastPathComponent pathExtension];
+	   Boolean correctFileType = false ;
+	   NSString *alertMessage = [NSString stringWithFormat:@"El fichero %@ no es un certificado válido", [url lastPathComponent]];
+	   if ([fileType  isEqualToString: @"p12"] || [fileType  isEqualToString: @"pfx"]) {
+		  correctFileType = true;
+	   }
+	   
+	   if (correctFileType) {
+		  NSFileManager *fileManager = [NSFileManager defaultManager];
+		  NSError *copyError = nil;
+		  NSURL* documentDirectory = [[fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] objectAtIndex:0];
+		  NSURL* fileDirectory = [documentDirectory URLByAppendingPathComponent: url.lastPathComponent isDirectory:YES];
+		  [fileManager copyItemAtURL:url toURL: fileDirectory error:&copyError];
+		  if (!copyError)
+		  {
+			 alertMessage = [NSString stringWithFormat:@"El fichero %@ se ha añadido correctamente", [url lastPathComponent]];
+		  }
+		  else
+		  {
+			 alertMessage = [NSString stringWithFormat:@"El fichero %@ no se ha añadido correctamente", [url lastPathComponent]];
+		  }
+		   _filesArray = [self findFiles:@[@"p12", @"pfx"]];
+		  [self.tableView reloadData];
+	   }
+	   
 	   dispatch_async(dispatch_get_main_queue(), ^{
 		  UIAlertController *alertController = [UIAlertController
 										alertControllerWithTitle:@"Import"
@@ -154,24 +179,7 @@ static NSString *const kAOAvailableCertificatesTVCCellIdentifier = @"AOCertifica
 										preferredStyle:UIAlertControllerStyleAlert];
 		  [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
 		  [self presentViewController:alertController animated:YES completion:nil];
-		  
-		  NSFileManager *fileManager = [NSFileManager defaultManager];
-		  NSError *copyError = nil;
 
-		  NSURL* documentDirectory = [[fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] objectAtIndex:0];
-		  NSURL* fileDirectory = [documentDirectory URLByAppendingPathComponent: url.lastPathComponent isDirectory:YES];
-
-		  [fileManager copyItemAtURL:url toURL: fileDirectory error:&copyError];
-		  if (!copyError)
-		  {
-			  NSLog(@"File has been copied correctly");
-		  }
-		  else
-		  {
-			 NSLog(@"Files app error: %@", copyError);
-		  }
-		  
-		  [self.tableView reloadData];
 	   });
     }
 }
@@ -179,50 +187,6 @@ static NSString *const kAOAvailableCertificatesTVCCellIdentifier = @"AOCertifica
 - (void)documentMenu:(nonnull UIDocumentMenuViewController *)documentMenu didPickDocumentPicker:(nonnull UIDocumentPickerViewController *)documentPicker {
     documentPicker.delegate = self;
     [self presentViewController:documentPicker animated:YES completion:nil];
-}
-
-- (void)encodeWithCoder:(nonnull NSCoder *)aCoder {
-    
-}
-
-- (void)traitCollectionDidChange:(nullable UITraitCollection *)previousTraitCollection {
-    
-}
-
-- (void)preferredContentSizeDidChangeForChildContentContainer:(nonnull id<UIContentContainer>)container {
-    
-}
-
-- (CGSize)sizeForChildContentContainer:(nonnull id<UIContentContainer>)container withParentContainerSize:(CGSize)parentSize {
-    
-}
-
-- (void)systemLayoutFittingSizeDidChangeForChildContentContainer:(nonnull id<UIContentContainer>)container {
-    
-}
-
-- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(nonnull id<UIViewControllerTransitionCoordinator>)coordinator {
-    
-}
-
-- (void)willTransitionToTraitCollection:(nonnull UITraitCollection *)newCollection withTransitionCoordinator:(nonnull id<UIViewControllerTransitionCoordinator>)coordinator {
-    
-}
-
-- (void)didUpdateFocusInContext:(nonnull UIFocusUpdateContext *)context withAnimationCoordinator:(nonnull UIFocusAnimationCoordinator *)coordinator {
-    
-}
-
-- (void)setNeedsFocusUpdate {
-    
-}
-
-- (BOOL)shouldUpdateFocusInContext:(nonnull UIFocusUpdateContext *)context {
-    
-}
-
-- (void)updateFocusIfNeeded {
-    
 }
 
 @end
