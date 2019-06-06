@@ -161,7 +161,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Certificates available on your device. Please select the certificate you want to register." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tR-IH-vIq">
-                                    <rect key="frame" x="44" y="120" width="287" height="110"/>
+                                    <rect key="frame" x="44" y="95" width="287" height="95"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
@@ -172,25 +172,28 @@
                                         <constraint firstAttribute="height" constant="85" id="sdd-O1-dBh"/>
                                     </constraints>
                                 </imageView>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WEb-Fg-t1g">
-                                    <rect key="frame" x="0.0" y="93" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" red="1" green="0.0" blue="0.03624573524" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    <state key="normal" title="Añadir más desde Files App"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WEb-Fg-t1g">
+                                    <rect key="frame" x="0.0" y="190" width="375" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="oMf-Ft-2ED"/>
+                                    </constraints>
+                                    <state key="normal" title="Añadir más certificados desde Files App"/>
                                     <connections>
                                         <action selector="filesAppButtonTapped:" destination="fhk-8d-9CI" eventType="touchUpInside" id="4TK-qa-rsg"/>
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" red="0.01653544178" green="1" blue="0.2030651705" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
+                                <constraint firstAttribute="trailing" secondItem="WEb-Fg-t1g" secondAttribute="trailing" id="8bQ-vQ-0eL"/>
                                 <constraint firstItem="NBa-qk-c0S" firstAttribute="top" secondItem="4Ss-oZ-VqF" secondAttribute="top" constant="10" id="Btx-PS-KEO"/>
                                 <constraint firstAttribute="trailing" secondItem="NBa-qk-c0S" secondAttribute="trailing" constant="41" id="CQf-Ky-Wea"/>
                                 <constraint firstItem="NBa-qk-c0S" firstAttribute="leading" secondItem="4Ss-oZ-VqF" secondAttribute="leading" constant="39" id="Dp0-cJ-typ"/>
-                                <constraint firstAttribute="bottom" secondItem="7tR-IH-vIq" secondAttribute="bottom" id="Mwy-Zc-iXd"/>
+                                <constraint firstItem="WEb-Fg-t1g" firstAttribute="leading" secondItem="4Ss-oZ-VqF" secondAttribute="leading" id="KP2-aZ-L6S"/>
                                 <constraint firstItem="7tR-IH-vIq" firstAttribute="leading" secondItem="4Ss-oZ-VqF" secondAttribute="leading" constant="44" id="OSH-pD-xmg"/>
                                 <constraint firstAttribute="trailing" secondItem="7tR-IH-vIq" secondAttribute="trailing" constant="44" id="Wnd-tJ-juB"/>
-                                <constraint firstItem="7tR-IH-vIq" firstAttribute="top" secondItem="NBa-qk-c0S" secondAttribute="bottom" constant="25" id="vBk-us-Xtf"/>
+                                <constraint firstItem="7tR-IH-vIq" firstAttribute="top" secondItem="NBa-qk-c0S" secondAttribute="bottom" id="vBk-us-Xtf"/>
+                                <constraint firstAttribute="bottom" secondItem="WEb-Fg-t1g" secondAttribute="bottom" id="vEN-bS-YpG"/>
+                                <constraint firstItem="WEb-Fg-t1g" firstAttribute="top" secondItem="7tR-IH-vIq" secondAttribute="bottom" id="xjq-GL-XLH"/>
                             </constraints>
                         </view>
                         <prototypes>
