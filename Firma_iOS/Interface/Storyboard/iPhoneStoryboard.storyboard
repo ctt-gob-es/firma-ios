@@ -176,7 +176,7 @@
                                     <rect key="frame" x="0.0" y="93" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="1" green="0.0" blue="0.03624573524" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    <state key="normal" title="Files App"/>
+                                    <state key="normal" title="Añadir más desde Files App"/>
                                     <connections>
                                         <action selector="filesAppButtonTapped:" destination="fhk-8d-9CI" eventType="touchUpInside" id="4TK-qa-rsg"/>
                                     </connections>
