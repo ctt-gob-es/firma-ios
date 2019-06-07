@@ -11,7 +11,6 @@
 	<key>com.apple.developer.icloud-services</key>
 	<array>
 		<string>CloudDocuments</string>
-		<string>CloudKit</string>
 	</array>
 	<key>com.apple.developer.ubiquity-container-identifiers</key>
 	<array>
@@ -19,9 +18,5 @@
 	</array>
 	<key>com.apple.developer.ubiquity-kvstore-identifier</key>
 	<string>$(TeamIdentifierPrefix)$(CFBundleIdentifier)</string>
-	<key>keychain-access-groups</key>
-	<array>
-		<string>$(AppIdentifierPrefix)es.gob.afirma.Cliente--firma</string>
-	</array>
 </dict>
 </plist>
