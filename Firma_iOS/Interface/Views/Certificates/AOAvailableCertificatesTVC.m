@@ -16,6 +16,7 @@ static NSString *const kAOAvailableCertificatesTVCCellIdentifier = @"AOCertifica
 {
     NSString *_selectedCertificate;
     NSArray *_filesArray;
+    UIStoryboardSegue *_segue;
 }
 
 @property (strong, nonatomic) IBOutlet UILabel *messageLabel;
@@ -67,7 +68,6 @@ static NSString *const kAOAvailableCertificatesTVCCellIdentifier = @"AOCertifica
     documentProviderMenu.popoverPresentationController.sourceRect = self.filesAppButton.frame;
     documentProviderMenu.popoverPresentationController.sourceView = self.view;
     popPC.permittedArrowDirections = UIPopoverArrowDirectionAny;
-    popPC.delegate = self;
     [self presentViewController:documentProviderMenu animated:YES completion:nil];
 }
 
@@ -126,22 +126,21 @@ static NSString *const kAOAvailableCertificatesTVCCellIdentifier = @"AOCertifica
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     _selectedCertificate = _filesArray[indexPath.row];
+    if (!_selectedCertificate) {
+	   NSIndexPath *selectedRowIndexPath = [self.tableView indexPathForSelectedRow];
+	   _selectedCertificate = _filesArray[selectedRowIndexPath.row];
+    }
+    AORegisterCertificateVC *registerCertificateVC  = [_segue destinationViewController];
+    registerCertificateVC.selectedCertificate = _selectedCertificate;
+    registerCertificateVC.modalPresentationStyle = 17;
+    [registerCertificateVC setDelegate:self];
 }
 
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"showRegisterCertificate"]) {
-        if (!_selectedCertificate) {
-            NSIndexPath *selectedRowIndexPath = [self.tableView indexPathForSelectedRow];
-            _selectedCertificate = _filesArray[selectedRowIndexPath.row];
-        }
-        AORegisterCertificateVC *registerCertificateVC  = [segue destinationViewController];
-        registerCertificateVC.selectedCertificate = _selectedCertificate;
-        registerCertificateVC.modalPresentationStyle = 17;
-        [registerCertificateVC setDelegate:self];
-    }
+    _segue = segue;
 }
 
 #pragma mark - AORegisterCertificateVCDelegate
