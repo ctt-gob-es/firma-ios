@@ -62,6 +62,12 @@ static NSString *const kAOAvailableCertificatesTVCCellIdentifier = @"AOCertifica
 - (IBAction)filesAppButtonTapped:(id)sender {
     UIDocumentMenuViewController *documentProviderMenu = [[UIDocumentMenuViewController alloc] initWithDocumentTypes:@[@"public.data"] inMode:UIDocumentPickerModeImport];
     documentProviderMenu.delegate = self;
+    documentProviderMenu.modalPresentationStyle = UIModalPresentationPopover;
+    UIPopoverPresentationController *popPC = documentProviderMenu.popoverPresentationController;
+    documentProviderMenu.popoverPresentationController.sourceRect = self.filesAppButton.frame;
+    documentProviderMenu.popoverPresentationController.sourceView = self.view;
+    popPC.permittedArrowDirections = UIPopoverArrowDirectionAny;
+    popPC.delegate = self;
     [self presentViewController:documentProviderMenu animated:YES completion:nil];
 }
 
