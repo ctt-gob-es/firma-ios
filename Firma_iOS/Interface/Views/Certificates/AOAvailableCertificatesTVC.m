@@ -25,6 +25,9 @@ static NSString *const kAOAvailableCertificatesTVCCellIdentifier = @"AOCertifica
 
 @implementation AOAvailableCertificatesTVC
 
+int const kFilesAppButtonNormalHeightConstraint = 40;
+int const kFilesAppButtonZeroHeightConstraint = 0;
+
 #pragma mark - Life Cycle
 
 - (void)viewDidLoad
@@ -43,6 +46,15 @@ static NSString *const kAOAvailableCertificatesTVCCellIdentifier = @"AOCertifica
     [self.availableCertificatesDescriptionLabel setText:NSLocalizedString(@"available_certificates_description_label", nil)];
     self.title = NSLocalizedString(@"available_certificates", nil);
     [self.filesAppButton setTitle:NSLocalizedString(@"files_app_button", nil) forState:UIControlStateNormal];
+
+    if (@available(iOS 11, *)) {
+	   self.filesAppButton.hidden = NO;
+	   self.filesAppButtonHeightConstraint.constant = kFilesAppButtonNormalHeightConstraint;
+    } else {
+	   self.filesAppButton.hidden = YES;
+	   self.filesAppButtonHeightConstraint.constant = kFilesAppButtonZeroHeightConstraint;
+    }
+
 }
 
 - (void)didReceiveMemoryWarning

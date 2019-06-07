@@ -277,6 +277,7 @@
                     <connections>
                         <outlet property="availableCertificatesDescriptionLabel" destination="j4T-bl-INh" id="yAL-co-UTB"/>
                         <outlet property="filesAppButton" destination="t2W-FC-vkY" id="wL3-n2-Htk"/>
+                        <outlet property="filesAppButtonHeightConstraint" destination="WdI-k2-hjg" id="zsx-Cg-hJT"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZjX-CN-EEl" userLabel="First Responder" sceneMemberID="firstResponder"/>
