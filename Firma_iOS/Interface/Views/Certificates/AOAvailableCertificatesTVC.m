@@ -36,7 +36,7 @@ int const kFilesAppButtonZeroHeightConstraint = 0;
     
     [self.tableView reloadData];
     _selectedCertificate = nil;
-    _filesArray = [self findFiles:@[@"p12", @"pfx"]];
+    _filesArray = [self findFiles:@[P12EXTENSION, PFXEXTENSION]];
     
     if (_filesArray.count == 0) {
         _messageLabel.text = NSLocalizedString(@"certificate_instructions", nil);
@@ -168,7 +168,7 @@ int const kFilesAppButtonZeroHeightConstraint = 0;
 	   NSString* fileType = [url.lastPathComponent pathExtension];
 	   Boolean correctFileType = false ;
 	   NSString *alertMessage = [NSString stringWithFormat:NSLocalizedString(@"files_app_alert_message_incorrect_file", nil), [url lastPathComponent]];
-	   if ([fileType  isEqualToString: @"p12"] || [fileType  isEqualToString: @"pfx"]) {
+	   if ([fileType  isEqualToString: P12EXTENSION] || [fileType  isEqualToString: PFXEXTENSION]) {
 		  correctFileType = true;
 	   }
 	   
@@ -186,7 +186,7 @@ int const kFilesAppButtonZeroHeightConstraint = 0;
 		  {
 			 alertMessage = [NSString stringWithFormat:NSLocalizedString(@"files_app_alert_message_cannot_add_certificate", nil), [url lastPathComponent]];
 		  }
-		   _filesArray = [self findFiles:@[@"p12", @"pfx"]];
+		   _filesArray = [self findFiles:@[P12EXTENSION, PFXEXTENSION]];
 		  [self.tableView reloadData];
 	   }
 	   

@@ -10,6 +10,7 @@
 #import <Security/Security.h>
 #import <UIKit/UIKit.h>
 #import "Base64.h"
+#import "GlobalConstants.h"
 
 
 #define SHA1_DIGESTINFO_HEADER_LENGTH 15
@@ -94,11 +95,11 @@ static CertificateUtils *_sharedWrapper = nil;
     } else {
         
         // Load PCKCS12 from bundle file
-        NSString *thePath = [[NSBundle mainBundle]pathForResource:certName ofType:@"p12"];
+        NSString *thePath = [[NSBundle mainBundle]pathForResource:certName ofType:P12EXTENSION];
         
         if (thePath == nil) {
             
-            thePath = [[NSBundle mainBundle]pathForResource:certName ofType:@"pfx"];
+            thePath = [[NSBundle mainBundle]pathForResource:certName ofType:PFXEXTENSION];
             
             if (thePath == nil) {
                 return errSecItemNotFound;
