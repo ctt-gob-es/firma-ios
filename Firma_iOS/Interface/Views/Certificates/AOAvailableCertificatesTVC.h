@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "AORegisterCertificateVC.h"
 
-@interface AOAvailableCertificatesTVC : UITableViewController<AORegisterCertificateVCDelegate>
+@interface AOAvailableCertificatesTVC : UITableViewController<AORegisterCertificateVCDelegate, UIDocumentMenuDelegate, UIDocumentPickerDelegate, UINavigationControllerDelegate>
 @property (strong, nonatomic) IBOutlet UILabel *availableCertificatesDescriptionLabel;
+
+@property (weak, nonatomic) IBOutlet UIButton *filesAppButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *filesAppButtonHeightConstraint;
 
 @end

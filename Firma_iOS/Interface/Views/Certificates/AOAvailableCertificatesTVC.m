@@ -8,6 +8,7 @@
 
 #import "AOAvailableCertificatesTVC.h"
 #import "GlobalConstants.h"
+#import <MobileCoreServices/MobileCoreServices.h>
 
 static NSString *const kAOAvailableCertificatesTVCCellIdentifier = @"AOCertificateFileCell";
 
@@ -15,6 +16,7 @@ static NSString *const kAOAvailableCertificatesTVCCellIdentifier = @"AOCertifica
 {
     NSString *_selectedCertificate;
     NSArray *_filesArray;
+    UIStoryboardSegue *_segue;
 }
 
 @property (strong, nonatomic) IBOutlet UILabel *messageLabel;
@@ -22,6 +24,9 @@ static NSString *const kAOAvailableCertificatesTVCCellIdentifier = @"AOCertifica
 @end
 
 @implementation AOAvailableCertificatesTVC
+
+int const kFilesAppButtonNormalHeightConstraint = 40;
+int const kFilesAppButtonZeroHeightConstraint = 0;
 
 #pragma mark - Life Cycle
 
@@ -31,7 +36,7 @@ static NSString *const kAOAvailableCertificatesTVCCellIdentifier = @"AOCertifica
     
     [self.tableView reloadData];
     _selectedCertificate = nil;
-    _filesArray = [self findFiles:@[@"p12", @"pfx"]];
+    _filesArray = [self findFiles:@[P12EXTENSION, PFXEXTENSION]];
     
     if (_filesArray.count == 0) {
         _messageLabel.text = NSLocalizedString(@"certificate_instructions", nil);
@@ -40,6 +45,16 @@ static NSString *const kAOAvailableCertificatesTVCCellIdentifier = @"AOCertifica
     [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
     [self.availableCertificatesDescriptionLabel setText:NSLocalizedString(@"available_certificates_description_label", nil)];
     self.title = NSLocalizedString(@"available_certificates", nil);
+    [self.filesAppButton setTitle:NSLocalizedString(@"files_app_button", nil) forState:UIControlStateNormal];
+
+    if (@available(iOS 11, *)) {
+	   self.filesAppButton.hidden = NO;
+	   self.filesAppButtonHeightConstraint.constant = kFilesAppButtonNormalHeightConstraint;
+    } else {
+	   self.filesAppButton.hidden = YES;
+	   self.filesAppButtonHeightConstraint.constant = kFilesAppButtonZeroHeightConstraint;
+    }
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,6 +70,17 @@ static NSString *const kAOAvailableCertificatesTVCCellIdentifier = @"AOCertifica
 - (IBAction)didClickCancelButton:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)filesAppButtonTapped:(id)sender {
+    UIDocumentMenuViewController *documentProviderMenu = [[UIDocumentMenuViewController alloc] initWithDocumentTypes:@[@"public.data"] inMode:UIDocumentPickerModeImport];
+    documentProviderMenu.delegate = self;
+    documentProviderMenu.modalPresentationStyle = UIModalPresentationPopover;
+    UIPopoverPresentationController *popPC = documentProviderMenu.popoverPresentationController;
+    documentProviderMenu.popoverPresentationController.sourceRect = self.filesAppButton.frame;
+    documentProviderMenu.popoverPresentationController.sourceView = self.view;
+    popPC.permittedArrowDirections = UIPopoverArrowDirectionAny;
+    [self presentViewController:documentProviderMenu animated:YES completion:nil];
 }
 
 #pragma mark - Certificates Methods
@@ -112,22 +138,21 @@ static NSString *const kAOAvailableCertificatesTVCCellIdentifier = @"AOCertifica
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     _selectedCertificate = _filesArray[indexPath.row];
+    if (!_selectedCertificate) {
+	   NSIndexPath *selectedRowIndexPath = [self.tableView indexPathForSelectedRow];
+	   _selectedCertificate = _filesArray[selectedRowIndexPath.row];
+    }
+    AORegisterCertificateVC *registerCertificateVC  = [_segue destinationViewController];
+    registerCertificateVC.selectedCertificate = _selectedCertificate;
+    registerCertificateVC.modalPresentationStyle = 17;
+    [registerCertificateVC setDelegate:self];
 }
 
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"showRegisterCertificate"]) {
-        if (!_selectedCertificate) {
-            NSIndexPath *selectedRowIndexPath = [self.tableView indexPathForSelectedRow];
-            _selectedCertificate = _filesArray[selectedRowIndexPath.row];
-        }
-        AORegisterCertificateVC *registerCertificateVC  = [segue destinationViewController];
-        registerCertificateVC.selectedCertificate = _selectedCertificate;
-        registerCertificateVC.modalPresentationStyle = 17;
-        [registerCertificateVC setDelegate:self];
-    }
+    _segue = segue;
 }
 
 #pragma mark - AORegisterCertificateVCDelegate
@@ -135,6 +160,51 @@ static NSString *const kAOAvailableCertificatesTVCCellIdentifier = @"AOCertifica
 - (void)certificateAdded
 {
     [self didClickCancelButton:nil];
+}
+
+- (void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentAtURL:(NSURL *)url {
+    if (controller.documentPickerMode == UIDocumentPickerModeImport) {
+
+	   NSString* fileType = [url.lastPathComponent pathExtension];
+	   Boolean correctFileType = false ;
+	   NSString *alertMessage = [NSString stringWithFormat:NSLocalizedString(@"files_app_alert_message_incorrect_file", nil), [url lastPathComponent]];
+	   if ([fileType  isEqualToString: P12EXTENSION] || [fileType  isEqualToString: PFXEXTENSION]) {
+		  correctFileType = true;
+	   }
+	   
+	   if (correctFileType) {
+		  NSFileManager *fileManager = [NSFileManager defaultManager];
+		  NSError *copyError = nil;
+		  NSURL* documentDirectory = [[fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] objectAtIndex:0];
+		  NSURL* fileDirectory = [documentDirectory URLByAppendingPathComponent: url.lastPathComponent isDirectory:YES];
+		  [fileManager copyItemAtURL:url toURL: fileDirectory error:&copyError];
+		  if (!copyError)
+		  {
+			 alertMessage = [NSString stringWithFormat:NSLocalizedString(@"files_app_alert_message_success", nil), [url lastPathComponent]];
+		  }
+		  else
+		  {
+			 alertMessage = [NSString stringWithFormat:NSLocalizedString(@"files_app_alert_message_cannot_add_certificate", nil), [url lastPathComponent]];
+		  }
+		   _filesArray = [self findFiles:@[P12EXTENSION, PFXEXTENSION]];
+		  [self.tableView reloadData];
+	   }
+	   
+	   dispatch_async(dispatch_get_main_queue(), ^{
+		  UIAlertController *alertController = [UIAlertController
+										alertControllerWithTitle: nil
+										message:alertMessage
+										preferredStyle:UIAlertControllerStyleAlert];
+		  [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"files_app_alert_affirmative_button", nil) style:UIAlertActionStyleDefault handler:nil]];
+		  [self presentViewController:alertController animated:YES completion:nil];
+
+	   });
+    }
+}
+
+- (void)documentMenu:(nonnull UIDocumentMenuViewController *)documentMenu didPickDocumentPicker:(nonnull UIDocumentPickerViewController *)documentPicker {
+    documentPicker.delegate = self;
+    [self presentViewController:documentPicker animated:YES completion:nil];
 }
 
 @end

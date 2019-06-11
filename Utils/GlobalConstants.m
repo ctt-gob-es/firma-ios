@@ -34,5 +34,7 @@ NSString *const SIGNATURES = @"firmas";
 NSString *const SIGNATURE = @"firma";
 NSString *const PARAMETERS = @"param";
 NSString *const WITH = @"with";
+NSString *const P12EXTENSION = @"p12";
+NSString *const PFXEXTENSION = @"pfx";
 
 @end

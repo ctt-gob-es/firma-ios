@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nbz-mF-dNH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nbz-mF-dNH">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment version="2320" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -162,7 +161,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Certificates available on your device. Please select the certificate you want to register." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tR-IH-vIq">
-                                    <rect key="frame" x="44" y="120" width="287" height="110"/>
+                                    <rect key="frame" x="44" y="95" width="287" height="95"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
@@ -173,16 +172,28 @@
                                         <constraint firstAttribute="height" constant="85" id="sdd-O1-dBh"/>
                                     </constraints>
                                 </imageView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WEb-Fg-t1g">
+                                    <rect key="frame" x="0.0" y="190" width="375" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="oMf-Ft-2ED"/>
+                                    </constraints>
+                                    <state key="normal" title="Añadir más certificados desde Files App"/>
+                                    <connections>
+                                        <action selector="filesAppButtonTapped:" destination="fhk-8d-9CI" eventType="touchUpInside" id="4TK-qa-rsg"/>
+                                    </connections>
+                                </button>
                             </subviews>
-                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
+                                <constraint firstAttribute="trailing" secondItem="WEb-Fg-t1g" secondAttribute="trailing" id="8bQ-vQ-0eL"/>
                                 <constraint firstItem="NBa-qk-c0S" firstAttribute="top" secondItem="4Ss-oZ-VqF" secondAttribute="top" constant="10" id="Btx-PS-KEO"/>
                                 <constraint firstAttribute="trailing" secondItem="NBa-qk-c0S" secondAttribute="trailing" constant="41" id="CQf-Ky-Wea"/>
                                 <constraint firstItem="NBa-qk-c0S" firstAttribute="leading" secondItem="4Ss-oZ-VqF" secondAttribute="leading" constant="39" id="Dp0-cJ-typ"/>
-                                <constraint firstAttribute="bottom" secondItem="7tR-IH-vIq" secondAttribute="bottom" id="Mwy-Zc-iXd"/>
+                                <constraint firstItem="WEb-Fg-t1g" firstAttribute="leading" secondItem="4Ss-oZ-VqF" secondAttribute="leading" id="KP2-aZ-L6S"/>
                                 <constraint firstItem="7tR-IH-vIq" firstAttribute="leading" secondItem="4Ss-oZ-VqF" secondAttribute="leading" constant="44" id="OSH-pD-xmg"/>
                                 <constraint firstAttribute="trailing" secondItem="7tR-IH-vIq" secondAttribute="trailing" constant="44" id="Wnd-tJ-juB"/>
-                                <constraint firstItem="7tR-IH-vIq" firstAttribute="top" secondItem="NBa-qk-c0S" secondAttribute="bottom" constant="25" id="vBk-us-Xtf"/>
+                                <constraint firstItem="7tR-IH-vIq" firstAttribute="top" secondItem="NBa-qk-c0S" secondAttribute="bottom" id="vBk-us-Xtf"/>
+                                <constraint firstAttribute="bottom" secondItem="WEb-Fg-t1g" secondAttribute="bottom" id="vEN-bS-YpG"/>
+                                <constraint firstItem="WEb-Fg-t1g" firstAttribute="top" secondItem="7tR-IH-vIq" secondAttribute="bottom" id="xjq-GL-XLH"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -225,6 +236,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="availableCertificatesDescriptionLabel" destination="7tR-IH-vIq" id="3bB-Fo-qOC"/>
+                        <outlet property="filesAppButton" destination="WEb-Fg-t1g" id="qwO-7J-Dje"/>
+                        <outlet property="filesAppButtonHeightConstraint" destination="oMf-Ft-2ED" id="pVx-hQ-ZxC"/>
                         <outlet property="messageLabel" destination="7tR-IH-vIq" id="COR-fm-OMB"/>
                     </connections>
                 </tableViewController>
@@ -1028,7 +1041,7 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
         <image name="cert_menu.png" width="20" height="17"/>
         <image name="certificados.png" width="64" height="53"/>
         <image name="help.png" width="20" height="20"/>
-        <image name="ic_calendar" width="15" height="15"/>
+        <image name="ic_calendar" width="15.5" height="15.5"/>
         <image name="information_icon.png" width="30" height="30"/>
         <image name="itunes.png" width="200" height="200"/>
         <image name="logo_cliente.png" width="726" height="200"/>
