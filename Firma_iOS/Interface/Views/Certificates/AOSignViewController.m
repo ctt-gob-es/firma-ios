@@ -429,7 +429,8 @@ SecKeyRef privateKey = NULL;
              [signFormat isEqualToString:PADES_FORMAT] ||
              [signFormat isEqualToString:PADES_TRI_FORMAT] ||
              [signFormat isEqualToString:XADES_FORMAT] ||
-             [signFormat isEqualToString:XADES_TRI_FORMAT])
+             [signFormat isEqualToString:XADES_TRI_FORMAT] ||
+             [signFormat isEqualToString:NONE_TRI_FORMAT])
     {
         //Invocamos la firma trifásica
         [self cadesTriPhasic];
