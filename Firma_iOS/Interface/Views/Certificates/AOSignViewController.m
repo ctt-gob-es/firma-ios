@@ -425,6 +425,10 @@ SecKeyRef privateKey = NULL;
             [self cadesTriPhasic];
         }
     }
+    else if ([signFormat isEqualToString:NONE_FORMAT])
+    {
+	   [self noneMonoPhasic];
+    }
     else if ([signFormat isEqualToString:CADES_TRI_FORMAT] ||
              [signFormat isEqualToString:PADES_FORMAT] ||
              [signFormat isEqualToString:PADES_TRI_FORMAT] ||
@@ -434,7 +438,9 @@ SecKeyRef privateKey = NULL;
     {
         //Invocamos la firma trifásica
         [self cadesTriPhasic];
-    }
+	} else if ([signFormat isEqualToString: NONE_FORMAT]){
+	    [self simpleSign:receivedString];
+	}
     
     self.signButton.userInteractionEnabled = NO;
     self.signButton.enabled = NO;
@@ -685,6 +691,35 @@ SecKeyRef privateKey = NULL;
     //invocamos al almacenamiento de la firma
     NSString *finalSignature = [Base64 encode:signature urlSafe:true];
     [self storeData:finalSignature];
+}
+
+-(void)noneMonoPhasic
+{
+    DDLogDebug(@"\n\ndatosInUse -> %@", datosInUse);
+    NSData *contentData = [Base64 decode:datosInUse urlSafe:true];
+    
+    DDLogDebug(@"B - NSString de los datos: %@", contentData);
+    
+    DDLogDebug(@"%@",[[NSString alloc] initWithData:contentData encoding:NSUTF8StringEncoding]);
+    
+//    Aplicamos PCSK1 y almacenamos la firma
+    if(contentData.length > 0)
+    {
+	   DDLogDebug(@"Se pasa a realizar la firma PKCS1");
+
+	   //We sign the data with PKCS1
+	   NSData *dataSigned = [CADESSignUtils signPkcs1: signAlgoInUse privateKey: &privateKey data: contentData];
+	   
+	   //Start progress bar.
+	   alertpb = [[AlertProgressBar alloc]init];
+	   [alertpb createProgressBar:self];
+	   
+	   //Store the sign
+	   NSString *finalSignature = [Base64 encode:dataSigned urlSafe:true];
+	   [self storeData:finalSignature];
+    }
+    //Maybe here we should show an alert with some kind of error. Ask for the error wording.
+    
 }
 
 /**
