@@ -438,8 +438,6 @@ SecKeyRef privateKey = NULL;
     {
         //Invocamos la firma trifásica
         [self cadesTriPhasic];
-	} else if ([signFormat isEqualToString: NONE_FORMAT]){
-	    [self simpleSign:receivedString];
 	}
     
     self.signButton.userInteractionEnabled = NO;
