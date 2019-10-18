@@ -718,7 +718,6 @@ SecKeyRef privateKey = NULL;
 	   NSString *finalSignature = [Base64 encode:dataSigned urlSafe:true];
 	   [self storeData:finalSignature];
     }
-    
 }
 
 /**
