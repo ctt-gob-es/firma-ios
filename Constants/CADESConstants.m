@@ -65,6 +65,8 @@ NSString *const PADES_TRI_FORMAT = @"PAdEStri";
 NSString *const XADES_TRI_FORMAT = @"XAdEStri";
 NSString *const PADES_FORMAT = @"PAdES";
 NSString *const XADES_FORMAT = @"XAdES";
+NSString *const NONE_FORMAT = @"NONE";
+NSString *const NONE_TRI_FORMAT = @"NONEtri";
 
 NSString *const PROPERTY_NAME_PRESIGN = @"PRE";
 NSString *const PARAMETER_NAME_PKCS1_SIGN = @"PK1";
