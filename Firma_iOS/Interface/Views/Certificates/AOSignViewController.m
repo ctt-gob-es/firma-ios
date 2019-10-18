@@ -386,11 +386,13 @@ SecKeyRef privateKey = NULL;
         return;
     }
     else if (!([signFormat isEqualToString:CADES_FORMAT]
-               || [signFormat isEqualToString:CADES_TRI_FORMAT]
-               || [signFormat isEqualToString:PADES_TRI_FORMAT]
-               || [signFormat isEqualToString:XADES_TRI_FORMAT]
-               || [signFormat isEqualToString:PADES_FORMAT]
-               || [signFormat isEqualToString:XADES_FORMAT]))
+			|| [signFormat isEqualToString:CADES_TRI_FORMAT]
+			|| [signFormat isEqualToString:PADES_TRI_FORMAT]
+			|| [signFormat isEqualToString:XADES_TRI_FORMAT]
+			|| [signFormat isEqualToString:PADES_FORMAT]
+			|| [signFormat isEqualToString:XADES_FORMAT]
+			|| [signFormat isEqualToString:NONE_FORMAT]
+			|| [signFormat isEqualToString:NONE_TRI_FORMAT]))
     {
         [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_formato_no_soportado",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self onComplete:^{
             [self backToAboutViewController];
