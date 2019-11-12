@@ -477,10 +477,10 @@
             </objects>
             <point key="canvasLocation" x="-823" y="2075"/>
         </scene>
-        <!--Main Navigation Controller-->
+        <!--Navigation Controller-->
         <scene sceneID="4Az-GF-qiB">
             <objects>
-                <navigationController navigationBarHidden="YES" id="xMB-Ak-RE7" customClass="MainNavigationController" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="xMB-Ak-RE7" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Co1-PM-vru"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NTm-n0-Hw1">
