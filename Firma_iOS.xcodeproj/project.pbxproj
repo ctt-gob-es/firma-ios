@@ -1516,7 +1516,7 @@
 				GCC_PREFIX_HEADER = "Firma_iOS/Firma_iOS-Prefix.pch";
 				HEADER_SEARCH_PATHS = "include/**";
 				INFOPLIST_FILE = "Firma_iOS/Supporting Files/Firma_iOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					lib,
@@ -1555,7 +1555,7 @@
 				GCC_PREFIX_HEADER = "Firma_iOS/Firma_iOS-Prefix.pch";
 				HEADER_SEARCH_PATHS = "include/**";
 				INFOPLIST_FILE = "Firma_iOS/Supporting Files/Firma_iOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					lib,
