@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B54E665142A187EC27B6D6E /* libPods-Cliente @firma.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DABE60D64F75365E48AEED8A /* libPods-Cliente @firma.a */; };
 		3BC03D5D19D9988300FC1804 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AF7F6E17FD60C80084D916 /* libGoogleAnalyticsServices.a */; };
 		3C57FA171AC1BB9D00FF7292 /* AOCertificateInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C57FA161AC1BB9D00FF7292 /* AOCertificateInfo.m */; };
 		B2406F2E20C5CACA008ED085 /* AORegisteredCertificatesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F2920C5CACA008ED085 /* AORegisteredCertificatesTVC.m */; };
@@ -191,8 +190,6 @@
 /* Begin PBXFileReference section */
 		3C57FA151AC1BB9D00FF7292 /* AOCertificateInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AOCertificateInfo.h; path = model/AOCertificateInfo.h; sourceTree = "<group>"; };
 		3C57FA161AC1BB9D00FF7292 /* AOCertificateInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AOCertificateInfo.m; path = model/AOCertificateInfo.m; sourceTree = "<group>"; };
-		4A7C36EED0FD995414F36AF9 /* Pods-Cliente @firma.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cliente @firma.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cliente @firma/Pods-Cliente @firma.release.xcconfig"; sourceTree = "<group>"; };
-		4EEF21AE0269219F1FABD0DB /* Pods-Cliente @firma.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cliente @firma.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cliente @firma/Pods-Cliente @firma.debug.xcconfig"; sourceTree = "<group>"; };
 		B2406F2720C5CACA008ED085 /* AOAvailableCertificatesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOAvailableCertificatesTVC.h; sourceTree = "<group>"; };
 		B2406F2920C5CACA008ED085 /* AORegisteredCertificatesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AORegisteredCertificatesTVC.m; sourceTree = "<group>"; };
 		B2406F2A20C5CACA008ED085 /* AOAvailableCertificatesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOAvailableCertificatesTVC.m; sourceTree = "<group>"; };
@@ -506,7 +503,6 @@
 		C3D56A0D17CF452200D7EBED /* GeneralNames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralNames.h; sourceTree = "<group>"; };
 		C3D56A0E17CF452200D7EBED /* IssuerSerial.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = IssuerSerial.c; sourceTree = "<group>"; };
 		C3D56A0F17CF452200D7EBED /* IssuerSerial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssuerSerial.h; sourceTree = "<group>"; };
-		DABE60D64F75365E48AEED8A /* libPods-Cliente @firma.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Cliente @firma.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E47E065C16E2DC1C00BC7855 /* certificados.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = certificados.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -527,7 +523,6 @@
 				C39E592016F9EB5100248B0A /* libcrypto.a in Frameworks */,
 				C31649D8175F2A45009F3B67 /* QuartzCore.framework in Frameworks */,
 				C39E592216F9EB5100248B0A /* libssl.a in Frameworks */,
-				2B54E665142A187EC27B6D6E /* libPods-Cliente @firma.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -738,7 +733,6 @@
 				C36553FE16F9D0DC0048252D /* SimpleSign */,
 				B27395E120A43E2800A7D05A /* Utils */,
 				C3B3E38C17253C5C00F3D458 /* XML */,
-				EB6E0EC94325055487B81D16 /* Pods */,
 			);
 			sourceTree = "<group>";
 			tabWidth = 5;
@@ -766,7 +760,6 @@
 				C30B322B163804620072A515 /* UIKit.framework */,
 				C30B322D163804620072A515 /* Foundation.framework */,
 				C30B322F163804620072A515 /* CoreGraphics.framework */,
-				DABE60D64F75365E48AEED8A /* libPods-Cliente @firma.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1085,15 +1078,6 @@
 			name = XML;
 			sourceTree = "<group>";
 		};
-		EB6E0EC94325055487B81D16 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				4EEF21AE0269219F1FABD0DB /* Pods-Cliente @firma.debug.xcconfig */,
-				4A7C36EED0FD995414F36AF9 /* Pods-Cliente @firma.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1101,7 +1085,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C30B3263163804620072A515 /* Build configuration list for PBXNativeTarget "Cliente @firma" */;
 			buildPhases = (
-				7C69955DBD564B2CCE5F53BD /* [CP] Check Pods Manifest.lock */,
 				C30B3223163804620072A515 /* Sources */,
 				C30B3224163804620072A515 /* Frameworks */,
 				C30B3225163804620072A515 /* Resources */,
@@ -1185,27 +1168,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		7C69955DBD564B2CCE5F53BD /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Cliente @firma-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C30B3223163804620072A515 /* Sources */ = {
@@ -1499,7 +1461,6 @@
 		};
 		C30B3264163804620072A515 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4EEF21AE0269219F1FABD0DB /* Pods-Cliente @firma.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1539,7 +1500,6 @@
 		};
 		C30B3265163804620072A515 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4A7C36EED0FD995414F36AF9 /* Pods-Cliente @firma.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
