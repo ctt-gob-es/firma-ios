@@ -100,10 +100,7 @@
     _registerCertificateDescriptionLabel.font = newFont;
     _registerCertificateDescriptionLabel.textColor = [UIColor redColor];
     _registerCertificateDescriptionLabel.text = _message;
-    
-    DDLogDebug(@"Message -> %@", _message);
-    DDLogDebug(@"MessageLabel -> %@", _registerCertificateDescriptionLabel.text);
-    
+        
     return;
 }
 

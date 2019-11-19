@@ -4,9 +4,6 @@
 //
 
 #import "AOAppDelegate.h"
-#import "DDASLLogger.h"
-#import "DDTTYLogger.h"
-#import "DDFileLogger.h"
 #import "AOAboutViewController.h"
 #import "AORegisteredCertificatesTVC.h"
 #import "GAI.h"
@@ -18,12 +15,8 @@ NSString *URLString, *state = @"Inactive";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Configure CocoaLumberjack
-    [DDLog addLogger:[DDASLLogger sharedInstance]];
-    [DDLog addLogger:[DDTTYLogger sharedInstance]];
 
     [self registerDefaultsFromSettingsBundle];
-    [self setupLogger];
 
 /*    // Optional: automatically send uncaught exceptions to Google Analytics.
     [GAI sharedInstance].trackUncaughtExceptions = YES;
@@ -68,7 +61,6 @@ NSString *URLString, *state = @"Inactive";
     }
     else {
         [[NSNotificationCenter defaultCenter] postNotificationName:URL_READED object:URLString];
-        DDLogDebug(@"\n\n ** URL AppDelegate => %@", URLString);
     }
     
     return YES;
@@ -90,7 +82,6 @@ NSString *URLString, *state = @"Inactive";
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    DDLogDebug(@"Will Enter Foreground ");
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
@@ -101,18 +92,6 @@ NSString *URLString, *state = @"Inactive";
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    DDLogDebug(@"Will Terminate ");
-}
-
-- (void)setupLogger
-{
-    [DDLog addLogger:[DDTTYLogger sharedInstance]]; // TTY = Xcode console
-    [DDLog addLogger:[DDASLLogger sharedInstance]]; // ASL = Apple System Logs
-    
-    DDFileLogger *fileLogger = [[DDFileLogger alloc] init]; // File Logger
-    fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
-    fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
-    [DDLog addLogger:fileLogger];
 }
 
 /**
@@ -124,7 +103,6 @@ NSString *URLString, *state = @"Inactive";
     NSString *settingsBundle = [[NSBundle mainBundle] pathForResource:@"Settings" ofType:@"bundle"];
     if(!settingsBundle)
     {
-        DDLogDebug(@"Could not find Settings.bundle");
         return;
     }
     
@@ -138,9 +116,7 @@ NSString *URLString, *state = @"Inactive";
         if(key)
         {
             [defaultsToRegister setObject:[prefSpecification objectForKey:@"DefaultValue"] forKey:key];
-            DDLogDebug(@"Delegate - Valor de defaultsToRegister -> %@", defaultsToRegister);
         }
-        DDLogDebug(@"Delegate - Valor de la clave -> %@", key);
     }
     
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaultsToRegister];

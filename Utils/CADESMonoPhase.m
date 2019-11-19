@@ -32,10 +32,7 @@
   precalculatedHashAlgorithm:(char*)precalculatedHashAlgorithm
            precalculatedHash:(NSData*)precalculatedHash {
     
-    DDLogDebug(@"\n\nbase64UrlSafeCertificateData -> %@", base64UrlSafeCertificateData);
     NSData *sCertificate = [Base64 decode:base64UrlSafeCertificateData urlSafe:true];
-
-    DDLogDebug(@"certificado sin trip: %@", sCertificate);
     
     const unsigned char *certificateDataBytes = (const unsigned char *)[sCertificate bytes];
     X509 *certificateX509 = d2i_X509(NULL, &certificateDataBytes, [sCertificate length]);
@@ -52,7 +49,6 @@
     }
     else{
          hashAlgorithm = [CADESSignUtils getAlgorithmOID:signAlgoInUse];
-        DDLogDebug(@"CADESMonoPhase: algoritmo hash -> %s", hashAlgorithm);
     }
     
     /*** EL SIGNING TIME LO CALCULAMOS FUERA. ESTO ES PORQUE AL GENERAR PRIMERO LOS ATRIBUTOS DEL FIRMANTE  PARA FIRMARLOS Y LUEGO VOLVER A GENERARLOS PARA CREAR LA ESTRUCTURA CADES, LAS FECHAS NO COINCIDIRÍAN. ***/
@@ -148,7 +144,6 @@
     NSString *contentDataString = NULL;
     if([mode isEqualToString:PROPERTIES_PARAMETER_MODE_IMPLICIT])
     {
-        DDLogDebug(@"F - NSString de los datos: %@", contentData);
         contentDataString = [[NSString alloc] initWithData:contentData encoding:NSUTF8StringEncoding];
     }
     /*** GENERAMOS LA ESTRUCTURA CADES ****/
@@ -189,9 +184,6 @@
     NSData *sign = [[NSFileManager defaultManager] contentsAtPath: directorySign];
     
     /* devolvemos la firma */
-    DDLogDebug(@"\n\n\n");
-    DDLogDebug(@"CADESMonoPhase -> getCadesMonoPhase => \n%@", sign);
-    DDLogDebug(@"\n\n\n");
     return sign;  
        
 }
