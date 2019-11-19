@@ -68,7 +68,6 @@ BOOL isURL = NO;
     }
     @catch (NSException *e) {
         // Se ignora
-        DDLogDebug(@"no se ha podido lanzar el segue %@",e);
     }
 }
 
@@ -99,7 +98,6 @@ BOOL isURL = NO;
         }
         @catch (NSException *e) {
             // Se ignora
-            DDLogDebug(@"no se ha podido lanzar el segue %@",e);
         }
     }
     else
@@ -110,7 +108,6 @@ BOOL isURL = NO;
         }
         @catch (NSException *e) {
             // Se ignora
-            DDLogDebug(@"no se ha podido lanzar el segue %@",e);
         }
     }
 }

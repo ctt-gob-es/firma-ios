@@ -48,11 +48,9 @@ NSString *PADDING_CHAR_SEPARATOR = @".";
                                        );
     if (ccStatus == kCCSuccess)
     {
-        DDLogDebug(@"DesCypher: Cifrado/descifrado DES realizado con exito para una salida de %zu octetos", dataMoved);
         encData.length = dataMoved;
         return encData;
     }
-    DDLogError(@"DesCypher: Fallo en el cifrado DES");
     return nil;
 }
 
@@ -90,17 +88,14 @@ NSString *PADDING_CHAR_SEPARATOR = @".";
     
     if ([[prefixedBase64Data substringWithRange:NSMakeRange(1, 1)] isEqualToString:PADDING_CHAR_SEPARATOR])
     {
-        DDLogDebug(@"DesCypher: Recibidos datos con prefijo de relleno");
         base64Data = [prefixedBase64Data substringFromIndex:2];
         pad = [[prefixedBase64Data substringToIndex:1] intValue];
     }
     else
     {
-        DDLogDebug(@"DesCypher: Recibidos datos sin prefijo de relleno");
         base64Data = prefixedBase64Data;
     }
 
-    DDLogDebug(@"DesCypher: base64Data -> %@", base64Data);
     NSData* decipheredPaddedData = [DesCypher decypher:[Base64 decode:base64Data urlSafe:true] sk:sk];
     
     return [decipheredPaddedData subdataWithRange:NSMakeRange(0, decipheredPaddedData.length - pad)];

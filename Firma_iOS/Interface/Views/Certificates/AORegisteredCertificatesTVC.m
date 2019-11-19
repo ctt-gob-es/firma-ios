@@ -53,7 +53,6 @@
     if (_mode == AORegisteredCertificatesTVCModeSign) {
         [self parseUrl:_startURL];
         [self.navigationItem setHidesBackButton:YES animated:YES];
-        DDLogDebug(@"Start URL AORegisteredCertificatesTVC => %@", _startURL);
     }
     [self.certificatesDescriptionLabel setText:NSLocalizedString(@"certificate_description_label", nil)];
     self.title = NSLocalizedString(@"registered_certificates", nil);
@@ -153,13 +152,6 @@
     OSStatus status = noErr;
     status = [OpenSSLCertificateHelper deleteCertificate:certificateInfo];
     
-    if (status == noErr) {
-        DDLogDebug(@"deleterWithCertificateName::Certificate %@ is deleted from keychain:", certificateInfo.subject);
-    } else {
-        DDLogDebug(@"deleterWithCertificateName::Certificate %@ is not deleted from keychain:", certificateInfo.subject);
-        DDLogError(@"No Se ha eliminado el certificado correctamente.Error: %i", (int)status);
-    }
-    
     return status;
 }
 
@@ -169,7 +161,6 @@
     // This method can not be reached because the rows are marked as not selected in the stroyboard.
     NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
     _selectedCertificate = _certificatesArray[selectedIndexPath.row];
-    DDLogDebug(@"You selected cell number -> %ld", (long)indexPath.row);
     if ([[CertificateUtils sharedWrapper] searchIdentityByName:_selectedCertificate.subject] == YES) {
         
         [[NSUserDefaults standardUserDefaults] setObject:@{kAOUserDefaultsKeyAlias:_selectedCertificate.subject} forKey:kAOUserDefaultsKeyCurrentCertificate];
@@ -189,7 +180,6 @@
         
         [signVC setParameters:_opParameters];
         [signVC setCertificateName:_selectedCertificate.subject];
-        DDLogDebug(@"Nombre del certificado -> %@", _selectedCertificate.subject);
         [signVC setBase64UrlSafeCertificateData:[CertificateUtils sharedWrapper].base64UrlSafeCertificateData];
         [signVC setPrivateKey:[CertificateUtils sharedWrapper].privateKey];
     }
@@ -320,10 +310,7 @@
         [request setValue:@"Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" forHTTPHeaderField:@"User-Agent"];
         [request setValue:@"text/plain,text/html,application/xhtml+xml,application/xml" forHTTPHeaderField:@"Accept"];
         [request setHTTPBody:postData];
-        
-        DDLogDebug(@"---------------------------------------");
-        DDLogError(@"AORegisteredCertificatesTVC Se ha producido un error. informamos al servidor de storage con los siguietnes parámetros: %@", post);
-        
+                
         //realizamos la llamada al servidor.
         //NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
         
@@ -369,7 +356,6 @@
     [request setValue:@"text/plain,text/html,application/xhtml+xml,application/xml" forHTTPHeaderField:@"Accept"];
     [request setHTTPBody:postData];
     
-    DDLogDebug(@"AORegisteredCertificatesTVC: Se recogen los datos del fichero del rtServlet con los siguientes datos: %@", post);
     
     _retrievingDataFromServletCert = true;
     
@@ -411,15 +397,10 @@ NSString *receivedStringCert = NULL;
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     // Connection succeeded in downloading the request.
-    DDLogDebug(@"---------------------------------------");
-    DDLogDebug( @"AORegisteredCertificatesTVC: Final de la recepción! se han recibido %d bytes", (int) [receivedDataCert length]);
-    
     // Convert received data into string.
     //Changed receivedStringCert = [[NSString alloc] initWithData:receivedDataCert encoding:NSASCIIStringEncoding];
     receivedStringCert = [[NSString alloc] initWithData:receivedDataCert
                                                encoding:NSUTF8StringEncoding];
-    DDLogDebug(@"---------------------------------------");
-    DDLogDebug( @"AORegisteredCertificatesTVC: Descarga finalizada");
     
     if (_retrievingDataFromServletCert){
         
@@ -466,16 +447,12 @@ NSString *receivedStringCert = NULL;
             }
         }
         @catch (NSException *exception) {
-            DDLogError(@"\n---------------------------------------");
-            DDLogError(@"AORegisteredCertificatesTVC Se ha producido un error al obtener el fichero: %@", exception.description );
         }
         
     }
     // la respuesta a un reporte de error
     else if(_reportErrorCert){
         _reportErrorCert = false;
-        DDLogError(@"---------------------------------------");
-        DDLogError(@"AORegisteredCertificatesTVC: Respuesta del servidor: %@",[[NSString alloc] initWithData:receivedDataCert encoding:NSUTF8StringEncoding]);
     }
     
     // release the connection, and the data object
@@ -503,10 +480,6 @@ NSString *receivedStringCert = NULL;
   didFailWithError:(NSError *)error
 {
     // Liberar la conexión
-    DDLogError(@"---------------------------------------");
-    DDLogError(@"AORegisteredCertificatesTVC Error de conexión - %@ %@",
-          [error localizedDescription],
-          [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
     
     //Notificamos del error al servidor
     NSString *errorToSend = @"";

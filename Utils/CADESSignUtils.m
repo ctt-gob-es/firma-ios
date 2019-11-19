@@ -158,12 +158,10 @@
             return [[CertificateUtils sharedWrapper] getSignatureBytesSHA512:dataPreSign];
         }
         else{
-            DDLogDebug(@"Algoritmo no soportado: %@",alg);
             return NULL;
         }
     }
     else{
-        DDLogDebug(@"Algoritmo no reconocido: %@",algorithm);
         return NULL;
     }
 }
@@ -194,12 +192,10 @@
             return [certUtils getHashBytesSHA512:dataPreSign];
         }
         else{
-            DDLogDebug(@"Algoritmo no soportado: %@",alg);
             return NULL;
         }
     }
     else{
-        DDLogError(@"Algoritmo no reconocido: %@",algorithm);
         return NULL;
     }
 }
@@ -278,12 +274,10 @@
             return SHA512_OID;
         }
         else{
-            DDLogError(@"Algoritmo no soportado: %@",alg);
             return NULL;
         }
     }
     else{
-        DDLogError(@"Algoritmo no reconocido: %@",algorithm);
         return NULL;
     }
 
@@ -316,7 +310,6 @@
         return SHA512_OID;
     }
     else{
-        DDLogError(@"Algoritmo no soportado: %@",algorithm);
         return NULL;
     }
         
