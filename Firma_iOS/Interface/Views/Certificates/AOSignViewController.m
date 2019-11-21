@@ -1270,12 +1270,10 @@ SecKeyRef privateKey = NULL;
 	   mainStoryboard = [UIStoryboard storyboardWithName:IPHONE_STORYBOARD
 										 bundle: nil];
     }
-    
-    
     UIViewController *homeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AOAboutViewController"];
     UINavigationController *objectNav = [[UINavigationController alloc] initWithRootViewController:homeViewController];
+    [objectNav setModalPresentationStyle: UIModalPresentationFullScreen];
     [self presentViewController:objectNav animated:YES completion:nil];
-    
 }
 
 @end
