@@ -851,41 +851,39 @@ SecKeyRef privateKey = NULL;
 	   }
 	   else
 	   {
-		  //destruimos la barra de progreso
-		  [alertpb destroy];
-		  
-		  //Quitamos la notificación de la pila de notificaciones. Si se produce algun error, no quedará en la pila la notificación y por lo tanto, cuando se vuelva a ejecutar, no se ejecutará n-veces las llamadas que hay en la pila de notificacioens.
-		  NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
-		  [notificationCenter removeObserver:self name:@"eventType" object:nil];
-		  
-		  //Notificamos del error al servidor
-		  NSString *errorToSend = @"";
-		  errorToSend = [errorToSend stringByAppendingString:ERROR_SIGNING];
-		  errorToSend = [errorToSend stringByAppendingString:ERROR_SEPARATOR];
-		  errorToSend = [errorToSend stringByAppendingString:DESC_ERROR_SIGNING];
-		  [self errorReportAsync:errorToSend];
-		  //Se muestra el mensaje de respuesta al usuario.
-		  [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_proceso_firma",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self onComplete:^{
-			 [self backToAboutViewController];
+		  [alertpb destroy:^{
+			 //Quitamos la notificación de la pila de notificaciones. Si se produce algun error, no quedará en la pila la notificación y por lo tanto, cuando se vuelva a ejecutar, no se ejecutará n-veces las llamadas que hay en la pila de notificacioens.
+			 NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+			 [notificationCenter removeObserver:self name:@"eventType" object:nil];
+			 NSString *errorToSend = @"";
+			 errorToSend = [errorToSend stringByAppendingString:ERROR_SIGNING];
+			 errorToSend = [errorToSend stringByAppendingString:ERROR_SEPARATOR];
+			 errorToSend = [errorToSend stringByAppendingString:DESC_ERROR_SIGNING];
+			 [self errorReportAsync:errorToSend];
+			 [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_proceso_firma",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self onComplete:^{
+				[self backToAboutViewController];
+			 }];
 		  }];
-		  
 	   }
     }
-    // la respuesta a un reporte de error
     else if(reportError)
     {
 	   reportError = false;
 	   [alertpb destroy];
+    }
+    else if ([receivedString hasPrefix:@"ERR-"]){
+	   [alertpb destroy:^{
+		  [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(receivedString,nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self onComplete:^{
+			 [self backToAboutViewController];
+		  }];
+	   }];
     }
     //en cualquier otro caso, se trataría la prefirma.
     else
     {
 	   [self Sign:receivedString];
     }
-    
-    // release the connection, and the data object
 }
-
 
 - (NSString *) selectCertificateAlertText:(NSString*)responseString {
     return NSLocalizedString(([responseString hasPrefix: OK]) ? @"certificate_successfully_selected" : @"error_process_select_certificate", nil);
