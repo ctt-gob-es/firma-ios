@@ -354,6 +354,10 @@
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [request setValue:@"Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" forHTTPHeaderField:@"User-Agent"];
     [request setValue:@"text/plain,text/html,application/xhtml+xml,application/xml" forHTTPHeaderField:@"Accept"];
+
+    //This is needed because the server needs time to upload the data
+    [NSThread sleepForTimeInterval:20.0f];
+
     [request setHTTPBody:postData];
     
     
