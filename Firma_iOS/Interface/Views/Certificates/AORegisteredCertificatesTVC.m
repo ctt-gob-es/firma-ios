@@ -52,13 +52,18 @@
     [self.editTableView setDataSource:self];
     [self.editTableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
     if (_mode == AORegisteredCertificatesTVCModeSign) {
-	   AlertProgressBar *alertpb = [[AlertProgressBar alloc]init];
-	   [alertpb createProgressBar:self withMessage: NSLocalizedString(@"processing_web_data",nil)];
-	   dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 20 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-		  [alertpb destroy];
-		  [self parseUrl:self->_startURL];
+	   if ([_startURL containsString:@"properties"]){
+		  AlertProgressBar *alertpb = [[AlertProgressBar alloc]init];
+		  [alertpb createProgressBar:self withMessage: NSLocalizedString(@"processing_web_data",nil)];
+		  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 20 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+			 [alertpb destroy];
+			 [self parseUrl:self->_startURL];
+			 [self.navigationItem setHidesBackButton:YES animated:YES];
+		  });
+	   } else {
+		  [self parseUrl:_startURL];
 		  [self.navigationItem setHidesBackButton:YES animated:YES];
-	   });
+	   }
     }
     [self.certificatesDescriptionLabel setText:NSLocalizedString(@"certificate_description_label", nil)];
     self.title = NSLocalizedString(@"registered_certificates", nil);
