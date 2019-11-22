@@ -11,8 +11,8 @@
 @synthesize av;
 @synthesize spinner;
 
-- (void) createProgressBar:(UIViewController*)viewController {
-    av = [UIAlertController alertControllerWithTitle: NSLocalizedString(@"processing",nil) message:@"" preferredStyle:UIAlertControllerStyleAlert];
+- (void) createProgressBar:(UIViewController*)viewController withMessage: (NSString *) message {
+    av = [UIAlertController alertControllerWithTitle: message message:@"" preferredStyle:UIAlertControllerStyleAlert];
     spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     spinner.center = CGPointMake(140, 70);
     spinner.hidesWhenStopped = YES;

@@ -20,6 +20,7 @@
 #import "AOXMLReader.h"
 #import "CommonAlert.h"
 #import "GlobalConstants.h"
+#import "AlertProgressBar.h"
 
 @interface AORegisteredCertificatesTVC ()
 {
@@ -51,8 +52,13 @@
     [self.editTableView setDataSource:self];
     [self.editTableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
     if (_mode == AORegisteredCertificatesTVCModeSign) {
-        [self parseUrl:_startURL];
-        [self.navigationItem setHidesBackButton:YES animated:YES];
+	   AlertProgressBar *alertpb = [[AlertProgressBar alloc]init];
+	   [alertpb createProgressBar:self withMessage: NSLocalizedString(@"processing_web_data",nil)];
+	   dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 20 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+		  [alertpb destroy];
+		  [self parseUrl:self->_startURL];
+		  [self.navigationItem setHidesBackButton:YES animated:YES];
+	   });
     }
     [self.certificatesDescriptionLabel setText:NSLocalizedString(@"certificate_description_label", nil)];
     self.title = NSLocalizedString(@"registered_certificates", nil);
@@ -236,6 +242,7 @@
                 
                 if(_stServletCert != NULL & _idDocCert != NULL)
                     [self errorReportAsync:errorToSend];
+			 NSLog(@"ERROR: %@", errorToSend);
                 [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"no_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self];
                 [self.editTableView setAllowsSelection:NO];
             } else {
@@ -356,7 +363,6 @@
     [request setValue:@"text/plain,text/html,application/xhtml+xml,application/xml" forHTTPHeaderField:@"Accept"];
 
     //This is needed because the server needs time to upload the data
-    [NSThread sleepForTimeInterval:20.0f];
 
     [request setHTTPBody:postData];
     
@@ -417,6 +423,7 @@ NSString *receivedStringCert = NULL;
         @try {
             
             NSData *decoded = [DesCypher decypherData:responseString sk:[_cipherKeyCert dataUsingEncoding:NSUTF8StringEncoding]];
+		  NSLog(@"RESPONSE STRING: %@", responseString);
         
             datosInUse = [[NSString alloc] initWithData:decoded encoding:NSUTF8StringEncoding];
             

@@ -511,7 +511,7 @@ SecKeyRef privateKey = NULL;
     
     //iniciamos la barra de progreso.
     alertpb = [[AlertProgressBar alloc]init];
-    [alertpb createProgressBar:self];
+    [alertpb createProgressBar:self withMessage: NSLocalizedString(@"processing",nil)];
     
 }
 
@@ -642,8 +642,8 @@ SecKeyRef privateKey = NULL;
     
     //iniciamos la barra de progreso.
     alertpb = [[AlertProgressBar alloc]init];
-    [alertpb createProgressBar:self];
-    
+    [alertpb createProgressBar:self withMessage: NSLocalizedString(@"processing",nil)];
+
     //invocamos al almacenamiento de la firma
     NSString *finalSignature = [Base64 encode:signature urlSafe:true];
     [self storeData:finalSignature];
@@ -663,8 +663,8 @@ SecKeyRef privateKey = NULL;
 	   
 	   //Start progress bar.
 	   alertpb = [[AlertProgressBar alloc]init];
-	   [alertpb createProgressBar:self];
-	   
+	   [alertpb createProgressBar:self withMessage: NSLocalizedString(@"processing",nil)];
+
 	   //Store the sign
 	   NSString *finalSignature = [Base64 encode:dataSigned urlSafe:true];
 	   [self storeData:finalSignature];
@@ -763,7 +763,7 @@ SecKeyRef privateKey = NULL;
     
     //iniciamos la barra de progreso.
     alertpb = [[AlertProgressBar alloc]init];
-    [alertpb createProgressBar:self];
+    [alertpb createProgressBar:self withMessage: NSLocalizedString(@"processing",nil)];
 }
 
 /* METODOS DONDE SE RECIBE LA RESPUESTA DE LA CONEXION ASINCRONA */
