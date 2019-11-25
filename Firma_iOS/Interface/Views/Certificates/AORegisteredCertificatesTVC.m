@@ -48,22 +48,13 @@
 {
     
     [super viewDidLoad];
+    self.numberOfRetries = 0;
     [self.editTableView setDelegate: self];
     [self.editTableView setDataSource:self];
     [self.editTableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
     if (_mode == AORegisteredCertificatesTVCModeSign) {
-	   if ([_startURL containsString:@"properties"]){
-		  AlertProgressBar *alertpb = [[AlertProgressBar alloc]init];
-		  [alertpb createProgressBar:self withMessage: NSLocalizedString(@"processing_web_data",nil)];
-		  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 20 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-			 [alertpb destroy];
-			 [self parseUrl:self->_startURL];
-			 [self.navigationItem setHidesBackButton:YES animated:YES];
-		  });
-	   } else {
-		  [self parseUrl:_startURL];
-		  [self.navigationItem setHidesBackButton:YES animated:YES];
-	   }
+	   [self parseUrl:_startURL];
+	   [self.navigationItem setHidesBackButton:YES animated:YES];
     }
     [self.certificatesDescriptionLabel setText:NSLocalizedString(@"certificate_description_label", nil)];
     self.title = NSLocalizedString(@"registered_certificates", nil);
@@ -420,51 +411,70 @@ NSString *receivedStringCert = NULL;
     if (_retrievingDataFromServletCert){
         
         _retrievingDataFromServletCert=false;
-        NSString* datosInUse = NULL;
         
         //Obtenemos la respuesta del servidor.
         NSString* responseString = [[NSString alloc] initWithData:receivedDataCert encoding:NSUTF8StringEncoding];
-        
-        @try {
-            
-            NSData *decoded = [DesCypher decypherData:responseString sk:[_cipherKeyCert dataUsingEncoding:NSUTF8StringEncoding]];
-		  NSLog(@"RESPONSE STRING: %@", responseString);
-        
-            datosInUse = [[NSString alloc] initWithData:decoded encoding:NSUTF8StringEncoding];
-            
-            datosInUse = [datosInUse stringByRemovingPercentEncoding];
-            
-            AOEntity *entidad = [[AOEntity alloc] init];
-            AOXMLReader *xmlReader = [[AOXMLReader alloc] init];
-            entidad = [xmlReader loadXMLByString:datosInUse ];
-            
-            if(entidad.datField != NULL) {
-                [_opParameters setObject:entidad.datField forKey:PARAMETER_NAME_DAT];
-            }
-            
-            if(entidad.formatField != NULL) {
-                [_opParameters setObject:entidad.formatField forKey:PARAMETER_NAME_FORMAT];
-            }
-            
-            if(entidad.algorithmField != NULL) {
-                [_opParameters setObject:entidad.algorithmField forKey:PARAMETER_NAME_ALGORITHM2];
-            }
-            
-            if(entidad.propertiesField != NULL) {
-                [_opParameters setObject:entidad.propertiesField forKey:PARAMETER_NAME_PROPERTIES];
-            }
-            
-            if(entidad.idField != NULL) {
-                [_opParameters setObject:entidad.idField forKey:PARAMETER_NAME_ID];
-            }
-            
-            if(entidad.stServletField != NULL) {
-                [_opParameters setObject: entidad.stServletField forKey:PARAMETER_NAME_STSERVLET];
-            }
-        }
-        @catch (NSException *exception) {
-        }
-        
+	   if (!self.alertpb) {
+		  self.alertpb = [[AlertProgressBar alloc]init];
+		  [self.alertpb createProgressBarWithMessage:NSLocalizedString(@"processing_web_data",nil)];
+	   }
+	   [self.alertpb destroy:^{
+		  [self presentViewController:self.alertpb.av animated:true completion:^{
+			 [self.alertpb.spinner startAnimating];
+			 @try {
+				NSData *decoded = [DesCypher decypherData:responseString sk:[self->_cipherKeyCert dataUsingEncoding:NSUTF8StringEncoding]];
+				NSLog(@"RESPONSE STRING: %@", responseString);
+				if ([responseString hasPrefix:@"ERR-06"] && self.numberOfRetries<3){
+				    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 4 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+					   [self parseUrl: self->_startURL];
+					   self.numberOfRetries = self.numberOfRetries + 1;
+				    });
+				} else {
+				    NSString* datosInUse = [[NSString alloc] initWithData:decoded encoding:NSUTF8StringEncoding];
+				    
+				    datosInUse = [datosInUse stringByRemovingPercentEncoding];
+				    
+				    AOEntity *entidad = [[AOEntity alloc] init];
+				    AOXMLReader *xmlReader = [[AOXMLReader alloc] init];
+				    entidad = [xmlReader loadXMLByString:datosInUse ];
+				    
+				    if(entidad.datField != NULL) {
+					   [self->_opParameters setObject:entidad.datField forKey:PARAMETER_NAME_DAT];
+				    }
+				    
+				    if(entidad.formatField != NULL) {
+					   [self->_opParameters setObject:entidad.formatField forKey:PARAMETER_NAME_FORMAT];
+				    }
+				    
+				    if(entidad.algorithmField != NULL) {
+					   [self->_opParameters setObject:entidad.algorithmField forKey:PARAMETER_NAME_ALGORITHM2];
+				    }
+				    
+				    if(entidad.propertiesField != NULL) {
+					   [self->_opParameters setObject:entidad.propertiesField forKey:PARAMETER_NAME_PROPERTIES];
+				    }
+				    
+				    if(entidad.idField != NULL) {
+					   [self->_opParameters setObject:entidad.idField forKey:PARAMETER_NAME_ID];
+				    }
+				    
+				    if(entidad.stServletField != NULL) {
+					   [self->_opParameters setObject: entidad.stServletField forKey:PARAMETER_NAME_STSERVLET];
+				    }
+				    
+				    if (self.alertpb) {
+					   [self.alertpb destroy];
+				    }
+				}
+			 }
+			 @catch (NSException *exception) {
+				    if (self.alertpb) {
+					   [self.alertpb destroy];
+				    }
+			 }
+		  }];
+	   }];
+	   
     }
     // la respuesta a un reporte de error
     else if(_reportErrorCert){

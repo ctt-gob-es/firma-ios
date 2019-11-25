@@ -11,7 +11,8 @@
 @property (nonatomic, strong) UIAlertController *av;
 @property (nonatomic, strong) UIActivityIndicatorView *spinner;
 
--(void) createProgressBar:(UIViewController*)viewController withMessage: (NSString *) message;
+- (void) createAndShowProgressBar:(UIViewController*)viewController withMessage: (NSString *) message;
+-(void) createProgressBarWithMessage: (NSString *) message;
 -(void) destroy;
 -(void) destroy:(void(^)(void))onComplete;
 

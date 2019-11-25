@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AlertProgressBar.h"
 
 typedef NS_ENUM (NSInteger, AORegisteredCertificatesTVCMode)
 {
@@ -22,6 +23,7 @@ typedef NS_ENUM (NSInteger, AORegisteredCertificatesTVCMode)
 @property (strong, nonatomic) IBOutlet UITableView *editTableView;
 @property (strong, nonatomic) IBOutlet UILabel *certificatesDescriptionLabel;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *backBarButtonItem;
-
+@property(nonatomic, assign) int numberOfRetries;
+@property (strong, nonatomic) AlertProgressBar *alertpb;
 
 @end
