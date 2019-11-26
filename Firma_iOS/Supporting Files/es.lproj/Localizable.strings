@@ -8,6 +8,7 @@
  
 */
 "processing" = "Procesando...";
+"processing_web_data" = "Procesando datos de la web";
 "atencion" = "¡Atención!";
 "cerrar" = "Cerrar";
 "conectar" = "Conectar";

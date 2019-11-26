@@ -8,6 +8,7 @@
  
  */
 "processing" = "Processing...";
+"processing_web_data" = "Preocessing web data.";
 "atencion" = "Warning!";
 "cerrar" = "Close";
 "conectar" = "Connect";
