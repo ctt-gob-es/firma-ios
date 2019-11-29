@@ -1108,10 +1108,10 @@
 				CLASSPREFIX = AO;
 				LastTestingUpgradeCheck = 0600;
 				LastUpgradeCheck = 0800;
-				ORGANIZATIONNAME = Atos;
+				ORGANIZATIONNAME = "Solid GEAR";
 				TargetAttributes = {
 					C30B3226163804620072A515 = {
-						DevelopmentTeam = D8B6343U7D;
+						DevelopmentTeam = 2H36E8KFN2;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -1121,6 +1121,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				es,
 				Base,
@@ -1468,6 +1469,8 @@
 				CODE_SIGN_ENTITLEMENTS = "Cliente @firma.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2H36E8KFN2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1484,12 +1487,13 @@
 					"$(PROJECT_DIR)/lib",
 					"$(PROJECT_DIR)",
 				);
+				MARKETING_VERSION = 1.5;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "es.gob.afirma.Cliente--firma";
 				PRODUCT_NAME = "Cliente @firma";
 				PROVISIONING_PROFILE = "c08ed7da-989b-4719-b284-d895789fd7db";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "c08ed7da-989b-4719-b284-d895789fd7db";
-				PROVISIONING_PROFILE_SPECIFIER = "D8B6343U7D/iPad de ATOS e iPad del MinHAP";
+				PROVISIONING_PROFILE_SPECIFIER = "Cliente Afirma Movil - Development";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
@@ -1506,6 +1510,8 @@
 				CODE_SIGN_ENTITLEMENTS = "Cliente @firma.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2H36E8KFN2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1522,11 +1528,12 @@
 					"$(PROJECT_DIR)/lib",
 					"$(PROJECT_DIR)",
 				);
+				MARKETING_VERSION = 1.5;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "es.gob.afirma.Cliente--firma";
 				PRODUCT_NAME = "Cliente @firma";
 				PROVISIONING_PROFILE = "c08ed7da-989b-4719-b284-d895789fd7db";
-				PROVISIONING_PROFILE_SPECIFIER = "D8B6343U7D/iPad de ATOS e iPad del MinHAP";
+				PROVISIONING_PROFILE_SPECIFIER = "Cliente Afirma Movil - Development";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
