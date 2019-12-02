@@ -1,6 +1,6 @@
 //
 //  CertificateUtil.h
-//  SignSample02
+//  Firma_iOS
 //
 //  Created by Tomas Garcia-Meras on 24/8/14.
 //  Copyright (c) 2014 Atos. All rights reserved.
