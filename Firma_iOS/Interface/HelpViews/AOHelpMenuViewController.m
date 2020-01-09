@@ -39,9 +39,9 @@ NSMutableArray *tableData = NULL;
     self.tblViewHelp.layer.cornerRadius = 6.0f;
     self.tblViewHelp.scrollEnabled=NO;
     self.screenName = @"IOS AOHelpMenuViewController - Help menu";
-    [self.helpMenuDescriptionLabel setText:NSLocalizedString(@"help_menu_description_label", nil)];
-    [self.helpMenuTitle setText:NSLocalizedString(@"help_menu_title", nil)];
-    self.title = NSLocalizedString(@"help", nil) ;
+    [self.helpMenuDescriptionLabel setText:@"help_menu_description_label".localized];
+    [self.helpMenuTitle setText: @"help_menu_title".localized];
+    self.title = @"help".localized ;
 }
 - (IBAction)goBackHome:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
@@ -59,9 +59,9 @@ NSMutableArray *tableData = NULL;
     
     tableData = [[NSMutableArray alloc] init];
     
-    [tableData addObject: NSLocalizedString(@"help_acercade",nil)];
-    [tableData addObject: NSLocalizedString(@"help_instalar_certificados",nil)];
-    [tableData addObject: NSLocalizedString(@"help_preguntas",nil)];
+    [tableData addObject: @"help_acercade".localized];
+    [tableData addObject: @"help_instalar_certificados".localized];
+    [tableData addObject: @"help_preguntas".localized];
 
 }
 
