@@ -91,17 +91,17 @@ SecKeyRef privateKey = NULL;
 }
 
 -(void) applySelectCertificateText {
-    [self.signCertificateSelectorLabel setText:NSLocalizedString(@"selectcert_certificate_selector_label", nil)];
-    [self.signCertificateDescriptionLabel setText:NSLocalizedString(@"selectcert_certificate_description_label", nil)];
-    self.title = NSLocalizedString(@"send", nil);
-    [self.signButton setTitle:NSLocalizedString(@"send", nil) forState:UIControlStateNormal];
+    [self.signCertificateSelectorLabel setText: @"selectcert_certificate_selector_label".localized];
+    [self.signCertificateDescriptionLabel setText: @"selectcert_certificate_description_label".localized];
+    self.title = @"send".localized;
+    [self.signButton setTitle: @"send".localized forState:UIControlStateNormal];
 }
 
 -(void) applySignCertificateText {
-    [self.signCertificateSelectorLabel setText:NSLocalizedString(@"sign_certificate_selector_label", nil)];
-    [self.signCertificateDescriptionLabel setText:NSLocalizedString(@"sign_certificate_description_label", nil)];
-    self.title = NSLocalizedString(@"sign", nil);
-    [self.signButton setTitle:NSLocalizedString(@"sign", nil) forState:UIControlStateNormal];
+    [self.signCertificateSelectorLabel setText: @"sign_certificate_selector_label".localized];
+    [self.signCertificateDescriptionLabel setText: @"sign_certificate_description_label".localized];
+    self.title = @"sign".localized;
+    [self.signButton setTitle: @"sign".localized forState:UIControlStateNormal];
 }
 
 
@@ -169,7 +169,7 @@ SecKeyRef privateKey = NULL;
 		  errorToSend = [errorToSend stringByAppendingString:ERROR_MISSING_DATA];
 		  errorToSend = [errorToSend stringByAppendingString:ERROR_SEPARATOR];
 		  errorToSend = [errorToSend stringByAppendingString:DESC_ERROR_MISSING_DATA];
-		  [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self];
+		  [CommonAlert createAlertWithTitle: @"error".localized message: @"error_datos_firmar".localized cancelButtonTitle: @"cerrar".localized showOn:self];
 		  self.signButton.userInteractionEnabled = NO;
 		  return;
 	   }
@@ -197,7 +197,7 @@ SecKeyRef privateKey = NULL;
 			 errorToSend = [errorToSend stringByAppendingString:ERROR_MISSING_DATA];
 			 errorToSend = [errorToSend stringByAppendingString:ERROR_SEPARATOR];
 			 errorToSend = [errorToSend stringByAppendingString:DESC_ERROR_MISSING_DATA];
-			 [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self onComplete:^{
+			 [CommonAlert createAlertWithTitle:@"error".localized message: @"error_datos_firmar".localized cancelButtonTitle:@"cerrar".localized showOn:self onComplete:^{
 				[self backToAboutViewController];
 			 }];
 			 self.signButton.userInteractionEnabled = NO;
@@ -219,7 +219,7 @@ SecKeyRef privateKey = NULL;
 				errorToSend = [errorToSend stringByAppendingString:ERROR_SEPARATOR];
 				errorToSend = [errorToSend stringByAppendingString:DESC_ERROR_MISSING_DATA];
 				[self errorReportAsync:errorToSend];
-				[CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self onComplete:^{
+				[CommonAlert createAlertWithTitle: @"error".localized message:@"error_datos_firmar".localized cancelButtonTitle: @"cerrar".localized showOn:self onComplete:^{
 				    [self backToAboutViewController];
 				}];
 				self.signButton.userInteractionEnabled = NO;
@@ -235,7 +235,7 @@ SecKeyRef privateKey = NULL;
 		  errorToSend = [errorToSend stringByAppendingString:ERROR_SEPARATOR];
 		  errorToSend = [errorToSend stringByAppendingString:DESC_ERROR_MISSING_DATA_ID];
 		  [self errorReportAsync:errorToSend];
-		  [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self onComplete:^{
+		  [CommonAlert createAlertWithTitle:@"error".localized message: @"error_datos_firmar".localized cancelButtonTitle: @"cerrar".localized showOn:self onComplete:^{
 			 [self backToAboutViewController];
 		  }];
 		  self.signButton.userInteractionEnabled = NO;
@@ -304,7 +304,7 @@ SecKeyRef privateKey = NULL;
 			 errorToSend = [errorToSend stringByAppendingString:ERROR_SEPARATOR];
 			 errorToSend = [errorToSend stringByAppendingString:DESC_ERROR_NOT_TARGET];
 			 [self errorReportAsync:errorToSend];
-			 [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_objetivo_contrafirma",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self onComplete:^{
+			 [CommonAlert createAlertWithTitle:@"error".localized message:@"error_objetivo_contrafirma".localized cancelButtonTitle: @"cerrar".localized showOn:self onComplete:^{
 				[self backToAboutViewController];
 			 }];
 			 self.signButton.userInteractionEnabled = NO;
@@ -334,7 +334,7 @@ SecKeyRef privateKey = NULL;
 	   errorToSend = [errorToSend stringByAppendingString:DESC_ERROR_UNSUPPORTED_OPERATION_NAME];
 	   //hay que hacer esta llamada asincrona!!!
 	   [self errorReportAsync:errorToSend];
-	   [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_codigo_desconocido",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self onComplete:^{
+	   [CommonAlert createAlertWithTitle: @"error".localized message: @"error_codigo_desconocido".localized cancelButtonTitle: @"cerrar".localized showOn:self onComplete:^{
 		  [self backToAboutViewController];
 	   }];
 	   self.signButton.userInteractionEnabled = NO;
@@ -343,7 +343,7 @@ SecKeyRef privateKey = NULL;
     
     if (urlServlet == nil)
     {
-	   [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_url_servidor",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self onComplete:^{
+	   [CommonAlert createAlertWithTitle: @"error".localized message: @"error_url_servidor".localized cancelButtonTitle: @"cerrar".localized showOn:self onComplete:^{
 		  [self backToAboutViewController];
 	   }];
 	   self.signButton.userInteractionEnabled = NO;
@@ -357,7 +357,7 @@ SecKeyRef privateKey = NULL;
 	   errorToSend = [errorToSend stringByAppendingString:ERROR_SEPARATOR];
 	   errorToSend = [errorToSend stringByAppendingString:DESC_ERROR_NOT_SUPPORTED_FORMAT];
 	   [self errorReportAsync:errorToSend];
-	   [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_formato_firma",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self onComplete:^{
+	   [CommonAlert createAlertWithTitle: @"error".localized message: @"error_formato_firma".localized cancelButtonTitle:@"cerrar".localized showOn:self onComplete:^{
 		  [self backToAboutViewController];
 	   }];
 	   self.signButton.userInteractionEnabled = NO;
@@ -372,7 +372,7 @@ SecKeyRef privateKey = NULL;
 			|| [signFormat isEqualToString:NONE_FORMAT]
 			|| [signFormat isEqualToString:NONE_TRI_FORMAT]))
     {
-	   [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_formato_no_soportado",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self onComplete:^{
+	   [CommonAlert createAlertWithTitle: @"error".localized message: @"error_formato_no_soportado".localized cancelButtonTitle: @"cerrar".localized showOn:self onComplete:^{
 		  [self backToAboutViewController];
 	   }];
 	   self.signButton.userInteractionEnabled = NO;
@@ -388,7 +388,7 @@ SecKeyRef privateKey = NULL;
 	   errorToSend = [errorToSend stringByAppendingString:ERROR_SEPARATOR];
 	   errorToSend = [errorToSend stringByAppendingString:DESC_ERROR_NOT_SUPPORTED_ALGORITHM];
 	   [self errorReportAsync:errorToSend];
-	   [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_algoritmo_no_soportado",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self onComplete:^{
+	   [CommonAlert createAlertWithTitle: @"error".localized message: @"error_algoritmo_no_soportado".localized cancelButtonTitle: @"cerrar".localized showOn:self onComplete:^{
 		  [self backToAboutViewController];
 	   }];
 	   self.signButton.userInteractionEnabled = NO;
@@ -441,7 +441,7 @@ SecKeyRef privateKey = NULL;
     //Notify the error if this parameter does not exist
     if (urlServlet == nil)
     {
-	   [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_url_servidor",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self onComplete:^{
+	   [CommonAlert createAlertWithTitle: @"error".localized message: @"error_url_servidor".localized cancelButtonTitle: @"cerrar".localized showOn:self onComplete:^{
 		  [self backToAboutViewController];
 	   }];
 	   self.signButton.userInteractionEnabled = NO;
@@ -511,7 +511,7 @@ SecKeyRef privateKey = NULL;
     
     //iniciamos la barra de progreso.
     alertpb = [[AlertProgressBar alloc]init];
-    [alertpb createAndShowProgressBar:self withMessage: NSLocalizedString(@"processing",nil)];
+    [alertpb createAndShowProgressBar:self withMessage: @"processing".localized];
     
 }
 
@@ -642,7 +642,7 @@ SecKeyRef privateKey = NULL;
     
     //iniciamos la barra de progreso.
     alertpb = [[AlertProgressBar alloc]init];
-    [alertpb createAndShowProgressBar:self withMessage: NSLocalizedString(@"processing",nil)];
+    [alertpb createAndShowProgressBar:self withMessage: @"processing".localized];
 
     //invocamos al almacenamiento de la firma
     NSString *finalSignature = [Base64 encode:signature urlSafe:true];
@@ -663,7 +663,7 @@ SecKeyRef privateKey = NULL;
 	   
 	   //Start progress bar.
 	   alertpb = [[AlertProgressBar alloc]init];
-	   [alertpb createAndShowProgressBar:self withMessage: NSLocalizedString(@"processing",nil)];
+	   [alertpb createAndShowProgressBar:self withMessage: @"processing".localized];
 
 	   //Store the sign
 	   NSString *finalSignature = [Base64 encode:dataSigned urlSafe:true];
@@ -763,7 +763,7 @@ SecKeyRef privateKey = NULL;
     
     //iniciamos la barra de progreso.
     alertpb = [[AlertProgressBar alloc]init];
-    [alertpb createAndShowProgressBar:self withMessage: NSLocalizedString(@"processing",nil)];
+    [alertpb createAndShowProgressBar:self withMessage: @"processing"];
 }
 
 /* METODOS DONDE SE RECIBE LA RESPUESTA DE LA CONEXION ASINCRONA */
@@ -809,9 +809,9 @@ SecKeyRef privateKey = NULL;
 	   //quitamos el progressbar indefinido
 	   [alertpb destroy:^{
 		  //se procesa la respuesta del servidor.
-		  NSString* title = NSLocalizedString(([responseString hasPrefix: OK]) ? @"ok" : @"error", nil);
+		  NSString* title = ([responseString hasPrefix: OK]) ? @"ok".localized : @"error".localized;
 		  NSString* message = [[self.parameters objectForKey:PARAMETER_NAME_OPERATION] isEqualToString: OPERATION_SELECT_CERTIFICATE] ? [self selectCertificateAlertText: responseString]:[self signAlertText:responseString];
-		  [CommonAlert createAlertWithTitle: title message: message cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self onComplete:^{
+		  [CommonAlert createAlertWithTitle: title message: message cancelButtonTitle: @"cerrar".localized showOn:self onComplete:^{
 			 [self backToAboutViewController];
 		  }];
 	   }];
@@ -860,7 +860,7 @@ SecKeyRef privateKey = NULL;
 			 errorToSend = [errorToSend stringByAppendingString:ERROR_SEPARATOR];
 			 errorToSend = [errorToSend stringByAppendingString:DESC_ERROR_SIGNING];
 			 [self errorReportAsync:errorToSend];
-			 [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_proceso_firma",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self onComplete:^{
+			 [CommonAlert createAlertWithTitle: @"error".localized message: @"error_proceso_firma".localized cancelButtonTitle:@"cerrar".localized showOn:self onComplete:^{
 				[self backToAboutViewController];
 			 }];
 		  }];
@@ -873,7 +873,7 @@ SecKeyRef privateKey = NULL;
     }
     else if ([receivedString hasPrefix:@"ERR-"]){
 	   [alertpb destroy:^{
-		  [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(receivedString,nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self onComplete:^{
+		  [CommonAlert createAlertWithTitle: @"error".localized message: receivedString.localized cancelButtonTitle: @"cerrar".localized showOn:self onComplete:^{
 			 [self backToAboutViewController];
 		  }];
 	   }];
@@ -886,11 +886,11 @@ SecKeyRef privateKey = NULL;
 }
 
 - (NSString *) selectCertificateAlertText:(NSString*)responseString {
-    return NSLocalizedString(([responseString hasPrefix: OK]) ? @"certificate_successfully_selected" : @"error_process_select_certificate", nil);
+    return ([responseString hasPrefix: OK]) ? @"certificate_successfully_selected".localized : @"error_process_select_certificate".localized;
 }
 
 - (NSString *) signAlertText:(NSString*)responseString {
-    return NSLocalizedString(([responseString hasPrefix: OK]) ? @"proceso_finalizado_trifasico" : @"error_proceso_firma", nil);
+    return ([responseString hasPrefix: OK]) ? @"proceso_finalizado_trifasico".localized : @"error_proceso_firma".localized;
 }
 
 /**************************/
@@ -930,7 +930,7 @@ SecKeyRef privateKey = NULL;
 	   errorToSend = [errorToSend stringByAppendingString:ERROR_SEPARATOR];
 	   errorToSend = [errorToSend stringByAppendingString:DESC_ERROR_SIGNING];
 	   // Mostramos un mensaje con el error producido.
-	   [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_conexion_servidor",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self onComplete:^{
+	   [CommonAlert createAlertWithTitle: @"error".localized message: @"error_conexion_servidor".localized cancelButtonTitle: @"cerrar".localized showOn:self onComplete:^{
 		  [self backToAboutViewController];
 	   }];
 	   self.signButton.userInteractionEnabled = NO;
@@ -965,7 +965,7 @@ SecKeyRef privateKey = NULL;
     for (Firma *firma in firmas) {
 	   if(firma == NULL){
 		  [alertpb destroy: ^{
-			 [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"error_proceso_firma",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self onComplete:^{
+			 [CommonAlert createAlertWithTitle:@"error".localized message:@"error_proceso_firma".localized cancelButtonTitle:@"cerrar".localized showOn:self onComplete:^{
 				[self backToAboutViewController];
 			 }];
 			 return;

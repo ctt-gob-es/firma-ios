@@ -29,12 +29,12 @@ BOOL isURL = NO;
     [self createNotification];
     
     self.screenName = @"IOS AOAboutViewController - Main window";
-    [self.homeDescriptionLabel setText:[NSString stringWithFormat:NSLocalizedString(@"home_description_label", nil),[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]]];
+    [self.homeDescriptionLabel setText:[NSString stringWithFormat: @"home_description_label".localized,[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]]];
     self.homeDescriptionLabel.scrollEnabled = NO;
-    [self.homeFooterLabel setText:[NSString stringWithFormat:NSLocalizedString(@"home_footer_label", nil),[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]]];
-    self.keystoreManagerBarItem.title = NSLocalizedString(@"keystore_manager_bar_item", nil);
-    self.helpBarItem.title = NSLocalizedString(@"help_bar_item", nil);
-    self.homeNavitationItem.title = NSLocalizedString(@"home_title", nil);
+    [self.homeFooterLabel setText:[NSString stringWithFormat: @"home_footer_label".localized,[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]]];
+    self.keystoreManagerBarItem.title = @"keystore_manager_bar_item".localized;
+    self.helpBarItem.title = @"help_bar_item".localized;
+    self.homeNavitationItem.title = @"home_title".localized;
 }
 
 - (void)didReceiveMemoryWarning

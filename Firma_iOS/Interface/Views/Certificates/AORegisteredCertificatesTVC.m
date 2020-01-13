@@ -56,8 +56,8 @@
 	   [self parseUrl:_startURL];
 	   [self.navigationItem setHidesBackButton:YES animated:YES];
     }
-    [self.certificatesDescriptionLabel setText:NSLocalizedString(@"certificate_description_label", nil)];
-    self.title = NSLocalizedString(@"registered_certificates", nil);
+    [self.certificatesDescriptionLabel setText: @"certificate_description_label".localized];
+    self.title = @"registered_certificates";
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -106,7 +106,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return NSLocalizedString(@"remove", nil);
+    return @"remove".localized;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -121,10 +121,10 @@
         switch (status) {
             case noErr :
             case errSecItemNotFound:
-                errorMessage = NSLocalizedString(@"certificate_successfully_deleted", nil);
+                errorMessage = @"certificate_successfully_deleted".localized;
                 break;
             default:
-                errorMessage = NSLocalizedString(@"an_error_occurred", nil);
+                errorMessage = @"an_error_occurred".localized;
                 break;
         }
         
@@ -171,7 +171,7 @@
         [self performSegueWithIdentifier:@"showSignVC" sender: self];
     }
     else {
-        [CommonAlert createAlertWithTitle: NSLocalizedString(@"error_ocurred_while_loading_the_certificate", nil) message:@"" cancelButtonTitle:OK showOn:self];
+        [CommonAlert createAlertWithTitle: @"error_ocurred_while_loading_the_certificate".localized message:@"" cancelButtonTitle:OK showOn:self];
     }
 }
 
@@ -239,7 +239,7 @@
                 if(_stServletCert != NULL & _idDocCert != NULL)
                     [self errorReportAsync:errorToSend];
 			 NSLog(@"ERROR: %@", errorToSend);
-                [CommonAlert createAlertWithTitle:NSLocalizedString(@"error",nil) message:NSLocalizedString(@"no_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self];
+                [CommonAlert createAlertWithTitle: @"error".localized message: @"no_datos_firmar".localized cancelButtonTitle: @"cerrar".localized showOn:self];
                 [self.editTableView setAllowsSelection:NO];
             } else {
                 if([_opParameters objectForKey:PARAMETER_NAME_RTSERVLET]!= NULL) {
@@ -261,7 +261,7 @@
                     if(_stServletCert != NULL & _idDocCert != NULL) {
                         [self errorReportAsync:errorToSend];
                     }
-                    [CommonAlert createAlertWithTitle: NSLocalizedString(@"error",nil) message:NSLocalizedString(@"no_datos_firmar",nil) cancelButtonTitle:NSLocalizedString(@"cerrar",nil) showOn:self];
+                    [CommonAlert createAlertWithTitle: @"error".localized message: @"no_datos_firmar".localized cancelButtonTitle: @"cerrar".localized showOn:self];
                     [self.editTableView setAllowsSelection:NO];
                 }
             }
@@ -416,7 +416,7 @@ NSString *receivedStringCert = NULL;
         NSString* responseString = [[NSString alloc] initWithData:receivedDataCert encoding:NSUTF8StringEncoding];
 	   if (!self.alertpb) {
 		  self.alertpb = [[AlertProgressBar alloc]init];
-		  [self.alertpb createProgressBarWithMessage:NSLocalizedString(@"processing_web_data",nil)];
+		  [self.alertpb createProgressBarWithMessage: @"processing_web_data".localized];
 	   }
 	   if ([self.navigationController.visibleViewController isKindOfClass:[UIAlertController class]]) {
 		  [self decodeData:responseString];
