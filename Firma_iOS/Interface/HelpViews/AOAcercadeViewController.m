@@ -30,16 +30,16 @@
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onGoingToBackGround:) name:UIApplicationDidEnterBackgroundNotification object:nil];
     self.screenName = @"IOS AOAboutViewController - Help Screen";
-    [self.aboutTitleLabel setText:NSLocalizedString(@"about_title_label", nil)];
-    [self.aboutDescriptionLabel setText:[NSString stringWithFormat:NSLocalizedString(@"about_description_label", nil),[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]]];
-    [self.howToInstallCertificatesTitle setText:NSLocalizedString(@"how_to_install_certificates_title", nil)];
-    [self.iTunesInstructionsLabel setText:NSLocalizedString(@"iTunes_instructions_label", nil)];
-    [self.certificateInstructionsLabel setText:NSLocalizedString(@"certificate_instructions_label", nil)];
-    [self.masInfoButton setTitle:NSLocalizedString(@"more_info_button", nil) forState:UIControlStateNormal];
+    [self.aboutTitleLabel setText: @"about_title_label".localized];
+    [self.aboutDescriptionLabel setText:[NSString stringWithFormat: @"about_description_label".localized,[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]]];
+    [self.howToInstallCertificatesTitle setText: @"how_to_install_certificates_title".localized];
+    [self.iTunesInstructionsLabel setText: @"iTunes_instructions_label".localized];
+    [self.certificateInstructionsLabel setText: @"certificate_instructions_label".localized];
+    [self.masInfoButton setTitle: @"more_info_button".localized forState:UIControlStateNormal];
     [self fillTextForFrequentlyAskedQuestionsTitleLabel];
-    self.aboutNavigationItem.title = NSLocalizedString(@"about_navigation_title", nil);;
-    self.howToNavigationItem.title = NSLocalizedString(@"how_to_navigation_title", nil);
-    self.questionsNavigationItem.title = NSLocalizedString(@"questions_navigation_title", nil);
+    self.aboutNavigationItem.title = @"about_navigation_title".localized;;
+    self.howToNavigationItem.title = @"how_to_navigation_title".localized;
+    self.questionsNavigationItem.title = @"questions_navigation_title".localized;
 }
 
 - (void)viewDidLayoutSubviews{
@@ -49,15 +49,15 @@
 }
 
 -(void)fillTextForFrequentlyAskedQuestionsTitleLabel{
-    [self.frequentlyAskedQuestionsTitleLabel setText:NSLocalizedString(@"frequently_asked_questions_title_label", nil)];
-    NSString* string1 = NSLocalizedString(@"frequently_asked_questions_description_label_1", nil);
-    NSString* string2 = NSLocalizedString(@"frequently_asked_questions_description_label_2", nil);
-    NSString* string3 = NSLocalizedString(@"frequently_asked_questions_description_label_3", nil);
-    NSString* string4 = NSLocalizedString(@"frequently_asked_questions_description_label_4", nil);
-    NSString* string5 = NSLocalizedString(@"frequently_asked_questions_description_label_5", nil);
-    NSString* string6 = NSLocalizedString(@"frequently_asked_questions_description_label_6", nil);
-    NSString* string7 = NSLocalizedString(@"frequently_asked_questions_description_label_7", nil);
-    NSString* string8 = NSLocalizedString(@"frequently_asked_questions_description_label_8", nil);
+    [self.frequentlyAskedQuestionsTitleLabel setText: @"frequently_asked_questions_title_label".localized];
+    NSString* string1 = @"frequently_asked_questions_description_label_1".localized;
+    NSString* string2 = @"frequently_asked_questions_description_label_2".localized;
+    NSString* string3 = @"frequently_asked_questions_description_label_3".localized;
+    NSString* string4 = @"frequently_asked_questions_description_label_4".localized;
+    NSString* string5 = @"frequently_asked_questions_description_label_5".localized;
+    NSString* string6 = @"frequently_asked_questions_description_label_6".localized;
+    NSString* string7 = @"frequently_asked_questions_description_label_7".localized;
+    NSString* string8 = @"frequently_asked_questions_description_label_8".localized;
     NSString* frequentlyAskedQuestionsDescriptionLabelString = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@",string1,string2,string3,string4,string5,string6,string7,string8];
     self.frequentlyAskedQuestionsDescriptionLabel.text = frequentlyAskedQuestionsDescriptionLabelString;
     [self.frequentlyAskedQuestionsDescriptionLabel boldSubstring: string1];
@@ -67,7 +67,7 @@
 }
 
 -(IBAction)buttonPressed:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: NSLocalizedString(@"url_forja",nil)]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"url_forja".localized]];
 }
 
 - (IBAction)didClickBackButton:(id)sender

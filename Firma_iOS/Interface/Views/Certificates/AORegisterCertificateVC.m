@@ -30,7 +30,7 @@
     [self.navigationController.navigationBar setTintColor:THEME_COLOR];
     [_selectedCertificateLabel setText:_selectedCertificate];
     [_passwordTextField becomeFirstResponder];
-    [self.registerCertificateDescriptionLabel setText:NSLocalizedString(@"register_certificate_description_label", nil)];
+    [self.registerCertificateDescriptionLabel setText: @"register_certificate_description_label".localized];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,7 +45,7 @@
     _password = _passwordTextField.text;
     
     if (!_password || [_password isEqualToString:@""]) {
-        _registerCertificateDescriptionLabel.text = NSLocalizedString(@"enter_your_certificate_password", nil);
+        _registerCertificateDescriptionLabel.text = @"enter_your_certificate_password".localized;
     } else {
         [self registerWithCertificate];
     }
@@ -73,22 +73,22 @@
     if (status != noErr) {
         switch (status) {
             case errSecItemNotFound:
-                _message = NSLocalizedString(@"certificate_not_found", nil);
+                _message = @"certificate_not_found".localized;
                 break;
             case errSecAuthFailed:
-                _message = NSLocalizedString(@"wrong_password", nil);
+                _message = @"wrong_password".localized;
                 break;
             case errSecDuplicateItem:
-                _message = NSLocalizedString(@"certificate_already_loaded",nil);
+                _message = @"certificate_already_loaded".localized;
                 break;
             default:
-                _message = [NSString stringWithFormat:NSLocalizedString(@"an_error_occurred_with_number", nil), (int)status];
+                _message = [NSString stringWithFormat: @"an_error_occurred_with_number".localized, (int)status];
                 break;
         }
     } else {
-        _message = NSLocalizedString(@"certificate_successfully_loaded", nil);
+        _message = @"certificate_successfully_loaded".localized;
 
-        [CommonAlert createAlertWithTitle:NSLocalizedString(@"certificate_loaded", nil) message:_message cancelButtonTitle: OK showOn:self onComplete:^{
+        [CommonAlert createAlertWithTitle: @"certificate_loaded".localized message:_message cancelButtonTitle: OK showOn:self onComplete:^{
             if (self->_delegate) {
                 [self->_delegate certificateAdded];
             }

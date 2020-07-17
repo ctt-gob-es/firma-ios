@@ -39,13 +39,13 @@ int const kFilesAppButtonZeroHeightConstraint = 0;
     _filesArray = [self findFiles:@[P12EXTENSION, PFXEXTENSION]];
     
     if (_filesArray.count == 0) {
-        _messageLabel.text = NSLocalizedString(@"certificate_instructions", nil);
+        _messageLabel.text = @"certificate_instructions".localized;
     }
     
     [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
-    [self.availableCertificatesDescriptionLabel setText:NSLocalizedString(@"available_certificates_description_label", nil)];
-    self.title = NSLocalizedString(@"available_certificates", nil);
-    [self.filesAppButton setTitle:NSLocalizedString(@"files_app_button", nil) forState:UIControlStateNormal];
+    [self.availableCertificatesDescriptionLabel setText: @"available_certificates_description_label".localized];
+    self.title = @"available_certificates".localized;
+    [self.filesAppButton setTitle: @"files_app_button".localized forState:UIControlStateNormal];
 
     if (@available(iOS 11, *)) {
 	   self.filesAppButton.hidden = NO;
@@ -167,7 +167,7 @@ int const kFilesAppButtonZeroHeightConstraint = 0;
 
 	   NSString* fileType = [url.lastPathComponent pathExtension];
 	   Boolean correctFileType = false ;
-	   NSString *alertMessage = [NSString stringWithFormat:NSLocalizedString(@"files_app_alert_message_incorrect_file", nil), [url lastPathComponent]];
+	   NSString *alertMessage = [NSString stringWithFormat: @"files_app_alert_message_incorrect_file".localized, [url lastPathComponent]];
 	   if ([fileType  isEqualToString: P12EXTENSION] || [fileType  isEqualToString: PFXEXTENSION]) {
 		  correctFileType = true;
 	   }
@@ -180,11 +180,11 @@ int const kFilesAppButtonZeroHeightConstraint = 0;
 		  [fileManager copyItemAtURL:url toURL: fileDirectory error:&copyError];
 		  if (!copyError)
 		  {
-			 alertMessage = [NSString stringWithFormat:NSLocalizedString(@"files_app_alert_message_success", nil), [url lastPathComponent]];
+			 alertMessage = [NSString stringWithFormat: @"files_app_alert_message_success".localized, [url lastPathComponent]];
 		  }
 		  else
 		  {
-			 alertMessage = [NSString stringWithFormat:NSLocalizedString(@"files_app_alert_message_cannot_add_certificate", nil), [url lastPathComponent]];
+			 alertMessage = [NSString stringWithFormat: @"files_app_alert_message_cannot_add_certificate".localized, [url lastPathComponent]];
 		  }
 		   _filesArray = [self findFiles:@[P12EXTENSION, PFXEXTENSION]];
 		  [self.tableView reloadData];
@@ -195,7 +195,7 @@ int const kFilesAppButtonZeroHeightConstraint = 0;
 										alertControllerWithTitle: nil
 										message:alertMessage
 										preferredStyle:UIAlertControllerStyleAlert];
-		  [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"files_app_alert_affirmative_button", nil) style:UIAlertActionStyleDefault handler:nil]];
+		  [alertController addAction:[UIAlertAction actionWithTitle: @"files_app_alert_affirmative_button".localized style:UIAlertActionStyleDefault handler:nil]];
 		  [self presentViewController:alertController animated:YES completion:nil];
 
 	   });
