@@ -13,7 +13,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="AORegisteredCertificatesTVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1JQ-sz-Nah" customClass="AORegisteredCertificatesTVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="94" sectionHeaderHeight="22" sectionFooterHeight="22" id="beY-zZ-s06">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="250" id="brl-fY-dpK">
@@ -348,11 +348,11 @@
             <objects>
                 <viewController storyboardIdentifier="AOSignViewController" title="Firma Electrónica" wantsFullScreenLayout="YES" id="dHx-VS-5XU" customClass="AOSignViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FQn-wY-29a">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrY-8D-j5N">
-                                <rect key="frame" x="44.5" y="249" width="288" height="30"/>
+                                <rect key="frame" x="44.5" y="237" width="288" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Ihz-id-wsZ"/>
                                 </constraints>
@@ -361,7 +361,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="This certificate is going to be use in the signing procedure. Please, push the &quot;Sign&quot; button to start the process." translatesAutoresizingMaskIntoConstraints="NO" id="tjW-1q-7Ig">
-                                <rect key="frame" x="44.5" y="289" width="288" height="97.5"/>
+                                <rect key="frame" x="44.5" y="277" width="288" height="97.5"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="288" id="i3J-X6-ARo"/>
@@ -370,7 +370,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="931-34-4yN">
-                                <rect key="frame" x="44.5" y="406.5" width="288" height="50"/>
+                                <rect key="frame" x="44.5" y="394.5" width="288" height="50"/>
                                 <color key="backgroundColor" red="0.59864145517349243" green="0.0" blue="0.091977573931217194" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="X7H-Rg-UWH"/>
@@ -386,7 +386,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="The next certificate is selected from the keychain: " translatesAutoresizingMaskIntoConstraints="NO" id="xR1-Ki-Le2">
-                                <rect key="frame" x="44.5" y="176" width="288" height="58"/>
+                                <rect key="frame" x="44.5" y="164" width="288" height="58"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="BPu-bI-lZ2"/>
@@ -396,7 +396,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="H0L-7Z-bG6">
-                                <rect key="frame" x="40" y="66" width="295" height="85"/>
+                                <rect key="frame" x="40" y="54" width="295" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="85" id="S7H-ft-zU2"/>
                                     <constraint firstAttribute="width" constant="320" id="Uly-SH-2Ns"/>
@@ -1038,7 +1038,7 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="0Le-aU-8MM"/>
+        <segue reference="1NP-Ri-baT"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="cert_menu.png" width="20" height="17"/>
