@@ -57,7 +57,7 @@
 	   [self.navigationItem setHidesBackButton:YES animated:YES];
     }
     [self.certificatesDescriptionLabel setText: @"certificate_description_label".localized];
-    self.title = @"registered_certificates";
+    self.title = @"registered_certificates".localized;
 }
 
 - (void)viewWillAppear:(BOOL)animated
