@@ -354,6 +354,7 @@
                     <connections>
                         <outlet property="passwordTextField" destination="ikR-fm-VEk" id="WGF-f7-BTX"/>
                         <outlet property="registerCertificateDescriptionLabel" destination="FQW-DW-bdd" id="GbG-mu-gua"/>
+                        <outlet property="registerCertificateNavigationItem" destination="XWX-3w-uVR" id="QcD-en-Wpx"/>
                         <outlet property="registerCertificateRegisterButtonTitle" destination="74A-Ax-zwi" id="7tK-Pz-WUo"/>
                         <outlet property="selectedCertificateLabel" destination="iPQ-f0-LDS" id="ISv-Yb-Jni"/>
                     </connections>

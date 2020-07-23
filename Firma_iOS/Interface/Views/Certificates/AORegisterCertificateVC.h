@@ -24,5 +24,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (strong, nonatomic) IBOutlet UILabel *registerCertificateDescriptionLabel;
 @property (strong, nonatomic) IBOutlet UIButton *registerCertificateRegisterButtonTitle;
+@property (weak, nonatomic) IBOutlet UINavigationItem *registerCertificateNavigationItem;
 
 @end

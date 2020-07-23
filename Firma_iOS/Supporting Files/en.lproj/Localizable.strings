@@ -67,6 +67,7 @@
 "available_certificates_description_label" = "Certificates available on your device. Please select the certificate you want to register.";
 "register_certificate_description_label" = "Enter the password for the selected certificate to be registered.";
 "register_cretificate_register_button_title" = "Register";
+"register_certificate_title"= "Register Certificate";
 "selectcert_certificate_selector_label" = "The next certificate is selected from the keychain: ";
 "selectcert_certificate_description_label" = "This certificate is going to be use in the send certificate procedure. Please, push the \"Send\" button to start the process.";
 "send" = "Send";

@@ -317,6 +317,7 @@
                         <outlet property="messageLabel" destination="Jlr-oA-gUB" id="XPO-be-U1e"/>
                         <outlet property="passwordTextField" destination="OT0-A9-Zc7" id="Z5T-2b-LHc"/>
                         <outlet property="registerCertificateDescriptionLabel" destination="Jlr-oA-gUB" id="YTh-n7-b02"/>
+                        <outlet property="registerCertificateNavigationItem" destination="a2Y-R3-p11" id="xEB-wK-GL2"/>
                         <outlet property="registerCertificateRegisterButtonTitle" destination="h3c-dt-n2m" id="ARk-jg-17n"/>
                         <outlet property="selectedCertificateLabel" destination="VSc-e5-kdx" id="aYm-kW-NuX"/>
                     </connections>
