@@ -170,7 +170,7 @@
                     <connections>
                         <outlet property="certificatesDescriptionLabel" destination="ZIP-KB-pfu" id="oZF-ba-aQG"/>
                         <outlet property="editTableView" destination="sK8-Dz-zu7" id="fMc-eA-agD"/>
-                        <segue destination="Hwb-ff-pB4" kind="show" identifier="showSignVC" id="D7i-uO-FEB"/>
+                        <segue destination="Hwb-ff-pB4" kind="presentation" identifier="showSignVC" modalPresentationStyle="fullScreen" id="D7i-uO-FEB"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="26x-QG-Vuf" userLabel="First Responder" sceneMemberID="firstResponder"/>
