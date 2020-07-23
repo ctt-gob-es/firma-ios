@@ -31,6 +31,7 @@
     [_selectedCertificateLabel setText:_selectedCertificate];
     [_passwordTextField becomeFirstResponder];
     [self.registerCertificateDescriptionLabel setText: @"register_certificate_description_label".localized];
+    [self.registerCertificateRegisterButtonTitle setTitle:@"register_cretificate_register_button_title".localized forState:normal];
 }
 
 - (void)didReceiveMemoryWarning {

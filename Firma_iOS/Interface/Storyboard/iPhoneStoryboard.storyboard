@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nbz-mF-dNH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17132" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nbz-mF-dNH">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="2320" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15508"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17105.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -170,7 +170,7 @@
                                         <constraint firstAttribute="height" constant="85" id="sdd-O1-dBh"/>
                                     </constraints>
                                 </imageView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WEb-Fg-t1g">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WEb-Fg-t1g">
                                     <rect key="frame" x="0.0" y="190" width="375" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="oMf-Ft-2ED"/>
@@ -277,7 +277,7 @@
                                     <outlet property="delegate" destination="5hk-Si-nSF" id="hde-zx-NWS"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h3c-dt-n2m">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h3c-dt-n2m">
                                 <rect key="frame" x="16" y="203.5" width="343" height="48"/>
                                 <color key="backgroundColor" red="0.59864145517349243" green="0.0" blue="0.091977573931217194" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -293,6 +293,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="cdf-zu-0RG"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="h3c-dt-n2m" firstAttribute="trailing" secondItem="OT0-A9-Zc7" secondAttribute="trailing" id="3Km-XM-6Cp"/>
@@ -308,7 +309,6 @@
                             <constraint firstItem="VSc-e5-kdx" firstAttribute="leading" secondItem="0Ca-Nb-IJd" secondAttribute="leadingMargin" id="pXi-r3-5s9"/>
                             <constraint firstItem="h3c-dt-n2m" firstAttribute="leading" secondItem="OT0-A9-Zc7" secondAttribute="leading" id="sWY-84-GNH"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="cdf-zu-0RG"/>
                     </view>
                     <navigationItem key="navigationItem" title="Register Certificate" id="a2Y-R3-p11">
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="clP-r6-5S6"/>
@@ -317,6 +317,7 @@
                         <outlet property="messageLabel" destination="Jlr-oA-gUB" id="XPO-be-U1e"/>
                         <outlet property="passwordTextField" destination="OT0-A9-Zc7" id="Z5T-2b-LHc"/>
                         <outlet property="registerCertificateDescriptionLabel" destination="Jlr-oA-gUB" id="YTh-n7-b02"/>
+                        <outlet property="registerCertificateRegisterButtonTitle" destination="h3c-dt-n2m" id="ARk-jg-17n"/>
                         <outlet property="selectedCertificateLabel" destination="VSc-e5-kdx" id="aYm-kW-NuX"/>
                     </connections>
                 </viewController>
@@ -367,7 +368,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="931-34-4yN">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="931-34-4yN">
                                 <rect key="frame" x="44.5" y="406.5" width="288" height="50"/>
                                 <color key="backgroundColor" red="0.59864145517349243" green="0.0" blue="0.091977573931217194" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -406,6 +407,7 @@
                                 </variation>
                             </imageView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="NUO-qo-Yju"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="H0L-7Z-bG6" firstAttribute="top" secondItem="NUO-qo-Yju" secondAttribute="top" constant="10" id="0aO-uA-TiE"/>
@@ -423,7 +425,6 @@
                             <constraint firstItem="NUO-qo-Yju" firstAttribute="trailing" secondItem="H0L-7Z-bG6" secondAttribute="trailing" constant="40" id="sgs-jO-z9s"/>
                             <constraint firstItem="931-34-4yN" firstAttribute="centerX" secondItem="NUO-qo-Yju" secondAttribute="centerX" constant="1" id="wiz-MA-qkP"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="NUO-qo-Yju"/>
                     </view>
                     <navigationItem key="navigationItem" title="Sign" id="cR5-HC-qzW"/>
                     <connections>
@@ -499,6 +500,7 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="KIx-St-Rhd"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="KIx-St-Rhd" firstAttribute="trailing" secondItem="RvU-hc-GZw" secondAttribute="trailing" constant="20" id="8Ih-fn-VZH"/>
@@ -512,7 +514,6 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                             <constraint firstItem="qh1-9N-LpB" firstAttribute="leading" secondItem="KIx-St-Rhd" secondAttribute="leading" constant="20" id="x3y-eT-9FF"/>
                             <constraint firstItem="RvU-hc-GZw" firstAttribute="top" secondItem="UwO-vE-gDz" secondAttribute="bottom" constant="6" id="zd1-gH-H6B"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="KIx-St-Rhd"/>
                     </view>
                     <navigationItem key="navigationItem" title="About" id="tvV-Ho-jvq">
                         <barButtonItem key="backBarButtonItem" title="Atras" id="nzi-QB-0Gz"/>
@@ -552,7 +553,7 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                                         <rect key="frame" x="0.0" y="28" width="335" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pex-iP-Azk" id="CAA-Cb-5xH">
-                                            <rect key="frame" x="0.0" y="0.0" width="309" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="308" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -563,7 +564,7 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                                         <rect key="frame" x="0.0" y="72" width="335" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wcg-kQ-r23" id="aZd-Hu-Jrg">
-                                            <rect key="frame" x="0.0" y="0.0" width="309" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="308" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -574,7 +575,7 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                                         <rect key="frame" x="0.0" y="116" width="335" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vbt-ji-MCa" id="88h-EJ-m5b">
-                                            <rect key="frame" x="0.0" y="0.0" width="309" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="308" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -611,6 +612,7 @@ http://administracionelectronica.gob.es/</string>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="oOa-M7-VDf"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="oOa-M7-VDf" firstAttribute="trailing" secondItem="VRk-By-NUt" secondAttribute="trailing" constant="20" id="3yd-o8-GTN"/>
@@ -627,7 +629,6 @@ http://administracionelectronica.gob.es/</string>
                             <constraint firstItem="VRk-By-NUt" firstAttribute="leading" secondItem="oOa-M7-VDf" secondAttribute="leading" constant="20" id="s7b-lF-t4l"/>
                             <constraint firstItem="VRk-By-NUt" firstAttribute="top" secondItem="AFA-Aj-TuJ" secondAttribute="bottom" constant="8" id="ub9-ut-zt2"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="oOa-M7-VDf"/>
                     </view>
                     <navigationItem key="navigationItem" title="Help" id="0cD-Ye-V9d"/>
                     <connections>
@@ -669,7 +670,7 @@ In order to run the application properly, an electronic certificate and its priv
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJV-8n-EZ7">
-                                <rect key="frame" x="76" y="566" width="225.5" height="39"/>
+                                <rect key="frame" x="75.5" y="566" width="226" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="Opp-V2-jg7"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="39" id="sNf-CI-REl"/>
@@ -697,6 +698,7 @@ In order to run the application properly, an electronic certificate and its priv
                                         </connections>
                                     </tabBar>
                                 </subviews>
+                                <viewLayoutGuide key="safeArea" id="96q-B5-oTb"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="YGN-hy-HXm" secondAttribute="trailing" id="GrB-Kk-yyv"/>
@@ -704,17 +706,17 @@ In order to run the application properly, an electronic certificate and its priv
                                     <constraint firstItem="YGN-hy-HXm" firstAttribute="leading" secondItem="8iB-4z-0cW" secondAttribute="leading" id="UUC-9K-eJG"/>
                                     <constraint firstAttribute="height" constant="49" id="yoc-us-TF1"/>
                                 </constraints>
-                                <viewLayoutGuide key="safeArea" id="96q-B5-oTb"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EXO-Ut-wnh" userLabel="SafeAreExtraSpaceView">
                                 <rect key="frame" x="0.0" y="667" width="375" height="75"/>
+                                <viewLayoutGuide key="safeArea" id="pow-8A-0Mo"/>
                                 <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="Y4U-ie-DWF"/>
                                 </constraints>
-                                <viewLayoutGuide key="safeArea" id="pow-8A-0Mo"/>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="ri3-HI-mVr"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wea-WN-cIK" firstAttribute="top" secondItem="BN6-I6-Kca" secondAttribute="bottom" constant="20" id="0co-bg-TmO"/>
@@ -733,7 +735,6 @@ In order to run the application properly, an electronic certificate and its priv
                             <constraint firstItem="wea-WN-cIK" firstAttribute="leading" secondItem="6xF-zd-Toc" secondAttribute="leadingMargin" constant="4" id="tdS-gp-iuG"/>
                             <constraint firstItem="UJV-8n-EZ7" firstAttribute="centerX" secondItem="ri3-HI-mVr" secondAttribute="centerX" constant="1" id="v1f-RQ-dqa"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="ri3-HI-mVr"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="QfF-uh-q3e"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -883,6 +884,7 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="LEi-QF-IQT"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="a0p-d7-fgJ" firstAttribute="leading" secondItem="LEi-QF-IQT" secondAttribute="leading" constant="20" id="58n-wR-BXi"/>
@@ -896,7 +898,6 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                             <constraint firstItem="a0p-d7-fgJ" firstAttribute="top" secondItem="LEi-QF-IQT" secondAttribute="top" constant="10" id="gXr-cE-DTa"/>
                             <constraint firstItem="8TS-VU-W3b" firstAttribute="leading" secondItem="LEi-QF-IQT" secondAttribute="leading" constant="20" id="vON-DW-Nez"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="LEi-QF-IQT"/>
                     </view>
                     <navigationItem key="navigationItem" title="Questions" id="tIc-gI-F7W">
                         <barButtonItem key="backBarButtonItem" title="Atras" id="yir-z6-xlc"/>
@@ -938,7 +939,7 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4RE-R6-kNT">
                                 <rect key="frame" x="20" y="186" width="335" height="461"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QZv-qe-ul0">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QZv-qe-ul0">
                                         <rect key="frame" x="67" y="235" width="201" height="42"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="42" id="auy-6x-3L6"/>
@@ -1004,6 +1005,7 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                                 </constraints>
                             </scrollView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="EHE-Xd-nj4"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="XYx-PU-XUl" firstAttribute="top" secondItem="EHE-Xd-nj4" secondAttribute="top" constant="10" id="AGx-Qj-Tfq"/>
@@ -1017,7 +1019,6 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                             <constraint firstItem="4RE-R6-kNT" firstAttribute="top" secondItem="Kk8-eE-cQL" secondAttribute="bottom" constant="8" symbolic="YES" id="moX-YG-x39"/>
                             <constraint firstItem="EHE-Xd-nj4" firstAttribute="trailing" secondItem="Kk8-eE-cQL" secondAttribute="trailing" constant="20" id="yEE-Uq-fWB"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="EHE-Xd-nj4"/>
                     </view>
                     <navigationItem key="navigationItem" title="How to" id="C72-VG-evJ">
                         <barButtonItem key="backBarButtonItem" title="Atras" id="pAo-HS-ask"/>
@@ -1035,6 +1036,9 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
             <point key="canvasLocation" x="828" y="1347.9760119940031"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="0Le-aU-8MM"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="cert_menu.png" width="20" height="17"/>
         <image name="certificados.png" width="64" height="53"/>
@@ -1044,7 +1048,4 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
         <image name="itunes.png" width="100" height="100"/>
         <image name="logo_cliente.png" width="726" height="200"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="0Le-aU-8MM"/>
-    </inferredMetricsTieBreakers>
 </document>
