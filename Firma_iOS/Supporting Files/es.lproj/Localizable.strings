@@ -12,7 +12,7 @@
 "atencion" = "¡Atención!";
 "cerrar" = "Cerrar";
 "conectar" = "Conectar";
-"url_forja" = "http://blogs.forja.cenatic.es/clienteafirma/?p=42";
+"url_forja" = "https://github.com/ctt-gob-es/clienteafirma/wiki/Importaci%C3%B3n-de-certificados-en-iOS";
 "seleccion_almacen" = "Por favor, seleccione un almacen de claves y certificados";
 "no_almacenes" = "No dispone de almacenes de claves y certificados en la aplicación. Para añadir almacenes de claves y certificados a la aplicación, por favor, añádalos desde la configuración de la aplicación en iTunes.";
 "error" = "Error";

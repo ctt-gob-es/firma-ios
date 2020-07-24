@@ -12,7 +12,7 @@
 "atencion" = "Warning!";
 "cerrar" = "Close";
 "conectar" = "Connect";
-"url_forja" = "http://blogs.forja.cenatic.es/clienteafirma/?p=42";
+"url_forja" = "https://github.com/ctt-gob-es/clienteafirma/wiki/Importaci%C3%B3n-de-certificados-en-iOS";
 "seleccion_almacen" = "Please, select a keychain";
 "no_almacenes" = "Keychain not available in the application. In order to add a keychain to the application, please use the option in iTunes configuration panel.";
 "error" = "Error";
