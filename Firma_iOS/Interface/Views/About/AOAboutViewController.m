@@ -25,7 +25,7 @@ BOOL isURL = NO;
 
     [super viewDidLoad];
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
-    [self.navigationController.navigationBar setTintColor:THEME_COLOR];
+    self.navigationController.navigationBar.barTintColor = NAVIGATION_BAR_COLOR;
     [self createNotification];
     
     self.screenName = @"IOS AOAboutViewController - Main window";
