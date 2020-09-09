@@ -28,7 +28,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onGoingToBackGround:) name:UIApplicationDidEnterBackgroundNotification object:nil];
     self.screenName = @"IOS AOAboutViewController - Help Screen";
     [self.aboutTitleLabel setText: @"about_title_label".localized];
     [self.aboutDescriptionLabel setText:[NSString stringWithFormat: @"about_description_label".localized,[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]]];
@@ -37,7 +36,7 @@
     [self.certificateInstructionsLabel setText: @"certificate_instructions_label".localized];
     [self.masInfoButton setTitle: @"more_info_button".localized forState:UIControlStateNormal];
     [self fillTextForFrequentlyAskedQuestionsTitleLabel];
-    self.aboutNavigationItem.title = @"about_navigation_title".localized;;
+    self.aboutNavigationItem.title = @"about_navigation_title".localized;
     self.howToNavigationItem.title = @"how_to_navigation_title".localized;
     self.questionsNavigationItem.title = @"questions_navigation_title".localized;
 }
@@ -73,11 +72,6 @@
 - (IBAction)didClickBackButton:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
-}
-
-//cuando se pulsa el botón del centro
--(void)onGoingToBackGround:(NSNotification*) notification {
-    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning

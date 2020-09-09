@@ -136,11 +136,6 @@ SecKeyRef privateKey = NULL;
     }
 }
 
--(void)onGoingToBackGround:(NSNotification*) notification
-{
-    [self.navigationController popToRootViewControllerAnimated:YES];
-}
-
 
 /*****************************************************************/
 /******** METODOS DE LA PROPIA FIRMA Y ENVIO AL SERVIDOR *********/
