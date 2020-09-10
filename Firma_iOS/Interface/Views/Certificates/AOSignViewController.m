@@ -164,9 +164,13 @@ SecKeyRef privateKey = NULL;
 		  errorToSend = [errorToSend stringByAppendingString:ERROR_MISSING_DATA];
 		  errorToSend = [errorToSend stringByAppendingString:ERROR_SEPARATOR];
 		  errorToSend = [errorToSend stringByAppendingString:DESC_ERROR_MISSING_DATA];
-		  [CommonAlert createAlertWithTitle: @"error".localized message: @"error_datos_firmar".localized cancelButtonTitle: @"cerrar".localized showOn:self];
-		  self.signButton.userInteractionEnabled = NO;
-		  return;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [CommonAlert createAlertWithTitle:@"error".localized message: @"error_datos_firmar".localized cancelButtonTitle:@"cerrar".localized showOn:self onComplete:^{
+                    [self backToAboutViewController];
+                }];
+            });
+            self.signButton.userInteractionEnabled = NO;
+            return;
 	   }
 	   if([urlParameters objectForKey:PARAMETER_NAME_FILE_ID] != NULL)
 		  fileId = [[NSString alloc] initWithString:[urlParameters objectForKey:PARAMETER_NAME_FILE_ID]];
