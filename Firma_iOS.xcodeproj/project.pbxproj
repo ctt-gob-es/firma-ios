@@ -1509,7 +1509,6 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "c08ed7da-989b-4719-b284-d895789fd7db";
 				PROVISIONING_PROFILE_SPECIFIER = "Cliente Afirma Movil - Development";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1549,7 +1548,6 @@
 				PROVISIONING_PROFILE = "c08ed7da-989b-4719-b284-d895789fd7db";
 				PROVISIONING_PROFILE_SPECIFIER = "Cliente Afirma Movil - Development";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
