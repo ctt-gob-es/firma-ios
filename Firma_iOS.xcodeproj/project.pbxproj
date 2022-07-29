@@ -10,6 +10,8 @@
 		3BC03D5D19D9988300FC1804 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AF7F6E17FD60C80084D916 /* libGoogleAnalyticsServices.a */; };
 		3C57FA171AC1BB9D00FF7292 /* AOCertificateInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C57FA161AC1BB9D00FF7292 /* AOCertificateInfo.m */; };
 		9226967323C6512400F099F0 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9226967223C6512400F099F0 /* NSString+Extension.m */; };
+		A073AA7C2893E7FC00FE30CE /* BatchSignUseCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A073AA7B2893E7FC00FE30CE /* BatchSignUseCase.m */; };
+		A073AA7F2893F71E00FE30CE /* InputParametersBatch.m in Sources */ = {isa = PBXBuildFile; fileRef = A073AA7E2893F71E00FE30CE /* InputParametersBatch.m */; };
 		B2406F2E20C5CACA008ED085 /* AORegisteredCertificatesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F2920C5CACA008ED085 /* AORegisteredCertificatesTVC.m */; };
 		B2406F2F20C5CACA008ED085 /* AOAvailableCertificatesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F2A20C5CACA008ED085 /* AOAvailableCertificatesTVC.m */; };
 		B2406F3320C5CB8E008ED085 /* AlertProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F3220C5CB8D008ED085 /* AlertProgressBar.m */; };
@@ -193,6 +195,10 @@
 		3C57FA161AC1BB9D00FF7292 /* AOCertificateInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AOCertificateInfo.m; path = model/AOCertificateInfo.m; sourceTree = "<group>"; };
 		9226967123C6510700F099F0 /* NSString+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		9226967223C6512400F099F0 /* NSString+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		A073AA7A2893E7FC00FE30CE /* BatchSignUseCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BatchSignUseCase.h; sourceTree = "<group>"; };
+		A073AA7B2893E7FC00FE30CE /* BatchSignUseCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BatchSignUseCase.m; sourceTree = "<group>"; };
+		A073AA7D2893F71E00FE30CE /* InputParametersBatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputParametersBatch.h; sourceTree = "<group>"; };
+		A073AA7E2893F71E00FE30CE /* InputParametersBatch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputParametersBatch.m; sourceTree = "<group>"; };
 		B2406F2720C5CACA008ED085 /* AOAvailableCertificatesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOAvailableCertificatesTVC.h; sourceTree = "<group>"; };
 		B2406F2920C5CACA008ED085 /* AORegisteredCertificatesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AORegisteredCertificatesTVC.m; sourceTree = "<group>"; };
 		B2406F2A20C5CACA008ED085 /* AOAvailableCertificatesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOAvailableCertificatesTVC.m; sourceTree = "<group>"; };
@@ -537,6 +543,8 @@
 			children = (
 				3C57FA151AC1BB9D00FF7292 /* AOCertificateInfo.h */,
 				3C57FA161AC1BB9D00FF7292 /* AOCertificateInfo.m */,
+				A073AA7D2893F71E00FE30CE /* InputParametersBatch.h */,
+				A073AA7E2893F71E00FE30CE /* InputParametersBatch.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -548,6 +556,15 @@
 				9226967223C6512400F099F0 /* NSString+Extension.m */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A073AA792893E7BB00FE30CE /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				A073AA7A2893E7FC00FE30CE /* BatchSignUseCase.h */,
+				A073AA7B2893E7FC00FE30CE /* BatchSignUseCase.m */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 		B2406EED20C5C0A9008ED085 /* Views */ = {
@@ -780,6 +797,7 @@
 		C30B3231163804620072A515 /* Firma_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				A073AA792893E7BB00FE30CE /* Domain */,
 				B2A7C4C72119F0D70071BF69 /* ANF_PF_Activo.p12 */,
 				B2A7C4C92119F5A10071BF69 /* PFActivoFirSHA1.pfx */,
 				B2A7C4C82119F5A00071BF69 /* pruebas_portafirmas.p12 */,
@@ -1212,6 +1230,7 @@
 				B27395CD20A4384300A7D05A /* CADESConstants.m in Sources */,
 				C3B11DCE16FB642B00C0D623 /* ber_tlv_tag.c in Sources */,
 				B2D0158D20CA7F9400FD4102 /* CommonAlert.m in Sources */,
+				A073AA7F2893F71E00FE30CE /* InputParametersBatch.m in Sources */,
 				C3B11DD016FB642B00C0D623 /* BIT_STRING.c in Sources */,
 				C3B11DD216FB642B00C0D623 /* CertificateSerialNumber.c in Sources */,
 				C3B11DD416FB642B00C0D623 /* CertificateSet.c in Sources */,
@@ -1304,6 +1323,7 @@
 				C3A44B77170C3B60000B551C /* SigPolicyQualifierId.c in Sources */,
 				9226967323C6512400F099F0 /* NSString+Extension.m in Sources */,
 				C3A44B78170C3B60000B551C /* SigPolicyQualifierInfo.c in Sources */,
+				A073AA7C2893E7FC00FE30CE /* BatchSignUseCase.m in Sources */,
 				C3A44B79170C3B60000B551C /* SPuri.c in Sources */,
 				C3A44B7A170C3B60000B551C /* SPUserNotice.c in Sources */,
 				C3A44B87170C3CBF000B551C /* VisibleString.c in Sources */,
@@ -1521,7 +1541,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "Cliente @firma.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2H36E8KFN2;
