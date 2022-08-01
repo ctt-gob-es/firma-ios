@@ -7,13 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+@protocol BatchSignUseCaseDelegate;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BatchSignUseCase : NSObject
-
-- (void) signBatch:(NSDictionary*) dataOperation;
-
+- (void)signBatch:(NSDictionary*) dataOperation;
 @end
+
+@protocol BatchSignUseCaseDelegate <NSObject>
+@optional
+- (void)didSuccessBatchSignUseCase;
+- (void)didErrorBatchSignUseCase:(NSString *)errorMessage;
+@end
+
 
 NS_ASSUME_NONNULL_END

@@ -10,15 +10,36 @@
 #import "CADESConstants.h"
 #import "InputParametersBatch.h"
 
+
+@interface BatchSignUseCase ()
+
+@property (strong, nonatomic) InputParametersBatch *parametersBatch;
+@property (strong, nonatomic) NSString *urlSafeCertificateData;
+@property (weak, nonatomic) id<BatchSignUseCaseDelegate> delegate;
+
+@end
+
 @implementation BatchSignUseCase
 
-NSString *operation;
+@synthesize parametersBatch;
+@synthesize urlSafeCertificateData;
+@synthesize delegate;
 
-InputParametersBatch *parametersBatch;
+- (id)initWithCertificate:(NSString *) base64UrlSafeCertificateData withDelegate:(id) delegate {
+    if (self = [super init]) {
+        self.urlSafeCertificateData = base64UrlSafeCertificateData;
+        self.delegate = delegate;
+        return self;
+    } else {
+        return nil;
+    }
+}
+
 
 - (void)signBatch:(NSDictionary *) dataOperation {
     // Obtenemos los datos que nos llegan de la petición batch y validamos
     parametersBatch = [self getDataOperation:dataOperation];
+    
     
     // LLamamos al servicio de prefirma
     
