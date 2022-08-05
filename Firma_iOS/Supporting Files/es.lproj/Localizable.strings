@@ -106,3 +106,6 @@
 "files_app_alert_message_incorrect_file" = "El fichero %@ no es un certificado válido.";
 "files_app_alert_message_success" = "El fichero %@ se ha añadido correctamente.";
 "files_app_alert_message_cannot_add_certificate" = "El fichero %@ no se ha añadido correctamente.";
+"batch_signs_all_ok" = "Todas las peticiones fueron firmadas correctamente.";
+"batch_signs_generic_error" = "Ha habido fallos en alguna de las firmas, por favor, inténtalo de nuevo más tarde";
+"batch_signs_ok_with_signs_error" = "No han podido firmarse todas las peticiones, por favor, inténtalo de nuevo más tarde";

@@ -7,18 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BachRest.h"
+#import "ServletRest.h"
 @protocol BatchSignUseCaseDelegate;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BatchSignUseCase : NSObject
+@interface BatchSignUseCase : NSObject<BatchRestDelegate,ServletRestDelegate>
+- (BatchSignUseCase*)initWithCertificate:(NSString *) base64UrlSafeCertificateData withDelegate:(id) delegate andPrivateKey:(SecKeyRef) thePrivateKey ;
 - (void)signBatch:(NSDictionary*) dataOperation;
 @end
 
 @protocol BatchSignUseCaseDelegate <NSObject>
 @optional
-- (void)didSuccessBatchSignUseCase;
+- (void)didSuccessBatchSignUseCase:(NSString *)response;
 - (void)didErrorBatchSignUseCase:(NSString *)errorMessage;
+
 @end
 
 

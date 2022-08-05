@@ -106,3 +106,6 @@
 "files_app_alert_message_incorrect_file" = "The file %@ is not a valid certificate.";
 "files_app_alert_message_success" = "The file %@ has been successfully added";
 "files_app_alert_message_cannot_add_certificate" = "The file %@ has not been added correctly";
+"batch_signs_all_ok" = "All of the petitions were signed correctly";
+"batch_signs_generic_error" = "Some of the signatures failed, please try again later";
+"batch_signs_ok_with_signs_error" = "Not all petitions could be signed, please try again later";
