@@ -54,9 +54,10 @@ SecKeyRef privateKey;
 - (void)signBatch:(NSDictionary *) dataOperation {
     // Obtenemos los datos que nos llegan de la petición batch y validamos
     parametersBatch = [self getDataOperation:dataOperation];
-    if([dataOperation objectForKey:PARAMETER_NAME_RTSERVLET] != NULL && [dataOperation objectForKey:PARAMETER_NAME_FILE_ID] != NULL && [dataOperation objectForKey:PARAMETER_NAME_CIPHER_KEY] != NULL){
+    // Si los datos llegan a null y tenemos rtservlet y file id entonces llamamos al servidor para obtener los datos del servdiro intermedio (Es una peticion larga que no se puede pasar la info por url desde la web y se suben los datos al servidor intemedio). No deberia ocurrir nunca ya que se parrsean siempre en el primer controller que se abre de la app ya que al minuto se borran los datos
+    if (parametersBatch.data == NULL && parametersBatch.rtservlet != NULL && parametersBatch.fileId != NULL) {
         [self.servletRest loadDataFromRtservlet:[dataOperation objectForKey:PARAMETER_NAME_FILE_ID] rtServlet:[dataOperation objectForKey:PARAMETER_NAME_RTSERVLET] cipherKey:[dataOperation objectForKey:PARAMETER_NAME_CIPHER_KEY]];
-    }else{
+    } else {
         [self.bachRest bachPresign:parametersBatch.batchpresignerUrl :self.parametersBatch.data :self.urlSafeCertificateData];
     }
 }

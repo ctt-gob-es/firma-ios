@@ -58,6 +58,18 @@ NSDictionary *attributeDictionary;
             if([key isEqualToString:PARAMETER_NAME_STSERVLET]){
                 currentEntidad.stServletField = [attributeDictionary valueForKey:@"v"];
             }
+            
+            if([key isEqualToString:PARAMETER_NAME_BATCH_PRESIGNER_URL]){
+                currentEntidad.batchpresignerurl = [attributeDictionary valueForKey:@"v"];
+            }
+            
+            if([key isEqualToString:PARAMETER_NAME_BATCH_POSTSIGNER_URL]){
+                currentEntidad.batchpostsignerurl = [attributeDictionary valueForKey:@"v"];
+            }
+            
+            if([key isEqualToString:PARAMETER_NAME_BATCH_JSON]){
+                currentEntidad.batchjson = [attributeDictionary valueForKey:@"v"];
+            }
         }
 	}
 }

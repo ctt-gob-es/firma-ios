@@ -13,6 +13,9 @@
     NSString *propertiesField;
     NSString *idField;
     NSString *stServletField;
+    NSString *batchpresignerurl;
+    NSString *batchpostsignerurl;
+    NSString *batchjson;
 }
 
 @property (nonatomic, strong) NSString *datField;
@@ -21,6 +24,9 @@
 @property (nonatomic, strong) NSString *propertiesField;
 @property (nonatomic, strong) NSString *idField;
 @property (nonatomic, strong) NSString *stServletField;
+@property (nonatomic, strong) NSString *batchpresignerurl;
+@property (nonatomic, strong) NSString *batchpostsignerurl;
+@property (nonatomic, strong) NSString *batchjson;
 
 
 @end
