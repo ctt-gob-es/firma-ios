@@ -15,8 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface BachRest : ParentRest
 
 -(id)initWithDelegate:(id) delegate;
--(void)bachPresign:(NSString*)urlPresign :(NSString*)json :(NSString*)certs;
--(void)bachPostsign:(NSString*)urlPostsign :(NSString*)json :(NSString*)certs :(NSString*)tridata;
+-(void)bachPresign:(NSString*)urlPresign withJsonData:(NSString*)json withCerts:(NSString*)certs;
+- (void)bachPostsign:(NSString *)urlPostsign withJsonData:(NSString *)json withCerts:(NSString *)certs withTriData:(NSString *)tridata;
 @end
 
 @protocol BatchRestDelegate <NSObject>

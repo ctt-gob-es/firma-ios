@@ -79,7 +79,47 @@ ServletRequestType currentType;
     }
 }
 
--(void)storeData:(NSString*) dataSign stServlet:(NSString *) stServlet cipherKey:(NSString *) cipherKey docId:(NSString *) docId
+-(void)storeDataError:(NSString*) error stServlet:(NSString *) stServlet cipherKey:(NSString *) cipherKey docId:(NSString *) docId {
+    currentType = storeData;
+    //Creamos la cadena de envío al servidor POST
+    NSString *post = @"";
+    post = [post stringByAppendingString:PARAMETER_NAME_OPERATION];
+    post = [post stringByAppendingString:HTTP_EQUALS];
+    post = [post stringByAppendingString:OPERATION_PUT];
+    post = [post stringByAppendingString:HTTP_AND];
+    post = [post stringByAppendingString:PARAMETER_NAME_VERSION];
+    post = [post stringByAppendingString:HTTP_EQUALS];
+    post = [post stringByAppendingString:PARAMETER_NAME_VERSION_1_0];
+    post = [post stringByAppendingString:HTTP_AND];
+    post = [post stringByAppendingString:PARAMETER_NAME_ID];
+    post = [post stringByAppendingString:HTTP_EQUALS];
+    post = [post stringByAppendingString:docId];
+    post = [post stringByAppendingString:HTTP_AND];
+    post = [post stringByAppendingString:PARAMETER_NAME_DAT];
+    post = [post stringByAppendingString:HTTP_EQUALS];
+    post = [post stringByAppendingString:error];
+
+    //Codificamos la url de post
+    NSData *postData = [post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%d", (int)[postData length]];
+
+    // Obtenemos la URL del servidor de la pantalla de preferencias
+    NSURL* requestUrl = [[NSURL alloc] initWithString:stServlet];
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval: 30.0];
+    [request setHTTPMethod:POST];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [self setHeaders:request];
+    [request setHTTPBody:postData];
+
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            [connection start];
+        });
+    });
+}
+
+-(void)storeData:(NSData*) data stServlet:(NSString *) stServlet cipherKey:(NSString *) cipherKey docId:(NSString *) docId
 {
     currentType = storeData;
     //Creamos la cadena de envío al servidor POST
@@ -98,7 +138,6 @@ ServletRequestType currentType;
     post = [post stringByAppendingString:HTTP_AND];
     
     //cifrado de la firma
-    NSData *data = [Base64 decode:dataSign urlSafe:true];
     NSString *encryptedDataB64 = [DesCypher cypherData:data sk:[cipherKey dataUsingEncoding:NSUTF8StringEncoding]];
     
     // Se envia la firma cifrada y en base64
@@ -156,16 +195,25 @@ ServletRequestType currentType;
     
     NSString *jsonString = [[NSString alloc] initWithData:responseDataServlet encoding:NSUTF8StringEncoding];
     
+    if (jsonString == nil) {
+        if (currentType == storeData) {
+            NSString *errorToSend = @"err-07:= Los datos recibidos al guardar en el servlet son inválidos";
+            [self.delegate didErrorStoreData:errorToSend];
+        } else if(currentType == loadDataFromRtservlet) {
+            NSString *errorToSend = @"err-07:= La datos recibidos del servlet son invalidos";
+            [self.delegate didErrorStoreData:errorToSend];
+        }
+    }
+    
     if (currentType == storeData){
         [self.delegate didSuccessStoreData:jsonString];
     } else if(currentType == loadDataFromRtservlet){
         if ([jsonString hasPrefix:@"ERR-"]){
-            [self.delegate didErrorLoadDataFromServer:jsonString.localized];
+            [self.delegate didErrorLoadDataFromServer:jsonString];
         }else{
             NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseDataServlet
                                                                  options:NSJSONReadingMutableContainers
                                                                    error:&jsonError];
-            
             [self.delegate didSuccessLoadDataFromServer:dict];
         }
     }
@@ -202,19 +250,12 @@ ServletRequestType currentType;
     // Liberar la conexión
     if (currentType == storeData){
         //Notificamos del error al servidor
-        NSString *errorToSend = @"";
-        errorToSend = [errorToSend stringByAppendingString:ERROR_SIGNING];
-        errorToSend = [errorToSend stringByAppendingString:ERROR_SEPARATOR];
-        errorToSend = [errorToSend stringByAppendingString:DESC_ERROR_SIGNING];
-        
+        //Notificamos del error al servidor
+        NSString *errorToSend = @"err-09:= La ruta del Servlet para guardar datos es inválida";
         [self.delegate didErrorStoreData:errorToSend];
     }else if(currentType == loadDataFromRtservlet){
         //Notificamos del error al servidor
-        NSString *errorToSend = @"";
-        errorToSend = [errorToSend stringByAppendingString:ERROR_SIGNING];
-        errorToSend = [errorToSend stringByAppendingString:ERROR_SEPARATOR];
-        errorToSend = [errorToSend stringByAppendingString:DESC_ERROR_SIGNING];
-        
+        NSString *errorToSend = @"err-09:= La ruta del Servlet para obtener datos es inválida";
         [self.delegate didErrorLoadDataFromServer:errorToSend];
     }
 }

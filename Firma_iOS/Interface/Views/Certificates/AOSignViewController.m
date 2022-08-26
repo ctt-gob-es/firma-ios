@@ -1305,7 +1305,7 @@ SecKeyRef privateKey = NULL;
 
 - (void)didErrorBatchSignUseCase:(NSString *)errorMessage{
     [alertpb destroy:^{
-        [CommonAlert createAlertWithTitle: @"error".localized message: errorMessage cancelButtonTitle: @"cerrar".localized showOn:self onComplete:^{
+        [CommonAlert createAlertWithTitle: @"error".localized message: errorMessage.localized cancelButtonTitle: @"cerrar".localized showOn:self onComplete:^{
         }];
     }];
 }

@@ -43,7 +43,7 @@ BatchRequestType currentType;
     }
 }
 
-- (void)bachPresign:(NSString *)urlPresign :(NSString *)json :(NSString *)certs{
+-(void)bachPresign:(NSString*)urlPresign withJsonData:(NSString*)json withCerts:(NSString*)certs {
     currentType = preSign;
     //Creamos la cadena de envío al servidor POST
     NSString *safeJson = [Base64 urlSafeEncode: json];
@@ -76,7 +76,7 @@ BatchRequestType currentType;
     
 }
 
-- (void)bachPostsign:(NSString *)urlPostsign :(NSString *)json :(NSString *)certs :(NSString *)tridata{
+- (void)bachPostsign:(NSString *)urlPostsign withJsonData:(NSString *)json withCerts:(NSString *)certs withTriData:(NSString *)tridata{
     currentType = postSign;
     //Creamos la cadena de envío al servidor POST
     NSString *safeJson = [Base64 urlSafeEncode: json];
@@ -140,15 +140,21 @@ BatchRequestType currentType;
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseData
                                                          options:NSJSONReadingMutableContainers
                                                            error:&jsonError];
-    NSString *jsonString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-    if (currentType == preSign){
-        if (dict != nil){
-            [self.delegate didSuccessBachPresign:dict];
-        }else{
-            [self.delegate didErrorBachPresign:@"Error"];
+    
+    if (jsonError != nil || dict == nil) {
+        if (currentType == preSign) {
+            NSString *errorToSend = @"err-07:= Los datos de prefirma recibidos son inválidos";
+            [self.delegate didErrorBachPresign:errorToSend];
+        } else {
+            NSString *errorToSend = @"err-07:= Los datos de postfirma recibidos son inválidos";
+            [self.delegate didErrorBachPostsign:errorToSend];
         }
-    } else if(currentType == postSign){
-        [self.delegate didSuccessBachPostsign:dict];
+    } else {
+        if (currentType == preSign) {
+            [self.delegate didSuccessBachPresign:dict];
+        } else if(currentType == postSign) {
+            [self.delegate didSuccessBachPostsign:dict];
+        }
     }
 }
 
@@ -183,19 +189,11 @@ BatchRequestType currentType;
     // Liberar la conexión
     if (currentType == preSign){
         //Notificamos del error al servidor
-        NSString *errorToSend = @"";
-        errorToSend = [errorToSend stringByAppendingString:ERROR_SIGNING];
-        errorToSend = [errorToSend stringByAppendingString:ERROR_SEPARATOR];
-        errorToSend = [errorToSend stringByAppendingString:DESC_ERROR_SIGNING];
-        
+        NSString *errorToSend = @"err-09:= La URL del servicio de prefirma de lotes no es válida";
         [self.delegate didErrorBachPresign:errorToSend];
     }else if(currentType == postSign){
         //Notificamos del error al servidor
-        NSString *errorToSend = @"";
-        errorToSend = [errorToSend stringByAppendingString:ERROR_SIGNING];
-        errorToSend = [errorToSend stringByAppendingString:ERROR_SEPARATOR];
-        errorToSend = [errorToSend stringByAppendingString:DESC_ERROR_SIGNING];
-        
+        NSString *errorToSend = @"err-09:= La URL del servicio de postfirma de lotes no es válida";
         [self.delegate didErrorBachPostsign:errorToSend];
     }
 }

@@ -16,7 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(id)initWithDelegate:(id) delegate;
 -(void)loadDataFromRtservlet:(NSString*) fileId rtServlet:(NSString *) rtServlet cipherKey:(NSString *) cipherKey;
--(void)storeData:(NSString*) dataSign stServlet:(NSString *) stServlet cipherKey:(NSString *) cipherKey docId:(NSString *) docId;
+-(void)storeData:(NSData*) data stServlet:(NSString *) stServlet cipherKey:(NSString *) cipherKey docId:(NSString *) docId;
+-(void)storeDataError:(NSString*) error stServlet:(NSString *) stServlet cipherKey:(NSString *) cipherKey docId:(NSString *) docId;
 @end
 
 @protocol ServletRestDelegate <NSObject>
