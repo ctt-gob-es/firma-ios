@@ -29,6 +29,7 @@ typedef enum {
 @synthesize delegate;
 
 NSMutableData *responseData = NULL;
+long statusCode;
 bool retrievingDataFromServletBatch = false;
 NSString *datosInUseBatch      = NULL;
 NSString *cipherKeyBatch       = NULL;
@@ -129,6 +130,8 @@ BatchRequestType currentType;
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:
 (NSURLResponse *)response
 {
+    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+    statusCode = httpResponse.statusCode;
     responseData = [[NSMutableData alloc] init];
 }
 
@@ -136,6 +139,9 @@ BatchRequestType currentType;
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     NSError *jsonError;
+    
+    NSString *receivedString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+    
     //Convert the response into a dictionary
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseData
                                                          options:NSJSONReadingMutableContainers
@@ -144,6 +150,11 @@ BatchRequestType currentType;
     if (jsonError != nil || dict == nil) {
         if (currentType == preSign) {
             NSString *errorToSend = @"err-07:= Los datos de prefirma recibidos son inválidos";
+            if (statusCode == 400) {
+                errorToSend = @"err-07:= Los parametros enviados al servicio no eran validos";
+            } else if (statusCode > 400 && statusCode < 500) {
+                errorToSend = @"err-09:= Error de comunicacion con el servicio";
+            }
             [self.delegate didErrorBachPresign:errorToSend];
         } else {
             NSString *errorToSend = @"err-07:= Los datos de postfirma recibidos son inválidos";
