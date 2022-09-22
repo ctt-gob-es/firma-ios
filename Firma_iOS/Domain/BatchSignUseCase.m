@@ -252,8 +252,8 @@ SecKeyRef privateKey;
             NSString *error = @"err-21:= No se ha podido generar el json con los errores de todas las firmas";
             [self.servletRest storeDataError:error stServlet:parametersBatch.stservlet cipherKey:parametersBatch.cipherKey docId:parametersBatch.identifier];
         } else {
-            // Establecemos el error generico
-            responseMessage = @"batch_signs_generic_error";
+            // Establecemos el error de que la firna ha ido bien pero con errores
+            responseMessage = @"batch_signs_ok_with_signs_error";
             //Enviar al servidor
             [self.servletRest storeData:jsonData stServlet:parametersBatch.stservlet cipherKey:parametersBatch.cipherKey docId:parametersBatch.identifier];
         
