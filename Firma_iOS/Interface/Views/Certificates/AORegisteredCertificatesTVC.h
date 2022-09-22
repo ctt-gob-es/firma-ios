@@ -15,7 +15,7 @@ typedef NS_ENUM (NSInteger, AORegisteredCertificatesTVCMode)
     AORegisteredCertificatesTVCModeManagement
 };
 
-@interface AORegisteredCertificatesTVC : UITableViewController <NSURLConnectionDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface AORegisteredCertificatesTVC : UITableViewController <NSURLConnectionDelegate, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate>
 
 @property (nonatomic, assign) AORegisteredCertificatesTVCMode mode;
 @property (nonatomic, strong) NSString *startURL;

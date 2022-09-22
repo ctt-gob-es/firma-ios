@@ -21,6 +21,7 @@
 #import "CommonAlert.h"
 #import "GlobalConstants.h"
 #import "BatchSignUseCase.h"
+#import "AORegisteredCertificatesTVC.h"
 
 
 @interface AOSignViewController ()
@@ -93,6 +94,17 @@ SecKeyRef privateKey = NULL;
     } else {
         [self applySignCertificateText];
     }
+    [self createNotification];
+}
+
+-(void) createNotification {
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(onReadUrl:)
+     name:URL_READED
+     object:nil
+     ];
 }
 
 -(void) applySelectCertificateText {
@@ -1274,22 +1286,28 @@ SecKeyRef privateKey = NULL;
 }
 
 - (void) backToAboutViewController {
-    UIStoryboard *mainStoryboard;
-    if ([(NSString*)[UIDevice currentDevice].model hasPrefix:IPAD] ) {
-        
-        mainStoryboard = [UIStoryboard storyboardWithName:IPAD_STORYBOARD
-                                                   bundle: nil];
-    }
-    else {
-        
-        mainStoryboard = [UIStoryboard storyboardWithName:IPHONE_STORYBOARD
-                                                   bundle: nil];
-    }
-    UIViewController *homeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AOAboutViewController"];
-    UINavigationController *objectNav = [[UINavigationController alloc] initWithRootViewController:homeViewController];
-    [objectNav setModalPresentationStyle: UIModalPresentationFullScreen];
-    [self presentViewController:objectNav animated:YES completion:nil];
+//    UIStoryboard *mainStoryboard;
+//    if ([(NSString*)[UIDevice currentDevice].model hasPrefix:IPAD] ) {
+//
+//        mainStoryboard = [UIStoryboard storyboardWithName:IPAD_STORYBOARD
+//                                                   bundle: nil];
+//    }
+//    else {
+//
+//        mainStoryboard = [UIStoryboard storyboardWithName:IPHONE_STORYBOARD
+//                                                   bundle: nil];
+//    }
+//    UIViewController *homeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AOAboutViewController"];
+//    UINavigationController *objectNav = [[UINavigationController alloc] initWithRootViewController:homeViewController];
+//    [objectNav setModalPresentationStyle: UIModalPresentationFullScreen];
+//    [self presentViewController:objectNav animated:YES completion:nil];
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
+
+-(void) onReadUrl:(NSNotification*) notification {
+    [self backToAboutViewController];
+}
+
 
 - (void)didSuccessBatchSignUseCase:(NSString *)response{
     //quitamos el progressbar indefinido
@@ -1308,6 +1326,10 @@ SecKeyRef privateKey = NULL;
         [CommonAlert createAlertWithTitle: @"error".localized message: errorMessage.localized cancelButtonTitle: @"cerrar".localized showOn:self onComplete:^{
         }];
     }];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:URL_READED object:nil];
 }
 
 @end

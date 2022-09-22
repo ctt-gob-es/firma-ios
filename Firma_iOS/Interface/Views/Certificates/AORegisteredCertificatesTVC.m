@@ -169,11 +169,14 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
         [[CertificateUtils sharedWrapper] setSelectedCertificateName:_selectedCertificate.subject];
         [self performSegueWithIdentifier:@"showSignVC" sender: self];
+        [self.navigationController popToRootViewControllerAnimated:YES];
     }
     else {
         [CommonAlert createAlertWithTitle: @"error_ocurred_while_loading_the_certificate".localized message:@"" cancelButtonTitle:OK showOn:self];
     }
 }
+
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
