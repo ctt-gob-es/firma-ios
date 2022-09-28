@@ -94,17 +94,6 @@ SecKeyRef privateKey = NULL;
     } else {
         [self applySignCertificateText];
     }
-    [self createNotification];
-}
-
--(void) createNotification {
-    
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self
-     selector:@selector(onReadUrl:)
-     name:URL_READED
-     object:nil
-     ];
 }
 
 -(void) applySelectCertificateText {
@@ -1286,26 +1275,22 @@ SecKeyRef privateKey = NULL;
 }
 
 - (void) backToAboutViewController {
-//    UIStoryboard *mainStoryboard;
-//    if ([(NSString*)[UIDevice currentDevice].model hasPrefix:IPAD] ) {
-//
-//        mainStoryboard = [UIStoryboard storyboardWithName:IPAD_STORYBOARD
-//                                                   bundle: nil];
-//    }
-//    else {
-//
-//        mainStoryboard = [UIStoryboard storyboardWithName:IPHONE_STORYBOARD
-//                                                   bundle: nil];
-//    }
-//    UIViewController *homeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AOAboutViewController"];
-//    UINavigationController *objectNav = [[UINavigationController alloc] initWithRootViewController:homeViewController];
-//    [objectNav setModalPresentationStyle: UIModalPresentationFullScreen];
-//    [self presentViewController:objectNav animated:YES completion:nil];
-    [self dismissViewControllerAnimated:NO completion:nil];
-}
-
--(void) onReadUrl:(NSNotification*) notification {
-    [self backToAboutViewController];
+    
+    // Como se presenta de forma modal hacemos un dismiss y posteriormente lanzamos el controller de about como root view controller (No seria necesario hacer el dismiss porque al cambiar el root view controller desparace ese controller y todos los hijos)
+    [self dismissViewControllerAnimated:NO completion:^() {
+        UIStoryboard *mainStoryboard;
+        if ([(NSString*)[UIDevice currentDevice].model hasPrefix:IPAD] ) {
+           mainStoryboard = [UIStoryboard storyboardWithName:IPAD_STORYBOARD
+                                                      bundle: nil];
+        } else {
+           mainStoryboard = [UIStoryboard storyboardWithName:IPHONE_STORYBOARD
+                                                      bundle: nil];
+        }
+        UIViewController *homeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AOAboutViewController"];
+        UINavigationController *objectNav = [[UINavigationController alloc] initWithRootViewController:homeViewController];
+        [[UIApplication sharedApplication].keyWindow setRootViewController: objectNav];
+        
+    }];
 }
 
 
@@ -1326,10 +1311,6 @@ SecKeyRef privateKey = NULL;
         [CommonAlert createAlertWithTitle: @"error".localized message: errorMessage.localized cancelButtonTitle: @"cerrar".localized showOn:self onComplete:^{
         }];
     }];
-}
-
-- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:URL_READED object:nil];
 }
 
 @end
