@@ -106,3 +106,6 @@
 "files_app_alert_message_incorrect_file" = "El fichero %@ no es un certificado válido.";
 "files_app_alert_message_success" = "El fichero %@ se ha añadido correctamente.";
 "files_app_alert_message_cannot_add_certificate" = "El fichero %@ no se ha añadido correctamente.";
+"batch_signs_all_ok" = "La firma del lote ha finalizado correctamente.";
+"batch_signs_generic_error" = "No se ha podido completar la firma del lote";
+"batch_signs_ok_with_signs_error" = "La firma del lote ha finalizado con errores";

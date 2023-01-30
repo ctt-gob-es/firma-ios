@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17132" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nbz-mF-dNH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nbz-mF-dNH">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="2320" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17105.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,7 +14,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="AORegisteredCertificatesTVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1JQ-sz-Nah" customClass="AORegisteredCertificatesTVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="94" sectionHeaderHeight="22" sectionFooterHeight="22" id="beY-zZ-s06">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="250" id="brl-fY-dpK">
@@ -47,10 +48,10 @@
                         </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationWidth="10" reuseIdentifier="CertificateCell" id="xbr-Ud-HCM" customClass="AOCertificateCell">
-                                <rect key="frame" x="0.0" y="217" width="375" height="94"/>
+                                <rect key="frame" x="0.0" y="239" width="375" height="94"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xbr-Ud-HCM" id="iQ0-qv-Sx7">
-                                    <rect key="frame" x="0.0" y="0.0" width="348" height="94"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="348.5" height="94"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SUBJECT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZy-IZ-buA">
@@ -196,14 +197,14 @@
                         </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AOCertificateFileCell" textLabel="1Dj-oW-8zY" style="IBUITableViewCellStyleDefault" id="Qpj-KJ-ZJe">
-                                <rect key="frame" x="0.0" y="258" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="280" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qpj-KJ-ZJe" id="Pa6-rG-Dcx">
-                                    <rect key="frame" x="0.0" y="0.0" width="348" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="348.5" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Dj-oW-8zY">
-                                            <rect key="frame" x="16" y="0.0" width="324" height="44"/>
+                                            <rect key="frame" x="16" y="0.0" width="324.5" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                             <color key="textColor" red="0.38431372549999998" green="0.38431372549999998" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -551,10 +552,10 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="1" id="pex-iP-Azk">
-                                        <rect key="frame" x="0.0" y="28" width="335" height="44"/>
+                                        <rect key="frame" x="0.0" y="50" width="335" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pex-iP-Azk" id="CAA-Cb-5xH">
-                                            <rect key="frame" x="0.0" y="0.0" width="308" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="308.5" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -562,10 +563,10 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="2" id="Wcg-kQ-r23">
-                                        <rect key="frame" x="0.0" y="72" width="335" height="44"/>
+                                        <rect key="frame" x="0.0" y="94" width="335" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wcg-kQ-r23" id="aZd-Hu-Jrg">
-                                            <rect key="frame" x="0.0" y="0.0" width="308" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="308.5" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -573,10 +574,10 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="3" id="vbt-ji-MCa">
-                                        <rect key="frame" x="0.0" y="116" width="335" height="44"/>
+                                        <rect key="frame" x="0.0" y="138" width="335" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vbt-ji-MCa" id="88h-EJ-m5b">
-                                            <rect key="frame" x="0.0" y="0.0" width="308" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="308.5" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -694,6 +695,14 @@ In order to run the application properly, an electronic certificate and its priv
                                             </tabBarItem>
                                             <tabBarItem title="Help" image="help.png" id="qsl-TR-wha"/>
                                         </items>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                                <color key="value" systemColor="systemGrayColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                                <color key="value" systemColor="systemGrayColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="delegate" destination="ZbB-7n-KzP" id="mrX-x8-Fec"/>
                                         </connections>
@@ -1038,7 +1047,7 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="1NP-Ri-baT"/>
+        <segue reference="0Le-aU-8MM"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="cert_menu.png" width="20" height="17"/>
@@ -1048,5 +1057,8 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
         <image name="information_icon.png" width="30" height="30"/>
         <image name="itunes.png" width="100" height="100"/>
         <image name="logo_cliente.png" width="726" height="200"/>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
