@@ -38,30 +38,27 @@ NSString *URLString, *state = @"Inactive";
     URLString = [url absoluteString];
     [[NSUserDefaults standardUserDefaults] setObject:URLString forKey:URL];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    if ([state isEqualToString:INACTIVE]) {
+    
+    
+    // Lanzamos el controller de seleccion de certificado para firmar por root (No se permite ir atrás cuando estas firmando)
+    UIStoryboard *mainStoryboard;
+    if ([(NSString*)[UIDevice currentDevice].model hasPrefix:IPAD] ) {
         
-        UIStoryboard *mainStoryboard;
-        if ([(NSString*)[UIDevice currentDevice].model hasPrefix:IPAD] ) {
-            
-            mainStoryboard = [UIStoryboard storyboardWithName:IPAD_STORYBOARD
-                                                                     bundle: nil];
-        }
-        else {
-            
-            mainStoryboard = [UIStoryboard storyboardWithName:IPHONE_STORYBOARD
-                                                       bundle: nil];
-        }
-        
-        AORegisteredCertificatesTVC *registeredCertificatesTVC = (AORegisteredCertificatesTVC *)[mainStoryboard instantiateViewControllerWithIdentifier:@"AORegisteredCertificatesTVC"];
-        
-        [registeredCertificatesTVC setMode:AORegisteredCertificatesTVCModeSign];
-        [registeredCertificatesTVC setStartURL:URLString];
-        
-        self.window.rootViewController = registeredCertificatesTVC;
+        mainStoryboard = [UIStoryboard storyboardWithName:IPAD_STORYBOARD
+                                                                 bundle: nil];
     }
     else {
-        [[NSNotificationCenter defaultCenter] postNotificationName:URL_READED object:URLString];
+        
+        mainStoryboard = [UIStoryboard storyboardWithName:IPHONE_STORYBOARD
+                                                   bundle: nil];
     }
+    
+    AORegisteredCertificatesTVC *registeredCertificatesTVC = (AORegisteredCertificatesTVC *)[mainStoryboard instantiateViewControllerWithIdentifier:@"AORegisteredCertificatesTVC"];
+    
+    [registeredCertificatesTVC setMode:AORegisteredCertificatesTVCModeSign];
+    [registeredCertificatesTVC setStartURL:URLString];
+    
+    self.window.rootViewController = registeredCertificatesTVC;
     
     return YES;
 }

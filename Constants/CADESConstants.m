@@ -16,6 +16,8 @@ NSString *const OPERATION_PRESIGN = @"pre";
 NSString *const OPERATION_POSTSIGN = @"post";
 NSString *const OPERATION_PUT = @"put";
 NSString *const OPERATION_GET = @"get";
+NSString *const OPERATION_BATCH = @"batch";
+
 NSString *const PARAMETER_NAME_OPERATION = @"op";
 NSString *const PARAMETER_NAME_COPERATION = @"cop";
 NSString *const PARAMETER_NAME_METRO = @"metro";
@@ -46,6 +48,10 @@ NSString *const PARAMETER_NAME_TARGET_LEAFS = @"leafs";
 
 NSString *const PARAMETER_LOCAL_SIGNATURE = @"local";
 NSString *const PARAMETER_LOCAL_CLOUD_NAME = @"cloudname";
+
+NSString *const PARAMETER_NAME_BATCH_PRESIGNER_URL = @"batchpresignerurl";
+NSString *const PARAMETER_NAME_BATCH_POSTSIGNER_URL = @"batchpostsignerurl";
+NSString *const PARAMETER_NAME_BATCH_JSON = @"jsonbatch";
 
 //parámetros del properties
 NSString *const PROPERTIES_PARAMETER_INCLUDEONLYSIGNINGCERTIFICATE = @"includeOnlySigningCertificate";

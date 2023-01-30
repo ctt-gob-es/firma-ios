@@ -9,7 +9,12 @@
 /* Begin PBXBuildFile section */
 		3BC03D5D19D9988300FC1804 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AF7F6E17FD60C80084D916 /* libGoogleAnalyticsServices.a */; };
 		3C57FA171AC1BB9D00FF7292 /* AOCertificateInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C57FA161AC1BB9D00FF7292 /* AOCertificateInfo.m */; };
+		83A3DA922897B67400AF4355 /* BachRest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A3DA912897B67400AF4355 /* BachRest.m */; };
+		83EBF99E289BAB2C00E80A7E /* ParentRest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EBF99D289BAB2C00E80A7E /* ParentRest.m */; };
+		83EBF9A0289BB48A00E80A7E /* ServletRest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EBF99B289BAA9300E80A7E /* ServletRest.m */; };
 		9226967323C6512400F099F0 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9226967223C6512400F099F0 /* NSString+Extension.m */; };
+		A073AA7C2893E7FC00FE30CE /* BatchSignUseCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A073AA7B2893E7FC00FE30CE /* BatchSignUseCase.m */; };
+		A073AA7F2893F71E00FE30CE /* InputParametersBatch.m in Sources */ = {isa = PBXBuildFile; fileRef = A073AA7E2893F71E00FE30CE /* InputParametersBatch.m */; };
 		B2406F2E20C5CACA008ED085 /* AORegisteredCertificatesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F2920C5CACA008ED085 /* AORegisteredCertificatesTVC.m */; };
 		B2406F2F20C5CACA008ED085 /* AOAvailableCertificatesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F2A20C5CACA008ED085 /* AOAvailableCertificatesTVC.m */; };
 		B2406F3320C5CB8E008ED085 /* AlertProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F3220C5CB8D008ED085 /* AlertProgressBar.m */; };
@@ -191,8 +196,18 @@
 /* Begin PBXFileReference section */
 		3C57FA151AC1BB9D00FF7292 /* AOCertificateInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AOCertificateInfo.h; path = model/AOCertificateInfo.h; sourceTree = "<group>"; };
 		3C57FA161AC1BB9D00FF7292 /* AOCertificateInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AOCertificateInfo.m; path = model/AOCertificateInfo.m; sourceTree = "<group>"; };
+		83A3DA912897B67400AF4355 /* BachRest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BachRest.m; sourceTree = "<group>"; };
+		83A3DA932897B67D00AF4355 /* BachRest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BachRest.h; sourceTree = "<group>"; };
+		83EBF99A289BAA8600E80A7E /* ServletRest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServletRest.h; sourceTree = "<group>"; };
+		83EBF99B289BAA9300E80A7E /* ServletRest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServletRest.m; sourceTree = "<group>"; };
+		83EBF99D289BAB2C00E80A7E /* ParentRest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParentRest.m; sourceTree = "<group>"; };
+		83EBF99F289BAB3800E80A7E /* ParentRest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParentRest.h; sourceTree = "<group>"; };
 		9226967123C6510700F099F0 /* NSString+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		9226967223C6512400F099F0 /* NSString+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		A073AA7A2893E7FC00FE30CE /* BatchSignUseCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BatchSignUseCase.h; sourceTree = "<group>"; };
+		A073AA7B2893E7FC00FE30CE /* BatchSignUseCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BatchSignUseCase.m; sourceTree = "<group>"; };
+		A073AA7D2893F71E00FE30CE /* InputParametersBatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputParametersBatch.h; sourceTree = "<group>"; };
+		A073AA7E2893F71E00FE30CE /* InputParametersBatch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputParametersBatch.m; sourceTree = "<group>"; };
 		B2406F2720C5CACA008ED085 /* AOAvailableCertificatesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOAvailableCertificatesTVC.h; sourceTree = "<group>"; };
 		B2406F2920C5CACA008ED085 /* AORegisteredCertificatesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AORegisteredCertificatesTVC.m; sourceTree = "<group>"; };
 		B2406F2A20C5CACA008ED085 /* AOAvailableCertificatesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOAvailableCertificatesTVC.m; sourceTree = "<group>"; };
@@ -537,8 +552,37 @@
 			children = (
 				3C57FA151AC1BB9D00FF7292 /* AOCertificateInfo.h */,
 				3C57FA161AC1BB9D00FF7292 /* AOCertificateInfo.m */,
+				A073AA7D2893F71E00FE30CE /* InputParametersBatch.h */,
+				A073AA7E2893F71E00FE30CE /* InputParametersBatch.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		83A3DA902897B65A00AF4355 /* BachRest */ = {
+			isa = PBXGroup;
+			children = (
+				83A3DA912897B67400AF4355 /* BachRest.m */,
+				83A3DA932897B67D00AF4355 /* BachRest.h */,
+			);
+			path = BachRest;
+			sourceTree = "<group>";
+		};
+		83EBF999289BAA6F00E80A7E /* ServletRest */ = {
+			isa = PBXGroup;
+			children = (
+				83EBF99A289BAA8600E80A7E /* ServletRest.h */,
+				83EBF99B289BAA9300E80A7E /* ServletRest.m */,
+			);
+			path = ServletRest;
+			sourceTree = "<group>";
+		};
+		83EBF99C289BAB1900E80A7E /* ParentRest */ = {
+			isa = PBXGroup;
+			children = (
+				83EBF99D289BAB2C00E80A7E /* ParentRest.m */,
+				83EBF99F289BAB3800E80A7E /* ParentRest.h */,
+			);
+			path = ParentRest;
 			sourceTree = "<group>";
 		};
 		9226967023C6508600F099F0 /* Extensions */ = {
@@ -548,6 +592,15 @@
 				9226967223C6512400F099F0 /* NSString+Extension.m */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A073AA792893E7BB00FE30CE /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				A073AA7A2893E7FC00FE30CE /* BatchSignUseCase.h */,
+				A073AA7B2893E7FC00FE30CE /* BatchSignUseCase.m */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 		B2406EED20C5C0A9008ED085 /* Views */ = {
@@ -780,6 +833,10 @@
 		C30B3231163804620072A515 /* Firma_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				83EBF99C289BAB1900E80A7E /* ParentRest */,
+				83EBF999289BAA6F00E80A7E /* ServletRest */,
+				83A3DA902897B65A00AF4355 /* BachRest */,
+				A073AA792893E7BB00FE30CE /* Domain */,
 				B2A7C4C72119F0D70071BF69 /* ANF_PF_Activo.p12 */,
 				B2A7C4C92119F5A10071BF69 /* PFActivoFirSHA1.pfx */,
 				B2A7C4C82119F5A00071BF69 /* pruebas_portafirmas.p12 */,
@@ -1212,6 +1269,7 @@
 				B27395CD20A4384300A7D05A /* CADESConstants.m in Sources */,
 				C3B11DCE16FB642B00C0D623 /* ber_tlv_tag.c in Sources */,
 				B2D0158D20CA7F9400FD4102 /* CommonAlert.m in Sources */,
+				A073AA7F2893F71E00FE30CE /* InputParametersBatch.m in Sources */,
 				C3B11DD016FB642B00C0D623 /* BIT_STRING.c in Sources */,
 				C3B11DD216FB642B00C0D623 /* CertificateSerialNumber.c in Sources */,
 				C3B11DD416FB642B00C0D623 /* CertificateSet.c in Sources */,
@@ -1230,6 +1288,7 @@
 				B2406F2E20C5CACA008ED085 /* AORegisteredCertificatesTVC.m in Sources */,
 				B273960720A43E2800A7D05A /* AOTriphaseData.m in Sources */,
 				B2406F3320C5CB8E008ED085 /* AlertProgressBar.m in Sources */,
+				83EBF9A0289BB48A00E80A7E /* ServletRest.m in Sources */,
 				C3B11DEA16FB642B00C0D623 /* der_encoder.c in Sources */,
 				C3B11DEC16FB642B00C0D623 /* DigestAlgorithmIdentifier.c in Sources */,
 				C3B11DEE16FB642B00C0D623 /* DigestAlgorithmIdentifiers.c in Sources */,
@@ -1254,6 +1313,7 @@
 				C3B11E1016FB642B00C0D623 /* per_decoder.c in Sources */,
 				C3B11E1216FB642B00C0D623 /* per_encoder.c in Sources */,
 				C3B11E1416FB642B00C0D623 /* per_opentype.c in Sources */,
+				83A3DA922897B67400AF4355 /* BachRest.m in Sources */,
 				B273960E20A43E2800A7D05A /* DateHelper.m in Sources */,
 				C3B11E1616FB642B00C0D623 /* per_support.c in Sources */,
 				C3B11E1816FB642B00C0D623 /* PolicyInformation.c in Sources */,
@@ -1280,6 +1340,7 @@
 				C3B11E3A16FB642B00C0D623 /* UniqueIdentifier.c in Sources */,
 				B273960A20A43E2800A7D05A /* CADESMonoPhase.m in Sources */,
 				C33A9D0E19AA3CE2002F83B6 /* CertificateUtil.c in Sources */,
+				83EBF99E289BAB2C00E80A7E /* ParentRest.m in Sources */,
 				C3B11E3C16FB642B00C0D623 /* UnsignedAttributes.c in Sources */,
 				C3B11E3E16FB642B00C0D623 /* UTCTime.c in Sources */,
 				C3B11E4016FB642B00C0D623 /* xer_decoder.c in Sources */,
@@ -1304,6 +1365,7 @@
 				C3A44B77170C3B60000B551C /* SigPolicyQualifierId.c in Sources */,
 				9226967323C6512400F099F0 /* NSString+Extension.m in Sources */,
 				C3A44B78170C3B60000B551C /* SigPolicyQualifierInfo.c in Sources */,
+				A073AA7C2893E7FC00FE30CE /* BatchSignUseCase.m in Sources */,
 				C3A44B79170C3B60000B551C /* SPuri.c in Sources */,
 				C3A44B7A170C3B60000B551C /* SPUserNotice.c in Sources */,
 				C3A44B87170C3CBF000B551C /* VisibleString.c in Sources */,
@@ -1481,9 +1543,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "Cliente @firma.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 2H36E8KFN2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1501,7 +1564,7 @@
 					"$(PROJECT_DIR)/lib",
 					"$(PROJECT_DIR)",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "es.gob.afirma.Cliente--firma";
 				PRODUCT_NAME = "Cliente @firma";
@@ -1521,10 +1584,12 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "Cliente @firma.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 2H36E8KFN2;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2H36E8KFN2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1541,12 +1606,13 @@
 					"$(PROJECT_DIR)/lib",
 					"$(PROJECT_DIR)",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "es.gob.afirma.Cliente--firma";
 				PRODUCT_NAME = "Cliente @firma";
 				PROVISIONING_PROFILE = "c08ed7da-989b-4719-b284-d895789fd7db";
-				PROVISIONING_PROFILE_SPECIFIER = "Cliente Afirma Movil - Development";
+				PROVISIONING_PROFILE_SPECIFIER = "Cliente Afirma Movil - App Store";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Cliente Afirma Movil - App Store";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
