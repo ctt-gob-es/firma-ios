@@ -67,6 +67,8 @@ NSString *const PADES_FORMAT = @"PAdES";
 NSString *const XADES_FORMAT = @"XAdES";
 NSString *const NONE_FORMAT = @"NONE";
 NSString *const NONE_TRI_FORMAT = @"NONEtri";
+NSString *const FACTURAE_FORMAT = @"FacturaE";
+NSString *const FACTURAE_TRI_FORMAT = @"FacturaEtri";
 
 NSString *const PROPERTY_NAME_PRESIGN = @"PRE";
 NSString *const PARAMETER_NAME_PKCS1_SIGN = @"PK1";
