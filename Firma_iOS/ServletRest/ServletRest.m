@@ -119,7 +119,7 @@ ServletRequestType currentType;
     });
 }
 
--(void)storeData:(NSData*) data stServlet:(NSString *) stServlet cipherKey:(NSString *) cipherKey docId:(NSString *) docId
+-(void)storeData:(NSData*) data certificateBase64:(NSString *) certificateBase64 stServlet:(NSString *) stServlet cipherKey:(NSString *) cipherKey docId:(NSString *) docId
 {
     currentType = storeData;
     //Creamos la cadena de envío al servidor POST
@@ -138,7 +138,19 @@ ServletRequestType currentType;
     post = [post stringByAppendingString:HTTP_AND];
     
     //cifrado de la firma
-    NSString *encryptedDataB64 = [DesCypher cypherData:data sk:[cipherKey dataUsingEncoding:NSUTF8StringEncoding]];
+    NSString *encryptedSignDataB64 = [DesCypher cypherData:data sk:[cipherKey dataUsingEncoding:NSUTF8StringEncoding]];
+    NSString *encryptedDataB64 = nil;
+    if (certificateBase64 != nil) {
+        //cifrado del certificado
+        NSString * certificateString = [Base64 urlSafeEncode: certificateBase64];
+        NSData *dataCertificate = [Base64 decode:certificateString urlSafe:true];
+        NSString *encryptedCertificateDataB64 = [DesCypher cypherData:dataCertificate sk:[cipherKey dataUsingEncoding:NSUTF8StringEncoding]];
+        
+        // Concatenacion
+        encryptedDataB64 = [NSString stringWithFormat:@"%@|%@", encryptedSignDataB64, encryptedCertificateDataB64];
+    } else {
+        encryptedDataB64 = encryptedSignDataB64;
+    }
     
     // Se envia la firma cifrada y en base64
     post = [post stringByAppendingString:PARAMETER_NAME_DAT];

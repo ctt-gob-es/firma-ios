@@ -255,7 +255,7 @@ SecKeyRef privateKey;
             // Establecemos el error de que la firna ha ido bien pero con errores
             responseMessage = @"batch_signs_ok_with_signs_error";
             //Enviar al servidor
-            [self.servletRest storeData:jsonData stServlet:parametersBatch.stservlet cipherKey:parametersBatch.cipherKey docId:parametersBatch.identifier];
+            [self.servletRest storeData:jsonData certificateBase64:nil stServlet:parametersBatch.stservlet cipherKey:parametersBatch.cipherKey docId:parametersBatch.identifier];
         
         }
     }
@@ -325,7 +325,7 @@ SecKeyRef privateKey;
         }
         
         //Convertir a base64 el json y mandarlo como pk1
-        [self.servletRest storeData:jsonData stServlet:parametersBatch.stservlet cipherKey:parametersBatch.cipherKey docId:parametersBatch.identifier];
+        [self.servletRest storeData:jsonData certificateBase64:urlSafeCertificateData stServlet:parametersBatch.stservlet cipherKey:parametersBatch.cipherKey docId:parametersBatch.identifier];
     }
 }
 
