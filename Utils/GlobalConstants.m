@@ -36,5 +36,5 @@ NSString *const PARAMETERS = @"param";
 NSString *const WITH = @"with";
 NSString *const P12EXTENSION = @"p12";
 NSString *const PFXEXTENSION = @"pfx";
-
+NSString *const PATH_DEFAULT_TRIPHASE_SIGN = @"/afirma-server-triphase-signer/SignatureService";
 @end
