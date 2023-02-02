@@ -762,7 +762,8 @@ SecKeyRef privateKey = NULL;
     }
     else
     {
-        requestUrl = [[NSURL alloc] initWithString: rtServlet];
+        // Si no llega la url del servidor trifasico ponemos el host del rtServlet y el paht por defecto de firma trifasica
+        requestUrl = [self getDefaultTriphaseServer];
     }
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30.0];
     [request setHTTPMethod:POST];
@@ -782,6 +783,13 @@ SecKeyRef privateKey = NULL;
     //iniciamos la barra de progreso.
     alertpb = [[AlertProgressBar alloc]init];
     [alertpb createAndShowProgressBar:self withMessage: @"processing"];
+}
+
+-(NSURL*) getDefaultTriphaseServer {
+    NSURLComponents *urlComponents = [[NSURLComponents alloc] initWithString: rtServlet];
+    urlComponents.query = nil;
+    urlComponents.path = PATH_DEFAULT_TRIPHASE_SIGN;
+    return urlComponents.URL;
 }
 
 /* METODOS DONDE SE RECIBE LA RESPUESTA DE LA CONEXION ASINCRONA */
@@ -1087,7 +1095,7 @@ SecKeyRef privateKey = NULL;
     }
     else
     {
-        requestUrl = [[NSURL alloc] initWithString:[[NSUserDefaults standardUserDefaults] stringForKey:SERVER_URL]];
+        requestUrl = [self getDefaultTriphaseServer];
     }
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval: 30.0];
     [request setHTTPMethod:POST];
