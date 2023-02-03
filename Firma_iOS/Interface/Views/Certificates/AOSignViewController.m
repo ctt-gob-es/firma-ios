@@ -411,20 +411,12 @@ SecKeyRef privateKey = NULL;
         return;
     }
     
-    if([signFormat isEqualToString:CADES_FORMAT])
-    {
-        if ([operation isEqualToString:OPERATION_SIGN]) {
-            //Invocamos la firma monofasica
-            [self cadesMonoPhasic];
-        } else{
-            [self cadesTriPhasic];
-        }
-    }
-    else if ([signFormat isEqualToString:NONE_FORMAT])
+    // Peticion 02/02/2023: la firma cades monofasica se forzará a realizarla de forma trifásica
+    if ([signFormat isEqualToString:NONE_FORMAT])
     {
         [self noneMonoPhasic];
-    }
-    else if ([signFormat isEqualToString:CADES_TRI_FORMAT] ||
+    } else if ([signFormat isEqualToString:CADES_FORMAT] ||
+             [signFormat isEqualToString:CADES_TRI_FORMAT] ||
 		   [signFormat isEqualToString:PADES_FORMAT] ||
 		   [signFormat isEqualToString:PADES_TRI_FORMAT] ||
 		   [signFormat isEqualToString:XADES_FORMAT] ||
