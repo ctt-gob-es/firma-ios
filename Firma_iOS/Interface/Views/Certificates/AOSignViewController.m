@@ -1152,7 +1152,7 @@ SecKeyRef privateKey = NULL;
     NSString *encryptedCertificateDataB64 = [DesCypher cypherData:dataCertificate sk:[cipherKey dataUsingEncoding:NSUTF8StringEncoding]];
     
     // Concatenacion
-    NSString *encryptedDataB64 = [NSString stringWithFormat:@"%@|%@", encryptedSignDataB64, encryptedCertificateDataB64];
+    NSString *encryptedDataB64 = [NSString stringWithFormat:@"%@|%@", encryptedCertificateDataB64, encryptedSignDataB64];
     
     // Se envia la firma cifrada y en base64
     post = [post stringByAppendingString:PARAMETER_NAME_DAT];
