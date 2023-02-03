@@ -110,3 +110,4 @@ trámite funciona en otros dispositivos. ¿Por qué?\n\n";
 "batch_signs_all_ok" = "La firma del lote ha finalizado correctamente.";
 "batch_signs_generic_error" = "No se ha podido completar la firma del lote";
 "batch_signs_ok_with_signs_error" = "La firma del lote ha finalizado con errores";
+"error_server_triphase" = "El trámite web no ha definido un servicio de firma con el que completar la operación";

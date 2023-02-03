@@ -747,16 +747,13 @@ SecKeyRef privateKey = NULL;
     NSString *postLength = [NSString stringWithFormat:@"%d", (int)[postData length]];
     
     // Obtenemos la URL de las preferencias
-    NSURL* requestUrl = NULL;
-    if(triphasicServerURL != NULL)
-    {
-        requestUrl = [[NSURL alloc] initWithString:triphasicServerURL];
+    // Obtenemos la URL del servidor de la pantalla de preferencias
+    NSURL *requestUrl = [self getDefaultTriphaseServer];
+    if (requestUrl == nil) {
+        // Si no tenemos url dels ervidor no podemos continuar
+        return;
     }
-    else
-    {
-        // Si no llega la url del servidor trifasico ponemos el host del rtServlet y el paht por defecto de firma trifasica
-        requestUrl = [self getDefaultTriphaseServer];
-    }
+    
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30.0];
     [request setHTTPMethod:POST];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
@@ -778,10 +775,30 @@ SecKeyRef privateKey = NULL;
 }
 
 -(NSURL*) getDefaultTriphaseServer {
-    NSURLComponents *urlComponents = [[NSURLComponents alloc] initWithString: rtServlet];
-    urlComponents.query = nil;
-    urlComponents.path = PATH_DEFAULT_TRIPHASE_SIGN;
-    return urlComponents.URL;
+    if(triphasicServerURL != NULL)
+    {
+        // Si tenemos url del servidor trifasico la devolvemos
+        return [[NSURL alloc] initWithString:triphasicServerURL];
+    } else if (rtServlet != nil) {
+        // Creamos la url del servidor trifasico a partir del rtservlet y el path por defecto de firma trifasica
+        NSURLComponents *urlComponents = [[NSURLComponents alloc] initWithString: rtServlet];
+        urlComponents.query = nil;
+        urlComponents.path = PATH_DEFAULT_TRIPHASE_SIGN;
+        return urlComponents.URL;
+    } else {
+        // No tenemos url de servidor trifase, mostramos aviso y enviamos error al servidor intermedio
+        //Notificamos del error al servidor si es posible
+        NSString *errorToSend = @"";
+        errorToSend = [errorToSend stringByAppendingString:ERROR_MISSING_DATA];
+        errorToSend = [errorToSend stringByAppendingString:ERROR_SEPARATOR];
+        errorToSend = [errorToSend stringByAppendingString:DESC_ERROR_MISSING_DATA_SERVER_TRIPHASE];
+        //hay que hacer esta llamada asincrona!!!
+        [self errorReportAsync:errorToSend];
+        [CommonAlert createAlertWithTitle:@"error".localized message:@"error_server_triphase".localized cancelButtonTitle: @"cerrar".localized showOn:self onComplete:^{
+            [self backToAboutViewController];
+        }];
+        return nil;
+    }
 }
 
 /* METODOS DONDE SE RECIBE LA RESPUESTA DE LA CONEXION ASINCRONA */
@@ -1080,15 +1097,12 @@ SecKeyRef privateKey = NULL;
     NSString *postLength = [NSString stringWithFormat: @"%d", (int)[postData length]];
     
     // Obtenemos la URL del servidor de la pantalla de preferencias
-    NSURL *requestUrl = NULL;
-    if(triphasicServerURL != NULL)
-    {
-        requestUrl = [[NSURL alloc] initWithString:triphasicServerURL];
+    NSURL *requestUrl = [self getDefaultTriphaseServer];
+    if (requestUrl == nil) {
+        // Si no tenemos url dels ervidor no podemos continuar
+        return;
     }
-    else
-    {
-        requestUrl = [self getDefaultTriphaseServer];
-    }
+    
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval: 30.0];
     [request setHTTPMethod:POST];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];

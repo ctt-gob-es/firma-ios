@@ -95,6 +95,7 @@ NSString *const ERROR_SEPARATOR = @":=";
 
 NSString *const DESC_ERROR_SIGNING = @"Ocurri\u00F3 un error en la operaci\u00F3n de firma";
 NSString *const DESC_ERROR_MISSING_DATA_ID = @"No se ha proporcionado un identificador para los datos";
+NSString *const DESC_ERROR_MISSING_DATA_SERVER_TRIPHASE = @"No se ha proporcionado una url del servidor trif\u00e1sico";
 NSString *const DESC_ERROR_NOT_SUPPORTED_FORMAT = @"Se ha configurado un formato de firma no soportado";
 NSString *const DESC_ERROR_MISSING_DATA = @"No se han proporcionado los datos de la operaci\u00F3n";
 NSString *const DESC_ERROR_MISSING_OPERATION_NAME = @"No se ha indicado el c\u00F3digo de la operaci\u00F3n";
