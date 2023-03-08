@@ -21,6 +21,4 @@
 @property (strong, nonatomic) IBOutlet UITabBarItem *helpBarItem;
 @property (strong, nonatomic) IBOutlet UINavigationItem *homeNavitationItem;
 
--(void)createNotification;
-
 @end

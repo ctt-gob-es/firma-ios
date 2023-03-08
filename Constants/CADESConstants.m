@@ -16,6 +16,8 @@ NSString *const OPERATION_PRESIGN = @"pre";
 NSString *const OPERATION_POSTSIGN = @"post";
 NSString *const OPERATION_PUT = @"put";
 NSString *const OPERATION_GET = @"get";
+NSString *const OPERATION_BATCH = @"batch";
+
 NSString *const PARAMETER_NAME_OPERATION = @"op";
 NSString *const PARAMETER_NAME_COPERATION = @"cop";
 NSString *const PARAMETER_NAME_METRO = @"metro";
@@ -47,6 +49,10 @@ NSString *const PARAMETER_NAME_TARGET_LEAFS = @"leafs";
 NSString *const PARAMETER_LOCAL_SIGNATURE = @"local";
 NSString *const PARAMETER_LOCAL_CLOUD_NAME = @"cloudname";
 
+NSString *const PARAMETER_NAME_BATCH_PRESIGNER_URL = @"batchpresignerurl";
+NSString *const PARAMETER_NAME_BATCH_POSTSIGNER_URL = @"batchpostsignerurl";
+NSString *const PARAMETER_NAME_BATCH_JSON = @"jsonbatch";
+
 //parámetros del properties
 NSString *const PROPERTIES_PARAMETER_INCLUDEONLYSIGNINGCERTIFICATE = @"includeOnlySigningCertificate";
 NSString *const PROPERTIES_PARAMETER_MODE = @"mode";
@@ -67,6 +73,8 @@ NSString *const PADES_FORMAT = @"PAdES";
 NSString *const XADES_FORMAT = @"XAdES";
 NSString *const NONE_FORMAT = @"NONE";
 NSString *const NONE_TRI_FORMAT = @"NONEtri";
+NSString *const FACTURAE_FORMAT = @"FacturaE";
+NSString *const FACTURAE_TRI_FORMAT = @"FacturaEtri";
 
 NSString *const PROPERTY_NAME_PRESIGN = @"PRE";
 NSString *const PARAMETER_NAME_PKCS1_SIGN = @"PK1";
@@ -87,6 +95,7 @@ NSString *const ERROR_SEPARATOR = @":=";
 
 NSString *const DESC_ERROR_SIGNING = @"Ocurri\u00F3 un error en la operaci\u00F3n de firma";
 NSString *const DESC_ERROR_MISSING_DATA_ID = @"No se ha proporcionado un identificador para los datos";
+NSString *const DESC_ERROR_MISSING_DATA_SERVER_TRIPHASE = @"No se ha proporcionado una url del servidor trif\u00e1sico";
 NSString *const DESC_ERROR_NOT_SUPPORTED_FORMAT = @"Se ha configurado un formato de firma no soportado";
 NSString *const DESC_ERROR_MISSING_DATA = @"No se han proporcionado los datos de la operaci\u00F3n";
 NSString *const DESC_ERROR_MISSING_OPERATION_NAME = @"No se ha indicado el c\u00F3digo de la operaci\u00F3n";

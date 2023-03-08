@@ -57,7 +57,7 @@
 	   [self.navigationItem setHidesBackButton:YES animated:YES];
     }
     [self.certificatesDescriptionLabel setText: @"certificate_description_label".localized];
-    self.title = @"registered_certificates";
+    self.title = @"registered_certificates".localized;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -169,11 +169,14 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
         [[CertificateUtils sharedWrapper] setSelectedCertificateName:_selectedCertificate.subject];
         [self performSegueWithIdentifier:@"showSignVC" sender: self];
+        [self.navigationController popToRootViewControllerAnimated:YES];
     }
     else {
         [CommonAlert createAlertWithTitle: @"error_ocurred_while_loading_the_certificate".localized message:@"" cancelButtonTitle:OK showOn:self];
     }
 }
+
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -479,6 +482,18 @@ NSString *receivedStringCert = NULL;
 		  if(entidad.stServletField != NULL) {
 			 [self->_opParameters setObject: entidad.stServletField forKey:PARAMETER_NAME_STSERVLET];
 		  }
+            
+            if(entidad.batchpresignerurl != NULL) {
+                [self->_opParameters setObject: entidad.batchpresignerurl forKey:PARAMETER_NAME_BATCH_PRESIGNER_URL];
+            }
+            
+            if(entidad.batchpostsignerurl != NULL) {
+               [self->_opParameters setObject: entidad.batchpostsignerurl forKey:PARAMETER_NAME_BATCH_POSTSIGNER_URL];
+            }
+            
+            if(entidad.batchjson != NULL) {
+                [self->_opParameters setObject: entidad.batchjson forKey:PARAMETER_NAME_BATCH_JSON];
+            }
 		  
 		  if (self.alertpb) {
 			 [self.alertpb destroy];
