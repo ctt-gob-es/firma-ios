@@ -58,6 +58,9 @@
     }
     [self.certificatesDescriptionLabel setText: @"certificate_description_label".localized];
     self.title = @"registered_certificates".localized;
+    
+    // Logo
+    self.logo.accessibilityLabel = @"logo".localized;
 }
 
 - (void)viewWillAppear:(BOOL)animated

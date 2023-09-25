@@ -20,5 +20,5 @@
 @property (strong, nonatomic) IBOutlet UITabBarItem *keystoreManagerBarItem;
 @property (strong, nonatomic) IBOutlet UITabBarItem *helpBarItem;
 @property (strong, nonatomic) IBOutlet UINavigationItem *homeNavitationItem;
-
+@property (strong,nonatomic) IBOutlet UIImageView *logo;
 @end

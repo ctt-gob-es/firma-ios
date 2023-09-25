@@ -28,6 +28,10 @@ BOOL isURL = NO;
     self.navigationController.navigationBar.barTintColor = NAVIGATION_BAR_COLOR;
     
     self.screenName = @"IOS AOAboutViewController - Main window";
+    
+    // Logo
+    self.logo.accessibilityLabel = @"logo".localized;
+    
     [self.homeDescriptionLabel setText:[NSString stringWithFormat: @"home_description_label".localized,[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]]];
     self.homeDescriptionLabel.scrollEnabled = NO;
     [self.homeFooterLabel setText:[NSString stringWithFormat: @"home_footer_label".localized,[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]]];

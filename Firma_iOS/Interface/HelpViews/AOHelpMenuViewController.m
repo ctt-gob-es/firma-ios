@@ -42,6 +42,9 @@ NSMutableArray *tableData = NULL;
     [self.helpMenuDescriptionLabel setText:@"help_menu_description_label".localized];
     [self.helpMenuTitle setText: @"help_menu_title".localized];
     self.title = @"help".localized ;
+    
+    // Logo
+    self.logo.accessibilityLabel = @"logo".localized;
 }
 - (IBAction)goBackHome:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];

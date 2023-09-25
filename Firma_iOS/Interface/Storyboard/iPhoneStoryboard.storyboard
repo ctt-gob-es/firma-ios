@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nbz-mF-dNH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nbz-mF-dNH">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="2320" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,7 +14,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="AORegisteredCertificatesTVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1JQ-sz-Nah" customClass="AORegisteredCertificatesTVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="94" sectionHeaderHeight="22" sectionFooterHeight="22" id="beY-zZ-s06">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="250" id="brl-fY-dpK">
@@ -140,6 +140,7 @@
                     <connections>
                         <outlet property="certificatesDescriptionLabel" destination="eYD-1s-pdw" id="ubZ-ZZ-tvA"/>
                         <outlet property="editTableView" destination="beY-zZ-s06" id="4fk-cJ-aDj"/>
+                        <outlet property="logo" destination="3FJ-eL-Nfr" id="uIv-5z-2Z6"/>
                         <segue destination="dHx-VS-5XU" kind="presentation" identifier="showSignVC" animates="NO" modalPresentationStyle="fullScreen" id="fpS-3r-G0N"/>
                     </connections>
                 </tableViewController>
@@ -237,6 +238,7 @@
                         <outlet property="availableCertificatesDescriptionLabel" destination="7tR-IH-vIq" id="3bB-Fo-qOC"/>
                         <outlet property="filesAppButton" destination="WEb-Fg-t1g" id="qwO-7J-Dje"/>
                         <outlet property="filesAppButtonHeightConstraint" destination="oMf-Ft-2ED" id="pVx-hQ-ZxC"/>
+                        <outlet property="logo" destination="NBa-qk-c0S" id="BH1-by-OoP"/>
                         <outlet property="messageLabel" destination="7tR-IH-vIq" id="COR-fm-OMB"/>
                     </connections>
                 </tableViewController>
@@ -430,6 +432,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Sign" id="cR5-HC-qzW"/>
                     <connections>
+                        <outlet property="logo" destination="H0L-7Z-bG6" id="ycF-YO-AYa"/>
                         <outlet property="nombreCert" destination="hrY-8D-j5N" id="KEc-Ow-Umz"/>
                         <outlet property="signButton" destination="931-34-4yN" id="SVY-cT-Jbr"/>
                         <outlet property="signCertificateDescriptionLabel" destination="tjW-1q-7Ig" id="NUG-OP-tfW"/>
@@ -469,13 +472,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="UwO-vE-gDz">
-                                <rect key="frame" x="20" y="54" width="335" height="85"/>
+                                <rect key="frame" x="20" y="74" width="335" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="85" id="VJv-Ds-asd"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="About... " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RvU-hc-GZw">
-                                <rect key="frame" x="20" y="145" width="335" height="33"/>
+                                <rect key="frame" x="20" y="165" width="335" height="33"/>
                                 <color key="backgroundColor" red="0.91620524879999998" green="0.91620524879999998" blue="0.91620524879999998" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="lxx-sw-trH"/>
@@ -485,7 +488,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qh1-9N-LpB">
-                                <rect key="frame" x="20" y="186" width="335" height="461"/>
+                                <rect key="frame" x="20" y="206" width="335" height="441"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">"Cliente @firma for Apple iOS" v1.4.8
 2013 Gobierno de España
@@ -524,6 +527,7 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                         <outlet property="aboutDescriptionLabel" destination="qh1-9N-LpB" id="vrB-7d-yjZ"/>
                         <outlet property="aboutNavigationItem" destination="tvV-Ho-jvq" id="t8N-Nf-WFc"/>
                         <outlet property="aboutTitleLabel" destination="RvU-hc-GZw" id="9sf-94-Uf7"/>
+                        <outlet property="logo" destination="UwO-vE-gDz" id="Dec-Sa-xkZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7I3-Lf-6FG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -539,13 +543,13 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="sKN-gb-ucT">
-                                <rect key="frame" x="20" y="54" width="335" height="85"/>
+                                <rect key="frame" x="20" y="74" width="335" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="85" id="Rp5-xu-oe9"/>
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VRk-By-NUt">
-                                <rect key="frame" x="20" y="186" width="335" height="154"/>
+                                <rect key="frame" x="20" y="206" width="335" height="154"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="154" id="cNz-Qg-WpX"/>
@@ -591,7 +595,7 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                                 </connections>
                             </tableView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Help" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFA-Aj-TuJ">
-                                <rect key="frame" x="20" y="145" width="335" height="33"/>
+                                <rect key="frame" x="20" y="165" width="335" height="33"/>
                                 <color key="backgroundColor" red="0.91620524879999998" green="0.91620524879999998" blue="0.91620524879999998" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="pOY-GE-mzc"/>
@@ -601,7 +605,7 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZZp-Bf-KNI">
-                                <rect key="frame" x="20" y="365" width="335" height="94"/>
+                                <rect key="frame" x="20" y="385" width="335" height="94"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="94" id="rHj-LP-Fsp"/>
@@ -636,6 +640,7 @@ http://administracionelectronica.gob.es/</string>
                     <connections>
                         <outlet property="helpMenuDescriptionLabel" destination="ZZp-Bf-KNI" id="HPy-78-UVK"/>
                         <outlet property="helpMenuTitle" destination="AFA-Aj-TuJ" id="sFP-WQ-cqP"/>
+                        <outlet property="logo" destination="sKN-gb-ucT" id="pcS-1j-rmG"/>
                         <outlet property="tblViewHelp" destination="VRk-By-NUt" id="Wcm-y0-jly"/>
                     </connections>
                 </viewController>
@@ -652,13 +657,13 @@ http://administracionelectronica.gob.es/</string>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="BN6-I6-Kca">
-                                <rect key="frame" x="40" y="54" width="295" height="85"/>
+                                <rect key="frame" x="40" y="74" width="295" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="85" id="9hJ-N1-TIf"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wea-WN-cIK">
-                                <rect key="frame" x="20" y="159" width="335" height="372"/>
+                                <rect key="frame" x="20" y="179" width="335" height="372"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="372" id="CO9-3a-elb"/>
@@ -754,6 +759,7 @@ In order to run the application properly, an electronic certificate and its priv
                         <outlet property="homeFooterLabel" destination="UJV-8n-EZ7" id="H6L-Xk-3Ag"/>
                         <outlet property="homeNavitationItem" destination="QfF-uh-q3e" id="0kn-ea-eL7"/>
                         <outlet property="keystoreManagerBarItem" destination="kJF-BT-0mB" id="j6g-db-dlT"/>
+                        <outlet property="logo" destination="BN6-I6-Kca" id="9eY-wJ-T8l"/>
                         <outlet property="tabBar" destination="YGN-hy-HXm" id="zpp-uq-Nhw"/>
                         <segue destination="vLA-A2-0w5" kind="show" identifier="toHelpScreen" id="gtw-Bd-7qn"/>
                         <segue destination="1JQ-sz-Nah" kind="show" identifier="showStoredCertificatesToManage" id="QIm-SY-KYp"/>
@@ -773,13 +779,13 @@ In order to run the application properly, an electronic certificate and its priv
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="a0p-d7-fgJ">
-                                <rect key="frame" x="20" y="54" width="335" height="85"/>
+                                <rect key="frame" x="20" y="74" width="335" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="85" id="RyG-ZC-GIM"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Frequently asked questions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8TS-VU-W3b">
-                                <rect key="frame" x="20" y="145" width="335" height="33"/>
+                                <rect key="frame" x="20" y="165" width="335" height="33"/>
                                 <color key="backgroundColor" red="0.91620524879999998" green="0.91620524879999998" blue="0.91620524879999998" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="pVK-ZM-ICc"/>
@@ -789,7 +795,7 @@ In order to run the application properly, an electronic certificate and its priv
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RdQ-UM-sfh">
-                                <rect key="frame" x="20" y="186" width="335" height="461"/>
+                                <rect key="frame" x="20" y="206" width="335" height="441"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <attributedString key="attributedText">
                                     <fragment>
@@ -915,6 +921,7 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                     <connections>
                         <outlet property="frequentlyAskedQuestionsDescriptionLabel" destination="RdQ-UM-sfh" id="u1q-S1-Ki9"/>
                         <outlet property="frequentlyAskedQuestionsTitleLabel" destination="8TS-VU-W3b" id="A5A-QT-jUy"/>
+                        <outlet property="logo" destination="a0p-d7-fgJ" id="EXN-7z-aqL"/>
                         <outlet property="questionsNavigationItem" destination="tIc-gI-F7W" id="uKn-Ki-n7B"/>
                     </connections>
                 </viewController>
@@ -931,13 +938,13 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="XYx-PU-XUl">
-                                <rect key="frame" x="20" y="54" width="335" height="85"/>
+                                <rect key="frame" x="20" y="74" width="335" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="85" id="ROg-1c-I4o"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="How to install certificates" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kk8-eE-cQL">
-                                <rect key="frame" x="20" y="145" width="335" height="33"/>
+                                <rect key="frame" x="20" y="165" width="335" height="33"/>
                                 <color key="backgroundColor" red="0.91620524879999998" green="0.91620524879999998" blue="0.91620524879999998" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="9B4-kE-aZn"/>
@@ -947,7 +954,7 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4RE-R6-kNT">
-                                <rect key="frame" x="20" y="186" width="335" height="461"/>
+                                <rect key="frame" x="20" y="206" width="335" height="441"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QZv-qe-ul0">
                                         <rect key="frame" x="67" y="235" width="201" height="42"/>
@@ -1038,6 +1045,7 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                         <outlet property="howToInstallCertificatesTitle" destination="Kk8-eE-cQL" id="pQo-Ou-tKP"/>
                         <outlet property="howToNavigationItem" destination="C72-VG-evJ" id="5GW-kp-2cA"/>
                         <outlet property="iTunesInstructionsLabel" destination="s3J-tc-eTj" id="hRH-Rh-YUQ"/>
+                        <outlet property="logo" destination="XYx-PU-XUl" id="m6n-sw-BUC"/>
                         <outlet property="masInfoButton" destination="QZv-qe-ul0" id="Uf3-39-TYX"/>
                     </connections>
                 </viewController>
@@ -1047,7 +1055,7 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="0Le-aU-8MM"/>
+        <segue reference="QIm-SY-KYp"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="cert_menu.png" width="20" height="17"/>

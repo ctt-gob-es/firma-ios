@@ -111,3 +111,4 @@ procedure works on other devices. Why?\n\n";
 "batch_signs_generic_error" = "Failed to complete batch signing";
 "batch_signs_ok_with_signs_error" = "Batch signing ended with errors";
 "error_server_triphase" = "The web procedure has not defined a signature service with which to complete the operation";
+"logo" = "Client Signature Logo";

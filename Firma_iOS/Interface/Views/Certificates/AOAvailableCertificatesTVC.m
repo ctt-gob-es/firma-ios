@@ -54,6 +54,9 @@ int const kFilesAppButtonZeroHeightConstraint = 0;
 	   self.filesAppButton.hidden = YES;
 	   self.filesAppButtonHeightConstraint.constant = kFilesAppButtonZeroHeightConstraint;
     }
+    
+    // Logo
+    self.logo.accessibilityLabel = @"logo".localized;
 
 }
 

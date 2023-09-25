@@ -39,6 +39,9 @@
     self.aboutNavigationItem.title = @"about_navigation_title".localized;
     self.howToNavigationItem.title = @"how_to_navigation_title".localized;
     self.questionsNavigationItem.title = @"questions_navigation_title".localized;
+    
+    // Logo
+    self.logo.accessibilityLabel = @"logo".localized;
 }
 
 - (void)viewDidLayoutSubviews{

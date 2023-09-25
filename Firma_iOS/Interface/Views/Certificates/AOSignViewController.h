@@ -17,6 +17,7 @@
 @property(nonatomic, strong) NSString *base64UrlSafeCertificateData;
 @property (strong, nonatomic) IBOutlet UITextView *signCertificateSelectorLabel;
 @property (strong, nonatomic) IBOutlet UITextView *signCertificateDescriptionLabel;
+@property (strong,nonatomic) IBOutlet UIImageView *logo;
 
 @property(nonatomic, strong) BatchSignUseCase *useCase;
 -(void)setPrivateKey:(SecKeyRef) thePrivateKey;

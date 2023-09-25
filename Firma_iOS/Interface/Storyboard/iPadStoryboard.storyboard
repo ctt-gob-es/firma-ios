@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xMB-Ak-RE7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xMB-Ak-RE7">
     <device id="ipad10_5" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment version="4352" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -170,6 +170,7 @@
                     <connections>
                         <outlet property="certificatesDescriptionLabel" destination="ZIP-KB-pfu" id="oZF-ba-aQG"/>
                         <outlet property="editTableView" destination="sK8-Dz-zu7" id="fMc-eA-agD"/>
+                        <outlet property="logo" destination="xjn-pw-JxL" id="nWJ-VX-fJg"/>
                         <segue destination="Hwb-ff-pB4" kind="presentation" identifier="showSignVC" modalPresentationStyle="fullScreen" id="D7i-uO-FEB"/>
                     </connections>
                 </tableViewController>
@@ -271,6 +272,7 @@
                         <outlet property="availableCertificatesDescriptionLabel" destination="j4T-bl-INh" id="yAL-co-UTB"/>
                         <outlet property="filesAppButton" destination="t2W-FC-vkY" id="wL3-n2-Htk"/>
                         <outlet property="filesAppButtonHeightConstraint" destination="WdI-k2-hjg" id="zsx-Cg-hJT"/>
+                        <outlet property="logo" destination="PKA-y8-YIw" id="WpV-X4-K7W"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZjX-CN-EEl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -464,6 +466,7 @@
                     <navigationItem key="navigationItem" title="Firma Electrónica" id="uxI-Y5-c79"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="logo" destination="G9e-wl-fiY" id="DTP-oc-YIH"/>
                         <outlet property="nombreCert" destination="3B4-eC-jL3" id="uli-xw-y9z"/>
                         <outlet property="signButton" destination="rRw-wY-ncA" id="B3D-iW-wOu"/>
                         <outlet property="signCertificateDescriptionLabel" destination="Q9n-WW-Wbv" id="jeF-Oy-L2h"/>
@@ -574,6 +577,7 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma</string>
                         <outlet property="aboutDescriptionLabel" destination="rmY-CM-YMa" id="eWe-cP-G8G"/>
                         <outlet property="aboutNavigationItem" destination="i7n-kA-43N" id="mF9-ox-ofm"/>
                         <outlet property="aboutTitleLabel" destination="Akc-AJ-Nyw" id="r9W-AV-MHf"/>
+                        <outlet property="logo" destination="fiK-fi-vDZ" id="bDb-dZ-9HS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dy1-vc-VZD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -704,12 +708,13 @@ http://administracionelectronica.gob.es/</string>
                     <connections>
                         <outlet property="helpMenuDescriptionLabel" destination="3bn-Vu-wJo" id="8sX-q3-DBI"/>
                         <outlet property="helpMenuTitle" destination="q8h-x8-F2s" id="bWL-yT-aEx"/>
+                        <outlet property="logo" destination="xg7-Ze-4Jb" id="py9-Ja-VYq"/>
                         <outlet property="tblViewHelp" destination="ubm-WH-Rbo" id="8wn-Eh-HoG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MOM-wo-PYp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2692" y="3653"/>
+            <point key="canvasLocation" x="-2692.0863309352521" y="3652.8776978417268"/>
         </scene>
         <!--Home-->
         <scene sceneID="dop-Ky-par">
@@ -789,6 +794,7 @@ Para funcionar correctamente debe instalar un certificado electrónico y su clav
                         <outlet property="homeFooterLabel" destination="PET-dd-39J" id="zdx-1y-xFH"/>
                         <outlet property="homeNavitationItem" destination="SY6-mt-k47" id="2sh-v7-4zo"/>
                         <outlet property="keystoreManagerBarItem" destination="Dea-Zs-0WA" id="Ngk-NI-QfE"/>
+                        <outlet property="logo" destination="RqP-hm-2Vc" id="cSL-PY-ryH"/>
                         <outlet property="tabBar" destination="I0p-Xi-caV" id="7qi-9a-usb"/>
                         <segue destination="YHM-Th-eEX" kind="show" identifier="toHelpScreen" id="rze-Nc-Nlf"/>
                         <segue destination="sgo-6f-C4t" kind="show" identifier="showStoredCertificatesToManage" id="W2n-kP-MXc"/>
@@ -937,6 +943,7 @@ Los certificados importados en el Cliente @firma para Apple iOS son de uso exclu
                     <connections>
                         <outlet property="frequentlyAskedQuestionsDescriptionLabel" destination="QkQ-7P-9PZ" id="Ery-48-YWi"/>
                         <outlet property="frequentlyAskedQuestionsTitleLabel" destination="B04-xr-H96" id="8Bj-4j-eFG"/>
+                        <outlet property="logo" destination="Lwe-LI-wUZ" id="0BL-4u-c0y"/>
                         <outlet property="questionsNavigationItem" destination="bfZ-U2-mHZ" id="boG-in-o4A"/>
                     </connections>
                 </viewController>
@@ -1046,6 +1053,7 @@ Los certificados importados en el Cliente @firma para Apple iOS son de uso exclu
                         <outlet property="howToInstallCertificatesTitle" destination="e1s-e6-GQT" id="h8d-L6-KVB"/>
                         <outlet property="howToNavigationItem" destination="U4u-Ok-FO7" id="aYr-VK-gKZ"/>
                         <outlet property="iTunesInstructionsLabel" destination="kMf-er-nEQ" id="D5i-3k-KpX"/>
+                        <outlet property="logo" destination="HsH-fs-tLd" id="iId-Gu-HdO"/>
                         <outlet property="masInfoButton" destination="E0R-Xx-TIt" id="dzo-xQ-rFB"/>
                     </connections>
                 </viewController>

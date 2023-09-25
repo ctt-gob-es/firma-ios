@@ -85,6 +85,9 @@ SecKeyRef privateKey = NULL;
     //Establecemos el nombre del certificado del almacen
     self.nombreCert.text = [CertificateUtils sharedWrapper].selectedCertificateName;
     
+    // Logo
+    self.logo.accessibilityLabel = @"logo".localized;
+    
     self.useCase = [[BatchSignUseCase alloc] initWithCertificate: self.base64UrlSafeCertificateData withDelegate:self andPrivateKey:privateKey];
     
     self.screenName = @"IOS AOSignViewController - Start signature process window";
