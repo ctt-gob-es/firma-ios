@@ -238,6 +238,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="availableCertificatesDescriptionLabel" destination="7tR-IH-vIq" id="3bB-Fo-qOC"/>
+                        <outlet property="backButton" destination="qIF-rF-MY8" id="ncF-6Z-wte"/>
                         <outlet property="filesAppButton" destination="WEb-Fg-t1g" id="qwO-7J-Dje"/>
                         <outlet property="filesAppButtonHeightConstraint" destination="oMf-Ft-2ED" id="pVx-hQ-ZxC"/>
                         <outlet property="logo" destination="NBa-qk-c0S" id="BH1-by-OoP"/>

@@ -43,11 +43,11 @@
 @synthesize _certificatesArray, editTableView;
 
 #pragma mark - Life Cycle
-
 - (void)viewDidLoad
 {
     
     [super viewDidLoad];
+    
     self.numberOfRetries = 0;
     [self.editTableView setDelegate: self];
     [self.editTableView setDataSource:self];

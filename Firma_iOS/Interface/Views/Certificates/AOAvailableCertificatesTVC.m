@@ -46,6 +46,9 @@ int const kFilesAppButtonZeroHeightConstraint = 0;
     [self.availableCertificatesDescriptionLabel setText: @"available_certificates_description_label".localized];
     self.title = @"available_certificates".localized;
     
+        // Back button
+    self.backButton.title = @"back".localized;
+    
         // Files app button
     [self.filesAppButton setAttributedTitle: @"files_app_button".localized.linkStyle  forState:UIControlStateNormal];
     

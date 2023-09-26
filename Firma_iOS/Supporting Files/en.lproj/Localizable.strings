@@ -114,4 +114,4 @@ procedure works on other devices. Why?\n\n";
 "logo" = "Client Signature Logo";
 "issuer_label" = "Issuer:";
 "use_label" = "Use:";
-
+"back" = "Back";
