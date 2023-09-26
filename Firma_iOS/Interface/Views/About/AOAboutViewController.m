@@ -28,16 +28,22 @@ BOOL isURL = NO;
     self.navigationController.navigationBar.barTintColor = NAVIGATION_BAR_COLOR;
     
     self.screenName = @"IOS AOAboutViewController - Main window";
+    self.homeNavitationItem.title = @"home_title".localized;
     
     // Logo
     self.logo.accessibilityLabel = @"logo".localized;
     
+    // Description
     [self.homeDescriptionLabel setText:[NSString stringWithFormat: @"home_description_label".localized,[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]]];
     self.homeDescriptionLabel.scrollEnabled = NO;
+    
+    // Footer
     [self.homeFooterLabel setText:[NSString stringWithFormat: @"home_footer_label".localized,[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]]];
+    [self.homeFooterLabel setTextColor: COLOR_GRAY];
+    
+    // Tab bar
     self.keystoreManagerBarItem.title = @"keystore_manager_bar_item".localized;
     self.helpBarItem.title = @"help_bar_item".localized;
-    self.homeNavitationItem.title = @"home_title".localized;
 }
 
 - (void)didReceiveMemoryWarning

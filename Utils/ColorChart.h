@@ -12,7 +12,8 @@
 #define COLOR_PRIORITY_RED    [ColorChart colorFromHexString:@"#ff4466"]
 #define COLOR_PRIORITY_ORANGE [ColorChart colorFromHexString:@"#ff9966"]
 #define COLOR_PRIORITY_YELLOW [ColorChart colorFromHexString:@"#f6d965"]
-#define NAVIGATION_BAR_COLOR [ColorChart colorFromHexString:@"#f6f6f6"]
+#define NAVIGATION_BAR_COLOR [ColorChart colorFromHexString:@"#757575"]
+#define COLOR_GRAY [ColorChart colorFromHexString:@"#757575"]
 #define ThemeColorWithAlpha(alpha) [THEME_COLOR colorWithAlphaComponent : alpha]
 
 @interface ColorChart : NSObject
