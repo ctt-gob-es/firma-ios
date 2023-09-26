@@ -34,7 +34,12 @@
     [self.howToInstallCertificatesTitle setText: @"how_to_install_certificates_title".localized];
     [self.iTunesInstructionsLabel setText: @"iTunes_instructions_label".localized];
     [self.certificateInstructionsLabel setText: @"certificate_instructions_label".localized];
-    [self.masInfoButton setTitle: @"more_info_button".localized forState:UIControlStateNormal];
+    
+    // More info button
+    NSMutableAttributedString *moreInfoButtonText = [[NSMutableAttributedString alloc] initWithString:@"more_info_button".localized];
+    [moreInfoButtonText addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:NSMakeRange(0, [moreInfoButtonText length])];
+    [self.masInfoButton setAttributedTitle: moreInfoButtonText  forState:UIControlStateNormal];
+    
     [self fillTextForFrequentlyAskedQuestionsTitleLabel];
     self.aboutNavigationItem.title = @"about_navigation_title".localized;
     self.howToNavigationItem.title = @"how_to_navigation_title".localized;

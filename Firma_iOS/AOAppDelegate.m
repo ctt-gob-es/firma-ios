@@ -17,6 +17,11 @@ NSString *URLString, *state = @"Inactive";
 {
 
     [self registerDefaultsFromSettingsBundle];
+    
+    [UITextView appearance].linkTextAttributes = @{
+        NSForegroundColorAttributeName : UIColor.systemBlueColor,
+        NSUnderlineStyleAttributeName : [NSNumber numberWithInteger:NSUnderlineStyleSingle]
+    };
 
 /*    // Optional: automatically send uncaught exceptions to Google Analytics.
     [GAI sharedInstance].trackUncaughtExceptions = YES;
