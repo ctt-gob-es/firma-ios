@@ -8,6 +8,7 @@
 #import "AORegisteredCertificatesTVC.h"
 #import "GAI.h"
 #import "GlobalConstants.h"
+#import "ColorChart.h"
 
 @implementation AOAppDelegate
 
@@ -19,7 +20,7 @@ NSString *URLString, *state = @"Inactive";
     [self registerDefaultsFromSettingsBundle];
     
     [UITextView appearance].linkTextAttributes = @{
-        NSForegroundColorAttributeName : UIColor.systemBlueColor,
+        NSForegroundColorAttributeName : LINK_COLOR,
         NSUnderlineStyleAttributeName : [NSNumber numberWithInteger:NSUnderlineStyleSingle]
     };
 

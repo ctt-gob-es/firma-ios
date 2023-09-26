@@ -47,9 +47,7 @@ int const kFilesAppButtonZeroHeightConstraint = 0;
     self.title = @"available_certificates".localized;
     
         // Files app button
-    NSMutableAttributedString *filesAppButtonText = [[NSMutableAttributedString alloc] initWithString:@"files_app_button".localized];
-    [filesAppButtonText addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:NSMakeRange(0, [filesAppButtonText length])];
-    [self.filesAppButton setAttributedTitle: filesAppButtonText  forState:UIControlStateNormal];
+    [self.filesAppButton setAttributedTitle: @"files_app_button".localized.linkStyle  forState:UIControlStateNormal];
     
     if (@available(iOS 11, *)) {
         self.filesAppButton.hidden = NO;

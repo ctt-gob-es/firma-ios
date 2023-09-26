@@ -36,9 +36,7 @@
     [self.certificateInstructionsLabel setText: @"certificate_instructions_label".localized];
     
     // More info button
-    NSMutableAttributedString *moreInfoButtonText = [[NSMutableAttributedString alloc] initWithString:@"more_info_button".localized];
-    [moreInfoButtonText addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:NSMakeRange(0, [moreInfoButtonText length])];
-    [self.masInfoButton setAttributedTitle: moreInfoButtonText  forState:UIControlStateNormal];
+    [self.masInfoButton setAttributedTitle: @"more_info_button".localized.linkStyle  forState:UIControlStateNormal];
     
     [self fillTextForFrequentlyAskedQuestionsTitleLabel];
     self.aboutNavigationItem.title = @"about_navigation_title".localized;

@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSString (Common)
 
 - (NSString *) localized;
+- (NSMutableAttributedString *) linkStyle;
 
 @end
 
