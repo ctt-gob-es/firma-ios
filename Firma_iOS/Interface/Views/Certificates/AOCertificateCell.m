@@ -1,10 +1,10 @@
-//
-//  AOCertificateCell.m
-//  Firma_iOS
-//
-//  Created by Rocio Tovar on 24/3/15.
-//  Copyright (c) 2015 Atos. All rights reserved.
-//
+    //
+    //  AOCertificateCell.m
+    //  Firma_iOS
+    //
+    //  Created by Rocio Tovar on 24/3/15.
+    //  Copyright (c) 2015 Atos. All rights reserved.
+    //
 
 #import "AOCertificateCell.h"
 #import "ColorChart.h"
@@ -19,7 +19,9 @@ static const NSTimeInterval kCertificateCellDate15DaysTimeInterval = -(15*24*60*
 
 @property (nonatomic, strong) IBOutlet UILabel *subjectLabel;
 @property (nonatomic, strong) IBOutlet UILabel *issuerLabel;
+@property (nonatomic, strong) IBOutlet UILabel *issuerValue;
 @property (nonatomic, strong) IBOutlet UILabel *purposeLabel;
+@property (nonatomic, strong) IBOutlet UILabel *purposeValue;
 @property (nonatomic, strong) IBOutlet UILabel *dateLabel;
 @property (nonatomic, strong) IBOutlet UILabel *expirationLabel;
 
@@ -30,8 +32,16 @@ static const NSTimeInterval kCertificateCellDate15DaysTimeInterval = -(15*24*60*
 - (void)setCertificateInfo:(AOCertificateInfo *)certificateInfo forEditingCell:(BOOL)isEditing
 {
     [_subjectLabel setText:certificateInfo.subject];
-    [_issuerLabel setText:certificateInfo.issuer];
-    [_purposeLabel setText:[certificateInfo getPurposeString]];
+    
+        // Issuer
+    [_issuerLabel setText:@"issuer_label".localized];
+    [_issuerValue setText:certificateInfo.issuer];
+    
+        // Purpose
+    [_purposeLabel setText:@"use_label".localized];
+    [_purposeValue setText:[certificateInfo getPurposeString]];
+    
+    
     [_dateLabel setText:[NSString stringWithFormat: @"valid_from_to".localized,[certificateInfo getCreationDateString], [certificateInfo getExpirationDateString]]];
     if (isEditing) {
         [_expirationLabel setHidden:YES];

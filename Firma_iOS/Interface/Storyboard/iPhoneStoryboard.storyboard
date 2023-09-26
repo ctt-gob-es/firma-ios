@@ -114,8 +114,10 @@
                                 <connections>
                                     <outlet property="dateLabel" destination="bN2-Nu-Vzr" id="y7U-VU-ap5"/>
                                     <outlet property="expirationLabel" destination="E20-44-N81" id="w0y-hH-Usc"/>
-                                    <outlet property="issuerLabel" destination="rsz-g7-w3S" id="rYw-yT-sGR"/>
-                                    <outlet property="purposeLabel" destination="XuA-jl-1rR" id="7eh-Fu-IvR"/>
+                                    <outlet property="issuerLabel" destination="8FZ-0N-SnM" id="lcc-tZ-zkX"/>
+                                    <outlet property="issuerValue" destination="rsz-g7-w3S" id="rYw-yT-sGR"/>
+                                    <outlet property="purposeLabel" destination="DHB-Ee-X6e" id="Aeb-eL-zfj"/>
+                                    <outlet property="purposeValue" destination="XuA-jl-1rR" id="7eh-Fu-IvR"/>
                                     <outlet property="subjectLabel" destination="DZy-IZ-buA" id="3kH-83-Rft"/>
                                 </connections>
                             </tableViewCell>

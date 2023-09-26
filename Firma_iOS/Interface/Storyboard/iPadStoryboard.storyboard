@@ -92,7 +92,7 @@
                                                 <constraint firstAttribute="width" constant="29" id="hZd-wx-rIH"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
-                                            <color key="textColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Válido desde 88/88/8888 hasta 88/88/8888" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mck-OU-Xrd">
@@ -147,8 +147,10 @@
                                 <connections>
                                     <outlet property="dateLabel" destination="mck-OU-Xrd" id="m80-E9-Da7"/>
                                     <outlet property="expirationLabel" destination="OpY-Kt-XLE" id="KaC-7b-KPy"/>
-                                    <outlet property="issuerLabel" destination="Jca-mC-moW" id="QGg-92-Wz8"/>
-                                    <outlet property="purposeLabel" destination="tlc-v2-Eyo" id="PAC-tc-Rcu"/>
+                                    <outlet property="issuerLabel" destination="a5u-Sk-A3v" id="FWo-aT-cVe"/>
+                                    <outlet property="issuerValue" destination="Jca-mC-moW" id="QGg-92-Wz8"/>
+                                    <outlet property="purposeLabel" destination="btT-Ps-dd0" id="qOK-CM-5iF"/>
+                                    <outlet property="purposeValue" destination="tlc-v2-Eyo" id="PAC-tc-Rcu"/>
                                     <outlet property="subjectLabel" destination="dcK-am-Pd5" id="drF-dg-zXc"/>
                                 </connections>
                             </tableViewCell>
