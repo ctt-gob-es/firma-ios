@@ -37,6 +37,11 @@
         // Allow the screen reader to associate the label with the text field
     self.registerCertificateDescriptionLabel.isAccessibilityElement = false;
     self.passwordTextField.accessibilityLabel = passwordTextFieldLabel;
+        // Password textField
+    self.passwordTextField.layer.cornerRadius = 4.0f;
+    self.passwordTextField.clipsToBounds = true;
+    self.passwordTextField.layer.borderWidth = 1.0f;
+    self.passwordTextField.layer.borderColor = COMPONENTS_BORDER_COLOR.CGColor;
     
     [self.registerCertificateRegisterButtonTitle setTitle:@"register_cretificate_register_button_title".localized forState:normal];
     self.registerCertificateNavigationItem.title= @"register_certificate_title".localized;
