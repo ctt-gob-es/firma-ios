@@ -317,7 +317,6 @@
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="clP-r6-5S6"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="messageLabel" destination="Jlr-oA-gUB" id="XPO-be-U1e"/>
                         <outlet property="passwordTextField" destination="OT0-A9-Zc7" id="Z5T-2b-LHc"/>
                         <outlet property="registerCertificateDescriptionLabel" destination="Jlr-oA-gUB" id="YTh-n7-b02"/>
                         <outlet property="registerCertificateNavigationItem" destination="a2Y-R3-p11" id="xEB-wK-GL2"/>

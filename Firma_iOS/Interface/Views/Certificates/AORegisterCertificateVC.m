@@ -1,10 +1,10 @@
-//
-//  AORegisterCertificateVC.m
-//  Firma_iOS
-//
-//  Created by Rocio Tovar on 25/3/15.
-//  Copyright (c) 2015 Atos. All rights reserved.
-//
+    //
+    //  AORegisterCertificateVC.m
+    //  Firma_iOS
+    //
+    //  Created by Rocio Tovar on 25/3/15.
+    //  Copyright (c) 2015 Atos. All rights reserved.
+    //
 
 #import "AORegisterCertificateVC.h"
 #import "CertificateUtils.h"
@@ -30,14 +30,23 @@
     [self.navigationController.navigationBar setTintColor:THEME_COLOR];
     [_selectedCertificateLabel setText:_selectedCertificate];
     [_passwordTextField becomeFirstResponder];
-    [self.registerCertificateDescriptionLabel setText: @"register_certificate_description_label".localized];
+    
+        // Password (label and textField)
+    NSString *passwordTextFieldLabel = @"register_certificate_description_label".localized;
+    [self.registerCertificateDescriptionLabel setText: passwordTextFieldLabel];
+        // Allow the screen reader to associate the label with the text field
+    self.registerCertificateDescriptionLabel.isAccessibilityElement = false;
+    self.passwordTextField.accessibilityLabel = passwordTextFieldLabel;
+    
     [self.registerCertificateRegisterButtonTitle setTitle:@"register_cretificate_register_button_title".localized forState:normal];
     self.registerCertificateNavigationItem.title= @"register_certificate_title".localized;
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+        // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - User Interaction
@@ -65,10 +74,10 @@
     OSStatus status = noErr;
     
 #if TARGET_IPHONE_SIMULATOR
-    // Load certificate from bundle
+        // Load certificate from bundle
     status = [[CertificateUtils sharedWrapper] loadCertKeyChainWithName:_selectedCertificate password:_password fromDocument:NO];
 #else
-    // Load certificate from Documents directory
+        // Load certificate from Documents directory
     status = [[CertificateUtils sharedWrapper] loadCertKeyChainWithName:_selectedCertificate password:_password fromDocument:YES];
 #endif
     
@@ -89,7 +98,7 @@
         }
     } else {
         _message = @"certificate_successfully_loaded".localized;
-
+        
         [CommonAlert createAlertWithTitle: @"certificate_loaded".localized message:_message cancelButtonTitle: OK showOn:self onComplete:^{
             if (self->_delegate) {
                 [self->_delegate certificateAdded];
@@ -102,7 +111,7 @@
     _registerCertificateDescriptionLabel.font = newFont;
     _registerCertificateDescriptionLabel.textColor = [UIColor redColor];
     _registerCertificateDescriptionLabel.text = _message;
-        
+    
     return;
 }
 
