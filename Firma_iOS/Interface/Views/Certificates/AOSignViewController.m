@@ -264,7 +264,7 @@ SecKeyRef privateKey = NULL;
     if([operation isEqualToString:OPERATION_BATCH]){
         //iniciamos la barra de progreso.
         alertpb = [[AlertProgressBar alloc]init];
-        [alertpb createAndShowProgressBar:self withMessage: @"processing"];
+        [alertpb createAndShowProgressBar:self withMessage: @"processing".localized];
         [self.useCase signBatch:urlParameters];
         return;
     }
@@ -774,7 +774,7 @@ SecKeyRef privateKey = NULL;
     
     //iniciamos la barra de progreso.
     alertpb = [[AlertProgressBar alloc]init];
-    [alertpb createAndShowProgressBar:self withMessage: @"processing"];
+    [alertpb createAndShowProgressBar:self withMessage: @"processing".localized];
 }
 
 -(NSURL*) getDefaultTriphaseServer {
