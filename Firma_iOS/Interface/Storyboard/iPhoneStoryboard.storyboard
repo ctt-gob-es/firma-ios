@@ -983,8 +983,65 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4RE-R6-kNT">
                                 <rect key="frame" x="20" y="206" width="335" height="441"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PNZ-eF-jHk" userLabel="Itunes View">
+                                        <rect key="frame" x="0.0" y="13" width="268" height="83"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="ic_folder" translatesAutoresizingMaskIntoConstraints="NO" id="jvc-1v-KRv">
+                                                <rect key="frame" x="8" y="12.5" width="58" height="58"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="58" id="qgN-ua-wjp"/>
+                                                    <constraint firstAttribute="width" constant="58" id="wEr-ee-Kgt"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3J-tc-eTj">
+                                                <rect key="frame" x="73" y="0.0" width="249" height="117"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <string key="text">Connect your device with iTunes, go to "Application" tab and select "Cliente @firma" from the list, in order to drag and drop your certificates.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="s3J-tc-eTj" firstAttribute="leading" secondItem="jvc-1v-KRv" secondAttribute="trailing" constant="7" id="7Fh-fw-DFD"/>
+                                            <constraint firstItem="jvc-1v-KRv" firstAttribute="centerY" secondItem="s3J-tc-eTj" secondAttribute="centerY" constant="-8.5" id="EKh-Zk-BLi"/>
+                                            <constraint firstItem="s3J-tc-eTj" firstAttribute="top" secondItem="PNZ-eF-jHk" secondAttribute="top" id="H49-Ej-d8y"/>
+                                            <constraint firstAttribute="trailing" secondItem="s3J-tc-eTj" secondAttribute="trailing" constant="-54" id="VCx-av-N5Q"/>
+                                            <constraint firstItem="jvc-1v-KRv" firstAttribute="leading" secondItem="PNZ-eF-jHk" secondAttribute="leading" constant="8" id="aH6-Ip-iIA"/>
+                                            <constraint firstAttribute="bottom" secondItem="s3J-tc-eTj" secondAttribute="bottom" constant="-17" id="d7n-s4-9KS"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lb8-d2-vZ1" userLabel="Certicate View">
+                                        <rect key="frame" x="0.0" y="109" width="268" height="100"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="certificados.png" translatesAutoresizingMaskIntoConstraints="NO" id="ydP-6D-VuB">
+                                                <rect key="frame" x="8" y="29" width="64" height="42"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="58" id="Y9b-cb-Dp7"/>
+                                                    <constraint firstAttribute="height" constant="42" id="bmv-yH-Xeq"/>
+                                                    <constraint firstAttribute="width" constant="64" id="sT8-q8-ax2"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZ3-48-Zky">
+                                                <rect key="frame" x="79" y="0.0" width="241" height="133"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <string key="text">Allowed file extensions: .p12 and .pfx. Keep in mind that you need the password to export your certificate, and it must include the private key.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="uZ3-48-Zky" secondAttribute="bottom" id="57Z-3M-gL7"/>
+                                            <constraint firstItem="uZ3-48-Zky" firstAttribute="top" secondItem="lb8-d2-vZ1" secondAttribute="top" id="CGC-HF-vtl"/>
+                                            <constraint firstItem="ydP-6D-VuB" firstAttribute="centerY" secondItem="uZ3-48-Zky" secondAttribute="centerY" id="Jwj-Or-l7R"/>
+                                            <constraint firstItem="ydP-6D-VuB" firstAttribute="leading" secondItem="lb8-d2-vZ1" secondAttribute="leading" constant="8" id="Zu6-kp-OB1"/>
+                                            <constraint firstAttribute="trailing" secondItem="uZ3-48-Zky" secondAttribute="trailing" constant="-52" id="bTx-Pb-Gfv"/>
+                                            <constraint firstItem="uZ3-48-Zky" firstAttribute="leading" secondItem="ydP-6D-VuB" secondAttribute="trailing" constant="7" id="dBN-Ku-XwQ"/>
+                                        </constraints>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QZv-qe-ul0">
-                                        <rect key="frame" x="67" y="235" width="201" height="42"/>
+                                        <rect key="frame" x="67" y="222" width="201" height="42"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="42" id="auy-6x-3L6"/>
                                             <constraint firstAttribute="width" constant="201" id="glx-aO-Wef"/>
@@ -996,56 +1053,18 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                                             <action selector="buttonPressed:" destination="Xwb-1q-ada" eventType="touchUpInside" id="J4w-Vo-2jQ"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="ic_folder" translatesAutoresizingMaskIntoConstraints="NO" id="jvc-1v-KRv">
-                                        <rect key="frame" x="8" y="35" width="58" height="58"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="58" id="qgN-ua-wjp"/>
-                                            <constraint firstAttribute="width" constant="58" id="wEr-ee-Kgt"/>
-                                        </constraints>
-                                    </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZ3-48-Zky">
-                                        <rect key="frame" x="73" y="123" width="212" height="102"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="212" id="BSF-hj-i8C"/>
-                                            <constraint firstAttribute="height" constant="102" id="ozj-ij-QmR"/>
-                                        </constraints>
-                                        <string key="text">Allowed file extensions: .p12 and .pfx. Keep in mind that you need the password to export your certificate, and it must include the private key.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="certificados.png" translatesAutoresizingMaskIntoConstraints="NO" id="ydP-6D-VuB">
-                                        <rect key="frame" x="8" y="154" width="58" height="42"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="42" id="bmv-yH-Xeq"/>
-                                        </constraints>
-                                    </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3J-tc-eTj">
-                                        <rect key="frame" x="73" y="13" width="212" height="102"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="212" id="1BV-Xh-m4r"/>
-                                            <constraint firstAttribute="height" constant="102" id="FBv-tu-XHB"/>
-                                        </constraints>
-                                        <string key="text">Connect your device with iTunes, go to "Application" tab and select "Cliente @firma" from the list, in order to drag and drop your certificates.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="s3J-tc-eTj" firstAttribute="centerY" secondItem="jvc-1v-KRv" secondAttribute="centerY" id="C6g-EJ-Myy"/>
-                                    <constraint firstItem="QZv-qe-ul0" firstAttribute="top" secondItem="uZ3-48-Zky" secondAttribute="bottom" constant="10" id="Mlo-qF-HLo"/>
-                                    <constraint firstItem="uZ3-48-Zky" firstAttribute="top" secondItem="s3J-tc-eTj" secondAttribute="bottom" constant="8" symbolic="YES" id="Z26-7L-Q0r"/>
-                                    <constraint firstItem="jvc-1v-KRv" firstAttribute="leading" secondItem="4RE-R6-kNT" secondAttribute="leading" constant="8" id="dlx-wh-dn6"/>
-                                    <constraint firstItem="uZ3-48-Zky" firstAttribute="leading" secondItem="ydP-6D-VuB" secondAttribute="trailing" constant="7" id="e6m-zI-OGX"/>
-                                    <constraint firstItem="s3J-tc-eTj" firstAttribute="leading" secondItem="jvc-1v-KRv" secondAttribute="trailing" constant="7" id="krz-Oh-jfr"/>
-                                    <constraint firstAttribute="bottom" secondItem="QZv-qe-ul0" secondAttribute="bottom" constant="97" id="qwh-N1-vyz"/>
-                                    <constraint firstItem="ydP-6D-VuB" firstAttribute="leading" secondItem="4RE-R6-kNT" secondAttribute="leading" constant="8" id="s4v-in-hfx"/>
-                                    <constraint firstItem="QZv-qe-ul0" firstAttribute="centerX" secondItem="4RE-R6-kNT" secondAttribute="centerX" id="sbX-mq-nKC"/>
-                                    <constraint firstAttribute="trailing" secondItem="uZ3-48-Zky" secondAttribute="trailing" constant="10" id="wIR-4i-WM2"/>
-                                    <constraint firstItem="s3J-tc-eTj" firstAttribute="top" secondItem="4RE-R6-kNT" secondAttribute="top" constant="13" id="wzI-HY-ALx"/>
-                                    <constraint firstItem="ydP-6D-VuB" firstAttribute="centerY" secondItem="uZ3-48-Zky" secondAttribute="centerY" constant="1" id="y2O-Rd-Qsh"/>
-                                    <constraint firstAttribute="trailing" secondItem="s3J-tc-eTj" secondAttribute="trailing" constant="10" id="z4h-QX-gCv"/>
+                                    <constraint firstItem="QZv-qe-ul0" firstAttribute="top" secondItem="lb8-d2-vZ1" secondAttribute="bottom" constant="13" id="1BO-95-l4W"/>
+                                    <constraint firstItem="lb8-d2-vZ1" firstAttribute="leading" secondItem="4RE-R6-kNT" secondAttribute="leading" id="4WP-0U-i0P"/>
+                                    <constraint firstItem="QZv-qe-ul0" firstAttribute="centerX" secondItem="4RE-R6-kNT" secondAttribute="centerX" id="DwV-ph-2Eh"/>
+                                    <constraint firstItem="PNZ-eF-jHk" firstAttribute="leading" secondItem="4RE-R6-kNT" secondAttribute="leading" id="Lvn-Xs-EBr"/>
+                                    <constraint firstItem="lb8-d2-vZ1" firstAttribute="top" secondItem="PNZ-eF-jHk" secondAttribute="bottom" constant="13" id="O0I-Sg-Rku"/>
+                                    <constraint firstItem="PNZ-eF-jHk" firstAttribute="top" secondItem="4RE-R6-kNT" secondAttribute="top" constant="13" id="Slf-5I-VUh"/>
+                                    <constraint firstAttribute="trailing" secondItem="PNZ-eF-jHk" secondAttribute="trailing" constant="67" id="VtZ-e9-ppy"/>
+                                    <constraint firstAttribute="trailing" secondItem="lb8-d2-vZ1" secondAttribute="trailing" constant="67" id="e05-LJ-EMT"/>
+                                    <constraint firstAttribute="trailing" secondItem="QZv-qe-ul0" secondAttribute="trailing" constant="67" id="mWk-dk-26A"/>
+                                    <constraint firstAttribute="bottom" secondItem="QZv-qe-ul0" secondAttribute="bottom" constant="127" id="qwh-N1-vyz"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
