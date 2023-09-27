@@ -474,13 +474,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="UwO-vE-gDz">
-                                <rect key="frame" x="20" y="30" width="335" height="85"/>
+                                <rect key="frame" x="20" y="74" width="335" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="85" id="VJv-Ds-asd"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="About... " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RvU-hc-GZw">
-                                <rect key="frame" x="20" y="121" width="335" height="33"/>
+                                <rect key="frame" x="20" y="165" width="335" height="33"/>
                                 <color key="backgroundColor" red="0.91620524879999998" green="0.91620524879999998" blue="0.91620524879999998" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="lxx-sw-trH"/>
@@ -490,7 +490,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qh1-9N-LpB">
-                                <rect key="frame" x="20" y="162" width="335" height="485"/>
+                                <rect key="frame" x="20" y="206" width="335" height="441"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">"Cliente @firma for Apple iOS" v1.4.8
 2013 Gobierno de España
@@ -570,6 +570,9 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                                                             <rect key="frame" x="0.0" y="0.0" width="308.5" height="44"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </tableViewCellContentView>
+                                                        <connections>
+                                                            <segue destination="iwh-Um-Nbl" kind="show" identifier="toAcerca" id="Csh-0V-vEg"/>
+                                                        </connections>
                                                     </tableViewCell>
                                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="2" id="vOd-YJ-PZR">
                                                         <rect key="frame" x="0.0" y="94" width="335" height="44"/>
@@ -578,6 +581,9 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                                                             <rect key="frame" x="0.0" y="0.0" width="308.5" height="44"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </tableViewCellContentView>
+                                                        <connections>
+                                                            <segue destination="Xwb-1q-ada" kind="show" identifier="toInstalar" id="DVp-MB-3Im"/>
+                                                        </connections>
                                                     </tableViewCell>
                                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="3" id="zpA-KD-EeN">
                                                         <rect key="frame" x="0.0" y="138" width="335" height="44"/>
@@ -586,6 +592,9 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                                                             <rect key="frame" x="0.0" y="0.0" width="308.5" height="44"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </tableViewCellContentView>
+                                                        <connections>
+                                                            <segue destination="rrS-Su-Td3" kind="show" identifier="toPregFrecuentes" id="uf5-eb-U53"/>
+                                                        </connections>
                                                     </tableViewCell>
                                                 </prototypes>
                                                 <connections>
@@ -655,6 +664,12 @@ http://administracionelectronica.gob.es/</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Help" id="0cD-Ye-V9d"/>
+                    <connections>
+                        <outlet property="helpMenuDescriptionLabel" destination="2Hj-wn-rnT" id="4jd-Re-pdc"/>
+                        <outlet property="helpMenuTitle" destination="mVV-WI-cy0" id="vdC-rl-CuV"/>
+                        <outlet property="logo" destination="IQ7-WN-OdU" id="Eyc-Nt-tf1"/>
+                        <outlet property="tblViewHelp" destination="rLW-XP-Ci5" id="XRR-LH-VWq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mth-kO-3py" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -791,13 +806,13 @@ In order to run the application properly, an electronic certificate and its priv
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="a0p-d7-fgJ">
-                                <rect key="frame" x="20" y="30" width="335" height="85"/>
+                                <rect key="frame" x="20" y="74" width="335" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="85" id="RyG-ZC-GIM"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Frequently asked questions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8TS-VU-W3b">
-                                <rect key="frame" x="20" y="121" width="335" height="33"/>
+                                <rect key="frame" x="20" y="165" width="335" height="33"/>
                                 <color key="backgroundColor" red="0.91620524879999998" green="0.91620524879999998" blue="0.91620524879999998" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="pVK-ZM-ICc"/>
@@ -807,7 +822,7 @@ In order to run the application properly, an electronic certificate and its priv
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RdQ-UM-sfh">
-                                <rect key="frame" x="20" y="162" width="335" height="485"/>
+                                <rect key="frame" x="20" y="206" width="335" height="441"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <attributedString key="attributedText">
                                     <fragment>
@@ -950,13 +965,13 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="XYx-PU-XUl">
-                                <rect key="frame" x="20" y="30" width="335" height="85"/>
+                                <rect key="frame" x="20" y="74" width="335" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="85" id="ROg-1c-I4o"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="How to install certificates" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kk8-eE-cQL">
-                                <rect key="frame" x="20" y="121" width="335" height="33"/>
+                                <rect key="frame" x="20" y="165" width="335" height="33"/>
                                 <color key="backgroundColor" red="0.91620524879999998" green="0.91620524879999998" blue="0.91620524879999998" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="9B4-kE-aZn"/>
@@ -966,7 +981,7 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4RE-R6-kNT">
-                                <rect key="frame" x="20" y="162" width="335" height="485"/>
+                                <rect key="frame" x="20" y="206" width="335" height="441"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QZv-qe-ul0">
                                         <rect key="frame" x="67" y="235" width="201" height="42"/>
