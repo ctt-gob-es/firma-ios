@@ -29,7 +29,6 @@
     
     [self.navigationController.navigationBar setTintColor:THEME_COLOR];
     [_selectedCertificateLabel setText:_selectedCertificate];
-    [_passwordTextField becomeFirstResponder];
     
         // Password (label and textField)
     NSString *passwordTextFieldLabel = @"register_certificate_description_label".localized;
@@ -82,6 +81,8 @@
     _registerCertificateDescriptionLabel.text = errorMessage;
         // Indicate the error in the accesibilityLabel of the TextField so that VoicOver can detect it
     self.passwordTextField.accessibilityLabel = errorMessage;
+        // Put focus on the text field
+    [_passwordTextField becomeFirstResponder];
 }
 
 - (void)registerWithCertificate
