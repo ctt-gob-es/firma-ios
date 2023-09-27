@@ -61,7 +61,7 @@
     _password = _passwordTextField.text;
     
     if (!_password || [_password isEqualToString:@""]) {
-        _registerCertificateDescriptionLabel.text = @"enter_your_certificate_password".localized;
+        [self showError:@"enter_your_certificate_password".localized];
     } else {
         [self registerWithCertificate];
     }
@@ -73,6 +73,16 @@
 }
 
 #pragma mark - Certificates Methods
+
+- (void)showError: (NSString *) errorMessage {
+    UIFont *currentFont = _registerCertificateDescriptionLabel.font;
+    UIFont *newFont = [UIFont fontWithName:[NSString stringWithFormat:@"%@-Bold",currentFont.fontName] size:currentFont.pointSize];
+    _registerCertificateDescriptionLabel.font = newFont;
+    _registerCertificateDescriptionLabel.textColor = [UIColor redColor];
+    _registerCertificateDescriptionLabel.text = errorMessage;
+        // Indicate the error in the accesibilityLabel of the TextField so that VoicOver can detect it
+    self.passwordTextField.accessibilityLabel = errorMessage;
+}
 
 - (void)registerWithCertificate
 {
@@ -111,11 +121,7 @@
         }];
     }
     
-    UIFont *currentFont = _registerCertificateDescriptionLabel.font;
-    UIFont *newFont = [UIFont fontWithName:[NSString stringWithFormat:@"%@-Bold",currentFont.fontName] size:currentFont.pointSize];
-    _registerCertificateDescriptionLabel.font = newFont;
-    _registerCertificateDescriptionLabel.textColor = [UIColor redColor];
-    _registerCertificateDescriptionLabel.text = _message;
+    [self showError:_message];
     
     return;
 }
