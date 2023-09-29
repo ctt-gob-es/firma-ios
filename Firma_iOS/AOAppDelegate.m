@@ -23,6 +23,10 @@ NSString *URLString, *state = @"Inactive";
         NSForegroundColorAttributeName : LINK_COLOR,
         NSUnderlineStyleAttributeName : [NSNumber numberWithInteger:NSUnderlineStyleSingle]
     };
+    
+    // TODO test
+    [UITextView appearance].font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    [UILabel appearance].font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
 
 /*    // Optional: automatically send uncaught exceptions to Google Analytics.
     [GAI sharedInstance].trackUncaughtExceptions = YES;

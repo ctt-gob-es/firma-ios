@@ -35,11 +35,13 @@ BOOL isURL = NO;
     
     // Description
     [self.homeDescriptionLabel setText:[NSString stringWithFormat: @"home_description_label".localized,[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]]];
-    self.homeDescriptionLabel.scrollEnabled = NO;
+    self.homeDescriptionLabel.scrollEnabled = YES;
     
     // Footer
     [self.homeFooterLabel setText:[NSString stringWithFormat: @"home_footer_label".localized,[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]]];
     [self.homeFooterLabel setTextColor: COLOR_GRAY];
+        // TODO test
+    self.homeFooterLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
     
     // Tab bar
     self.keystoreManagerBarItem.title = @"keystore_manager_bar_item".localized;
