@@ -26,5 +26,19 @@
     return textFormatted;
 }
 
+    // Method to detect HTML text
+- (NSMutableAttributedString *)getHtml:(UIFont *)textFont {
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]
+                                                   initWithData: [self dataUsingEncoding:NSUnicodeStringEncoding]
+                                                   options: @{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType
+                                                            }
+                                                   documentAttributes: nil
+                                                   error: nil
+    ];
+    
+    [attributedString addAttribute:NSFontAttributeName value:textFont range:NSMakeRange(0, attributedString.length)];
+    
+    return attributedString;
+}
 
 @end

@@ -6,6 +6,7 @@
 
 #import "AOHelpMenuViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "NSMutableAttributedString+Extension.h"
 
 @interface AOHelpMenuViewController ()
 
@@ -39,7 +40,12 @@ NSMutableArray *tableData = NULL;
     self.tblViewHelp.layer.cornerRadius = 6.0f;
     self.tblViewHelp.scrollEnabled=NO;
     self.screenName = @"IOS AOHelpMenuViewController - Help menu";
-    [self.helpMenuDescriptionLabel setText:@"help_menu_description_label".localized];
+    
+    // Help menu description
+    NSMutableAttributedString *helpMenuDescriptionAttributedString = [@"help_menu_description_label".localized getHtml:[UIFont systemFontOfSize:14]];
+    [helpMenuDescriptionAttributedString align:NSTextAlignmentCenter];
+    [self.helpMenuDescriptionLabel setAttributedText:helpMenuDescriptionAttributedString];
+    
     [self.helpMenuTitle setText: @"help_menu_title".localized];
     self.title = @"help".localized ;
     

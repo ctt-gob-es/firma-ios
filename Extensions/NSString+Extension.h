@@ -1,10 +1,10 @@
-//
-//  NSString+Extension.h
-//  Cliente @firma
-//
-//  Created by Sergio Peñín on 08/01/2020.
-//  Copyright © 2020 Solid GEAR. All rights reserved.
-//
+    //
+    //  NSString+Extension.h
+    //  Cliente @firma
+    //
+    //  Created by Sergio Peñín on 08/01/2020.
+    //  Copyright © 2020 Solid GEAR. All rights reserved.
+    //
 
 #import <Foundation/Foundation.h>
 #import "NSString+Extension.h"
@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSString *) localized;
 - (NSMutableAttributedString *) linkStyle;
+- (NSMutableAttributedString *) getHtml: (UIFont *) textFont;
 
 @end
 
