@@ -609,10 +609,10 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ubm-WH-Rbo">
-                                <rect key="frame" x="40" y="213" width="754" height="154"/>
+                                <rect key="frame" x="40" y="213" width="754" height="176"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="154" id="taY-2I-puq"/>
+                                    <constraint firstAttribute="height" constant="176" id="taY-2I-puq"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="1" id="UDr-Y6-4EL">
@@ -648,6 +648,14 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma</string>
                                             <segue destination="45a-uC-KmM" kind="show" identifier="toInstalar" id="KDW-vu-ThJ"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="4" id="dSX-HE-YrK">
+                                        <rect key="frame" x="0.0" y="182" width="754" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dSX-HE-YrK" id="2ED-42-cDd">
+                                            <rect key="frame" x="0.0" y="0.0" width="727.5" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="YHM-Th-eEX" id="dLm-qZ-Ca8"/>
@@ -655,7 +663,7 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma</string>
                                 </connections>
                             </tableView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="250" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3bn-Vu-wJo">
-                                <rect key="frame" x="20" y="392" width="794" height="111"/>
+                                <rect key="frame" x="20" y="414" width="794" height="111"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="111" id="TCL-Lm-Q55"/>

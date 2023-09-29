@@ -71,6 +71,7 @@ NSMutableArray *tableData = NULL;
     [tableData addObject: @"help_acercade".localized];
     [tableData addObject: @"help_instalar_certificados".localized];
     [tableData addObject: @"help_preguntas".localized];
+    [tableData addObject: @"accesibility_statement".localized];
 
 }
 
@@ -144,6 +145,12 @@ NSMutableArray *tableData = NULL;
             [self performSegueWithIdentifier:@"toInstalar" sender:self];
         else if(fila==2)
             [self performSegueWithIdentifier:@"toPregFrecuentes" sender:self];
+        else if (fila==3) {
+            // Open accesibility statement
+            NSURL* accesibiltyUrl = [NSURL URLWithString: @"url_accessibility_statement".localized];
+            if( [[UIApplication sharedApplication] canOpenURL:accesibiltyUrl])
+                [[UIApplication sharedApplication] openURL:accesibiltyUrl options:@{} completionHandler:nil];
+        }
     }
     @catch (NSException *e) {
         // Se ignora

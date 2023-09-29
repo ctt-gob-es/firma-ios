@@ -115,3 +115,5 @@ trámite funciona en otros dispositivos. ¿Por qué?\n\n";
 "issuer_label" = "Editor:";
 "use_label" = "Uso:";
 "back" = "Atrás";
+"accesibility_statement" = "Declaración de accesibilidad";
+"url_accessibility_statement" = "https://administracion.gob.es/pag_Home/accesibilidad.html";
