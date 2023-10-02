@@ -976,17 +976,14 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                                 </constraints>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="How to install certificates" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kk8-eE-cQL">
-                                <rect key="frame" x="20" y="165" width="335" height="33"/>
+                                <rect key="frame" x="20" y="165" width="335" height="26.5"/>
                                 <color key="backgroundColor" red="0.91620524879999998" green="0.91620524879999998" blue="0.91620524879999998" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="33" id="9B4-kE-aZn"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4RE-R6-kNT">
-                                <rect key="frame" x="20" y="206" width="335" height="441"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4RE-R6-kNT">
+                                <rect key="frame" x="20" y="199.5" width="335" height="447.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vNd-2s-yZJ">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="247"/>

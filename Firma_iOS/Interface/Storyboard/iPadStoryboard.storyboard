@@ -974,44 +974,41 @@ Los certificados importados en el Cliente @firma para Apple iOS son de uso exclu
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Cómo instalar certificados" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1s-e6-GQT">
-                                <rect key="frame" x="20" y="222" width="794" height="33"/>
+                                <rect key="frame" x="20" y="222" width="794" height="26.5"/>
                                 <color key="backgroundColor" red="0.91620524879999998" green="0.91620524879999998" blue="0.91620524879999998" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="33" id="vgf-eN-wck"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="ic_folder" translatesAutoresizingMaskIntoConstraints="NO" id="ptN-R9-q4g">
-                                <rect key="frame" x="90" y="287" width="50" height="50"/>
+                                <rect key="frame" x="90" y="280.5" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="97k-oH-y7N"/>
                                     <constraint firstAttribute="height" constant="50" id="BYS-NC-1QG"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Cargue su certificado en su dispositivo o iCloud e impórtelo a través de la opción &quot;Gestión de certificados&quot; de la aplicación" translatesAutoresizingMaskIntoConstraints="NO" id="kMf-er-nEQ">
-                                <rect key="frame" x="159" y="278" width="585" height="68"/>
+                                <rect key="frame" x="159" y="271.5" width="585" height="68"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="certificados.png" translatesAutoresizingMaskIntoConstraints="NO" id="qrg-fd-v0O">
-                                <rect key="frame" x="90" y="394" width="50" height="50"/>
+                                <rect key="frame" x="90" y="387.5" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="Lbd-hu-zN6"/>
                                     <constraint firstAttribute="height" constant="50" id="nyq-rl-Kkz"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ll0-PS-fWJ">
-                                <rect key="frame" x="159" y="386" width="585" height="66"/>
+                                <rect key="frame" x="159" y="379.5" width="585" height="66"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">Extensiones permitidas: .p12 y .pfx. Recuerde que necesita la contraseña de exportación de su certificado, y que éste debe de incluir la clave privada.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E0R-Xx-TIt">
-                                <rect key="frame" x="340" y="515" width="156" height="30"/>
+                                <rect key="frame" x="340" y="508.5" width="156" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="9JD-xI-bTE"/>
                                     <constraint firstAttribute="width" constant="156" id="fur-r3-08f"/>
