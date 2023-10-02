@@ -9,6 +9,7 @@
 #import "AOCertificateCell.h"
 #import "ColorChart.h"
 #import "QuartzUtils.h"
+#import "UIFont+Utils.h"
 
 static const NSTimeInterval kCertificateCellDate15DaysTimeInterval = -(15*24*60*60);
 
@@ -31,18 +32,30 @@ static const NSTimeInterval kCertificateCellDate15DaysTimeInterval = -(15*24*60*
 
 - (void)setCertificateInfo:(AOCertificateInfo *)certificateInfo forEditingCell:(BOOL)isEditing
 {
+    UIFont *dataFont = [[UIFont alloc] scaledSystemFont:12 iPadFontSize:17];
+    
+        // Subject
     [_subjectLabel setText:certificateInfo.subject];
+    _subjectLabel.font = [[UIFont alloc] scaledSystemFont:14 iPadFontSize:18];
     
         // Issuer
     [_issuerLabel setText:@"issuer_label".localized];
+    _issuerLabel.font = dataFont;
     [_issuerValue setText:certificateInfo.issuer];
+    _issuerValue.font = dataFont;
     
         // Purpose
     [_purposeLabel setText:@"use_label".localized];
     [_purposeValue setText:[certificateInfo getPurposeString]];
+    _purposeLabel.font = dataFont;
     
-    
+        // Date
     [_dateLabel setText:[NSString stringWithFormat: @"valid_from_to".localized,[certificateInfo getCreationDateString], [certificateInfo getExpirationDateString]]];
+    _dateLabel.font = dataFont;
+    
+        // Expiration
+    _expirationLabel.font = dataFont;
+    
     if (isEditing) {
         [_expirationLabel setHidden:YES];
     } else {

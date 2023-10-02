@@ -1,8 +1,8 @@
-//
-//  AOHelpMenuViewController.m
-//  Firma_iOS
-//
-//
+    //
+    //  AOHelpMenuViewController.m
+    //  Firma_iOS
+    //
+    //
 
 #import "AOHelpMenuViewController.h"
 #import <QuartzCore/QuartzCore.h>
@@ -21,7 +21,7 @@ NSMutableArray *tableData = NULL;
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+            // Custom initialization
     }
     return self;
 }
@@ -29,19 +29,19 @@ NSMutableArray *tableData = NULL;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view.
     
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     
     [self populateTable];
-    //definimos los bordes de la tabla.
+        //definimos los bordes de la tabla.
     self.tblViewHelp.layer.borderWidth = 0.5;
     self.tblViewHelp.layer.borderColor = [[UIColor grayColor] CGColor];
     self.tblViewHelp.layer.cornerRadius = 6.0f;
     self.tblViewHelp.scrollEnabled=NO;
     self.screenName = @"IOS AOHelpMenuViewController - Help menu";
     
-    // Help menu description
+        // Help menu description
     NSMutableAttributedString *helpMenuDescriptionAttributedString = [@"help_menu_description_label".localized getHtml:[UIFont systemFontOfSize:14]];
     [helpMenuDescriptionAttributedString align:NSTextAlignmentCenter];
     [self.helpMenuDescriptionLabel setAttributedText:helpMenuDescriptionAttributedString];
@@ -49,7 +49,7 @@ NSMutableArray *tableData = NULL;
     [self.helpMenuTitle setText: @"help_menu_title".localized];
     self.title = @"help".localized ;
     
-    // Logo
+        // Logo
     self.logo.accessibilityLabel = @"logo".localized;
 }
 - (IBAction)goBackHome:(id)sender {
@@ -59,11 +59,11 @@ NSMutableArray *tableData = NULL;
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+        // Dispose of any resources that can be recreated.
 }
 
 
-//Carga en la lista de almacenes los almacenes encontrados en Itunes.
+    //Carga en la lista de almacenes los almacenes encontrados en Itunes.
 -(void)populateTable {
     
     tableData = [[NSMutableArray alloc] init];
@@ -72,7 +72,7 @@ NSMutableArray *tableData = NULL;
     [tableData addObject: @"help_instalar_certificados".localized];
     [tableData addObject: @"help_preguntas".localized];
     [tableData addObject: @"accesibility_statement".localized];
-
+    
 }
 
 /******************************************************************/
@@ -81,17 +81,17 @@ NSMutableArray *tableData = NULL;
 
 #pragma mark -
 #pragma mark Table view data source
-// Detalla el numbre de secciones en la tabla.
+    // Detalla el numbre de secciones en la tabla.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
-// Detalla el número de filas en la tabla.
+    // Detalla el número de filas en la tabla.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [tableData count];
 }
 
-// Detalla la apariencia de las celdas.
+    // Detalla la apariencia de las celdas.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *CellIdentifier = @"Cell";
@@ -101,14 +101,14 @@ NSMutableArray *tableData = NULL;
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    //Cell View
+        //Cell View
     CGFloat cellOriginX = 0;
     CGFloat cellOriginY = 0;
     CGFloat cellWidth = 320;
     CGFloat cellHeight = 65;
     UIView *cellView = [[UIView alloc]initWithFrame:CGRectMake(cellOriginX, cellOriginY, cellWidth, cellHeight)];
-       
-    //Label
+    
+        //Label
     CGFloat lblForOriginX = 10;
     CGFloat lblForOriginY = 15;
     CGFloat lblForWidth = 200;
@@ -116,10 +116,9 @@ NSMutableArray *tableData = NULL;
     UILabel *lblFor = [[UILabel alloc]initWithFrame:CGRectMake(lblForOriginX, lblForOriginY, lblForWidth, lblForHeight)];
     lblFor.text = [tableData objectAtIndex:indexPath.row];
     lblFor.backgroundColor = [UIColor clearColor];
-    lblFor.font = [UIFont fontWithName:@"ArialMT" size:14];
-    lblFor.tag =1;
+    lblFor.tag = 1;
     
-    //Adding Views to Cell View
+        //Adding Views to Cell View
     [cellView addSubview:lblFor];
     
     for(UIView *view in cell.contentView.subviews){
@@ -134,7 +133,7 @@ NSMutableArray *tableData = NULL;
     return cell;
 }
 
-//Nos devuelve la fila seleccionada.
+    //Nos devuelve la fila seleccionada.
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     int fila = (int)indexPath.row;
@@ -146,14 +145,14 @@ NSMutableArray *tableData = NULL;
         else if(fila==2)
             [self performSegueWithIdentifier:@"toPregFrecuentes" sender:self];
         else if (fila==3) {
-            // Open accesibility statement
+                // Open accesibility statement
             NSURL* accesibiltyUrl = [NSURL URLWithString: @"url_accessibility_statement".localized];
             if( [[UIApplication sharedApplication] canOpenURL:accesibiltyUrl])
                 [[UIApplication sharedApplication] openURL:accesibiltyUrl options:@{} completionHandler:nil];
         }
     }
     @catch (NSException *e) {
-        // Se ignora
+            // Se ignora
     }
 }
 

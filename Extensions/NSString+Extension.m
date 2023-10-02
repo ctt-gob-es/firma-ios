@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "NSString+Extension.h"
 #import "ColorChart.h"
+#import "UIFont+Utils.h"
 
 @implementation NSString (Common)
 
@@ -19,6 +20,8 @@
     // Function to apply a style to the text that simulates a link
 - (NSMutableAttributedString *) linkStyle {
     NSMutableAttributedString *textFormatted = [[NSMutableAttributedString alloc] initWithString:self];
+        // Text font
+    [textFormatted addAttribute:NSFontAttributeName value: [[UIFont alloc] scaledSystemFont:14 iPadFontSize:18] range:NSMakeRange(0, [textFormatted length])];
         // Text color
     [textFormatted addAttribute:NSForegroundColorAttributeName value: LINK_COLOR range:NSMakeRange(0, [textFormatted length])];
         // Underline
