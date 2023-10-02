@@ -652,7 +652,7 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma</string>
                                         <rect key="frame" x="0.0" y="182" width="754" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dSX-HE-YrK" id="2ED-42-cDd">
-                                            <rect key="frame" x="0.0" y="0.0" width="727.5" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="735.5" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -739,7 +739,7 @@ http://administracionelectronica.gob.es/</string>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="250" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aP4-9e-dRv">
-                                <rect key="frame" x="32" y="160" width="770" height="774"/>
+                                <rect key="frame" x="30" y="150" width="774" height="838"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">Bienvenido a "Cliente @firma iOS" 1.4.8
 
@@ -761,10 +761,7 @@ Para funcionar correctamente debe instalar un certificado electrónico y su clav
                                 </connections>
                             </tabBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PET-dd-39J">
-                                <rect key="frame" x="76" y="1009" width="682" height="43"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="z5b-Yi-VSZ"/>
-                                </constraints>
+                                <rect key="frame" x="20" y="1008" width="794" height="41"/>
                                 <string key="text">Cliente @firma para Apple iOS 1.4.8
 © Derechos de copia: Gobierno de España, 2018 </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -780,20 +777,22 @@ Para funcionar correctamente debe instalar un certificado electrónico y su clav
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="RqP-hm-2Vc" firstAttribute="centerX" secondItem="aP4-9e-dRv" secondAttribute="centerX" id="1DN-LU-72d"/>
+                            <constraint firstAttribute="centerX" secondItem="aP4-9e-dRv" secondAttribute="centerX" id="1DN-LU-72d"/>
                             <constraint firstAttribute="trailingMargin" secondItem="I0p-Xi-caV" secondAttribute="trailing" constant="-20" id="Bdk-Rx-CwG"/>
                             <constraint firstItem="I0p-Xi-caV" firstAttribute="bottomMargin" secondItem="6cv-hH-Dxh" secondAttribute="top" constant="-8" id="Et0-aH-jNl"/>
                             <constraint firstItem="RqP-hm-2Vc" firstAttribute="leading" secondItem="Xjb-67-R6h" secondAttribute="leadingMargin" constant="20" id="LLe-AW-jvx"/>
                             <constraint firstItem="RqP-hm-2Vc" firstAttribute="top" secondItem="A3G-Iu-LW7" secondAttribute="bottom" constant="10" id="O4w-Xy-ZW9"/>
                             <constraint firstItem="RqP-hm-2Vc" firstAttribute="centerX" secondItem="Xjb-67-R6h" secondAttribute="centerX" id="U91-mZ-TAk"/>
-                            <constraint firstItem="PET-dd-39J" firstAttribute="bottom" secondItem="I0p-Xi-caV" secondAttribute="top" constant="-10" id="cHh-6U-ghI"/>
-                            <constraint firstAttribute="bottom" secondItem="aP4-9e-dRv" secondAttribute="bottom" constant="178" id="hHQ-KG-2KQ"/>
-                            <constraint firstItem="PET-dd-39J" firstAttribute="leading" secondItem="aP4-9e-dRv" secondAttribute="leading" constant="44" id="hne-ou-smh"/>
-                            <constraint firstItem="aP4-9e-dRv" firstAttribute="leading" secondItem="Xjb-67-R6h" secondAttribute="leadingMargin" constant="12" id="iwo-q1-oyd"/>
+                            <constraint firstItem="I0p-Xi-caV" firstAttribute="top" secondItem="PET-dd-39J" secondAttribute="bottom" constant="13" id="cHh-6U-ghI"/>
+                            <constraint firstItem="PET-dd-39J" firstAttribute="top" secondItem="aP4-9e-dRv" secondAttribute="bottom" constant="20" id="hHQ-KG-2KQ"/>
+                            <constraint firstItem="aP4-9e-dRv" firstAttribute="leading" secondItem="Xjb-67-R6h" secondAttribute="leadingMargin" constant="10" id="iwo-q1-oyd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aP4-9e-dRv" secondAttribute="trailing" constant="10" id="nul-lZ-8Lu"/>
                             <constraint firstItem="I0p-Xi-caV" firstAttribute="leading" secondItem="Xjb-67-R6h" secondAttribute="leading" id="pPN-9s-Srj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RqP-hm-2Vc" secondAttribute="trailing" constant="20" id="pls-NG-c6f"/>
-                            <constraint firstItem="aP4-9e-dRv" firstAttribute="top" secondItem="RqP-hm-2Vc" secondAttribute="bottom" constant="30" id="qTj-0h-00l"/>
+                            <constraint firstItem="aP4-9e-dRv" firstAttribute="top" secondItem="RqP-hm-2Vc" secondAttribute="bottom" constant="20" id="qTj-0h-00l"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PET-dd-39J" secondAttribute="trailing" id="w9l-do-W7F"/>
                             <constraint firstItem="PET-dd-39J" firstAttribute="centerX" secondItem="Xjb-67-R6h" secondAttribute="centerX" id="waa-hy-wUX"/>
+                            <constraint firstItem="PET-dd-39J" firstAttribute="leading" secondItem="Xjb-67-R6h" secondAttribute="leadingMargin" id="yNQ-gV-89b"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
