@@ -42,8 +42,6 @@ BOOL isURL = NO;
     [self.homeFooterLabel setText:[NSString stringWithFormat: @"home_footer_label".localized,[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]]];
     [self.homeFooterLabel setTextColor: COLOR_GRAY];
     self.homeFooterLabel.font = [[UIFont alloc] scaledSystemFont:12 iPadFontSize:17];
-    [self.homeFooterLabel setNumberOfLines: 0];
-    [self.homeFooterLabel setLineBreakMode: NSLineBreakByWordWrapping];
     
         // Tab bar
     NSString *keystoreManagerBarTitle = @"keystore_manager_bar_item".localized;

@@ -25,9 +25,18 @@ NSString *URLString, *state = @"Inactive";
         NSUnderlineStyleAttributeName : [NSNumber numberWithInteger:NSUnderlineStyleSingle]
     };
     
+        // FONTS
     UIFont *genericFont = [[UIFont alloc] scaledSystemFont:14 iPadFontSize:18];
+        // TextView
     [UITextView appearance].font = genericFont;
+        // Label
     [UILabel appearance].font = genericFont;
+    [[UILabel appearance] setNumberOfLines: 0];
+    [[UILabel appearance] setLineBreakMode:NSLineBreakByWordWrapping];
+        // TabBar (Only resize if it is Ipad)
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName: [[UIFont alloc] scaledSystemFont:3 iPadFontSize:15]} forState:UIControlStateNormal];
+    }
     
     /*    // Optional: automatically send uncaught exceptions to Google Analytics.
      [GAI sharedInstance].trackUncaughtExceptions = YES;

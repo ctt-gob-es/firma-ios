@@ -22,7 +22,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYD-1s-pdw">
-                                    <rect key="frame" x="58" y="103" width="260" height="86"/>
+                                    <rect key="frame" x="4" y="115" width="367" height="61"/>
                                     <string key="text">This section allows you import new certificates to perform your own signatures or delete certificates already installed on device.</string>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -40,10 +40,11 @@
                                 <constraint firstItem="3FJ-eL-Nfr" firstAttribute="leading" secondItem="brl-fY-dpK" secondAttribute="leading" constant="40" id="27P-IV-8H8"/>
                                 <constraint firstItem="3FJ-eL-Nfr" firstAttribute="top" secondItem="brl-fY-dpK" secondAttribute="top" constant="10" id="3Yh-7w-dp7"/>
                                 <constraint firstAttribute="trailing" secondItem="3FJ-eL-Nfr" secondAttribute="trailing" constant="40" id="Gqz-KW-2O5"/>
-                                <constraint firstAttribute="bottom" secondItem="eYD-1s-pdw" secondAttribute="bottom" id="LBJ-Oc-VKo"/>
-                                <constraint firstAttribute="trailing" secondItem="eYD-1s-pdw" secondAttribute="trailing" constant="57" id="US3-Ii-a8F"/>
-                                <constraint firstItem="eYD-1s-pdw" firstAttribute="leading" secondItem="brl-fY-dpK" secondAttribute="leading" constant="58" id="XAq-Nq-OHZ"/>
-                                <constraint firstItem="eYD-1s-pdw" firstAttribute="top" secondItem="3FJ-eL-Nfr" secondAttribute="bottom" constant="8" id="xGX-QM-Yzd"/>
+                                <constraint firstAttribute="bottom" secondItem="eYD-1s-pdw" secondAttribute="bottom" constant="13" id="LBJ-Oc-VKo"/>
+                                <constraint firstAttribute="trailing" secondItem="eYD-1s-pdw" secondAttribute="trailing" constant="4" id="US3-Ii-a8F"/>
+                                <constraint firstItem="eYD-1s-pdw" firstAttribute="leading" secondItem="brl-fY-dpK" secondAttribute="leading" constant="4" id="XAq-Nq-OHZ"/>
+                                <constraint firstItem="eYD-1s-pdw" firstAttribute="centerX" secondItem="brl-fY-dpK" secondAttribute="centerX" id="g9p-Rs-zTW"/>
+                                <constraint firstItem="eYD-1s-pdw" firstAttribute="top" secondItem="3FJ-eL-Nfr" secondAttribute="bottom" constant="20" id="xGX-QM-Yzd"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -719,7 +720,7 @@ In order to run the application properly, an electronic certificate and its priv
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8iB-4z-0cW" userLabel="TabBarView">
                                 <rect key="frame" x="0.0" y="618" width="375" height="49"/>
                                 <subviews>
-                                    <tabBar contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YGN-hy-HXm">
+                                    <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YGN-hy-HXm">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <items>
@@ -747,7 +748,7 @@ In order to run the application properly, an electronic certificate and its priv
                                     <constraint firstAttribute="trailing" secondItem="YGN-hy-HXm" secondAttribute="trailing" id="GrB-Kk-yyv"/>
                                     <constraint firstItem="YGN-hy-HXm" firstAttribute="top" secondItem="8iB-4z-0cW" secondAttribute="top" id="SgY-fM-S0w"/>
                                     <constraint firstItem="YGN-hy-HXm" firstAttribute="leading" secondItem="8iB-4z-0cW" secondAttribute="leading" id="UUC-9K-eJG"/>
-                                    <constraint firstAttribute="height" constant="49" id="yoc-us-TF1"/>
+                                    <constraint firstItem="YGN-hy-HXm" firstAttribute="bottom" secondItem="96q-B5-oTb" secondAttribute="bottom" id="c8A-oZ-Wux"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EXO-Ut-wnh" userLabel="SafeAreExtraSpaceView">

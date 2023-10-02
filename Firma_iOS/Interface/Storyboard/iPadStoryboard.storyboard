@@ -20,29 +20,30 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZIP-KB-pfu">
-                                    <rect key="frame" x="238" y="127" width="359" height="101"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="359" id="BFg-Uq-aiK"/>
-                                        <constraint firstAttribute="height" constant="101" id="VsP-xT-0Yd"/>
-                                    </constraints>
+                                    <rect key="frame" x="10" y="130" width="814" height="93"/>
                                     <string key="text">Desde esta pantalla puede añadir nuevos certificados con los que procesar sus firmas, o eliminar los certificados instalados en el dispositivo delizando la fila hacia la izquierda.</string>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="xjn-pw-JxL">
-                                    <rect key="frame" x="40" y="10" width="754" height="100"/>
+                                    <rect key="frame" x="20" y="10" width="794" height="100"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="100" id="8yr-SF-OMq"/>
+                                    </constraints>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstItem="ZIP-KB-pfu" firstAttribute="top" secondItem="xjn-pw-JxL" secondAttribute="bottom" constant="17" id="4mn-2M-BIv"/>
+                                <constraint firstItem="ZIP-KB-pfu" firstAttribute="top" secondItem="xjn-pw-JxL" secondAttribute="bottom" constant="20" id="4mn-2M-BIv"/>
                                 <constraint firstItem="xjn-pw-JxL" firstAttribute="centerX" secondItem="Xo3-W1-V5R" secondAttribute="centerX" id="Evh-FO-gIC"/>
                                 <constraint firstItem="xjn-pw-JxL" firstAttribute="top" secondItem="Xo3-W1-V5R" secondAttribute="top" constant="10" id="K77-F4-LeC"/>
-                                <constraint firstItem="xjn-pw-JxL" firstAttribute="centerX" secondItem="ZIP-KB-pfu" secondAttribute="centerX" constant="-0.5" id="Nb3-4z-hKw"/>
-                                <constraint firstAttribute="trailing" secondItem="xjn-pw-JxL" secondAttribute="trailing" constant="40" id="f3o-EW-Rjv"/>
-                                <constraint firstAttribute="bottom" secondItem="ZIP-KB-pfu" secondAttribute="bottom" constant="8" id="kLe-uG-EDl"/>
-                                <constraint firstItem="xjn-pw-JxL" firstAttribute="leading" secondItem="Xo3-W1-V5R" secondAttribute="leading" constant="40" id="oAq-qY-EsT"/>
+                                <constraint firstAttribute="trailing" secondItem="ZIP-KB-pfu" secondAttribute="trailing" constant="10" id="KXZ-Wx-sWW"/>
+                                <constraint firstAttribute="centerX" secondItem="ZIP-KB-pfu" secondAttribute="centerX" id="Nb3-4z-hKw"/>
+                                <constraint firstItem="ZIP-KB-pfu" firstAttribute="leading" secondItem="Xo3-W1-V5R" secondAttribute="leading" constant="10" id="Oeo-Zy-fvj"/>
+                                <constraint firstAttribute="trailing" secondItem="xjn-pw-JxL" secondAttribute="trailing" constant="20" id="f3o-EW-Rjv"/>
+                                <constraint firstAttribute="bottom" secondItem="ZIP-KB-pfu" secondAttribute="bottom" constant="13" id="kLe-uG-EDl"/>
+                                <constraint firstItem="xjn-pw-JxL" firstAttribute="leading" secondItem="Xo3-W1-V5R" secondAttribute="leading" constant="20" id="oAq-qY-EsT"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -511,7 +512,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Acerca de... " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Akc-AJ-Nyw">
-                                <rect key="frame" x="20" y="160" width="794" height="33"/>
+                                <rect key="frame" x="20" y="210" width="794" height="33"/>
                                 <color key="backgroundColor" red="0.91620524879999998" green="0.91620524879999998" blue="0.91620524879999998" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="ZXw-0o-eX5"/>
@@ -534,7 +535,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rmY-CM-YMa">
-                                <rect key="frame" x="29" y="201" width="777" height="858"/>
+                                <rect key="frame" x="29" y="251" width="777" height="808"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">"Cliente @firma para Apple iOS" v1.4.8
 2013 Gobierno de España
@@ -551,7 +552,7 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma</string>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="fiK-fi-vDZ">
-                                <rect key="frame" x="40" y="30" width="754" height="100"/>
+                                <rect key="frame" x="40" y="80" width="754" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="VV6-iU-oWn"/>
                                 </constraints>
@@ -599,7 +600,7 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma</string>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Ayuda" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q8h-x8-F2s">
-                                <rect key="frame" x="20" y="155" width="794" height="33"/>
+                                <rect key="frame" x="20" y="205" width="794" height="33"/>
                                 <color key="backgroundColor" red="0.91620524879999998" green="0.91620524879999998" blue="0.91620524879999998" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="Zfg-9F-vKX"/>
@@ -609,7 +610,7 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ubm-WH-Rbo">
-                                <rect key="frame" x="40" y="213" width="754" height="176"/>
+                                <rect key="frame" x="40" y="263" width="754" height="176"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="176" id="taY-2I-puq"/>
@@ -663,7 +664,7 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma</string>
                                 </connections>
                             </tableView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="250" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3bn-Vu-wJo">
-                                <rect key="frame" x="20" y="414" width="794" height="111"/>
+                                <rect key="frame" x="20" y="464" width="794" height="111"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="111" id="TCL-Lm-Q55"/>
@@ -688,7 +689,7 @@ http://administracionelectronica.gob.es/</string>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="xg7-Ze-4Jb">
-                                <rect key="frame" x="156.5" y="30" width="520" height="100"/>
+                                <rect key="frame" x="156.5" y="80" width="520" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="520" id="8ZE-F0-zhc"/>
                                     <constraint firstAttribute="height" constant="100" id="Mcw-GU-ciC"/>
@@ -739,7 +740,7 @@ http://administracionelectronica.gob.es/</string>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="250" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aP4-9e-dRv">
-                                <rect key="frame" x="30" y="150" width="774" height="838"/>
+                                <rect key="frame" x="30" y="200" width="774" height="788"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">Bienvenido a "Cliente @firma iOS" 1.4.8
 
@@ -750,7 +751,7 @@ Para funcionar correctamente debe instalar un certificado electrónico y su clav
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I0p-Xi-caV">
-                                <rect key="frame" x="0.0" y="1062" width="834" height="50"/>
+                                <rect key="frame" x="0.0" y="1062" width="814" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <tabBarItem tag="2" title="Gestión de Certificados" image="cert_menu.png" id="Dea-Zs-0WA"/>
@@ -769,7 +770,7 @@ Para funcionar correctamente debe instalar un certificado electrónico y su clav
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="RqP-hm-2Vc">
-                                <rect key="frame" x="40" y="30" width="754" height="100"/>
+                                <rect key="frame" x="40" y="80" width="754" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="tXz-Vb-05r"/>
                                 </constraints>
@@ -778,7 +779,7 @@ Para funcionar correctamente debe instalar un certificado electrónico y su clav
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="aP4-9e-dRv" secondAttribute="centerX" id="1DN-LU-72d"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="I0p-Xi-caV" secondAttribute="trailing" constant="-20" id="Bdk-Rx-CwG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="I0p-Xi-caV" secondAttribute="trailing" id="Bdk-Rx-CwG"/>
                             <constraint firstItem="I0p-Xi-caV" firstAttribute="bottomMargin" secondItem="6cv-hH-Dxh" secondAttribute="top" constant="-8" id="Et0-aH-jNl"/>
                             <constraint firstItem="RqP-hm-2Vc" firstAttribute="leading" secondItem="Xjb-67-R6h" secondAttribute="leadingMargin" constant="20" id="LLe-AW-jvx"/>
                             <constraint firstItem="RqP-hm-2Vc" firstAttribute="top" secondItem="A3G-Iu-LW7" secondAttribute="bottom" constant="10" id="O4w-Xy-ZW9"/>
@@ -795,8 +796,8 @@ Para funcionar correctamente debe instalar un certificado electrónico y su clav
                             <constraint firstItem="PET-dd-39J" firstAttribute="leading" secondItem="Xjb-67-R6h" secondAttribute="leadingMargin" id="yNQ-gV-89b"/>
                         </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Inicio" id="SY6-mt-k47"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="helpBarItem" destination="neN-W0-9vx" id="Prj-QO-nVg"/>
                         <outlet property="homeDescriptionLabel" destination="aP4-9e-dRv" id="Nau-Cx-GAX"/>
@@ -827,7 +828,7 @@ Para funcionar correctamente debe instalar un certificado electrónico y su clav
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Preguntas más comunes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B04-xr-H96">
-                                <rect key="frame" x="20" y="160" width="794" height="33"/>
+                                <rect key="frame" x="20" y="210" width="794" height="33"/>
                                 <color key="backgroundColor" red="0.91620524879999998" green="0.91620524879999998" blue="0.91620524879999998" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="z3J-Vb-UeD"/>
@@ -837,7 +838,7 @@ Para funcionar correctamente debe instalar un certificado electrónico y su clav
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QkQ-7P-9PZ">
-                                <rect key="frame" x="32" y="203" width="771" height="901"/>
+                                <rect key="frame" x="32" y="253" width="771" height="851"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="389" id="WKT-F7-1XM"/>
@@ -927,7 +928,7 @@ Los certificados importados en el Cliente @firma para Apple iOS son de uso exclu
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="Lwe-LI-wUZ">
-                                <rect key="frame" x="40" y="34" width="754" height="100"/>
+                                <rect key="frame" x="40" y="84" width="754" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="ma7-Qw-f8x"/>
                                 </constraints>
@@ -973,7 +974,7 @@ Los certificados importados en el Cliente @firma para Apple iOS son de uso exclu
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Cómo instalar certificados" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1s-e6-GQT">
-                                <rect key="frame" x="20" y="172" width="794" height="33"/>
+                                <rect key="frame" x="20" y="222" width="794" height="33"/>
                                 <color key="backgroundColor" red="0.91620524879999998" green="0.91620524879999998" blue="0.91620524879999998" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="vgf-eN-wck"/>
@@ -983,34 +984,34 @@ Los certificados importados en el Cliente @firma para Apple iOS son de uso exclu
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="ic_folder" translatesAutoresizingMaskIntoConstraints="NO" id="ptN-R9-q4g">
-                                <rect key="frame" x="90" y="237" width="50" height="50"/>
+                                <rect key="frame" x="90" y="287" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="97k-oH-y7N"/>
                                     <constraint firstAttribute="height" constant="50" id="BYS-NC-1QG"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Cargue su certificado en su dispositivo o iCloud e impórtelo a través de la opción &quot;Gestión de certificados&quot; de la aplicación" translatesAutoresizingMaskIntoConstraints="NO" id="kMf-er-nEQ">
-                                <rect key="frame" x="159" y="228" width="585" height="68"/>
+                                <rect key="frame" x="159" y="278" width="585" height="68"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="certificados.png" translatesAutoresizingMaskIntoConstraints="NO" id="qrg-fd-v0O">
-                                <rect key="frame" x="90" y="344" width="50" height="50"/>
+                                <rect key="frame" x="90" y="394" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="Lbd-hu-zN6"/>
                                     <constraint firstAttribute="height" constant="50" id="nyq-rl-Kkz"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ll0-PS-fWJ">
-                                <rect key="frame" x="159" y="336" width="585" height="66"/>
+                                <rect key="frame" x="159" y="386" width="585" height="66"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">Extensiones permitidas: .p12 y .pfx. Recuerde que necesita la contraseña de exportación de su certificado, y que éste debe de incluir la clave privada.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E0R-Xx-TIt">
-                                <rect key="frame" x="340" y="465" width="156" height="30"/>
+                                <rect key="frame" x="340" y="515" width="156" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="9JD-xI-bTE"/>
                                     <constraint firstAttribute="width" constant="156" id="fur-r3-08f"/>
@@ -1023,7 +1024,7 @@ Los certificados importados en el Cliente @firma para Apple iOS son de uso exclu
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="HsH-fs-tLd">
-                                <rect key="frame" x="40" y="37" width="754" height="100"/>
+                                <rect key="frame" x="40" y="87" width="754" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="YEn-i7-Bc2"/>
                                 </constraints>
