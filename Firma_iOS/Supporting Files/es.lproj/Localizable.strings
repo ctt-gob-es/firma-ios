@@ -117,3 +117,5 @@ trámite funciona en otros dispositivos. ¿Por qué?\n\n";
 "back" = "Atrás";
 "accesibility_statement" = "Declaración de accesibilidad";
 "url_accessibility_statement" = "http://estaticos.redsara.es/comunes/clientefirmaandroid/1/8/0/declaracion_accesibilidad.pdf";
+"privacy_policy" = "Política de privacidad";
+"url_privacy_policy" = "https://administracion.gob.es/pag_Home/politicaDePrivacidad.html";

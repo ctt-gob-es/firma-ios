@@ -71,6 +71,7 @@ NSMutableArray *tableData = NULL;
     [tableData addObject: @"help_acercade".localized];
     [tableData addObject: @"help_instalar_certificados".localized];
     [tableData addObject: @"help_preguntas".localized];
+    [tableData addObject: @"privacy_policy".localized];
     [tableData addObject: @"accesibility_statement".localized];
     
 }
@@ -145,6 +146,12 @@ NSMutableArray *tableData = NULL;
         else if(fila==2)
             [self performSegueWithIdentifier:@"toPregFrecuentes" sender:self];
         else if (fila==3) {
+                // Open privacy policy
+            NSURL* privacyPolicyUrl = [NSURL URLWithString: @"url_privacy_policy".localized];
+            if( [[UIApplication sharedApplication] canOpenURL:privacyPolicyUrl])
+                [[UIApplication sharedApplication] openURL:privacyPolicyUrl options:@{} completionHandler:nil];
+        }
+        else if (fila==4) {
                 // Open accesibility statement
             NSURL* accesibiltyUrl = [NSURL URLWithString: @"url_accessibility_statement".localized];
             if( [[UIApplication sharedApplication] canOpenURL:accesibiltyUrl])

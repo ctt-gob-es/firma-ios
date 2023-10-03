@@ -117,3 +117,5 @@ procedure works on other devices. Why?\n\n";
 "back" = "Back";
 "accesibility_statement" = "Accessibility Statement";
 "url_accessibility_statement" = "http://estaticos.redsara.es/comunes/clientefirmaandroid/1/8/0/declaracion_accesibilidad.pdf";
+"privacy_policy" = "Privacy Policy";
+"url_privacy_policy" = "https://administracion.gob.es/pag_Home/politicaDePrivacidad.html";
