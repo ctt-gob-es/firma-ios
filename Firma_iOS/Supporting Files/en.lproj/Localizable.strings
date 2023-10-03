@@ -84,7 +84,7 @@
 "frequently_asked_questions_title_label" = "Frequently asked questions";
 "frequently_asked_questions_description_label_1" = "How can I sign electronically using this software?\n\n";
 "frequently_asked_questions_description_label_2" = "The Cliente @firma iOS allows you to sign web procedures compatible with the application with your certificate.\nTo sign a procedure, complete it normally through your web browser. If the procedure is prepared for signing with the Cliente @firma móvil, this will be executed at the time of signing so that the user can select their certificate and execute the operation.\nRemember that before starting the process you must have imported your signature certificate in the Cliente @firma iOS.\n\n";
-"frequently_asked_questions_description_label_3" = "CThe signature of some web procedures fail, while that same
+"frequently_asked_questions_description_label_3" = "The signature of some web procedures fail, while that same
 procedure works on other devices. Why?\n\n";
 "frequently_asked_questions_description_label_4" = "Cliente @firma for Apple iOS lacks certain functions which exist in versions for other operating systems. Future updates will solve this issues. Meanwhile, you should use another system and contact with web process provider if you consider it necessary.\n\n";
 "frequently_asked_questions_description_label_5" = "Are my certificates in danger if I lose my device?\n\n";

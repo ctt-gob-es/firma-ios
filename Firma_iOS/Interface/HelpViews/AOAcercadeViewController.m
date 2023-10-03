@@ -7,6 +7,7 @@
 #import "AOAcercadeViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UITextView+Boldify.h"
+#import "UIFont+Utils.h"
 
 @interface AOAcercadeViewController ()
 
@@ -70,6 +71,7 @@
     NSString* string8 = @"frequently_asked_questions_description_label_8".localized;
     NSString* frequentlyAskedQuestionsDescriptionLabelString = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@",string1,string2,string3,string4,string5,string6,string7,string8];
     self.frequentlyAskedQuestionsDescriptionLabel.text = frequentlyAskedQuestionsDescriptionLabelString;
+    self.frequentlyAskedQuestionsDescriptionLabel.font = [[UIFont alloc] mediumSystemFontScaled];
     [self.frequentlyAskedQuestionsDescriptionLabel boldSubstring: string1];
     [self.frequentlyAskedQuestionsDescriptionLabel boldSubstring: string3];
     [self.frequentlyAskedQuestionsDescriptionLabel boldSubstring: string5];

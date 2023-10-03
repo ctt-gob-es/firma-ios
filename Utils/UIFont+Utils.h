@@ -12,5 +12,8 @@
 
 - (UIFont *) scaledSystemFont: (CGFloat)iPhoneFontSize iPadFontSize: (CGFloat)iPadFontSize;
 
+- (UIFont *) mediumSystemFontScaled;
+- (UIFont *) smallSystemFontScaled;
+
 @end
 

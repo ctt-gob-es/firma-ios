@@ -32,11 +32,11 @@ static const NSTimeInterval kCertificateCellDate15DaysTimeInterval = -(15*24*60*
 
 - (void)setCertificateInfo:(AOCertificateInfo *)certificateInfo forEditingCell:(BOOL)isEditing
 {
-    UIFont *dataFont = [[UIFont alloc] scaledSystemFont:12 iPadFontSize:17];
+    UIFont *dataFont = [[UIFont alloc] smallSystemFontScaled];
     
         // Subject
     [_subjectLabel setText:certificateInfo.subject];
-    _subjectLabel.font = [[UIFont alloc] scaledSystemFont:14 iPadFontSize:18];
+    _subjectLabel.font = [[UIFont alloc] mediumSystemFontScaled];
     
         // Issuer
     [_issuerLabel setText:@"issuer_label".localized];

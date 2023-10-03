@@ -26,7 +26,7 @@ NSString *URLString, *state = @"Inactive";
     };
     
         // FONTS
-    UIFont *genericFont = [[UIFont alloc] scaledSystemFont:14 iPadFontSize:18];
+    UIFont *genericFont = [[UIFont alloc] mediumSystemFontScaled];
         // TextView
     [UITextView appearance].font = genericFont;
         // Label
