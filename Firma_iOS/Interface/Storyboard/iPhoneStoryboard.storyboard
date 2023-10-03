@@ -999,7 +999,7 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                                                         </constraints>
                                                     </imageView>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3J-tc-eTj">
-                                                        <rect key="frame" x="73" y="0.0" width="262" height="83"/>
+                                                        <rect key="frame" x="73" y="0.0" width="254" height="83"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <string key="text">Connect your device with iTunes, go to "Application" tab and select "Cliente @firma" from the list, in order to drag and drop your certificates.</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1012,10 +1012,10 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                                                     <constraint firstItem="s3J-tc-eTj" firstAttribute="top" secondItem="PNZ-eF-jHk" secondAttribute="top" id="H49-Ej-d8y"/>
                                                     <constraint firstItem="jvc-1v-KRv" firstAttribute="leading" secondItem="PNZ-eF-jHk" secondAttribute="leading" constant="8" id="aH6-Ip-iIA"/>
                                                     <constraint firstAttribute="bottom" secondItem="s3J-tc-eTj" secondAttribute="bottom" id="d7n-s4-9KS"/>
-                                                    <constraint firstAttribute="trailing" secondItem="s3J-tc-eTj" secondAttribute="trailing" id="kYA-Pt-Pjb"/>
+                                                    <constraint firstAttribute="trailing" secondItem="s3J-tc-eTj" secondAttribute="trailing" constant="8" id="kYA-Pt-Pjb"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lb8-d2-vZ1" userLabel="Certicate View">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lb8-d2-vZ1" userLabel="Certificate View">
                                                 <rect key="frame" x="0.0" y="109" width="335" height="83"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="certificados.png" translatesAutoresizingMaskIntoConstraints="NO" id="ydP-6D-VuB">
@@ -1026,7 +1026,7 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                                                         </constraints>
                                                     </imageView>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZ3-48-Zky">
-                                                        <rect key="frame" x="73" y="0.0" width="262" height="83"/>
+                                                        <rect key="frame" x="73" y="0.0" width="254" height="83"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <string key="text">Allowed file extensions: .p12 and .pfx. Keep in mind that you need the password to export your certificate, and it must include the private key.</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1035,7 +1035,7 @@ Imported certificates to Cliente @firma for Apple iOS are used only in websites 
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="uZ3-48-Zky" secondAttribute="bottom" id="57Z-3M-gL7"/>
-                                                    <constraint firstAttribute="trailing" secondItem="uZ3-48-Zky" secondAttribute="trailing" id="960-NH-7Gf"/>
+                                                    <constraint firstAttribute="trailing" secondItem="uZ3-48-Zky" secondAttribute="trailing" constant="8" id="960-NH-7Gf"/>
                                                     <constraint firstItem="uZ3-48-Zky" firstAttribute="top" secondItem="lb8-d2-vZ1" secondAttribute="top" id="CGC-HF-vtl"/>
                                                     <constraint firstItem="ydP-6D-VuB" firstAttribute="centerY" secondItem="uZ3-48-Zky" secondAttribute="centerY" id="Jwj-Or-l7R"/>
                                                     <constraint firstItem="ydP-6D-VuB" firstAttribute="leading" secondItem="lb8-d2-vZ1" secondAttribute="leading" constant="8" id="Zu6-kp-OB1"/>

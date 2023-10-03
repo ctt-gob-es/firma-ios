@@ -4,6 +4,7 @@
     <dependencies>
         <deployment version="4352" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -980,46 +981,103 @@ Los certificados importados en el Cliente @firma para Apple iOS son de uso exclu
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="ic_folder" translatesAutoresizingMaskIntoConstraints="NO" id="ptN-R9-q4g">
-                                <rect key="frame" x="90" y="280.5" width="50" height="50"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bd3-tK-Ahv">
+                                <rect key="frame" x="24" y="256.5" width="786" height="835.5"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s30-9n-V8x">
+                                        <rect key="frame" x="0.0" y="0.0" width="786" height="180"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oWe-yv-dyY" userLabel="Itunes View">
+                                                <rect key="frame" x="0.0" y="13" width="786" height="49.5"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="ic_folder" translatesAutoresizingMaskIntoConstraints="NO" id="ptN-R9-q4g">
+                                                        <rect key="frame" x="8" y="-4" width="58" height="58"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="58" id="97k-oH-y7N"/>
+                                                            <constraint firstAttribute="height" constant="58" id="BYS-NC-1QG"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Cargue su certificado en su dispositivo o iCloud e impórtelo a través de la opción &quot;Gestión de certificados&quot; de la aplicación" translatesAutoresizingMaskIntoConstraints="NO" id="kMf-er-nEQ">
+                                                        <rect key="frame" x="73" y="0.0" width="705" height="49.5"/>
+                                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="kMf-er-nEQ" secondAttribute="bottom" id="EYC-mH-DFm"/>
+                                                    <constraint firstItem="kMf-er-nEQ" firstAttribute="top" secondItem="oWe-yv-dyY" secondAttribute="top" id="F3h-tZ-sbH"/>
+                                                    <constraint firstItem="ptN-R9-q4g" firstAttribute="leading" secondItem="oWe-yv-dyY" secondAttribute="leading" constant="8" id="hhR-VF-Qpq"/>
+                                                    <constraint firstItem="ptN-R9-q4g" firstAttribute="centerY" secondItem="kMf-er-nEQ" secondAttribute="centerY" id="jK2-nL-d8P"/>
+                                                    <constraint firstItem="kMf-er-nEQ" firstAttribute="leading" secondItem="ptN-R9-q4g" secondAttribute="trailing" constant="7" id="ww8-VL-aaS"/>
+                                                    <constraint firstAttribute="trailing" secondItem="kMf-er-nEQ" secondAttribute="trailing" constant="8" id="yHN-Sb-43c"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EuV-1e-nih" userLabel="Certificate View">
+                                                <rect key="frame" x="0.0" y="75.5" width="786" height="49.5"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="certificados.png" translatesAutoresizingMaskIntoConstraints="NO" id="qrg-fd-v0O">
+                                                        <rect key="frame" x="8" y="4" width="58" height="42"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="58" id="Lbd-hu-zN6"/>
+                                                            <constraint firstAttribute="height" constant="42" id="nyq-rl-Kkz"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ll0-PS-fWJ">
+                                                        <rect key="frame" x="73" y="0.0" width="705" height="49.5"/>
+                                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <string key="text">Extensiones permitidas: .p12 y .pfx. Recuerde que necesita la contraseña de exportación de su certificado, y que éste debe de incluir la clave privada.</string>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="Ll0-PS-fWJ" firstAttribute="top" secondItem="EuV-1e-nih" secondAttribute="top" id="553-72-jxj"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Ll0-PS-fWJ" secondAttribute="bottom" id="79J-Ue-aq3"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Ll0-PS-fWJ" secondAttribute="trailing" constant="8" id="DgT-9l-QrJ"/>
+                                                    <constraint firstItem="Ll0-PS-fWJ" firstAttribute="leading" secondItem="qrg-fd-v0O" secondAttribute="trailing" constant="7" id="ep3-1k-qYS"/>
+                                                    <constraint firstItem="qrg-fd-v0O" firstAttribute="leading" secondItem="EuV-1e-nih" secondAttribute="leading" constant="8" id="moR-jT-fPE"/>
+                                                    <constraint firstItem="Ll0-PS-fWJ" firstAttribute="centerY" secondItem="qrg-fd-v0O" secondAttribute="centerY" id="nVJ-qn-Pk3"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E0R-Xx-TIt">
+                                                <rect key="frame" x="0.0" y="138" width="786" height="42"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="42" id="9JD-xI-bTE"/>
+                                                </constraints>
+                                                <state key="normal" title="  Más información" image="information_icon.png">
+                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="45a-uC-KmM" eventType="touchUpInside" id="odd-Xc-Oxw"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="E0R-Xx-TIt" firstAttribute="top" secondItem="EuV-1e-nih" secondAttribute="bottom" constant="13" id="8pf-ek-2lE"/>
+                                            <constraint firstAttribute="trailing" secondItem="oWe-yv-dyY" secondAttribute="trailing" id="Ggf-me-KaG"/>
+                                            <constraint firstItem="oWe-yv-dyY" firstAttribute="top" secondItem="s30-9n-V8x" secondAttribute="top" constant="13" id="JA5-Zz-l28"/>
+                                            <constraint firstItem="E0R-Xx-TIt" firstAttribute="leading" secondItem="s30-9n-V8x" secondAttribute="leading" id="PhC-MS-2EO"/>
+                                            <constraint firstAttribute="bottom" secondItem="E0R-Xx-TIt" secondAttribute="bottom" id="bWX-XJ-W1u"/>
+                                            <constraint firstItem="oWe-yv-dyY" firstAttribute="leading" secondItem="s30-9n-V8x" secondAttribute="leading" id="oQy-dV-9L9"/>
+                                            <constraint firstItem="EuV-1e-nih" firstAttribute="top" secondItem="oWe-yv-dyY" secondAttribute="bottom" constant="13" id="ohZ-26-W89"/>
+                                            <constraint firstItem="EuV-1e-nih" firstAttribute="leading" secondItem="s30-9n-V8x" secondAttribute="leading" id="sBT-w5-p75"/>
+                                            <constraint firstAttribute="trailing" secondItem="E0R-Xx-TIt" secondAttribute="trailing" id="xGH-8V-ap0"/>
+                                            <constraint firstAttribute="trailing" secondItem="EuV-1e-nih" secondAttribute="trailing" id="xHz-X7-fhQ"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="97k-oH-y7N"/>
-                                    <constraint firstAttribute="height" constant="50" id="BYS-NC-1QG"/>
+                                    <constraint firstItem="s30-9n-V8x" firstAttribute="leading" secondItem="bd3-tK-Ahv" secondAttribute="leading" id="7Ea-8c-KiQ"/>
+                                    <constraint firstItem="s30-9n-V8x" firstAttribute="width" secondItem="bd3-tK-Ahv" secondAttribute="width" id="Rn4-3f-fmQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="s30-9n-V8x" secondAttribute="bottom" id="eEx-mq-Mqw"/>
+                                    <constraint firstItem="s30-9n-V8x" firstAttribute="top" secondItem="bd3-tK-Ahv" secondAttribute="top" id="ih2-eC-IUx"/>
+                                    <constraint firstAttribute="trailing" secondItem="s30-9n-V8x" secondAttribute="trailing" id="nwe-K0-H6P"/>
                                 </constraints>
-                            </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Cargue su certificado en su dispositivo o iCloud e impórtelo a través de la opción &quot;Gestión de certificados&quot; de la aplicación" translatesAutoresizingMaskIntoConstraints="NO" id="kMf-er-nEQ">
-                                <rect key="frame" x="159" y="271.5" width="585" height="68"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="certificados.png" translatesAutoresizingMaskIntoConstraints="NO" id="qrg-fd-v0O">
-                                <rect key="frame" x="90" y="387.5" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="Lbd-hu-zN6"/>
-                                    <constraint firstAttribute="height" constant="50" id="nyq-rl-Kkz"/>
-                                </constraints>
-                            </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ll0-PS-fWJ">
-                                <rect key="frame" x="159" y="379.5" width="585" height="66"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <string key="text">Extensiones permitidas: .p12 y .pfx. Recuerde que necesita la contraseña de exportación de su certificado, y que éste debe de incluir la clave privada.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E0R-Xx-TIt">
-                                <rect key="frame" x="340" y="508.5" width="156" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="9JD-xI-bTE"/>
-                                    <constraint firstAttribute="width" constant="156" id="fur-r3-08f"/>
-                                </constraints>
-                                <state key="normal" title="  Más información" image="information_icon.png">
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="buttonPressed:" destination="45a-uC-KmM" eventType="touchUpInside" id="odd-Xc-Oxw"/>
-                                </connections>
-                            </button>
+                            </scrollView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="HsH-fs-tLd">
                                 <rect key="frame" x="40" y="87" width="754" height="100"/>
                                 <constraints>
@@ -1029,29 +1087,17 @@ Los certificados importados en el Cliente @firma para Apple iOS son de uso exclu
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="kMf-er-nEQ" firstAttribute="leading" secondItem="ptN-R9-q4g" secondAttribute="trailing" constant="19" id="2uq-i1-LP2"/>
-                            <constraint firstItem="qrg-fd-v0O" firstAttribute="leading" secondItem="ptN-R9-q4g" secondAttribute="leading" id="5hK-SB-Phs"/>
                             <constraint firstItem="e1s-e6-GQT" firstAttribute="leading" secondItem="tqu-Hm-aUP" secondAttribute="leadingMargin" id="7tl-JZ-kbu"/>
-                            <constraint firstItem="qrg-fd-v0O" firstAttribute="centerY" secondItem="Ll0-PS-fWJ" secondAttribute="centerY" id="8co-xs-0b2"/>
-                            <constraint firstItem="E0R-Xx-TIt" firstAttribute="top" secondItem="Ll0-PS-fWJ" secondAttribute="bottom" constant="63" id="BTR-WT-aUu"/>
                             <constraint firstItem="HsH-fs-tLd" firstAttribute="top" secondItem="GL3-4D-cAc" secondAttribute="bottom" constant="17" id="EXe-Wu-0qC"/>
-                            <constraint firstItem="E0R-Xx-TIt" firstAttribute="centerX" secondItem="e1s-e6-GQT" secondAttribute="centerX" constant="1" id="GdD-LI-doT"/>
                             <constraint firstItem="e1s-e6-GQT" firstAttribute="trailing" secondItem="tqu-Hm-aUP" secondAttribute="trailingMargin" id="Ilo-d6-slL"/>
-                            <constraint firstItem="Ll0-PS-fWJ" firstAttribute="leading" secondItem="kMf-er-nEQ" secondAttribute="leading" id="J93-6B-zmJ"/>
-                            <constraint firstItem="ptN-R9-q4g" firstAttribute="centerY" secondItem="kMf-er-nEQ" secondAttribute="centerY" id="Mbe-T7-fev"/>
-                            <constraint firstItem="ptN-R9-q4g" firstAttribute="leading" secondItem="tqu-Hm-aUP" secondAttribute="leadingMargin" constant="70" id="P92-lT-K5O"/>
-                            <constraint firstItem="kMf-er-nEQ" firstAttribute="top" secondItem="e1s-e6-GQT" secondAttribute="bottom" constant="23" id="Q09-FB-O1H"/>
-                            <constraint firstItem="qrg-fd-v0O" firstAttribute="trailing" secondItem="ptN-R9-q4g" secondAttribute="trailing" id="Rg4-4p-kdW"/>
+                            <constraint firstItem="bd3-tK-Ahv" firstAttribute="leading" secondItem="tqu-Hm-aUP" secondAttribute="leadingMargin" constant="4" id="PYh-xd-PJC"/>
                             <constraint firstItem="e1s-e6-GQT" firstAttribute="top" secondItem="HsH-fs-tLd" secondAttribute="bottom" constant="35" id="TSq-lE-Tcf"/>
-                            <constraint firstItem="Ll0-PS-fWJ" firstAttribute="top" secondItem="kMf-er-nEQ" secondAttribute="bottom" constant="40" id="UWU-eG-mN0"/>
-                            <constraint firstItem="qrg-fd-v0O" firstAttribute="top" secondItem="ptN-R9-q4g" secondAttribute="bottom" constant="57" id="VGz-oL-kTG"/>
                             <constraint firstItem="HsH-fs-tLd" firstAttribute="leading" secondItem="tqu-Hm-aUP" secondAttribute="leadingMargin" constant="20" id="Ynq-E4-5U4"/>
-                            <constraint firstItem="kMf-er-nEQ" firstAttribute="trailing" secondItem="Ll0-PS-fWJ" secondAttribute="trailing" id="a9S-Lm-WN4"/>
-                            <constraint firstItem="qrg-fd-v0O" firstAttribute="leading" secondItem="tqu-Hm-aUP" secondAttribute="leadingMargin" constant="70" id="c1a-uK-37h"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="kMf-er-nEQ" secondAttribute="trailing" constant="70" id="f3g-Ft-CBv"/>
+                            <constraint firstItem="bd3-tK-Ahv" firstAttribute="top" secondItem="e1s-e6-GQT" secondAttribute="bottom" constant="8" symbolic="YES" id="bm7-Eo-YIQ"/>
                             <constraint firstItem="HsH-fs-tLd" firstAttribute="centerX" secondItem="e1s-e6-GQT" secondAttribute="centerX" id="fbN-2c-aFK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HsH-fs-tLd" secondAttribute="trailing" constant="20" id="iRW-QM-rp9"/>
-                            <constraint firstItem="ptN-R9-q4g" firstAttribute="top" secondItem="e1s-e6-GQT" secondAttribute="bottom" constant="32" id="mUS-HV-pS0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bd3-tK-Ahv" secondAttribute="trailing" constant="4" id="lmU-iD-Veb"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="bd3-tK-Ahv" secondAttribute="bottom" constant="20" id="onL-Ny-thW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Instalación" id="U4u-Ok-FO7"/>
@@ -1081,5 +1127,8 @@ Los certificados importados en el Cliente @firma para Apple iOS son de uso exclu
         <image name="ic_folder" width="150" height="150"/>
         <image name="information_icon.png" width="30" height="30"/>
         <image name="logo_cliente.png" width="726" height="200"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
