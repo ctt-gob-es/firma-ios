@@ -533,7 +533,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rmY-CM-YMa">
-                                <rect key="frame" x="29" y="244.5" width="777" height="814.5"/>
+                                <rect key="frame" x="29" y="244.5" width="776" height="814.5"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">"Cliente @firma para Apple iOS" v1.4.8
 2013 Gobierno de España
@@ -568,7 +568,7 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma</string>
                             <constraint firstItem="rmY-CM-YMa" firstAttribute="leading" secondItem="zpb-ey-ZAT" secondAttribute="leadingMargin" constant="9" id="aBJ-AZ-dRA"/>
                             <constraint firstItem="rmY-CM-YMa" firstAttribute="top" secondItem="Akc-AJ-Nyw" secondAttribute="bottom" constant="8" symbolic="YES" id="cpM-dh-Hvy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="B4J-dJ-vIE" secondAttribute="trailing" constant="56" id="hUA-Pd-aDz"/>
-                            <constraint firstItem="rmY-CM-YMa" firstAttribute="centerX" secondItem="Akc-AJ-Nyw" secondAttribute="centerX" constant="0.5" id="jz5-UP-8l9"/>
+                            <constraint firstItem="rmY-CM-YMa" firstAttribute="centerX" secondItem="Akc-AJ-Nyw" secondAttribute="centerX" id="jz5-UP-8l9"/>
                             <constraint firstItem="fiK-fi-vDZ" firstAttribute="top" secondItem="l9R-a5-Og9" secondAttribute="bottom" constant="10" id="pK7-QC-pgT"/>
                             <constraint firstItem="Akc-AJ-Nyw" firstAttribute="centerX" secondItem="fiK-fi-vDZ" secondAttribute="centerX" id="wKw-xg-GG7"/>
                         </constraints>
@@ -598,7 +598,7 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma</string>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Ayuda" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q8h-x8-F2s">
-                                <rect key="frame" x="20" y="205" width="794" height="33"/>
+                                <rect key="frame" x="20" y="209" width="794" height="29"/>
                                 <color key="backgroundColor" red="0.91620524879999998" green="0.91620524879999998" blue="0.91620524879999998" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -648,7 +648,7 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma</string>
                                         <rect key="frame" x="0.0" y="182" width="754" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dSX-HE-YrK" id="2ED-42-cDd">
-                                            <rect key="frame" x="0.0" y="0.0" width="735.5" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="727.5" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -659,11 +659,8 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma</string>
                                 </connections>
                             </tableView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="250" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3bn-Vu-wJo">
-                                <rect key="frame" x="20" y="464" width="794" height="111"/>
+                                <rect key="frame" x="20" y="464" width="794" height="648"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="111" id="TCL-Lm-Q55"/>
-                                </constraints>
                                 <string key="text">Los contenidos de esta sección son específicos de la versión móvil del servicio. Si desea consultar información general sobre el mismo, puede visitar la web 
 http://administracionelectronica.gob.es/</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -684,9 +681,8 @@ http://administracionelectronica.gob.es/</string>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="xg7-Ze-4Jb">
-                                <rect key="frame" x="156.5" y="80" width="520" height="100"/>
+                                <rect key="frame" x="40" y="84" width="754" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="520" id="8ZE-F0-zhc"/>
                                     <constraint firstAttribute="height" constant="100" id="Mcw-GU-ciC"/>
                                 </constraints>
                             </imageView>
@@ -694,20 +690,21 @@ http://administracionelectronica.gob.es/</string>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="q8h-x8-F2s" secondAttribute="trailing" id="0CP-7p-DdE"/>
+                            <constraint firstAttribute="trailing" secondItem="3bn-Vu-wJo" secondAttribute="trailing" constant="20" id="1Pw-mH-hK5"/>
+                            <constraint firstAttribute="bottom" secondItem="3bn-Vu-wJo" secondAttribute="bottom" id="3ul-Xa-2w8"/>
+                            <constraint firstItem="xg7-Ze-4Jb" firstAttribute="leading" secondItem="4T7-Do-KyN" secondAttribute="leadingMargin" constant="20" id="9uc-vT-ybO"/>
+                            <constraint firstItem="3bn-Vu-wJo" firstAttribute="leading" secondItem="4T7-Do-KyN" secondAttribute="leading" constant="20" id="BWF-kZ-CdC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Di0-jb-hhh" secondAttribute="trailing" constant="56" id="Cpy-L9-Qbo"/>
-                            <constraint firstItem="ubm-WH-Rbo" firstAttribute="top" secondItem="nbf-wZ-5X6" secondAttribute="bottom" constant="193" id="HOF-Ej-IET"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ubm-WH-Rbo" secondAttribute="trailing" constant="20" id="INi-ze-p7t"/>
-                            <constraint firstItem="xg7-Ze-4Jb" firstAttribute="top" secondItem="nbf-wZ-5X6" secondAttribute="bottom" constant="10" id="JcL-4r-8lw"/>
-                            <constraint firstItem="3bn-Vu-wJo" firstAttribute="centerX" secondItem="4T7-Do-KyN" secondAttribute="centerX" id="Jwj-z7-enb"/>
+                            <constraint firstItem="xg7-Ze-4Jb" firstAttribute="top" secondItem="nbf-wZ-5X6" secondAttribute="bottom" constant="14" id="JcL-4r-8lw"/>
                             <constraint firstItem="ubm-WH-Rbo" firstAttribute="top" secondItem="q8h-x8-F2s" secondAttribute="bottom" constant="25" id="Nmf-n7-jIm"/>
                             <constraint firstItem="3bn-Vu-wJo" firstAttribute="top" secondItem="ubm-WH-Rbo" secondAttribute="bottom" constant="25" id="P3z-KZ-9sq"/>
-                            <constraint firstItem="q8h-x8-F2s" firstAttribute="centerX" secondItem="xg7-Ze-4Jb" secondAttribute="centerX" constant="0.5" id="UGG-iT-CMO"/>
+                            <constraint firstItem="q8h-x8-F2s" firstAttribute="centerX" secondItem="xg7-Ze-4Jb" secondAttribute="centerX" id="UGG-iT-CMO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xg7-Ze-4Jb" secondAttribute="trailing" constant="20" id="Y5o-62-vd6"/>
                             <constraint firstItem="Di0-jb-hhh" firstAttribute="top" secondItem="Fhi-eZ-0Zc" secondAttribute="bottom" constant="347" id="bW6-AA-1Gx"/>
                             <constraint firstItem="ubm-WH-Rbo" firstAttribute="leading" secondItem="4T7-Do-KyN" secondAttribute="leadingMargin" constant="20" id="hMW-gd-Dta"/>
-                            <constraint firstItem="3bn-Vu-wJo" firstAttribute="trailing" secondItem="ubm-WH-Rbo" secondAttribute="trailing" constant="20" id="sPR-Sw-SCT"/>
                             <constraint firstItem="q8h-x8-F2s" firstAttribute="leading" secondItem="4T7-Do-KyN" secondAttribute="leadingMargin" id="sWD-V4-g4H"/>
                             <constraint firstItem="q8h-x8-F2s" firstAttribute="top" secondItem="xg7-Ze-4Jb" secondAttribute="bottom" constant="25" id="tf8-Bo-D8z"/>
-                            <constraint firstItem="3bn-Vu-wJo" firstAttribute="leading" secondItem="ubm-WH-Rbo" secondAttribute="leading" constant="-20" id="xlA-AV-8n6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Ayuda" id="q7G-K3-Ev7"/>
