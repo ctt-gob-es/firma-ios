@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *) localized;
 - (NSMutableAttributedString *) linkStyle;
 - (NSMutableAttributedString *) getHtml: (UIFont *) textFont;
+- (CGSize)usedSizeForMaxWidth:(CGFloat)width withFont:(UIFont *)font;
 
 @end
 

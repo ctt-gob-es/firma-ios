@@ -25,10 +25,36 @@ static const NSTimeInterval kCertificateCellDate15DaysTimeInterval = -(15*24*60*
 @property (nonatomic, strong) IBOutlet UILabel *purposeValue;
 @property (nonatomic, strong) IBOutlet UILabel *dateLabel;
 @property (nonatomic, strong) IBOutlet UILabel *expirationLabel;
+@property (nonatomic, strong) IBOutlet UIView *issuerView;
+@property (nonatomic, strong) IBOutlet UIView *purposeView;
+@property (nonatomic, strong) IBOutlet UIView *dateView;
 
 @end
 
 @implementation AOCertificateCell
+    // TODO test Function to get cell height
+- (CGFloat) getCellHeight {
+        // Fonts
+    UIFont *subjectFont = [[UIFont alloc] mediumSystemFontScaled];
+    UIFont *dataFont = [[UIFont alloc] smallSystemFontScaled];
+    
+        // Variables
+    CGFloat MARGIN_BETWEEN_ELEMENTS = 3;
+    
+    CGFloat verticalMargins = 3 * MARGIN_BETWEEN_ELEMENTS;
+    
+        // Width
+    CGFloat subjectWidth = _subjectLabel.bounds.size.width;
+   
+    
+        // Height
+    CGFloat subjectHeight = [_subjectLabel.text usedSizeForMaxWidth:subjectWidth withFont:subjectFont].height;
+  
+    CGFloat totalHeight = verticalMargins + subjectHeight ;
+    
+    return totalHeight;
+    
+}
 
 - (void)setCertificateInfo:(AOCertificateInfo *)certificateInfo forEditingCell:(BOOL)isEditing
 {

@@ -11,6 +11,7 @@
 
 @interface AOCertificateCell : UITableViewCell
 
+- (CGFloat) getCellHeight;
 - (void)setCertificateInfo:(AOCertificateInfo *)certificateInfo forEditingCell:(BOOL)isEditing;
 
 @end

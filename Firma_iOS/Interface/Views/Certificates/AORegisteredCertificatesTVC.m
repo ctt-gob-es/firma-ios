@@ -93,6 +93,13 @@
     return _certificatesArray ? _certificatesArray.count : 0;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    // TODO modificar, calcular tamaño dinamicamente en funcion del tamaño del texto
+    AOCertificateCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CertificateCell"];
+    
+    return cell.getCellHeight;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -151,6 +158,16 @@
     
     if (!_certificatesArray) {
         _certificatesArray = [[NSMutableArray alloc] init];
+        
+        // TODO test
+        AOCertificateInfo *testCertificate = [[AOCertificateInfo alloc] init];
+        testCertificate.issuer = @"Valor de issuer con texto muy largo con otra linea de texto";
+        testCertificate.subject = @"Valor de subject pero que muy largo";
+        testCertificate.creationDate = [NSDate date];
+        testCertificate.expirationDate = [NSDate date];
+        testCertificate.purpose = PFCertificateInfoPurposeAuthentication;
+        [_certificatesArray addObject:testCertificate];
+        [_certificatesArray addObject:testCertificate];
     }
 }
 
@@ -167,7 +184,7 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         // This method can not be reached because the rows are marked as not selected in the stroyboard.
-    NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
+    NSIndexPath *selectedIndexPath = [tableView indexPathForSelectedRow];
     _selectedCertificate = _certificatesArray[selectedIndexPath.row];
     if ([[CertificateUtils sharedWrapper] searchIdentityByName:_selectedCertificate.subject] == YES) {
         
