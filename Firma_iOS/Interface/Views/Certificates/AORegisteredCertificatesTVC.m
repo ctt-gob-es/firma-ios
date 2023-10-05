@@ -64,6 +64,10 @@
     
         // Description
     [self.certificatesDescriptionLabel setText: @"certificate_description_label".localized];
+    
+        // Along with auto layout, these are the keys for enabling variable cell height
+    self.editTableView.estimatedRowHeight = 44.0;
+    self.editTableView.rowHeight = UITableViewAutomaticDimension;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -91,13 +95,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return _certificatesArray ? _certificatesArray.count : 0;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    // TODO modificar, calcular tamaño dinamicamente en funcion del tamaño del texto
-    AOCertificateCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CertificateCell"];
-    
-    return cell.getCellHeight;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

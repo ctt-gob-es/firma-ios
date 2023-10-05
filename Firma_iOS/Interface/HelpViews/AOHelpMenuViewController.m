@@ -51,6 +51,10 @@ NSMutableArray *tableData = NULL;
     
         // Logo
     self.logo.accessibilityLabel = @"logo".localized;
+    
+    // TODO test
+    self.tblViewHelp.estimatedRowHeight = 44.0;
+    self.tblViewHelp.rowHeight = UITableViewAutomaticDimension;
 }
 - (IBAction)goBackHome:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];

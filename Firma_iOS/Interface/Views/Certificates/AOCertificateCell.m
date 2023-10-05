@@ -29,31 +29,6 @@ static const NSTimeInterval kCertificateCellDate15DaysTimeInterval = -(15*24*60*
 @end
 
 @implementation AOCertificateCell
-    // TODO test Function to get cell height
-- (CGFloat) getCellHeight {
-        // Fonts
-    UIFont *subjectFont = [[UIFont alloc] mediumSystemFontScaled];
-    UIFont *dataFont = [[UIFont alloc] smallSystemFontScaled];
-    
-        // Variables
-    CGFloat MARGIN_BETWEEN_ELEMENTS = 3;
-    
-    CGFloat verticalMargins = 3 * MARGIN_BETWEEN_ELEMENTS;
-    
-        // Width
-    CGFloat subjectLabelWidth = _subjectLabel.bounds.size.width;
-    CGFloat issuerValueWidth = _issuerValue.bounds.size.width;
-    CGFloat purposeValueWidth = _purposeValue.bounds.size.width;
-    CGFloat dateLabelWidth = _dateLabel.bounds.size.width;
-    
-        // Height
-    CGFloat subjectHeight = [_subjectLabel.text usedSizeForMaxWidth:subjectLabelWidth withFont:subjectFont].height;
-    CGFloat issuerHeight = [_issuerValue.text usedSizeForMaxWidth:issuerValueWidth withFont:dataFont].height;
-    CGFloat purposeHeight = [_purposeValue.text usedSizeForMaxWidth:purposeValueWidth withFont:dataFont].height;
-    CGFloat dateHeight = [_dateLabel.text usedSizeForMaxWidth:dateLabelWidth withFont:dataFont].height;
-    
-    return verticalMargins + subjectHeight + issuerHeight + purposeHeight + dateHeight;
-}
 
 - (void)setCertificateInfo:(AOCertificateInfo *)certificateInfo forEditingCell:(BOOL)isEditing
 {
