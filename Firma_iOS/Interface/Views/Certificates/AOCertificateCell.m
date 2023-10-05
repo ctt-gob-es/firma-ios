@@ -25,9 +25,6 @@ static const NSTimeInterval kCertificateCellDate15DaysTimeInterval = -(15*24*60*
 @property (nonatomic, strong) IBOutlet UILabel *purposeValue;
 @property (nonatomic, strong) IBOutlet UILabel *dateLabel;
 @property (nonatomic, strong) IBOutlet UILabel *expirationLabel;
-@property (nonatomic, strong) IBOutlet UIView *issuerView;
-@property (nonatomic, strong) IBOutlet UIView *purposeView;
-@property (nonatomic, strong) IBOutlet UIView *dateView;
 
 @end
 
@@ -44,16 +41,18 @@ static const NSTimeInterval kCertificateCellDate15DaysTimeInterval = -(15*24*60*
     CGFloat verticalMargins = 3 * MARGIN_BETWEEN_ELEMENTS;
     
         // Width
-    CGFloat subjectWidth = _subjectLabel.bounds.size.width;
-   
+    CGFloat subjectLabelWidth = _subjectLabel.bounds.size.width;
+    CGFloat issuerValueWidth = _issuerValue.bounds.size.width;
+    CGFloat purposeValueWidth = _purposeValue.bounds.size.width;
+    CGFloat dateLabelWidth = _dateLabel.bounds.size.width;
     
         // Height
-    CGFloat subjectHeight = [_subjectLabel.text usedSizeForMaxWidth:subjectWidth withFont:subjectFont].height;
-  
-    CGFloat totalHeight = verticalMargins + subjectHeight ;
+    CGFloat subjectHeight = [_subjectLabel.text usedSizeForMaxWidth:subjectLabelWidth withFont:subjectFont].height;
+    CGFloat issuerHeight = [_issuerValue.text usedSizeForMaxWidth:issuerValueWidth withFont:dataFont].height;
+    CGFloat purposeHeight = [_purposeValue.text usedSizeForMaxWidth:purposeValueWidth withFont:dataFont].height;
+    CGFloat dateHeight = [_dateLabel.text usedSizeForMaxWidth:dateLabelWidth withFont:dataFont].height;
     
-    return totalHeight;
-    
+    return verticalMargins + subjectHeight + issuerHeight + purposeHeight + dateHeight;
 }
 
 - (void)setCertificateInfo:(AOCertificateInfo *)certificateInfo forEditingCell:(BOOL)isEditing

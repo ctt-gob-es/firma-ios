@@ -606,7 +606,7 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma </string>
                                                         <rect key="frame" x="0.0" y="226" width="335" height="44"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kkh-Ef-uZn" id="h0I-Pd-H0i">
-                                                            <rect key="frame" x="0.0" y="0.0" width="308.5" height="44"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="316.5" height="44"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </tableViewCellContentView>
                                                     </tableViewCell>
