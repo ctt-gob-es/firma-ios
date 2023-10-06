@@ -16,6 +16,7 @@
 		9A64AD762AC6AFB50089A289 /* NSMutableAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A64AD752AC6AFB40089A289 /* NSMutableAttributedString.m */; };
 		9A7018FB2ACFECB4000B11D6 /* AOHelpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7018FA2ACFECB4000B11D6 /* AOHelpCell.m */; };
 		9A7018FE2AD00478000B11D6 /* StoryboardUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7018FD2AD00478000B11D6 /* StoryboardUtils.m */; };
+		9A7019012AD03102000B11D6 /* AOAvailableCertificatesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7019002AD03102000B11D6 /* AOAvailableCertificatesCell.m */; };
 		9AB783512ACA9B98005C2B82 /* UIFont+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB783502ACA9B98005C2B82 /* UIFont+Utils.m */; };
 		A073AA7C2893E7FC00FE30CE /* BatchSignUseCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A073AA7B2893E7FC00FE30CE /* BatchSignUseCase.m */; };
 		A073AA7F2893F71E00FE30CE /* InputParametersBatch.m in Sources */ = {isa = PBXBuildFile; fileRef = A073AA7E2893F71E00FE30CE /* InputParametersBatch.m */; };
@@ -214,6 +215,8 @@
 		9A7018FA2ACFECB4000B11D6 /* AOHelpCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AOHelpCell.m; sourceTree = "<group>"; };
 		9A7018FC2AD00416000B11D6 /* StoryboardUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoryboardUtils.h; sourceTree = "<group>"; };
 		9A7018FD2AD00478000B11D6 /* StoryboardUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoryboardUtils.m; sourceTree = "<group>"; };
+		9A7018FF2AD0308A000B11D6 /* AOAvailableCertificatesCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOAvailableCertificatesCell.h; sourceTree = "<group>"; };
+		9A7019002AD03102000B11D6 /* AOAvailableCertificatesCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AOAvailableCertificatesCell.m; sourceTree = "<group>"; };
 		9AB7834F2ACA9A8A005C2B82 /* UIFont+Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIFont+Utils.h"; sourceTree = "<group>"; };
 		9AB783502ACA9B98005C2B82 /* UIFont+Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Utils.m"; sourceTree = "<group>"; };
 		A073AA7A2893E7FC00FE30CE /* BatchSignUseCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BatchSignUseCase.h; sourceTree = "<group>"; };
@@ -640,6 +643,8 @@
 				B2406F2920C5CACA008ED085 /* AORegisteredCertificatesTVC.m */,
 				B2406F3E20C5D043008ED085 /* AOSignViewController.h */,
 				B2406F3F20C5D043008ED085 /* AOSignViewController.m */,
+				9A7018FF2AD0308A000B11D6 /* AOAvailableCertificatesCell.h */,
+				9A7019002AD03102000B11D6 /* AOAvailableCertificatesCell.m */,
 			);
 			path = Certificates;
 			sourceTree = "<group>";
@@ -1385,6 +1390,7 @@
 				B2406F3620C5CD4D008ED085 /* AOCertificateCell.m in Sources */,
 				C3A44B74170C3B60000B551C /* SignaturePolicyId.c in Sources */,
 				C3A44B75170C3B60000B551C /* SigPolicyHash.c in Sources */,
+				9A7019012AD03102000B11D6 /* AOAvailableCertificatesCell.m in Sources */,
 				C3A44B76170C3B60000B551C /* SigPolicyId.c in Sources */,
 				C3A44B77170C3B60000B551C /* SigPolicyQualifierId.c in Sources */,
 				9226967323C6512400F099F0 /* NSString+Extension.m in Sources */,

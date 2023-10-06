@@ -9,6 +9,7 @@
 #import "AOAvailableCertificatesTVC.h"
 #import "GlobalConstants.h"
 #import <MobileCoreServices/MobileCoreServices.h>
+#import "AOAvailableCertificatesCell.h"
 
 static NSString *const kAOAvailableCertificatesTVCCellIdentifier = @"AOCertificateFileCell";
 
@@ -49,9 +50,12 @@ int const kFilesAppButtonZeroHeightConstraint = 0;
         // Back button
     self.backButton.title = @"back".localized;
     
+    
+        // Logo
+    self.logo.accessibilityLabel = @"logo".localized;
+    
         // Files app button
     [self.filesAppButton setAttributedTitle: @"files_app_button".localized.linkStyle  forState:UIControlStateNormal];
-    
     if (@available(iOS 11, *)) {
         self.filesAppButton.hidden = NO;
         self.filesAppButtonHeightConstraint.constant = kFilesAppButtonNormalHeightConstraint;
@@ -59,10 +63,13 @@ int const kFilesAppButtonZeroHeightConstraint = 0;
         self.filesAppButton.hidden = YES;
         self.filesAppButtonHeightConstraint.constant = kFilesAppButtonZeroHeightConstraint;
     }
+        // TODO test
+    [self.filesAppButton sizeToFit];
     
-        // Logo
-    self.logo.accessibilityLabel = @"logo".localized;
-    
+        // Table
+        // Along with auto layout, these are the keys for enabling variable cell height
+    self.tableView.estimatedRowHeight = 44.0;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
 - (void)didReceiveMemoryWarning
@@ -135,8 +142,11 @@ int const kFilesAppButtonZeroHeightConstraint = 0;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kAOAvailableCertificatesTVCCellIdentifier];
-    cell.textLabel.text = _filesArray[indexPath.row];
+    AOAvailableCertificatesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AOCertificateFileCell"];
+    
+    [cell setCellLabel:_filesArray[indexPath.row]];
+    [cell setSelectionStyle: UITableViewCellSelectionStyleDefault];
+    [cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
     
     return cell;
 }
