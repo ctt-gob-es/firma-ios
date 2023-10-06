@@ -10,6 +10,7 @@
 #import "GlobalConstants.h"
 #import "ColorChart.h"
 #import "UIFont+Utils.h"
+#import "StoryboardUtils.h"
 
 @implementation AOAppDelegate
 
@@ -57,17 +58,7 @@ NSString *URLString, *state = @"Inactive";
     
     
         // Lanzamos el controller de seleccion de certificado para firmar por root (No se permite ir atrás cuando estas firmando)
-    UIStoryboard *mainStoryboard;
-    if ([(NSString*)[UIDevice currentDevice].model hasPrefix:IPAD] ) {
-        
-        mainStoryboard = [UIStoryboard storyboardWithName:IPAD_STORYBOARD
-                                                   bundle: nil];
-    }
-    else {
-        
-        mainStoryboard = [UIStoryboard storyboardWithName:IPHONE_STORYBOARD
-                                                   bundle: nil];
-    }
+    UIStoryboard *mainStoryboard = [StoryboardUtils getMainStoryboard];
     
     AORegisteredCertificatesTVC *registeredCertificatesTVC = (AORegisteredCertificatesTVC *)[mainStoryboard instantiateViewControllerWithIdentifier:@"AORegisteredCertificatesTVC"];
     

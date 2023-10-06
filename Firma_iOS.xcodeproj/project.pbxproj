@@ -15,6 +15,7 @@
 		9226967323C6512400F099F0 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9226967223C6512400F099F0 /* NSString+Extension.m */; };
 		9A64AD762AC6AFB50089A289 /* NSMutableAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A64AD752AC6AFB40089A289 /* NSMutableAttributedString.m */; };
 		9A7018FB2ACFECB4000B11D6 /* AOHelpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7018FA2ACFECB4000B11D6 /* AOHelpCell.m */; };
+		9A7018FE2AD00478000B11D6 /* StoryboardUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7018FD2AD00478000B11D6 /* StoryboardUtils.m */; };
 		9AB783512ACA9B98005C2B82 /* UIFont+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB783502ACA9B98005C2B82 /* UIFont+Utils.m */; };
 		A073AA7C2893E7FC00FE30CE /* BatchSignUseCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A073AA7B2893E7FC00FE30CE /* BatchSignUseCase.m */; };
 		A073AA7F2893F71E00FE30CE /* InputParametersBatch.m in Sources */ = {isa = PBXBuildFile; fileRef = A073AA7E2893F71E00FE30CE /* InputParametersBatch.m */; };
@@ -211,6 +212,8 @@
 		9A64AD752AC6AFB40089A289 /* NSMutableAttributedString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSMutableAttributedString.m; sourceTree = "<group>"; };
 		9A7018F72ACFE816000B11D6 /* AOHelpCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOHelpCell.h; sourceTree = "<group>"; };
 		9A7018FA2ACFECB4000B11D6 /* AOHelpCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AOHelpCell.m; sourceTree = "<group>"; };
+		9A7018FC2AD00416000B11D6 /* StoryboardUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoryboardUtils.h; sourceTree = "<group>"; };
+		9A7018FD2AD00478000B11D6 /* StoryboardUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoryboardUtils.m; sourceTree = "<group>"; };
 		9AB7834F2ACA9A8A005C2B82 /* UIFont+Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIFont+Utils.h"; sourceTree = "<group>"; };
 		9AB783502ACA9B98005C2B82 /* UIFont+Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Utils.m"; sourceTree = "<group>"; };
 		A073AA7A2893E7FC00FE30CE /* BatchSignUseCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BatchSignUseCase.h; sourceTree = "<group>"; };
@@ -784,6 +787,8 @@
 				B2952CB420D981F700A4467B /* UITextView+Boldify.m */,
 				B2AE16972133E3330082C892 /* GlobalConstants.h */,
 				B2AE16982133E3330082C892 /* GlobalConstants.m */,
+				9A7018FC2AD00416000B11D6 /* StoryboardUtils.h */,
+				9A7018FD2AD00478000B11D6 /* StoryboardUtils.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1359,6 +1364,7 @@
 				C33A9D0E19AA3CE2002F83B6 /* CertificateUtil.c in Sources */,
 				83EBF99E289BAB2C00E80A7E /* ParentRest.m in Sources */,
 				C3B11E3C16FB642B00C0D623 /* UnsignedAttributes.c in Sources */,
+				9A7018FE2AD00478000B11D6 /* StoryboardUtils.m in Sources */,
 				9A64AD762AC6AFB50089A289 /* NSMutableAttributedString.m in Sources */,
 				C3B11E3E16FB642B00C0D623 /* UTCTime.c in Sources */,
 				C3B11E4016FB642B00C0D623 /* xer_decoder.c in Sources */,
