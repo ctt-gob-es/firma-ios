@@ -78,7 +78,6 @@
 #pragma mark - Certificates Methods
 
 - (void)showError: (NSString *) errorMessage {
-    _registerCertificateDescriptionLabel.font = newFont;*/
     _registerCertificateDescriptionLabel.textColor = [UIColor redColor];
     _registerCertificateDescriptionLabel.text = errorMessage;
         // Indicate the error in the accesibilityLabel of the TextField so that VoicOver can detect it
