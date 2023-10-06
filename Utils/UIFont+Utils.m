@@ -18,8 +18,12 @@
     return [customFontMetrics scaledFontForFont:customFont];
 }
 
+- (UIFont *)largeSystemFontScaled {
+    return [[UIFont alloc] scaledSystemFont:18 iPadFontSize:24];
+}
+
 - (UIFont *)mediumSystemFontScaled {
-    return [[UIFont alloc] scaledSystemFont:14 iPadFontSize:18];
+    return [[UIFont alloc] scaledSystemFont:14 iPadFontSize:19];
 }
 
 - (UIFont *)smallSystemFontScaled {

@@ -33,6 +33,8 @@
     
         // Selected certicate
     [_selectedCertificateLabel setText:_selectedCertificate];
+    // TODO test
+    _selectedCertificateLabel.font = [[UIFont alloc] largeSystemFontScaled];
     
         // Password (label and textField)
     NSString *passwordTextFieldLabel = @"register_certificate_description_label".localized;
