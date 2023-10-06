@@ -10,6 +10,7 @@
 #import "GlobalConstants.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "AOAvailableCertificatesCell.h"
+#import "UIFont+Utils.h"
 
 static NSString *const kAOAvailableCertificatesTVCCellIdentifier = @"AOCertificateFileCell";
 
@@ -56,6 +57,8 @@ int const kFilesAppButtonZeroHeightConstraint = 0;
     
         // Files app button
     [self.filesAppButton setAttributedTitle: @"files_app_button".localized.linkStyle  forState:UIControlStateNormal];
+    self.filesAppButton.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.filesAppButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     if (@available(iOS 11, *)) {
         self.filesAppButton.hidden = NO;
         self.filesAppButtonHeightConstraint.constant = kFilesAppButtonNormalHeightConstraint;
@@ -63,8 +66,6 @@ int const kFilesAppButtonZeroHeightConstraint = 0;
         self.filesAppButton.hidden = YES;
         self.filesAppButtonHeightConstraint.constant = kFilesAppButtonZeroHeightConstraint;
     }
-        // TODO test
-    [self.filesAppButton sizeToFit];
     
         // Table
         // Along with auto layout, these are the keys for enabling variable cell height
