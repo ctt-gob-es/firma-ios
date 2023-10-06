@@ -468,11 +468,11 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rRw-wY-ncA">
-                                <rect key="frame" x="274" y="342.5" width="288" height="50"/>
+                                <rect key="frame" x="268" y="342.5" width="300" height="55"/>
                                 <color key="backgroundColor" red="0.59864145517349243" green="0.0" blue="0.091977573931217194" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="0fG-PO-xMN"/>
-                                    <constraint firstAttribute="width" constant="288" id="hOg-ME-R0o"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="55" id="0fG-PO-xMN"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="hOg-ME-R0o"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="Firmar">

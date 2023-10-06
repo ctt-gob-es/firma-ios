@@ -22,6 +22,7 @@
 #import "GlobalConstants.h"
 #import "BatchSignUseCase.h"
 #import "AORegisteredCertificatesTVC.h"
+#import "UIFont+Utils.h"
 
 @interface AOSignViewController ()
 
@@ -103,6 +104,7 @@ SecKeyRef privateKey = NULL;
     [self.signCertificateDescriptionLabel setText: @"selectcert_certificate_description_label".localized];
     self.title = @"send".localized;
     [self.signButton setTitle: @"send".localized forState:UIControlStateNormal];
+    [self.signButton.titleLabel setFont:[[UIFont alloc] mediumSystemFontScaled]];
 }
 
 -(void) applySignCertificateText {
