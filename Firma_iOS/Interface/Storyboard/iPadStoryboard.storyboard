@@ -357,27 +357,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Introduce la contraseña para registrar el certificado seleccionado." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQW-DW-bdd">
-                                <rect key="frame" x="20" y="156" width="794" height="28"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="PqE-rI-0ns"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Certificate Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPQ-f0-LDS">
-                                <rect key="frame" x="20" y="66" width="794" height="80"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Certificate Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPQ-f0-LDS">
+                                <rect key="frame" x="20" y="66" width="794" height="23.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Introduce la contraseña para registrar el certificado seleccionado." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQW-DW-bdd">
+                                <rect key="frame" x="20" y="105.5" width="794" height="19"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ikR-fm-VEk">
+                                <rect key="frame" x="20" y="140.5" width="794" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="1LB-Xg-ZKE" id="meB-DB-Lke"/>
+                                </connections>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="74A-Ax-zwi">
-                                <rect key="frame" x="273" y="297" width="288" height="50"/>
+                                <rect key="frame" x="267" y="244.5" width="300" height="55"/>
                                 <color key="backgroundColor" red="0.59864145517349243" green="0.0" blue="0.091977573931217194" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="288" id="HKU-hX-phC"/>
-                                    <constraint firstAttribute="height" constant="50" id="iwT-IU-RpR"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="HKU-hX-phC"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="55" id="iwT-IU-RpR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="Registrar">
@@ -388,30 +393,20 @@
                                     <action selector="didClickRegister:" destination="1LB-Xg-ZKE" eventType="touchUpInside" id="JhT-ed-LPS"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ikR-fm-VEk">
-                                <rect key="frame" x="20" y="194" width="794" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="icq-4T-JCv"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
-                                <connections>
-                                    <outlet property="delegate" destination="1LB-Xg-ZKE" id="meB-DB-Lke"/>
-                                </connections>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="iPQ-f0-LDS" firstAttribute="trailing" secondItem="znD-PF-biT" secondAttribute="trailingMargin" id="0n9-C6-Gox"/>
+                            <constraint firstItem="FQW-DW-bdd" firstAttribute="top" secondItem="iPQ-f0-LDS" secondAttribute="bottom" constant="16" id="9oD-Mj-4Ws"/>
                             <constraint firstItem="ikR-fm-VEk" firstAttribute="leading" secondItem="znD-PF-biT" secondAttribute="leadingMargin" id="CBR-oC-6d8"/>
-                            <constraint firstItem="FQW-DW-bdd" firstAttribute="centerX" secondItem="ikR-fm-VEk" secondAttribute="centerX" id="Fm0-gg-YcO"/>
-                            <constraint firstItem="74A-Ax-zwi" firstAttribute="top" secondItem="yp9-oc-ofN" secondAttribute="bottom" constant="247" id="WGV-W8-AsY"/>
-                            <constraint firstItem="ikR-fm-VEk" firstAttribute="top" secondItem="FQW-DW-bdd" secondAttribute="bottom" constant="10" id="btH-Wd-2Vx"/>
-                            <constraint firstItem="ikR-fm-VEk" firstAttribute="trailing" secondItem="iPQ-f0-LDS" secondAttribute="trailing" id="fRr-3o-qqm"/>
-                            <constraint firstItem="iPQ-f0-LDS" firstAttribute="leading" secondItem="ikR-fm-VEk" secondAttribute="leading" id="inh-iF-mAG"/>
-                            <constraint firstItem="ikR-fm-VEk" firstAttribute="top" secondItem="iPQ-f0-LDS" secondAttribute="bottom" constant="48" id="m1k-Qm-LqU"/>
+                            <constraint firstItem="FQW-DW-bdd" firstAttribute="centerX" secondItem="znD-PF-biT" secondAttribute="centerX" id="Fm0-gg-YcO"/>
+                            <constraint firstItem="FQW-DW-bdd" firstAttribute="trailing" secondItem="znD-PF-biT" secondAttribute="trailingMargin" id="PJG-ZM-0NN"/>
+                            <constraint firstItem="ikR-fm-VEk" firstAttribute="top" secondItem="FQW-DW-bdd" secondAttribute="bottom" constant="16" id="btH-Wd-2Vx"/>
+                            <constraint firstItem="iPQ-f0-LDS" firstAttribute="centerX" secondItem="znD-PF-biT" secondAttribute="centerX" id="lmg-vM-XKJ"/>
                             <constraint firstItem="FQW-DW-bdd" firstAttribute="leading" secondItem="znD-PF-biT" secondAttribute="leadingMargin" id="mde-me-Yrb"/>
-                            <constraint firstItem="74A-Ax-zwi" firstAttribute="top" secondItem="ikR-fm-VEk" secondAttribute="bottom" constant="73" id="pMJ-hT-QYP"/>
+                            <constraint firstItem="74A-Ax-zwi" firstAttribute="top" secondItem="ikR-fm-VEk" secondAttribute="bottom" constant="70" id="pMJ-hT-QYP"/>
                             <constraint firstItem="ikR-fm-VEk" firstAttribute="trailing" secondItem="znD-PF-biT" secondAttribute="trailingMargin" id="rhZ-vf-n6z"/>
+                            <constraint firstItem="iPQ-f0-LDS" firstAttribute="leading" secondItem="znD-PF-biT" secondAttribute="leadingMargin" id="vfS-dB-trx"/>
                             <constraint firstItem="iPQ-f0-LDS" firstAttribute="top" secondItem="yp9-oc-ofN" secondAttribute="bottom" constant="16" id="xxG-4z-C7h"/>
                             <constraint firstItem="74A-Ax-zwi" firstAttribute="centerX" secondItem="znD-PF-biT" secondAttribute="centerX" id="zRQ-Fg-vn6"/>
                         </constraints>

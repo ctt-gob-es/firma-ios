@@ -11,6 +11,7 @@
 #import "ColorChart.h"
 #import "CommonAlert.h"
 #import "GlobalConstants.h"
+#import "UIFont+Utils.h"
 
 @interface AORegisterCertificateVC ()
 {
@@ -28,6 +29,9 @@
     [super viewDidLoad];
     
     [self.navigationController.navigationBar setTintColor:THEME_COLOR];
+    self.registerCertificateNavigationItem.title= @"register_certificate_title".localized;
+    
+        // Selected certicate
     [_selectedCertificateLabel setText:_selectedCertificate];
     
         // Password (label and textField)
@@ -41,11 +45,11 @@
     self.passwordTextField.clipsToBounds = true;
     self.passwordTextField.layer.borderWidth = 1.0f;
     self.passwordTextField.layer.borderColor = COMPONENTS_BORDER_COLOR.CGColor;
+    self.passwordTextField.font = [[UIFont alloc] mediumSystemFontScaled];
     
+        // Register button
     [self.registerCertificateRegisterButtonTitle setTitle:@"register_cretificate_register_button_title".localized forState:normal];
-    self.registerCertificateNavigationItem.title= @"register_certificate_title".localized;
-    
-    
+    [self.registerCertificateRegisterButtonTitle.titleLabel setFont:[[UIFont alloc] mediumSystemFontScaled]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -74,9 +78,7 @@
 #pragma mark - Certificates Methods
 
 - (void)showError: (NSString *) errorMessage {
-    UIFont *currentFont = _registerCertificateDescriptionLabel.font;
-    UIFont *newFont = [UIFont fontWithName:[NSString stringWithFormat:@"%@-Bold",currentFont.fontName] size:currentFont.pointSize];
-    _registerCertificateDescriptionLabel.font = newFont;
+    _registerCertificateDescriptionLabel.font = newFont;*/
     _registerCertificateDescriptionLabel.textColor = [UIColor redColor];
     _registerCertificateDescriptionLabel.text = errorMessage;
         // Indicate the error in the accesibilityLabel of the TextField so that VoicOver can detect it
