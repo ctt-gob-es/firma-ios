@@ -100,47 +100,6 @@ NSMutableArray *tableData = NULL;
 
     // Detalla la apariencia de las celdas.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    /* TODO ANTES*/
-    /*
-     static NSString *CellIdentifier = @"Cell";
-     
-     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-     if (cell == nil) {
-     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-     }
-     
-     //Cell View
-     CGFloat cellOriginX = 0;
-     CGFloat cellOriginY = 0;
-     CGFloat cellWidth = 320;
-     CGFloat cellHeight = 65;
-     UIView *cellView = [[UIView alloc]initWithFrame:CGRectMake(cellOriginX, cellOriginY, cellWidth, cellHeight)];
-     
-     //Label
-     CGFloat lblForOriginX = 10;
-     CGFloat lblForOriginY = 15;
-     CGFloat lblForWidth = 200;
-     CGFloat lblForHeight = 21;
-     UILabel *lblFor = [[UILabel alloc]initWithFrame:CGRectMake(lblForOriginX, lblForOriginY, lblForWidth, lblForHeight)];
-     lblFor.text = [tableData objectAtIndex:indexPath.row];
-     lblFor.backgroundColor = [UIColor clearColor];
-     lblFor.tag = 1;
-     
-     //Adding Views to Cell View
-     [cellView addSubview:lblFor];
-     
-     for(UIView *view in cell.contentView.subviews){
-     if ([view isKindOfClass:[UIView class]]) {
-     [view removeFromSuperview];
-     }
-     }
-     
-     [cell.contentView addSubview:cellView];
-     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-     
-     return cell;*/
-    
-        // TODO nuevo
     AOHelpCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HelpCell"];
     
     [cell setCellLabel:[tableData objectAtIndex:indexPath.row]];
