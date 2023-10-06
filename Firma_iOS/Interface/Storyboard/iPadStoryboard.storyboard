@@ -565,7 +565,7 @@
         <!--Acerca-->
         <scene sceneID="xua-hU-VhP">
             <objects>
-                <viewController id="b4n-ur-DSn" customClass="AOAcercadeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AboutScreen" id="b4n-ur-DSn" customClass="AOAcercadeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="l9R-a5-Og9"/>
                         <viewControllerLayoutGuide type="bottom" id="XJL-Gs-CG2"/>
@@ -575,7 +575,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Acerca de... " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Akc-AJ-Nyw">
-                                <rect key="frame" x="20" y="210" width="794" height="26.5"/>
+                                <rect key="frame" x="20" y="160" width="794" height="26.5"/>
                                 <color key="backgroundColor" red="0.91620524879999998" green="0.91620524879999998" blue="0.91620524879999998" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -595,7 +595,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rmY-CM-YMa">
-                                <rect key="frame" x="29" y="244.5" width="776" height="814.5"/>
+                                <rect key="frame" x="29" y="194.5" width="776" height="864.5"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">"Cliente @firma para Apple iOS" v1.4.8
 2013 Gobierno de España
@@ -612,7 +612,7 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma</string>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="fiK-fi-vDZ">
-                                <rect key="frame" x="40" y="80" width="754" height="100"/>
+                                <rect key="frame" x="40" y="30" width="754" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="VV6-iU-oWn"/>
                                 </constraints>
@@ -667,60 +667,36 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ubm-WH-Rbo">
-                                <rect key="frame" x="40" y="263" width="754" height="220"/>
+                                <rect key="frame" x="40" y="263" width="754" height="330"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="220" id="taY-2I-puq"/>
+                                    <constraint firstAttribute="height" constant="330" id="taY-2I-puq"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="1" id="UDr-Y6-4EL">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="HelpCell" id="ldz-5X-q80" customClass="AOHelpCell">
                                         <rect key="frame" x="0.0" y="50" width="754" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UDr-Y6-4EL" id="Vwz-Fw-huJ">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ldz-5X-q80" id="BKK-Vq-RS7">
                                             <rect key="frame" x="0.0" y="0.0" width="727.5" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMt-Ah-kjY">
+                                                    <rect key="frame" x="16" y="11" width="703.5" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="JMt-Ah-kjY" secondAttribute="bottom" id="JTx-HV-z3h"/>
+                                                <constraint firstItem="JMt-Ah-kjY" firstAttribute="leading" secondItem="BKK-Vq-RS7" secondAttribute="leadingMargin" id="YiH-g0-vxM"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="JMt-Ah-kjY" secondAttribute="trailing" id="ZPM-79-RMv"/>
+                                                <constraint firstItem="JMt-Ah-kjY" firstAttribute="top" secondItem="BKK-Vq-RS7" secondAttribute="topMargin" id="iFQ-qT-qjw"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="b4n-ur-DSn" kind="show" identifier="toAcerca" id="djt-fM-355"/>
+                                            <outlet property="label" destination="JMt-Ah-kjY" id="jEk-hY-vTS"/>
                                         </connections>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="2" id="Cna-PJ-Xe9">
-                                        <rect key="frame" x="0.0" y="94" width="754" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cna-PJ-Xe9" id="zuk-mK-toI">
-                                            <rect key="frame" x="0.0" y="0.0" width="727.5" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="sSJ-6I-3N9" kind="show" identifier="toPregFrecuentes" id="GZV-pZ-5xS"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="3" id="wLm-bg-ODZ">
-                                        <rect key="frame" x="0.0" y="138" width="754" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wLm-bg-ODZ" id="4tH-eT-I6c">
-                                            <rect key="frame" x="0.0" y="0.0" width="727.5" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="45a-uC-KmM" kind="show" identifier="toInstalar" id="KDW-vu-ThJ"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="4" id="dSX-HE-YrK">
-                                        <rect key="frame" x="0.0" y="182" width="754" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dSX-HE-YrK" id="2ED-42-cDd">
-                                            <rect key="frame" x="0.0" y="0.0" width="727.5" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="5" id="chl-6c-pho">
-                                        <rect key="frame" x="0.0" y="226" width="754" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="chl-6c-pho" id="8tA-yC-S0E">
-                                            <rect key="frame" x="0.0" y="0.0" width="735.5" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -729,7 +705,7 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma</string>
                                 </connections>
                             </tableView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="250" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3bn-Vu-wJo">
-                                <rect key="frame" x="20" y="508" width="794" height="604"/>
+                                <rect key="frame" x="20" y="618" width="794" height="494"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">Los contenidos de esta sección son específicos de la versión móvil del servicio. Si desea consultar información general sobre el mismo, puede visitar la web 
 http://administracionelectronica.gob.es/</string>
@@ -880,7 +856,7 @@ Para funcionar correctamente debe instalar un certificado electrónico y su clav
         <!--Preguntas-->
         <scene sceneID="eLw-n6-sBe">
             <objects>
-                <viewController id="sSJ-6I-3N9" customClass="AOAcercadeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FrequentlyQuestionsScreen" id="sSJ-6I-3N9" customClass="AOAcercadeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rLL-js-DRY"/>
                         <viewControllerLayoutGuide type="bottom" id="cla-Rn-o3B"/>
@@ -890,14 +866,14 @@ Para funcionar correctamente debe instalar un certificado electrónico y su clav
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Preguntas más comunes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B04-xr-H96">
-                                <rect key="frame" x="20" y="210" width="794" height="26.5"/>
+                                <rect key="frame" x="20" y="160" width="794" height="26.5"/>
                                 <color key="backgroundColor" red="0.91620524879999998" green="0.91620524879999998" blue="0.91620524879999998" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QkQ-7P-9PZ">
-                                <rect key="frame" x="32" y="246.5" width="771" height="857.5"/>
+                                <rect key="frame" x="32" y="196.5" width="771" height="907.5"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="389" id="WKT-F7-1XM"/>
@@ -987,7 +963,7 @@ Los certificados importados en el Cliente @firma para Apple iOS son de uso exclu
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="Lwe-LI-wUZ">
-                                <rect key="frame" x="40" y="84" width="754" height="100"/>
+                                <rect key="frame" x="40" y="34" width="754" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="ma7-Qw-f8x"/>
                                 </constraints>
@@ -1023,7 +999,7 @@ Los certificados importados en el Cliente @firma para Apple iOS son de uso exclu
         <!--Instalación-->
         <scene sceneID="zX9-Yn-jLK">
             <objects>
-                <viewController id="45a-uC-KmM" customClass="AOAcercadeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CertificateInstallationScreen" id="45a-uC-KmM" customClass="AOAcercadeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GL3-4D-cAc"/>
                         <viewControllerLayoutGuide type="bottom" id="5tT-8f-Dy7"/>
@@ -1033,14 +1009,14 @@ Los certificados importados en el Cliente @firma para Apple iOS son de uso exclu
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Cómo instalar certificados" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1s-e6-GQT">
-                                <rect key="frame" x="20" y="222" width="794" height="26.5"/>
+                                <rect key="frame" x="20" y="172" width="794" height="26.5"/>
                                 <color key="backgroundColor" red="0.91620524879999998" green="0.91620524879999998" blue="0.91620524879999998" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bd3-tK-Ahv">
-                                <rect key="frame" x="24" y="256.5" width="786" height="835.5"/>
+                                <rect key="frame" x="24" y="206.5" width="786" height="885.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s30-9n-V8x">
                                         <rect key="frame" x="0.0" y="0.0" width="786" height="180"/>
@@ -1137,7 +1113,7 @@ Los certificados importados en el Cliente @firma para Apple iOS son de uso exclu
                                 </constraints>
                             </scrollView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="HsH-fs-tLd">
-                                <rect key="frame" x="40" y="87" width="754" height="100"/>
+                                <rect key="frame" x="40" y="37" width="754" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="YEn-i7-Bc2"/>
                                 </constraints>
