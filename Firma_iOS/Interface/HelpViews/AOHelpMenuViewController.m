@@ -9,7 +9,6 @@
 #import "NSMutableAttributedString+Extension.h"
 #import "AOHelpCell.h"
 #import "GlobalConstants.h"
-#import "StoryboardUtils.h"
 
 @interface AOHelpMenuViewController ()
 
@@ -157,7 +156,6 @@ NSMutableArray *tableData = NULL;
     int fila = (int)indexPath.row;
     @try {
         if(fila==0 || fila == 1 || fila == 2){
-            UIStoryboard *mainStoryboard = [StoryboardUtils getMainStoryboard];
             NSString *destinationVCName;
             switch(fila){
                 case 0:

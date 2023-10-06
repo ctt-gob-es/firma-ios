@@ -6,8 +6,10 @@
 //  Copyright © 2023 Solid GEAR. All rights reserved.
 //
 
-@interface StoryboardUtils
+#import <Foundation/Foundation.h>
 
-- (UIStoryboard*) getMainStoryboard;
+@interface StoryboardUtils : NSObject 
+
++ (UIStoryboard *) getMainStoryboard;
 
 @end

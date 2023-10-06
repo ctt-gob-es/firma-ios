@@ -11,7 +11,7 @@
 
 @implementation StoryboardUtils
 
-- (UIStoryboard *)getMainStoryboard {
++ (UIStoryboard *)getMainStoryboard {
     UIStoryboard *mainStoryboard;
    /* if ([(NSString*)[UIDevice currentDevice].model hasPrefix:IPAD] ) {
         mainStoryboard = [UIStoryboard storyboardWithName:IPAD_STORYBOARD

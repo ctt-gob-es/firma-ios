@@ -22,7 +22,6 @@
 #import "GlobalConstants.h"
 #import "BatchSignUseCase.h"
 #import "AORegisteredCertificatesTVC.h"
-#import "StoryboardUtils.h"
 
 @interface AOSignViewController ()
 
@@ -1307,7 +1306,6 @@ SecKeyRef privateKey = NULL;
     
         // Como se presenta de forma modal hacemos un dismiss y posteriormente lanzamos el controller de about como root view controller (No seria necesario hacer el dismiss porque al cambiar el root view controller desparace ese controller y todos los hijos)
     [self dismissViewControllerAnimated:NO completion:^() {
-        UIStoryboard *mainStoryboard = [StoryboardUtils getMainStoryboard];
         UIViewController *homeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AOAboutViewController"];
         UINavigationController *objectNav = [[UINavigationController alloc] initWithRootViewController:homeViewController];
         [[UIApplication sharedApplication].keyWindow setRootViewController: objectNav];
