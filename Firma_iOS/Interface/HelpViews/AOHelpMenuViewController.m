@@ -57,7 +57,29 @@ NSMutableArray *tableData = NULL;
         // Necessary for the cells to adjust their height automatically
     self.tblViewHelp.estimatedRowHeight = 44.0;
     self.tblViewHelp.rowHeight = UITableViewAutomaticDimension;
+    
+        // If it is an iPad we increase it and it is in a vertical position, we increase the height of the text below the table
+    if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation) && ([(NSString*)[UIDevice currentDevice].model hasPrefix:IPAD] )) {
+        
+        self.tblViewHelp.translatesAutoresizingMaskIntoConstraints = YES;
+        
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            CGFloat descriptionLabelNewSize = 300;
+            
+                // Update helpMenuDescriptionLabel height
+            CGRect descriptionLabelFrame= self.helpMenuDescriptionLabel.frame;
+            descriptionLabelFrame.size.height = descriptionLabelNewSize;
+            [self.helpMenuDescriptionLabel setFrame:descriptionLabelFrame];
+            
+                // Update tblViewHelp height
+            CGRect tableFrame= self.tblViewHelp.frame;
+            tableFrame.size.height = tableFrame.size.height - descriptionLabelNewSize;
+            [self.tblViewHelp setFrame:tableFrame];
+            [self.tblViewHelp setNeedsDisplay];
+        });
+    }
 }
+
 - (IBAction)goBackHome:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
@@ -67,7 +89,6 @@ NSMutableArray *tableData = NULL;
     [super didReceiveMemoryWarning];
         // Dispose of any resources that can be recreated.
 }
-
 
     //Carga en la lista de almacenes los almacenes encontrados en Itunes.
 -(void)populateTable {
