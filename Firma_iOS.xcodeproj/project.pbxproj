@@ -1576,48 +1576,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 9;
-				DEVELOPMENT_TEAM = 2H36E8KFN2;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)\"",
-				);
-				GCC_NO_COMMON_BLOCKS = NO;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Firma_iOS/Firma_iOS-Prefix.pch";
-				HEADER_SEARCH_PATHS = "include/**";
-				INFOPLIST_FILE = "Firma_iOS/Supporting Files/Firma_iOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					lib,
-					"$(PROJECT_DIR)/lib",
-					"$(PROJECT_DIR)",
-				);
-				MARKETING_VERSION = 1.8;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "es.gob.afirma.Cliente--firma";
-				PRODUCT_NAME = "Cliente @firma";
-				PROVISIONING_PROFILE = "c08ed7da-989b-4719-b284-d895789fd7db";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "c08ed7da-989b-4719-b284-d895789fd7db";
-				PROVISIONING_PROFILE_SPECIFIER = "Cliente Afirma Movil - Development";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		C30B3265163804620072A515 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_ENTITLEMENTS = "Cliente @firma.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 2H36E8KFN2;
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2H36E8KFN2;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1636,7 +1595,50 @@
 					"$(PROJECT_DIR)/lib",
 					"$(PROJECT_DIR)",
 				);
-				MARKETING_VERSION = 1.8;
+				MARKETING_VERSION = 1.9;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "es.gob.afirma.Cliente--firma";
+				PRODUCT_NAME = "Cliente @firma";
+				PROVISIONING_PROFILE = "c08ed7da-989b-4719-b284-d895789fd7db";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "c08ed7da-989b-4719-b284-d895789fd7db";
+				PROVISIONING_PROFILE_SPECIFIER = "Cliente Afirma Movil - Development";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Cliente AFirma Development ABA";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C30B3265163804620072A515 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = "Cliente @firma.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 10;
+				DEVELOPMENT_TEAM = 2H36E8KFN2;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2H36E8KFN2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_NO_COMMON_BLOCKS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Firma_iOS/Firma_iOS-Prefix.pch";
+				HEADER_SEARCH_PATHS = "include/**";
+				INFOPLIST_FILE = "Firma_iOS/Supporting Files/Firma_iOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					lib,
+					"$(PROJECT_DIR)/lib",
+					"$(PROJECT_DIR)",
+				);
+				MARKETING_VERSION = 1.9;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "es.gob.afirma.Cliente--firma";
 				PRODUCT_NAME = "Cliente @firma";
