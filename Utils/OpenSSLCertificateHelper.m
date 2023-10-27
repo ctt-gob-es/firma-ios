@@ -9,7 +9,6 @@
 #import "OpenSSLCertificateHelper.h"
 #import "CertificateUtils.h"
 #import <Security/Security.h>
-#import <openssl/x509.h>
 
 @interface OpenSSLCertificateHelper ()
 {

@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "AOCertificateInfo.h"
+#import <openssl/x509.h>
 
 @interface OpenSSLCertificateHelper : NSObject
 
 + (NSArray *)getAddedCertificatesInfo;
 + (OSStatus)deleteCertificate:(AOCertificateInfo *)certificateInfo;
++ (NSString *)getSubjectNameForCertificate:(X509 *)certificateX509;
 
 @end
