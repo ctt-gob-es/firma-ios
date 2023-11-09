@@ -21,6 +21,19 @@ NSString *URLString, *state = @"Inactive";
     
     [self registerDefaultsFromSettingsBundle];
     
+    if (@available(iOS 15, *)) {
+            // MARK: Navigation bar appearance
+        UINavigationBarAppearance *navigationBarAppearance = [UINavigationBarAppearance alloc];
+        [navigationBarAppearance configureWithOpaqueBackground];
+        navigationBarAppearance.titleTextAttributes = @{
+            NSForegroundColorAttributeName : UIColor.blackColor
+        };
+        navigationBarAppearance.backgroundColor = UIColor.whiteColor;
+        [UINavigationBar appearance].standardAppearance = navigationBarAppearance;
+        [UINavigationBar appearance].compactAppearance = navigationBarAppearance;
+        [UINavigationBar appearance].scrollEdgeAppearance = navigationBarAppearance;
+    }
+    
     [UITextView appearance].linkTextAttributes = @{
         NSForegroundColorAttributeName : LINK_COLOR,
         NSUnderlineStyleAttributeName : [NSNumber numberWithInteger:NSUnderlineStyleSingle]
