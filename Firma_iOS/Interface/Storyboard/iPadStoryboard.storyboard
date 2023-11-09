@@ -95,9 +95,6 @@
                                                                                 </label>
                                                                             </subviews>
                                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                            <accessibility key="accessibilityConfiguration">
-                                                                                <bool key="isElement" value="YES"/>
-                                                                            </accessibility>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="bottom" secondItem="Jca-mC-moW" secondAttribute="bottom" id="4ly-P1-bNP"/>
                                                                                 <constraint firstItem="a5u-Sk-A3v" firstAttribute="centerY" secondItem="Jca-mC-moW" secondAttribute="centerY" id="ESs-cK-CSN"/>
@@ -126,9 +123,6 @@
                                                                                 </label>
                                                                             </subviews>
                                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                            <accessibility key="accessibilityConfiguration">
-                                                                                <bool key="isElement" value="YES"/>
-                                                                            </accessibility>
                                                                             <constraints>
                                                                                 <constraint firstItem="tlc-v2-Eyo" firstAttribute="leading" secondItem="btT-Ps-dd0" secondAttribute="trailing" constant="3" id="2fs-21-EsO"/>
                                                                                 <constraint firstItem="btT-Ps-dd0" firstAttribute="width" secondItem="rOQ-fI-k8i" secondAttribute="width" multiplier="0.2" id="6mv-p4-b6G"/>
@@ -157,9 +151,6 @@
                                                                                 </label>
                                                                             </subviews>
                                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                            <accessibility key="accessibilityConfiguration">
-                                                                                <bool key="isElement" value="YES"/>
-                                                                            </accessibility>
                                                                             <constraints>
                                                                                 <constraint firstItem="EK1-ww-Sad" firstAttribute="centerY" secondItem="mck-OU-Xrd" secondAttribute="centerY" id="4b5-Qk-R9H"/>
                                                                                 <constraint firstItem="mck-OU-Xrd" firstAttribute="leading" secondItem="EK1-ww-Sad" secondAttribute="trailing" constant="3" id="Aq8-UW-mUX"/>
@@ -214,11 +205,14 @@
                                                         <inset key="separatorInset" minX="27" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <connections>
                                                             <outlet property="dateLabel" destination="mck-OU-Xrd" id="m80-E9-Da7"/>
+                                                            <outlet property="dateView" destination="Jog-dZ-DfL" id="wCA-8h-iHy"/>
                                                             <outlet property="expirationLabel" destination="OpY-Kt-XLE" id="KaC-7b-KPy"/>
                                                             <outlet property="issuerLabel" destination="a5u-Sk-A3v" id="FWo-aT-cVe"/>
                                                             <outlet property="issuerValue" destination="Jca-mC-moW" id="QGg-92-Wz8"/>
+                                                            <outlet property="issuerView" destination="9Do-s0-W9F" id="y36-jf-kgH"/>
                                                             <outlet property="purposeLabel" destination="btT-Ps-dd0" id="qOK-CM-5iF"/>
                                                             <outlet property="purposeValue" destination="tlc-v2-Eyo" id="PAC-tc-Rcu"/>
+                                                            <outlet property="purposeView" destination="rOQ-fI-k8i" id="YaU-9e-Zxk"/>
                                                             <outlet property="subjectLabel" destination="dcK-am-Pd5" id="drF-dg-zXc"/>
                                                         </connections>
                                                     </tableViewCell>

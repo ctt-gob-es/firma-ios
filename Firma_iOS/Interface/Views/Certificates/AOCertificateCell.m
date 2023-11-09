@@ -19,10 +19,13 @@ static const NSTimeInterval kCertificateCellDate15DaysTimeInterval = -(15*24*60*
 }
 
 @property (nonatomic, strong) IBOutlet UILabel *subjectLabel;
+@property (weak, nonatomic) IBOutlet UIView *issuerView;
 @property (nonatomic, strong) IBOutlet UILabel *issuerLabel;
 @property (nonatomic, strong) IBOutlet UILabel *issuerValue;
+@property (weak, nonatomic) IBOutlet UIView *purposeView;
 @property (nonatomic, strong) IBOutlet UILabel *purposeLabel;
 @property (nonatomic, strong) IBOutlet UILabel *purposeValue;
+@property (weak, nonatomic) IBOutlet UIView *dateView;
 @property (nonatomic, strong) IBOutlet UILabel *dateLabel;
 @property (nonatomic, strong) IBOutlet UILabel *expirationLabel;
 
@@ -39,17 +42,20 @@ static const NSTimeInterval kCertificateCellDate15DaysTimeInterval = -(15*24*60*
     _subjectLabel.font = [[UIFont alloc] mediumSystemFontScaled];
     
         // Issuer
+    _issuerView.accessibilityElements = @[_issuerLabel, _issuerValue];
     [_issuerLabel setText:@"issuer_label".localized];
     _issuerLabel.font = dataFont;
     [_issuerValue setText:certificateInfo.issuer];
     _issuerValue.font = dataFont;
     
         // Purpose
+    _purposeView.accessibilityElements = @[_purposeLabel, _purposeValue];
     [_purposeLabel setText:@"use_label".localized];
     [_purposeValue setText:[certificateInfo getPurposeString]];
     _purposeLabel.font = dataFont;
     
         // Date
+    _dateView.accessibilityElements = @[_dateLabel, _dateView];
     [_dateLabel setText:[NSString stringWithFormat: @"valid_from_to".localized,[certificateInfo getCreationDateString], [certificateInfo getExpirationDateString]]];
     _dateLabel.font = dataFont;
     
