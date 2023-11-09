@@ -155,16 +155,6 @@
     
     if (!_certificatesArray) {
         _certificatesArray = [[NSMutableArray alloc] init];
-        
-            // TODO test
-                    AOCertificateInfo *testCertificate = [[AOCertificateInfo alloc] init];
-                    testCertificate.issuer = @"Valor de issuer con texto muy largo con otra linea de texto";
-                    testCertificate.subject = @"Valor de subject pero que muy largo";
-                    testCertificate.creationDate = [NSDate date];
-                    testCertificate.expirationDate = [NSDate date];
-                    testCertificate.purpose = PFCertificateInfoPurposeAuthentication;
-                    [_certificatesArray addObject:testCertificate];
-                    [_certificatesArray addObject:testCertificate];
     }
 }
 
