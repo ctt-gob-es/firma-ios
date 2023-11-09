@@ -89,6 +89,9 @@
                                                                 </label>
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <accessibility key="accessibilityConfiguration">
+                                                                <bool key="isElement" value="YES"/>
+                                                            </accessibility>
                                                             <constraints>
                                                                 <constraint firstAttribute="bottom" secondItem="Jca-mC-moW" secondAttribute="bottom" id="4ly-P1-bNP"/>
                                                                 <constraint firstItem="a5u-Sk-A3v" firstAttribute="centerY" secondItem="Jca-mC-moW" secondAttribute="centerY" id="ESs-cK-CSN"/>
@@ -117,6 +120,9 @@
                                                                 </label>
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <accessibility key="accessibilityConfiguration">
+                                                                <bool key="isElement" value="YES"/>
+                                                            </accessibility>
                                                             <constraints>
                                                                 <constraint firstItem="tlc-v2-Eyo" firstAttribute="leading" secondItem="btT-Ps-dd0" secondAttribute="trailing" constant="3" id="2fs-21-EsO"/>
                                                                 <constraint firstItem="btT-Ps-dd0" firstAttribute="width" secondItem="rOQ-fI-k8i" secondAttribute="width" multiplier="0.2" id="6mv-p4-b6G"/>
@@ -145,6 +151,9 @@
                                                                 </label>
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <accessibility key="accessibilityConfiguration">
+                                                                <bool key="isElement" value="YES"/>
+                                                            </accessibility>
                                                             <constraints>
                                                                 <constraint firstItem="EK1-ww-Sad" firstAttribute="centerY" secondItem="mck-OU-Xrd" secondAttribute="centerY" id="4b5-Qk-R9H"/>
                                                                 <constraint firstItem="mck-OU-Xrd" firstAttribute="leading" secondItem="EK1-ww-Sad" secondAttribute="trailing" constant="3" id="Aq8-UW-mUX"/>
