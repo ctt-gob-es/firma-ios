@@ -65,7 +65,7 @@
     _password = _passwordTextField.text;
     
     if (!_password || [_password isEqualToString:@""]) {
-        [self showError:@"enter_your_certificate_password".localized];
+        [self showMessage:@"enter_your_certificate_password".localized isError:true];
     } else {
         [self registerWithCertificate];
     }
@@ -78,11 +78,11 @@
 
 #pragma mark - Certificates Methods
 
-- (void)showError: (NSString *) errorMessage {
-    _registerCertificateDescriptionLabel.textColor = [UIColor redColor];
-    _registerCertificateDescriptionLabel.text = errorMessage;
-        // Indicate the error in the accesibilityLabel of the TextField so that VoicOver can detect it
-    self.passwordTextField.accessibilityLabel = errorMessage;
+- (void)showMessage: (NSString *) message isError:(Boolean *) isError {
+    _registerCertificateDescriptionLabel.textColor =  isError ? [UIColor redColor] : [UIColor greenColor];
+    _registerCertificateDescriptionLabel.text = message;
+        // Indicate the message in the accesibilityLabel of the TextField so that VoicOver can detect it
+    self.passwordTextField.accessibilityLabel = message;
         // Put focus on the text field
     [_passwordTextField becomeFirstResponder];
 }
@@ -98,7 +98,7 @@
         // Load certificate from Documents directory
     status = [[CertificateUtils sharedWrapper] loadCertKeyChainWithName:_selectedCertificate password:_password fromDocument:YES];
 #endif
-    
+    bool isError = true;
     if (status != noErr) {
         switch (status) {
             case errSecItemNotFound:
@@ -116,6 +116,7 @@
         }
     } else {
         _message = @"certificate_successfully_loaded".localized;
+        isError = false;
         
         [CommonAlert createAlertWithTitle: @"certificate_loaded".localized message:_message cancelButtonTitle: OK showOn:self onComplete:^{
             if (self->_delegate) {
@@ -124,7 +125,7 @@
         }];
     }
     
-    [self showError:_message];
+    [self showMessage:_message isError: isError];
     
     return;
 }

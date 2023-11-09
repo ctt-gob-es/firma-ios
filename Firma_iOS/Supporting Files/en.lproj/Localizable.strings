@@ -63,7 +63,7 @@
 "valid_from_to" = "Valid from %@ to %@";
 "certificate_instructions" = "The application is requesting access to stored certificates and there are none registered.\n\n  To install a certificate :\n 1. Connect your device to your PC or Mac.\n 2. Locate the certificate you want to install ....(you must know the PIN code of the certificate)\n3 In iTunes select your certificate and drag it to the document window....\n4. Go back to this screen and register it in the device's storage.\n";
 "certificate_description_label" = "This section allows you import new certificates to perform your own signatures or delete certificates already installed on device.";
-"home_description_label" = "Welcome to \"Cliente @firma iOS\" v%@ \nThis application allows to sign electronically in the supported websites of services providers.\nIn order to run the application properly, an electronic certificate and its private key must be installed in your device using iTunes. Check your iOS documentation and consult with your provider of certification services.";
+"home_description_label" = "Welcome to \"Client @firma iOS\" %@\nThis application allows you to perform electronic signatures on the pages of service providers that support it.\nTo function correctly you must install an electronic certificate and its private key from the Certificate Management section . Consult your iOS system documentation and with your certification service provider.";
 "available_certificates_description_label" = "Certificates available on your device. Please select the certificate you want to register.";
 "register_certificate_description_label" = "Enter the password for the selected certificate to be registered.";
 "register_cretificate_register_button_title" = "Register";
