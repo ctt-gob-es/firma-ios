@@ -20,14 +20,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="deK-bs-gN3">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deK-bs-gN3">
                                 <rect key="frame" x="20" y="0.0" width="794" height="1112"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cak-CF-Px6">
                                         <rect key="frame" x="0.0" y="0.0" width="794" height="1112"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Xo3-W1-V5R" userLabel="Content View">
-                                                <rect key="frame" x="0.0" y="0.0" width="794" height="161"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="794" height="273"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="xjn-pw-JxL">
                                                         <rect key="frame" x="20" y="10" width="754" height="80"/>
@@ -35,29 +35,33 @@
                                                             <constraint firstAttribute="height" constant="80" id="8yr-SF-OMq"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZIP-KB-pfu">
-                                                        <rect key="frame" x="42" y="110" width="710" height="38"/>
-                                                        <string key="text">Desde esta pantalla puede añadir nuevos certificados con los que procesar sus firmas, o eliminar los certificados instalados en el dispositivo delizando la fila hacia la izquierda.</string>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
-                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jZS-aW-Nir">
+                                                        <rect key="frame" x="10" y="110" width="774" height="150"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="150" id="kgh-R5-9kE"/>
+                                                        </constraints>
+                                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                        <color key="textColor" systemColor="labelColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
                                                 </subviews>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstItem="ZIP-KB-pfu" firstAttribute="top" secondItem="xjn-pw-JxL" secondAttribute="bottom" constant="20" id="4mn-2M-BIv"/>
                                                     <constraint firstItem="xjn-pw-JxL" firstAttribute="centerX" secondItem="Xo3-W1-V5R" secondAttribute="centerX" id="Evh-FO-gIC"/>
                                                     <constraint firstItem="xjn-pw-JxL" firstAttribute="top" secondItem="Xo3-W1-V5R" secondAttribute="top" constant="10" id="K77-F4-LeC"/>
-                                                    <constraint firstAttribute="trailing" secondItem="ZIP-KB-pfu" secondAttribute="trailing" constant="42" id="KXZ-Wx-sWW"/>
-                                                    <constraint firstAttribute="centerX" secondItem="ZIP-KB-pfu" secondAttribute="centerX" id="Nb3-4z-hKw"/>
-                                                    <constraint firstItem="ZIP-KB-pfu" firstAttribute="leading" secondItem="Xo3-W1-V5R" secondAttribute="leading" constant="42" id="Oeo-Zy-fvj"/>
+                                                    <constraint firstItem="jZS-aW-Nir" firstAttribute="top" secondItem="xjn-pw-JxL" secondAttribute="bottom" constant="20" id="UGL-Nc-7dK"/>
+                                                    <constraint firstAttribute="bottom" secondItem="jZS-aW-Nir" secondAttribute="bottom" constant="13" id="cUS-8s-iZA"/>
                                                     <constraint firstAttribute="trailing" secondItem="xjn-pw-JxL" secondAttribute="trailing" constant="20" id="f3o-EW-Rjv"/>
-                                                    <constraint firstAttribute="bottom" secondItem="ZIP-KB-pfu" secondAttribute="bottom" constant="13" id="kLe-uG-EDl"/>
+                                                    <constraint firstItem="jZS-aW-Nir" firstAttribute="centerX" secondItem="Xo3-W1-V5R" secondAttribute="centerX" id="laY-nY-Xqy"/>
                                                     <constraint firstItem="xjn-pw-JxL" firstAttribute="leading" secondItem="Xo3-W1-V5R" secondAttribute="leading" constant="20" id="oAq-qY-EsT"/>
+                                                    <constraint firstItem="jZS-aW-Nir" firstAttribute="leading" secondItem="Xo3-W1-V5R" secondAttribute="leading" constant="10" id="pWk-eQ-rXy"/>
+                                                    <constraint firstAttribute="trailing" secondItem="jZS-aW-Nir" secondAttribute="trailing" constant="10" id="uAj-ON-bqU"/>
                                                 </constraints>
                                             </view>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="sK8-Dz-zu7">
-                                                <rect key="frame" x="0.0" y="171" width="794" height="941"/>
+                                                <rect key="frame" x="0.0" y="283" width="794" height="829"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <prototypes>
                                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationWidth="10" reuseIdentifier="CertificateCell" rowHeight="100" id="28v-ix-sth" customClass="AOCertificateCell">
@@ -68,26 +72,26 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="gsb-v2-qMx" userLabel="Data View">
-                                                                    <rect key="frame" x="59" y="10" width="708.5" height="90"/>
+                                                                    <rect key="frame" x="59" y="10" width="708.5" height="80"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="SUBJECT" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcK-am-Pd5">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" ambiguous="YES" text="SUBJECT" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcK-am-Pd5">
                                                                             <rect key="frame" x="0.0" y="0.0" width="708.5" height="24"/>
                                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                                                                             <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Do-s0-W9F" userLabel="Issuer View">
+                                                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Do-s0-W9F" userLabel="Issuer View">
                                                                             <rect key="frame" x="0.0" y="27" width="708.5" height="19"/>
                                                                             <subviews>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Emisor:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5u-Sk-A3v">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Emisor:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5u-Sk-A3v">
                                                                                     <rect key="frame" x="0.0" y="1" width="141.5" height="17"/>
                                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                                                                     <color key="textColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMISOR" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jca-mC-moW">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="EMISOR" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jca-mC-moW">
                                                                                     <rect key="frame" x="144.5" y="0.0" width="564" height="19"/>
                                                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                                                                     <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -105,17 +109,17 @@
                                                                                 <constraint firstItem="Jca-mC-moW" firstAttribute="top" secondItem="9Do-s0-W9F" secondAttribute="top" id="bKY-Kt-Aeq"/>
                                                                             </constraints>
                                                                         </view>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rOQ-fI-k8i" userLabel="Purpose View">
+                                                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rOQ-fI-k8i" userLabel="Purpose View">
                                                                             <rect key="frame" x="0.0" y="49" width="708.5" height="19"/>
                                                                             <subviews>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uso:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btT-Ps-dd0">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Uso:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btT-Ps-dd0">
                                                                                     <rect key="frame" x="0.0" y="1" width="141.5" height="17"/>
                                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                                                                     <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SUBJECT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tlc-v2-Eyo">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="SUBJECT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tlc-v2-Eyo">
                                                                                     <rect key="frame" x="144.5" y="0.0" width="564" height="19"/>
                                                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                                                                     <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -133,17 +137,17 @@
                                                                                 <constraint firstAttribute="bottom" secondItem="tlc-v2-Eyo" secondAttribute="bottom" id="lLs-8F-DYO"/>
                                                                             </constraints>
                                                                         </view>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jog-dZ-DfL" userLabel="Date View">
+                                                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jog-dZ-DfL" userLabel="Date View">
                                                                             <rect key="frame" x="0.0" y="71" width="708.5" height="19"/>
                                                                             <subviews>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_calendar" translatesAutoresizingMaskIntoConstraints="NO" id="EK1-ww-Sad">
+                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="ic_calendar" translatesAutoresizingMaskIntoConstraints="NO" id="EK1-ww-Sad">
                                                                                     <rect key="frame" x="0.0" y="2" width="15" height="15"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="15" id="Ybt-q1-5b3"/>
                                                                                         <constraint firstAttribute="width" constant="15" id="dzE-iT-sWi"/>
                                                                                     </constraints>
                                                                                 </imageView>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Válido desde 88/88/8888 hasta 88/88/8888" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mck-OU-Xrd">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Válido desde 88/88/8888 hasta 88/88/8888" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mck-OU-Xrd">
                                                                                     <rect key="frame" x="18" y="0.0" width="690.5" height="19"/>
                                                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                                                                     <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -179,7 +183,7 @@
                                                                     </constraints>
                                                                 </view>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OpY-Kt-XLE">
-                                                                    <rect key="frame" x="16" y="46.5" width="40" height="17"/>
+                                                                    <rect key="frame" x="16" y="41.5" width="40" height="17"/>
                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="40" id="lRl-iN-YDd"/>
@@ -195,7 +199,7 @@
                                                                 <constraint firstItem="gsb-v2-qMx" firstAttribute="top" secondItem="ZyW-3D-hEq" secondAttribute="top" constant="10" id="nki-xw-VJY"/>
                                                                 <constraint firstItem="gsb-v2-qMx" firstAttribute="leading" secondItem="OpY-Kt-XLE" secondAttribute="trailing" constant="3" id="pzN-nz-HG0"/>
                                                                 <constraint firstAttribute="trailing" secondItem="gsb-v2-qMx" secondAttribute="trailing" id="sjq-vY-MV1"/>
-                                                                <constraint firstAttribute="bottom" secondItem="gsb-v2-qMx" secondAttribute="bottom" id="w7a-Zm-zg3"/>
+                                                                <constraint firstAttribute="bottom" secondItem="gsb-v2-qMx" secondAttribute="bottom" constant="10" id="w7a-Zm-zg3"/>
                                                             </constraints>
                                                         </tableViewCellContentView>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
@@ -262,7 +266,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="certificatesDescriptionLabel" destination="ZIP-KB-pfu" id="oZF-ba-aQG"/>
+                        <outlet property="certificatesDescriptionLabel" destination="jZS-aW-Nir" id="IFd-Af-viR"/>
                         <outlet property="editTableView" destination="sK8-Dz-zu7" id="fMc-eA-agD"/>
                         <outlet property="logo" destination="xjn-pw-JxL" id="nWJ-VX-fJg"/>
                         <segue destination="Hwb-ff-pB4" kind="presentation" identifier="showSignVC" modalPresentationStyle="fullScreen" id="D7i-uO-FEB"/>
@@ -1198,6 +1202,9 @@ Los certificados importados en el Cliente @firma para Apple iOS son de uso exclu
         <image name="ic_folder" width="150" height="150"/>
         <image name="information_icon.png" width="30" height="30"/>
         <image name="logo_cliente.png" width="726" height="200"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

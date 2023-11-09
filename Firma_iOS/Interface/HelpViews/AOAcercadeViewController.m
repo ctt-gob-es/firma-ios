@@ -36,7 +36,6 @@
     NSString *aboutDescription = [NSString stringWithFormat: @"about_description_label".localized,[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
     NSMutableAttributedString *aboutDescriptionAttributedString = [aboutDescription getHtml:[UIFont systemFontOfSize:13.5]];
     [self.aboutDescriptionLabel setAttributedText:aboutDescriptionAttributedString];
-    self.aboutDescriptionLabel.accessibilityAttributedLabel = aboutDescriptionAttributedString;
     
     [self.howToInstallCertificatesTitle setText: @"how_to_install_certificates_title".localized];
     [self.iTunesInstructionsLabel setText: @"iTunes_instructions_label".localized];
