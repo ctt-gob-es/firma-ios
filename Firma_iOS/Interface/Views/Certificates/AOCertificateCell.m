@@ -42,20 +42,26 @@ static const NSTimeInterval kCertificateCellDate15DaysTimeInterval = -(15*24*60*
     _subjectLabel.font = [[UIFont alloc] mediumSystemFontScaled];
     
         // Issuer
-    _issuerView.accessibilityElements = @[_issuerLabel, _issuerValue];
     [_issuerLabel setText:@"issuer_label".localized];
     _issuerLabel.font = dataFont;
+    
     [_issuerValue setText:certificateInfo.issuer];
     _issuerValue.font = dataFont;
     
+    _issuerLabel.accessibilityLabel =[NSString stringWithFormat:@"%@,%@", _issuerLabel.text, _issuerValue.text];
+    _issuerValue.isAccessibilityElement = false;
+    
         // Purpose
-    _purposeView.accessibilityElements = @[_purposeLabel, _purposeValue];
     [_purposeLabel setText:@"use_label".localized];
-    [_purposeValue setText:[certificateInfo getPurposeString]];
     _purposeLabel.font = dataFont;
     
+    [_purposeValue setText:[certificateInfo getPurposeString]];
+    _purposeValue.font = dataFont;
+    
+    _purposeLabel.accessibilityLabel = [NSString stringWithFormat:@"%@,%@", _purposeLabel.text, _purposeValue.text];
+    _purposeValue.isAccessibilityElement = false;
+    
         // Date
-    _dateView.accessibilityElements = @[_dateLabel, _dateView];
     [_dateLabel setText:[NSString stringWithFormat: @"valid_from_to".localized,[certificateInfo getCreationDateString], [certificateInfo getExpirationDateString]]];
     _dateLabel.font = dataFont;
     
