@@ -12,6 +12,7 @@
 #import "UIFont+Utils.h"
 
 static const NSTimeInterval kCertificateCellDate15DaysTimeInterval = -(15*24*60*60);
+static const CGFloat expirationLabelDefaultWidhtHeight = 30;
 
 @interface AOCertificateCell ()
 {
@@ -28,6 +29,8 @@ static const NSTimeInterval kCertificateCellDate15DaysTimeInterval = -(15*24*60*
 @property (weak, nonatomic) IBOutlet UIView *dateView;
 @property (nonatomic, strong) IBOutlet UILabel *dateLabel;
 @property (nonatomic, strong) IBOutlet UILabel *expirationLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *expirationLabelWidth;
+
 
 @end
 
@@ -67,9 +70,9 @@ static const NSTimeInterval kCertificateCellDate15DaysTimeInterval = -(15*24*60*
     
         // Expiration
     _expirationLabel.font = dataFont;
-    
     if (isEditing) {
         [_expirationLabel setHidden:YES];
+        _expirationLabelWidth.constant = 0;
     } else {
         [self setupBackgroundForExpirationDate:certificateInfo.expirationDate];
     }
@@ -89,15 +92,15 @@ static const NSTimeInterval kCertificateCellDate15DaysTimeInterval = -(15*24*60*
     }
     
     if (color) {
-        CGFloat frameOriginXOffset = 10;
-        CGFloat frameOriginYOffset = 20;
-        CGFloat frameSizeWidthMultiplier = 0.01;
-        CGFloat frameSizeHeightMultiplier = 0.01;
-        _expirationIconLayer = [QuartzUtils circleWithColor:color andRect: CGRectMake(_expirationLabel.frame.origin.x + frameOriginXOffset, _expirationLabel.frame.origin.y + frameOriginYOffset, (_expirationLabel.frame.size.width * frameSizeWidthMultiplier), (_expirationLabel.frame.size.height * frameSizeHeightMultiplier))];
-        [self.contentView.layer insertSublayer:_expirationIconLayer atIndex:0];
         [_expirationLabel setHidden:NO];
+        _expirationLabelWidth.constant = expirationLabelDefaultWidhtHeight;
+        
+        _expirationLabel.layer.cornerRadius = CGRectGetWidth(_expirationLabel.frame)/2;
+        _expirationLabel.layer.masksToBounds = true;
+        _expirationLabel.backgroundColor = color;
     } else {
         [_expirationLabel setHidden:YES];
+        _expirationLabelWidth.constant = 0;
     }
 }
 

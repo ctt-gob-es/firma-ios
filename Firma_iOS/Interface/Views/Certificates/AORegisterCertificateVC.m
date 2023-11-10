@@ -79,7 +79,7 @@
 #pragma mark - Certificates Methods
 
 - (void)showMessage: (NSString *) message isError:(Boolean *) isError {
-    _registerCertificateDescriptionLabel.textColor =  isError ? [UIColor redColor] : [UIColor greenColor];
+    _registerCertificateDescriptionLabel.textColor =  isError ? [UIColor redColor] : COLOR_DARK_GREEN;
     _registerCertificateDescriptionLabel.text = message;
         // Indicate the message in the accesibilityLabel of the TextField so that VoicOver can detect it
     self.passwordTextField.accessibilityLabel = message;

@@ -72,27 +72,27 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="gsb-v2-qMx" userLabel="Data View">
-                                                                    <rect key="frame" x="59" y="10" width="708.5" height="80"/>
+                                                                    <rect key="frame" x="49" y="10" width="718.5" height="80"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" ambiguous="YES" text="SUBJECT" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcK-am-Pd5">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="708.5" height="24"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="718.5" height="24"/>
                                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                                                                             <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Do-s0-W9F" userLabel="Issuer View">
-                                                                            <rect key="frame" x="0.0" y="27" width="708.5" height="19"/>
+                                                                            <rect key="frame" x="0.0" y="27" width="718.5" height="19"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Emisor:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5u-Sk-A3v">
-                                                                                    <rect key="frame" x="0.0" y="1" width="141.5" height="17"/>
+                                                                                    <rect key="frame" x="0.0" y="1" width="143.5" height="17"/>
                                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                                                                     <color key="textColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="EMISOR" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jca-mC-moW">
-                                                                                    <rect key="frame" x="144.5" y="0.0" width="564" height="19"/>
+                                                                                    <rect key="frame" x="146.5" y="0.0" width="572" height="19"/>
                                                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                                                                     <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                     <nil key="highlightedColor"/>
@@ -110,17 +110,17 @@
                                                                             </constraints>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rOQ-fI-k8i" userLabel="Purpose View">
-                                                                            <rect key="frame" x="0.0" y="49" width="708.5" height="19"/>
+                                                                            <rect key="frame" x="0.0" y="49" width="718.5" height="19"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Uso:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btT-Ps-dd0">
-                                                                                    <rect key="frame" x="0.0" y="1" width="141.5" height="17"/>
+                                                                                    <rect key="frame" x="0.0" y="1" width="143.5" height="17"/>
                                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                                                                     <color key="textColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="SUBJECT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tlc-v2-Eyo">
-                                                                                    <rect key="frame" x="144.5" y="0.0" width="564" height="19"/>
+                                                                                    <rect key="frame" x="146.5" y="0.0" width="572" height="19"/>
                                                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                                                                     <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                     <nil key="highlightedColor"/>
@@ -138,7 +138,7 @@
                                                                             </constraints>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jog-dZ-DfL" userLabel="Date View">
-                                                                            <rect key="frame" x="0.0" y="71" width="708.5" height="19"/>
+                                                                            <rect key="frame" x="0.0" y="71" width="718.5" height="19"/>
                                                                             <subviews>
                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="ic_calendar" translatesAutoresizingMaskIntoConstraints="NO" id="EK1-ww-Sad">
                                                                                     <rect key="frame" x="0.0" y="2" width="15" height="15"/>
@@ -148,7 +148,7 @@
                                                                                     </constraints>
                                                                                 </imageView>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Válido desde 88/88/8888 hasta 88/88/8888" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mck-OU-Xrd">
-                                                                                    <rect key="frame" x="18" y="0.0" width="690.5" height="19"/>
+                                                                                    <rect key="frame" x="18" y="0.0" width="700.5" height="19"/>
                                                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                                                                     <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                     <nil key="highlightedColor"/>
@@ -183,10 +183,11 @@
                                                                     </constraints>
                                                                 </view>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OpY-Kt-XLE">
-                                                                    <rect key="frame" x="16" y="41.5" width="40" height="17"/>
+                                                                    <rect key="frame" x="16" y="35" width="30" height="30"/>
                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="40" id="lRl-iN-YDd"/>
+                                                                        <constraint firstAttribute="height" constant="30" id="VMb-zJ-NrZ"/>
+                                                                        <constraint firstAttribute="width" constant="30" id="lRl-iN-YDd"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -206,11 +207,12 @@
                                                         <accessibility key="accessibilityConfiguration">
                                                             <accessibilityTraits key="traits" button="YES"/>
                                                         </accessibility>
-                                                        <inset key="separatorInset" minX="27" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <connections>
                                                             <outlet property="dateLabel" destination="mck-OU-Xrd" id="m80-E9-Da7"/>
                                                             <outlet property="dateView" destination="Jog-dZ-DfL" id="wCA-8h-iHy"/>
                                                             <outlet property="expirationLabel" destination="OpY-Kt-XLE" id="KaC-7b-KPy"/>
+                                                            <outlet property="expirationLabelWidth" destination="lRl-iN-YDd" id="BNR-NW-wcP"/>
                                                             <outlet property="issuerLabel" destination="a5u-Sk-A3v" id="FWo-aT-cVe"/>
                                                             <outlet property="issuerValue" destination="Jca-mC-moW" id="QGg-92-Wz8"/>
                                                             <outlet property="issuerView" destination="9Do-s0-W9F" id="y36-jf-kgH"/>

@@ -17,6 +17,7 @@
 #define LINK_COLOR [ColorChart colorFromHexString:@"#0271E8"]
 #define COMPONENTS_BORDER_COLOR [ColorChart colorFromHexString:@"#707070"]
 #define ThemeColorWithAlpha(alpha) [THEME_COLOR colorWithAlphaComponent : alpha]
+#define COLOR_DARK_GREEN [ColorChart colorFromHexString:@"#116600"]
 
 @interface ColorChart : NSObject
 
