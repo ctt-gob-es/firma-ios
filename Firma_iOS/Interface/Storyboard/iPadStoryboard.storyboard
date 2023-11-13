@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xMB-Ak-RE7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xMB-Ak-RE7">
     <device id="ipad10_5" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment version="4352" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -270,6 +270,7 @@
                     <connections>
                         <outlet property="certificatesDescriptionLabel" destination="jZS-aW-Nir" id="IFd-Af-viR"/>
                         <outlet property="editTableView" destination="sK8-Dz-zu7" id="fMc-eA-agD"/>
+                        <outlet property="heightIntroductionText" destination="kgh-R5-9kE" id="frZ-gK-9q2"/>
                         <outlet property="logo" destination="xjn-pw-JxL" id="nWJ-VX-fJg"/>
                         <segue destination="Hwb-ff-pB4" kind="presentation" identifier="showSignVC" modalPresentationStyle="fullScreen" id="D7i-uO-FEB"/>
                     </connections>
@@ -820,8 +821,8 @@ http://administracionelectronica.gob.es/</string>
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="250" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aP4-9e-dRv">
-                                <rect key="frame" x="30" y="180" width="774" height="816"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="250" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aP4-9e-dRv">
+                                <rect key="frame" x="30" y="180" width="774" height="806"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">Bienvenido a "Cliente @firma iOS" 1.4.8
 
@@ -832,7 +833,7 @@ Para funcionar correctamente debe instalar un certificado electrónico y su clav
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I0p-Xi-caV">
-                                <rect key="frame" x="0.0" y="1070" width="834" height="50"/>
+                                <rect key="frame" x="0.0" y="1062" width="834" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <tabBarItem tag="2" title="Gestión de Certificados" image="cert_menu.png" id="Dea-Zs-0WA"/>
@@ -842,8 +843,8 @@ Para funcionar correctamente debe instalar un certificado electrónico y su clav
                                     <outlet property="delegate" destination="Ojg-KK-lu2" id="3ob-Ud-yCu"/>
                                 </connections>
                             </tabBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PET-dd-39J">
-                                <rect key="frame" x="20" y="1016" width="794" height="41"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PET-dd-39J">
+                                <rect key="frame" x="20" y="1006" width="794" height="41"/>
                                 <string key="text">Cliente @firma para Apple iOS 1.4.8
 © Derechos de copia: Gobierno de España, 2018 </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -860,12 +861,12 @@ Para funcionar correctamente debe instalar un certificado electrónico y su clav
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="aP4-9e-dRv" secondAttribute="centerX" id="1DN-LU-72d"/>
-                            <constraint firstItem="I0p-Xi-caV" firstAttribute="bottomMargin" secondItem="6cv-hH-Dxh" secondAttribute="top" id="Et0-aH-jNl"/>
                             <constraint firstAttribute="trailing" secondItem="I0p-Xi-caV" secondAttribute="trailing" id="J6E-EU-fOU"/>
                             <constraint firstItem="RqP-hm-2Vc" firstAttribute="leading" secondItem="Xjb-67-R6h" secondAttribute="leadingMargin" constant="20" id="LLe-AW-jvx"/>
+                            <constraint firstAttribute="bottom" secondItem="I0p-Xi-caV" secondAttribute="bottom" id="NdD-a5-i7s"/>
                             <constraint firstItem="RqP-hm-2Vc" firstAttribute="top" secondItem="A3G-Iu-LW7" secondAttribute="bottom" constant="10" id="O4w-Xy-ZW9"/>
                             <constraint firstItem="RqP-hm-2Vc" firstAttribute="centerX" secondItem="Xjb-67-R6h" secondAttribute="centerX" id="U91-mZ-TAk"/>
-                            <constraint firstItem="I0p-Xi-caV" firstAttribute="top" secondItem="PET-dd-39J" secondAttribute="bottom" constant="13" id="cHh-6U-ghI"/>
+                            <constraint firstItem="I0p-Xi-caV" firstAttribute="top" secondItem="PET-dd-39J" secondAttribute="bottom" constant="10" id="cHh-6U-ghI"/>
                             <constraint firstItem="PET-dd-39J" firstAttribute="top" secondItem="aP4-9e-dRv" secondAttribute="bottom" constant="20" id="hHQ-KG-2KQ"/>
                             <constraint firstItem="aP4-9e-dRv" firstAttribute="leading" secondItem="Xjb-67-R6h" secondAttribute="leadingMargin" constant="10" id="iwo-q1-oyd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="aP4-9e-dRv" secondAttribute="trailing" constant="10" id="nul-lZ-8Lu"/>
