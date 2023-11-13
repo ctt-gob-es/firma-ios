@@ -26,5 +26,6 @@ typedef NS_ENUM (NSInteger, AORegisteredCertificatesTVCMode)
 @property(nonatomic, assign) int numberOfRetries;
 @property (strong, nonatomic) AlertProgressBar *alertpb;
 @property (strong,nonatomic) IBOutlet UIImageView *logo;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightIntroductionText;
 
 @end

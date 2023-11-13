@@ -21,6 +21,7 @@
 #import "CommonAlert.h"
 #import "GlobalConstants.h"
 #import "AlertProgressBar.h"
+#import "UIFont+Utils.h"
 
 @interface AORegisteredCertificatesTVC ()
 {
@@ -78,6 +79,36 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self.navigationController.navigationBar setTintColor:THEME_COLOR];
     [self.editTableView setAllowsSelection:_mode == AORegisteredCertificatesTVCModeSign];
+    
+    self.heightIntroductionText.constant = [self heightForCertificatesDescriptionLabel] + 8; //Margen arriba y abajo
+}
+
+
+- (double) heightForCertificatesDescriptionLabel {
+    CGFloat screenWidth = [[UIScreen mainScreen] bounds].size.width - 42*2;
+    UIFont *font = [[UIFont alloc] mediumSystemFontScaled];
+    NSString *text = self.certificatesDescriptionLabel.text;
+    
+    NSTextStorage *textStorage = [[NSTextStorage alloc]
+                                  initWithString:text];
+    NSTextContainer *textContainer = [[NSTextContainer alloc] initWithSize:CGSizeMake(screenWidth, MAXFLOAT)];
+    NSLayoutManager *layoutManager = [[NSLayoutManager alloc] init];
+    [layoutManager addTextContainer:textContainer];
+    [textStorage addLayoutManager:layoutManager];
+    [textStorage addAttribute:NSFontAttributeName value:font
+                        range:NSMakeRange(0, [textStorage length])];
+    [textContainer setLineFragmentPadding:0.0];
+
+    [layoutManager glyphRangeForTextContainer:textContainer];
+    CGRect frame = [layoutManager usedRectForTextContainer:textContainer];
+    
+    
+    double height = frame.size.height;
+    int maxSize = 250;
+    if (height > maxSize) {
+        height = maxSize;
+    }
+    return height;
 }
 
 - (void)didReceiveMemoryWarning
