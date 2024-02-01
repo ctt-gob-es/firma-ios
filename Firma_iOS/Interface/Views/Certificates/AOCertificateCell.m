@@ -82,11 +82,14 @@ static const CGFloat expirationLabelDefaultWidhtHeight = 30;
 {
     NSTimeInterval secondsToExpirationDate = [[NSDate date] timeIntervalSinceDate:expirationDate];
     UIColor *color;
+    NSString *accessibilityText = @"";
     
     if (secondsToExpirationDate > 0) {
         color = COLOR_PRIORITY_RED;
+        accessibilityText = @"certificate_expired".localized;
     } else if (secondsToExpirationDate > kCertificateCellDate15DaysTimeInterval) {
         color = COLOR_PRIORITY_YELLOW;
+        accessibilityText = @"certificate_close_to_expire".localized;
     } else {
         color = nil;
     }
@@ -98,6 +101,8 @@ static const CGFloat expirationLabelDefaultWidhtHeight = 30;
         _expirationLabel.layer.cornerRadius = CGRectGetWidth(_expirationLabel.frame)/2;
         _expirationLabel.layer.masksToBounds = true;
         _expirationLabel.backgroundColor = color;
+        
+        _expirationLabel.accessibilityLabel = accessibilityText;
     } else {
         [_expirationLabel setHidden:YES];
         _expirationLabelWidth.constant = 0;
