@@ -26,6 +26,7 @@
     [textFormatted addAttribute:NSForegroundColorAttributeName value: LINK_COLOR range:NSMakeRange(0, [textFormatted length])];
         // Underline
     [textFormatted addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:NSMakeRange(0, [textFormatted length])];
+    
     return textFormatted;
 }
 

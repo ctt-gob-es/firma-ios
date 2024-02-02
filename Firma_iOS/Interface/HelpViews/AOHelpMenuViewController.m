@@ -44,7 +44,9 @@ NSMutableArray *tableData = NULL;
     self.screenName = @"IOS AOHelpMenuViewController - Help menu";
     
         // Help menu description
-    NSMutableAttributedString *helpMenuDescriptionAttributedString = [@"help_menu_description_label".localized getHtml:[UIFont systemFontOfSize:14]];
+    UIFont *helpMenuDescriptionFont = [UIFont systemFontOfSize:14];
+    NSMutableAttributedString *helpMenuDescriptionAttributedString = [@"help_menu_description_label".localized getHtml:helpMenuDescriptionFont];
+    [helpMenuDescriptionAttributedString addExternalLinkIcon:helpMenuDescriptionFont];
     [helpMenuDescriptionAttributedString align:NSTextAlignmentCenter];
     [self.helpMenuDescriptionLabel setAttributedText:helpMenuDescriptionAttributedString];
     

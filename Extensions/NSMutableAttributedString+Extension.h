@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSMutableAttributedString (Common)
 
 - (NSMutableAttributedString *) align: (NSTextAlignment)textAlignment;
+- (NSMutableAttributedString *) addAttachment: (UIImage *)image accesibilityLabel: (NSString *)accessibilityLabel textFont: (UIFont *)textFont;
+- (NSMutableAttributedString *) addExternalLinkIcon: (UIFont *)textFont;
 
 @end
 
