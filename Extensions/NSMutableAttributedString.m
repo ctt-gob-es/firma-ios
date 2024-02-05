@@ -46,8 +46,6 @@
         // Assign image to NSTextAttachment
     attachmentIcon.image = [[UIImage alloc] imageFromView:customView];
     
-        //attachmentIcon.image = image;
-    
         // Create a NSAttributedString with the attachment
     NSAttributedString *imageString = [NSAttributedString attributedStringWithAttachment:attachmentIcon];
         // Add attachment to the end of the text
