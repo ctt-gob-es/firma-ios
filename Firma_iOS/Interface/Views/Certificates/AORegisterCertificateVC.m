@@ -47,6 +47,7 @@
     self.passwordTextField.layer.borderWidth = 1.0f;
     self.passwordTextField.layer.borderColor = COMPONENTS_BORDER_COLOR.CGColor;
     self.passwordTextField.font = [[UIFont alloc] mediumSystemFontScaled];
+    self.passwordTextField.placeholder = @"password".localized;
     
         // Register button
     [self.registerCertificateRegisterButtonTitle setTitle:@"register_cretificate_register_button_title".localized forState:normal];

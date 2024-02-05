@@ -7,6 +7,7 @@
  NSLocalizedString(@"cerrar",nil)
  
  */
+"password" = "Password";
 "processing" = "Processing...";
 "processing_web_data" = "Preocessing web data.";
 "atencion" = "Warning!";
