@@ -18,6 +18,7 @@
 		9A7018FE2AD00478000B11D6 /* StoryboardUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7018FD2AD00478000B11D6 /* StoryboardUtils.m */; };
 		9A7019012AD03102000B11D6 /* AOAvailableCertificatesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7019002AD03102000B11D6 /* AOAvailableCertificatesCell.m */; };
 		9AB783512ACA9B98005C2B82 /* UIFont+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB783502ACA9B98005C2B82 /* UIFont+Utils.m */; };
+		9AD3D2B22B6CF23300F04B14 /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD3D2B12B6CEA1E00F04B14 /* UIImage+Utils.m */; };
 		A073AA7C2893E7FC00FE30CE /* BatchSignUseCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A073AA7B2893E7FC00FE30CE /* BatchSignUseCase.m */; };
 		A073AA7F2893F71E00FE30CE /* InputParametersBatch.m in Sources */ = {isa = PBXBuildFile; fileRef = A073AA7E2893F71E00FE30CE /* InputParametersBatch.m */; };
 		B2406F2E20C5CACA008ED085 /* AORegisteredCertificatesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F2920C5CACA008ED085 /* AORegisteredCertificatesTVC.m */; };
@@ -219,6 +220,8 @@
 		9A7019002AD03102000B11D6 /* AOAvailableCertificatesCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AOAvailableCertificatesCell.m; sourceTree = "<group>"; };
 		9AB7834F2ACA9A8A005C2B82 /* UIFont+Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIFont+Utils.h"; sourceTree = "<group>"; };
 		9AB783502ACA9B98005C2B82 /* UIFont+Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Utils.m"; sourceTree = "<group>"; };
+		9AD3D2B02B6CEA0400F04B14 /* UIImage+Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Utils.h"; sourceTree = "<group>"; };
+		9AD3D2B12B6CEA1E00F04B14 /* UIImage+Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Utils.m"; sourceTree = "<group>"; };
 		A073AA7A2893E7FC00FE30CE /* BatchSignUseCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BatchSignUseCase.h; sourceTree = "<group>"; };
 		A073AA7B2893E7FC00FE30CE /* BatchSignUseCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BatchSignUseCase.m; sourceTree = "<group>"; };
 		A073AA7D2893F71E00FE30CE /* InputParametersBatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputParametersBatch.h; sourceTree = "<group>"; };
@@ -794,6 +797,8 @@
 				B2AE16982133E3330082C892 /* GlobalConstants.m */,
 				9A7018FC2AD00416000B11D6 /* StoryboardUtils.h */,
 				9A7018FD2AD00478000B11D6 /* StoryboardUtils.m */,
+				9AD3D2B02B6CEA0400F04B14 /* UIImage+Utils.h */,
+				9AD3D2B12B6CEA1E00F04B14 /* UIImage+Utils.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1206,8 +1211,8 @@
 				ORGANIZATIONNAME = "Solid GEAR";
 				TargetAttributes = {
 					C30B3226163804620072A515 = {
-						DevelopmentTeam = 2H36E8KFN2;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = LCLHA32ZLW;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -1298,6 +1303,7 @@
 				A073AA7F2893F71E00FE30CE /* InputParametersBatch.m in Sources */,
 				C3B11DD016FB642B00C0D623 /* BIT_STRING.c in Sources */,
 				C3B11DD216FB642B00C0D623 /* CertificateSerialNumber.c in Sources */,
+				9AD3D2B22B6CF23300F04B14 /* UIImage+Utils.m in Sources */,
 				C3B11DD416FB642B00C0D623 /* CertificateSet.c in Sources */,
 				C3B11DD616FB642B00C0D623 /* CertPolicyId.c in Sources */,
 				C3B11DD816FB642B00C0D623 /* CMSVersion.c in Sources */,
@@ -1574,11 +1580,9 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "Cliente @firma.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 11;
-				DEVELOPMENT_TEAM = 2H36E8KFN2;
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2H36E8KFN2;
+				DEVELOPMENT_TEAM = LCLHA32ZLW;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1597,12 +1601,11 @@
 				);
 				MARKETING_VERSION = 1.8.3;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "es.gob.afirma.Cliente--firma";
+				PRODUCT_BUNDLE_IDENTIFIER = "es.abamobile.gob.afirma.Cliente--firma";
 				PRODUCT_NAME = "Cliente @firma";
 				PROVISIONING_PROFILE = "c08ed7da-989b-4719-b284-d895789fd7db";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "c08ed7da-989b-4719-b284-d895789fd7db";
-				PROVISIONING_PROFILE_SPECIFIER = "Cliente Afirma Movil - Development";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Cliente AFirma Development ABA";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};

@@ -33,7 +33,7 @@
     CGFloat topMargin = 0;
     CGFloat bottomMargin = 0;
     CGFloat leftMargin = 5.0;
-    CGFloat rightMargin = 5.0;
+    CGFloat rightMargin = 0.0;
     
         // Create a UIImageView for the icon
     UIImageView *iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(leftMargin, topMargin, image.size.width, image.size.height)];
@@ -45,6 +45,8 @@
     
         // Assign image to NSTextAttachment
     attachmentIcon.image = [[UIImage alloc] imageFromView:customView];
+    
+        //attachmentIcon.image = image;
     
         // Create a NSAttributedString with the attachment
     NSAttributedString *imageString = [NSAttributedString attributedStringWithAttachment:attachmentIcon];

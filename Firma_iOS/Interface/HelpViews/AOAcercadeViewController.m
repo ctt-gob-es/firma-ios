@@ -42,7 +42,7 @@
     
         // More info button
     NSMutableAttributedString *moreInfoButtonText = @"more_info_button".localized.linkStyle;
-    [moreInfoButtonText addExternalLinkIcon:self.masInfoButton.font];
+    [moreInfoButtonText addExternalLinkIcon:self.masInfoButton.titleLabel.font];
     [self.masInfoButton setAttributedTitle: moreInfoButtonText forState:UIControlStateNormal];
     
     [self fillTextForFrequentlyAskedQuestionsTitleLabel];

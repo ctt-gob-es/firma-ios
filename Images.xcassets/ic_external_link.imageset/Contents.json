@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "ic_external_link.png",
+      "filename" : "ic_externo.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "ic_externo@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "ic_externo@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
