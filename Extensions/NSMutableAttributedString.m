@@ -26,8 +26,10 @@
     NSTextAttachment *attachmentIcon = [[NSTextAttachment alloc] init];
     attachmentIcon.accessibilityLabel = accessibilityLabel;
     
+    
         // Center attachment icon on line
-    [attachmentIcon setBounds:CGRectMake(0, roundf(textFont.capHeight - image.size.height)/2.f, image.size.width, image.size.height)];
+    CGFloat imageWidthAndHeight = [[UIFontMetrics defaultMetrics] scaledValueForValue:textFont.capHeight];
+    [attachmentIcon setBounds:CGRectMake(0, roundf(textFont.capHeight - imageWidthAndHeight)/2.f, imageWidthAndHeight, imageWidthAndHeight)];
     
         // Set margins for the attachment
     CGFloat topMargin = 0;
@@ -36,11 +38,11 @@
     CGFloat rightMargin = 0.0;
     
         // Create a UIImageView for the icon
-    UIImageView *iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(leftMargin, topMargin, image.size.width, image.size.height)];
+    UIImageView *iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(leftMargin, topMargin, imageWidthAndHeight, imageWidthAndHeight)];
     iconImageView.image = image;
     
         // Create a custom view with margins around the attachment icon
-    UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, image.size.width + leftMargin + rightMargin, image.size.height + topMargin + bottomMargin)];
+    UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, imageWidthAndHeight + leftMargin + rightMargin, imageWidthAndHeight + topMargin + bottomMargin)];
     [customView addSubview:iconImageView];
     
         // Assign image to NSTextAttachment
