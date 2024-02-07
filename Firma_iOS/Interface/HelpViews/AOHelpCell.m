@@ -22,7 +22,7 @@
     [_label setText:cellLabel];
 }
 
--(UILabel*) getCellLabel {
+- (UILabel*) getCellLabel {
     return _label;
 }
 
