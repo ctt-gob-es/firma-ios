@@ -9,6 +9,7 @@
 #import "NSMutableAttributedString+Extension.h"
 #import "AOHelpCell.h"
 #import "GlobalConstants.h"
+#import "UIFont+Utils.h"
 
 @interface AOHelpMenuViewController ()
 
@@ -35,11 +36,8 @@ NSMutableArray *tableData = NULL;
     
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     
+        // Load data
     [self populateTable];
-        //definimos los bordes de la tabla.
-    self.tblViewHelp.layer.borderWidth = 0.5;
-    self.tblViewHelp.layer.borderColor = [[UIColor grayColor] CGColor];
-    self.tblViewHelp.layer.cornerRadius = 6.0f;
     
     self.screenName = @"IOS AOHelpMenuViewController - Help menu";
     
@@ -50,15 +48,22 @@ NSMutableArray *tableData = NULL;
     [helpMenuDescriptionAttributedString align:NSTextAlignmentCenter];
     [self.helpMenuDescriptionLabel setAttributedText:helpMenuDescriptionAttributedString];
     
+        // Help menu
     [self.helpMenuTitle setText: @"help_menu_title".localized];
     self.title = @"help".localized ;
     
         // Logo
     self.logo.accessibilityLabel = @"logo".localized;
     
+        // Table
+        // Borders
+    self.tblViewHelp.layer.borderWidth = 0.5;
+    self.tblViewHelp.layer.borderColor = [[UIColor grayColor] CGColor];
+    self.tblViewHelp.layer.cornerRadius = 6.0f;
         // Necessary for the cells to adjust their height automatically
     self.tblViewHelp.estimatedRowHeight = 44.0;
     self.tblViewHelp.rowHeight = UITableViewAutomaticDimension;
+    self.tblViewHelpHeight.constant = [self calculateTotalTableHeight];
     
         // If it is an iPad we increase it and it is in a vertical position, we increase the height of the text below the table
     if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation) && ([(NSString*)[UIDevice currentDevice].model hasPrefix:IPAD] )) {
@@ -82,6 +87,11 @@ NSMutableArray *tableData = NULL;
     }
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear: animated];
+}
+
+
 - (IBAction)goBackHome:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
@@ -92,7 +102,7 @@ NSMutableArray *tableData = NULL;
         // Dispose of any resources that can be recreated.
 }
 
-    //Carga en la lista de almacenes los almacenes encontrados en Itunes.
+    // We configure the options available in the table
 -(void)populateTable {
     
     tableData = [[NSMutableArray alloc] init];
@@ -102,7 +112,49 @@ NSMutableArray *tableData = NULL;
     [tableData addObject: @"help_preguntas".localized];
     [tableData addObject: @"privacy_policy".localized];
     [tableData addObject: @"accesibility_statement".localized];
+}
+
+    // Method to get the height of the table
+- (CGFloat)calculateTotalTableHeight {
+    CGFloat totalHeight = 0.0;
     
+        // totalHeight = [tableData count] * tblViewHelp.estimatedRowHeight;
+    
+        // TODO TEST
+    for (NSInteger section = 0; section < [self.tblViewHelp numberOfSections]; section++) {
+        for (NSInteger row = 0; row < [self.tblViewHelp numberOfRowsInSection:section]; row++) {
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
+            UITableViewCell *cell = [self.tblViewHelp cellForRowAtIndexPath:indexPath];
+            
+            CGFloat contentHeight = [self heightForCell:cell];
+            totalHeight += contentHeight;
+        }
+    }
+    
+    NSLog(@"TABLE HEIGHT %f", totalHeight);
+    
+    return totalHeight;
+}
+
+    // Method to calculate the height of the cell that is passed by parameter
+- (CGFloat)heightForCell:(UITableViewCell *)cell {
+    AOHelpCell *helpCell = (AOHelpCell *)cell;
+    UILabel *label = [helpCell getCellLabel];
+    
+    NSLog(@"**CELL %@", label.text);
+    NSLog(@"\tFont =  %@", label.font);
+    UIFont *fontScaled = [[UIFont alloc] scaledSystemFont:label.font.pointSize iPadFontSize:label.font.pointSize];
+    NSLog(@"\tFont scaled=  %@", fontScaled);
+    
+    CGSize size = [label.text sizeWithAttributes:@{NSFontAttributeName: fontScaled}];
+    
+    CGFloat height = size.height;
+    
+    NSLog(@"HEIGHT FOR CELL %@ == %f", label.text, height);
+    
+        // TODO It is failing, returns the same value for all cells, and some occupy two lines
+    
+    return height;
 }
 
 /******************************************************************/
@@ -111,7 +163,7 @@ NSMutableArray *tableData = NULL;
 
 #pragma mark -
 #pragma mark Table view data source
-    // Detalla el numbre de secciones en la tabla.
+    // Detalla el nombre de secciones en la tabla.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -170,10 +222,5 @@ NSMutableArray *tableData = NULL;
             // Se ignora
     }
 }
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear: animated];
-}
-
 
 @end

@@ -280,9 +280,10 @@
                 errorToSend = [errorToSend stringByAppendingString:ERROR_SEPARATOR];
                 errorToSend = [errorToSend stringByAppendingString:DESC_ERROR_MISSING_DATA];
                 
-                if(_stServletCert != NULL & _idDocCert != NULL)
+                if(_stServletCert != NULL & _idDocCert != NULL) {
                     [self errorReportAsync:errorToSend];
-                NSLog(@"ERROR: %@", errorToSend);
+                    NSLog(@"ERROR: %@", errorToSend);
+                }
                 [CommonAlert createAlertWithTitle: @"error".localized message: @"no_datos_firmar".localized cancelButtonTitle: @"cerrar".localized showOn:self];
                 [self.editTableView setAllowsSelection:NO];
             } else {

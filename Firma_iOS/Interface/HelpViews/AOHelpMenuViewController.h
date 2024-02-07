@@ -16,5 +16,6 @@
 @property (strong, nonatomic) IBOutlet UITextView *helpMenuDescriptionLabel;
 @property (strong, nonatomic) IBOutlet UILabel *helpMenuTitle;
 @property (strong,nonatomic) IBOutlet UIImageView *logo;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tblViewHelpHeight;
 
 @end

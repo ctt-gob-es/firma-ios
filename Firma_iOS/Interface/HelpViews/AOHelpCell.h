@@ -11,6 +11,6 @@
 @interface AOHelpCell : UITableViewCell
 
 - (void)setCellLabel:(NSString *)cellLabel;
-
+-(UILabel*) getCellLabel;
 @end
 
