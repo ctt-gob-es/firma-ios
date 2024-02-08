@@ -117,10 +117,6 @@ NSMutableArray *tableData = NULL;
     // Method to get the height of the table
 - (CGFloat)calculateTotalTableHeight {
     CGFloat totalHeight = 0.0;
-    
-        // totalHeight = [tableData count] * tblViewHelp.estimatedRowHeight;
-    
-        // TODO TEST
     for (NSInteger section = 0; section < [self.tblViewHelp numberOfSections]; section++) {
         for (NSInteger row = 0; row < [self.tblViewHelp numberOfRowsInSection:section]; row++) {
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
@@ -130,29 +126,22 @@ NSMutableArray *tableData = NULL;
             totalHeight += contentHeight;
         }
     }
-    
-    NSLog(@"TABLE HEIGHT %f", totalHeight);
-    
     return totalHeight;
 }
 
     // Method to calculate the height of the cell that is passed by parameter
 - (CGFloat)heightForCell:(UITableViewCell *)cell {
+        // Get cell label
     AOHelpCell *helpCell = (AOHelpCell *)cell;
     UILabel *label = [helpCell getCellLabel];
     
-    NSLog(@"**CELL %@", label.text);
-    NSLog(@"\tFont =  %@", label.font);
+        // Scale the font based on what the user has selected
     UIFont *fontScaled = [[UIFont alloc] scaledSystemFont:label.font.pointSize iPadFontSize:label.font.pointSize];
-    NSLog(@"\tFont scaled=  %@", fontScaled);
-    
+        // Calculate label size based on font
     CGSize size = [label.text sizeWithAttributes:@{NSFontAttributeName: fontScaled}];
     
     CGFloat height = size.height;
-    
-    NSLog(@"HEIGHT FOR CELL %@ == %f", label.text, height);
-    
-        // TODO It is failing, returns the same value for all cells, and some occupy two lines
+    height += fontScaled.lineHeight;
     
     return height;
 }

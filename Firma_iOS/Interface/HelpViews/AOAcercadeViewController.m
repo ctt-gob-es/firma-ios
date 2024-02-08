@@ -70,21 +70,21 @@
     [aboutDescriptionAttributedString appendAttributedString:aboutDescriptionAttributedString1];
     
         // 2nd paragraph
-    NSString *aboutDescription2 = [NSString stringWithFormat: @"about_description_label_2".localized];
+    NSString *aboutDescription2 = [NSString stringWithFormat: @"%@", @"about_description_label_2".localized];
     NSMutableAttributedString *aboutDescriptionAttributedString2 = [aboutDescription2 getHtml:aboutDescriptionFont];
         // Add external link icon
     [aboutDescriptionAttributedString2 addExternalLinkIcon:aboutDescriptionFont];
     [aboutDescriptionAttributedString appendAttributedString:aboutDescriptionAttributedString2];
     
         // 3rd paragraph
-    NSString *aboutDescription3 = [NSString stringWithFormat: @"about_description_label_3".localized];
+    NSString *aboutDescription3 = [NSString stringWithFormat: @"%@", @"about_description_label_3".localized];
     NSMutableAttributedString *aboutDescriptionAttributedString3 = [aboutDescription3 getHtml:aboutDescriptionFont];
         // Add external link icon
     [aboutDescriptionAttributedString3 addExternalLinkIcon:aboutDescriptionFont];
     [aboutDescriptionAttributedString appendAttributedString:aboutDescriptionAttributedString3];
     
         // 4th paragraph
-    NSString *aboutDescription4 = [NSString stringWithFormat: @"about_description_label_4".localized];
+    NSString *aboutDescription4 = [NSString stringWithFormat: @"%@", @"about_description_label_4".localized];
     NSMutableAttributedString *aboutDescriptionAttributedString4 = [aboutDescription4 getHtml:aboutDescriptionFont];
         // Add external link icon
     [aboutDescriptionAttributedString4 addExternalLinkIcon:aboutDescriptionFont];

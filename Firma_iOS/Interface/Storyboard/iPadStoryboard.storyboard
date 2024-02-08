@@ -638,7 +638,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rmY-CM-YMa">
-                                <rect key="frame" x="29" y="174.5" width="776" height="884.5"/>
+                                <rect key="frame" x="29" y="174.5" width="776" height="907.5"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">"Cliente @firma para Apple iOS" v1.4.8
 2013 Gobierno de España
@@ -665,7 +665,7 @@ http://forja-ctt.administracionelectronica.gob.es/web/clienteafirma</string>
                         <constraints>
                             <constraint firstItem="B4J-dJ-vIE" firstAttribute="top" secondItem="XJL-Gs-CG2" secondAttribute="bottom" constant="347" id="7TU-BL-y2W"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fiK-fi-vDZ" secondAttribute="trailing" constant="20" id="CLE-hm-J3B"/>
-                            <constraint firstItem="XJL-Gs-CG2" firstAttribute="top" secondItem="rmY-CM-YMa" secondAttribute="bottom" constant="53" id="P1z-h5-MZE"/>
+                            <constraint firstItem="XJL-Gs-CG2" firstAttribute="top" secondItem="rmY-CM-YMa" secondAttribute="bottom" constant="30" id="P1z-h5-MZE"/>
                             <constraint firstItem="Akc-AJ-Nyw" firstAttribute="leading" secondItem="zpb-ey-ZAT" secondAttribute="leadingMargin" id="Pym-FE-PZJ"/>
                             <constraint firstItem="Akc-AJ-Nyw" firstAttribute="trailing" secondItem="zpb-ey-ZAT" secondAttribute="trailingMargin" id="Tjo-il-rIZ"/>
                             <constraint firstItem="Akc-AJ-Nyw" firstAttribute="top" secondItem="fiK-fi-vDZ" secondAttribute="bottom" constant="30" id="Ut7-Eb-hG7"/>
