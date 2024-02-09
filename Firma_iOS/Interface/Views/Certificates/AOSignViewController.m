@@ -103,15 +103,19 @@ SecKeyRef privateKey = NULL;
     [self.signCertificateSelectorLabel setText: @"selectcert_certificate_selector_label".localized];
     [self.signCertificateDescriptionLabel setText: @"selectcert_certificate_description_label".localized];
     self.title = @"send".localized;
-    [self.signButton setTitle: @"send".localized forState:UIControlStateNormal];
-    [self.signButton.titleLabel setFont:[[UIFont alloc] mediumSystemFontScaled]];
+    [self setSignBtnText:@"send"];
 }
 
 -(void) applySignCertificateText {
     [self.signCertificateSelectorLabel setText: @"sign_certificate_selector_label".localized];
     [self.signCertificateDescriptionLabel setText: @"sign_certificate_description_label".localized];
     self.title = @"sign".localized;
-    [self.signButton setTitle: @"sign".localized forState:UIControlStateNormal];
+    [self setSignBtnText:@"sign"];
+}
+
+- (void)setSignBtnText: (NSString *)text {
+    [self.signButton setTitle: text.localized forState:UIControlStateNormal];
+    [self.signButton.titleLabel setFont:[[UIFont alloc] mediumSystemFontScaled]];
 }
 
 

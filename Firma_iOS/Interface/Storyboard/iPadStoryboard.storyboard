@@ -510,67 +510,75 @@
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Certificado:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3B4-eC-jL3">
-                                <rect key="frame" x="20" y="172" width="794" height="24"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-MediumItalic" family="Helvetica Neue" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Se va a utilizar este certificado para realizar la firma. Pulse el siguiente botón para iniciar el proceso." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Q9n-WW-Wbv">
-                                <rect key="frame" x="20" y="216" width="794" height="36.5"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rRw-wY-ncA">
-                                <rect key="frame" x="268" y="322.5" width="300" height="55"/>
-                                <color key="backgroundColor" red="0.59864145517349243" green="0.0" blue="0.091977573931217194" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NON-7Q-VKG">
+                                <rect key="frame" x="20" y="20" width="814" height="1072"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Certificado:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3B4-eC-jL3">
+                                        <rect key="frame" x="20" y="162" width="774" height="24"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-MediumItalic" family="Helvetica Neue" pointSize="20"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Se va a utilizar este certificado para realizar la firma. Pulse el siguiente botón para iniciar el proceso." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Q9n-WW-Wbv">
+                                        <rect key="frame" x="20" y="206" width="774" height="36.5"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rRw-wY-ncA">
+                                        <rect key="frame" x="258" y="312.5" width="300" height="55"/>
+                                        <color key="backgroundColor" red="0.59864145517349243" green="0.0" blue="0.091977573931217194" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="55" id="0fG-PO-xMN"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="hOg-ME-R0o"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="Firmar">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didClickSignButton:" destination="Hwb-ff-pB4" eventType="touchUpInside" id="8ds-eI-2SX"/>
+                                        </connections>
+                                    </button>
+                                    <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Se ha seleccionado el siguiente certificado del almacén:" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eK5-Is-6ed">
+                                        <rect key="frame" x="20" y="105" width="774" height="37"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="G9e-wl-fiY">
+                                        <rect key="frame" x="44" y="0.0" width="726" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="Q2C-wf-pci"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="55" id="0fG-PO-xMN"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="hOg-ME-R0o"/>
+                                    <constraint firstItem="3B4-eC-jL3" firstAttribute="leading" secondItem="eK5-Is-6ed" secondAttribute="leading" id="10f-V3-Hcr"/>
+                                    <constraint firstItem="3B4-eC-jL3" firstAttribute="trailing" secondItem="Q9n-WW-Wbv" secondAttribute="trailing" id="3Rx-6h-Fod"/>
+                                    <constraint firstAttribute="bottom" secondItem="rRw-wY-ncA" secondAttribute="bottom" id="63W-G4-n9C"/>
+                                    <constraint firstItem="G9e-wl-fiY" firstAttribute="top" secondItem="NON-7Q-VKG" secondAttribute="top" id="6oA-DI-KVE"/>
+                                    <constraint firstItem="Q9n-WW-Wbv" firstAttribute="top" secondItem="3B4-eC-jL3" secondAttribute="bottom" constant="20" id="8oj-iT-YLZ"/>
+                                    <constraint firstItem="3B4-eC-jL3" firstAttribute="trailing" secondItem="eK5-Is-6ed" secondAttribute="trailing" id="IEi-nP-K4a"/>
+                                    <constraint firstItem="rRw-wY-ncA" firstAttribute="centerX" secondItem="NON-7Q-VKG" secondAttribute="centerX" constant="1" id="L4q-if-20N"/>
+                                    <constraint firstItem="Q9n-WW-Wbv" firstAttribute="leading" secondItem="NON-7Q-VKG" secondAttribute="leading" constant="20" id="LQ8-4n-toR"/>
+                                    <constraint firstItem="eK5-Is-6ed" firstAttribute="centerX" secondItem="NON-7Q-VKG" secondAttribute="centerX" id="T5L-33-6q6"/>
+                                    <constraint firstItem="3B4-eC-jL3" firstAttribute="top" secondItem="eK5-Is-6ed" secondAttribute="bottom" constant="20" id="aLb-y2-P0D"/>
+                                    <constraint firstItem="G9e-wl-fiY" firstAttribute="centerX" secondItem="NON-7Q-VKG" secondAttribute="centerX" id="ba6-GL-XLD"/>
+                                    <constraint firstItem="3B4-eC-jL3" firstAttribute="leading" secondItem="Q9n-WW-Wbv" secondAttribute="leading" id="i6s-Pf-YpB"/>
+                                    <constraint firstItem="eK5-Is-6ed" firstAttribute="top" secondItem="G9e-wl-fiY" secondAttribute="bottom" constant="25" id="qS6-9e-jbG"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="Q9n-WW-Wbv" secondAttribute="trailing" constant="20" id="uHP-q7-Xwu"/>
+                                    <constraint firstItem="rRw-wY-ncA" firstAttribute="top" secondItem="Q9n-WW-Wbv" secondAttribute="bottom" constant="70" id="yvi-Ko-BOq"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="Firmar">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="didClickSignButton:" destination="Hwb-ff-pB4" eventType="touchUpInside" id="8ds-eI-2SX"/>
-                                </connections>
-                            </button>
-                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Se ha seleccionado el siguiente certificado del almacén:" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eK5-Is-6ed">
-                                <rect key="frame" x="20" y="115" width="794" height="37"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo_cliente.png" translatesAutoresizingMaskIntoConstraints="NO" id="G9e-wl-fiY">
-                                <rect key="frame" x="40" y="10" width="754" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="Q2C-wf-pci"/>
-                                </constraints>
-                            </imageView>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Q9n-WW-Wbv" firstAttribute="top" secondItem="3B4-eC-jL3" secondAttribute="bottom" constant="20" id="1K8-XT-Olu"/>
-                            <constraint firstItem="rRw-wY-ncA" firstAttribute="centerX" secondItem="BkH-Ru-yhZ" secondAttribute="centerX" constant="1" id="1UR-3y-N55"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="G9e-wl-fiY" secondAttribute="trailing" constant="20" id="2gw-3g-w9m"/>
-                            <constraint firstItem="eK5-Is-6ed" firstAttribute="top" secondItem="G9e-wl-fiY" secondAttribute="bottom" constant="25" id="2vh-dH-LfV"/>
-                            <constraint firstItem="G9e-wl-fiY" firstAttribute="top" secondItem="kTh-ID-vsK" secondAttribute="bottom" constant="10" id="4Qp-Hb-Kxf"/>
-                            <constraint firstItem="rRw-wY-ncA" firstAttribute="top" secondItem="Q9n-WW-Wbv" secondAttribute="bottom" constant="70" id="6NY-x6-CNQ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="eK5-Is-6ed" secondAttribute="trailing" id="83X-Uf-d1y"/>
-                            <constraint firstItem="eK5-Is-6ed" firstAttribute="leading" secondItem="BkH-Ru-yhZ" secondAttribute="leadingMargin" id="9Xv-js-ngX"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Q9n-WW-Wbv" secondAttribute="trailing" id="D1J-WJ-o9c"/>
-                            <constraint firstItem="3B4-eC-jL3" firstAttribute="leading" secondItem="Q9n-WW-Wbv" secondAttribute="leading" id="Ef8-Wq-Q03"/>
-                            <constraint firstItem="3B4-eC-jL3" firstAttribute="top" secondItem="eK5-Is-6ed" secondAttribute="bottom" constant="20" id="FFZ-3C-G3h"/>
-                            <constraint firstItem="G9e-wl-fiY" firstAttribute="centerX" secondItem="BkH-Ru-yhZ" secondAttribute="centerX" id="Iq5-Ga-9Cw"/>
-                            <constraint firstItem="3B4-eC-jL3" firstAttribute="leading" secondItem="eK5-Is-6ed" secondAttribute="leading" id="Mab-Jm-4rq"/>
-                            <constraint firstItem="3B4-eC-jL3" firstAttribute="trailing" secondItem="eK5-Is-6ed" secondAttribute="trailing" id="NEL-Hi-U30"/>
-                            <constraint firstItem="3B4-eC-jL3" firstAttribute="trailing" secondItem="Q9n-WW-Wbv" secondAttribute="trailing" id="WMd-sI-PJZ"/>
-                            <constraint firstItem="3B4-eC-jL3" firstAttribute="trailing" secondItem="BkH-Ru-yhZ" secondAttribute="trailingMargin" id="hUZ-dH-mwU"/>
-                            <constraint firstItem="eK5-Is-6ed" firstAttribute="centerX" secondItem="BkH-Ru-yhZ" secondAttribute="centerX" id="rqL-Nj-Kmt"/>
-                            <constraint firstItem="G9e-wl-fiY" firstAttribute="leading" secondItem="BkH-Ru-yhZ" secondAttribute="leadingMargin" constant="20" id="vjx-X5-U5T"/>
+                            <constraint firstItem="NON-7Q-VKG" firstAttribute="top" secondItem="BkH-Ru-yhZ" secondAttribute="topMargin" constant="20" id="8pM-Sr-Ofw"/>
+                            <constraint firstAttribute="bottom" secondItem="NON-7Q-VKG" secondAttribute="bottom" constant="20" id="WLZ-c8-gdB"/>
+                            <constraint firstAttribute="trailing" secondItem="NON-7Q-VKG" secondAttribute="trailing" id="de5-l4-CK7"/>
+                            <constraint firstItem="NON-7Q-VKG" firstAttribute="leading" secondItem="BkH-Ru-yhZ" secondAttribute="leadingMargin" id="uLI-2I-vHH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Firma Electrónica" id="uxI-Y5-c79"/>
