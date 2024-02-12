@@ -10,6 +10,7 @@
 #import "AOHelpCell.h"
 #import "GlobalConstants.h"
 #import "UIFont+Utils.h"
+#import "AOHelpOptionView.h"
 
 @interface AOHelpMenuViewController ()
 
@@ -17,8 +18,6 @@
 
 @implementation AOHelpMenuViewController
 
-@synthesize tblViewHelp;
-NSMutableArray *tableData = NULL;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,10 +35,17 @@ NSMutableArray *tableData = NULL;
     
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     
-        // Load data
-    [self populateTable];
-    
     self.screenName = @"IOS AOHelpMenuViewController - Help menu";
+    
+        // Logo
+    self.logo.accessibilityLabel = @"logo".localized;
+    
+        // Help menu
+    [self.helpMenuTitle setText: @"help_menu_title".localized];
+    self.title = @"help".localized ;
+    
+        // Help options
+    [self configureHelpOptions];
     
         // Help menu description
     UIFont *helpMenuDescriptionFont = [UIFont systemFontOfSize:14];
@@ -47,44 +53,6 @@ NSMutableArray *tableData = NULL;
     [helpMenuDescriptionAttributedString addExternalLinkIcon:helpMenuDescriptionFont];
     [helpMenuDescriptionAttributedString align:NSTextAlignmentCenter];
     [self.helpMenuDescriptionLabel setAttributedText:helpMenuDescriptionAttributedString];
-    
-        // Help menu
-    [self.helpMenuTitle setText: @"help_menu_title".localized];
-    self.title = @"help".localized ;
-    
-        // Logo
-    self.logo.accessibilityLabel = @"logo".localized;
-    
-        // Table
-        // Borders
-    self.tblViewHelp.layer.borderWidth = 0.5;
-    self.tblViewHelp.layer.borderColor = [[UIColor grayColor] CGColor];
-    self.tblViewHelp.layer.cornerRadius = 6.0f;
-        // Necessary for the cells to adjust their height automatically
-    self.tblViewHelp.estimatedRowHeight = 44.0;
-    self.tblViewHelp.rowHeight = UITableViewAutomaticDimension;
-    self.tblViewHelpHeight.constant = [self calculateTotalTableHeight];
-    
-        // If it is an iPad we increase it and it is in a vertical position, we increase the height of the text below the table
-    if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation) && ([(NSString*)[UIDevice currentDevice].model hasPrefix:IPAD] )) {
-        
-        self.tblViewHelp.translatesAutoresizingMaskIntoConstraints = YES;
-        
-        dispatch_async(dispatch_get_main_queue(), ^(void){
-            CGFloat descriptionLabelNewSize = 300;
-            
-                // Update helpMenuDescriptionLabel height
-            CGRect descriptionLabelFrame= self.helpMenuDescriptionLabel.frame;
-            descriptionLabelFrame.size.height = descriptionLabelNewSize;
-            [self.helpMenuDescriptionLabel setFrame:descriptionLabelFrame];
-            
-                // Update tblViewHelp height
-            CGRect tableFrame= self.tblViewHelp.frame;
-            tableFrame.size.height = tableFrame.size.height - descriptionLabelNewSize;
-            [self.tblViewHelp setFrame:tableFrame];
-            [self.tblViewHelp setNeedsDisplay];
-        });
-    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -102,114 +70,79 @@ NSMutableArray *tableData = NULL;
         // Dispose of any resources that can be recreated.
 }
 
-    // We configure the options available in the table
--(void)populateTable {
+    // Method to configure the available help options
+- (void) configureHelpOptions {
+        // Options view
+        // Border
+    self.optionsView.layer.borderWidth = 1;
+    self.optionsView.layer.borderColor = [[UIColor grayColor] CGColor];
+    self.optionsView.layer.cornerRadius =  6.0f;
     
-    tableData = [[NSMutableArray alloc] init];
-    
-    [tableData addObject: @"help_acercade".localized];
-    [tableData addObject: @"help_instalar_certificados".localized];
-    [tableData addObject: @"help_preguntas".localized];
-    [tableData addObject: @"privacy_policy".localized];
-    [tableData addObject: @"accesibility_statement".localized];
+        // Configure each option
+    UIFont *optionsFont = [[UIFont alloc] mediumSystemFontScaled];
+        // First option
+    [self configureHelpOption:self.firstOption text:@"help_acercade" font:optionsFont action:@selector(firstHelpOptionSelector)];
+        // Second option
+    [self configureHelpOption:self.secondOption text:@"help_instalar_certificados" font:optionsFont action:@selector(secondHelpOptionSelector)];
+        // Third option
+    [self configureHelpOption:self.thirdOption text:@"help_preguntas" font:optionsFont action:@selector(thirdHelpOptionSelector)];
+        // Fourth option
+    [self configureHelpOption:self.fourthOption text:@"privacy_policy" font:optionsFont action:@selector(fourthHelpOptionSelector)];
+        // Fifth option
+    [self configureHelpOption:self.fifthOption text:@"accesibility_statement" font:optionsFont action:@selector(fifthHelpOptionSelector)];
 }
 
-    // Method to get the height of the table
-- (CGFloat)calculateTotalTableHeight {
-    CGFloat totalHeight = 0.0;
-    for (NSInteger section = 0; section < [self.tblViewHelp numberOfSections]; section++) {
-        for (NSInteger row = 0; row < [self.tblViewHelp numberOfRowsInSection:section]; row++) {
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
-            UITableViewCell *cell = [self.tblViewHelp cellForRowAtIndexPath:indexPath];
-            
-            CGFloat contentHeight = [self heightForCell:cell];
-            totalHeight += contentHeight;
-        }
-    }
-    return totalHeight;
+    // Method to configure each available option
+- (void) configureHelpOption:(UIView *)view text:(NSString *)text font:(UIFont *)textFont action:(SEL)selector {
+    
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:selector];
+    
+    AOHelpOptionView *option = (AOHelpOptionView *)view;
+    [option configureOption:text.localized font:textFont];
+    [option addGestureRecognizer:tapGestureRecognizer];
 }
 
-    // Method to calculate the height of the cell that is passed by parameter
-- (CGFloat)heightForCell:(UITableViewCell *)cell {
-        // Get cell label
-    AOHelpCell *helpCell = (AOHelpCell *)cell;
-    UILabel *label = [helpCell getCellLabel];
-    
-        // Scale the font based on what the user has selected
-    UIFont *fontScaled = [[UIFont alloc] scaledSystemFont:label.font.pointSize iPadFontSize:label.font.pointSize];
-        // Calculate label size based on font
-    CGSize size = [label.text sizeWithAttributes:@{NSFontAttributeName: fontScaled}];
-    
-    CGFloat height = size.height;
-    height += fontScaled.lineHeight;
-    
-    return height;
-}
 
-/******************************************************************/
-/******** METODOS IMPLEMENTADOS DE LA TABLA DE CERTIFICADOS *******/
-/******************************************************************/
-
-#pragma mark -
-#pragma mark Table view data source
-    // Detalla el nombre de secciones en la tabla.
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-    // Detalla el número de filas en la tabla.
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [tableData count];
-}
-
-    // Detalla la apariencia de las celdas.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    AOHelpCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HelpCell"];
-    
-    [cell setCellLabel:[tableData objectAtIndex:indexPath.row]];
-    [cell setSelectionStyle: UITableViewCellSelectionStyleDefault];
-    [cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
-    
-    return cell;
-}
-
-    //Nos devuelve la fila seleccionada.
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+    // Method that sets the action for the first help option
+- (void)firstHelpOptionSelector
 {
-    int fila = (int)indexPath.row;
-    @try {
-        if(fila==0 || fila == 1 || fila == 2){
-            NSString *destinationVCName;
-            switch(fila){
-                case 0:
-                    destinationVCName = @"AboutScreen";
-                    break;
-                case 1:
-                    destinationVCName = @"CertificateInstallationScreen";
-                    break;
-                case 2:
-                    destinationVCName = @"FrequentlyQuestionsScreen";
-                    break;
-            }
-            UIViewController *destinationController = [self.storyboard instantiateViewControllerWithIdentifier:destinationVCName];
-            [self.navigationController pushViewController:destinationController animated:YES];
-        }
-        else if (fila==3) {
-                // Open privacy policy
-            NSURL* privacyPolicyUrl = [NSURL URLWithString: @"url_privacy_policy".localized];
-            if( [[UIApplication sharedApplication] canOpenURL:privacyPolicyUrl])
-                [[UIApplication sharedApplication] openURL:privacyPolicyUrl options:@{} completionHandler:nil];
-        }
-        else if (fila==4) {
-                // Open accesibility statement
-            NSURL* accesibiltyUrl = [NSURL URLWithString: @"url_accessibility_statement".localized];
-            if( [[UIApplication sharedApplication] canOpenURL:accesibiltyUrl])
-                [[UIApplication sharedApplication] openURL:accesibiltyUrl options:@{} completionHandler:nil];
-        }
-    }
-    @catch (NSException *e) {
-            // Se ignora
-    }
+        // Go to About Screen
+    UIViewController *destinationController = [self.storyboard instantiateViewControllerWithIdentifier:@"AboutScreen"];
+    [self.navigationController pushViewController:destinationController animated:YES];
+}
+
+    // Method that sets the action for the second help option
+- (void)secondHelpOptionSelector
+{
+        // Go to Certificate Installation Screen
+    UIViewController *destinationController = [self.storyboard instantiateViewControllerWithIdentifier:@"CertificateInstallationScreen"];
+    [self.navigationController pushViewController:destinationController animated:YES];
+}
+
+    // Method that sets the action for the third help option
+- (void)thirdHelpOptionSelector
+{
+        // Go to Frequently Questions Screen
+    UIViewController *destinationController = [self.storyboard instantiateViewControllerWithIdentifier:@"FrequentlyQuestionsScreen"];
+    [self.navigationController pushViewController:destinationController animated:YES];
+}
+
+    // Method that sets the action for the fourth help option
+- (void)fourthHelpOptionSelector
+{
+        // Open privacy policy
+    NSURL* privacyPolicyUrl = [NSURL URLWithString: @"url_privacy_policy".localized];
+    if( [[UIApplication sharedApplication] canOpenURL:privacyPolicyUrl])
+        [[UIApplication sharedApplication] openURL:privacyPolicyUrl options:@{} completionHandler:nil];
+}
+
+    // Method that sets the action for the fifth help option
+- (void)fifthHelpOptionSelector
+{
+        // Open accesibility statement
+    NSURL* accesibiltyUrl = [NSURL URLWithString: @"url_accessibility_statement".localized];
+    if( [[UIApplication sharedApplication] canOpenURL:accesibiltyUrl])
+        [[UIApplication sharedApplication] openURL:accesibiltyUrl options:@{} completionHandler:nil];
 }
 
 @end

@@ -13,6 +13,8 @@
 		83EBF99E289BAB2C00E80A7E /* ParentRest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EBF99D289BAB2C00E80A7E /* ParentRest.m */; };
 		83EBF9A0289BB48A00E80A7E /* ServletRest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EBF99B289BAA9300E80A7E /* ServletRest.m */; };
 		9226967323C6512400F099F0 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9226967223C6512400F099F0 /* NSString+Extension.m */; };
+		9A51A79A2B79FEC700826C72 /* AOHelpOptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A51A7992B79FEC700826C72 /* AOHelpOptionView.m */; };
+		9A51A79C2B7A29B900826C72 /* flecha_dcha.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A51A79B2B7A29B900826C72 /* flecha_dcha.png */; };
 		9A64AD762AC6AFB50089A289 /* NSMutableAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A64AD752AC6AFB40089A289 /* NSMutableAttributedString.m */; };
 		9A7018FB2ACFECB4000B11D6 /* AOHelpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7018FA2ACFECB4000B11D6 /* AOHelpCell.m */; };
 		9A7018FE2AD00478000B11D6 /* StoryboardUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7018FD2AD00478000B11D6 /* StoryboardUtils.m */; };
@@ -210,6 +212,9 @@
 		83EBF99F289BAB3800E80A7E /* ParentRest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParentRest.h; sourceTree = "<group>"; };
 		9226967123C6510700F099F0 /* NSString+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		9226967223C6512400F099F0 /* NSString+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		9A51A7982B79FD5400826C72 /* AOHelpOptionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOHelpOptionView.h; sourceTree = "<group>"; };
+		9A51A7992B79FEC700826C72 /* AOHelpOptionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AOHelpOptionView.m; sourceTree = "<group>"; };
+		9A51A79B2B7A29B900826C72 /* flecha_dcha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flecha_dcha.png; sourceTree = "<group>"; };
 		9A64AD732AC6AED80089A289 /* NSMutableAttributedString+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+Extension.h"; sourceTree = "<group>"; };
 		9A64AD752AC6AFB40089A289 /* NSMutableAttributedString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSMutableAttributedString.m; sourceTree = "<group>"; };
 		9A7018F72ACFE816000B11D6 /* AOHelpCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOHelpCell.h; sourceTree = "<group>"; };
@@ -721,6 +726,8 @@
 				B24384BA20C541620087BAE0 /* AOAcercadeViewController.m */,
 				9A7018F72ACFE816000B11D6 /* AOHelpCell.h */,
 				9A7018FA2ACFECB4000B11D6 /* AOHelpCell.m */,
+				9A51A7982B79FD5400826C72 /* AOHelpOptionView.h */,
+				9A51A7992B79FEC700826C72 /* AOHelpOptionView.m */,
 			);
 			path = HelpViews;
 			sourceTree = "<group>";
@@ -737,6 +744,7 @@
 		B27395CE20A43AF800A7D05A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				9A51A79B2B7A29B900826C72 /* flecha_dcha.png */,
 				E47E065C16E2DC1C00BC7855 /* certificados.png */,
 				B27395CF20A43AF800A7D05A /* cert_menu.png */,
 				B27395D020A43AF800A7D05A /* flecha.png */,
@@ -1253,6 +1261,7 @@
 				B2B0369C21369663009E57BB /* LaunchScreen.storyboard in Resources */,
 				C3461CA81696F98C007237D1 /* logo_cliente.png in Resources */,
 				B27395E020A43AF800A7D05A /* warning_mini.png in Resources */,
+				9A51A79C2B7A29B900826C72 /* flecha_dcha.png in Resources */,
 				B240773020A5B87B00A8EE1C /* InfoPlist.strings in Resources */,
 				B243848120C539DA0087BAE0 /* iPhoneStoryboard.storyboard in Resources */,
 				B27395DB20A43AF800A7D05A /* help2.png in Resources */,
@@ -1364,6 +1373,7 @@
 				C3B11E2A16FB642B00C0D623 /* SignedData.c in Sources */,
 				C3B11E2C16FB642B00C0D623 /* SignerIdentifier.c in Sources */,
 				C3B11E2E16FB642B00C0D623 /* SignerInfo.c in Sources */,
+				9A51A79A2B79FEC700826C72 /* AOHelpOptionView.m in Sources */,
 				C3B11E3016FB642B00C0D623 /* SignerInfos.c in Sources */,
 				B24384BC20C541620087BAE0 /* AOAcercadeViewController.m in Sources */,
 				C3B11E3216FB642B00C0D623 /* SigningCertificate.c in Sources */,
