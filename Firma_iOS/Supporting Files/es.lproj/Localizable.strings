@@ -127,3 +127,4 @@ trámite funciona en otros dispositivos. ¿Por qué?\n\n";
 "certificate_expired" = "Certificado caducado";
 "certificate_close_to_expire" = "Certificado próximo a caducar";
 "external_link_icon_label" = "Enlace externo";
+"button_accessibility_label" = "Botón";

@@ -126,3 +126,4 @@ procedure works on other devices. Why?\n\n";
 "certificate_expired" = "Expired certificate";
 "certificate_close_to_expire" = "Certificate close to expire";
 "external_link_icon_label" = "External link";
+"button_accessibility_label" = "Button";
