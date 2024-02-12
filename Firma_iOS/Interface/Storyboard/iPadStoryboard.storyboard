@@ -1280,7 +1280,7 @@ Los certificados importados en el Cliente @firma para Apple iOS son de uso exclu
                                 <rect key="frame" x="24" y="186.5" width="786" height="905.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s30-9n-V8x">
-                                        <rect key="frame" x="0.0" y="0.0" width="786" height="180"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="786" height="190"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oWe-yv-dyY" userLabel="Itunes View">
                                                 <rect key="frame" x="0.0" y="13" width="786" height="49.5"/>
@@ -1356,7 +1356,7 @@ Los certificados importados en el Cliente @firma para Apple iOS son de uso exclu
                                             <constraint firstAttribute="trailing" secondItem="oWe-yv-dyY" secondAttribute="trailing" id="Ggf-me-KaG"/>
                                             <constraint firstItem="oWe-yv-dyY" firstAttribute="top" secondItem="s30-9n-V8x" secondAttribute="top" constant="13" id="JA5-Zz-l28"/>
                                             <constraint firstItem="E0R-Xx-TIt" firstAttribute="leading" secondItem="s30-9n-V8x" secondAttribute="leading" id="PhC-MS-2EO"/>
-                                            <constraint firstAttribute="bottom" secondItem="E0R-Xx-TIt" secondAttribute="bottom" id="bWX-XJ-W1u"/>
+                                            <constraint firstAttribute="bottom" secondItem="E0R-Xx-TIt" secondAttribute="bottom" constant="10" id="bWX-XJ-W1u"/>
                                             <constraint firstItem="oWe-yv-dyY" firstAttribute="leading" secondItem="s30-9n-V8x" secondAttribute="leading" id="oQy-dV-9L9"/>
                                             <constraint firstItem="EuV-1e-nih" firstAttribute="top" secondItem="oWe-yv-dyY" secondAttribute="bottom" constant="13" id="ohZ-26-W89"/>
                                             <constraint firstItem="EuV-1e-nih" firstAttribute="leading" secondItem="s30-9n-V8x" secondAttribute="leading" id="sBT-w5-p75"/>
