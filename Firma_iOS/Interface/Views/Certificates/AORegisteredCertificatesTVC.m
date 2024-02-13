@@ -22,6 +22,7 @@
 #import "GlobalConstants.h"
 #import "AlertProgressBar.h"
 #import "UIFont+Utils.h"
+#import "HeaderCertificateCell.h"
 
 @interface AORegisteredCertificatesTVC ()
 {
@@ -62,10 +63,6 @@
     
         // Logo
     self.logo.accessibilityLabel = @"logo".localized;
-    
-        // Description
-    [self.certificatesDescriptionLabel setText: @"certificate_description_label".localized];
-    
         // Along with auto layout, these are the keys for enabling variable cell height
     self.editTableView.estimatedRowHeight = 44.0;
     self.editTableView.rowHeight = UITableViewAutomaticDimension;
@@ -79,36 +76,6 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self.navigationController.navigationBar setTintColor:THEME_COLOR];
     [self.editTableView setAllowsSelection:_mode == AORegisteredCertificatesTVCModeSign];
-    
-    self.heightIntroductionText.constant = [self heightForCertificatesDescriptionLabel] + 8; //Margen arriba y abajo
-}
-
-
-- (double) heightForCertificatesDescriptionLabel {
-    CGFloat screenWidth = [[UIScreen mainScreen] bounds].size.width - 42*2;
-    UIFont *font = [[UIFont alloc] mediumSystemFontScaled];
-    NSString *text = self.certificatesDescriptionLabel.text;
-    
-    NSTextStorage *textStorage = [[NSTextStorage alloc]
-                                  initWithString:text];
-    NSTextContainer *textContainer = [[NSTextContainer alloc] initWithSize:CGSizeMake(screenWidth, MAXFLOAT)];
-    NSLayoutManager *layoutManager = [[NSLayoutManager alloc] init];
-    [layoutManager addTextContainer:textContainer];
-    [textStorage addLayoutManager:layoutManager];
-    [textStorage addAttribute:NSFontAttributeName value:font
-                        range:NSMakeRange(0, [textStorage length])];
-    [textContainer setLineFragmentPadding:0.0];
-
-    [layoutManager glyphRangeForTextContainer:textContainer];
-    CGRect frame = [layoutManager usedRectForTextContainer:textContainer];
-    
-    
-    double height = frame.size.height;
-    int maxSize = 250;
-    if (height > maxSize) {
-        height = maxSize;
-    }
-    return height;
 }
 
 - (void)didReceiveMemoryWarning
@@ -125,24 +92,29 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _certificatesArray ? _certificatesArray.count : 0;
+    return _certificatesArray ? _certificatesArray.count + 1 : 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    AOCertificateCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CertificateCell"];
-    
-    [cell setCertificateInfo:_certificatesArray[indexPath.row] forEditingCell:self.isEditing];
-    [cell setSelectionStyle:_mode == AORegisteredCertificatesTVCModeManagement ? UITableViewCellSelectionStyleNone : UITableViewCellSelectionStyleDefault];
-    [cell setAccessoryType:_mode == AORegisteredCertificatesTVCModeManagement ? UITableViewCellAccessoryNone : UITableViewCellAccessoryDisclosureIndicator];
-    
-    return cell;
+    if (indexPath.row == 0) {
+        HeaderCertificateCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HeaderCertificateCell"];
+        [cell configureCell];
+        return cell;
+    } else {
+        AOCertificateCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CertificateCell"];
+        
+        [cell setCertificateInfo:_certificatesArray[indexPath.row - 1] forEditingCell:self.isEditing];
+        [cell setSelectionStyle:_mode == AORegisteredCertificatesTVCModeManagement ? UITableViewCellSelectionStyleNone : UITableViewCellSelectionStyleDefault];
+        [cell setAccessoryType:_mode == AORegisteredCertificatesTVCModeManagement ? UITableViewCellAccessoryNone : UITableViewCellAccessoryDisclosureIndicator];
+        
+        return cell;
+    }
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return YES;
+    return (indexPath.row > 0);
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -154,9 +126,9 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
-        OSStatus status = [self deleteCertificate:_certificatesArray[indexPath.row]];
+        OSStatus status = [self deleteCertificate:_certificatesArray[indexPath.row - 1]];
             // Se borra el elemento seleccionado del array
-        [_certificatesArray removeObjectAtIndex:indexPath.row];
+        [_certificatesArray removeObjectAtIndex:indexPath.row - 1];
         
         NSString *errorMessage = nil;
         switch (status) {
@@ -202,18 +174,20 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         // This method can not be reached because the rows are marked as not selected in the stroyboard.
-    NSIndexPath *selectedIndexPath = [tableView indexPathForSelectedRow];
-    _selectedCertificate = _certificatesArray[selectedIndexPath.row];
-    if ([[CertificateUtils sharedWrapper] searchIdentityByName:_selectedCertificate.subject] == YES) {
-        
-        [[NSUserDefaults standardUserDefaults] setObject:@{kAOUserDefaultsKeyAlias:_selectedCertificate.subject} forKey:kAOUserDefaultsKeyCurrentCertificate];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        [[CertificateUtils sharedWrapper] setSelectedCertificateName:_selectedCertificate.subject];
-        [self performSegueWithIdentifier:@"showSignVC" sender: self];
-        [self.navigationController popToRootViewControllerAnimated:YES];
-    }
-    else {
-        [CommonAlert createAlertWithTitle: @"error_ocurred_while_loading_the_certificate".localized message:@"" cancelButtonTitle:OK showOn:self];
+    if (indexPath.row > 0) {
+        NSIndexPath *selectedIndexPath = [tableView indexPathForSelectedRow];
+        _selectedCertificate = _certificatesArray[selectedIndexPath.row - 1];
+        if ([[CertificateUtils sharedWrapper] searchIdentityByName:_selectedCertificate.subject] == YES) {
+            
+            [[NSUserDefaults standardUserDefaults] setObject:@{kAOUserDefaultsKeyAlias:_selectedCertificate.subject} forKey:kAOUserDefaultsKeyCurrentCertificate];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            [[CertificateUtils sharedWrapper] setSelectedCertificateName:_selectedCertificate.subject];
+            [self performSegueWithIdentifier:@"showSignVC" sender: self];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
+        else {
+            [CommonAlert createAlertWithTitle: @"error_ocurred_while_loading_the_certificate".localized message:@"" cancelButtonTitle:OK showOn:self];
+        }
     }
 }
 
