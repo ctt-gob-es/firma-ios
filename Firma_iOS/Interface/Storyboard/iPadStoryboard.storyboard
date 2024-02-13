@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xMB-Ak-RE7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xMB-Ak-RE7">
     <device id="ipad10_5" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment version="4352" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,7 +27,7 @@
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="sK8-Dz-zu7">
-                                <rect key="frame" x="20" y="160" width="794" height="952"/>
+                                <rect key="frame" x="20" y="170" width="794" height="942"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeaderCertificateCell" id="o0J-58-9fN" customClass="HeaderCertificateCell">
@@ -229,7 +229,7 @@
                         <constraints>
                             <constraint firstItem="xjn-pw-JxL" firstAttribute="top" secondItem="jq1-kk-Y4N" secondAttribute="bottom" constant="10" id="33r-wu-4es"/>
                             <constraint firstItem="sK8-Dz-zu7" firstAttribute="leading" secondItem="q9o-3n-3xL" secondAttribute="leadingMargin" id="5vM-rT-LGp"/>
-                            <constraint firstItem="sK8-Dz-zu7" firstAttribute="top" secondItem="xjn-pw-JxL" secondAttribute="bottom" id="V7h-Vw-0D6"/>
+                            <constraint firstItem="sK8-Dz-zu7" firstAttribute="top" secondItem="xjn-pw-JxL" secondAttribute="bottom" constant="10" id="V7h-Vw-0D6"/>
                             <constraint firstItem="xjn-pw-JxL" firstAttribute="leading" secondItem="q9o-3n-3xL" secondAttribute="leadingMargin" id="YZY-oC-wRR"/>
                             <constraint firstItem="xjn-pw-JxL" firstAttribute="trailing" secondItem="q9o-3n-3xL" secondAttribute="trailingMargin" id="bdy-Zj-E13"/>
                             <constraint firstItem="sK8-Dz-zu7" firstAttribute="trailing" secondItem="q9o-3n-3xL" secondAttribute="trailingMargin" id="eMh-7R-Spp"/>
@@ -273,7 +273,7 @@
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ZuZ-mb-Xrv">
-                                <rect key="frame" x="0.0" y="140" width="834" height="972"/>
+                                <rect key="frame" x="0.0" y="150" width="834" height="962"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeaderCertificateCell" id="fvS-Hr-JY9" customClass="HeaderCertificateCell">
@@ -354,7 +354,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ZuZ-mb-Xrv" firstAttribute="top" secondItem="PKA-y8-YIw" secondAttribute="bottom" id="4Aw-n2-hda"/>
+                            <constraint firstItem="ZuZ-mb-Xrv" firstAttribute="top" secondItem="PKA-y8-YIw" secondAttribute="bottom" constant="10" id="4Aw-n2-hda"/>
                             <constraint firstItem="PKA-y8-YIw" firstAttribute="trailing" secondItem="q9o-3n-4xL" secondAttribute="trailingMargin" id="dVe-H5-N7J"/>
                             <constraint firstItem="ZuZ-mb-Xrv" firstAttribute="leading" secondItem="q9o-3n-4xL" secondAttribute="leading" id="eXU-ku-A62"/>
                             <constraint firstItem="H3X-Xt-i5E" firstAttribute="top" secondItem="ZuZ-mb-Xrv" secondAttribute="bottom" id="fvw-Fp-2Y7"/>
@@ -1409,7 +1409,7 @@ Los certificados importados en el Cliente @firma para Apple iOS son de uso exclu
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
