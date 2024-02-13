@@ -27,9 +27,6 @@ static NSString *const kAOAvailableCertificatesTVCCellIdentifier = @"AOCertifica
 
 @implementation AOAvailableCertificatesTVC
 
-int const kFilesAppButtonNormalHeightConstraint = 40;
-int const kFilesAppButtonZeroHeightConstraint = 0;
-
 #pragma mark - Life Cycle
 
 - (void)viewDidLoad
@@ -45,7 +42,7 @@ int const kFilesAppButtonZeroHeightConstraint = 0;
     }
     
     [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
-    [self.availableCertificatesDescriptionLabel setText: @"available_certificates_description_label".localized];
+    
     self.title = @"available_certificates".localized;
     
         // Back button
@@ -54,18 +51,6 @@ int const kFilesAppButtonZeroHeightConstraint = 0;
     
         // Logo
     self.logo.accessibilityLabel = @"logo".localized;
-    
-        // Files app button
-    [self.filesAppButton setAttributedTitle: @"files_app_button".localized.linkStyle  forState:UIControlStateNormal];
-    self.filesAppButton.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    self.filesAppButton.titleLabel.textAlignment = NSTextAlignmentCenter;
-    if (@available(iOS 11, *)) {
-        self.filesAppButton.hidden = NO;
-        self.filesAppButtonHeightConstraint.constant = kFilesAppButtonNormalHeightConstraint;
-    } else {
-        self.filesAppButton.hidden = YES;
-        self.filesAppButtonHeightConstraint.constant = kFilesAppButtonZeroHeightConstraint;
-    }
     
         // Table
         // Along with auto layout, these are the keys for enabling variable cell height
@@ -86,17 +71,6 @@ int const kFilesAppButtonZeroHeightConstraint = 0;
 - (IBAction)didClickCancelButton:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (IBAction)filesAppButtonTapped:(id)sender {
-    UIDocumentPickerViewController  *documentProviderMenu = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:@[@"public.data"] inMode:UIDocumentPickerModeImport];
-    documentProviderMenu.delegate = self;
-    documentProviderMenu.modalPresentationStyle = UIModalPresentationPopover;
-    UIPopoverPresentationController *popPC = documentProviderMenu.popoverPresentationController;
-    documentProviderMenu.popoverPresentationController.sourceRect = self.filesAppButton.frame;
-    documentProviderMenu.popoverPresentationController.sourceView = self.view;
-    popPC.permittedArrowDirections = UIPopoverArrowDirectionAny;
-    [self presentViewController:documentProviderMenu animated:YES completion:nil];
 }
 
 #pragma mark - Certificates Methods
@@ -138,33 +112,42 @@ int const kFilesAppButtonZeroHeightConstraint = 0;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _filesArray ? _filesArray.count : 0;
+    return _filesArray ? _filesArray.count + 1 : 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    AOAvailableCertificatesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AOCertificateFileCell"];
-    
-    [cell setCellLabel:_filesArray[indexPath.row]];
-    [cell setSelectionStyle: UITableViewCellSelectionStyleDefault];
-    [cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
-    
-    return cell;
+    if (indexPath.row == 0) {
+        HeaderCertificateCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HeaderCertificateCell"];
+        [cell configureAvailableCertificateCell];
+        cell.delegate = self;
+        return cell;
+    } else {
+        AOAvailableCertificatesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AOCertificateFileCell"];
+        
+        [cell setCellLabel:_filesArray[indexPath.row -1]];
+        [cell setSelectionStyle: UITableViewCellSelectionStyleDefault];
+        [cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
+        
+        return cell;
+    }
 }
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    _selectedCertificate = _filesArray[indexPath.row];
-    if (!_selectedCertificate) {
-        NSIndexPath *selectedRowIndexPath = [self.tableView indexPathForSelectedRow];
-        _selectedCertificate = _filesArray[selectedRowIndexPath.row];
+    if (indexPath.row > 0) {
+        _selectedCertificate = _filesArray[indexPath.row - 1];
+        if (!_selectedCertificate) {
+            NSIndexPath *selectedRowIndexPath = [self.tableView indexPathForSelectedRow];
+            _selectedCertificate = _filesArray[selectedRowIndexPath.row - 1];
+        }
+        AORegisterCertificateVC *registerCertificateVC  = [_segue destinationViewController];
+        registerCertificateVC.selectedCertificate = _selectedCertificate;
+        registerCertificateVC.modalPresentationStyle = 17;
+        [registerCertificateVC setDelegate:self];
     }
-    AORegisterCertificateVC *registerCertificateVC  = [_segue destinationViewController];
-    registerCertificateVC.selectedCertificate = _selectedCertificate;
-    registerCertificateVC.modalPresentationStyle = 17;
-    [registerCertificateVC setDelegate:self];
 }
 
 #pragma mark - Navigation
@@ -224,6 +207,19 @@ int const kFilesAppButtonZeroHeightConstraint = 0;
 - (void)documentMenu:(nonnull UIDocumentPickerViewController  *)documentMenu didPickDocumentPicker:(nonnull UIDocumentPickerViewController *)documentPicker {
     documentPicker.delegate = self;
     [self presentViewController:documentPicker animated:YES completion:nil];
+}
+
+#pragma mark - HeaderCertificateCellDeleagte
+
+- (void)filesAppButtonTapped {
+    UIDocumentPickerViewController  *documentProviderMenu = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:@[@"public.data"] inMode:UIDocumentPickerModeImport];
+    documentProviderMenu.delegate = self;
+    documentProviderMenu.modalPresentationStyle = UIModalPresentationPopover;
+    UIPopoverPresentationController *popPC = documentProviderMenu.popoverPresentationController;
+    documentProviderMenu.popoverPresentationController.sourceRect = self.tableView.frame;
+    documentProviderMenu.popoverPresentationController.sourceView = self.view;
+    popPC.permittedArrowDirections = UIPopoverArrowDirectionAny;
+    [self presentViewController:documentProviderMenu animated:YES completion:nil];
 }
 
 @end

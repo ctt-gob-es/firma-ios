@@ -10,11 +10,23 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol HeaderCertificateCellDelegate<NSObject>
+
+@required
+- (void)filesAppButtonTapped;
+@end
+
 @interface HeaderCertificateCell : UITableViewCell
 
-@property (nonatomic, weak) IBOutlet UITextView *descriptionLabel;
+@property (weak, nonatomic) IBOutlet UITextView *descriptionLabel;
+@property (weak, nonatomic) IBOutlet UIButton *filesAppButton;
+@property (weak, nonatomic) id<HeaderCertificateCellDelegate> delegate;
 
-- (void)configureCell;
+- (void)configureRegisteredCertificateCell;
+
+- (void)configureAvailableCertificateCell;
+
+- (IBAction)filesAppButtonTapped:(id)sender;
 
 @end
 

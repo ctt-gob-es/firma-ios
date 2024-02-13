@@ -99,7 +99,7 @@
 {
     if (indexPath.row == 0) {
         HeaderCertificateCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HeaderCertificateCell"];
-        [cell configureCell];
+        [cell configureRegisteredCertificateCell];
         return cell;
     } else {
         AOCertificateCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CertificateCell"];
