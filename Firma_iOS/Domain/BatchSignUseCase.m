@@ -268,9 +268,8 @@ SecKeyRef privateKey;
     
     if(data.length > 0)
     {
-        //Con los datos de la prefirma decodificados, se procede a realizar la firma pkcs1.
-        NSData *dataSigned = [CADESSignUtils signPkcs1: algorithm privateKey: &privateKey data: data];
-        
+	   CADESSignUtils *signUtils = [[CADESSignUtils alloc] init];
+	   NSData *dataSigned = [signUtils signDataWithPrivateKey:&privateKey data:data algorithm:algorithm];
         // Contiene las prefirmas firmadas
         NSString *stringSigned = [Base64 encode:dataSigned];
         

@@ -652,7 +652,8 @@ SecKeyRef privateKey = NULL;
                          contentDescription: contentDescription
                          policyOID: policyOID
                          policyHash: policyHash
-                         policiHashAlg: policyHashAlg                               policyUri: policyUri
+                         policiHashAlg: policyHashAlg                               
+					policyUri: policyUri
                          signAlgorithm: signAlgorithm
                          signingCertificateV2: signingCertificateV2
                          precalculatedHashAlgorithm: precalculatedHashAlgorithm
@@ -676,8 +677,9 @@ SecKeyRef privateKey = NULL;
     if(contentData.length > 0)
     {
         
-            //We sign the data with PKCS1
-        NSData *dataSigned = [CADESSignUtils signPkcs1: signAlgoInUse privateKey: &privateKey data: contentData];
+	   //We sign the data with PKCS1
+	   CADESSignUtils *signUtils = [[CADESSignUtils alloc] init];
+	   NSData *dataSigned = [signUtils signDataWithPrivateKey:&privateKey data:contentData algorithm: signAlgoInUse];
         
             //Start progress bar.
         alertpb = [[AlertProgressBar alloc]init];
@@ -1024,8 +1026,9 @@ SecKeyRef privateKey = NULL;
         
         if(data.length > 0)
         {
-                //Con los datos de la prefirma decodificados, se procede a realizar la firma pkcs1.
-            NSData *dataSigned = [CADESSignUtils signPkcs1: signAlgoInUse privateKey: &privateKey data: data];
+		  //Con los datos de la prefirma decodificados, se procede a realizar la firma pkcs1.
+		  CADESSignUtils *signUtils = [[CADESSignUtils alloc] init];
+		  NSData *dataSigned = [signUtils signDataWithPrivateKey:&privateKey data:data algorithm:signAlgoInUse];
             
                 // Contiene las prefirmas firmadas
             NSString *stringSigned = [Base64 encode:dataSigned];

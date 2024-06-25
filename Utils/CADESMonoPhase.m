@@ -121,9 +121,8 @@
     NSData *signAttrib = [[NSFileManager defaultManager] contentsAtPath:directory];
     
     /*** FIRMAMOS LOS ATRIBUTOS FIRMADOS ****/
-    NSData *dataSigned = [CADESSignUtils signPkcs1:signAlgoInUse
-                                        privateKey:privateKeyPkcs12
-                                              data:signAttrib];
+    CADESSignUtils *signUtils = [[CADESSignUtils alloc] init];
+    NSData *dataSigned = [signUtils signDataWithPrivateKey:privateKeyPkcs12 data:signAttrib algorithm:signAlgoInUse];
     
     /****************************************************/
     /**** METEMOS EL SIGNED DATA EN UN CONTENT TYPE *****/
