@@ -79,21 +79,14 @@
  -----------
  algorithm: Algoritmo utilizado para el cifrado.
  */
-+(bool) isValidAlgorithm:(NSString*)algorithm{
++(bool)isValidAlgorithm:(NSString *)algorithm {
     bool isValid = false;
-    if ([[algorithm uppercaseString] isEqualToString:@"SHA1WITHRSA"] ) {
-	   isValid = true;
-    }
-    else if ([[algorithm uppercaseString] isEqualToString:@"SHA256WITHRSA"] ) {
-	   isValid = true;
-    }
-    else if ([[algorithm uppercaseString] isEqualToString:@"SHA384WITHRSA"] ) {
-	   isValid = true;
-    }
-    else if ([[algorithm uppercaseString] isEqualToString:@"SHA512WITHRSA"] ) {
-	   isValid = true;
-    }
-    else if ([[algorithm uppercaseString] isEqualToString:@"SHA256withECDSA"] ) {
+    NSString *uppercaseAlgorithm = [algorithm uppercaseString];
+    
+    if ([uppercaseAlgorithm containsString:@"SHA1"] ||
+	   [uppercaseAlgorithm containsString:@"SHA256"] ||
+	   [uppercaseAlgorithm containsString:@"SHA384"] ||
+	   [uppercaseAlgorithm containsString:@"SHA512"]) {
 	   isValid = true;
     }
     

@@ -997,9 +997,12 @@ SecKeyRef privateKey = NULL;
  */
 -(void) Sign: (NSString*) dataReceivedb64
 {
+    NSLog(@"%@", dataReceivedb64);
+    
         //Se reciben los datos en base64 y se decodifican
     NSData *dataReceived = [Base64 decode:dataReceivedb64 urlSafe: true];
     NSString* stringDataReceived = [[NSString alloc] initWithData:dataReceived encoding:NSUTF8StringEncoding];
+    
     
         // Usado para almacenar las properties que se reciben en la URL (no se usa en el proceso de contrafirma).
     NSDictionary *dict = [[NSDictionary alloc] init];
