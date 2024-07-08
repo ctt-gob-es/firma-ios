@@ -628,6 +628,57 @@ static CertificateUtils *_sharedWrapper = nil;
     return signedHash;
 }
 
+- (SecKeyAlgorithm)getAlgorithmByCertificate:(SecKeyRef)privateKey alg:(NSString *)alg{
+    CFDictionaryRef attributes = SecKeyCopyAttributes(privateKey);
+    if (!attributes) {
+	   return nil;
+    }
+    
+    NSString *keyType = ( NSString *)CFDictionaryGetValue(attributes, kSecAttrKeyType);
+    CFRelease(attributes);
+    
+    if (!keyType) {
+	   NSLog(@"No se pudo determinar el tipo de clave.");
+	   return nil;
+    }
+
+    
+    if ([keyType isEqualToString:(__bridge NSString *)kSecAttrKeyTypeRSA]) {
+	   if ([[alg uppercaseString] containsString:@"SHA1"] ) {
+		  return kSecKeyAlgorithmRSASignatureMessagePKCS1v15SHA1;
+	   }
+	   else if ([[alg uppercaseString] containsString:@"SHA256"]){
+		  return kSecKeyAlgorithmRSASignatureMessagePKCS1v15SHA256;
+	   }
+	   else if ([[alg uppercaseString] containsString:@"SHA384"]){
+		  return kSecKeyAlgorithmRSASignatureMessagePKCS1v15SHA384;
+	   }
+	   else if ([[alg uppercaseString] containsString:@"SHA512"]){
+		  return kSecKeyAlgorithmRSASignatureMessagePKCS1v15SHA512;
+	   }
+	   else{
+		  return NULL;
+	   }
+    } else if ([keyType isEqualToString:(__bridge NSString *)kSecAttrKeyTypeECSECPrimeRandom]) {
+	   if ([[alg uppercaseString] containsString:@"SHA1"] ) {
+		  return kSecKeyAlgorithmECDSASignatureMessageX962SHA1;
+	   }
+	   else if ([[alg uppercaseString] containsString:@"SHA256"]){
+		  return kSecKeyAlgorithmECDSASignatureMessageX962SHA256;
+	   }
+	   else if ([[alg uppercaseString] containsString:@"SHA384"]){
+		  return kSecKeyAlgorithmECDSASignatureMessageX962SHA384;
+	   }
+	   else if ([[alg uppercaseString] containsString:@"SHA512"]){
+		  return kSecKeyAlgorithmECDSASignatureMessageX962SHA512;
+	   }
+	   else{
+		  return NULL;
+	   }
+    }
+    return  NULL;
+}
+
 - (void)dealloc {
     _certificateRef = nil;
     _publicKey = nil;

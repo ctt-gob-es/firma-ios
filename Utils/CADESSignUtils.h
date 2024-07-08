@@ -14,12 +14,14 @@
 +(NSDictionary*) parseUrl:(NSString*) urlString;
 
 +(NSData*) signPkcs1:(NSString*)algorithm privateKey:(SecKeyRef*)privateKey data:(NSData*)dataPreSign;
--(NSData*) signDataWithPrivateKey:(SecKeyRef*)privateKey data:(NSData *)data algorithm:(NSString *)algorithm;
+-(NSData*) signDataWithPrivateKey:(SecKeyRef *)privateKey data:(NSData *)data algorithm:(NSString *)algorithm;
 +(NSData*) hashData:(NSString*) algorithm data:(NSData*)dataPreSign;
 
 +(OSStatus) extractIdentityAndTrust:(CFDataRef) inPKCS12Data :(NSString *)pass :(SecIdentityRef *)outIdentity :(SecTrustRef *)outTrust;
 
 +(char*)getAlgorithmOID:(NSString*)algorithm;
 +(char*)getHashAlgorithmOID:(NSString*)algorithm;
+
++(NSString*) getModifiedAlgorithmByCertificate: (SecKeyRef) privateKey alg:(NSString *)alg;
 
 @end

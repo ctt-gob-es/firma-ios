@@ -23,6 +23,8 @@
 #import "BatchSignUseCase.h"
 #import "AORegisteredCertificatesTVC.h"
 #import "UIFont+Utils.h"
+#import "Pkcs1Utils.h"
+#import "IOSPrimitiveArray.h"
 
 @interface AOSignViewController ()
 
@@ -286,7 +288,7 @@ SecKeyRef privateKey = NULL;
     
         //parámetro "algorithm" que indica el algoritmo usado para la firma.
     if([urlParameters objectForKey:PARAMETER_NAME_ALGORITHM2] != NULL)
-        signAlgoInUse  = [[NSString alloc] initWithString:[urlParameters objectForKey:PARAMETER_NAME_ALGORITHM2]];
+	   signAlgoInUse  = [CADESSignUtils getModifiedAlgorithmByCertificate:privateKey alg: [[NSString alloc] initWithString:[urlParameters objectForKey:PARAMETER_NAME_ALGORITHM2]]];
     
         //parámetro properties
     if([urlParameters objectForKey:PARAMETER_NAME_PROPERTIES] != NULL)
@@ -1032,10 +1034,19 @@ SecKeyRef privateKey = NULL;
 		  //Con los datos de la prefirma decodificados, se procede a realizar la firma pkcs1.
 		  CADESSignUtils *signUtils = [[CADESSignUtils alloc] init];
 		  NSData *dataSigned = [signUtils signDataWithPrivateKey:&privateKey data:data algorithm:signAlgoInUse];
-            
-                // Contiene las prefirmas firmadas
-            NSString *stringSigned = [Base64 encode:dataSigned];
-            [firma.params setValue: stringSigned forKey:@"PK1"];
+		  
+		  // Contiene las prefirmas firmadas
+		  // Si es XADES o FACTURA-E Haremos un proceso adicional
+		  if (signFormat != nil && ([signFormat containsString:@"XAdES"] || [signFormat containsString:@"FacturaE"])) {
+			 IOSByteArray *byteArray = [IOSByteArray arrayWithBytes:[dataSigned bytes] count:[dataSigned length]];
+			 IOSByteArray *decodedSignature = EsGobAfirmaCoreSignersPkcs1Utils_decodeSignatureWithByteArray_(byteArray);
+			 NSData *decodedSignatureData = [NSData dataWithBytes:[decodedSignature buffer] length:[decodedSignature length]];
+			 NSString *stringSigned = [Base64 encode:decodedSignatureData];
+			 [firma.params setValue: stringSigned forKey:@"PK1"];
+		  } else {
+			 NSString *stringSigned = [Base64 encode:dataSigned];
+			 [firma.params setValue: stringSigned forKey:@"PK1"];
+		  }
         }
     }
     

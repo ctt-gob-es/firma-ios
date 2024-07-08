@@ -126,27 +126,6 @@
 }
 
 /**
- Método que determina el tipo de clave a partir de una referencia de clave `SecKeyRef`.
- parámetros:
- key: La referencia de la clave cuya información de tipo se quiere determinar.
- Devuelve:
- Una cadena que representa el tipo de clave, como RSA o EC. Devuelve `nil` si no se puede determinar el tipo de clave.
- */
-
-- (NSString *)determineKeyTypeFromKey:(SecKeyRef)key {
-    CFDictionaryRef attributes = SecKeyCopyAttributes(key);
-    if (!attributes) {
-	   return nil;
-    }
-    
-    NSString *keyType = (__bridge_transfer NSString *)CFDictionaryGetValue(attributes, kSecAttrKeyType);
-    CFRelease(attributes);
-    
-    return keyType;
-}
-
-
-/**
  Método que firma los datos con una clave privada `SecKeyRef` utilizando el algoritmo especificado.
  parámetros:
  -----------
@@ -159,13 +138,6 @@
  */
 
 - (NSData *)signDataWithPrivateKey:(SecKeyRef *)privateKey data:(NSData *)data algorithm:(NSString *)algorithm {
-    NSString *keyType = [self determineKeyTypeFromKey:*privateKey];
-    
-    if (!keyType) {
-	   NSLog(@"No se pudo determinar el tipo de clave.");
-	   return nil;
-    }
-    
     CFErrorRef error = NULL;
     SecKeyAlgorithm setKeyAlgorithm;
     
@@ -173,39 +145,7 @@
     
     if([listItems count] > 0){
 	   NSString *alg = [listItems objectAtIndex:0];
-	   if ([keyType isEqualToString:(__bridge NSString *)kSecAttrKeyTypeRSA]) {
-		  if ([[alg uppercaseString] isEqualToString:@"SHA1"] ) {
-			 setKeyAlgorithm = kSecKeyAlgorithmRSASignatureMessagePKCS1v15SHA1;
-		  }
-		  else if ([[alg uppercaseString] isEqualToString:@"SHA256"]){
-			 setKeyAlgorithm = kSecKeyAlgorithmRSASignatureMessagePKCS1v15SHA256;
-		  }
-		  else if ([[alg uppercaseString] isEqualToString:@"SHA384"]){
-			 setKeyAlgorithm = kSecKeyAlgorithmRSASignatureMessagePKCS1v15SHA384;
-		  }
-		  else if ([[alg uppercaseString] isEqualToString:@"SHA512"]){
-			 setKeyAlgorithm = kSecKeyAlgorithmRSASignatureMessagePKCS1v15SHA512;
-		  }
-		  else{
-			 return NULL;
-		  }
-	   } else if ([keyType isEqualToString:(__bridge NSString *)kSecAttrKeyTypeECSECPrimeRandom]) {
-		  if ([[alg uppercaseString] isEqualToString:@"SHA1"] ) {
-			 setKeyAlgorithm = kSecKeyAlgorithmECDSASignatureMessageX962SHA1;
-		  }
-		  else if ([[alg uppercaseString] isEqualToString:@"SHA256"]){
-			 setKeyAlgorithm = kSecKeyAlgorithmECDSASignatureMessageX962SHA256;
-		  }
-		  else if ([[alg uppercaseString] isEqualToString:@"SHA384"]){
-			 setKeyAlgorithm = kSecKeyAlgorithmECDSASignatureMessageX962SHA384;
-		  }
-		  else if ([[alg uppercaseString] isEqualToString:@"SHA512"]){
-			 setKeyAlgorithm = kSecKeyAlgorithmECDSASignatureMessageX962SHA512;
-		  }
-		  else{
-			 return NULL;
-		  }
-	   }
+	   setKeyAlgorithm = [[CertificateUtils sharedWrapper] getAlgorithmByCertificate:*privateKey alg:alg];
     }
     
     NSData *signature = (__bridge_transfer NSData *)SecKeyCreateSignature(*privateKey,
@@ -220,6 +160,29 @@
     }
     
     return signature;
+}
+
++ (NSString *) getModifiedAlgorithmByCertificate:(SecKeyRef)privateKey alg:(NSString *)algorithm {
+    NSArray *listItems = [algorithm componentsSeparatedByString:WITH];
+    if([listItems count] > 0){
+	   NSString *alg = [listItems objectAtIndex:0];
+	   
+	   CFDictionaryRef attributes = SecKeyCopyAttributes(privateKey);
+	   if (!attributes) {
+		  return nil;
+	   }
+	   
+	   NSString *keyType = ( NSString *)CFDictionaryGetValue(attributes, kSecAttrKeyType);
+	   CFRelease(attributes);
+	   
+	   if ([keyType isEqualToString:(__bridge NSString *)kSecAttrKeyTypeRSA]) {
+		  return [alg stringByAppendingString:@"withRSA"];
+	   } else if ([keyType isEqualToString:(__bridge NSString *)kSecAttrKeyTypeECSECPrimeRandom]) {
+		  return [alg stringByAppendingString:@"withECDSA"];
+	   } else {
+		  return NULL;
+	   }
+    }
 }
 
 /**

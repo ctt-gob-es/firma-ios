@@ -10,6 +10,17 @@
 		3BC03D5D19D9988300FC1804 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AF7F6E17FD60C80084D916 /* libGoogleAnalyticsServices.a */; };
 		3C57FA171AC1BB9D00FF7292 /* AOCertificateInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C57FA161AC1BB9D00FF7292 /* AOCertificateInfo.m */; };
 		83A3DA922897B67400AF4355 /* BachRest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A3DA912897B67400AF4355 /* BachRest.m */; };
+		83C172502C3803E90057F5BD /* DerValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C1723A2C3803E80057F5BD /* DerValue.m */; };
+		83C172512C3803E90057F5BD /* DerInputBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C1723B2C3803E80057F5BD /* DerInputBuffer.m */; };
+		83C172522C3803E90057F5BD /* ByteArrayLexOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C1723F2C3803E80057F5BD /* ByteArrayLexOrder.m */; };
+		83C172532C3803E90057F5BD /* ObjectIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C172412C3803E80057F5BD /* ObjectIdentifier.m */; };
+		83C172542C3803E90057F5BD /* BitArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C172432C3803E80057F5BD /* BitArray.m */; };
+		83C172552C3803E90057F5BD /* ByteArrayTagOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C172442C3803E80057F5BD /* ByteArrayTagOrder.m */; };
+		83C172562C3803E90057F5BD /* DerEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C1724A2C3803E80057F5BD /* DerEncoder.m */; };
+		83C172572C3803E90057F5BD /* DerInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C1724B2C3803E80057F5BD /* DerInputStream.m */; };
+		83C172582C3803E90057F5BD /* DerOutputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C1724C2C3803E80057F5BD /* DerOutputStream.m */; };
+		83C172592C3803E90057F5BD /* Pkcs1Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C1724E2C3803E80057F5BD /* Pkcs1Utils.m */; };
+		83C1725A2C3803E90057F5BD /* DerIndefLenConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C1724F2C3803E80057F5BD /* DerIndefLenConverter.m */; };
 		83EBF99E289BAB2C00E80A7E /* ParentRest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EBF99D289BAB2C00E80A7E /* ParentRest.m */; };
 		83EBF9A0289BB48A00E80A7E /* ServletRest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EBF99B289BAA9300E80A7E /* ServletRest.m */; };
 		9226967323C6512400F099F0 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9226967223C6512400F099F0 /* NSString+Extension.m */; };
@@ -207,6 +218,28 @@
 		3C57FA161AC1BB9D00FF7292 /* AOCertificateInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AOCertificateInfo.m; path = model/AOCertificateInfo.m; sourceTree = "<group>"; };
 		83A3DA912897B67400AF4355 /* BachRest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BachRest.m; sourceTree = "<group>"; };
 		83A3DA932897B67D00AF4355 /* BachRest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BachRest.h; sourceTree = "<group>"; };
+		83C1723A2C3803E80057F5BD /* DerValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DerValue.m; sourceTree = "<group>"; };
+		83C1723B2C3803E80057F5BD /* DerInputBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DerInputBuffer.m; sourceTree = "<group>"; };
+		83C1723C2C3803E80057F5BD /* ByteArrayTagOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ByteArrayTagOrder.h; sourceTree = "<group>"; };
+		83C1723D2C3803E80057F5BD /* DerOutputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DerOutputStream.h; sourceTree = "<group>"; };
+		83C1723E2C3803E80057F5BD /* DerEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DerEncoder.h; sourceTree = "<group>"; };
+		83C1723F2C3803E80057F5BD /* ByteArrayLexOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ByteArrayLexOrder.m; sourceTree = "<group>"; };
+		83C172402C3803E80057F5BD /* DerInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DerInputStream.h; sourceTree = "<group>"; };
+		83C172412C3803E80057F5BD /* ObjectIdentifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectIdentifier.m; sourceTree = "<group>"; };
+		83C172422C3803E80057F5BD /* ObjectIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectIdentifier.h; sourceTree = "<group>"; };
+		83C172432C3803E80057F5BD /* BitArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitArray.m; sourceTree = "<group>"; };
+		83C172442C3803E80057F5BD /* ByteArrayTagOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ByteArrayTagOrder.m; sourceTree = "<group>"; };
+		83C172452C3803E80057F5BD /* DerIndefLenConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DerIndefLenConverter.h; sourceTree = "<group>"; };
+		83C172462C3803E80057F5BD /* DerInputBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DerInputBuffer.h; sourceTree = "<group>"; };
+		83C172472C3803E80057F5BD /* ByteArrayLexOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ByteArrayLexOrder.h; sourceTree = "<group>"; };
+		83C172482C3803E80057F5BD /* BitArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitArray.h; sourceTree = "<group>"; };
+		83C172492C3803E80057F5BD /* DerValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DerValue.h; sourceTree = "<group>"; };
+		83C1724A2C3803E80057F5BD /* DerEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DerEncoder.m; sourceTree = "<group>"; };
+		83C1724B2C3803E80057F5BD /* DerInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DerInputStream.m; sourceTree = "<group>"; };
+		83C1724C2C3803E80057F5BD /* DerOutputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DerOutputStream.m; sourceTree = "<group>"; };
+		83C1724D2C3803E80057F5BD /* Pkcs1Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pkcs1Utils.h; sourceTree = "<group>"; };
+		83C1724E2C3803E80057F5BD /* Pkcs1Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pkcs1Utils.m; sourceTree = "<group>"; };
+		83C1724F2C3803E80057F5BD /* DerIndefLenConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DerIndefLenConverter.m; sourceTree = "<group>"; };
 		83EBF99A289BAA8600E80A7E /* ServletRest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServletRest.h; sourceTree = "<group>"; };
 		83EBF99B289BAA9300E80A7E /* ServletRest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServletRest.m; sourceTree = "<group>"; };
 		83EBF99D289BAB2C00E80A7E /* ParentRest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParentRest.m; sourceTree = "<group>"; };
@@ -593,6 +626,35 @@
 			path = BachRest;
 			sourceTree = "<group>";
 		};
+		83C172392C3803C20057F5BD /* J2Objc */ = {
+			isa = PBXGroup;
+			children = (
+				83C172482C3803E80057F5BD /* BitArray.h */,
+				83C172432C3803E80057F5BD /* BitArray.m */,
+				83C172472C3803E80057F5BD /* ByteArrayLexOrder.h */,
+				83C1723F2C3803E80057F5BD /* ByteArrayLexOrder.m */,
+				83C1723C2C3803E80057F5BD /* ByteArrayTagOrder.h */,
+				83C172442C3803E80057F5BD /* ByteArrayTagOrder.m */,
+				83C1723E2C3803E80057F5BD /* DerEncoder.h */,
+				83C1724A2C3803E80057F5BD /* DerEncoder.m */,
+				83C172452C3803E80057F5BD /* DerIndefLenConverter.h */,
+				83C1724F2C3803E80057F5BD /* DerIndefLenConverter.m */,
+				83C172462C3803E80057F5BD /* DerInputBuffer.h */,
+				83C1723B2C3803E80057F5BD /* DerInputBuffer.m */,
+				83C172402C3803E80057F5BD /* DerInputStream.h */,
+				83C1724B2C3803E80057F5BD /* DerInputStream.m */,
+				83C1723D2C3803E80057F5BD /* DerOutputStream.h */,
+				83C1724C2C3803E80057F5BD /* DerOutputStream.m */,
+				83C172492C3803E80057F5BD /* DerValue.h */,
+				83C1723A2C3803E80057F5BD /* DerValue.m */,
+				83C172422C3803E80057F5BD /* ObjectIdentifier.h */,
+				83C172412C3803E80057F5BD /* ObjectIdentifier.m */,
+				83C1724D2C3803E80057F5BD /* Pkcs1Utils.h */,
+				83C1724E2C3803E80057F5BD /* Pkcs1Utils.m */,
+			);
+			path = J2Objc;
+			sourceTree = "<group>";
+		};
 		83EBF999289BAA6F00E80A7E /* ServletRest */ = {
 			isa = PBXGroup;
 			children = (
@@ -828,6 +890,7 @@
 		C30B321C163804620072A515 = {
 			isa = PBXGroup;
 			children = (
+				83C172392C3803C20057F5BD /* J2Objc */,
 				9226967023C6508600F099F0 /* Extensions */,
 				C3A91DF816F8CD8D009D07AD /* Cliente @firma.entitlements */,
 				B27395CA20A4384300A7D05A /* Constants */,
@@ -1298,6 +1361,7 @@
 				C3B11DB816FB642B00C0D623 /* AlgorithmIdentifier.c in Sources */,
 				C3B11DBA16FB642B00C0D623 /* ANY.c in Sources */,
 				C3B11DBC16FB642B00C0D623 /* asn_codecs_prim.c in Sources */,
+				83C172562C3803E90057F5BD /* DerEncoder.m in Sources */,
 				C3B11DBE16FB642B00C0D623 /* asn_SEQUENCE_OF.c in Sources */,
 				B273960920A43E2800A7D05A /* Base64.m in Sources */,
 				C3B11DC016FB642B00C0D623 /* asn_SET_OF.c in Sources */,
@@ -1325,7 +1389,9 @@
 				C3B11DDC16FB642B00C0D623 /* constr_SEQUENCE_OF.c in Sources */,
 				B273960620A43E2800A7D05A /* AOCustomSegue.m in Sources */,
 				B273961020A43E2800A7D05A /* Firma.m in Sources */,
+				83C172572C3803E90057F5BD /* DerInputStream.m in Sources */,
 				C3B11DDE16FB642B00C0D623 /* constr_SEQUENCE.c in Sources */,
+				83C172552C3803E90057F5BD /* ByteArrayTagOrder.m in Sources */,
 				C3B11DE016FB642B00C0D623 /* constr_SET_OF.c in Sources */,
 				C3B11DE216FB642B00C0D623 /* constr_TYPE.c in Sources */,
 				C3B11DE416FB642B00C0D623 /* constraints.c in Sources */,
@@ -1345,14 +1411,17 @@
 				C3B11DF616FB642B00C0D623 /* GeneralizedTime.c in Sources */,
 				B2406F2F20C5CACA008ED085 /* AOAvailableCertificatesTVC.m in Sources */,
 				C3B11DFA16FB642B00C0D623 /* Hash.c in Sources */,
+				83C172582C3803E90057F5BD /* DerOutputStream.m in Sources */,
 				C3B11DFC16FB642B00C0D623 /* IA5String.c in Sources */,
 				C3B11DFE16FB642B00C0D623 /* INTEGER.c in Sources */,
 				C3B11E0016FB642B00C0D623 /* IssuerAndSerialNumber.c in Sources */,
 				B2AE16992133E3330082C892 /* GlobalConstants.m in Sources */,
+				83C172542C3803E90057F5BD /* BitArray.m in Sources */,
 				C3B11E0416FB642B00C0D623 /* MessageDigest.c in Sources */,
 				C3B11E0616FB642B00C0D623 /* Name.c in Sources */,
 				B273960420A43E2800A7D05A /* AOCounterSignPreItems.m in Sources */,
 				C3B11E0816FB642B00C0D623 /* NativeEnumerated.c in Sources */,
+				83C172502C3803E90057F5BD /* DerValue.m in Sources */,
 				C3B11E0A16FB642B00C0D623 /* NativeInteger.c in Sources */,
 				C3B11E0C16FB642B00C0D623 /* OBJECT_IDENTIFIER.c in Sources */,
 				C3B11E0E16FB642B00C0D623 /* OCTET_STRING.c in Sources */,
@@ -1375,6 +1444,7 @@
 				C3B11E2616FB642B00C0D623 /* SignatureValue.c in Sources */,
 				9A7018FB2ACFECB4000B11D6 /* AOHelpCell.m in Sources */,
 				C3B11E2816FB642B00C0D623 /* SignedAttributes.c in Sources */,
+				83C172512C3803E90057F5BD /* DerInputBuffer.m in Sources */,
 				C3B11E2A16FB642B00C0D623 /* SignedData.c in Sources */,
 				C3B11E2C16FB642B00C0D623 /* SignerIdentifier.c in Sources */,
 				C3B11E2E16FB642B00C0D623 /* SignerInfo.c in Sources */,
@@ -1382,6 +1452,7 @@
 				C3B11E3016FB642B00C0D623 /* SignerInfos.c in Sources */,
 				B24384BC20C541620087BAE0 /* AOAcercadeViewController.m in Sources */,
 				C3B11E3216FB642B00C0D623 /* SigningCertificate.c in Sources */,
+				83C172532C3803E90057F5BD /* ObjectIdentifier.m in Sources */,
 				C3B11E3416FB642B00C0D623 /* SigningCertificateV2.c in Sources */,
 				C3B11E3616FB642B00C0D623 /* SigningTime.c in Sources */,
 				C3B11E3816FB642B00C0D623 /* SubjectKeyIdentifier.c in Sources */,
@@ -1397,6 +1468,7 @@
 				C3B11E4216FB642B00C0D623 /* xer_encoder.c in Sources */,
 				C3B11E4416FB642B00C0D623 /* xer_support.c in Sources */,
 				C3B14034170AE10000E3FD42 /* ContentHints.c in Sources */,
+				83C1725A2C3803E90057F5BD /* DerIndefLenConverter.m in Sources */,
 				C3B14038170AE15E00E3FD42 /* UTF8String.c in Sources */,
 				B2EE5C1020AC4359000A4A28 /* AOAppDelegate.m in Sources */,
 				C3B14045170B2B7800E3FD42 /* NULL.c in Sources */,
@@ -1411,6 +1483,7 @@
 				B2406F3620C5CD4D008ED085 /* AOCertificateCell.m in Sources */,
 				C3A44B74170C3B60000B551C /* SignaturePolicyId.c in Sources */,
 				C3A44B75170C3B60000B551C /* SigPolicyHash.c in Sources */,
+				83C172592C3803E90057F5BD /* Pkcs1Utils.m in Sources */,
 				9A7019012AD03102000B11D6 /* AOAvailableCertificatesCell.m in Sources */,
 				C3A44B76170C3B60000B551C /* SigPolicyId.c in Sources */,
 				C3A44B77170C3B60000B551C /* SigPolicyQualifierId.c in Sources */,
@@ -1424,6 +1497,7 @@
 				B273960520A43E2800A7D05A /* AOCounterSignXMLParser.m in Sources */,
 				B240772D20A5B87B00A8EE1C /* main.m in Sources */,
 				C3AB70651716CD4E003795F7 /* CADESSigner.c in Sources */,
+				83C172522C3803E90057F5BD /* ByteArrayLexOrder.m in Sources */,
 				B273960F20A43E2800A7D05A /* DesCypher.m in Sources */,
 				C3B3E38F17253C8900F3D458 /* AOXMLReader.m in Sources */,
 				B273961320A43E2800A7D05A /* OpenSSLCertificateHelper.m in Sources */,
@@ -1505,6 +1579,7 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "${J2OBJC_HOME}/frameworks";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1525,12 +1600,35 @@
 					"./lib/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				J2OBJC_HOME = "/Users/desarrolloabamobile/Downloads/j2objc-2.8";
+				LIBRARY_SEARCH_PATHS = "${J2OBJC_HOME}/lib";
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-l",
+					jre_emul,
+					"-l",
+					jre_zip,
+					"-l",
+					iconv,
+					"-l",
+					jre_net,
+					"-l",
+					jre_security,
+					"-l",
+					jre_ssl,
+					"-l",
+					jre_xml,
+					"-l",
+					z,
+					"-l",
+					protobuf,
+				);
 				PRODUCT_NAME = "Cliente @firma Móvil";
 				PROVISIONING_PROFILE = "c08ed7da-989b-4719-b284-d895789fd7db";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "c08ed7da-989b-4719-b284-d895789fd7db";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "${J2OBJC_HOME}/include";
 			};
 			name = Debug;
 		};
@@ -1564,6 +1662,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "${J2OBJC_HOME}/frameworks";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1577,12 +1676,15 @@
 					"./lib/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				J2OBJC_HOME = "/Users/desarrolloabamobile/Downloads/j2objc-2.8";
+				LIBRARY_SEARCH_PATHS = "${J2OBJC_HOME}/lib";
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "Cliente @firma Móvil";
 				PROVISIONING_PROFILE = "c08ed7da-989b-4719-b284-d895789fd7db";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "c08ed7da-989b-4719-b284-d895789fd7db";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "${J2OBJC_HOME}/include";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1635,12 +1737,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "Cliente @firma.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 11;
-				DEVELOPMENT_TEAM = 2H36E8KFN2;
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2H36E8KFN2;
+				DEVELOPMENT_TEAM = LCLHA32ZLW;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1659,11 +1759,10 @@
 				);
 				MARKETING_VERSION = 1.8.3;
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "es.gob.afirma.Cliente--firma";
+				PRODUCT_BUNDLE_IDENTIFIER = "es.abamobile.gob.afirma.Cliente--firma";
 				PRODUCT_NAME = "Cliente @firma";
 				PROVISIONING_PROFILE = "c08ed7da-989b-4719-b284-d895789fd7db";
-				PROVISIONING_PROFILE_SPECIFIER = "Cliente Afirma Movil - App Store";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Cliente Afirma Movil - App Store";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
