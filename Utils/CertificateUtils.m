@@ -628,22 +628,42 @@ static CertificateUtils *_sharedWrapper = nil;
     return signedHash;
 }
 
-- (SecKeyAlgorithm)getAlgorithmByCertificate:(SecKeyRef)privateKey alg:(NSString *)alg{
+- (BOOL) isCertificateECDSA:(SecKeyRef)privateKey {
+    return [self isCertificateKeyType:privateKey keyType:kSecAttrKeyTypeECSECPrimeRandom];
+}
+
+- (BOOL) isCertificateRSA:(SecKeyRef)privateKey {
+    return [self isCertificateKeyType:privateKey keyType:kSecAttrKeyTypeRSA];
+}
+
+- (BOOL) isCertificateKeyType:(SecKeyRef)privateKey keyType:(CFStringRef) keSecAttrKeyType{
     CFDictionaryRef attributes = SecKeyCopyAttributes(privateKey);
     if (!attributes) {
-	   return nil;
+       return nil;
     }
     
     NSString *keyType = ( NSString *)CFDictionaryGetValue(attributes, kSecAttrKeyType);
     CFRelease(attributes);
     
     if (!keyType) {
-	   NSLog(@"No se pudo determinar el tipo de clave.");
-	   return nil;
+       NSLog(@"No se pudo determinar el tipo de clave.");
+       return nil;
     }
 
     
-    if ([keyType isEqualToString:(__bridge NSString *)kSecAttrKeyTypeRSA]) {
+    if ([keyType isEqualToString:(__bridge NSString *)keSecAttrKeyType]) {
+        return YES;
+    }
+    
+    return NO;
+}
+
+- (SecKeyAlgorithm)getAlgorithmByCertificate:(SecKeyRef)privateKey alg:(NSString *)alg{
+    
+    BOOL isCertificateECDSA = [self isCertificateECDSA:privateKey];
+    
+    if ([self isCertificateRSA:privateKey]) {
+        // Es Certificado RSA
 	   if ([[alg uppercaseString] containsString:@"SHA1"] ) {
 		  return kSecKeyAlgorithmRSASignatureMessagePKCS1v15SHA1;
 	   }
@@ -659,7 +679,8 @@ static CertificateUtils *_sharedWrapper = nil;
 	   else{
 		  return NULL;
 	   }
-    } else if ([keyType isEqualToString:(__bridge NSString *)kSecAttrKeyTypeECSECPrimeRandom]) {
+    } else if ([self isCertificateECDSA:privateKey]){
+        // Es certificado ECDSA
 	   if ([[alg uppercaseString] containsString:@"SHA1"] ) {
 		  return kSecKeyAlgorithmECDSASignatureMessageX962SHA1;
 	   }

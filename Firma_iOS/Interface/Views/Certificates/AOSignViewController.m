@@ -1037,7 +1037,7 @@ SecKeyRef privateKey = NULL;
 		  
 		  // Contiene las prefirmas firmadas
 		  // Si es XADES o FACTURA-E Haremos un proceso adicional
-		  if (signFormat != nil && ([signFormat containsString:@"XAdES"] || [signFormat containsString:@"FacturaE"])) {
+		  if (signFormat != nil && ([signFormat containsString:@"XAdES"] || [signFormat containsString:@"FacturaE"]) && [[CertificateUtils sharedWrapper]isCertificateECDSA:privateKey]) {
 			 IOSByteArray *byteArray = [IOSByteArray arrayWithBytes:[dataSigned bytes] count:[dataSigned length]];
 			 IOSByteArray *decodedSignature = EsGobAfirmaCoreSignersPkcs1Utils_decodeSignatureWithByteArray_(byteArray);
 			 NSData *decodedSignatureData = [NSData dataWithBytes:[decodedSignature buffer] length:[decodedSignature length]];
