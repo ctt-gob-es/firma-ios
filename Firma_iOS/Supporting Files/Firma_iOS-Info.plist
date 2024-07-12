@@ -2,6 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+	    <string>Merriweather-Black.ttf</string>
+	    <string>Merriweather-BlackItalic.ttf</string>
+	    <string>Merriweather-Bold.ttf</string>
+	    <string>Merriweather-BoldItalic.ttf</string>
+	    <string>Merriweather-Italic.ttf</string>
+	    <string>Merriweather-Light.ttf</string>
+	    <string>Merriweather-LightItalic.ttf</string>
+	    <string>Merriweather-Regular.ttf</string>
+	    <string>NunitoSans_10pt-Regular.ttf</string>
+	    <string>NunitoSans_10pt-Bold.ttf</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>

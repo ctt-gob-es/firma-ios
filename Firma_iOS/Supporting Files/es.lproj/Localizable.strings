@@ -128,3 +128,77 @@ trámite funciona en otros dispositivos. ¿Por qué?\n\n";
 "certificate_close_to_expire" = "Certificado próximo a caducar";
 "external_link_icon_label" = "Enlace externo";
 "button_accessibility_label" = "Botón";
+
+//Onboarding
+"onboarding_title" = "Firma fácil y segura";
+"onboarding_message" = "Firma documentos de forma segura y legal identificándote con tu certificado digital o DNI electrónico.";
+"onboarding_button_title" = "Comenzar";
+
+//Privacy
+"privacy_controller_title" = "Aceptación de condiciones";
+"privacy_title" = "Título";
+"privacy_subtitle" = "Subtítulo";
+"privacy_policy_checkbox_description" = "He leído y estoy de acuerdo con la Política de Privacidad";
+"privacy_tou_checkbox_description" = "He leído y estoy de acuerdo con el Aviso Legal y los Términos y Condiciones de Uso";
+"privacy_button_title" = "Aceptar";
+
+//Home
+"home_certificates_label" = "Certificados";
+"home_certificates_description" = "Desde Autofirma puedes añadir nuevos certificados con los cuales podrás procesar tus firmas, o eliminar los certificados instalados en tu dispositivo.";
+"home_certificates_not_available_title" = "No tienes certificados instalados";
+"home_certificates_not_available_description" = "Para firmar necesitas registrar un certificado digital";
+"home_certificates_sign_button_title" = "Firmar fichero";
+"home_certificates_add_certificate_button_title" = "Añadir nuevo certificado";
+
+//Settings
+"settings_my_config_title" = "Mi configuración";
+"settings_help_title" = "Ayuda";
+"settings_general_info_title" = "Información general";
+"settings_language_row" = "Idioma";
+"settings_permission_row" = "Permisos";
+"settings_faq_row" = "Preguntas frecuentes";
+"settings_install_certificate_row" = "Cómo instalar un certificado";
+"settings_accesibility_info_row" = "Declaración de Accesibilidad";
+"settings_legal_advice_row" = "Aviso legal";
+"settings_privacy_policy_row" = "Política de privacidad";
+"settings_version_row" = "Versión v1.0";
+
+//Version
+"version_text" = "“Cliente @firma para Apple iOS” v.1.8 2023 Gobierno de España\n\nEl cliente @firma para Apple iOS es Software Libre; puedes redistribuirlo y/o modificarlo bajo los términos de la siguiente licencia: “European Software License 1.1”, cuyo texto completo puede consultarse en la siguiente página Web: http://ec.europa.eu/idabc/eupl.html\n\nEl código fuente de este programa, así como del resto de los componentes del proyecto se pueden descargar libremente desde: http://forja-ctt.administracionelectronica.gob.es\n\nEl proyecto Cliente @firma es un proyecto colaborativo, si desea participar en él, no dude en unirse a la comunidad, accesible desde la siguiente página Web: https://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc";
+"version_title" = "Versión v1.0";
+
+//Language
+"language_title" = "Idioma";
+
+//FAQ
+"faq_title" = "Preguntas frecuentes";
+"faq_question_one" = "¿Cómo puedo realizar firmas electrónicas con este programa?";
+"faq_answer_one" = "El Cliente @firma iOS permite firmar con su certificado trámites web compatibles con la aplicación. Para firmar un trámite, complételo normalmente a través de su navegador web. Si el trámite está preparado para la firma con el Cliente @firma móvil, este se ejecutará en el momento de la firma para que el usuario seleccione su certificado y ejecute la operación. Recuerde que antes de iniciar el trámite debe haber importado su certificado de firma en el Cliente @firma iOS.";
+"faq_question_two" = "La firma de algunos trámites web fallan, mientras que ese mismo trámite funciona en otros dispositivos. ¿Por qué?";
+"faq_answer_two" = "El Cliente @firma para Apple iOS carece aún de ciertas funcionalidades que sí están presentes en versiones para otros sistemas operativos. Futuras actualizaciones del producto solventarán estas carencias. Mientras tanto, utilice otro sistema y notifique si lo considera preciso al responsable del trámite web.";
+"faq_question_three" = "¿Corren peligro mis certificados si pierdo el dispositivo?";
+"faq_answer_three" = "Los certificados se almacenan en su dispositivo con un potente cifrado protegido con contraseña, pero como cualquier sistema cifrado, el momento que este esté fuera del control de propietario corre el riesgo de ser comprometido. Si pierde el dispositivo debe contactar lo antes posible con su proveedor de servicios de certificación para revocar de inmediato los certificados que este contenía.";
+"faq_question_four" = "He importado los certificados correctamente en el Cliente @firma para Apple iOS, pero aun así no consigo identificarme con ellos en las sedes electrónicas y demás páginas Web que lo requieren ¿Por qué?";
+"faq_answer_four" = "Los certificados importados en el Cliente @firma para Apple iOS son de uso exclusivo para firma electrónica en páginas Web diseñadas a tal efecto. Para usar un certificado digital para identificación en páginas Web deberá seguir las instrucciones de su navegador Web y de Apple respecto al proceso de instalación de los certificados y sus claves en el sistema operativo iOS y en el propio navegador Web si fuese preciso.";
+
+//Install Certificate
+"install_certificate_title" = "Instalar certificado";
+"install_certificate_title_one" = "Localiza el archivo";
+"install_certificate_description_one" = "Localiza el archivo .p12 o .pfx. en tu teléfono.";
+"install_certificate_title_two" = "Envía al dispositivo";
+"install_certificate_description_two" = "Si no lo encuentras, envíalo a tu móvil desde otro dispositivo mediante correo electrónico u otras aplicaciones en Cloud.";
+"install_certificate_button_one_title" = "Continuar";
+"install_certificate_button_two_title" = "Añadir certificado";
+
+//Languages
+"language_es" = "Español";
+"language_en" = "English";
+"language_ca" = "Català";
+"language_ga" = "Galego";
+"language_eu" = "Euskera";
+"language_va" = "Valenciano";
+
+//Permisos
+"permissions_title" = "Permisos";
+"permissions_button_title" = "Guardar";
+"permissions_nfc_description" = "Permitir el uso de DNIe por NFC";

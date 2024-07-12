@@ -11,6 +11,7 @@
 #import "ColorChart.h"
 #import "UIFont+Utils.h"
 #import "StoryboardUtils.h"
+#import "Cliente__firma-Swift.h"
 
 @implementation AOAppDelegate
 
@@ -60,7 +61,24 @@ NSString *URLString, *state = @"Inactive";
      // Initialize tracker.
      [[GAI sharedInstance] tr<ackerWithTrackingId:@"UA-41615516-1"];*/
     
+    [self decideController];
+    
     return YES;
+}
+
+- (void)decideController {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    BOOL privacyAccepted = [defaults boolForKey:@"user_privacy_accepted"];
+    
+    UIViewController *rootViewController;
+    
+    if ([defaults objectForKey:@"user_privacy_accepted"] != nil && privacyAccepted) {
+	   rootViewController = [[HomeViewController alloc] init];
+    } else {
+	   rootViewController = [[OnboardingViewController alloc] init];
+    }
+    
+    self.window.rootViewController = rootViewController;
 }
 
 -(BOOL)application:(UIApplication *)application openURL:(nonnull NSURL *)url options:(nonnull NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {

@@ -127,3 +127,77 @@ procedure works on other devices. Why?\n\n";
 "certificate_close_to_expire" = "Certificate close to expire";
 "external_link_icon_label" = "External link";
 "button_accessibility_label" = "Button";
+
+//Onboarding
+"onboarding_title" = "Easy and secure signature";
+"onboarding_message" = "Sign documents securely and legally by identifying yourself with your digital certificate or electronic ID.";
+"onboarding_button_title" = "Begin";
+
+//Privacy
+"privacy_controller_title" = "Acceptance of conditions";
+"privacy_title" = "Title";
+"privacy_subtitle" = "Subtitle";
+"privacy_policy_checkbox_description" = "I have read and agree to the Privacy Policy";
+"privacy_tou_checkbox_description" = "I have read and agree to the Legal Notice and the Terms and Conditions of Use";
+"privacy_button_title" = "Accept";
+
+//Home
+"home_certificates_label" = "Certificates";
+"home_certificates_description" = "From Autofirma you can add new certificates with which you can process your signatures, or delete the certificates installed on your device.";
+"home_certificates_not_available_title" = "You have no certificates installed";
+"home_certificates_not_available_description" = "To sign you need to register a digital certificate";
+"home_certificates_sign_button_title" = "Sign file";
+"home_certificates_add_certificate_button_title" = "Add new certificate";
+
+//Settings
+"settings_my_config_title" = "My Settings";
+"settings_help_title" = "Help";
+"settings_general_info_title" = "General Information";
+"settings_language_row" = "Language";
+"settings_permission_row" = "Permissions";
+"settings_faq_row" = "Frequently Asked Questions";
+"settings_install_certificate_row" = "How to install a certificate";
+"settings_accesibility_info_row" = "Accessibility Statement";
+"settings_legal_advice_row" = "Legal Notice";
+"settings_privacy_policy_row" = "Privacy Policy";
+"settings_version_row" = "Version v1.0";
+
+//Version
+"version_text" = "“@firma Client for Apple iOS” v.1.8 2023 Government of Spain\n\nThe @firma client for Apple iOS is Free Software; you can redistribute and/or modify it under the terms of the following license: “European Software License 1.1”, the full text of which can be consulted on the following website: http://ec.europa.eu/idabc/eupl.html\n\nThe source code for this program, as well as the rest of the project components, can be freely downloaded from: http://forja-ctt.administracionelectronica.gob.es\n\nThe @firma Client project is a collaborative project. If you wish to participate in it, do not hesitate to join the community, accessible from the following website: https://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc";
+"version_title" = "Version v1.0";
+
+//Language
+"language_title" = "Language";
+
+//FAQ
+"faq_title" = "Frequently Asked Questions";
+"faq_question_one" = "How can I make electronic signatures with this program?";
+"faq_answer_one" = "The iOS @firma Client allows you to sign web procedures compatible with the application with your certificate. To sign a procedure, complete it normally through your web browser. If the procedure is prepared for signing with the mobile @firma Client, it will be executed at the time of signing so that the user can select their certificate and execute the operation. Remember that before starting the procedure you must have imported your signature certificate into the iOS @firma Client.";
+"faq_question_two" = "The signature of some web procedures fails, while that same procedure works on other devices. Why?";
+"faq_answer_two" = "The @firma Client for Apple iOS still lacks certain functionalities that are present in versions for other operating systems. Future product updates will solve these deficiencies. In the meantime, use another system and notify the person responsible for the web procedure if you consider it necessary.";
+"faq_question_three" = "Are my certificates at risk if I lose the device?";
+"faq_answer_three" = "Certificates are stored on your device with a powerful password-protected encryption, but like any encrypted system, the moment it is out of the owner's control it runs the risk of being compromised. If you lose the device, you should contact your certification service provider as soon as possible to immediately revoke the certificates it contained.";
+"faq_question_four" = "I have imported the certificates correctly into the @firma Client for Apple iOS, but I still cannot log in with them to the electronic offices and other Web pages that require it. Why?";
+"faq_answer_four" = "Certificates imported into the @firma Client for Apple iOS are for exclusive use for electronic signatures on Web pages designed for this purpose. To use a digital certificate for identification on Web pages, you must follow the instructions of your Web browser and of Apple regarding the installation process of the certificates and their keys in the iOS operating system and in the Web browser itself if necessary.";
+
+//Install Certificate
+"install_certificate_title" = "Install certificate";
+"install_certificate_title_one" = "Find the file";
+"install_certificate_description_one" = "Find the .p12 or .pfx file on your phone.";
+"install_certificate_title_two" = "Send to device";
+"install_certificate_description_two" = "If you can't find it, send it to your phone from another device using email or other Cloud apps.";
+"install_certificate_button_one_title" = "Continue";
+"install_certificate_button_two_title" = "Add Certificate";
+
+//Languages
+"language_es" = "Español";
+"language_en" = "English";
+"language_ca" = "Català";
+"language_ga" = "Galego";
+"language_eu" = "Euskera";
+"language_va" = "Valenciano";
+
+//Permisos
+"permissions_title" = "Permissions";
+"permissions_button_title" = "Save";
+"permissions_nfc_description" = "Allow the use of DNIe via NFC";
