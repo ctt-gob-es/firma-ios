@@ -11,10 +11,10 @@ import SwiftUI
 struct VersionView: View {
     var body: some View {
 	   VStack {
-		  AttributedTextView(text: NSLocalizedString("version_text", comment: ""))
+		  AttributedTextView(text: NSLocalizedString("version_text",bundle: Bundle.main ,comment: ""))
 			 .padding()
 	   }
-	   .navigationBarTitle("version_title", displayMode: .inline)
+	   .navigationBarTitle(NSLocalizedString("version_title",bundle: Bundle.main ,comment: ""), displayMode: .inline)
     }
 }
 

@@ -14,14 +14,11 @@ struct PrivacyView: View {
     
     var body: some View {
 	   VStack(alignment: .leading, spacing: 20) {
-		  Text("privacy_title")
-			 .titleStyle(foregroundColor: ColorConstants.Text.primary)
-			 .accessibility(label: Text("privacy_title"))
-			 .accessibility(addTraits: .isHeader)
+		  Text(NSLocalizedString("privacy_title", bundle: Bundle.main, comment: ""))
+			 .titleStyleBlack(foregroundColor: ColorConstants.Text.primary)
 		  
-		  Text("privacy_subtitle")
+		  Text(NSLocalizedString("privacy_subtitle", bundle: Bundle.main, comment: ""))
 			 .subtitleStyle(foregroundColor: ColorConstants.Text.primary)
-			 .accessibility(label: Text("privacy_subtitle"))
 		  
 		  ScrollView {
 			 VStack(alignment: .leading, spacing: 10) {
@@ -32,30 +29,26 @@ struct PrivacyView: View {
 				
 				CheckBoxView(
 				    isChecked: $isPrivacyPolicyAccepted,
-				    title: "privacy_policy_checkbox_description"
+				    title: NSLocalizedString("privacy_policy_checkbox_description", bundle: Bundle.main, comment: "")
 				)
-				.accessibility(label: Text("Casilla de verificación"))
-				.accessibility(hint: Text("Marcar si está de acuerdo con la Política de Privacidad"))
 				
 				CheckBoxView(
 				    isChecked: $isTermsAccepted,
-				    title: "privacy_tou_checkbox_description"
+				    title: NSLocalizedString("privacy_tou_checkbox_description", bundle: Bundle.main, comment: "")
 				)
-				.accessibility(label: Text("Casilla de verificación"))
-				.accessibility(hint: Text("Marcar si está de acuerdo con el Aviso Legal y los Términos y Condiciones de Uso"))
 			 }
 		  }
 		  
 		  Spacer()
 		  
 		  NavigationLink(destination: HomeView()) {
-			 Text("privacy_button_title")
+			 Text(NSLocalizedString("privacy_button_title", bundle: Bundle.main, comment: ""))
 		  }
 		  .buttonStyle(CustomButtonStyle(isEnabled: (isPrivacyPolicyAccepted && isTermsAccepted)))
 		  .disabled(!(isPrivacyPolicyAccepted && isTermsAccepted))
 	   }
 	   .navigationBarBackButtonHidden(true)
-	   .navigationBarTitle("privacy_controller_title", displayMode: .inline)
+	   .navigationBarTitle(NSLocalizedString("privacy_controller_title", bundle: Bundle.main, comment: ""), displayMode: .inline)
 	   .navigationBarColor(UIColor(ColorConstants.Background.main), titleColor: .black)
 	   .padding()
 	   .onDisappear {

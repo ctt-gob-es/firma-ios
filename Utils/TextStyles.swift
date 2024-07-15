@@ -9,9 +9,16 @@
 import SwiftUI
 
 extension Text {
-    func titleStyle(foregroundColor: Color, alignment: TextAlignment = .leading) -> some View {
+    func titleStyleBlack(foregroundColor: Color, alignment: TextAlignment = .leading) -> some View {
 	   self
 		  .font(.custom("Merriweather-Black", size: 20))
+		  .foregroundColor(foregroundColor)
+		  .multilineTextAlignment(alignment)
+    }
+    
+    func titleStyleBold(foregroundColor: Color, alignment: TextAlignment = .leading) -> some View {
+	   self
+		  .font(.custom("Merriweather-Bold", size: 16))
 		  .foregroundColor(foregroundColor)
 		  .multilineTextAlignment(alignment)
     }
@@ -23,9 +30,30 @@ extension Text {
 		  .multilineTextAlignment(alignment)
     }
     
+    func mediumBoldStyle(foregroundColor: Color, alignment: TextAlignment = .leading) -> some View {
+	   self
+		  .font(.custom("NunitoSans10pt-Bold", size: 18))
+		  .foregroundColor(foregroundColor)
+		  .multilineTextAlignment(alignment)
+    }
+    
+    func regularBoldStyle(foregroundColor: Color, alignment: TextAlignment = .leading) -> some View {
+	   self
+		  .font(.custom("NunitoSans10pt-Bold", size: 16))
+		  .foregroundColor(foregroundColor)
+		  .multilineTextAlignment(alignment)
+    }
+    
     func regularStyle(foregroundColor: Color, alignment: TextAlignment = .leading) -> some View {
 	   self
-		  .font(.custom("NunitoSans_10pt-Regular", size: 16))
+		  .font(.custom("NunitoSans10pt-Regular", size: 16))
+		  .foregroundColor(foregroundColor)
+		  .multilineTextAlignment(alignment)
+    }
+    
+    func boldStyleSmall(foregroundColor: Color, alignment: TextAlignment = .leading) -> some View {
+	   self
+		  .font(.custom("NunitoSans10pt-Bold", size: 12))
 		  .foregroundColor(foregroundColor)
 		  .multilineTextAlignment(alignment)
     }

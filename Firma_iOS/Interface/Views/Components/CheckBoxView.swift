@@ -11,7 +11,7 @@ import SwiftUI
 
 struct CheckBoxView: View {
     @Binding var isChecked: Bool
-    var title: LocalizedStringKey
+    var title: String
     
     var body: some View {
 	   Button(action: {

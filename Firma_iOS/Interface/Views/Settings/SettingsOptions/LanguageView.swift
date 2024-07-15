@@ -5,27 +5,17 @@
 //  Created by Desarrollo Abamobile on 12/7/24.
 //  Copyright © 2024 Solid GEAR. All rights reserved.
 //
-
 import SwiftUI
+
 
 struct LocalizedLanguage: Identifiable {
     let id = UUID()
-    let name: LocalizedStringKey
-}
-
-extension LocalizedLanguage {
-    static let allLanguages: [LocalizedLanguage] = [
-	   LocalizedLanguage(name: LocalizedStringKey("language_es")),
-	   LocalizedLanguage(name: LocalizedStringKey("language_en")),
-	   LocalizedLanguage(name: LocalizedStringKey("language_ca")),
-	   LocalizedLanguage(name: LocalizedStringKey("language_ga")),
-	   LocalizedLanguage(name: LocalizedStringKey("language_eu")),
-	   LocalizedLanguage(name: LocalizedStringKey("language_va"))
-    ]
+    let name: String
+    let code: String
 }
 
 struct LanguageView: View {
-    @State private var selectedLanguage: LocalizedStringKey = LocalizedStringKey("language_es")
+    @State private var selectedLanguage: String = NSLocalizedString("language_es", bundle: Bundle.main, comment: "")
     let languages = LocalizedLanguage.allLanguages
 
     var body: some View {
@@ -34,26 +24,34 @@ struct LanguageView: View {
 			 LanguageCell(language: language.name, isSelected: language.name == selectedLanguage)
 				.onTapGesture {
 				    selectedLanguage = language.name
+				    UserDefaults.standard.set(language.code, forKey: "appLanguage")
+				    Bundle.setLanguage(language.code)
 				}
 				.listRowSeparator(.hidden)
 		  }
 		  .listRowBackground(Color.white)
 	   }
-	   .navigationTitle(LocalizedStringKey("language_title"))
+	   .navigationTitle(NSLocalizedString("language_title", bundle: Bundle.main, comment: ""))
 	   .listStyle(PlainListStyle())
 	   .background(Color.white.edgesIgnoringSafeArea(.all))
+	   .onAppear {
+		  let savedLanguageCode = UserDefaults.standard.string(forKey: "appLanguage") ?? Locale.current.language.languageCode?.identifier ?? "es"
+		  if let language = languages.first(where: { $0.code == savedLanguageCode }) {
+			 selectedLanguage = language.name
+		  }
+	   }
     }
 }
 
 struct LanguageCell: View {
-    let language: LocalizedStringKey
+    let language: String
     let isSelected: Bool
 
     var body: some View {
 	   VStack(spacing: 0) {
 		  HStack(spacing: 4) {
 			 Text(language)
-				.foregroundColor(.black)
+				.regularBoldStyle(foregroundColor: .black)
 			 Spacer()
 			 if isSelected {
 				Image(systemName: "checkmark")

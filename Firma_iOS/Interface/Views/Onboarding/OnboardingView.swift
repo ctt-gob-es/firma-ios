@@ -14,26 +14,23 @@ struct OnboardingView: View {
 				    .scaledToFit()
 				    .frame(height: 200)
 				
-				Text("onboarding_title")
-				    .titleStyle(
+				Text(NSLocalizedString("onboarding_title",bundle: Bundle.main ,comment: ""))
+				    .titleStyleBlack(
 					   foregroundColor: ColorConstants.Text.primary,
 					   alignment: .center
 				    )
-				    .accessibility(label: Text("onboarding_title"))
-				    .accessibility(addTraits: .isHeader)
 				
-				Text("onboarding_message")
+				Text(NSLocalizedString("onboarding_message",bundle: Bundle.main ,comment: ""))
 				    .regularStyle(
 					   foregroundColor: ColorConstants.Text.onboarding,
 					   alignment: .center
 				    )
-				    .accessibility(label: Text("onboarding_message"))
 				
 				Spacer()
 				
 				VStack {
 				    NavigationLink(destination: PrivacyView()) {
-					   Text("onboarding_button_title")
+					   Text(NSLocalizedString("onboarding_button_title",bundle: Bundle.main ,comment: ""))
 					}
 				    .buttonStyle(CustomButtonStyle(isEnabled: true))
 				}

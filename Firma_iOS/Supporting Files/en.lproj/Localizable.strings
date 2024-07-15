@@ -150,6 +150,7 @@ procedure works on other devices. Why?\n\n";
 "home_certificates_add_certificate_button_title" = "Add new certificate";
 
 //Settings
+"settings_title" = "Settings";
 "settings_my_config_title" = "My Settings";
 "settings_help_title" = "Help";
 "settings_general_info_title" = "General Information";
@@ -201,3 +202,32 @@ procedure works on other devices. Why?\n\n";
 "permissions_title" = "Permissions";
 "permissions_button_title" = "Save";
 "permissions_nfc_description" = "Allow the use of DNIe via NFC";
+
+//Info view
+"info_view_title" = "What is Autofirma for?";
+"info_view_description" = "This application allows you to make electronic signatures on the pages of service providers that support it.
+To work correctly you must install an electronic certificate. Consult the documentation for your iOS system and your certification service provider.";
+"info_view_certificate_title" = "How to install certificates?";
+"info_view_certificate_description_one" = "Upload your certificate to your device or iCloud. Import it through the “Add certificate” option in the application.";
+"info_view_certificate_description_two" = "Allowed extensions: .p12 and .pfx. Remember that you need the export password for your certificate, and that it must include the private key. ";
+"info_view_more_info" = "More information";
+"info_view_button_title" = "Understood";
+"info_view_more_info_url" = "http://administracionelectronica.gob.es/";
+
+//Sign modal
+"sign_file_title" = "What will you use to sign the file?";
+"sign_with_certificate" = "Electronic certificate";
+"sign_with_dni" = "Electronic ID";
+
+//Delete certificate modal
+"delete_certificate_title" = "Delete certificate";
+"delete_certificate_subtitle" = "Do you want to delete";
+"delete_certificate_description" = "If you delete the certificate you will not be able to recover it and you will have to use another certificate. You can also add a new one whenever you want.";
+"delete_certificate_cancel_button_title" = "Cancel";
+"delete_certificate_button_title" = "Delete certificate";
+
+//Certificates
+"certificate_issuer" = "Issuer";
+"certificate_valid_date" = "Valid until";
+"certificate_use" = "Use";
+"certificate_delete" = "Delete";

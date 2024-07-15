@@ -14,7 +14,7 @@ struct CustomButtonStyle: ButtonStyle {
 
     func makeBody(configuration: Configuration) -> some View {
 	   configuration.label
-		  .font(.custom("NunitoSans-Bold", size: 20))
+		  .font(.custom("NunitoSans10pt-Bold", size: 20))
 		  .foregroundColor(isEnabled ? .white : ColorConstants.Text.buttonDisabled)
 		  .frame(maxWidth: .infinity)
 		  .padding()
@@ -29,7 +29,7 @@ struct CustomButtonStyle: ButtonStyle {
 struct BorderedButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
 	   configuration.label
-		  .font(.custom("NunitoSans-Bold", size: 20))
+		  .font(.custom("NunitoSans10pt-Bold", size: 20))
 		  .foregroundColor(ColorConstants.Background.buttonEnabled)
 		  .frame(maxWidth: .infinity)
 		  .padding()

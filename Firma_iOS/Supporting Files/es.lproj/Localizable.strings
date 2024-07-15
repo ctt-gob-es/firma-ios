@@ -151,6 +151,7 @@ trámite funciona en otros dispositivos. ¿Por qué?\n\n";
 "home_certificates_add_certificate_button_title" = "Añadir nuevo certificado";
 
 //Settings
+"settings_title" = "Ajustes";
 "settings_my_config_title" = "Mi configuración";
 "settings_help_title" = "Ayuda";
 "settings_general_info_title" = "Información general";
@@ -202,3 +203,33 @@ trámite funciona en otros dispositivos. ¿Por qué?\n\n";
 "permissions_title" = "Permisos";
 "permissions_button_title" = "Guardar";
 "permissions_nfc_description" = "Permitir el uso de DNIe por NFC";
+
+//Info view
+"info_view_title" = "¿Para que sirve Autofirma?";
+"info_view_description" = "Esta aplicación permite realizar firmas electrónicas en las páginas de los proveedores de servicios que lo soporten.
+Para funcionar correctamente debes instalar un certificado electrónico. Consulta la documentación de su sistema IOS y con tu proveedor de servicios de certificación.";
+"info_view_certificate_title" = "¿Cómo instalar certificados?";
+"info_view_certificate_description_one" = "Carga tu certificado en tu dispositivo o iCloud. Impórtalo a través de la opción “Añadir certificado” de la aplicación.";
+"info_view_certificate_description_two" = "Extensiones pérmitidas: .p12 y .pfx. Recuerda que necesitas la contraseña de exportación de tu certificado, y que éste debe de incluir la clave privada. ";
+"info_view_more_info" = "Más información";
+"info_view_button_title" = "Entendido";
+"info_view_more_info_url" = "http://administracionelectronica.gob.es/";
+
+//Sign modal
+"sign_file_title" = "¿Con qué firmarás el fichero?";
+"sign_with_certificate" = "Certificado electrónico";
+"sign_with_dni" = "DNI electrónico";
+
+//Delete certificate modal
+"delete_certificate_title" = "Eliminar certificado";
+"delete_certificate_subtitle" = "¿Quieres eliminar";
+"delete_certificate_description" = "Si eliminas el certificado no podrás recuperarlo y tendrás que utilizar otro certificado. También puedes añadir uno nuevo cuando desees.";
+"delete_certificate_cancel_button_title" = "Cancelar";
+"delete_certificate_button_title" = "Eliminar certificado";
+
+
+//Certificates
+"certificate_issuer" = "Emisor";
+"certificate_valid_date" = "Válido hasta";
+"certificate_use" = "Uso";
+"certificate_delete" = "Eliminar";

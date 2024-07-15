@@ -16,10 +16,10 @@ struct FAQItem: Identifiable {
 
 struct FAQView: View {
     let faqItems = [
-	   FAQItem(question: NSLocalizedString("faq_question_one", comment: ""), answer: NSLocalizedString("faq_answer_one", comment: "")),
-	   FAQItem(question: NSLocalizedString("faq_question_two", comment: ""), answer: NSLocalizedString("faq_answer_two", comment: "")),
-	   FAQItem(question: NSLocalizedString("faq_question_three", comment: ""), answer: NSLocalizedString("faq_answer_three", comment: "")),
-	   FAQItem(question: NSLocalizedString("faq_question_four", comment: ""), answer: NSLocalizedString("faq_answer_four", comment: ""))
+	   FAQItem(question: NSLocalizedString("faq_question_one",bundle: Bundle.main, comment: ""), answer: NSLocalizedString("faq_answer_one", bundle: Bundle.main, comment: "")),
+	   FAQItem(question: NSLocalizedString("faq_question_two",bundle: Bundle.main, comment: ""), answer: NSLocalizedString("faq_answer_two", bundle: .main, comment: "")),
+	   FAQItem(question: NSLocalizedString("faq_question_three",bundle: Bundle.main, comment: ""), answer: NSLocalizedString("faq_answer_three",bundle: Bundle.main, comment: "")),
+	   FAQItem(question: NSLocalizedString("faq_question_four",bundle: Bundle.main, comment: ""), answer: NSLocalizedString("faq_answer_four",bundle: Bundle.main, comment: ""))
     ]
     
     var body: some View {
@@ -27,7 +27,7 @@ struct FAQView: View {
 		  ExpandableCellView(faqItem: item)
 	   }
 	   .listStyle(PlainListStyle())
-	   .navigationBarTitle("faq_title", displayMode: .inline)
+	   .navigationBarTitle(NSLocalizedString("faq_title",bundle: Bundle.main, comment: ""), displayMode: .inline)
     }
 }
 

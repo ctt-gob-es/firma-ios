@@ -41,6 +41,11 @@
 		83C0ECBB2C41331200244071 /* Merriweather-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83C0ECB32C41331200244071 /* Merriweather-Bold.ttf */; };
 		83C0ECBD2C41358400244071 /* NunitoSans_10pt-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83C0ECBC2C41358400244071 /* NunitoSans_10pt-Regular.ttf */; };
 		83C0ECBF2C4135D100244071 /* NunitoSans_10pt-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83C0ECBE2C4135D100244071 /* NunitoSans_10pt-Bold.ttf */; };
+		83C0ECC12C4142D000244071 /* LanguageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0ECC02C4142D000244071 /* LanguageUtils.swift */; };
+		83C0ECC32C41489E00244071 /* AONSBundle+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C0ECC22C41489E00244071 /* AONSBundle+Language.m */; };
+		83C0ECC62C415A4B00244071 /* InfoModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0ECC52C415A4B00244071 /* InfoModalView.swift */; };
+		83C0ECC92C44F77900244071 /* DeleteCertificateModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0ECC82C44F77900244071 /* DeleteCertificateModalView.swift */; };
+		83C0ECCB2C44F89600244071 /* CertificateCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0ECCA2C44F89600244071 /* CertificateCellView.swift */; };
 		83C172502C3803E90057F5BD /* DerValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C1723A2C3803E80057F5BD /* DerValue.m */; };
 		83C172512C3803E90057F5BD /* DerInputBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C1723B2C3803E80057F5BD /* DerInputBuffer.m */; };
 		83C172522C3803E90057F5BD /* ByteArrayLexOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C1723F2C3803E80057F5BD /* ByteArrayLexOrder.m */; };
@@ -52,6 +57,10 @@
 		83C172582C3803E90057F5BD /* DerOutputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C1724C2C3803E80057F5BD /* DerOutputStream.m */; };
 		83C172592C3803E90057F5BD /* Pkcs1Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C1724E2C3803E80057F5BD /* Pkcs1Utils.m */; };
 		83C1725A2C3803E90057F5BD /* DerIndefLenConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C1724F2C3803E80057F5BD /* DerIndefLenConverter.m */; };
+		83E419C62C4502F100C21811 /* SignModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E419C52C4502F100C21811 /* SignModalView.swift */; };
+		83E419CA2C45184000C21811 /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E419C92C45184000C21811 /* DocumentPicker.swift */; };
+		83E419CC2C451EEC00C21811 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E419CB2C451EEC00C21811 /* PageControl.swift */; };
+		83E419CE2C451F3300C21811 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E419CD2C451F3300C21811 /* TutorialView.swift */; };
 		83EBF99E289BAB2C00E80A7E /* ParentRest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EBF99D289BAB2C00E80A7E /* ParentRest.m */; };
 		83EBF9A0289BB48A00E80A7E /* ServletRest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EBF99B289BAA9300E80A7E /* ServletRest.m */; };
 		83FD0B092C3FC96200902E19 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FD0B082C3FC96200902E19 /* OnboardingView.swift */; };
@@ -282,6 +291,12 @@
 		83C0ECB32C41331200244071 /* Merriweather-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-Bold.ttf"; sourceTree = "<group>"; };
 		83C0ECBC2C41358400244071 /* NunitoSans_10pt-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans_10pt-Regular.ttf"; sourceTree = "<group>"; };
 		83C0ECBE2C4135D100244071 /* NunitoSans_10pt-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans_10pt-Bold.ttf"; sourceTree = "<group>"; };
+		83C0ECC02C4142D000244071 /* LanguageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageUtils.swift; sourceTree = "<group>"; };
+		83C0ECC22C41489E00244071 /* AONSBundle+Language.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AONSBundle+Language.m"; sourceTree = "<group>"; };
+		83C0ECC42C4148AB00244071 /* AONSBundle+Language.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AONSBundle+Language.h"; sourceTree = "<group>"; };
+		83C0ECC52C415A4B00244071 /* InfoModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModalView.swift; sourceTree = "<group>"; };
+		83C0ECC82C44F77900244071 /* DeleteCertificateModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCertificateModalView.swift; sourceTree = "<group>"; };
+		83C0ECCA2C44F89600244071 /* CertificateCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateCellView.swift; sourceTree = "<group>"; };
 		83C1723A2C3803E80057F5BD /* DerValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DerValue.m; sourceTree = "<group>"; };
 		83C1723B2C3803E80057F5BD /* DerInputBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DerInputBuffer.m; sourceTree = "<group>"; };
 		83C1723C2C3803E80057F5BD /* ByteArrayTagOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ByteArrayTagOrder.h; sourceTree = "<group>"; };
@@ -304,6 +319,10 @@
 		83C1724D2C3803E80057F5BD /* Pkcs1Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pkcs1Utils.h; sourceTree = "<group>"; };
 		83C1724E2C3803E80057F5BD /* Pkcs1Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pkcs1Utils.m; sourceTree = "<group>"; };
 		83C1724F2C3803E80057F5BD /* DerIndefLenConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DerIndefLenConverter.m; sourceTree = "<group>"; };
+		83E419C52C4502F100C21811 /* SignModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignModalView.swift; sourceTree = "<group>"; };
+		83E419C92C45184000C21811 /* DocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPicker.swift; sourceTree = "<group>"; };
+		83E419CB2C451EEC00C21811 /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
+		83E419CD2C451F3300C21811 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		83EBF99A289BAA8600E80A7E /* ServletRest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServletRest.h; sourceTree = "<group>"; };
 		83EBF99B289BAA9300E80A7E /* ServletRest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServletRest.m; sourceTree = "<group>"; };
 		83EBF99D289BAB2C00E80A7E /* ParentRest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParentRest.m; sourceTree = "<group>"; };
@@ -708,6 +727,10 @@
 				83C0EC8B2C3FEDD000244071 /* NavigationBarModifier.swift */,
 				83C0EC922C3FF6CB00244071 /* NavigationBarButton.swift */,
 				83C0EC982C40018A00244071 /* NavigationBarButtonLink.swift */,
+				83C0ECCA2C44F89600244071 /* CertificateCellView.swift */,
+				83E419C92C45184000C21811 /* DocumentPicker.swift */,
+				83E419CB2C451EEC00C21811 /* PageControl.swift */,
+				83E419CD2C451F3300C21811 /* TutorialView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -750,6 +773,16 @@
 				83C0ECB12C41331200244071 /* Merriweather-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		83C0ECC72C44F75C00244071 /* Modals */ = {
+			isa = PBXGroup;
+			children = (
+				83C0ECC52C415A4B00244071 /* InfoModalView.swift */,
+				83C0ECC82C44F77900244071 /* DeleteCertificateModalView.swift */,
+				83E419C52C4502F100C21811 /* SignModalView.swift */,
+			);
+			path = Modals;
 			sourceTree = "<group>";
 		};
 		83C172392C3803C20057F5BD /* J2Objc */ = {
@@ -877,6 +910,7 @@
 		B2406F3020C5CB8D008ED085 /* Alerts */ = {
 			isa = PBXGroup;
 			children = (
+				83C0ECC72C44F75C00244071 /* Modals */,
 				B2406F3120C5CB8D008ED085 /* AlertProgressBar.h */,
 				B2406F3220C5CB8D008ED085 /* AlertProgressBar.m */,
 				B2D0158B20CA7F9400FD4102 /* CommonAlert.h */,
@@ -1029,6 +1063,9 @@
 				83144EA42C3FDB1A00CC38AB /* ColorConstants.swift */,
 				83144EA62C3FDFDD00CC38AB /* CustomButtonStyle.swift */,
 				83C0ECA92C410B5900244071 /* AttributedText.swift */,
+				83C0ECC02C4142D000244071 /* LanguageUtils.swift */,
+				83C0ECC22C41489E00244071 /* AONSBundle+Language.m */,
+				83C0ECC42C4148AB00244071 /* AONSBundle+Language.h */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1584,20 +1621,24 @@
 				C3B11DEC16FB642B00C0D623 /* DigestAlgorithmIdentifier.c in Sources */,
 				C3B11DEE16FB642B00C0D623 /* DigestAlgorithmIdentifiers.c in Sources */,
 				C3B11DF016FB642B00C0D623 /* EncapsulatedContentInfo.c in Sources */,
+				83E419C62C4502F100C21811 /* SignModalView.swift in Sources */,
 				C3B11DF216FB642B00C0D623 /* ESSCertID.c in Sources */,
 				C3B11DF416FB642B00C0D623 /* ESSCertIDv2.c in Sources */,
 				B2406F3D20C5CF89008ED085 /* AOAboutViewController.m in Sources */,
 				83C0EC8A2C3FEDB500244071 /* CheckBoxView.swift in Sources */,
 				C3B11DF616FB642B00C0D623 /* GeneralizedTime.c in Sources */,
 				B2406F2F20C5CACA008ED085 /* AOAvailableCertificatesTVC.m in Sources */,
+				83E419CE2C451F3300C21811 /* TutorialView.swift in Sources */,
 				C3B11DFA16FB642B00C0D623 /* Hash.c in Sources */,
 				83C172582C3803E90057F5BD /* DerOutputStream.m in Sources */,
 				C3B11DFC16FB642B00C0D623 /* IA5String.c in Sources */,
 				C3B11DFE16FB642B00C0D623 /* INTEGER.c in Sources */,
+				83C0ECC12C4142D000244071 /* LanguageUtils.swift in Sources */,
 				C3B11E0016FB642B00C0D623 /* IssuerAndSerialNumber.c in Sources */,
 				B2AE16992133E3330082C892 /* GlobalConstants.m in Sources */,
 				83C172542C3803E90057F5BD /* BitArray.m in Sources */,
 				C3B11E0416FB642B00C0D623 /* MessageDigest.c in Sources */,
+				83C0ECC92C44F77900244071 /* DeleteCertificateModalView.swift in Sources */,
 				C3B11E0616FB642B00C0D623 /* Name.c in Sources */,
 				83C0ECA62C4103E700244071 /* InstallCertificateView.swift in Sources */,
 				B273960420A43E2800A7D05A /* AOCounterSignPreItems.m in Sources */,
@@ -1610,6 +1651,7 @@
 				C3B11E1016FB642B00C0D623 /* per_decoder.c in Sources */,
 				C3B11E1216FB642B00C0D623 /* per_encoder.c in Sources */,
 				83C0EC992C40018A00244071 /* NavigationBarButtonLink.swift in Sources */,
+				83E419CA2C45184000C21811 /* DocumentPicker.swift in Sources */,
 				C3B11E1416FB642B00C0D623 /* per_opentype.c in Sources */,
 				83A3DA922897B67400AF4355 /* BachRest.m in Sources */,
 				B273960E20A43E2800A7D05A /* DateHelper.m in Sources */,
@@ -1619,6 +1661,7 @@
 				C3B11E1A16FB642B00C0D623 /* PolicyQualifierId.c in Sources */,
 				C3B11E1C16FB642B00C0D623 /* PolicyQualifierInfo.c in Sources */,
 				C3B11E1E16FB642B00C0D623 /* RDNSequence.c in Sources */,
+				83C0ECC32C41489E00244071 /* AONSBundle+Language.m in Sources */,
 				C3B11E2016FB642B00C0D623 /* RelativeDistinguishedName.c in Sources */,
 				C3B11E2216FB642B00C0D623 /* RevocationInfoChoices.c in Sources */,
 				C3B11E2416FB642B00C0D623 /* SignatureAlgorithmIdentifier.c in Sources */,
@@ -1637,6 +1680,8 @@
 				83C0ECAA2C410B5900244071 /* AttributedText.swift in Sources */,
 				B24384BC20C541620087BAE0 /* AOAcercadeViewController.m in Sources */,
 				C3B11E3216FB642B00C0D623 /* SigningCertificate.c in Sources */,
+				83C0ECC62C415A4B00244071 /* InfoModalView.swift in Sources */,
+				83C0ECCB2C44F89600244071 /* CertificateCellView.swift in Sources */,
 				83C172532C3803E90057F5BD /* ObjectIdentifier.m in Sources */,
 				C3B11E3416FB642B00C0D623 /* SigningCertificateV2.c in Sources */,
 				C3B11E3616FB642B00C0D623 /* SigningTime.c in Sources */,
@@ -1663,6 +1708,7 @@
 				C3A44B70170C3B60000B551C /* DisplayText.c in Sources */,
 				B273960820A43E2800A7D05A /* AOUtils.m in Sources */,
 				B2952CB520D981F700A4467B /* UITextView+Boldify.m in Sources */,
+				83E419CC2C451EEC00C21811 /* PageControl.swift in Sources */,
 				83C0ECA02C41036D00244071 /* PermissionsView.swift in Sources */,
 				C3A44B71170C3B60000B551C /* NoticeReference.c in Sources */,
 				C3A44B72170C3B60000B551C /* OtherHashAlgAndValue.c in Sources */,

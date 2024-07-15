@@ -12,6 +12,7 @@
 #import "UIFont+Utils.h"
 #import "StoryboardUtils.h"
 #import "Cliente__firma-Swift.h"
+#import "AONSBundle+Language.h"
 
 @implementation AOAppDelegate
 
@@ -61,6 +62,15 @@ NSString *URLString, *state = @"Inactive";
      // Initialize tracker.
      [[GAI sharedInstance] tr<ackerWithTrackingId:@"UA-41615516-1"];*/
     
+    NSString *savedLanguage = [[NSUserDefaults standardUserDefaults] stringForKey:@"appLanguage"];
+	   if (savedLanguage) {
+		  [NSBundle setLanguage:savedLanguage];
+	   } else {
+		  // Configurar el idioma por defecto basado en el idioma del sistema
+		  NSString *defaultLanguage = [[NSLocale preferredLanguages] firstObject];
+		  [NSBundle setLanguage:defaultLanguage];
+	   }
+    
     [self decideController];
     
     return YES;
@@ -79,6 +89,13 @@ NSString *URLString, *state = @"Inactive";
     }
     
     self.window.rootViewController = rootViewController;
+}
+
+void setAppLanguage(NSString *language) {
+    [[NSUserDefaults standardUserDefaults] setObject:language forKey:@"appLanguage"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+
+    [NSBundle setLanguage:language];
 }
 
 -(BOOL)application:(UIApplication *)application openURL:(nonnull NSURL *)url options:(nonnull NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
