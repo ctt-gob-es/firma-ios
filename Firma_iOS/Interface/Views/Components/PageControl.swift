@@ -16,10 +16,9 @@ struct PageControl: UIViewRepresentable {
 	   let control = UIPageControl()
 	   control.numberOfPages = numberOfPages
 	   control.currentPage = currentPage
-	   control.pageIndicatorTintColor = UIColor(hex: "#5B5B5B", alpha: 1)
-	   control.currentPageIndicatorTintColor = UIColor(hex: "#A6301E", alpha: 1)
+	   control.pageIndicatorTintColor = ColorConstants.Text.secondary.toUIColor()
+	   control.currentPageIndicatorTintColor = ColorConstants.Text.accent.toUIColor()
 
-	   // Personaliza los indicadores
 	   control.setIndicatorImage(createCustomIndicatorImage(isCurrent: true), forPage: currentPage)
 	   for page in 0..<numberOfPages {
 		  if page != currentPage {
@@ -33,7 +32,6 @@ struct PageControl: UIViewRepresentable {
     func updateUIView(_ uiView: UIPageControl, context: Context) {
 	   uiView.currentPage = currentPage
 
-	   // Actualiza las imágenes de los indicadores
 	   uiView.setIndicatorImage(createCustomIndicatorImage(isCurrent: true), forPage: currentPage)
 	   for page in 0..<numberOfPages {
 		  if page != currentPage {
@@ -50,7 +48,7 @@ struct PageControl: UIViewRepresentable {
 
 	   if isCurrent {
 		  // Dibujar círculo de fondo
-		  context.setFillColor(UIColor(hex: "#A6301E", alpha: 0.2).cgColor)
+		  context.setFillColor(ColorConstants.Text.accent.toUIColor().withAlphaComponent(0.2).cgColor)
 		  context.fillEllipse(in: frame)
 
 		  // Dibujar círculo interior
@@ -61,11 +59,11 @@ struct PageControl: UIViewRepresentable {
 			 width: innerDiameter,
 			 height: innerDiameter
 		  )
-		  context.setFillColor(UIColor(hex: "#A6301E", alpha: 1).cgColor)
+		  context.setFillColor(ColorConstants.Text.accent.toUIColor().cgColor)
 		  context.fillEllipse(in: innerFrame)
 	   } else {
 		  // Dibujar círculo sin interior
-		  context.setFillColor(UIColor(hex: "#5B5B5B", alpha: 1).cgColor)
+		  context.setFillColor(ColorConstants.Text.secondary.toUIColor().cgColor)
 		  context.fillEllipse(in: frame)
 	   }
 

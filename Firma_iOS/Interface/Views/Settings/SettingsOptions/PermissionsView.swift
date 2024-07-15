@@ -17,8 +17,8 @@ struct PermissionsView: View {
 			 Section {
 				VStack {
 				    Toggle(isOn: $isNfcEnabled) {
-					   Text(NSLocalizedString("permissions_nfc_description",bundle: Bundle.main ,comment: ""))
-						  .regularBoldStyle(foregroundColor: .black)
+					   AccessibleText(content: NSLocalizedString("permissions_nfc_description",bundle: Bundle.main ,comment: ""))
+						  .regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
 				    }
 				    .toggleStyle(CustomToggleStyle())
 				    
@@ -37,7 +37,7 @@ struct PermissionsView: View {
 		  Button(action: {
 			 // Acción para el botón guardar
 		  }) {
-			 Text(NSLocalizedString("permissions_button_title",bundle: Bundle.main ,comment: ""))
+			 AccessibleText(content: NSLocalizedString("permissions_button_title",bundle: Bundle.main ,comment: ""))
 		  }
 		  .buttonStyle(CustomButtonStyle(isEnabled: true))
 		  .padding(.bottom, 20)

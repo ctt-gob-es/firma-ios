@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-extension Text {
+extension AccessibleText {
     func titleStyleBlack(foregroundColor: Color, alignment: TextAlignment = .leading) -> some View {
 	   self
 		  .font(.custom("Merriweather-Black", size: 20))
@@ -51,6 +51,13 @@ extension Text {
 		  .multilineTextAlignment(alignment)
     }
     
+    func semiboldStyleSmall(foregroundColor: Color, alignment: TextAlignment = .leading) -> some View {
+	   self
+		  .font(.custom("NunitoSans10pt-SemiBold", size: 14))
+		  .foregroundColor(foregroundColor)
+		  .multilineTextAlignment(alignment)
+    }
+    
     func boldStyleSmall(foregroundColor: Color, alignment: TextAlignment = .leading) -> some View {
 	   self
 		  .font(.custom("NunitoSans10pt-Bold", size: 12))
@@ -58,4 +65,3 @@ extension Text {
 		  .multilineTextAlignment(alignment)
     }
 }
-

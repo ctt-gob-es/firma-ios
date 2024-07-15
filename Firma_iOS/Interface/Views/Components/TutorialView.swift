@@ -20,11 +20,12 @@ struct TutorialView: View {
     var body: some View {
 	   VStack {
 		  VStack(alignment: .leading) {
-			 Text(title)
-				.titleStyleBlack(foregroundColor: .black)
+			 AccessibleText(content: title)
+				.titleStyleBlack(foregroundColor: ColorConstants.Text.primary)
+				.accessibilityAddTraits(.isHeader)
 			 
-			 Text(description)
-				.regularStyle(foregroundColor: .black)
+			 AccessibleText(content: description)
+				.regularStyle(foregroundColor: ColorConstants.Text.primary)
 				.multilineTextAlignment(.leading)
 		  }
 		  .frame(maxWidth: .infinity, alignment: .leading)
@@ -37,14 +38,16 @@ struct TutorialView: View {
 
 		  PageControl(numberOfPages: numberOfPages, currentPage: .constant(currentPage))
 			 .padding(.vertical)
+			 .accessibility(label: Text("\(currentPage + 1) of \(numberOfPages)"))
 
 		  Button(action: buttonAction) {
-			 Text(buttonText)
+			 AccessibleText(content: buttonText)
 		  }
 		  .buttonStyle(CustomButtonStyle(isEnabled: true))
 		  .padding(.bottom, 20)
 	   }
 	   .padding()
 	   .background(Color.white)
+	   .accessibilityElement(children: .contain)
     }
 }

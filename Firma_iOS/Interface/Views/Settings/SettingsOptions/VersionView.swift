@@ -17,6 +17,3 @@ struct VersionView: View {
 	   .navigationBarTitle(NSLocalizedString("version_title",bundle: Bundle.main ,comment: ""), displayMode: .inline)
     }
 }
-
-
-

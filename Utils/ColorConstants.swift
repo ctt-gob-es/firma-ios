@@ -20,6 +20,7 @@ struct ColorConstants {
 	   static let primary = Color(hex: "#000000")
 	   static let secondary = Color(hex: "#5B5B5B")
 	   static let accent = Color(hex: "#A6301E")
+	   static let background = Color(hex: "#F5F0EF")
 	   static let onboarding = Color(hex: "#0E202FB3")
 	   static let buttonDisabled = Color(hex: "#767676")
     }

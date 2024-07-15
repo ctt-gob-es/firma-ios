@@ -9,6 +9,10 @@
 import SwiftUI
 import UIKit
 
+import SwiftUI
+import UIKit
+import UniformTypeIdentifiers
+
 struct DocumentPicker: UIViewControllerRepresentable {
     class Coordinator: NSObject, UIDocumentPickerDelegate {
 	   var parent: DocumentPicker
@@ -35,12 +39,20 @@ struct DocumentPicker: UIViewControllerRepresentable {
 	   Coordinator(parent: self)
     }
     
-    func makeUIViewController(context: Context) -> UIDocumentPickerViewController {
+    func makeUIViewController(context: Context) -> UIViewController {
 	   let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: [.data], asCopy: true)
 	   documentPicker.delegate = context.coordinator
-	   documentPicker.modalPresentationStyle = .popover
-	   return documentPicker
+	   documentPicker.modalPresentationStyle = .fullScreen
+	   
+	   let containerViewController = UIViewController()
+	   containerViewController.view.backgroundColor = UIColor.black
+	   containerViewController.addChild(documentPicker)
+	   containerViewController.view.addSubview(documentPicker.view)
+	   documentPicker.view.frame = containerViewController.view.frame
+	   documentPicker.didMove(toParent: containerViewController)
+	   
+	   return containerViewController
     }
     
-    func updateUIViewController(_ uiViewController: UIDocumentPickerViewController, context: Context) {}
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
 }

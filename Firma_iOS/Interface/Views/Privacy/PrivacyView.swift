@@ -14,15 +14,15 @@ struct PrivacyView: View {
     
     var body: some View {
 	   VStack(alignment: .leading, spacing: 20) {
-		  Text(NSLocalizedString("privacy_title", bundle: Bundle.main, comment: ""))
+		  AccessibleText(content: NSLocalizedString("privacy_title", bundle: Bundle.main, comment: ""))
 			 .titleStyleBlack(foregroundColor: ColorConstants.Text.primary)
 		  
-		  Text(NSLocalizedString("privacy_subtitle", bundle: Bundle.main, comment: ""))
+		  AccessibleText(content: NSLocalizedString("privacy_subtitle", bundle: Bundle.main, comment: ""))
 			 .subtitleStyle(foregroundColor: ColorConstants.Text.primary)
 		  
 		  ScrollView {
 			 VStack(alignment: .leading, spacing: 10) {
-				Text("""
+				AccessibleText(content: """
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     """)
 				.regularStyle(foregroundColor: ColorConstants.Text.primary)
@@ -42,7 +42,7 @@ struct PrivacyView: View {
 		  Spacer()
 		  
 		  NavigationLink(destination: HomeView()) {
-			 Text(NSLocalizedString("privacy_button_title", bundle: Bundle.main, comment: ""))
+			 AccessibleText(content: NSLocalizedString("privacy_button_title", bundle: Bundle.main, comment: ""))
 		  }
 		  .buttonStyle(CustomButtonStyle(isEnabled: (isPrivacyPolicyAccepted && isTermsAccepted)))
 		  .disabled(!(isPrivacyPolicyAccepted && isTermsAccepted))

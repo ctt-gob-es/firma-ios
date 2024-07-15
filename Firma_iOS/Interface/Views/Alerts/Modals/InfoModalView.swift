@@ -14,8 +14,9 @@ struct InfoModalView: View {
 	   GeometryReader { geometry in
 		  VStack(spacing: 20) {
 			 HStack {
-				Text(NSLocalizedString("info_view_title", bundle: Bundle.main, comment: ""))
-				    .mediumBoldStyle(foregroundColor: .black)
+				AccessibleText(content: NSLocalizedString("info_view_title", bundle: Bundle.main, comment: ""))
+				    .mediumBoldStyle(foregroundColor: ColorConstants.Text.primary)
+				    .accessibilityAddTraits(.isHeader)
 				Spacer()
 				Button(action: {
 				    self.presentationMode.wrappedValue.dismiss()
@@ -30,22 +31,22 @@ struct InfoModalView: View {
 			 .padding(.trailing)
 			 
 			 VStack(alignment: .leading, spacing: 10) {
-				Text(NSLocalizedString("info_view_description", bundle: Bundle.main, comment: ""))
-				    .regularStyle(foregroundColor: Color(hex: "#5B5B5B"))
+				AccessibleText(content: NSLocalizedString("info_view_description", bundle: Bundle.main, comment: ""))
+				    .regularStyle(foregroundColor: ColorConstants.Text.secondary)
 				
-				Text(NSLocalizedString("info_view_certificate_title", bundle: Bundle.main, comment: ""))
-				    .mediumBoldStyle(foregroundColor: .black)
+				AccessibleText(content: NSLocalizedString("info_view_certificate_title", bundle: Bundle.main, comment: ""))
+				    .mediumBoldStyle(foregroundColor: ColorConstants.Text.primary)
 				
 				HStack(alignment: .top) {
 				    IconView(iconName: "button_share")
-				    Text(NSLocalizedString("info_view_certificate_description_one", bundle: Bundle.main, comment: ""))
-					   .regularStyle(foregroundColor: .black)
+				    AccessibleText(content: NSLocalizedString("info_view_certificate_description_one", bundle: Bundle.main, comment: ""))
+					   .regularStyle(foregroundColor: ColorConstants.Text.primary)
 				}
 				
 				HStack(alignment: .top) {
 				    IconView(iconName: "button_document")
-				    Text(NSLocalizedString("info_view_certificate_description_two", bundle: Bundle.main, comment: ""))
-					   .regularStyle(foregroundColor: .black)
+				    AccessibleText(content: NSLocalizedString("info_view_certificate_description_two", bundle: Bundle.main, comment: ""))
+					   .regularStyle(foregroundColor: ColorConstants.Text.primary)
 				}
 				
 				Spacer()
@@ -55,7 +56,7 @@ struct InfoModalView: View {
 					   UIApplication.shared.open(url)
 				    }
 				}) {
-				    Text(NSLocalizedString("info_view_more_info", bundle: Bundle.main, comment: ""))
+				    AccessibleText(content: NSLocalizedString("info_view_more_info", bundle: Bundle.main, comment: ""))
 					   .regularBoldStyle(foregroundColor: ColorConstants.Background.buttonEnabled)
 					   .foregroundColor(ColorConstants.Background.buttonEnabled)
 					   .underline()
@@ -65,7 +66,7 @@ struct InfoModalView: View {
 				Button(action: {
 				    self.presentationMode.wrappedValue.dismiss()
 				}) {
-				    Text(NSLocalizedString("info_view_button_title", bundle: Bundle.main, comment: ""))
+				    AccessibleText(content: NSLocalizedString("info_view_button_title", bundle: Bundle.main, comment: ""))
 				}
 				.buttonStyle(CustomButtonStyle(isEnabled: true))
 			 }
@@ -86,7 +87,7 @@ struct IconView: View {
 		  .scaledToFit()
 		  .frame(width: 56, height: 56)
 		  .foregroundColor(ColorConstants.Background.buttonEnabled)
-		  .background(Color(hex: "#F5F0EF"))
+		  .background(ColorConstants.Text.background)
 		  .cornerRadius(8)
     }
 }

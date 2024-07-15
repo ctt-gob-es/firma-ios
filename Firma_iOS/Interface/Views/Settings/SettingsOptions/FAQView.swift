@@ -37,16 +37,16 @@ struct ExpandableCellView: View {
     
     var body: some View {
 	   DisclosureGroup(isExpanded: $expanded) {
-		  Text(faqItem.answer)
-			 .font(.body)
+		  AccessibleText(content: faqItem.answer)
+			 .regularStyle(foregroundColor: ColorConstants.Text.secondary)
 			 .padding(.horizontal, 0)
 			 .listRowInsets(.init(top: 12, leading: 0, bottom: 12, trailing: 0))
 	   } label: {
-		  Text(faqItem.question)
-			 .font(.headline)
+		  AccessibleText(content: faqItem.question)
+			 .regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
 			 .padding(.vertical)
 	   }
-	   .tint(.black)
+	   .tint(ColorConstants.Text.primary)
 	   .background(Color.white)
     }
 }

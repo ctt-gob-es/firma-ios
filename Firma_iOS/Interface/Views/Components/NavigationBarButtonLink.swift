@@ -14,14 +14,11 @@ struct NavigationBarButtonLink<Destination: View>: View {
     
     var body: some View {
 	   NavigationLink(destination: destination) {
-		  Image(systemName: imageName)
+		  Image(imageName)
 			 .resizable()
 			 .scaledToFit()
-			 .frame(height: 24)
-			 .padding(8)
-			 .background(Color(hex: "#E0E6EB"))
-			 .clipShape(Circle())
-			 .foregroundColor(ColorConstants.Text.primary)
+			 .frame(height: 40)
+			 .padding(.vertical,8)
 	   }
     }
 }

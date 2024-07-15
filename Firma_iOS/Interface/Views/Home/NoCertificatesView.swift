@@ -23,13 +23,13 @@ struct NoCertificatesView: View {
 			 )
 			 .padding(.vertical, 16)
 		  
-		  Text(NSLocalizedString("home_certificates_not_available_title", bundle: Bundle.main, comment: ""))
+		  AccessibleText(content: NSLocalizedString("home_certificates_not_available_title", bundle: Bundle.main, comment: ""))
 			 .titleStyleBlack(
 				foregroundColor: ColorConstants.Text.primary,
 				alignment: .center
 			 )
 		  
-		  Text(NSLocalizedString("home_certificates_not_available_description", bundle: Bundle.main, comment: ""))
+		  AccessibleText(content: NSLocalizedString("home_certificates_not_available_description", bundle: Bundle.main, comment: ""))
 			 .regularStyle(
 				foregroundColor: ColorConstants.Text.secondary,
 				alignment: .center

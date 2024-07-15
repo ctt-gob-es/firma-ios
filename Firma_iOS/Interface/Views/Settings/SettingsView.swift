@@ -103,7 +103,7 @@ struct SettingsView: View {
 			 .frame(maxWidth: .infinity)
 			 .background(Color.white)
 	   }
-	   .background(Color.white.edgesIgnoringSafeArea(.all)) // Fondo blanco completo
+	   .background(Color.white.edgesIgnoringSafeArea(.all))
 	   .navigationBarTitle(NSLocalizedString("settings_title",bundle: Bundle.main ,comment: ""), displayMode: .inline)
     }
 }
@@ -112,9 +112,8 @@ struct CustomHeaderView: View {
     let title: String
     
     var body: some View {
-	   Text(title)
-		  .font(.headline)
-		  .foregroundColor(.black)
+	   AccessibleText(content: title)
+		  .regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
     }
 }
 
@@ -127,19 +126,19 @@ struct SettingsRow: View {
 	   HStack {
 		  Image(systemName: icon)
 			 .foregroundColor(ColorConstants.Text.accent)
-		  Text(text)
-			 .regularBoldStyle(foregroundColor: .black)
+		  AccessibleText(content: text)
+			 .regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
 		  
 		  Spacer()
 		  if let detailText = detailText {
-			 Text(detailText)
-				.font(.system(size: 14))
-				.foregroundColor(Color(hex: "#224D70"))
+			 AccessibleText(content: detailText)
+				.semiboldStyleSmall(foregroundColor: Color(hex: "#224D70"))
 				.padding(.horizontal, 10)
 				.background(
 				    RoundedRectangle(cornerRadius: 12)
 					   .stroke(Color(hex: "#224D70"), lineWidth: 1)
 				)
+			 
 		  }
 		  Image(systemName: "chevron.right")
 			 .foregroundColor(ColorConstants.Text.accent)

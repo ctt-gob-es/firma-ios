@@ -8,23 +8,19 @@
 import SwiftUI
 
 struct HomeView: View {
+    @StateObject private var appStatus = AppStatus()
     @State var certificates: [AOCertificateInfo]?
-    @State private var selectedCertificate: AOCertificateInfo? = nil
-    
-    @State private var showingInfoModal = false
-    @State private var showDeleteModal = false
-    @State private var showSignModal = false
-    @State private var showDocumentPicker = false
     
     var body: some View {
 	   NavigationView {
 		  VStack {
 			 VStack(alignment: .center, spacing: 20) {
 				VStack(alignment: .leading) {
-				    Text(NSLocalizedString("home_certificates_label", bundle: Bundle.main, comment: ""))
+				    AccessibleText(content: NSLocalizedString("home_certificates_label", bundle: Bundle.main, comment: ""))
 					   .titleStyleBlack(foregroundColor: ColorConstants.Text.primary)
+					   .accessibilityAddTraits(.isHeader)
 				    
-				    Text(NSLocalizedString("home_certificates_description", bundle: Bundle.main, comment: ""))
+				    AccessibleText(content: NSLocalizedString("home_certificates_description", bundle: Bundle.main, comment: ""))
 					   .regularStyle(foregroundColor: ColorConstants.Text.secondary)
 				}
 				.padding([.horizontal, .top])
@@ -32,10 +28,7 @@ struct HomeView: View {
 				if let certificates = self.certificates {
 				    List {
 					   ForEach(certificates, id: \.certificateRef) { certificate in
-						  CertificateCellView(certificateInfo: certificate, deleteAction: {
-							 self.selectedCertificate = certificate
-							 self.showDeleteModal = true
-						  })
+						  CertificateCellView(certificateInfo: certificate)
 						  .listRowSeparator(.hidden)
 					   }
 				    }
@@ -50,16 +43,16 @@ struct HomeView: View {
 				
 				VStack(spacing: 10) {
 				    Button(action: {
-					   showSignModal.toggle()
+					   appStatus.showSignModal.toggle()
 				    }) {
-					   Text(NSLocalizedString("home_certificates_sign_button_title", bundle: Bundle.main, comment: ""))
+					   AccessibleText(content: NSLocalizedString("home_certificates_sign_button_title", bundle: Bundle.main, comment: ""))
 				    }
 				    .buttonStyle(CustomButtonStyle(isEnabled: true))
 				    
 				    Button(action: {
-					   showDocumentPicker.toggle()
+					   appStatus.showDocumentPicker.toggle()
 				    }) {
-					   Text(NSLocalizedString("home_certificates_add_certificate_button_title", bundle: Bundle.main, comment: ""))
+					   AccessibleText(content: NSLocalizedString("home_certificates_add_certificate_button_title", bundle: Bundle.main, comment: ""))
 				    }
 				    .buttonStyle(BorderedButtonStyle())
 				}
@@ -70,50 +63,56 @@ struct HomeView: View {
 				.resizable()
 				.renderingMode(.template)
 				.scaledToFit()
-				.frame(height: 40)
+				.frame(height: 44)
 				.foregroundColor(Color(hex: "#C33400")),
 							 trailing:
-								HStack(spacing: 10) {
-				NavigationBarButton(imageName: "info.circle", action: {
-				    self.showingInfoModal = true
+								HStack(spacing: 4) {
+				NavigationBarButton(imageName: "info", action: {
+				    self.appStatus.showingInfoModal = true
 				})
 				
 				NavigationBarButtonLink(
 				    destination: SettingsView(),
-				    imageName: "gearshape"
+				    imageName: "settings"
 				)
 			 }
+				.padding(.bottom, 8)
 			 )
 		  }
 	   }
 	   .navigationBarBackButtonHidden(true)
 	   .navigationBarColor(UIColor(ColorConstants.Background.main), titleColor: .black)
-	   .sheet(isPresented: $showingInfoModal) {
+	   .environmentObject(appStatus)
+	   .onAppear() {
+		  self.certificates = getCertificates()
+	   }
+	   .sheet(isPresented: $appStatus.showingInfoModal) {
 		  InfoModalView()
 			 .presentationDetents([.fraction(0.75)])
 	   }
+	   .accessibility(addTraits: .isModal)
 	   .sheet(isPresented: Binding(
-		  get: { self.selectedCertificate != nil },
-		  set: { if !$0 { self.selectedCertificate = nil } }
+		  get: { self.appStatus.selectedCertificate != nil },
+		  set: { if !$0 { self.appStatus.selectedCertificate = nil }}
 	   )) {
-		  if let selectedCertificate = selectedCertificate {
+		  if let selectedCertificate = appStatus.selectedCertificate {
 			 DeleteCertificateModalView(certificate: selectedCertificate)
 				.presentationDetents([.fraction(0.5)])
+				.accessibility(addTraits: .isModal)
 		  }
 	   }
-	   .sheet(isPresented: $showSignModal) {
+	   .sheet(isPresented: $appStatus.showSignModal) {
 		  SignModalView()
-			 .presentationDetents([.fraction(0.25)])
+			 .presentationDetents([.fraction(0.4)])
+			 .accessibility(addTraits: .isModal)
 	   }
-	   .sheet(isPresented: $showDocumentPicker) {
+	   .sheet(isPresented: $appStatus.showDocumentPicker) {
 		  DocumentPicker(onDocumentsPicked: { url in
-			 print("Picked document: \(url)")
+			 
 		  }, onCancel: {
-			 // User cancelled Files interaction
+			
 		  })
-	   }
-	   .onAppear() {
-		  self.certificates = getCertificates()
+		  .accessibility(addTraits: .isModal)
 	   }
     }
     

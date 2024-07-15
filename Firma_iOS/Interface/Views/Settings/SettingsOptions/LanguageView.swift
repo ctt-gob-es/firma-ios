@@ -50,8 +50,8 @@ struct LanguageCell: View {
     var body: some View {
 	   VStack(spacing: 0) {
 		  HStack(spacing: 4) {
-			 Text(language)
-				.regularBoldStyle(foregroundColor: .black)
+			 AccessibleText(content: language)
+				.regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
 			 Spacer()
 			 if isSelected {
 				Image(systemName: "checkmark")

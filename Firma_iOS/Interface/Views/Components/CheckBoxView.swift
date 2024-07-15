@@ -20,12 +20,15 @@ struct CheckBoxView: View {
 		  HStack {
 			 Image(systemName: isChecked ? "checkmark.square.fill" : "square")
 				.foregroundColor(isChecked ? ColorConstants.Text.primary : Color.secondary)
-			 Text(title)
+			 AccessibleText(content: title)
 				.foregroundColor(ColorConstants.Text.primary)
-				.accessibility(label: Text(title))
 				.accessibility(addTraits: .isButton)
 		  }
 	   }
+	   .accessibility(label: Text(LocalizedStringKey(title)))
+	   .accessibility(value: Text(isChecked ? "Checked" : "Unchecked"))
+	   .accessibility(hint: Text("Toggle"))
+	   .accessibility(addTraits: .isButton)
 	   .buttonStyle(PlainButtonStyle())
     }
 }

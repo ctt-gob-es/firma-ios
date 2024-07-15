@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct InstallCertificateView: View {
+    @EnvironmentObject var appStatus: AppStatus
     @State private var selectedTab = 0
     
     var body: some View {
@@ -32,7 +33,7 @@ struct InstallCertificateView: View {
 			 description: NSLocalizedString("install_certificate_description_two", bundle: Bundle.main, comment: ""),
 			 buttonText: NSLocalizedString("install_certificate_button_two_title", bundle: Bundle.main, comment: ""),
 			 buttonAction: {
-				// TODO:
+				appStatus.showDocumentPicker.toggle()
 			 },
 			 currentPage: selectedTab,
 			 numberOfPages: 2

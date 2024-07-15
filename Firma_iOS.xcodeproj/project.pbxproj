@@ -61,6 +61,8 @@
 		83E419CA2C45184000C21811 /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E419C92C45184000C21811 /* DocumentPicker.swift */; };
 		83E419CC2C451EEC00C21811 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E419CB2C451EEC00C21811 /* PageControl.swift */; };
 		83E419CE2C451F3300C21811 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E419CD2C451F3300C21811 /* TutorialView.swift */; };
+		83E419D22C45295400C21811 /* AppStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E419D12C45295400C21811 /* AppStatus.swift */; };
+		83E419D42C452D1500C21811 /* AccesibleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E419D32C452D1500C21811 /* AccesibleText.swift */; };
 		83EBF99E289BAB2C00E80A7E /* ParentRest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EBF99D289BAB2C00E80A7E /* ParentRest.m */; };
 		83EBF9A0289BB48A00E80A7E /* ServletRest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EBF99B289BAA9300E80A7E /* ServletRest.m */; };
 		83FD0B092C3FC96200902E19 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FD0B082C3FC96200902E19 /* OnboardingView.swift */; };
@@ -323,6 +325,8 @@
 		83E419C92C45184000C21811 /* DocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPicker.swift; sourceTree = "<group>"; };
 		83E419CB2C451EEC00C21811 /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
 		83E419CD2C451F3300C21811 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		83E419D12C45295400C21811 /* AppStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStatus.swift; sourceTree = "<group>"; };
+		83E419D32C452D1500C21811 /* AccesibleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccesibleText.swift; sourceTree = "<group>"; };
 		83EBF99A289BAA8600E80A7E /* ServletRest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServletRest.h; sourceTree = "<group>"; };
 		83EBF99B289BAA9300E80A7E /* ServletRest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServletRest.m; sourceTree = "<group>"; };
 		83EBF99D289BAB2C00E80A7E /* ParentRest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParentRest.m; sourceTree = "<group>"; };
@@ -731,6 +735,7 @@
 				83E419C92C45184000C21811 /* DocumentPicker.swift */,
 				83E419CB2C451EEC00C21811 /* PageControl.swift */,
 				83E419CD2C451F3300C21811 /* TutorialView.swift */,
+				83E419D32C452D1500C21811 /* AccesibleText.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -741,6 +746,7 @@
 				83C0EC8E2C3FF37D00244071 /* HomeViewController.swift */,
 				83C0EC902C3FF39D00244071 /* HomeView.swift */,
 				83C0EC942C3FFABE00244071 /* NoCertificatesView.swift */,
+				83E419D12C45295400C21811 /* AppStatus.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1583,6 +1589,7 @@
 				9AB783512ACA9B98005C2B82 /* UIFont+Utils.m in Sources */,
 				B273961220A43E2800A7D05A /* NSDateFormatter+Utils.m in Sources */,
 				3C57FA171AC1BB9D00FF7292 /* AOCertificateInfo.m in Sources */,
+				83E419D22C45295400C21811 /* AppStatus.swift in Sources */,
 				C3B11DCC16FB642B00C0D623 /* ber_tlv_length.c in Sources */,
 				83FD0B092C3FC96200902E19 /* OnboardingView.swift in Sources */,
 				B27395CD20A4384300A7D05A /* CADESConstants.m in Sources */,
@@ -1667,6 +1674,7 @@
 				C3B11E2416FB642B00C0D623 /* SignatureAlgorithmIdentifier.c in Sources */,
 				B2406F4020C5D043008ED085 /* AOSignViewController.m in Sources */,
 				B273960C20A43E2800A7D05A /* CertificateUtils.m in Sources */,
+				83E419D42C452D1500C21811 /* AccesibleText.swift in Sources */,
 				C3B11E2616FB642B00C0D623 /* SignatureValue.c in Sources */,
 				9A7018FB2ACFECB4000B11D6 /* AOHelpCell.m in Sources */,
 				83FD0B0B2C3FCBB000902E19 /* OnboardingViewController.swift in Sources */,

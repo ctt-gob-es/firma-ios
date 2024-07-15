@@ -15,8 +15,9 @@ struct SignModalView: View {
 	   GeometryReader { geometry in
 		  VStack(spacing: 20) {
 			 HStack {
-				Text(NSLocalizedString("sign_file_title", bundle: Bundle.main, comment: "¿Con qué firmarás el fichero?"))
+				AccessibleText(content: NSLocalizedString("sign_file_title", bundle: Bundle.main, comment: ""))
 				    .mediumBoldStyle(foregroundColor: ColorConstants.Text.primary)
+				    .accessibilityAddTraits(.isHeader)
 				Spacer()
 				Button(action: {
 				    self.presentationMode.wrappedValue.dismiss()
@@ -34,7 +35,7 @@ struct SignModalView: View {
 				HStack {
 				    Image("documents")
 					   .foregroundColor(ColorConstants.Background.buttonEnabled)
-				    Text(NSLocalizedString("sign_with_certificate", bundle: Bundle.main, comment: "Certificado electrónico"))
+				    AccessibleText(content: NSLocalizedString("sign_with_certificate", bundle: Bundle.main, comment: ""))
 					   .regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
 				}
 				.frame(maxWidth: .infinity, alignment: .leading)
@@ -42,12 +43,11 @@ struct SignModalView: View {
 				HStack {
 				    Image("credit-card")
 					   .foregroundColor(ColorConstants.Background.buttonEnabled)
-				    Text(NSLocalizedString("sign_with_dni", bundle: Bundle.main, comment: "DNI electrónico"))
+				    AccessibleText(content: NSLocalizedString("sign_with_dni", bundle: Bundle.main, comment: "o"))
 					   .regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
 				}
 				.frame(maxWidth: .infinity, alignment: .leading)
 			 }
-			 
 			 Spacer()
 		  }
 		  .padding()

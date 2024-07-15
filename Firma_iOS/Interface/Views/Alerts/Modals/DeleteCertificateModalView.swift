@@ -25,17 +25,18 @@ struct DeleteCertificateModalView: View {
 			 }
 			 
 			 VStack(alignment: .leading, spacing: 0) {
-				Text(NSLocalizedString("delete_certificate_title", bundle: Bundle.main, comment: ""))
+				AccessibleText(content: NSLocalizedString("delete_certificate_title", bundle: Bundle.main, comment: ""))
 				    .titleStyleBlack(foregroundColor: ColorConstants.Text.primary)
+				    .accessibilityAddTraits(.isHeader)
 				    .padding(.bottom)
 				
-				let text1 = Text(NSLocalizedString("delete_certificate_subtitle", bundle: Bundle.main, comment: ""))
+				let text1 = AccessibleText(content: NSLocalizedString("delete_certificate_subtitle", bundle: Bundle.main, comment: ""))
 				    .regularStyle(foregroundColor: ColorConstants.Text.secondary)
 				
-				let text2 = Text(certificate.issuer)
+				let text2 = AccessibleText(content: certificate.issuer)
 				    .regularBoldStyle(foregroundColor: ColorConstants.Text.secondary)
 				
-				let text3 = Text("?")
+				let text3 = AccessibleText(content: "?")
 				    .regularStyle(foregroundColor: ColorConstants.Text.secondary)
 				
 				HStack {
@@ -46,7 +47,7 @@ struct DeleteCertificateModalView: View {
 				    }
 				}
 				
-				Text(NSLocalizedString("delete_certificate_description", bundle: Bundle.main, comment: ""))
+				AccessibleText(content: NSLocalizedString("delete_certificate_description", bundle: Bundle.main, comment: ""))
 				    .regularStyle(foregroundColor: ColorConstants.Text.secondary)
 			 }
 			 
@@ -56,7 +57,7 @@ struct DeleteCertificateModalView: View {
 				Button(action: {
 				    self.presentationMode.wrappedValue.dismiss()
 				}) {
-				    Text(NSLocalizedString("delete_certificate_cancel_button_title", bundle: Bundle.main, comment: ""))
+				    AccessibleText(content: NSLocalizedString("delete_certificate_cancel_button_title", bundle: Bundle.main, comment: ""))
 					   .regularBoldStyle(foregroundColor: ColorConstants.Background.buttonEnabled)
 					   .underline()
 				}
@@ -70,7 +71,7 @@ struct DeleteCertificateModalView: View {
 					   print("Failed to delete certificate with status: \(status)")
 				    }
 				}) {
-				    Text(NSLocalizedString("delete_certificate_button_title", bundle: Bundle.main, comment: ""))
+				    AccessibleText(content: NSLocalizedString("delete_certificate_button_title", bundle: Bundle.main, comment: ""))
 				}
 				.buttonStyle(CustomButtonStyle(isEnabled: true))
 			 }
