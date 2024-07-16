@@ -15,6 +15,7 @@ struct LocalizedLanguage: Identifiable {
 }
 
 struct LanguageView: View {
+    @EnvironmentObject private var appStatus : AppStatus
     @State private var selectedLanguage: String = NSLocalizedString("language_es", bundle: Bundle.main, comment: "")
     let languages = LocalizedLanguage.allLanguages
 
@@ -26,6 +27,7 @@ struct LanguageView: View {
 				    selectedLanguage = language.name
 				    UserDefaults.standard.set(language.code, forKey: "appLanguage")
 				    Bundle.setLanguage(language.code)
+				    appStatus.languageHasChanged = true
 				}
 				.listRowSeparator(.hidden)
 		  }
@@ -60,7 +62,7 @@ struct LanguageCell: View {
 		  }
 		  .padding()
 		  .background(isSelected ? Color(UIColor.systemGray6) : Color.white)
-		  .cornerRadius(isSelected ? 10 : 0) // Rounded corners for selected cell
+		  .cornerRadius(isSelected ? 10 : 0)
 		  
 		  if !isSelected {
 			 Divider()

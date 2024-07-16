@@ -40,17 +40,19 @@ struct CertificateCellView: View {
 		  .frame(maxWidth: .infinity)
 		  
 		  Button(action: {
+			 appStatus.selectedCertificate = self.certificateInfo
 			 appStatus.showDeleteModal.toggle()
-			 appStatus.selectedCertificate = certificateInfo
 		  }) {
 			 AccessibleText(content: NSLocalizedString("certificate_delete", bundle: Bundle.main, comment: ""))
 				.boldStyleSmall(foregroundColor: ColorConstants.Background.buttonEnabled)
 				.underline()
 		  }
+		  .buttonStyle(PlainButtonStyle())
 	   }
 	   .padding()
 	   .background(ColorConstants.Background.main)
 	   .cornerRadius(10)
+	   .contentShape(Rectangle())
     }
 }
 

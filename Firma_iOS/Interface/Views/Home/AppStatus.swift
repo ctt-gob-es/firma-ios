@@ -9,10 +9,17 @@
 import Foundation
 
 class AppStatus: ObservableObject {
-    @Published var showingInfoModal = false
-    @Published var showDeleteModal = false
-    @Published var showSignModal = false
-    @Published var showDocumentPicker = false
+    @Published var showingInfoModal: Bool = false
+    @Published var showDeleteModal: Bool = false
+    @Published var showSignModal : Bool = false
+    @Published var showSuccessModal: Bool = false
+    @Published var successModalState: SuccessModalState = .successCertificate
+    @Published var showErrorModal: Bool = false
+    @Published var errorModalState: ErrorModalState = .trackingError
+    @Published var showRecoveryModal: Bool = false
+    @Published var showDocumentErrorModal: Bool = false
+    @Published var showDocumentPicker: Bool = false
     @Published var selectedCertificate: AOCertificateInfo? = nil
     @Published var shouldUseNFC: Bool? = false
+    @Published var languageHasChanged: Bool? = false
 }

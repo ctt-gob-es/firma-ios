@@ -17,7 +17,7 @@ struct NavigationBarButton: View {
 			 .resizable()
 			 .scaledToFit()
 			 .frame(height: 40)
-			 .padding(.vertical,8)
+			 .padding(.vertical,6)
 	   }
     }
 }

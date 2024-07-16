@@ -13,73 +13,65 @@ struct DeleteCertificateModalView: View {
     var certificate: AOCertificateInfo
     
     var body: some View {
-	   GeometryReader { geometry in
-		  VStack(spacing: 10) {
-			 HStack {
-				Image("trash")
-				    .resizable()
-				    .scaledToFit()
-				    .frame(width: 64, height: 64)
-				
-				Spacer()
-			 }
-			 
-			 VStack(alignment: .leading, spacing: 0) {
-				AccessibleText(content: NSLocalizedString("delete_certificate_title", bundle: Bundle.main, comment: ""))
-				    .titleStyleBlack(foregroundColor: ColorConstants.Text.primary)
-				    .accessibilityAddTraits(.isHeader)
-				    .padding(.bottom)
-				
-				let text1 = AccessibleText(content: NSLocalizedString("delete_certificate_subtitle", bundle: Bundle.main, comment: ""))
-				    .regularStyle(foregroundColor: ColorConstants.Text.secondary)
-				
-				let text2 = AccessibleText(content: certificate.issuer)
-				    .regularBoldStyle(foregroundColor: ColorConstants.Text.secondary)
-				
-				let text3 = AccessibleText(content: "?")
-				    .regularStyle(foregroundColor: ColorConstants.Text.secondary)
-				
-				HStack {
-				    Group {
-					   text1
-					   text2
-					   text3
-				    }
-				}
-				
-				AccessibleText(content: NSLocalizedString("delete_certificate_description", bundle: Bundle.main, comment: ""))
-				    .regularStyle(foregroundColor: ColorConstants.Text.secondary)
-			 }
+	   VStack(spacing: 10) {
+		  HStack {
+			 Image("trash")
+				.resizable()
+				.scaledToFit()
+				.frame(width: 64, height: 64)
 			 
 			 Spacer()
-			 
-			 VStack(spacing: 10) {
-				Button(action: {
-				    self.presentationMode.wrappedValue.dismiss()
-				}) {
-				    AccessibleText(content: NSLocalizedString("delete_certificate_cancel_button_title", bundle: Bundle.main, comment: ""))
-					   .regularBoldStyle(foregroundColor: ColorConstants.Background.buttonEnabled)
-					   .underline()
-				}
-				
-				Button(action: {
-				    let status = deleteCertificate(certificate)
-
-				    if status == errSecSuccess {
-					   print("Certificate deleted successfully")
-				    } else {
-					   print("Failed to delete certificate with status: \(status)")
-				    }
-				}) {
-				    AccessibleText(content: NSLocalizedString("delete_certificate_button_title", bundle: Bundle.main, comment: ""))
-				}
-				.buttonStyle(CustomButtonStyle(isEnabled: true))
-			 }
 		  }
-		  .padding()
-		  .background(Color.white)
-		  .cornerRadius(10)
+		  
+		  VStack(alignment: .leading, spacing: 0) {
+			 AccessibleText(content: NSLocalizedString("delete_certificate_title", bundle: Bundle.main, comment: ""))
+				.titleStyleBlack(foregroundColor: ColorConstants.Text.primary)
+				.accessibilityAddTraits(.isHeader)
+				.padding(.bottom)
+			 
+			 (
+				Text(NSLocalizedString("delete_certificate_subtitle", bundle: Bundle.main, comment: ""))
+				    .regularStyle(foregroundColor: ColorConstants.Text.secondary)
+				+ Text(" ")
+				+ Text(certificate.issuer)
+				    .regularBoldStyle(foregroundColor: ColorConstants.Text.secondary)
+				+ Text("?")
+				    .regularStyle(foregroundColor: ColorConstants.Text.secondary)
+			 )
+			 .accessibilityLabel(Text(NSLocalizedString("delete_certificate_subtitle", bundle: Bundle.main, comment: "") + certificate.issuer + "?"))
+			 
+			 AccessibleText(content: NSLocalizedString("delete_certificate_description", bundle: Bundle.main, comment: ""))
+				.regularStyle(foregroundColor: ColorConstants.Text.secondary)
+		  }
+		  
+		  Spacer()
+		  
+		  VStack(spacing: 10) {
+			 Button(action: {
+				self.presentationMode.wrappedValue.dismiss()
+			 }) {
+				AccessibleText(content: NSLocalizedString("delete_certificate_cancel_button_title", bundle: Bundle.main, comment: ""))
+				    .regularBoldStyle(foregroundColor: ColorConstants.Background.buttonEnabled)
+				    .underline()
+			 }
+			 
+			 Button(action: {
+				let status = deleteCertificate(certificate)
+				
+				if status == errSecSuccess {
+				    print("Certificate deleted successfully")
+				} else {
+				    print("Failed to delete certificate with status: \(status)")
+				}
+			 }) {
+				AccessibleText(content: NSLocalizedString("delete_certificate_button_title", bundle: Bundle.main, comment: ""))
+			 }
+			 .buttonStyle(CustomButtonStyle(isEnabled: true))
+		  }
 	   }
+	   .padding()
+	   .background(Color.white)
+	   .cornerRadius(10)
     }
     
     func deleteCertificate(_ certificateInfo: AOCertificateInfo) -> OSStatus {

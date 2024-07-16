@@ -11,6 +11,9 @@ struct HomeView: View {
     @StateObject private var appStatus = AppStatus()
     @State var certificates: [AOCertificateInfo]?
     
+    @State private var sheetHeight: CGFloat = .zero
+    @State private var navigationTitle = ""
+    
     var body: some View {
 	   NavigationView {
 		  VStack {
@@ -29,7 +32,7 @@ struct HomeView: View {
 				    List {
 					   ForEach(certificates, id: \.certificateRef) { certificate in
 						  CertificateCellView(certificateInfo: certificate)
-						  .listRowSeparator(.hidden)
+							 .listRowSeparator(.hidden)
 					   }
 				    }
 				    .listStyle(PlainListStyle())
@@ -57,13 +60,13 @@ struct HomeView: View {
 				    .buttonStyle(BorderedButtonStyle())
 				}
 			 }
-			 .navigationBarTitle("", displayMode: .inline)
+			 .navigationBarTitle(navigationTitle, displayMode: .inline)
 			 .navigationBarItems(leading:
 								Image("Logo-autofirma_vector")
 				.resizable()
 				.renderingMode(.template)
 				.scaledToFit()
-				.frame(height: 44)
+				.frame(height: 28.94)
 				.foregroundColor(Color(hex: "#C33400")),
 							 trailing:
 								HStack(spacing: 4) {
@@ -76,8 +79,14 @@ struct HomeView: View {
 				    imageName: "settings"
 				)
 			 }
-				.padding(.bottom, 8)
+				.padding(.bottom, 4)
 			 )
+			 .onAppear {
+				navigationTitle = ""
+			 }
+			 .onDisappear {
+				navigationTitle = "Autofirma"
+			 }
 		  }
 	   }
 	   .navigationBarBackButtonHidden(true)
@@ -88,31 +97,64 @@ struct HomeView: View {
 	   }
 	   .sheet(isPresented: $appStatus.showingInfoModal) {
 		  InfoModalView()
-			 .presentationDetents([.fraction(0.75)])
+			 .fixedSize(horizontal: false, vertical: true)
+			 .modifier(GetHeightModifier(height: $sheetHeight))
+			 .presentationDetents([.height(sheetHeight)])
+			 .accessibility(addTraits: .isModal)
 	   }
-	   .accessibility(addTraits: .isModal)
-	   .sheet(isPresented: Binding(
-		  get: { self.appStatus.selectedCertificate != nil },
-		  set: { if !$0 { self.appStatus.selectedCertificate = nil }}
-	   )) {
+	   .sheet(isPresented: $appStatus.showDeleteModal){
 		  if let selectedCertificate = appStatus.selectedCertificate {
 			 DeleteCertificateModalView(certificate: selectedCertificate)
-				.presentationDetents([.fraction(0.5)])
+				.fixedSize(horizontal: false, vertical: true)
+				.modifier(GetHeightModifier(height: $sheetHeight))
+				.presentationDetents([.height(sheetHeight)])
 				.accessibility(addTraits: .isModal)
 		  }
 	   }
 	   .sheet(isPresented: $appStatus.showSignModal) {
 		  SignModalView()
-			 .presentationDetents([.fraction(0.4)])
+			 .fixedSize(horizontal: false, vertical: true)
+			 .modifier(GetHeightModifier(height: $sheetHeight))
+			 .presentationDetents([.height(sheetHeight)])
 			 .accessibility(addTraits: .isModal)
 	   }
 	   .sheet(isPresented: $appStatus.showDocumentPicker) {
 		  DocumentPicker(onDocumentsPicked: { url in
 			 
 		  }, onCancel: {
-			
+			 
 		  })
 		  .accessibility(addTraits: .isModal)
+	   }
+	   .sheet(isPresented: $appStatus.showSuccessModal) {
+		  SuccessModalView(
+			 title: appStatus.successModalState.title,
+			 description: appStatus.successModalState.description
+		  )
+		  .fixedSize(horizontal: false, vertical: true)
+		  .modifier(GetHeightModifier(height: $sheetHeight))
+		  .presentationDetents([.height(sheetHeight)])
+		  .accessibility(addTraits: .isModal)
+	   }
+	   .sheet(isPresented: $appStatus.showErrorModal) {
+		  ErrorModalView(
+			 errorModalState: appStatus.errorModalState
+		  )
+		  .fixedSize(horizontal: false, vertical: true)
+		  .modifier(GetHeightModifier(height: $sheetHeight))
+		  .presentationDetents([.height(sheetHeight)])
+		  .accessibility(addTraits: .isModal)
+	   }
+	   .sheet(isPresented: $appStatus.showRecoveryModal) {
+		  RecoveryModalView()
+			 .fixedSize(horizontal: false, vertical: true)
+			 .modifier(GetHeightModifier(height: $sheetHeight))
+			 .presentationDetents([.height(sheetHeight)])
+			 .accessibility(addTraits: .isModal)
+	   }
+	   .sheet(isPresented: $appStatus.showDocumentErrorModal) {
+		  DocumentErrorModalView()
+			 .accessibility(addTraits: .isModal)
 	   }
     }
     
@@ -122,5 +164,20 @@ struct HomeView: View {
 	   } else {
 		  return []
 	   }
+    }
+}
+
+struct GetHeightModifier: ViewModifier {
+    @Binding var height: CGFloat
+    
+    func body(content: Content) -> some View {
+	   content.background(
+		  GeometryReader { geo -> Color in
+			 DispatchQueue.main.async {
+				height = geo.size.height
+			 }
+			 return Color.clear
+		  }
+	   )
     }
 }

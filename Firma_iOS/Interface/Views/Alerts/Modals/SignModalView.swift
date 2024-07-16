@@ -12,47 +12,40 @@ struct SignModalView: View {
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-	   GeometryReader { geometry in
-		  VStack(spacing: 20) {
-			 HStack {
-				AccessibleText(content: NSLocalizedString("sign_file_title", bundle: Bundle.main, comment: ""))
-				    .mediumBoldStyle(foregroundColor: ColorConstants.Text.primary)
-				    .accessibilityAddTraits(.isHeader)
-				Spacer()
-				Button(action: {
-				    self.presentationMode.wrappedValue.dismiss()
-				}) {
-				    Image(systemName: "xmark")
-					   .foregroundColor(.gray)
-					   .padding()
-					   .background(Color(UIColor.systemGray5))
-					   .clipShape(Circle())
-				}
-			 }
-			 .padding(.trailing)
-			 
-			 VStack(alignment: .leading, spacing: 20) {
-				HStack {
-				    Image("documents")
-					   .foregroundColor(ColorConstants.Background.buttonEnabled)
-				    AccessibleText(content: NSLocalizedString("sign_with_certificate", bundle: Bundle.main, comment: ""))
-					   .regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
-				}
-				.frame(maxWidth: .infinity, alignment: .leading)
-				
-				HStack {
-				    Image("credit-card")
-					   .foregroundColor(ColorConstants.Background.buttonEnabled)
-				    AccessibleText(content: NSLocalizedString("sign_with_dni", bundle: Bundle.main, comment: "o"))
-					   .regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
-				}
-				.frame(maxWidth: .infinity, alignment: .leading)
-			 }
+	   VStack(spacing: 20) {
+		  HStack {
+			 AccessibleText(content: NSLocalizedString("sign_file_title", bundle: Bundle.main, comment: ""))
+				.mediumBoldStyle(foregroundColor: ColorConstants.Text.primary)
+				.accessibilityAddTraits(.isHeader)
 			 Spacer()
+			 Button(action: {
+				self.presentationMode.wrappedValue.dismiss()
+			 }) {
+				ExitButton()
+			 }
 		  }
-		  .padding()
-		  .background(Color.white)
-		  .cornerRadius(10)
+		  
+		  VStack(alignment: .leading, spacing: 20) {
+			 HStack {
+				Image("documents")
+				    .foregroundColor(ColorConstants.Background.buttonEnabled)
+				AccessibleText(content: NSLocalizedString("sign_with_certificate", bundle: Bundle.main, comment: ""))
+				    .regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
+			 }
+			 .frame(maxWidth: .infinity, alignment: .leading)
+			 
+			 HStack {
+				Image("credit-card")
+				    .foregroundColor(ColorConstants.Background.buttonEnabled)
+				AccessibleText(content: NSLocalizedString("sign_with_dni", bundle: Bundle.main, comment: "o"))
+				    .regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
+			 }
+			 .frame(maxWidth: .infinity, alignment: .leading)
+		  }
+		  Spacer()
 	   }
+	   .padding()
+	   .background(Color.white)
+	   .cornerRadius(10)
     }
 }

@@ -65,3 +65,19 @@ extension AccessibleText {
 		  .multilineTextAlignment(alignment)
     }
 }
+
+extension Text {
+    func regularStyle(foregroundColor: Color, alignment: TextAlignment = .leading) -> Text {
+	   self
+		  .font(.custom("NunitoSans10pt-Regular", size: 16))
+		  .foregroundColor(foregroundColor)
+		  //.multilineTextAlignment(alignment)
+    }
+
+    func regularBoldStyle(foregroundColor: Color, alignment: TextAlignment = .leading) -> Text {
+	   self
+		  .font(.custom("NunitoSans10pt-Bold", size: 16))
+		  .foregroundColor(foregroundColor)
+		  //.multilineTextAlignment(alignment)
+    }
+}

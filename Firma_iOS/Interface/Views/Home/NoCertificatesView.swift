@@ -11,16 +11,10 @@ import SwiftUI
 struct NoCertificatesView: View {
     var body: some View {
 	   VStack(spacing: 10) {
-		  Image(systemName: "info.circle")
+		  Image("info_red")
 			 .resizable()
 			 .scaledToFit()
-			 .frame(height: 50) // Ajusta el tamaño de la imagen
-			 .foregroundColor(ColorConstants.Background.buttonEnabled)
-			 .background(
-				Circle()
-				    .fill(ColorConstants.Background.main)
-				    .frame(width: 70, height: 70) // Ajusta el tamaño del fondo circular
-			 )
+			 .frame(width: 72, height: 72)
 			 .padding(.vertical, 16)
 		  
 		  AccessibleText(content: NSLocalizedString("home_certificates_not_available_title", bundle: Bundle.main, comment: ""))
@@ -35,6 +29,5 @@ struct NoCertificatesView: View {
 				alignment: .center
 			 )
 	   }
-	   .padding()
     }
 }

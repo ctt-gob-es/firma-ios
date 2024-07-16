@@ -218,6 +218,8 @@ To work correctly you must install an electronic certificate. Consult the docume
 "sign_file_title" = "What will you use to sign the file?";
 "sign_with_certificate" = "Electronic certificate";
 "sign_with_dni" = "Electronic ID";
+"sign_success_title" = "File signed";
+"sign_success_description" = "The file has been successfully signed.";
 
 //Delete certificate modal
 "delete_certificate_title" = "Delete certificate";
@@ -231,3 +233,56 @@ To work correctly you must install an electronic certificate. Consult the docume
 "certificate_valid_date" = "Valid until";
 "certificate_use" = "Use";
 "certificate_delete" = "Delete";
+"certificate_added_success_title" = "Certificate added";
+"certificate_added_success_description" = "The certificate has been added successfully.";
+
+//Error Modals
+
+// Titles
+"certificate_needed_title" = "No certificate exists";
+"certificate_generic_error_title" = "Sorry, an error has occurred";
+"certificate_generic_error_long_title" = "Sorry, an error has occurred";
+"certificate_expired_title" = "Certificate expired";
+"certificate_revoked_title" = "Certificate revoked";
+"certificate_near_expiry_title" = "Certificate with expiration date about to expire";
+"dni_reading_error_title" = "Error reading your DNIe";
+"dni_broken_title" = "Error reading your DNIe";
+"dni_reading_error_long_title" = "Error reading your DNIe";
+"dni_blocked_pin_title" = "Error reading your DNIe";
+"dni_incorrect_pin_title" = "Incorrect pin";
+"dni_expired_title" = "Error reading your DNIe";
+"global_error_title" = "Something went wrong!";
+"tracking_error_title" = "Activity information";
+"document_error_title" = "Error loading documents";
+"document_error_controller_title" = "Acceptance of legal texts";
+
+// Descriptions
+"certificate_needed_description" = "To sign you need to register a digital certificate.";
+"certificate_generic_error_description" = "Something went wrong, hold your mobile phone fixed on the DNIe for several seconds until the NFC reading is done.";
+"certificate_generic_error_long_description" = "Something went wrong, the certificates on your DNIe are not valid, please go to a DNI Update Point (PAD) available at the Issuing Offices.";
+"certificate_expired_description" = "This certificate is not valid, as it has expired.";
+"certificate_revoked_description" = "This certificate is not valid, as it has been revoked.";
+"certificate_near_expiry_description" = "This certificate is about to expire.";
+"dni_reading_error_description" = "The card you have provided does not appear to be a DNIe. Please try again.";
+"dni_broken_description" = "The DNIe you have provided appears to be damaged. You need to go to your National Police station to request a new one.";
+"dni_reading_error_long_description" = "An error occurred when trying to read your e-ID. Please try again. Remember to keep it on a flat surface and hold your mobile phone fixed on the card for a few seconds for it to be read correctly.";
+"dni_blocked_pin_description" = "The e-ID has a blocked PIN. You can go to a National Police station to a DNIe Update Point (PAD) to unlock it.";
+"dni_incorrect_pin_description" = "The PIN is incorrect. Remember that after 3 incorrect attempts the e-ID is blocked.";
+"dni_expired_description" = "The e-ID you have entered does not have a signature certificate or the certificate has expired. You can go to a National Police station to a DNIe Update Point (PAD) to fix it.";
+"global_error_description" = "We have tried to process your request, but it could not be completed successfully. Please review the documentation.";
+"tracking_error_description" = "Allow the app to send activity information to help its development?";
+"garrapata_modal_description" = "Garrapata Alert is a project of the “Recovery, Transformation and Resilience Plan ‐ Funded by the European Union – NextGenerationEU”.";
+"document_error_description" = "An error has occurred while accessing legal documents. \nPlease try again later.";
+
+// Bottom Button Titles
+"certificate_needed_button_title" = "Add new certificate";
+"generic_error_button_title" = "Understood";
+"accept_button_title" = "Accept";
+"retry_button_title" = "Try again";
+"enable_button_title" = "Allow";
+"disable_button_title" = "Decline";
+"go_home_button_title" = "Back to top";
+"recovery_button_title" = "Recovery Plan";
+
+// Cancel Button Title
+"cancel_button_title" = "Cancel";
