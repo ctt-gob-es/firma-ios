@@ -1287,7 +1287,7 @@
 				ORGANIZATIONNAME = "Solid GEAR";
 				TargetAttributes = {
 					C30B3226163804620072A515 = {
-						DevelopmentTeam = LCLHA32ZLW;
+						DevelopmentTeam = 2H36E8KFN2;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -1699,8 +1699,8 @@
 				CODE_SIGN_ENTITLEMENTS = "Cliente @firma.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
-				DEVELOPMENT_TEAM = LCLHA32ZLW;
+				CURRENT_PROJECT_VERSION = 15;
+				DEVELOPMENT_TEAM = 2H36E8KFN2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1711,6 +1711,7 @@
 				HEADER_SEARCH_PATHS = "include/**";
 				INFOPLIST_FILE = "Firma_iOS/Supporting Files/Firma_iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				J2OBJC_HOME = "/Users/luis/desarrollo/j2objc-2.8";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					lib,
@@ -1719,11 +1720,34 @@
 				);
 				MARKETING_VERSION = 1.8.3;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "es.abamobile.gob.afirma.Cliente--firma";
+				OTHER_LDFLAGS = (
+					"-l",
+					jre_emul,
+					"-l",
+					jre_zip,
+					"-l",
+					iconv,
+					"-l",
+					jre_net,
+					"-l",
+					jre_security,
+					"-l",
+					jre_ssl,
+					"-l",
+					jre_xml,
+					"-l",
+					z,
+					"-l",
+					protobuf,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "es.gob.afirma.Cliente--firma";
 				PRODUCT_NAME = "Cliente @firma";
-				PROVISIONING_PROFILE = "c08ed7da-989b-4719-b284-d895789fd7db";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "c08ed7da-989b-4719-b284-d895789fd7db";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1739,8 +1763,8 @@
 				CODE_SIGN_ENTITLEMENTS = "Cliente @firma.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
-				DEVELOPMENT_TEAM = LCLHA32ZLW;
+				CURRENT_PROJECT_VERSION = 15;
+				DEVELOPMENT_TEAM = 2H36E8KFN2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1751,6 +1775,7 @@
 				HEADER_SEARCH_PATHS = "include/**";
 				INFOPLIST_FILE = "Firma_iOS/Supporting Files/Firma_iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				J2OBJC_HOME = "/Users/luis/desarrollo/j2objc-2.8";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					lib,
@@ -1759,10 +1784,33 @@
 				);
 				MARKETING_VERSION = 1.8.3;
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "es.abamobile.gob.afirma.Cliente--firma";
+				OTHER_LDFLAGS = (
+					"-l",
+					jre_emul,
+					"-l",
+					jre_zip,
+					"-l",
+					iconv,
+					"-l",
+					jre_net,
+					"-l",
+					jre_security,
+					"-l",
+					jre_ssl,
+					"-l",
+					jre_xml,
+					"-l",
+					z,
+					"-l",
+					protobuf,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "es.gob.afirma.Cliente--firma";
 				PRODUCT_NAME = "Cliente @firma";
-				PROVISIONING_PROFILE = "c08ed7da-989b-4719-b284-d895789fd7db";
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
