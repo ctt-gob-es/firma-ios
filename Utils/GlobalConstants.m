@@ -28,6 +28,7 @@ NSString *const OK = @"OK";
 NSString *const POST = @"POST";
 NSString *const BINARY = @"binary";
 NSString *const PRE = @"PRE";
+NSString *const PK1_DECODED = @"PK1_DECODED";
 NSString *const STRING_FALSE = @"false";
 NSString *const SERVER_URL = @"server_url";
 NSString *const SIGNATURES = @"firmas";

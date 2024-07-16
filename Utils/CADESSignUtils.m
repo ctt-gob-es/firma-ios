@@ -31,10 +31,10 @@
     NSString *dataTransport = @"";
     
     for (id key in dict) {
-        dataTransport = [dataTransport stringByAppendingString:key];
-        dataTransport = [dataTransport stringByAppendingString:@"="];
-        dataTransport = [dataTransport stringByAppendingString:[dict objectForKey:key]];
-        dataTransport = [dataTransport stringByAppendingString:@"\n"];
+	   dataTransport = [dataTransport stringByAppendingString:key];
+	   dataTransport = [dataTransport stringByAppendingString:@"="];
+	   dataTransport = [dataTransport stringByAppendingString:[dict objectForKey:key]];
+	   dataTransport = [dataTransport stringByAppendingString:@"\n"];
     }
     dataTransport = [dataTransport stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     NSData* data = [dataTransport dataUsingEncoding:NSUTF8StringEncoding];
@@ -56,19 +56,19 @@
     NSArray *listItems = [urlString componentsSeparatedByString:@"\n"];
     NSMutableDictionary *keyValues = [NSMutableDictionary dictionaryWithCapacity:listItems.count];
     for (NSString *item in listItems) {
-        @try
-        {
-            NSRange range = [item rangeOfString:@"="];
-            if(range.length > 0){
-                NSString *parte1 = [item substringToIndex:range.location];
-                NSString *parte2 = [item substringFromIndex:range.location+1];//le sumamos 1 para que no coja el "="
-                [keyValues setObject:parte2 forKey:parte1];
-            }
-        }
-        @catch(NSException * exception) {
-            continue;
-        }
-                
+	   @try
+	   {
+		  NSRange range = [item rangeOfString:@"="];
+		  if(range.length > 0){
+			 NSString *parte1 = [item substringToIndex:range.location];
+			 NSString *parte2 = [item substringFromIndex:range.location+1];//le sumamos 1 para que no coja el "="
+			 [keyValues setObject:parte2 forKey:parte1];
+		  }
+	   }
+	   @catch(NSException * exception) {
+		  continue;
+	   }
+	   
     }
     return keyValues;
 }
@@ -79,26 +79,22 @@
  -----------
  algorithm: Algoritmo utilizado para el cifrado.
  */
-+(bool) isValidAlgorithm:(NSString*)algorithm{
++(bool)isValidAlgorithm:(NSString *)algorithm {
     bool isValid = false;
-    if ([[algorithm uppercaseString] isEqualToString:@"SHA1WITHRSA"] ) {
-        isValid = true;
-    }
-    else if ([[algorithm uppercaseString] isEqualToString:@"SHA256WITHRSA"] ) {
-        isValid = true;
-    }
-    else if ([[algorithm uppercaseString] isEqualToString:@"SHA384WITHRSA"] ) {
-        isValid = true;
-    }
-    else if ([[algorithm uppercaseString] isEqualToString:@"SHA512WITHRSA"] ) {
-        isValid = true;
+    NSString *uppercaseAlgorithm = [algorithm uppercaseString];
+    
+    if ([uppercaseAlgorithm containsString:@"SHA1"] ||
+	   [uppercaseAlgorithm containsString:@"SHA256"] ||
+	   [uppercaseAlgorithm containsString:@"SHA384"] ||
+	   [uppercaseAlgorithm containsString:@"SHA512"]) {
+	   isValid = true;
     }
     
     return isValid;
 }
 
 /**
- Método que transforma la url introducida en su correspondiente diccionario usando el par clave valor.  
+ Método que transforma la url introducida en su correspondiente diccionario usando el par clave valor.
  parámetros:
  -----------
  urlString: Url recibida y que necesita ser transformada a un diccionario.
@@ -111,22 +107,82 @@
     NSArray *listItems = [[url query] componentsSeparatedByString:@"&"];
     NSMutableDictionary *keyValues = [NSMutableDictionary dictionaryWithCapacity:listItems.count];
     for (NSString *item in listItems) {
-        NSRange range = [item rangeOfString:@"="];
-        NSString *parte1 = [item substringToIndex:range.location];
-        NSString *parte2 = [item substringFromIndex:range.location+1];//le sumamos 1 para que no coja el "="
-        //omitimos el parámetro "op" ya no se va a usar
-        if(![parte1 isEqualToString:PARAMETER_NAME_OPERATION])
-            [keyValues setObject:parte2 forKey:parte1];
+	   NSRange range = [item rangeOfString:@"="];
+	   NSString *parte1 = [item substringToIndex:range.location];
+	   NSString *parte2 = [item substringFromIndex:range.location+1];//le sumamos 1 para que no coja el "="
+	   //omitimos el parámetro "op" ya no se va a usar
+	   if(![parte1 isEqualToString:PARAMETER_NAME_OPERATION])
+		  [keyValues setObject:parte2 forKey:parte1];
     }
     //if([keyValues objectForKey:PARAMETER_NAME_OPERATION]!=NULL)
-        if([url host] != NULL)
-            [keyValues setObject:[url host] forKey:PARAMETER_NAME_OPERATION];
+    if([url host] != NULL)
+	   [keyValues setObject:[url host] forKey:PARAMETER_NAME_OPERATION];
     return keyValues;
 }
 
 // Decode a percent escape encoded string.
 + (NSString*) decodeFromPercentEscapeString:(NSString *) string {
     return (NSString *) CFBridgingRelease(CFURLCreateStringByReplacingPercentEscapes(NULL,(CFStringRef) string, CFSTR("")));
+}
+
+/**
+ Método que firma los datos con una clave privada `SecKeyRef` utilizando el algoritmo especificado.
+ parámetros:
+ -----------
+ privateKey: La referencia de la clave privada utilizada para firmar los datos.
+ data: Los datos que se van a firmar.
+ 
+ devuelve:
+ --------
+ Un objeto NSData que contiene la firma generada. Devuelve `nil` si ocurre un error.
+ */
+
+- (NSData *)signDataWithPrivateKey:(SecKeyRef *)privateKey data:(NSData *)data algorithm:(NSString *)algorithm {
+    CFErrorRef error = NULL;
+    SecKeyAlgorithm setKeyAlgorithm;
+    
+    NSArray *listItems = [algorithm componentsSeparatedByString:WITH];
+    
+    if([listItems count] > 0){
+	   NSString *alg = [listItems objectAtIndex:0];
+	   setKeyAlgorithm = [[CertificateUtils sharedWrapper] getAlgorithmByCertificate:*privateKey alg:alg];
+    }
+    
+    NSData *signature = (__bridge_transfer NSData *)SecKeyCreateSignature(*privateKey,
+														    setKeyAlgorithm,
+														    (__bridge CFDataRef)data,
+														    &error);
+    if (!signature) {
+	   NSError *err = CFBridgingRelease(error);
+	   NSLog(@"Error al firmar los datos: %@", err);
+    } else {
+	   NSLog(@"Éxito al firmar los datos con el algoritmo: %@", setKeyAlgorithm);
+    }
+    
+    return signature;
+}
+
++ (NSString *) getModifiedAlgorithmByCertificate:(SecKeyRef)privateKey alg:(NSString *)algorithm {
+    NSArray *listItems = [algorithm componentsSeparatedByString:WITH];
+    if([listItems count] > 0){
+	   NSString *alg = [listItems objectAtIndex:0];
+	   
+	   CFDictionaryRef attributes = SecKeyCopyAttributes(privateKey);
+	   if (!attributes) {
+		  return nil;
+	   }
+	   
+	   NSString *keyType = ( NSString *)CFDictionaryGetValue(attributes, kSecAttrKeyType);
+	   CFRelease(attributes);
+	   
+	   if ([keyType isEqualToString:(__bridge NSString *)kSecAttrKeyTypeRSA]) {
+		  return [alg stringByAppendingString:@"withRSA"];
+	   } else if ([keyType isEqualToString:(__bridge NSString *)kSecAttrKeyTypeECSECPrimeRandom]) {
+		  return [alg stringByAppendingString:@"withECDSA"];
+	   } else {
+		  return NULL;
+	   }
+    }
 }
 
 /**
@@ -140,29 +196,29 @@
 
 +(NSData*) signPkcs1:(NSString*) algorithm privateKey:(SecKeyRef*)privateKey data:(NSData*)dataPreSign{
     //Con los datos de la prefirma decodificados, se pasa a realizar la firma pkcs1.
-//    CertificateUtils *certUtils = [[CertificateUtils alloc] init];
-//    [certUtils setPrivateKey:*privateKey];
+    //    CertificateUtils *certUtils = [[CertificateUtils alloc] init];
+    //    [certUtils setPrivateKey:*privateKey];
     NSArray *listItems = [algorithm componentsSeparatedByString:WITH];
     if([listItems count] > 0){
-        NSString *alg = [listItems objectAtIndex:0];
-        if ([[alg uppercaseString] isEqualToString:@"SHA1"] ) {
-            return [[CertificateUtils sharedWrapper] getSignatureBytesSHA1:dataPreSign];
-        }
-        else if ([[alg uppercaseString] isEqualToString:@"SHA256"]){
-            return [[CertificateUtils sharedWrapper] getSignatureBytesSHA256:dataPreSign];
-        }
-        else if ([[alg uppercaseString] isEqualToString:@"SHA384"]){
-            return [[CertificateUtils sharedWrapper] getSignatureBytesSHA384:dataPreSign];
-        }
-        else if ([[alg uppercaseString] isEqualToString:@"SHA512"]){
-            return [[CertificateUtils sharedWrapper] getSignatureBytesSHA512:dataPreSign];
-        }
-        else{
-            return NULL;
-        }
+	   NSString *alg = [listItems objectAtIndex:0];
+	   if ([[alg uppercaseString] isEqualToString:@"SHA1"] ) {
+		  return [[CertificateUtils sharedWrapper] getSignatureBytesSHA1:dataPreSign];
+	   }
+	   else if ([[alg uppercaseString] isEqualToString:@"SHA256"]){
+		  return [[CertificateUtils sharedWrapper] getSignatureBytesSHA256:dataPreSign];
+	   }
+	   else if ([[alg uppercaseString] isEqualToString:@"SHA384"]){
+		  return [[CertificateUtils sharedWrapper] getSignatureBytesSHA384:dataPreSign];
+	   }
+	   else if ([[alg uppercaseString] isEqualToString:@"SHA512"]){
+		  return [[CertificateUtils sharedWrapper] getSignatureBytesSHA512:dataPreSign];
+	   }
+	   else{
+		  return NULL;
+	   }
     }
     else{
-        return NULL;
+	   return NULL;
     }
 }
 
@@ -178,25 +234,25 @@
     CertificateUtils *certUtils = [[CertificateUtils alloc] init];
     NSArray *listItems = [algorithm componentsSeparatedByString:WITH];
     if([listItems count] >0){
-        NSString *alg = [listItems objectAtIndex:0];
-        if ([[alg uppercaseString] isEqualToString:@"SHA1"] ) {
-            return [certUtils getHashBytesSHA1:dataPreSign];
-        }
-        else if ([[alg uppercaseString] isEqualToString:@"SHA256"]){
-            return [certUtils getHashBytesSHA256:dataPreSign];
-        }
-        else if ([[alg uppercaseString] isEqualToString:@"SHA384"]){
-            return [certUtils getHashBytesSHA384:dataPreSign];
-        }
-        else if ([[alg uppercaseString] isEqualToString:@"SHA512"]){
-            return [certUtils getHashBytesSHA512:dataPreSign];
-        }
-        else{
-            return NULL;
-        }
+	   NSString *alg = [listItems objectAtIndex:0];
+	   if ([[alg uppercaseString] isEqualToString:@"SHA1"] ) {
+		  return [certUtils getHashBytesSHA1:dataPreSign];
+	   }
+	   else if ([[alg uppercaseString] isEqualToString:@"SHA256"]){
+		  return [certUtils getHashBytesSHA256:dataPreSign];
+	   }
+	   else if ([[alg uppercaseString] isEqualToString:@"SHA384"]){
+		  return [certUtils getHashBytesSHA384:dataPreSign];
+	   }
+	   else if ([[alg uppercaseString] isEqualToString:@"SHA512"]){
+		  return [certUtils getHashBytesSHA512:dataPreSign];
+	   }
+	   else{
+		  return NULL;
+	   }
     }
     else{
-        return NULL;
+	   return NULL;
     }
 }
 
@@ -229,17 +285,17 @@
     securityError = SecPKCS12Import(inPKCS12Data, optionsDictionary, &items);
     
     if (securityError == 0) {
-        CFDictionaryRef myIdentityAndTrust = CFArrayGetValueAtIndex(items, 0);
-        const void *tempIdentity = NULL;
-        tempIdentity = CFDictionaryGetValue (myIdentityAndTrust, kSecImportItemIdentity);
-        *outIdentity = (SecIdentityRef)tempIdentity;
-        const void *tempTrust = NULL;
-        tempTrust = CFDictionaryGetValue(myIdentityAndTrust, kSecImportItemTrust);
-        *outTrust = (SecTrustRef)tempTrust;
+	   CFDictionaryRef myIdentityAndTrust = CFArrayGetValueAtIndex(items, 0);
+	   const void *tempIdentity = NULL;
+	   tempIdentity = CFDictionaryGetValue (myIdentityAndTrust, kSecImportItemIdentity);
+	   *outIdentity = (SecIdentityRef)tempIdentity;
+	   const void *tempTrust = NULL;
+	   tempTrust = CFDictionaryGetValue(myIdentityAndTrust, kSecImportItemTrust);
+	   *outTrust = (SecTrustRef)tempTrust;
     }
     
     if (optionsDictionary) {
-        CFRelease(optionsDictionary);
+	   CFRelease(optionsDictionary);
     }
     
     return securityError;
@@ -260,27 +316,27 @@
 +(char*)getAlgorithmOID:(NSString*)algorithm {
     NSArray *listItems = [algorithm componentsSeparatedByString:WITH];
     if([listItems count] > 0){
-        NSString *alg = [listItems objectAtIndex:0];
-        if ([[alg uppercaseString] isEqualToString:@"SHA1"] ) {
-            return SHA1_OID;
-        }
-        else if ([[alg uppercaseString] isEqualToString:@"SHA256"]){
-            return SHA256_OID;
-        }
-        else if ([[alg uppercaseString] isEqualToString:@"SHA384"]){
-            return SHA384_OID;
-        }
-        else if ([[alg uppercaseString] isEqualToString:@"SHA512"]){
-            return SHA512_OID;
-        }
-        else{
-            return NULL;
-        }
+	   NSString *alg = [listItems objectAtIndex:0];
+	   if ([[alg uppercaseString] isEqualToString:@"SHA1"] ) {
+		  return SHA1_OID;
+	   }
+	   else if ([[alg uppercaseString] isEqualToString:@"SHA256"]){
+		  return SHA256_OID;
+	   }
+	   else if ([[alg uppercaseString] isEqualToString:@"SHA384"]){
+		  return SHA384_OID;
+	   }
+	   else if ([[alg uppercaseString] isEqualToString:@"SHA512"]){
+		  return SHA512_OID;
+	   }
+	   else{
+		  return NULL;
+	   }
     }
     else{
-        return NULL;
+	   return NULL;
     }
-
+    
 }
 
 /**
@@ -296,23 +352,23 @@
  
  */
 +(char*)getHashAlgorithmOID:(NSString*)algorithm {
-      
+    
     if ([[algorithm uppercaseString] isEqualToString:@"SHA1"] ) {
-        return SHA1_OID;
+	   return SHA1_OID;
     }
     else if ([[algorithm uppercaseString] isEqualToString:@"SHA256"]){
-        return SHA256_OID;
+	   return SHA256_OID;
     }
     else if ([[algorithm uppercaseString] isEqualToString:@"SHA384"]){
-        return SHA384_OID;
+	   return SHA384_OID;
     }
     else if ([[algorithm uppercaseString] isEqualToString:@"SHA512"]){
-        return SHA512_OID;
+	   return SHA512_OID;
     }
     else{
-        return NULL;
+	   return NULL;
     }
-        
+    
 }
 
 @end

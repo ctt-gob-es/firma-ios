@@ -23,6 +23,8 @@
 #import "BatchSignUseCase.h"
 #import "AORegisteredCertificatesTVC.h"
 #import "UIFont+Utils.h"
+#import "Pkcs1Utils.h"
+#import "IOSPrimitiveArray.h"
 
 @interface AOSignViewController ()
 
@@ -286,7 +288,7 @@ SecKeyRef privateKey = NULL;
     
         //parámetro "algorithm" que indica el algoritmo usado para la firma.
     if([urlParameters objectForKey:PARAMETER_NAME_ALGORITHM2] != NULL)
-        signAlgoInUse  = [[NSString alloc] initWithString:[urlParameters objectForKey:PARAMETER_NAME_ALGORITHM2]];
+	   signAlgoInUse  = [CADESSignUtils getModifiedAlgorithmByCertificate:privateKey alg: [[NSString alloc] initWithString:[urlParameters objectForKey:PARAMETER_NAME_ALGORITHM2]]];
     
         //parámetro properties
     if([urlParameters objectForKey:PARAMETER_NAME_PROPERTIES] != NULL)
@@ -652,7 +654,8 @@ SecKeyRef privateKey = NULL;
                          contentDescription: contentDescription
                          policyOID: policyOID
                          policyHash: policyHash
-                         policiHashAlg: policyHashAlg                               policyUri: policyUri
+                         policiHashAlg: policyHashAlg                               
+					policyUri: policyUri
                          signAlgorithm: signAlgorithm
                          signingCertificateV2: signingCertificateV2
                          precalculatedHashAlgorithm: precalculatedHashAlgorithm
@@ -676,8 +679,9 @@ SecKeyRef privateKey = NULL;
     if(contentData.length > 0)
     {
         
-            //We sign the data with PKCS1
-        NSData *dataSigned = [CADESSignUtils signPkcs1: signAlgoInUse privateKey: &privateKey data: contentData];
+	   //We sign the data with PKCS1
+	   CADESSignUtils *signUtils = [[CADESSignUtils alloc] init];
+	   NSData *dataSigned = [signUtils signDataWithPrivateKey:&privateKey data:contentData algorithm: signAlgoInUse];
         
             //Start progress bar.
         alertpb = [[AlertProgressBar alloc]init];
@@ -995,9 +999,12 @@ SecKeyRef privateKey = NULL;
  */
 -(void) Sign: (NSString*) dataReceivedb64
 {
+    NSLog(@"%@", dataReceivedb64);
+    
         //Se reciben los datos en base64 y se decodifican
     NSData *dataReceived = [Base64 decode:dataReceivedb64 urlSafe: true];
     NSString* stringDataReceived = [[NSString alloc] initWithData:dataReceived encoding:NSUTF8StringEncoding];
+    
     
         // Usado para almacenar las properties que se reciben en la URL (no se usa en el proceso de contrafirma).
     NSDictionary *dict = [[NSDictionary alloc] init];
@@ -1018,18 +1025,29 @@ SecKeyRef privateKey = NULL;
         }
         
         NSString *pre = [firma.params objectForKey:PRE];
+        BOOL pk1Decoded = [firma.params objectForKey:PK1_DECODED];
+        
         pre = [pre stringByReplacingOccurrencesOfString:@"\n" withString:@""];
         
         NSData *data = [Base64 decode:pre urlSafe:true];
         
         if(data.length > 0)
         {
-                //Con los datos de la prefirma decodificados, se procede a realizar la firma pkcs1.
-            NSData *dataSigned = [CADESSignUtils signPkcs1: signAlgoInUse privateKey: &privateKey data: data];
-            
-                // Contiene las prefirmas firmadas
-            NSString *stringSigned = [Base64 encode:dataSigned];
-            [firma.params setValue: stringSigned forKey:@"PK1"];
+		  //Con los datos de la prefirma decodificados, se procede a realizar la firma pkcs1.
+		  CADESSignUtils *signUtils = [[CADESSignUtils alloc] init];
+		  NSData *dataSigned = [signUtils signDataWithPrivateKey:&privateKey data:data algorithm:signAlgoInUse];
+		  
+		  // Si nos llega del servidor intermedio el pk1Decoded a true entonces tenemos que decodificar el PKCS#1 antes de pasarlo a Base64 y enviarlo al servidor
+		  if (pk1Decoded) {
+			 IOSByteArray *byteArray = [IOSByteArray arrayWithBytes:[dataSigned bytes] count:[dataSigned length]];
+			 IOSByteArray *decodedSignature = EsGobAfirmaCoreSignersPkcs1Utils_decodeSignatureWithByteArray_(byteArray);
+			 NSData *decodedSignatureData = [NSData dataWithBytes:[decodedSignature buffer] length:[decodedSignature length]];
+			 NSString *stringSigned = [Base64 encode:decodedSignatureData];
+			 [firma.params setValue: stringSigned forKey:@"PK1"];
+		  } else {
+			 NSString *stringSigned = [Base64 encode:dataSigned];
+			 [firma.params setValue: stringSigned forKey:@"PK1"];
+		  }
         }
     }
     

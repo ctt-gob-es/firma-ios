@@ -13,7 +13,9 @@
 #import "ServletRest.h"
 #import "Base64.h"
 #import "CADESSignUtils.h"
-
+#import "Pkcs1Utils.h"
+#import "IOSPrimitiveArray.h"
+#import "GlobalConstants.h"
 
 @interface BatchSignUseCase ()
 
@@ -54,6 +56,7 @@ SecKeyRef privateKey;
 - (void)signBatch:(NSDictionary *) dataOperation {
     // Obtenemos los datos que nos llegan de la petición batch y validamos
     parametersBatch = [self getDataOperation:dataOperation];
+    
     // Si los datos llegan a null y tenemos rtservlet y file id entonces llamamos al servidor para obtener los datos del servdiro intermedio (Es una peticion larga que no se puede pasar la info por url desde la web y se suben los datos al servidor intemedio). No deberia ocurrir nunca ya que se parrsean siempre en el primer controller que se abre de la app ya que al minuto se borran los datos
     if (parametersBatch.data == NULL && parametersBatch.rtservlet != NULL && parametersBatch.fileId != NULL) {
         [self.servletRest loadDataFromRtservlet:[dataOperation objectForKey:PARAMETER_NAME_FILE_ID] rtServlet:[dataOperation objectForKey:PARAMETER_NAME_RTSERVLET] cipherKey:[dataOperation objectForKey:PARAMETER_NAME_CIPHER_KEY]];
@@ -71,6 +74,31 @@ SecKeyRef privateKey;
     } else {
         [self.bachRest bachPresign:parametersBatch.batchpresignerUrl withJsonData: self.parametersBatch.data withCerts:self.urlSafeCertificateData];
     }
+}
+
+// Actualiza el algoritmo del campo dat para establecer WithRSA o WithECDSA en funcion del certificado seleccionado.
+// Convierte el parametro data en Base64 a JSON, obtenemos el algoritmo, lo modificamos en funcion del certificado seleccionado, y generamos de nuevo el BASE64 que es lo que devolvemos
+- (NSString *) updateAlgorithmRSAorECDSA:(NSString *)dataBase64 {
+    // Convertimos el data en Base64 a un Dicionario
+    NSDictionary *dataDictionary = [self parseDataBase64toDictionary:dataBase64];
+    
+    // Obtenemos el algoritmo y lo modificamos en fucnion del certificado
+    NSString *algorithm = [dataDictionary objectForKey:PARAMETER_NAME_ALGORITHM2];
+    algorithm = [CADESSignUtils getModifiedAlgorithmByCertificate:privateKey alg:algorithm];
+    
+    // Establecemos de nuevo el algoritmo
+    NSMutableDictionary *dataModifiedDictionary = [[NSMutableDictionary alloc] initWithDictionary:dataDictionary];
+    [dataModifiedDictionary setObject:algorithm forKey: PARAMETER_NAME_ALGORITHM2];
+    
+    // Convertimos a String Base 64 de nuevo
+    NSError *error;
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dataModifiedDictionary
+                                                       options:NSJSONWritingFragmentsAllowed
+                                                         error:&error];
+    
+    NSString *dataModifiedBase64 = [Base64 encode:jsonData urlSafe:true];
+    return dataModifiedBase64;
 }
 
 - (NSString *)validateDataOperation:(InputParametersBatch *) parameterBatch {
@@ -127,8 +155,12 @@ SecKeyRef privateKey;
     if([dataOperation objectForKey:PARAMETER_NAME_BATCH_JSON] != NULL)
         parameters.jsonbatch = [[NSString alloc] initWithString:[dataOperation objectForKey:PARAMETER_NAME_BATCH_JSON]];
     
-    if([dataOperation objectForKey:PARAMETER_NAME_DAT] != NULL)
-        parameters.data  = [[NSString alloc] initWithString:[dataOperation objectForKey:PARAMETER_NAME_DAT]];
+    if([dataOperation objectForKey:PARAMETER_NAME_DAT] != NULL) {
+        NSString *datBase64 = [[NSString alloc] initWithString:[dataOperation objectForKey:PARAMETER_NAME_DAT]];
+        //Comentado porque da error al cambiar SHA256 por SHA256WithRSA o SHA256WithECDSA ya que actualmente no lo permite.
+        //NSString *datBase64UpdateAlgorithm = [self updateAlgorithmRSAorECDSA:datBase64];
+        parameters.data = datBase64;
+    }
     
     if([dataOperation objectForKey:PARAMETER_NAME_FILE_ID] != NULL)
         parameters.fileId  = [[NSString alloc] initWithString:[dataOperation objectForKey:PARAMETER_NAME_FILE_ID]];
@@ -157,10 +189,11 @@ SecKeyRef privateKey;
             NSDictionary *singInfoDict = [[sign objectForKey:@"signinfo"] firstObject];
             NSMutableDictionary *paramsDict = [singInfoDict objectForKey:@"params"];
             
-            NSString *pre = [paramsDict objectForKey:@"PRE"];
+            NSString *pre = [paramsDict objectForKey:PRE];
+            BOOL pk1Decoded = [paramsDict objectForKey:PK1_DECODED];
             
             // Realizamos la firma
-            NSString *pk1 = [self sign:pre withAlgorith:algorithm];
+            NSString *pk1 = [self sign:pre withAlgorith:algorithm withPK1Decoded:pk1Decoded];
             
             if ([pk1 isEqual: @""]) {
                 responseMessage = @"batch_signs_generic_error";
@@ -262,16 +295,22 @@ SecKeyRef privateKey;
     
 }
 
--(NSString *)sign:(NSString *)pre withAlgorith:(NSString *) algorithm {
+-(NSString *)sign:(NSString *)pre withAlgorith:(NSString *) algorithm withPK1Decoded:(BOOL) pk1Decoded {
     
     NSData *data = [Base64 decode:pre urlSafe:true];
     
     if(data.length > 0)
     {
-        //Con los datos de la prefirma decodificados, se procede a realizar la firma pkcs1.
-        NSData *dataSigned = [CADESSignUtils signPkcs1: algorithm privateKey: &privateKey data: data];
+	   CADESSignUtils *signUtils = [[CADESSignUtils alloc] init];
+	   NSData *dataSigned = [signUtils signDataWithPrivateKey:&privateKey data:data algorithm:algorithm];
         
-        // Contiene las prefirmas firmadas
+        if (pk1Decoded) {
+            IOSByteArray *byteArray = [IOSByteArray arrayWithBytes:[dataSigned bytes] count:[dataSigned length]];
+            IOSByteArray *decodedSignature = EsGobAfirmaCoreSignersPkcs1Utils_decodeSignatureWithByteArray_(byteArray);
+            dataSigned = [NSData dataWithBytes:[decodedSignature buffer] length:[decodedSignature length]];
+        }
+        
+        // Convertimos a Base64
         NSString *stringSigned = [Base64 encode:dataSigned];
         
         return stringSigned;
@@ -282,7 +321,7 @@ SecKeyRef privateKey;
 
 
 -(NSDictionary *) parseDataBase64toDictionary:(NSString *)stringData {
-    NSData *dataReceived = [Base64 decode:parametersBatch.data urlSafe:true];
+    NSData *dataReceived = [Base64 decode:stringData urlSafe:true];
     
     NSError *error;
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:dataReceived
@@ -300,7 +339,7 @@ SecKeyRef privateKey;
     if (dict == nil) {
         return @"";
     } else {
-        return [dict objectForKey:@"algorithm"];
+        return [dict objectForKey:PARAMETER_NAME_ALGORITHM2];
     }
 }
 
