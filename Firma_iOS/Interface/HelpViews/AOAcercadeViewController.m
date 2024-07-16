@@ -8,6 +8,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "UITextView+Boldify.h"
 #import "UIFont+Utils.h"
+#import "NSMutableAttributedString+Extension.h"
 
 @interface AOAcercadeViewController ()
 
@@ -33,16 +34,16 @@
     [self.aboutTitleLabel setText: @"about_title_label".localized];
     
         // About description label
-    NSString *aboutDescription = [NSString stringWithFormat: @"about_description_label".localized,[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
-    NSMutableAttributedString *aboutDescriptionAttributedString = [aboutDescription getHtml:[UIFont systemFontOfSize:13.5]];
-    [self.aboutDescriptionLabel setAttributedText:aboutDescriptionAttributedString];
+    [self.aboutDescriptionLabel setAttributedText:[self getAboutDescriptionText]];
     
     [self.howToInstallCertificatesTitle setText: @"how_to_install_certificates_title".localized];
     [self.iTunesInstructionsLabel setText: @"iTunes_instructions_label".localized];
     [self.certificateInstructionsLabel setText: @"certificate_instructions_label".localized];
     
         // More info button
-    [self.masInfoButton setAttributedTitle: @"more_info_button".localized.linkStyle  forState:UIControlStateNormal];
+    NSMutableAttributedString *moreInfoButtonText = @"more_info_button".localized.linkStyle;
+    [moreInfoButtonText addExternalLinkIcon:self.masInfoButton.titleLabel.font];
+    [self.masInfoButton setAttributedTitle: moreInfoButtonText forState:UIControlStateNormal];
     
     [self fillTextForFrequentlyAskedQuestionsTitleLabel];
     self.aboutNavigationItem.title = @"about_navigation_title".localized;
@@ -57,6 +58,38 @@
     [super viewDidLayoutSubviews];
     [self.aboutDescriptionLabel setContentOffset:CGPointZero animated:NO];
     [self.frequentlyAskedQuestionsDescriptionLabel setContentOffset:CGPointZero animated:NO];
+}
+
+- (NSMutableAttributedString *) getAboutDescriptionText {
+    UIFont *aboutDescriptionFont = [UIFont systemFontOfSize:13.5];
+    NSMutableAttributedString *aboutDescriptionAttributedString = [[NSMutableAttributedString alloc] init];
+    
+        // 1st paragraph
+    NSString *aboutDescription1 = [NSString stringWithFormat: @"about_description_label_1".localized,[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
+    NSMutableAttributedString *aboutDescriptionAttributedString1 = [aboutDescription1 getHtml:aboutDescriptionFont];
+    [aboutDescriptionAttributedString appendAttributedString:aboutDescriptionAttributedString1];
+    
+        // 2nd paragraph
+    NSString *aboutDescription2 = [NSString stringWithFormat: @"%@", @"about_description_label_2".localized];
+    NSMutableAttributedString *aboutDescriptionAttributedString2 = [aboutDescription2 getHtml:aboutDescriptionFont];
+        // Add external link icon
+    [aboutDescriptionAttributedString2 addExternalLinkIcon:aboutDescriptionFont];
+    [aboutDescriptionAttributedString appendAttributedString:aboutDescriptionAttributedString2];
+    
+        // 3rd paragraph
+    NSString *aboutDescription3 = [NSString stringWithFormat: @"%@", @"about_description_label_3".localized];
+    NSMutableAttributedString *aboutDescriptionAttributedString3 = [aboutDescription3 getHtml:aboutDescriptionFont];
+        // Add external link icon
+    [aboutDescriptionAttributedString3 addExternalLinkIcon:aboutDescriptionFont];
+    [aboutDescriptionAttributedString appendAttributedString:aboutDescriptionAttributedString3];
+    
+        // 4th paragraph
+    NSString *aboutDescription4 = [NSString stringWithFormat: @"%@", @"about_description_label_4".localized];
+    NSMutableAttributedString *aboutDescriptionAttributedString4 = [aboutDescription4 getHtml:aboutDescriptionFont];
+        // Add external link icon
+    [aboutDescriptionAttributedString4 addExternalLinkIcon:aboutDescriptionFont];
+    [aboutDescriptionAttributedString appendAttributedString:aboutDescriptionAttributedString4];
+    return aboutDescriptionAttributedString;
 }
 
 -(void)fillTextForFrequentlyAskedQuestionsTitleLabel{

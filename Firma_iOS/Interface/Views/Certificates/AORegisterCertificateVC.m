@@ -40,13 +40,14 @@
     [self.registerCertificateDescriptionLabel setText: passwordTextFieldLabel];
         // Allow the screen reader to associate the label with the text field
     self.registerCertificateDescriptionLabel.isAccessibilityElement = false;
-    self.passwordTextField.accessibilityLabel = passwordTextFieldLabel;
         // Password textField
+    self.passwordTextField.accessibilityLabel = passwordTextFieldLabel;
     self.passwordTextField.layer.cornerRadius = 4.0f;
     self.passwordTextField.clipsToBounds = true;
     self.passwordTextField.layer.borderWidth = 1.0f;
     self.passwordTextField.layer.borderColor = COMPONENTS_BORDER_COLOR.CGColor;
     self.passwordTextField.font = [[UIFont alloc] mediumSystemFontScaled];
+    self.passwordTextField.placeholder = @"password".localized;
     
         // Register button
     [self.registerCertificateRegisterButtonTitle setTitle:@"register_cretificate_register_button_title".localized forState:normal];
@@ -79,12 +80,12 @@
 #pragma mark - Certificates Methods
 
 - (void)showMessage: (NSString *) message isError:(Boolean *) isError {
-    _registerCertificateDescriptionLabel.textColor =  isError ? [UIColor redColor] : COLOR_DARK_GREEN;
-    _registerCertificateDescriptionLabel.text = message;
-        // Indicate the message in the accesibilityLabel of the TextField so that VoicOver can detect it
+    self.registerCertificateDescriptionLabel.textColor =  isError ? [UIColor redColor] : COLOR_DARK_GREEN;
+    self.registerCertificateDescriptionLabel.text = message;
+        // Indicate the message in the accesibilityLabel of the TextField so that VoiceOver can detect it
     self.passwordTextField.accessibilityLabel = message;
-        // Put focus on the text field
-    [_passwordTextField becomeFirstResponder];
+        // Notify voice over that there was a change to the text field's accessibility label
+    UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, self.passwordTextField);
 }
 
 - (void)registerWithCertificate

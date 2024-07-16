@@ -22,4 +22,8 @@
     [_label setText:cellLabel];
 }
 
+- (UILabel*) getCellLabel {
+    return _label;
+}
+
 @end

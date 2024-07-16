@@ -21,11 +21,9 @@ typedef NS_ENUM (NSInteger, AORegisteredCertificatesTVCMode)
 @property (nonatomic, strong) NSString *startURL;
 @property (strong, nonatomic) NSMutableArray *_certificatesArray;
 @property (strong, nonatomic) IBOutlet UITableView *editTableView;
-@property (weak, nonatomic) IBOutlet UITextView *certificatesDescriptionLabel;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *backBarButtonItem;
 @property(nonatomic, assign) int numberOfRetries;
 @property (strong, nonatomic) AlertProgressBar *alertpb;
 @property (strong,nonatomic) IBOutlet UIImageView *logo;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightIntroductionText;
 
 @end

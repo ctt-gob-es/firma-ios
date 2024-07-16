@@ -7,6 +7,7 @@
  NSLocalizedString(@"cerrar",nil)
  
  */
+"password" = "Password";
 "processing" = "Processing...";
 "processing_web_data" = "Preocessing web data.";
 "atencion" = "Warning!";
@@ -76,7 +77,10 @@
 "help_menu_description_label" = "This section contents are specific to the mobile version of the service. For more general information about it, visit the <a href='http://administracionelectronica.gob.es/'>Web portal of the Electronic Administration</a>";
 "help_menu_title" = "Help";
 "about_title_label" = "About...";
-"about_description_label" = "\"Cliente @firma for Apple iOS\" v%@<br/>2023 Gobierno de España<br/><br/>Cliente @firma for Apple iOS is open source; is available for redistribution and/or modification using the EUPL license: \"European Software License 1.1\", the complete text can be found on the website <a href='http://ec.europa.eu/idabc/ eupl.html'>IDABC of the European Commission</a><br/><br/>The source code of this software, as well as all the components used in this project are available to download freely from <a href='http://forja- ctt.administracionelectronica.gob.es'>Web Portal of the Electronic Administration</a><br/><br/>The project Cliente @firma is a cooperative project, and if you want to participate on it, you shouldn't doubt about joining the community, available in the <a href='https://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0l7mhc'>Web portal of the Electronic Administration</a>";
+"about_description_label_1" = "\"Cliente @firma for Apple iOS\" v%@<br/>2023 Gobierno de España<br/><br/>";
+"about_description_label_2" = "<br/>Cliente @firma for Apple iOS is open source; is available for redistribution and/or modification using the EUPL license: \"European Software License 1.1\", the complete text can be found on the website <a href='https://joinup.ec.europa.eu/licence/european-union-public-licence-version-11-or-later-eupl'>IDABC of the European Commission</a>";
+"about_description_label_3" = "<br/><br/>The source code of this software, as well as all the components used in this project are available to download freely from <a href='http://forja- ctt.administracionelectronica.gob.es'>Web Portal of the Electronic Administration</a>";
+"about_description_label_4" = "<br/><br/>The project Cliente @firma is a cooperative project, and if you want to participate on it, you shouldn't doubt about joining the community, available in the <a href='https://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0l7mhc'>Web portal of the Electronic Administration</a>";
 "how_to_install_certificates_title" = "How to install certificates";
 "iTunes_instructions_label" = "Upload your certificate to your device or iCloud and import it via the \"Certificate Management\" option in the app.";
 "certificate_instructions_label" = "Allowed file extensions: .p12 and .pfx. Keep in mind that you need the password to export your certificate, and it must include the private key.";
@@ -111,7 +115,7 @@ procedure works on other devices. Why?\n\n";
 "batch_signs_generic_error" = "Failed to complete batch signing";
 "batch_signs_ok_with_signs_error" = "Batch signing ended with errors";
 "error_server_triphase" = "The web procedure has not defined a signature service with which to complete the operation";
-"logo" = "Client Signature Logo";
+"logo" = ""; //"Client Signature Logo";
 "issuer_label" = "Issuer:";
 "use_label" = "Use:";
 "back" = "Back";
@@ -119,3 +123,7 @@ procedure works on other devices. Why?\n\n";
 "url_accessibility_statement" = "http://estaticos.redsara.es/comunes/clientefirmaandroid/1/8/0/declaracion_accesibilidad.pdf";
 "privacy_policy" = "Privacy Policy";
 "url_privacy_policy" = "https://administracion.gob.es/pag_Home/politicaDePrivacidad.html";
+"certificate_expired" = "Expired certificate";
+"certificate_close_to_expire" = "Certificate close to expire";
+"external_link_icon_label" = "External link";
+"button_accessibility_label" = "Button";

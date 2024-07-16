@@ -7,6 +7,7 @@
  NSLocalizedString(@"cerrar",nil)
  
 */
+"password" = "Contraseña";
 "processing" = "Procesando...";
 "processing_web_data" = "Procesando datos de la web";
 "atencion" = "¡Atención!";
@@ -62,7 +63,7 @@
 "error_ocurred_while_loading_the_certificate" = "Se ha producido un error al cargar el certificado";
 "valid_from_to" = "Válido desde %@ hasta %@";
 "certificate_instructions" = "La aplicación esta solicitando acceso a su almacen de certificados y no dispone de ninguno registrado.\n\n  Para instalar su certificado :\n 1. Conecte su dispositivo a su PC o Mac.\n 2. Localice el certificado que desea instalar ....(debe conocer el pin del certificado)\n3. En iTunes seleccione su certificado y arrástrelo a la ventana de documentos...\n4. Vuelva a esta pantalla y registrelo en el almacen del dispositivo.\n";
-"certificate_description_label" = "Desde esta pantalla puede añadir nuevos certificados con los que procesar sus firmas, o eliminar los certificados instalados en el dispositivo delizando la fila hacia la izquierda.";
+"certificate_description_label" = "Desde esta pantalla puede añadir nuevos certificados con los que procesar sus firmas, o eliminar los certificados instalados en el dispositivo deslizando la fila hacia la izquierda.";
 "home_description_label" = "Bienvenido a \"Cliente @firma iOS\" %@\nEsta aplicación permite realizar firmas electrónicas en las páginas de los proveedores de servicios que lo soporten.\nPara funcionar correctamente debe instalar un certificado electrónico y su clave privada desde el apartado Gestión de certificados. Consulte la documentación de su sistema iOS y con su proveedor de servicios de certificación.";
 "available_certificates_description_label" = "Certificados disponibles en tu dispositivo. Por favor selecciona el certificado que quieres registrar.";
 "register_certificate_description_label" = "Introduce la contraseña para registrar el certificado seleccionado.";
@@ -76,7 +77,11 @@
 "help_menu_description_label" = "Los contenidos de esta sección son específicos de la versión móvil del servicio. Si desea consultar información general sobre el mismo, puede visitar el <a href='http://administracionelectronica.gob.es/'>Portal web de la Administración Electrónica</a>";
 "help_menu_title" = "Ayuda";
 "about_title_label" = "Acerca de...";
-"about_description_label" = "\"Cliente @firma para Apple iOS\" v%@<br/>2023 Gobierno de España<br/><br/>El Cliente @firma para Apple iOS es Software Libre; puedes redistribuirlo y/o modificarlo bajo los términos de la siguiente licencia: \"European Software License 1.1\", cuyo texto completo puede consultarse en la página web del <a href='http://ec.europa.eu/idabc/eupl.html'>IDABC de la Comisión Europea</a><br/><br/>El código fuente de este programa, así como del resto de los componentes del proyecto se pueden descargar libremente desde el <a href='http://forja-ctt.administracionelectronica.gob.es'>Portal web de la Administración Electrónica</a><br/><br/>El proyecto Cliente @firma es un proyecto colaborativo, si desea participar en él, no dude en unirse a la comunidad, accesible desde el <a href='https://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0l7mhc'>Portal web de la Administración Electrónica</a>";
+"about_description_label_1" = "\"Cliente @firma para Apple iOS\" v%@<br/>2023 Gobierno de España<br/><br/>";
+"about_description_label_2" = "El Cliente @firma para Apple iOS es Software Libre; puedes redistribuirlo y/o modificarlo bajo los términos de la siguiente licencia: \"European Software License 1.1\", cuyo texto completo puede consultarse en la página web del <a href='https://joinup.ec.europa.eu/licence/european-union-public-licence-version-11-or-later-eupl'>IDABC de la Comisión Europea</a>";
+"about_description_label_3" = "<br/><br/>El código fuente de este programa, así como del resto de los componentes del proyecto se pueden descargar libremente desde el <a href='http://forja-ctt.administracionelectronica.gob.es'>Portal web de la Administración Electrónica</a>";
+"about_description_label_4" = "<br/><br/>El proyecto Cliente @firma es un proyecto colaborativo, si desea participar en él, no dude en unirse a la comunidad, accesible desde el <a href='https://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0l7mhc'>Portal web de la Administración Electrónica</a>";
+
 "how_to_install_certificates_title" = "Cómo instalar certificados";
 "iTunes_instructions_label" = "Cargue su certificado en su dispositivo o iCloud e impórtelo a través de la opción \"Gestión de certificados\" de la aplicación";
 "certificate_instructions_label" = "Extensiones permitidas: .p12 y .pfx. Recuerde que necesita la contraseña de exportación de su certificado, y que éste debe de incluir la clave privada.";
@@ -111,7 +116,7 @@ trámite funciona en otros dispositivos. ¿Por qué?\n\n";
 "batch_signs_generic_error" = "No se ha podido completar la firma del lote";
 "batch_signs_ok_with_signs_error" = "La firma del lote ha finalizado con errores";
 "error_server_triphase" = "El trámite web no ha definido un servicio de firma con el que completar la operación";
-"logo" = "Logotipo Cliente Firma";
+"logo" = ""; //"Logotipo Cliente Firma";
 "issuer_label" = "Editor:";
 "use_label" = "Uso:";
 "back" = "Atrás";
@@ -119,3 +124,7 @@ trámite funciona en otros dispositivos. ¿Por qué?\n\n";
 "url_accessibility_statement" = "http://estaticos.redsara.es/comunes/clientefirmaandroid/1/8/0/declaracion_accesibilidad.pdf";
 "privacy_policy" = "Política de privacidad";
 "url_privacy_policy" = "https://administracion.gob.es/pag_Home/politicaDePrivacidad.html";
+"certificate_expired" = "Certificado caducado";
+"certificate_close_to_expire" = "Certificado próximo a caducar";
+"external_link_icon_label" = "Enlace externo";
+"button_accessibility_label" = "Botón";
