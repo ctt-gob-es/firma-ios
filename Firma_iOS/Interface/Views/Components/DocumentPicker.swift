@@ -54,5 +54,7 @@ struct DocumentPicker: UIViewControllerRepresentable {
 	   return containerViewController
     }
     
-    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+	   
+    }
 }

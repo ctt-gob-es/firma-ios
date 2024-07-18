@@ -83,7 +83,7 @@ NSString *URLString, *state = @"Inactive";
     UIViewController *rootViewController;
     
     if ([defaults objectForKey:@"user_privacy_accepted"] != nil && privacyAccepted) {
-	   rootViewController = [[HomeViewController alloc] init];
+	   rootViewController = [[HomeViewController alloc] initWithMode:ViewModesHome];
     } else {
 	   rootViewController = [[OnboardingViewController alloc] init];
     }
@@ -104,18 +104,29 @@ void setAppLanguage(NSString *language) {
     [[NSUserDefaults standardUserDefaults] setObject:URLString forKey:URL];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    
-        // Lanzamos el controller de seleccion de certificado para firmar por root (No se permite ir atrás cuando estas firmando)
+    /*
+	
+    // Lanzamos el controller de seleccion de certificado para firmar por root (No se permite ir atrás cuando estas firmando)
     UIStoryboard *mainStoryboard = [StoryboardUtils getMainStoryboard];
     
     AORegisteredCertificatesTVC *registeredCertificatesTVC = (AORegisteredCertificatesTVC *)[mainStoryboard instantiateViewControllerWithIdentifier:@"AORegisteredCertificatesTVC"];
     
     [registeredCertificatesTVC setMode:AORegisteredCertificatesTVCModeSign];
     [registeredCertificatesTVC setStartURL:URLString];
+	
     
     self.window.rootViewController = registeredCertificatesTVC;
+	*/
+    
+    [self updateOrCreateHomeViewControllerWithMode:ViewModesSign];
     
     return YES;
+}
+
+- (void)updateOrCreateHomeViewControllerWithMode:(ViewModes)mode {
+    HomeViewController *rootViewController = [[HomeViewController alloc] initWithMode:mode];
+    self.window.rootViewController =  rootViewController;
+    [self.window makeKeyAndVisible];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

@@ -149,6 +149,16 @@ trámite funciona en otros dispositivos. ¿Por qué?\n\n";
 "home_certificates_not_available_description" = "Para firmar necesitas registrar un certificado digital";
 "home_certificates_sign_button_title" = "Firmar fichero";
 "home_certificates_add_certificate_button_title" = "Añadir nuevo certificado";
+"home_update_app_title" = "Actualización obligatoria Autofirma";
+"home_update_app_description" = "Para poder continuar utilizando la aplicación, debes actualizarla.";
+"home_update_app_button_title" = "Actualizar";
+"home_init_error_app_title" = "Error iniciando la aplicación";
+"home_init_error_app_description" = "Se ha detectado un error de conexión. \nNuestros servicios podrían no están disponibles en este momento, compruebe que tiene conexión a internet, e inténtelo más tarde.";
+"home_init_error_app_button_title" = "Reintentar";
+"select_certificates_description" = "Selecciona el certificado con el que quieras firmar el fichero.";
+"add_certificates_title" = "Añadir Certificado";
+"add_certificates_description" = "Introduce la contraseña para registrar el certificado seleccionado.";
+"add_certificates_error_placeholder"= "Contraseña incorrecta. Inténtalo de nuevo.";
 
 //Settings
 "settings_title" = "Ajustes";
@@ -256,6 +266,10 @@ Para funcionar correctamente debes instalar un certificado electrónico. Consult
 "tracking_error_title" = "Información de actividad";
 "document_error_title" = "Error al cargar los documentos";
 "document_error_controller_title" = "Aceptación de textos legales";
+"jailbreak_error_title" = "Alerta de seguridad";
+"update_error_title" = "Nueva versión disponible";
+"importing_certificate_error_title" = "No hemos podido añadir tu certificado";
+"importing_certificate_error_description" = "No hemos podido añadir tu certificado a la aplicación de Portafirmas de manera correcta. Inténtalo de nuevo más tade.";
 
 // Descriptions
 "certificate_needed_description" = "Para firmar necesitas registrar un certificado digital.";
@@ -274,6 +288,8 @@ Para funcionar correctamente debes instalar un certificado electrónico. Consult
 "tracking_error_description" = "¿Permitir que la app envíe información de actividad para ayudar a su desarrollo?";
 "garrapata_modal_description" = "Garrapata Alert es un proyecto del “Plan de Recuperación, Transformación y Resiliencia ‐ Financiado por la Unión Europea – NextGenerationEU”.";
 "document_error_description" = "Se ha producido un error durante el acceso a los documentos legales. \nInténtalo de nuevo más tarde.";
+"jailbreak_error_description" = "Tu dispositivo no tiene un sistema operativo oficial. Por razones de seguridad, no puedes utilizar esta aplicación.";
+"update_error_description" = "Hay disponible una nueva actualización de Autofirma.";
 
 // Bottom Button Titles
 "certificate_needed_button_title" = "Añadir nuevo certificado";
@@ -284,6 +300,50 @@ Para funcionar correctamente debes instalar un certificado electrónico. Consult
 "disable_button_title" = "Rechazar";
 "go_home_button_title" = "Volver al inicio";
 "recovery_button_title" = "Plan de Recuperación";
+"close_app_button_title" = "Cerrar aplicación";
+"omit_button_title" = "Omitir";
+"update_button_title" = "Actualizar";
 
 // Cancel Button Title
 "cancel_button_title" = "Cancelar";
+
+//DNI
+"dni_view_title" = "Identificación con DNIe";
+"dni_view_description_1" = "Para identificarte mediante DNIe es necesario que tengas un DNI electrónico con ";
+"dni_view_description_2" = "certificados vigentes ";
+"dni_view_description_3" = "y conozcas el ";
+"dni_view_description_4" = "código PIN.";
+"dni_compatible_button_title" = "¿Es mi DNI compatible?";
+"dni_view_button_title" = "Empezar";
+"dni_compatible_view_title" = "¿Es mi DNI compatible?";
+"dni_compatible_view_description_1" = "Los DNIe compatibles con este proceso son los ";
+"dni_compatible_view_description_2" = "DNI 3.0";
+"dni_compatible_view_description_3" = " y ";
+"dni_compatible_view_description_4" = "4.0";
+"dni_compatible_view_description_5" = ". Si tienes dudas de cuál es el tuyo, puedes consultarlo en el siguiente enlace: ";
+"dni_can_view_description_1" = "El CAN es el número situado en la ";
+"dni_can_view_description_2" = "parte inferior derecha del DNI. ";
+"dni_can_view_description_3" = "Es necesario para leer el DNI con NFC.";
+"dni_compatible_view_web_portal_button" = "Portal del DNI electrónico, Cuerpo Nacional de Policía";
+"dni_compatible_view_button_title" = "Entendido";
+"dni_portal_url" = "https://www.dnielectronico.es/";
+"dni_connection_header_title" = "Identificación por DNIe";
+"dni_connection_step_one_title" = "Introduce el CAN del DNI";
+"dni_connection_step_two_title" = "Introduce el PIN";
+"dni_connection_step_three_title" = "Lee tu DNIe con el móvil";
+"dni_connection_step" = "Paso";
+"dni_connection_step_of" = "de";
+"dni_connection_can_placeholder" = "Escribe tu código CAN del DNI";
+"dni_connection_can_error" = "Introduzca un número CAN válido";
+"dni_connection_step_one_button_title" = "Continuar";
+"dni_connection_step_two_button_title" = "Continuar";
+"dni_connection_step_three_button_title" = "Leer DNIe";
+"dni_connection_pin_description" = "Al hacerte el DNIe recibiste un sobre con un código PIN. Lo puedes recuperar o cambiar en comisarías sin cita previa.";
+"dni_connection_pin_placeholder" = "Escribe tu código PIN";
+"dni_connection_pin_error" = "Introduzca un código PIN válido";
+"dni_connection_nfc_description_1" = "Coloca tu DNIe sobre una superficie lisa y coloca tu móvil ";
+"dni_connection_nfc_description_2" = "sin funda ";
+"dni_connection_nfc_description_3" = "sobre él hasta que detecte el chip.";
+"find_dni_view_title" = "Buscando DNIe";
+"find_dni_view_description" = "Pon tu móvil sobre el DNIe lo más cerca posible del lector NFC.";
+"find_dni_button_title" = "Cancelar";

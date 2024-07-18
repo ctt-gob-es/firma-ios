@@ -10,14 +10,33 @@ import SwiftUI
 struct CertificateCellView: View {
     @EnvironmentObject private var appStatus : AppStatus
     var certificateInfo: AOCertificateInfo
+    var isSelectable: Bool
+    var isSelected: Bool?
     
     var body: some View {
 	   VStack(alignment: .leading, spacing: 10) {
-		  AccessibleText(content: certificateInfo.subject)
-			 .titleStyleBold(foregroundColor: ColorConstants.Text.primary)
-			 .accessibilityAddTraits(.isHeader)
-		  AccessibleText(content: "\(NSLocalizedString("certificate_issuer", bundle: Bundle.main, comment: "")) : \(certificateInfo.issuer ?? "")")
-			 .regularStyle(foregroundColor: ColorConstants.Text.secondary)
+		  HStack {
+			 VStack {
+				AccessibleText(content: certificateInfo.subject)
+				    .titleStyleBold(foregroundColor: ColorConstants.Text.primary)
+				    .accessibilityAddTraits(.isHeader)
+				AccessibleText(content: "\(NSLocalizedString("certificate_issuer", bundle: Bundle.main, comment: "")) : \(certificateInfo.issuer ?? "")")
+				    .regularStyle(foregroundColor: ColorConstants.Text.secondary)
+			 }
+			 Spacer()
+			 
+			 if isSelectable {
+				Spacer()
+				if let isSelected = isSelected {
+				    if isSelected {
+					   Image("circle-border-fill")
+				    } else {
+					   Image("circle")
+				    }
+				}
+			 }
+		  }
+		  
 		  HStack {
 			 VStack(alignment: .leading) {
 				AccessibleText(content: NSLocalizedString("certificate_valid_date", bundle: Bundle.main, comment: ""))
@@ -48,6 +67,9 @@ struct CertificateCellView: View {
 				.underline()
 		  }
 		  .buttonStyle(PlainButtonStyle())
+	   }
+	   .onTapGesture {
+		  appStatus.selectedCertificate = certificateInfo
 	   }
 	   .padding()
 	   .background(ColorConstants.Background.main)

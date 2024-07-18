@@ -60,6 +60,10 @@ struct ErrorModalView: View {
 				GlobalErrorButtons()
 			 } else if errorModalState == .trackingError {
 				TrackingErrorButtons()
+			 } else if errorModalState == .jailbreakError {
+				JailbreakErrorButtons()
+			 } else if errorModalState == .updateError {
+				UpdateErrorButtons()
 			 }  else {
 				if errorModalState.hasCancelButton {
 				    Button(action: {
@@ -131,6 +135,40 @@ struct TrackingErrorButtons: View {
     }
 }
 
+struct JailbreakErrorButtons: View {
+    var body: some View {
+	   VStack(spacing: 8) {
+		  Button(action: {
+			 
+		  }) {
+			 AccessibleText(content: NSLocalizedString("close_app_button_title", bundle: Bundle.main, comment: ""))
+		  }
+		  .buttonStyle(CustomButtonStyle(isEnabled: true))
+	   }
+    }
+}
+
+struct UpdateErrorButtons: View {
+    var body: some View {
+	   VStack(spacing: 8) {
+		  Button(action: {
+			
+		  }) {
+			 AccessibleText(content: NSLocalizedString("omit_button_title", bundle: Bundle.main, comment: ""))
+				.regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
+				.underline()
+		  }
+		  
+		  Button(action: {
+			 
+		  }) {
+			 AccessibleText(content: NSLocalizedString("update_button_title", bundle: Bundle.main, comment: ""))
+		  }
+		  .buttonStyle(CustomButtonStyle(isEnabled: true))
+	   }
+    }
+}
+
 enum ErrorModalState {
     case certificateNeeded
     case certificateGenericError
@@ -148,6 +186,11 @@ enum ErrorModalState {
     
     case globalError
     case trackingError
+    
+    case jailbreakError
+    case updateError
+    
+    case certificateNotImported
     
     var title: String {
 	   switch self {
@@ -179,6 +222,12 @@ enum ErrorModalState {
 			 return NSLocalizedString("global_error_title", bundle: Bundle.main, comment: "")
 		  case .trackingError:
 			 return NSLocalizedString("tracking_error_title", bundle: Bundle.main, comment: "")
+		  case .jailbreakError:
+			 return NSLocalizedString("jailbreak_error_title", bundle: Bundle.main, comment: "")
+		  case .updateError:
+			 return NSLocalizedString("update_error_title", bundle: Bundle.main, comment: "")
+		  case .certificateNotImported:
+			 return NSLocalizedString("importing_certificate_error_title", bundle: Bundle.main, comment: "")
 	   }
     }
     
@@ -212,17 +261,25 @@ enum ErrorModalState {
 			 return NSLocalizedString("global_error_description", bundle: Bundle.main, comment: "")
 		  case .trackingError:
 			 return NSLocalizedString("tracking_error_description", bundle: Bundle.main, comment: "")
+		  case .jailbreakError:
+			 return NSLocalizedString("jailbreak_error_description", bundle: Bundle.main, comment: "")
+		  case .updateError:
+			 return NSLocalizedString("update_error_description", bundle: Bundle.main, comment: "")
+		  case .certificateNotImported:
+			 return NSLocalizedString("importing_certificate_error_description", bundle: Bundle.main, comment: "")
 	   }
     }
     
     var imageName: String? {
 	   switch self {
-		  case .certificateNeeded:
+		  case .certificateNeeded, .certificateNotImported:
 			 return "cross"
-		  case .certificateGenericError, .certificateGenericErrorLong, .dniReadingError, .dniReadingErrorLong, .dniBroken, .dniBlockedPin, .dniIncorrectPin, .dniExpired:
+		  case .certificateGenericError, .certificateGenericErrorLong, .dniReadingError, .dniReadingErrorLong, .dniBroken, .dniBlockedPin, .dniIncorrectPin, .dniExpired, .jailbreakError:
 			 return "warning"
 		  case .certificateExpired, .certificateRevoked, .certificateNearExpiry, .globalError, .trackingError:
 			 return "info_red"
+		  case .updateError:
+			 return "reload"
 	   }
     }
     
@@ -230,16 +287,16 @@ enum ErrorModalState {
 	   switch self {
 		  case .certificateGenericError, .certificateGenericErrorLong, .certificateExpired, .certificateRevoked, .certificateNearExpiry:
 			 return true
-		  case .certificateNeeded, .dniReadingError, .dniBroken, .dniReadingErrorLong, .dniBlockedPin, .dniIncorrectPin, .dniExpired, .globalError, .trackingError:
+		  case .certificateNeeded, .dniReadingError, .dniBroken, .dniReadingErrorLong, .dniBlockedPin, .dniIncorrectPin, .dniExpired, .globalError, .trackingError, .jailbreakError, .updateError, .certificateNotImported:
 			 return false
 	   }
     }
     
     var hasCancelButton: Bool {
 	   switch self {
-		  case .certificateGenericError, .certificateGenericErrorLong, .certificateExpired, .certificateRevoked, .certificateNearExpiry, .dniIncorrectPin, .globalError, .trackingError:
+		  case .certificateGenericError, .certificateGenericErrorLong, .certificateExpired, .certificateRevoked, .certificateNearExpiry, .dniIncorrectPin, .globalError, .trackingError, .jailbreakError, .updateError:
 			 return false
-		  case .certificateNeeded, .dniReadingError, .dniBroken, .dniReadingErrorLong, .dniBlockedPin, .dniExpired:
+		  case .certificateNeeded, .dniReadingError, .dniBroken, .dniReadingErrorLong, .dniBlockedPin, .dniExpired, .certificateNotImported:
 			 return true
 	   }
     }
@@ -252,9 +309,9 @@ enum ErrorModalState {
 			 return NSLocalizedString("generic_error_button_title", bundle: Bundle.main, comment: "")
 		  case .certificateExpired, .certificateRevoked, .certificateNearExpiry:
 			 return NSLocalizedString("accept_button_title", bundle: Bundle.main, comment: "")
-		  case .dniReadingError, .dniBroken, .dniReadingErrorLong, .dniBlockedPin, .dniExpired:
+		  case .dniReadingError, .dniBroken, .dniReadingErrorLong, .dniBlockedPin, .dniExpired, .certificateNotImported:
 			 return NSLocalizedString("retry_button_title", bundle: Bundle.main, comment: "")
-		  case .globalError, .trackingError:
+		  case .globalError, .trackingError, .updateError, .jailbreakError:
 			 return nil
 	   }
     }
@@ -301,6 +358,15 @@ enum ErrorModalState {
 			 //TODO: implemenent Action
 			 return
 		  case .trackingError:
+			 //TODO: implemenent Action
+			 return
+		  case .jailbreakError:
+			 //TODO: implemenent Action
+			 return
+		  case .updateError:
+			 //TODO: implemenent Action
+			 return
+		  case .certificateNotImported:
 			 //TODO: implemenent Action
 			 return
 	   }

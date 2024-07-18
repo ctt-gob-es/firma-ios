@@ -7,57 +7,31 @@
 //
 import SwiftUI
 
+@objc enum ViewModes: Int {
+    case home
+    case sign
+}
+
 struct HomeView: View {
     @StateObject private var appStatus = AppStatus()
-    @State var certificates: [AOCertificateInfo]?
     
+    @State var certificates: [AOCertificateInfo]?
     @State private var sheetHeight: CGFloat = .zero
     @State private var navigationTitle = ""
+    @State var certificateURL: URL?
+    @State var viewMode: ViewModes = .home
     
     var body: some View {
-	   NavigationView {
+	   NavigationStack {
 		  VStack {
-			 VStack(alignment: .center, spacing: 20) {
-				VStack(alignment: .leading) {
-				    AccessibleText(content: NSLocalizedString("home_certificates_label", bundle: Bundle.main, comment: ""))
-					   .titleStyleBlack(foregroundColor: ColorConstants.Text.primary)
-					   .accessibilityAddTraits(.isHeader)
-				    
-				    AccessibleText(content: NSLocalizedString("home_certificates_description", bundle: Bundle.main, comment: ""))
-					   .regularStyle(foregroundColor: ColorConstants.Text.secondary)
-				}
-				.padding([.horizontal, .top])
-				
-				if let certificates = self.certificates {
-				    List {
-					   ForEach(certificates, id: \.certificateRef) { certificate in
-						  CertificateCellView(certificateInfo: certificate)
-							 .listRowSeparator(.hidden)
-					   }
-				    }
-				    .listStyle(PlainListStyle())
-				} else {
-				    Spacer()
-				    
-				    NoCertificatesView()
-				    
-				    Spacer()
-				}
-				
-				VStack(spacing: 10) {
-				    Button(action: {
-					   appStatus.showSignModal.toggle()
-				    }) {
-					   AccessibleText(content: NSLocalizedString("home_certificates_sign_button_title", bundle: Bundle.main, comment: ""))
-				    }
-				    .buttonStyle(CustomButtonStyle(isEnabled: true))
-				    
-				    Button(action: {
-					   appStatus.showDocumentPicker.toggle()
-				    }) {
-					   AccessibleText(content: NSLocalizedString("home_certificates_add_certificate_button_title", bundle: Bundle.main, comment: ""))
-				    }
-				    .buttonStyle(BorderedButtonStyle())
+			 VStack {
+				if viewMode == .home {
+				    HomeViewMode(certificates: $certificates)
+				} else if viewMode == .sign {
+				    SignViewMode(
+					   certificates: $certificates,
+					   viewMode: $viewMode
+				    )
 				}
 			 }
 			 .navigationBarTitle(navigationTitle, displayMode: .inline)
@@ -81,19 +55,29 @@ struct HomeView: View {
 			 }
 				.padding(.bottom, 4)
 			 )
-			 .onAppear {
-				navigationTitle = ""
-			 }
-			 .onDisappear {
-				navigationTitle = "Autofirma"
-			 }
+		  }
+		  .navigationDestination(isPresented: $appStatus.navigateToDNI) {
+			 DNIView()
+		  }
+		  .navigationDestination(isPresented: $appStatus.navigateToSelectCertificate) {
+			 SignViewMode(
+				certificates: $certificates,
+				viewMode: $viewMode
+			 )
+		  }
+		  .navigationDestination(isPresented: $appStatus.navigateToAddCertificate) {
+			 AddCertificateView(certificateURL: certificateURL)
 		  }
 	   }
 	   .navigationBarBackButtonHidden(true)
 	   .navigationBarColor(UIColor(ColorConstants.Background.main), titleColor: .black)
 	   .environmentObject(appStatus)
 	   .onAppear() {
+		  navigationTitle = ""
 		  self.certificates = getCertificates()
+	   }
+	   .onDisappear {
+		  navigationTitle = "Autofirma"
 	   }
 	   .sheet(isPresented: $appStatus.showingInfoModal) {
 		  InfoModalView()
@@ -112,15 +96,24 @@ struct HomeView: View {
 		  }
 	   }
 	   .sheet(isPresented: $appStatus.showSignModal) {
-		  SignModalView()
-			 .fixedSize(horizontal: false, vertical: true)
-			 .modifier(GetHeightModifier(height: $sheetHeight))
-			 .presentationDetents([.height(sheetHeight)])
-			 .accessibility(addTraits: .isModal)
+		  SignModalView(
+			 certificateSignAction: $appStatus.navigateToSelectCertificate,
+			 dniSignAction: $appStatus.navigateToDNI
+		  )
+		  .fixedSize(horizontal: false, vertical: true)
+		  .modifier(GetHeightModifier(height: $sheetHeight))
+		  .presentationDetents([.height(sheetHeight)])
+		  .accessibility(addTraits: .isModal)
 	   }
 	   .sheet(isPresented: $appStatus.showDocumentPicker) {
 		  DocumentPicker(onDocumentsPicked: { url in
-			 
+			 if FileUtils().handleFile(at: url) {
+				self.certificateURL = url
+				appStatus.navigateToAddCertificate.toggle()
+			 } else{
+				appStatus.errorModalState = .certificateNotImported
+				appStatus.showErrorModal.toggle()
+			 }
 		  }, onCancel: {
 			 
 		  })

@@ -148,6 +148,16 @@ procedure works on other devices. Why?\n\n";
 "home_certificates_not_available_description" = "To sign you need to register a digital certificate";
 "home_certificates_sign_button_title" = "Sign file";
 "home_certificates_add_certificate_button_title" = "Add new certificate";
+"home_update_app_title" = "Autofirma Update Required";
+"home_update_app_description" = "In order to continue using the application, you must update it.";
+"home_update_app_button_title" = "Update";
+"home_init_error_app_title" = "Error starting application";
+"home_init_error_app_description" = "A connection error has been detected. \nOur services may not be available at the moment, please check that you have an internet connection and try again later.";
+"home_init_error_app_button_title" = "Retry";
+"select_certificates_description" = "Select the certificate you want to sign the file with.";
+"add_certificates_title" = "Add Certificate";
+"add_certificates_description" = "Enter the password to register the selected certificate.";
+"add_certificates_error_placeholder"= "Incorrect password. Please try again.";
 
 //Settings
 "settings_title" = "Settings";
@@ -255,34 +265,84 @@ To work correctly you must install an electronic certificate. Consult the docume
 "tracking_error_title" = "Activity information";
 "document_error_title" = "Error loading documents";
 "document_error_controller_title" = "Acceptance of legal texts";
+"jailbreak_error_title" = "Security alert";
+"update_error_title" = "New version available";
+"importing_certificate_error_title" = "We were unable to add your certificate";
+"importing_certificate_error_description" = "We were unable to add your certificate to the Portafirmas application correctly. Please try again later.";
 
 // Descriptions
 "certificate_needed_description" = "To sign you need to register a digital certificate.";
-"certificate_generic_error_description" = "Something went wrong, hold your mobile phone fixed on the DNIe for several seconds until the NFC reading is done.";
-"certificate_generic_error_long_description" = "Something went wrong, the certificates on your DNIe are not valid, please go to a DNI Update Point (PAD) available at the Issuing Offices.";
-"certificate_expired_description" = "This certificate is not valid, as it has expired.";
-"certificate_revoked_description" = "This certificate is not valid, as it has been revoked.";
+"certificate_generic_error_description" = "Something went wrong, hold your mobile phone on top of the DNIe for several seconds until the NFC reading is done.";
+"certificate_generic_error_long_description" = "Something went wrong, the certificates on your DNIe are not valid, go to a DNI Update Point (PAD) existing in the Issuing Offices.";
+"certificate_expired_description" = "This certificate is not valid, since it has expired.";
+"certificate_revoked_description" = "This certificate is not valid, since it has been revoked.";
 "certificate_near_expiry_description" = "This certificate is about to expire.";
 "dni_reading_error_description" = "The card you have provided does not appear to be a DNIe. Please try again.";
-"dni_broken_description" = "The DNIe you have provided appears to be damaged. You need to go to your National Police station to request a new one.";
-"dni_reading_error_long_description" = "An error occurred when trying to read your e-ID. Please try again. Remember to keep it on a flat surface and hold your mobile phone fixed on the card for a few seconds for it to be read correctly.";
-"dni_blocked_pin_description" = "The e-ID has a blocked PIN. You can go to a National Police station to a DNIe Update Point (PAD) to unlock it.";
+"dni_broken_description" = "The e-ID you have provided appears to be damaged. You need to go to your National Police station to request a new one.";
+"dni_reading_error_long_description" = "An error has occurred when trying to read your e-ID. Please try again. Remember to keep it on a flat surface and hold your mobile phone fixed on the card for a few seconds for it to be read correctly.";
+"dni_blocked_pin_description" = "The e-ID has a blocked PIN. You can go to a National Police station to a DNIe Update Point (PAD) to unblock it.";
 "dni_incorrect_pin_description" = "The PIN is incorrect. Remember that after 3 incorrect attempts the e-ID is blocked.";
-"dni_expired_description" = "The e-ID you have entered does not have a signature certificate or the certificate has expired. You can go to a National Police station to a DNIe Update Point (PAD) to fix it.";
+"dni_expired_description" = "The e-DNI you have entered does not have a signature certificate or the certificate has expired. You can go to a National Police station to a DNIe Update Point (PAD) to resolve this.";
 "global_error_description" = "We have tried to process your request, but it could not be completed successfully. Please review the documentation.";
 "tracking_error_description" = "Allow the app to send activity information to help its development?";
 "garrapata_modal_description" = "Garrapata Alert is a project of the “Recovery, Transformation and Resilience Plan ‐ Funded by the European Union – NextGenerationEU”.";
-"document_error_description" = "An error has occurred while accessing legal documents. \nPlease try again later.";
+"document_error_description" = "An error has occurred while accessing legal documents. \nTry again later.";
+"jailbreak_error_description" = "Your device does not have an official operating system. For security reasons, you cannot use this application.";
+"update_error_description" = "A new Autofirma update is available.";
 
 // Bottom Button Titles
 "certificate_needed_button_title" = "Add new certificate";
-"generic_error_button_title" = "Understood";
+"generic_error_button_title" = "Got it";
 "accept_button_title" = "Accept";
 "retry_button_title" = "Try again";
 "enable_button_title" = "Allow";
 "disable_button_title" = "Decline";
-"go_home_button_title" = "Back to top";
+"go_home_button_title" = "Go back to home";
 "recovery_button_title" = "Recovery Plan";
+"close_app_button_title" = "Close application";
+"omit_button_title" = "Omit";
+"update_button_title" = "Update";
 
 // Cancel Button Title
 "cancel_button_title" = "Cancel";
+
+//DNI
+"dni_view_title" = "Identification with DNIe";
+"dni_view_description_1" = "To identify yourself using DNIe, you must have an electronic DNI with ";
+"dni_view_description_2" = "valid certificates ";
+"dni_view_description_3" = "and know the ";
+"dni_view_description_4" = "PIN code.";
+"dni_compatible_button_title" = "Is my DNI compatible?";
+"dni_view_button_title" = "Start";
+"dni_compatible_view_title" = "Is my ID compatible?";
+"dni_compatible_view_description_1" = "The e-IDs compatible with this process are ";
+"dni_compatible_view_description_2" = "DNI 3.0";
+"dni_compatible_view_description_3" = " and ";
+"dni_compatible_view_description_4" = "4.0";
+"dni_compatible_view_description_5" = ". If you have any doubts about which one is yours, you can check it at the following link: ";
+"dni_can_view_description_1" = "The CAN is the number located at the ";
+"dni_can_view_description_2" = "bottom right of the DNI.";
+"dni_can_view_description_3" = "It is necessary to read the DNI with NFC.";
+"dni_compatible_view_web_portal_button" = "Electronic ID portal, National Police Force";
+"dni_compatible_view_button_title" = "Understood";
+"dni_portal_url" = "https://www.dnielectronico.es/";
+"dni_connection_header_title" = "Identification by DNIe";
+"dni_connection_step_one_title" = "Enter the DNI CAN";
+"dni_connection_step_two_title" = "Enter PIN";
+"dni_connection_step_three_title" = "Read your DNIe with your mobile";
+"dni_connection_step" = "Step";
+"dni_connection_step_of" = "of";
+"dni_connection_can_placeholder" = "Enter your DNI CAN code";
+"dni_connection_can_error" = "Enter a valid CAN number";
+"dni_connection_step_one_button_title" = "Continue";
+"dni_connection_step_two_button_title" = "Continue";
+"dni_connection_step_three_button_title" = "Read DNIe";
+"dni_connection_pin_description" = "When you got your DNIe you received an envelope with a PIN code. You can retrieve it or change it at police stations without an appointment.";
+"dni_connection_pin_placeholder" = "Enter your PIN code";
+"dni_connection_pin_error" = "Enter a valid PIN code";
+"dni_connection_nfc_description_1" = "Place your e-ID on a flat surface and place your mobile phone on it ";
+"dni_connection_nfc_description_2" = "without a case ";
+"dni_connection_nfc_description_3" = "on it until it detects the chip.";
+"find_dni_view_title" = "Searching for e-ID";
+"find_dni_view_description" = "Place your mobile phone on the e-ID as close as possible to the NFC reader.";
+"find_dni_button_title" = "Cancel";

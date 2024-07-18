@@ -13,6 +13,7 @@
 		83144EA32C3FDAE400CC38AB /* Color+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83144EA22C3FDAE400CC38AB /* Color+Utils.swift */; };
 		83144EA52C3FDB1A00CC38AB /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83144EA42C3FDB1A00CC38AB /* ColorConstants.swift */; };
 		83144EA72C3FDFDD00CC38AB /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83144EA62C3FDFDD00CC38AB /* CustomButtonStyle.swift */; };
+		8352FF2F2C47C500003402CC /* HomeErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8352FF2E2C47C500003402CC /* HomeErrorView.swift */; };
 		83A3DA922897B67400AF4355 /* BachRest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A3DA912897B67400AF4355 /* BachRest.m */; };
 		83C0EC852C3FE6B300244071 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC842C3FE6B300244071 /* PrivacyView.swift */; };
 		83C0EC8A2C3FEDB500244071 /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC892C3FEDB500244071 /* CheckBoxView.swift */; };
@@ -57,12 +58,20 @@
 		83C172582C3803E90057F5BD /* DerOutputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C1724C2C3803E80057F5BD /* DerOutputStream.m */; };
 		83C172592C3803E90057F5BD /* Pkcs1Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C1724E2C3803E80057F5BD /* Pkcs1Utils.m */; };
 		83C1725A2C3803E90057F5BD /* DerIndefLenConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C1724F2C3803E80057F5BD /* DerIndefLenConverter.m */; };
+		83DF46762C4876D6000C3F31 /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF46752C4876D6000C3F31 /* ViewUtils.swift */; };
+		83DF46792C48EBAD000C3F31 /* HomeViewModes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF46782C48EBAD000C3F31 /* HomeViewModes.swift */; };
+		83DF467B2C48F084000C3F31 /* AddCertificateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF467A2C48F084000C3F31 /* AddCertificateView.swift */; };
+		83DF467D2C490E2E000C3F31 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF467C2C490E2E000C3F31 /* FileUtils.swift */; };
 		83E419C62C4502F100C21811 /* SignModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E419C52C4502F100C21811 /* SignModalView.swift */; };
 		83E419CA2C45184000C21811 /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E419C92C45184000C21811 /* DocumentPicker.swift */; };
 		83E419CC2C451EEC00C21811 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E419CB2C451EEC00C21811 /* PageControl.swift */; };
 		83E419CE2C451F3300C21811 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E419CD2C451F3300C21811 /* TutorialView.swift */; };
 		83E419D22C45295400C21811 /* AppStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E419D12C45295400C21811 /* AppStatus.swift */; };
 		83E419D42C452D1500C21811 /* AccesibleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E419D32C452D1500C21811 /* AccesibleText.swift */; };
+		83E5D8002C4847D3001A5AF1 /* DNICanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E5D7FF2C4847D3001A5AF1 /* DNICanView.swift */; };
+		83E5D8022C4847DF001A5AF1 /* DNIScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E5D8012C4847DF001A5AF1 /* DNIScanView.swift */; };
+		83E5D8042C48481A001A5AF1 /* DNIPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E5D8032C48481A001A5AF1 /* DNIPinView.swift */; };
+		83E5D8062C48483C001A5AF1 /* DNIStepHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E5D8052C48483C001A5AF1 /* DNIStepHeaderView.swift */; };
 		83EBF99E289BAB2C00E80A7E /* ParentRest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EBF99D289BAB2C00E80A7E /* ParentRest.m */; };
 		83EBF9A0289BB48A00E80A7E /* ServletRest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EBF99B289BAA9300E80A7E /* ServletRest.m */; };
 		83EF14CB2C4647A7003EC42A /* SuccessModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EF14CA2C4647A7003EC42A /* SuccessModalView.swift */; };
@@ -70,6 +79,11 @@
 		83EF14CF2C465EDF003EC42A /* ExitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EF14CE2C465EDF003EC42A /* ExitButton.swift */; };
 		83EF14D32C46722D003EC42A /* RecoveryModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EF14D22C46722D003EC42A /* RecoveryModalView.swift */; };
 		83EF14D52C467241003EC42A /* DocumentErrorModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EF14D42C467241003EC42A /* DocumentErrorModalView.swift */; };
+		83FC0C402C47F84700BBB5A8 /* DNIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC0C3F2C47F84700BBB5A8 /* DNIView.swift */; };
+		83FC0C422C47F86B00BBB5A8 /* DNICompatibleModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC0C412C47F86B00BBB5A8 /* DNICompatibleModalView.swift */; };
+		83FC0C442C48010E00BBB5A8 /* DNIConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC0C432C48010E00BBB5A8 /* DNIConnectionView.swift */; };
+		83FC0C462C48016100BBB5A8 /* FindDNIModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC0C452C48016100BBB5A8 /* FindDNIModalView.swift */; };
+		83FC0C482C48120B00BBB5A8 /* FloatingPlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC0C472C48120A00BBB5A8 /* FloatingPlaceholderTextView.swift */; };
 		83FD0B092C3FC96200902E19 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FD0B082C3FC96200902E19 /* OnboardingView.swift */; };
 		83FD0B0B2C3FCBB000902E19 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FD0B0A2C3FCBB000902E19 /* OnboardingViewController.swift */; };
 		9226967323C6512400F099F0 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9226967223C6512400F099F0 /* NSString+Extension.m */; };
@@ -269,6 +283,7 @@
 		83144EA22C3FDAE400CC38AB /* Color+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Utils.swift"; sourceTree = "<group>"; };
 		83144EA42C3FDB1A00CC38AB /* ColorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
 		83144EA62C3FDFDD00CC38AB /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
+		8352FF2E2C47C500003402CC /* HomeErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeErrorView.swift; sourceTree = "<group>"; };
 		83A3DA912897B67400AF4355 /* BachRest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BachRest.m; sourceTree = "<group>"; };
 		83A3DA932897B67D00AF4355 /* BachRest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BachRest.h; sourceTree = "<group>"; };
 		83C0EC842C3FE6B300244071 /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
@@ -326,12 +341,20 @@
 		83C1724D2C3803E80057F5BD /* Pkcs1Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pkcs1Utils.h; sourceTree = "<group>"; };
 		83C1724E2C3803E80057F5BD /* Pkcs1Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pkcs1Utils.m; sourceTree = "<group>"; };
 		83C1724F2C3803E80057F5BD /* DerIndefLenConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DerIndefLenConverter.m; sourceTree = "<group>"; };
+		83DF46752C4876D6000C3F31 /* ViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtils.swift; sourceTree = "<group>"; };
+		83DF46782C48EBAD000C3F31 /* HomeViewModes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModes.swift; sourceTree = "<group>"; };
+		83DF467A2C48F084000C3F31 /* AddCertificateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCertificateView.swift; sourceTree = "<group>"; };
+		83DF467C2C490E2E000C3F31 /* FileUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUtils.swift; sourceTree = "<group>"; };
 		83E419C52C4502F100C21811 /* SignModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignModalView.swift; sourceTree = "<group>"; };
 		83E419C92C45184000C21811 /* DocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPicker.swift; sourceTree = "<group>"; };
 		83E419CB2C451EEC00C21811 /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
 		83E419CD2C451F3300C21811 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		83E419D12C45295400C21811 /* AppStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStatus.swift; sourceTree = "<group>"; };
 		83E419D32C452D1500C21811 /* AccesibleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccesibleText.swift; sourceTree = "<group>"; };
+		83E5D7FF2C4847D3001A5AF1 /* DNICanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNICanView.swift; sourceTree = "<group>"; };
+		83E5D8012C4847DF001A5AF1 /* DNIScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNIScanView.swift; sourceTree = "<group>"; };
+		83E5D8032C48481A001A5AF1 /* DNIPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNIPinView.swift; sourceTree = "<group>"; };
+		83E5D8052C48483C001A5AF1 /* DNIStepHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNIStepHeaderView.swift; sourceTree = "<group>"; };
 		83EBF99A289BAA8600E80A7E /* ServletRest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServletRest.h; sourceTree = "<group>"; };
 		83EBF99B289BAA9300E80A7E /* ServletRest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServletRest.m; sourceTree = "<group>"; };
 		83EBF99D289BAB2C00E80A7E /* ParentRest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParentRest.m; sourceTree = "<group>"; };
@@ -341,6 +364,11 @@
 		83EF14CE2C465EDF003EC42A /* ExitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitButton.swift; sourceTree = "<group>"; };
 		83EF14D22C46722D003EC42A /* RecoveryModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryModalView.swift; sourceTree = "<group>"; };
 		83EF14D42C467241003EC42A /* DocumentErrorModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentErrorModalView.swift; sourceTree = "<group>"; };
+		83FC0C3F2C47F84700BBB5A8 /* DNIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNIView.swift; sourceTree = "<group>"; };
+		83FC0C412C47F86B00BBB5A8 /* DNICompatibleModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNICompatibleModalView.swift; sourceTree = "<group>"; };
+		83FC0C432C48010E00BBB5A8 /* DNIConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNIConnectionView.swift; sourceTree = "<group>"; };
+		83FC0C452C48016100BBB5A8 /* FindDNIModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindDNIModalView.swift; sourceTree = "<group>"; };
+		83FC0C472C48120A00BBB5A8 /* FloatingPlaceholderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingPlaceholderTextView.swift; sourceTree = "<group>"; };
 		83FD0B072C3FC96200902E19 /* Cliente @firma-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cliente @firma-Bridging-Header.h"; sourceTree = "<group>"; };
 		83FD0B082C3FC96200902E19 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		83FD0B0A2C3FCBB000902E19 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -747,6 +775,7 @@
 				83E419CD2C451F3300C21811 /* TutorialView.swift */,
 				83E419D32C452D1500C21811 /* AccesibleText.swift */,
 				83EF14CE2C465EDF003EC42A /* ExitButton.swift */,
+				83FC0C472C48120A00BBB5A8 /* FloatingPlaceholderTextView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -754,10 +783,12 @@
 		83C0EC8D2C3FF36400244071 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				83DF46782C48EBAD000C3F31 /* HomeViewModes.swift */,
 				83C0EC8E2C3FF37D00244071 /* HomeViewController.swift */,
 				83C0EC902C3FF39D00244071 /* HomeView.swift */,
 				83C0EC942C3FFABE00244071 /* NoCertificatesView.swift */,
 				83E419D12C45295400C21811 /* AppStatus.swift */,
+				8352FF2E2C47C500003402CC /* HomeErrorView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -835,6 +866,14 @@
 			path = J2Objc;
 			sourceTree = "<group>";
 		};
+		83DF46772C48EB40000C3F31 /* Certificate */ = {
+			isa = PBXGroup;
+			children = (
+				83DF467A2C48F084000C3F31 /* AddCertificateView.swift */,
+			);
+			path = Certificate;
+			sourceTree = "<group>";
+		};
 		83EBF999289BAA6F00E80A7E /* ServletRest */ = {
 			isa = PBXGroup;
 			children = (
@@ -851,6 +890,21 @@
 				83EBF99F289BAB3800E80A7E /* ParentRest.h */,
 			);
 			path = ParentRest;
+			sourceTree = "<group>";
+		};
+		83FC0C3E2C47F83A00BBB5A8 /* DNI */ = {
+			isa = PBXGroup;
+			children = (
+				83FC0C3F2C47F84700BBB5A8 /* DNIView.swift */,
+				83FC0C412C47F86B00BBB5A8 /* DNICompatibleModalView.swift */,
+				83FC0C432C48010E00BBB5A8 /* DNIConnectionView.swift */,
+				83FC0C452C48016100BBB5A8 /* FindDNIModalView.swift */,
+				83E5D7FF2C4847D3001A5AF1 /* DNICanView.swift */,
+				83E5D8012C4847DF001A5AF1 /* DNIScanView.swift */,
+				83E5D8032C48481A001A5AF1 /* DNIPinView.swift */,
+				83E5D8052C48483C001A5AF1 /* DNIStepHeaderView.swift */,
+			);
+			path = DNI;
 			sourceTree = "<group>";
 		};
 		83FD0B022C3FBE8600902E19 /* Onboarding */ = {
@@ -895,6 +949,8 @@
 		B2406EED20C5C0A9008ED085 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				83DF46772C48EB40000C3F31 /* Certificate */,
+				83FC0C3E2C47F83A00BBB5A8 /* DNI */,
 				83C0EC8D2C3FF36400244071 /* Home */,
 				83C0EC882C3FEDA300244071 /* Components */,
 				83C0EC832C3FE69D00244071 /* Privacy */,
@@ -1087,6 +1143,8 @@
 				83C0ECC02C4142D000244071 /* LanguageUtils.swift */,
 				83C0ECC22C41489E00244071 /* AONSBundle+Language.m */,
 				83C0ECC42C4148AB00244071 /* AONSBundle+Language.h */,
+				83DF46752C4876D6000C3F31 /* ViewUtils.swift */,
+				83DF467C2C490E2E000C3F31 /* FileUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1580,11 +1638,15 @@
 				B273961120A43E2800A7D05A /* NSDate+Utils.m in Sources */,
 				B2406F3920C5CE6F008ED085 /* AORegisterCertificateVC.m in Sources */,
 				B273960B20A43E2800A7D05A /* CADESSignUtils.m in Sources */,
+				83DF467D2C490E2E000C3F31 /* FileUtils.swift in Sources */,
 				C36554EE16F9D11F0048252D /* CADESSignedAttributes.c in Sources */,
+				83FC0C482C48120B00BBB5A8 /* FloatingPlaceholderTextView.swift in Sources */,
 				C36554F016F9D11F0048252D /* CADESSignerInfo.c in Sources */,
 				83C0EC972C40006E00244071 /* SettingsView.swift in Sources */,
+				83E5D8062C48483C001A5AF1 /* DNIStepHeaderView.swift in Sources */,
 				C36554F116F9D11F0048252D /* Utiles.c in Sources */,
 				B273961A20A447DB00A7D05A /* CADESOID.c in Sources */,
+				83DF467B2C48F084000C3F31 /* AddCertificateView.swift in Sources */,
 				C3B11DB816FB642B00C0D623 /* AlgorithmIdentifier.c in Sources */,
 				C3B11DBA16FB642B00C0D623 /* ANY.c in Sources */,
 				C3B11DBC16FB642B00C0D623 /* asn_codecs_prim.c in Sources */,
@@ -1637,6 +1699,7 @@
 				C3B11DE816FB642B00C0D623 /* CPSuri.c in Sources */,
 				83C0EC8F2C3FF37D00244071 /* HomeViewController.swift in Sources */,
 				B2406F2E20C5CACA008ED085 /* AORegisteredCertificatesTVC.m in Sources */,
+				83FC0C462C48016100BBB5A8 /* FindDNIModalView.swift in Sources */,
 				B273960720A43E2800A7D05A /* AOTriphaseData.m in Sources */,
 				B2406F3320C5CB8E008ED085 /* AlertProgressBar.m in Sources */,
 				83EBF9A0289BB48A00E80A7E /* ServletRest.m in Sources */,
@@ -1698,6 +1761,8 @@
 				C3B11E2816FB642B00C0D623 /* SignedAttributes.c in Sources */,
 				83C172512C3803E90057F5BD /* DerInputBuffer.m in Sources */,
 				C3B11E2A16FB642B00C0D623 /* SignedData.c in Sources */,
+				8352FF2F2C47C500003402CC /* HomeErrorView.swift in Sources */,
+				83E5D8042C48481A001A5AF1 /* DNIPinView.swift in Sources */,
 				C3B11E2C16FB642B00C0D623 /* SignerIdentifier.c in Sources */,
 				C3B11E2E16FB642B00C0D623 /* SignerInfo.c in Sources */,
 				9A51A79A2B79FEC700826C72 /* AOHelpOptionView.m in Sources */,
@@ -1718,7 +1783,9 @@
 				C3B11E3C16FB642B00C0D623 /* UnsignedAttributes.c in Sources */,
 				9A7018FE2AD00478000B11D6 /* StoryboardUtils.m in Sources */,
 				9A64AD762AC6AFB50089A289 /* NSMutableAttributedString.m in Sources */,
+				83FC0C422C47F86B00BBB5A8 /* DNICompatibleModalView.swift in Sources */,
 				C3B11E3E16FB642B00C0D623 /* UTCTime.c in Sources */,
+				83FC0C402C47F84700BBB5A8 /* DNIView.swift in Sources */,
 				C3B11E4016FB642B00C0D623 /* xer_decoder.c in Sources */,
 				C3B11E4216FB642B00C0D623 /* xer_encoder.c in Sources */,
 				C3B11E4416FB642B00C0D623 /* xer_support.c in Sources */,
@@ -1740,9 +1807,12 @@
 				C3A44B72170C3B60000B551C /* OtherHashAlgAndValue.c in Sources */,
 				C3A44B73170C3B60000B551C /* OtherHashValue.c in Sources */,
 				B2406F3620C5CD4D008ED085 /* AOCertificateCell.m in Sources */,
+				83DF46762C4876D6000C3F31 /* ViewUtils.swift in Sources */,
 				C3A44B74170C3B60000B551C /* SignaturePolicyId.c in Sources */,
 				C3A44B75170C3B60000B551C /* SigPolicyHash.c in Sources */,
+				83E5D8022C4847DF001A5AF1 /* DNIScanView.swift in Sources */,
 				83C172592C3803E90057F5BD /* Pkcs1Utils.m in Sources */,
+				83FC0C442C48010E00BBB5A8 /* DNIConnectionView.swift in Sources */,
 				9A7019012AD03102000B11D6 /* AOAvailableCertificatesCell.m in Sources */,
 				C3A44B76170C3B60000B551C /* SigPolicyId.c in Sources */,
 				C3A44B77170C3B60000B551C /* SigPolicyQualifierId.c in Sources */,
@@ -1752,10 +1822,12 @@
 				C3A44B79170C3B60000B551C /* SPuri.c in Sources */,
 				C3A44B7A170C3B60000B551C /* SPUserNotice.c in Sources */,
 				C3A44B87170C3CBF000B551C /* VisibleString.c in Sources */,
+				83DF46792C48EBAD000C3F31 /* HomeViewModes.swift in Sources */,
 				C3A44B8B170C3CE4000B551C /* BMPString.c in Sources */,
 				B273960520A43E2800A7D05A /* AOCounterSignXMLParser.m in Sources */,
 				83C0EC8C2C3FEDD000244071 /* NavigationBarModifier.swift in Sources */,
 				B240772D20A5B87B00A8EE1C /* main.m in Sources */,
+				83E5D8002C4847D3001A5AF1 /* DNICanView.swift in Sources */,
 				83EF14D52C467241003EC42A /* DocumentErrorModalView.swift in Sources */,
 				83144EA52C3FDB1A00CC38AB /* ColorConstants.swift in Sources */,
 				83C0EC912C3FF39D00244071 /* HomeView.swift in Sources */,

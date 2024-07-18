@@ -9,6 +9,12 @@
 import SwiftUI
 
 extension AccessibleText {
+    func titleBigStyleBlack(foregroundColor: Color, alignment: TextAlignment = .leading) -> some View {
+	   self
+		  .font(.custom("Merriweather-Bold", size: 24))
+		  .foregroundColor(foregroundColor)
+		  .multilineTextAlignment(alignment)
+    }
     func titleStyleBlack(foregroundColor: Color, alignment: TextAlignment = .leading) -> some View {
 	   self
 		  .font(.custom("Merriweather-Black", size: 20))

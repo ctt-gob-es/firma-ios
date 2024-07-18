@@ -9,6 +9,9 @@
 import SwiftUI
 
 struct SignModalView: View {
+    @Binding var certificateSignAction: Bool
+    @Binding var dniSignAction: Bool
+    
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -33,6 +36,10 @@ struct SignModalView: View {
 				    .regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
 			 }
 			 .frame(maxWidth: .infinity, alignment: .leading)
+			 .onTapGesture {
+				self.presentationMode.wrappedValue.dismiss()
+				certificateSignAction.toggle()
+			 }
 			 
 			 HStack {
 				Image("credit-card")
@@ -41,6 +48,10 @@ struct SignModalView: View {
 				    .regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
 			 }
 			 .frame(maxWidth: .infinity, alignment: .leading)
+			 .onTapGesture {
+				self.presentationMode.wrappedValue.dismiss()
+				dniSignAction.toggle()
+			 }
 		  }
 		  Spacer()
 	   }
