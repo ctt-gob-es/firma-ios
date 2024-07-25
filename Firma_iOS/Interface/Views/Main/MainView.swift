@@ -20,6 +20,7 @@ struct MainView: View {
     @State var certificateURL: URL?
     @State var viewMode: ViewModes = .home
     @State var urlReceived: URL?
+    @State var shouldReload: Bool = false
     
     var body: some View {
 	   ZStack {
@@ -29,7 +30,7 @@ struct MainView: View {
 				    if viewMode == .home {
 					   HomeViewMode(
 						  certificates: $certificates
-						  )
+					   )
 				    } else if viewMode == .sign {
 					   if let urlReceived = urlReceived {
 						  SignViewMode(
@@ -73,7 +74,7 @@ struct MainView: View {
 				)
 			 }
 			 .navigationDestination(isPresented: $appStatus.navigateToAddCertificate) {
-				AddCertificateView(certificateURL: certificateURL)
+				AddCertificateView(certificateURL: certificateURL, shouldReload: $shouldReload)
 			 }
 		  }
 		  if appStatus.isLoading {
@@ -103,7 +104,7 @@ struct MainView: View {
 	   }
 	   .sheet(isPresented: $appStatus.showDeleteModal){
 		  if let selectedCertificate = appStatus.selectedCertificate {
-			 DeleteCertificateModalView(certificate: selectedCertificate)
+			 DeleteCertificateModalView(shouldReload: $shouldReload, certificate: selectedCertificate)
 				.fixedSize(horizontal: false, vertical: true)
 				.modifier(GetHeightModifier(height: $sheetHeight))
 				.presentationDetents([.height(sheetHeight)])
@@ -166,6 +167,13 @@ struct MainView: View {
 		  DocumentErrorModalView()
 			 .accessibility(addTraits: .isModal)
 	   }
+	   .onChange(of: shouldReload, perform: { value in
+		  if value {
+			 certificates = getCertificates()
+			 shouldReload = false
+		  }
+	   }
+	   )
     }
     
     func getCertificates() -> [AOCertificateInfo] {

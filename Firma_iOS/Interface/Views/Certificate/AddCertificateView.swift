@@ -14,6 +14,7 @@ struct AddCertificateView: View {
     @State var password: String = ""
     @State var showFieldError: Bool = false
     @State var buttonEnabled: Bool = false
+    @Binding var shouldReload: Bool
     
     var body: some View {
 	   VStack {
@@ -102,21 +103,18 @@ struct AddCertificateView: View {
 			 DispatchQueue.main.asyncAfter(deadline: .now() + delayDuration) {
 				appStatus.showSuccessModal = true
 				appStatus.successModalState = .successCertificate
+				shouldReload = true
 			 }
 		  } else {
 			 switch (status) {
 				case errSecItemNotFound:
-				    
 				    break;
 				case errSecAuthFailed:
 				    showFieldError.toggle()
 				    break;
 				case errSecDuplicateItem:
-				    
 				    break;
-				    
 				default:
-				   
 				    break;
 			 }
 		  }

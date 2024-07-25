@@ -10,6 +10,8 @@ import SwiftUI
 
 struct DeleteCertificateModalView: View {
     @Environment(\.presentationMode) var presentationMode
+    @Binding var shouldReload: Bool
+    
     var certificate: AOCertificateInfo
     
     var body: some View {
@@ -60,6 +62,8 @@ struct DeleteCertificateModalView: View {
 				
 				if status == errSecSuccess {
 				    print("Certificate deleted successfully")
+				    self.shouldReload = true
+				    self.presentationMode.wrappedValue.dismiss()
 				} else {
 				    print("Failed to delete certificate with status: \(status)")
 				}
