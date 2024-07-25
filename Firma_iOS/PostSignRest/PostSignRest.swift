@@ -23,13 +23,13 @@ class PostSignRest {
 	   
 	   post += "\(PARAMETER_NAME_FORMAT)=\(signFormat)&"
 	   post += "\(PARAMETER_NAME_ALGORITHM)=\(signAlgoInUse)&"
-	   post += "\(PARAMETER_NAME_CERT)=\(Base64.urlSafeEncode(base64UrlSafeCertificateData) ?? "")&"
+	   post += "\(PARAMETER_NAME_CERT)=\(Base64Utils.urlSafeEncode(base64UrlSafeCertificateData) ?? "")&"
 	   
 	   if let extraParams = extraParams {
 		  post += "\(PARAMETER_NAME_EXTRA_PARAM)=\(extraParams)&"
 	   }
 	   
-	   let encodedString = Base64.encode(encodedData, urlSafe: true)
+	   let encodedString = Base64Utils.encode(encodedData, urlSafe: true)
 	   post += "\(PROPERTY_NAME_SESSION_DATA_PREFIX)=\(encodedString ?? "")"
 	   
 	   guard let postData = post.data(using: .utf8, allowLossyConversion: true) else {

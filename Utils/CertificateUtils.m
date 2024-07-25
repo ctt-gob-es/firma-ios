@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <Security/Security.h>
 #import <UIKit/UIKit.h>
-#import "Base64.h"
+#import "Base64Utils.h"
 #import "GlobalConstants.h"
 #import "OpenSSLCertificateHelper.h"
 #import <openssl/x509.h>
@@ -243,11 +243,11 @@ static CertificateUtils *_sharedWrapper = nil;
     
     NSData *publicKey2 = (NSData *)certificateData2;
     
-    NSString *certificateString2 = [Base64 encode:publicKey2];
+    NSString *certificateString2 = [Base64Utils encode:publicKey2];
     
     ///// ------------------------- Hasta aquí -------------------------
     
-    self.base64UrlSafeCertificateData = certificateString2; //[Base64 encode:CFBridgingRelease(SecCertificateCopyData(certificate))];
+    self.base64UrlSafeCertificateData = certificateString2; //[Base64Utils encode:CFBridgingRelease(SecCertificateCopyData(certificate))];
     
     
     SecPolicyRef myPolicy   = SecPolicyCreateBasicX509();

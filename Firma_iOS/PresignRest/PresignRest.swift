@@ -27,7 +27,7 @@ class PresignRest {
 	   post += "\(PARAMETER_NAME_FORMAT)=\(signFormat)&"
 	   post += "\(PARAMETER_NAME_ALGORITHM)=\(signAlgoInUse)&"
 	   
-	   let encodedCertificate = Base64.urlSafeEncode(certificateData).replacingOccurrences(of: "\n", with: "")
+	   let encodedCertificate = Base64Utils.urlSafeEncode(certificateData).replacingOccurrences(of: "\n", with: "")
 	   post += "\(PARAMETER_NAME_CERT)=\(encodedCertificate)"
 	   
 	   if let extraParams = extraParams {

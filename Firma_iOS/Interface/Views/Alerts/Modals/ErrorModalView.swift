@@ -10,6 +10,8 @@ import SwiftUI
 
 struct ErrorModalView: View {
     @Environment(\.presentationMode) var presentationMode
+    @Binding var viewMode: ViewModes
+    
     var errorModalState: ErrorModalState
     
     var body: some View {
@@ -57,13 +59,13 @@ struct ErrorModalView: View {
 		  
 		  VStack(spacing: 10) {
 			 if errorModalState == .globalError{
-				GlobalErrorButtons()
+				GlobalErrorButtons(viewMode: $viewMode)
 			 } else if errorModalState == .trackingError {
-				TrackingErrorButtons()
+				TrackingErrorButtons(viewMode: $viewMode)
 			 } else if errorModalState == .jailbreakError {
-				JailbreakErrorButtons()
+				JailbreakErrorButtons(viewMode: $viewMode)
 			 } else if errorModalState == .updateError {
-				UpdateErrorButtons()
+				UpdateErrorButtons(viewMode: $viewMode)
 			 }  else {
 				if errorModalState.hasCancelButton {
 				    Button(action: {
@@ -94,17 +96,22 @@ struct ErrorModalView: View {
 }
 
 struct GlobalErrorButtons: View {
+    @Binding var viewMode: ViewModes
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
 	   VStack(spacing: 8) {
 		  Button(action: {
-			 
+			 self.presentationMode.wrappedValue.dismiss()
 		  }) {
 			 AccessibleText(content: NSLocalizedString("retry_button_title", bundle: Bundle.main, comment: ""))
 		  }
 		  .buttonStyle(CustomButtonStyle(isEnabled: true))
 		  
 		  Button(action: {
-			 
+			 DispatchQueue.main.async {
+				viewMode = .home
+			 }
+			 self.presentationMode.wrappedValue.dismiss()
 		  }) {
 			 AccessibleText(content: NSLocalizedString("go_home_button_title", bundle: Bundle.main, comment: ""))
 		  }
@@ -115,6 +122,7 @@ struct GlobalErrorButtons: View {
 }
 
 struct TrackingErrorButtons: View {
+    @Binding var viewMode: ViewModes
     var body: some View {
 	   VStack(spacing: 8) {
 		  Button(action: {
@@ -136,6 +144,7 @@ struct TrackingErrorButtons: View {
 }
 
 struct JailbreakErrorButtons: View {
+    @Binding var viewMode: ViewModes
     var body: some View {
 	   VStack(spacing: 8) {
 		  Button(action: {
@@ -149,6 +158,7 @@ struct JailbreakErrorButtons: View {
 }
 
 struct UpdateErrorButtons: View {
+    @Binding var viewMode: ViewModes
     var body: some View {
 	   VStack(spacing: 8) {
 		  Button(action: {

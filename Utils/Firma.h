@@ -15,6 +15,8 @@
 
 @property (nonatomic, strong) NSMutableDictionary *params;
 
+- (NSString *)processDataAndReturnEncodedString:(NSData *)dataSigned;
+
 @end
 
 #endif /* Firma_h */

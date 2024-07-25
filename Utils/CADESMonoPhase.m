@@ -12,7 +12,7 @@
 #include "CADESSignUtils.h"
 #include "CertificateUtils.h"
 #include "CADESConstants.h"
-#include "Base64.h"
+#include "Base64Utils.h"
 #include "CADESSignedAttributes.h"
 
 @implementation CADESMonoPhase
@@ -32,7 +32,7 @@
   precalculatedHashAlgorithm:(char*)precalculatedHashAlgorithm
            precalculatedHash:(NSData*)precalculatedHash {
     
-    NSData *sCertificate = [Base64 decode:base64UrlSafeCertificateData urlSafe:true];
+    NSData *sCertificate = [Base64Utils decode:base64UrlSafeCertificateData urlSafe:true];
     
     const unsigned char *certificateDataBytes = (const unsigned char *)[sCertificate bytes];
     X509 *certificateX509 = d2i_X509(NULL, &certificateDataBytes, [sCertificate length]);

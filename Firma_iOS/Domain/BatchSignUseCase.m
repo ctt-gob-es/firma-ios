@@ -11,7 +11,7 @@
 #import "InputParametersBatch.h"
 #import "BachRest.h"
 #import "ServletRest.h"
-#import "Base64.h"
+#import "Base64Utils.h"
 #import "CADESSignUtils.h"
 
 
@@ -218,7 +218,7 @@ SecKeyRef privateKey;
                 [self.servletRest storeDataError:error stServlet:parametersBatch.stservlet cipherKey:parametersBatch.cipherKey docId:parametersBatch.identifier];
             } else {
                 // Acutalizar el data a enviuar al postsing
-                dataPostSignBase64 = [Base64 encode:jsonData urlSafe:true];
+                dataPostSignBase64 = [Base64Utils encode:jsonData urlSafe:true];
             }
         }
         
@@ -233,7 +233,7 @@ SecKeyRef privateKey;
             
         } else {
             //Convertir a base64 el jsonData
-            NSString *base64tridata = [Base64 encode:jsonData urlSafe:true];
+            NSString *base64tridata = [Base64Utils encode:jsonData urlSafe:true];
             [self.bachRest bachPostsign:parametersBatch.batchpostsignerUrl withJsonData:dataPostSignBase64 withCerts:self.urlSafeCertificateData withTriData:base64tridata];
         }
     } else {
@@ -264,14 +264,14 @@ SecKeyRef privateKey;
 
 -(NSString *)sign:(NSString *)pre withAlgorith:(NSString *) algorithm {
     
-    NSData *data = [Base64 decode:pre urlSafe:true];
+    NSData *data = [Base64Utils decode:pre urlSafe:true];
     
     if(data.length > 0)
     {
 	   CADESSignUtils *signUtils = [[CADESSignUtils alloc] init];
 	   NSData *dataSigned = [signUtils signDataWithPrivateKey:&privateKey data:data algorithm:algorithm];
         // Contiene las prefirmas firmadas
-        NSString *stringSigned = [Base64 encode:dataSigned];
+        NSString *stringSigned = [Base64Utils encode:dataSigned];
         
         return stringSigned;
     }else{
@@ -281,7 +281,7 @@ SecKeyRef privateKey;
 
 
 -(NSDictionary *) parseDataBase64toDictionary:(NSString *)stringData {
-    NSData *dataReceived = [Base64 decode:parametersBatch.data urlSafe:true];
+    NSData *dataReceived = [Base64Utils decode:parametersBatch.data urlSafe:true];
     
     NSError *error;
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:dataReceived

@@ -37,7 +37,7 @@ class SignModel {
 	   
 	   if let extraParams = self.extraParams {
 		  // URL Decode
-		  if let dataReceived = Base64.decode(extraParams, urlSafe: true),
+		  if let dataReceived = Base64Utils.decode(extraParams, urlSafe: true),
 			let stringDataReceived = String(data: dataReceived, encoding: .utf8),
 			let dict = CADESSignUtils.javaProperties2Dictionary(stringDataReceived) as? [String: Any] {
 			 self.dictExtraParams = dict
@@ -50,7 +50,7 @@ class SignModel {
 	   }
 	   
 	   if let extraParams2 = dictionary[PARAMETER_NAME_TARGET] as? String {
-		  if let decodedTarget = String(data: Base64.decode(extraParams2, urlSafe: true)!, encoding: .utf8) {
+		  if let decodedTarget = String(data: Base64Utils.decode(extraParams2, urlSafe: true)!, encoding: .utf8) {
 			 var aux = self.dictExtraParams ?? [:]
 			 
 			 if decodedTarget != PARAMETER_NAME_TARGET_TREE && decodedTarget != PARAMETER_NAME_TARGET_LEAFS {

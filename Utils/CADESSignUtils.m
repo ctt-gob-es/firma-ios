@@ -11,7 +11,7 @@
 #import "CertificateUtils.h"
 #import "CADESConstants.h"
 #import "CADESOID.h"
-#import "Base64.h"
+#import "Base64Utils.h"
 #import "GlobalConstants.h"
 
 @implementation CADESSignUtils
@@ -39,7 +39,7 @@
     dataTransport = [dataTransport stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     NSData* data = [dataTransport dataUsingEncoding:NSUTF8StringEncoding];
     
-    return [Base64 encode:data urlSafe:true];
+    return [Base64Utils encode:data urlSafe:true];
 }
 
 /**

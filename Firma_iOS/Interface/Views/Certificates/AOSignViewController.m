@@ -13,7 +13,7 @@
 #import "GAI.h"
 #import "GAIDictionaryBuilder.h"
 #import "DesCypher.h"
-#import "Base64.h"
+#import "Base64Utils.h"
 #import "AOAboutViewController.h"
 #import "AOCounterSignXMLParser.h"
 #import "AOCounterSignPreItems.h"
@@ -296,7 +296,7 @@ SecKeyRef privateKey = NULL;
         extraParams = [urlParameters objectForKey:PARAMETER_NAME_PROPERTIES];
         
             //URL DECODE
-        NSData *dataReceived = [Base64 decode:extraParams urlSafe:true];
+        NSData *dataReceived = [Base64Utils decode:extraParams urlSafe:true];
         
         NSString* stringDataReceived = [[NSString alloc] initWithData:dataReceived encoding:NSUTF8StringEncoding];
         
@@ -317,7 +317,7 @@ SecKeyRef privateKey = NULL;
         
         if(extraParams2 != NULL)
         {
-            extraParams2 = [[NSString alloc] initWithData:[Base64 decode:extraParams2 urlSafe:true] encoding:NSUTF8StringEncoding];
+            extraParams2 = [[NSString alloc] initWithData:[Base64Utils decode:extraParams2 urlSafe:true] encoding:NSUTF8StringEncoding];
             
             NSMutableDictionary *aux = [NSMutableDictionary dictionaryWithDictionary:dictExtraParams];
             
@@ -499,8 +499,8 @@ SecKeyRef privateKey = NULL;
         //cifrado del certificado
     
         // Get the certificate
-    NSString * certificateString = [Base64 urlSafeEncode: self.base64UrlSafeCertificateData];
-    NSData *data = [Base64 decode:certificateString urlSafe:true];
+    NSString * certificateString = [Base64Utils urlSafeEncode: self.base64UrlSafeCertificateData];
+    NSData *data = [Base64Utils decode:certificateString urlSafe:true];
     NSString *encryptedDataB64 = [DesCypher cypherData:data sk:[cipherKey dataUsingEncoding:NSUTF8StringEncoding]];
     
         // Se envia el certificado cifrado y en base64
@@ -544,7 +544,7 @@ SecKeyRef privateKey = NULL;
  */
 -(void)cadesMonoPhasic
 {
-    NSData *contentData = [Base64 decode:datosInUse urlSafe:true];
+    NSData *contentData = [Base64Utils decode:datosInUse urlSafe:true];
     NSString *contentDescription = [[NSString alloc]init];
     contentDescription = BINARY;
     NSString *policyOID = NULL;
@@ -666,14 +666,14 @@ SecKeyRef privateKey = NULL;
     [alertpb createAndShowProgressBar:self withMessage: @"processing".localized];
     
         //invocamos al almacenamiento de la firma
-    NSString *finalSignature = [Base64 encode:signature urlSafe:true];
+    NSString *finalSignature = [Base64Utils encode:signature urlSafe:true];
     [self storeData:finalSignature];
 }
 
 -(void)noneMonoPhasic
 {
     
-    NSData *contentData = [Base64 decode:datosInUse urlSafe:true];
+    NSData *contentData = [Base64Utils decode:datosInUse urlSafe:true];
     
         //    Aplicamos PCSK1 y almacenamos la firma
     if(contentData.length > 0)
@@ -688,7 +688,7 @@ SecKeyRef privateKey = NULL;
         [alertpb createAndShowProgressBar:self withMessage: @"processing".localized];
         
             //Store the sign
-        NSString *finalSignature = [Base64 encode:dataSigned urlSafe:true];
+        NSString *finalSignature = [Base64Utils encode:dataSigned urlSafe:true];
         [self storeData:finalSignature];
     }
 }
@@ -740,7 +740,7 @@ SecKeyRef privateKey = NULL;
     post = [post stringByAppendingString:PARAMETER_NAME_CERT];
     post = [post stringByAppendingString:HTTP_EQUALS];
     
-    NSString *certificate = [Base64 urlSafeEncode: self.base64UrlSafeCertificateData];
+    NSString *certificate = [Base64Utils urlSafeEncode: self.base64UrlSafeCertificateData];
     
     certificate = [certificate stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     
@@ -873,7 +873,7 @@ SecKeyRef privateKey = NULL;
         {
             NSData *finalDecoded = [DesCypher decypherData:responseString sk:[cipherKey dataUsingEncoding:NSUTF8StringEncoding]];
             
-            datosInUse =[[NSString alloc] initWithString:[Base64 encode:finalDecoded urlSafe:true]];
+            datosInUse = [[NSString alloc] initWithString:[Base64Utils encode:finalDecoded urlSafe:true]];
             
             
         }
@@ -1002,7 +1002,7 @@ SecKeyRef privateKey = NULL;
     NSLog(@"%@", dataReceivedb64);
     
         //Se reciben los datos en base64 y se decodifican
-    NSData *dataReceived = [Base64 decode:dataReceivedb64 urlSafe: true];
+    NSData *dataReceived = [Base64Utils decode:dataReceivedb64 urlSafe: true];
     NSString* stringDataReceived = [[NSString alloc] initWithData:dataReceived encoding:NSUTF8StringEncoding];
     
     
@@ -1027,7 +1027,7 @@ SecKeyRef privateKey = NULL;
         NSString *pre = [firma.params objectForKey:PRE];
         pre = [pre stringByReplacingOccurrencesOfString:@"\n" withString:@""];
         
-        NSData *data = [Base64 decode:pre urlSafe:true];
+        NSData *data = [Base64Utils decode:pre urlSafe:true];
         
         if(data.length > 0)
         {
@@ -1041,10 +1041,10 @@ SecKeyRef privateKey = NULL;
 			 IOSByteArray *byteArray = [IOSByteArray arrayWithBytes:[dataSigned bytes] count:[dataSigned length]];
 			 IOSByteArray *decodedSignature = EsGobAfirmaCoreSignersPkcs1Utils_decodeSignatureWithByteArray_(byteArray);
 			 NSData *decodedSignatureData = [NSData dataWithBytes:[decodedSignature buffer] length:[decodedSignature length]];
-			 NSString *stringSigned = [Base64 encode:decodedSignatureData];
+			 NSString *stringSigned = [Base64Utils encode:decodedSignatureData];
 			 [firma.params setValue: stringSigned forKey:@"PK1"];
 		  } else {
-			 NSString *stringSigned = [Base64 encode:dataSigned];
+			 NSString *stringSigned = [Base64Utils encode:dataSigned];
 			 [firma.params setValue: stringSigned forKey:@"PK1"];
 		  }
         }
@@ -1100,7 +1100,7 @@ SecKeyRef privateKey = NULL;
         // Atributo -> CERT
     post = [post stringByAppendingString:PARAMETER_NAME_CERT];
     post = [post stringByAppendingString:HTTP_EQUALS];
-    post = [post stringByAppendingString:[Base64 urlSafeEncode: self.base64UrlSafeCertificateData]];
+    post = [post stringByAppendingString:[Base64Utils urlSafeEncode: self.base64UrlSafeCertificateData]];
     post = [post stringByAppendingString:HTTP_AND];
     
         // Atributo -> PARAMS
@@ -1112,7 +1112,7 @@ SecKeyRef privateKey = NULL;
     }
     
         // Atributo -> SESSION
-    NSString *encodedString = [Base64 encode:encodedData urlSafe:true];
+    NSString *encodedString = [Base64Utils encode:encodedData urlSafe:true];
     post = [post stringByAppendingString:PROPERTY_NAME_SESSION_DATA_PREFIX];
     post = [post stringByAppendingString:HTTP_EQUALS];
     post = [post stringByAppendingString: encodedString];
@@ -1174,12 +1174,12 @@ SecKeyRef privateKey = NULL;
     post = [post stringByAppendingString:HTTP_AND];
     
         //cifrado de la firma
-    NSData *signdata = [Base64 decode:dataSign urlSafe:true];
+    NSData *signdata = [Base64Utils decode:dataSign urlSafe:true];
     NSString *encryptedSignDataB64 = [DesCypher cypherData:signdata sk:[cipherKey dataUsingEncoding:NSUTF8StringEncoding]];
     
         //cifrado del certificado
-    NSString * certificateString = [Base64 urlSafeEncode: self.base64UrlSafeCertificateData];
-    NSData *dataCertificate = [Base64 decode:certificateString urlSafe:true];
+    NSString * certificateString = [Base64Utils urlSafeEncode: self.base64UrlSafeCertificateData];
+    NSData *dataCertificate = [Base64Utils decode:certificateString urlSafe:true];
     NSString *encryptedCertificateDataB64 = [DesCypher cypherData:dataCertificate sk:[cipherKey dataUsingEncoding:NSUTF8StringEncoding]];
     
         // Concatenacion

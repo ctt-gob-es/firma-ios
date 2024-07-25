@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "GlobalConstants.h"
 #import "ParentRest.h"
-#import "Base64.h"
+#import "Base64Utils.h"
 #import "DesCypher.h"
 #import "CADESConstants.h"
 

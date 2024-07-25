@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "GlobalConstants.h"
 #import "BachRest.h"
-#import "Base64.h"
+#import "Base64Utils.h"
 #import "DesCypher.h"
 #import "CADESConstants.h"
 
@@ -47,8 +47,8 @@ BatchRequestType currentType;
 -(void)bachPresign:(NSString*)urlPresign withJsonData:(NSString*)json withCerts:(NSString*)certs {
     currentType = preSign;
     //Creamos la cadena de envío al servidor POST
-    NSString *safeJson = [Base64 urlSafeEncode: json];
-    NSString *safeCerts = [Base64 urlSafeEncode: certs];
+    NSString *safeJson = [Base64Utils urlSafeEncode: json];
+    NSString *safeCerts = [Base64Utils urlSafeEncode: certs];
     safeCerts = [safeCerts stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     
     NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
@@ -80,10 +80,10 @@ BatchRequestType currentType;
 - (void)bachPostsign:(NSString *)urlPostsign withJsonData:(NSString *)json withCerts:(NSString *)certs withTriData:(NSString *)tridata{
     currentType = postSign;
     //Creamos la cadena de envío al servidor POST
-    NSString *safeJson = [Base64 urlSafeEncode: json];
-    NSString *safeCerts = [Base64 urlSafeEncode: certs];
+    NSString *safeJson = [Base64Utils urlSafeEncode: json];
+    NSString *safeCerts = [Base64Utils urlSafeEncode: certs];
     safeCerts = [safeCerts stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-    NSString *safeTridata = [Base64 urlSafeEncode: tridata];
+    NSString *safeTridata = [Base64Utils urlSafeEncode: tridata];
     NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
     [dict setValue:safeJson forKey:@"json"];
     [dict setValue:safeCerts forKey:@"certs"];

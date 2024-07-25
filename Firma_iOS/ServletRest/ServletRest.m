@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "GlobalConstants.h"
 #import "ServletRest.h"
-#import "Base64.h"
+#import "Base64Utils.h"
 #import "DesCypher.h"
 #import "CADESConstants.h"
 
@@ -142,8 +142,8 @@ ServletRequestType currentType;
     NSString *encryptedDataB64 = nil;
     if (certificateBase64 != nil) {
         //cifrado del certificado
-        NSString * certificateString = [Base64 urlSafeEncode: certificateBase64];
-        NSData *dataCertificate = [Base64 decode:certificateString urlSafe:true];
+        NSString * certificateString = [Base64Utils urlSafeEncode: certificateBase64];
+        NSData *dataCertificate = [Base64Utils decode:certificateString urlSafe:true];
         NSString *encryptedCertificateDataB64 = [DesCypher cypherData:dataCertificate sk:[cipherKey dataUsingEncoding:NSUTF8StringEncoding]];
         
         // Concatenacion

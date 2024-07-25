@@ -139,7 +139,7 @@
 		B273960620A43E2800A7D05A /* AOCustomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395E720A43E2800A7D05A /* AOCustomSegue.m */; };
 		B273960720A43E2800A7D05A /* AOTriphaseData.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395E920A43E2800A7D05A /* AOTriphaseData.m */; };
 		B273960820A43E2800A7D05A /* AOUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395EB20A43E2800A7D05A /* AOUtils.m */; };
-		B273960920A43E2800A7D05A /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395ED20A43E2800A7D05A /* Base64.m */; };
+		B273960920A43E2800A7D05A /* Base64Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395ED20A43E2800A7D05A /* Base64Utils.m */; };
 		B273960A20A43E2800A7D05A /* CADESMonoPhase.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395EF20A43E2800A7D05A /* CADESMonoPhase.m */; };
 		B273960B20A43E2800A7D05A /* CADESSignUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395F120A43E2800A7D05A /* CADESSignUtils.m */; };
 		B273960C20A43E2800A7D05A /* CertificateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395F320A43E2800A7D05A /* CertificateUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -474,8 +474,8 @@
 		B27395E920A43E2800A7D05A /* AOTriphaseData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOTriphaseData.m; sourceTree = "<group>"; };
 		B27395EA20A43E2800A7D05A /* AOUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOUtils.h; sourceTree = "<group>"; };
 		B27395EB20A43E2800A7D05A /* AOUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOUtils.m; sourceTree = "<group>"; };
-		B27395EC20A43E2800A7D05A /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
-		B27395ED20A43E2800A7D05A /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
+		B27395EC20A43E2800A7D05A /* Base64Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Utils.h; sourceTree = "<group>"; };
+		B27395ED20A43E2800A7D05A /* Base64Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64Utils.m; sourceTree = "<group>"; };
 		B27395EE20A43E2800A7D05A /* CADESMonoPhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADESMonoPhase.h; sourceTree = "<group>"; };
 		B27395EF20A43E2800A7D05A /* CADESMonoPhase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CADESMonoPhase.m; sourceTree = "<group>"; };
 		B27395F020A43E2800A7D05A /* CADESSignUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADESSignUtils.h; sourceTree = "<group>"; };
@@ -1176,8 +1176,8 @@
 				B27395E920A43E2800A7D05A /* AOTriphaseData.m */,
 				B27395EA20A43E2800A7D05A /* AOUtils.h */,
 				B27395EB20A43E2800A7D05A /* AOUtils.m */,
-				B27395EC20A43E2800A7D05A /* Base64.h */,
-				B27395ED20A43E2800A7D05A /* Base64.m */,
+				B27395EC20A43E2800A7D05A /* Base64Utils.h */,
+				B27395ED20A43E2800A7D05A /* Base64Utils.m */,
 				B27395EE20A43E2800A7D05A /* CADESMonoPhase.h */,
 				B27395EF20A43E2800A7D05A /* CADESMonoPhase.m */,
 				B27395F020A43E2800A7D05A /* CADESSignUtils.h */,
@@ -1730,7 +1730,7 @@
 				C3B11DBC16FB642B00C0D623 /* asn_codecs_prim.c in Sources */,
 				83C172562C3803E90057F5BD /* DerEncoder.m in Sources */,
 				C3B11DBE16FB642B00C0D623 /* asn_SEQUENCE_OF.c in Sources */,
-				B273960920A43E2800A7D05A /* Base64.m in Sources */,
+				B273960920A43E2800A7D05A /* Base64Utils.m in Sources */,
 				83C0EC932C3FF6CB00244071 /* NavigationBarButton.swift in Sources */,
 				C3B11DC016FB642B00C0D623 /* asn_SET_OF.c in Sources */,
 				C3B11DC216FB642B00C0D623 /* Attribute.c in Sources */,

@@ -106,8 +106,8 @@ struct SignViewMode: View {
 												docId: signModel?.docId,
 												error: "",
 												completion: { result in
-												    appStatus.errorModalState = .globalError
 												    DispatchQueue.main.async {
+													   appStatus.errorModalState = .globalError
 													   appStatus.showErrorModal = true
 												    }
 												})
@@ -157,9 +157,9 @@ struct SignViewMode: View {
 																		  if let response = String(data: storeDataServerResponse, encoding: .utf8) {
 																			 print(response)
 																		  }
-																		  viewMode = .home
-																		  appStatus.successModalState = .successSign
 																		  DispatchQueue.main.async {
+																			 viewMode = .home
+																			 appStatus.successModalState = .successSign
 																			 appStatus.showSuccessModal = true
 																		  }
 																	   case .failure(let error):
@@ -168,8 +168,8 @@ struct SignViewMode: View {
 																			 docId: signModel?.docId,
 																			 error: error.localizedDescription,
 																			 completion: { result in
-																				appStatus.errorModalState = .globalError
 																				DispatchQueue.main.async {
+																				    appStatus.errorModalState = .globalError
 																				    appStatus.showErrorModal = true
 																				}
 																			 })
@@ -181,8 +181,8 @@ struct SignViewMode: View {
 																    docId: signModel?.docId,
 																    error: "",
 																    completion: { result in
-																	   appStatus.errorModalState = .globalError
 																	   DispatchQueue.main.async {
+																		  appStatus.errorModalState = .globalError
 																		  appStatus.showErrorModal = true
 																	   }
 																    })
@@ -193,8 +193,8 @@ struct SignViewMode: View {
 																docId: signModel?.docId,
 																error: "",
 																completion: { result in
-																    appStatus.errorModalState = .globalError
 																    DispatchQueue.main.async {
+																	   appStatus.errorModalState = .globalError
 																	   appStatus.showErrorModal = true
 																    }
 																})
@@ -205,8 +205,8 @@ struct SignViewMode: View {
 															 docId: signModel?.docId,
 															 error: "",
 															 completion: { result in
-																appStatus.errorModalState = .globalError
 																DispatchQueue.main.async {
+																    appStatus.errorModalState = .globalError
 																    appStatus.showErrorModal = true
 																}
 															 })
@@ -218,8 +218,8 @@ struct SignViewMode: View {
 														  docId: signModel?.docId,
 														  error: error.localizedDescription,
 														  completion: { result in
-															 appStatus.errorModalState = .globalError
 															 DispatchQueue.main.async {
+																appStatus.errorModalState = .globalError
 																appStatus.showErrorModal = true
 															 }
 														  })
@@ -231,8 +231,8 @@ struct SignViewMode: View {
 											 docId: signModel?.docId,
 											 error: error.localizedDescription,
 											 completion: { result in
-												appStatus.errorModalState = .globalError
 												DispatchQueue.main.async {
+												    appStatus.errorModalState = .globalError
 												    appStatus.showErrorModal = true
 												}
 											 })

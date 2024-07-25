@@ -8,7 +8,7 @@
 
 #import "AOCounterSignPreItems.h"
 #import "Firma.h"
-#import "Base64.h"
+#import "Base64Utils.h"
 
 @implementation AOCounterSignPreItems
 

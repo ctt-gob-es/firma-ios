@@ -18,15 +18,15 @@ class StoreDataRest {
 		  post += "\(PARAMETER_NAME_ID)=\(docId)&"
 		  
 		  // Encrypt signature
-		  guard let signdata = Base64.decode(dataSign, urlSafe: true) else {
+		  guard let signdata = Base64Utils.decode(dataSign, urlSafe: true) else {
 			 completion(.failure(NSError(domain: "DecodeError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to decode signature"])))
 			 return
 		  }
 		  let encryptedSignDataB64 = DesCypher.cypherData(signdata, sk: cipherKey.data(using: .utf8)!)
 		  
 		  // Encrypt certificate
-		  let certificateString = Base64.urlSafeEncode(base64UrlSafeCertificateData)
-		  guard let dataCertificate = Base64.decode(certificateString, urlSafe: true) else {
+		  let certificateString = Base64Utils.urlSafeEncode(base64UrlSafeCertificateData)
+		  guard let dataCertificate = Base64Utils.decode(certificateString, urlSafe: true) else {
 			 completion(.failure(NSError(domain: "DecodeError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to decode certificate"])))
 			 return
 		  }

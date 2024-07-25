@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CommonCrypto/CommonCryptor.h>
 #import "DesCypher.h"
-#import "Base64.h"
+#import "Base64Utils.h"
 
 @implementation DesCypher : NSObject
 
@@ -77,7 +77,7 @@ NSString *PADDING_CHAR_SEPARATOR = @".";
 
 + (NSString*) cypherData:(NSData*) data sk:(NSData*) sk
 {
-    NSString* base64EncodedData = [Base64 encode:[self cypher:data sk:sk] urlSafe:true];
+    NSString* base64EncodedData = [Base64Utils encode:[self cypher:data sk:sk] urlSafe:true];
     return [[[self getNeededPaddingAsString:data] stringByAppendingString:PADDING_CHAR_SEPARATOR] stringByAppendingString:base64EncodedData];
 }
 
@@ -96,7 +96,7 @@ NSString *PADDING_CHAR_SEPARATOR = @".";
         base64Data = prefixedBase64Data;
     }
 
-    NSData* decipheredPaddedData = [DesCypher decypher:[Base64 decode:base64Data urlSafe:true] sk:sk];
+    NSData* decipheredPaddedData = [DesCypher decypher:[Base64Utils decode:base64Data urlSafe:true] sk:sk];
     
     return [decipheredPaddedData subdataWithRange:NSMakeRange(0, decipheredPaddedData.length - pad)];
 }

@@ -1,21 +1,21 @@
 //
-//  Base64.m
+//  Base64Utils.m
 //
 //  Created by Tomas Garcia-Meras on 8/7/14.
 //  Copyright (c) 2014 Gobierno de España. All rights reserved.
 
 #import <Foundation/Foundation.h>
-#import "Base64.h"
+#import "Base64Utils.h"
 
-@implementation Base64: NSObject
+@implementation Base64Utils: NSObject
 
 +(NSData*) decode:(NSString*) str urlSafe:(Boolean) urlSafe;
 {
     if (urlSafe)
     {
-        return [Base64 decode:[Base64 urlSafeDecode:str]];
+        return [Base64Utils decode:[Base64Utils urlSafeDecode:str]];
     }
-    return [Base64 decode:str];
+    return [Base64Utils decode:str];
 }
 
 +(NSData*) decode:(NSString*) str
@@ -37,14 +37,14 @@
     if (urlSafe)
     {
 
-        return [[Base64 urlSafeEncode:[Base64 encode:source]] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        return [[Base64Utils urlSafeEncode:[Base64Utils encode:source]] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     }
-    return [Base64 encode:source];
+    return [Base64Utils encode:source];
 }
 
 + (NSString *) encode:(NSData *)source
 {
-    return [source base64EncodedStringWithOptions: 0]; 
+    return [source base64EncodedStringWithOptions: 0];
 }
 
 +(NSString*) urlSafeEncode: (NSString*) string {
