@@ -628,8 +628,8 @@ static CertificateUtils *_sharedWrapper = nil;
     return signedHash;
 }
 
-- (SecKeyAlgorithm)getAlgorithmByCertificate:(SecKeyRef)privateKey alg:(NSString *)alg{
-    CFDictionaryRef attributes = SecKeyCopyAttributes(privateKey);
+- (SecKeyAlgorithm)getAlgorithmByCertificate:(SecKeyRef *)privateKey alg:(NSString *)alg{
+    CFDictionaryRef attributes = SecKeyCopyAttributes(*privateKey);
     if (!attributes) {
 	   return nil;
     }

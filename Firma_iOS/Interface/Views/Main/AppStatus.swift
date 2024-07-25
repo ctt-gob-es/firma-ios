@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Combine
 
 class AppStatus: ObservableObject {
     @Published var showingInfoModal: Bool = false
@@ -27,5 +28,7 @@ class AppStatus: ObservableObject {
     @Published var navigateToDNI: Bool = false
     @Published var navigateToSelectCertificate = false
     @Published var navigateToAddCertificate: Bool = false
-    @Published var viewMode: ViewModes = .home
+    @Published var isLoading: Bool = false
+    
+    var errorPublisher = PassthroughSubject<String, Never>()
 }

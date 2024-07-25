@@ -11,9 +11,11 @@ import SwiftUI
 
 @objc class HomeViewController: UIViewController {
     var mode: ViewModes
+    var urlReceived: URL?
     
-    @objc init(mode: ViewModes) {
+    @objc init(mode: ViewModes, urlReceived: URL? = nil) {
 	   self.mode = mode
+	   self.urlReceived = urlReceived
 	   super.init(nibName: nil, bundle: nil)
     }
     
@@ -24,8 +26,9 @@ import SwiftUI
     override func viewDidLoad() {
 	   super.viewDidLoad()
 	   
-	   let contentView = HomeView(viewMode: mode)
+	   let contentView = MainView(viewMode: mode, urlReceived: urlReceived)
 	   contentView.viewMode = mode
+	   
 	   
 	   let hostingController = UIHostingController(rootView: contentView)
 	   

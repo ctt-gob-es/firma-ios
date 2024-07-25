@@ -83,7 +83,7 @@ NSString *URLString, *state = @"Inactive";
     UIViewController *rootViewController;
     
     if ([defaults objectForKey:@"user_privacy_accepted"] != nil && privacyAccepted) {
-	   rootViewController = [[HomeViewController alloc] initWithMode:ViewModesHome];
+	   rootViewController = [[HomeViewController alloc] initWithMode:ViewModesHome urlReceived: nil];
     } else {
 	   rootViewController = [[OnboardingViewController alloc] init];
     }
@@ -104,10 +104,9 @@ void setAppLanguage(NSString *language) {
     [[NSUserDefaults standardUserDefaults] setObject:URLString forKey:URL];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    /*
-	
+    /*  ANTIGUO */
     // Lanzamos el controller de seleccion de certificado para firmar por root (No se permite ir atrás cuando estas firmando)
-    UIStoryboard *mainStoryboard = [StoryboardUtils getMainStoryboard];
+    /*UIStoryboard *mainStoryboard = [StoryboardUtils getMainStoryboard];
     
     AORegisteredCertificatesTVC *registeredCertificatesTVC = (AORegisteredCertificatesTVC *)[mainStoryboard instantiateViewControllerWithIdentifier:@"AORegisteredCertificatesTVC"];
     
@@ -115,16 +114,16 @@ void setAppLanguage(NSString *language) {
     [registeredCertificatesTVC setStartURL:URLString];
 	
     
-    self.window.rootViewController = registeredCertificatesTVC;
-	*/
+    self.window.rootViewController = registeredCertificatesTVC;*/
     
-    [self updateOrCreateHomeViewControllerWithMode:ViewModesSign];
+    /*  NUEVO */
+    [self updateOrCreateHomeViewControllerWithMode:ViewModesSign :url];
     
     return YES;
 }
 
-- (void)updateOrCreateHomeViewControllerWithMode:(ViewModes)mode {
-    HomeViewController *rootViewController = [[HomeViewController alloc] initWithMode:mode];
+- (void)updateOrCreateHomeViewControllerWithMode:(ViewModes)mode :(NSURL*)url{
+    HomeViewController *rootViewController = [[HomeViewController alloc] initWithMode:mode urlReceived:url];
     self.window.rootViewController =  rootViewController;
     [self.window makeKeyAndVisible];
 }

@@ -14,12 +14,19 @@
 		83144EA52C3FDB1A00CC38AB /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83144EA42C3FDB1A00CC38AB /* ColorConstants.swift */; };
 		83144EA72C3FDFDD00CC38AB /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83144EA62C3FDFDD00CC38AB /* CustomButtonStyle.swift */; };
 		8352FF2F2C47C500003402CC /* HomeErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8352FF2E2C47C500003402CC /* HomeErrorView.swift */; };
+		838114B92C512E5B00CDEC97 /* SendCertificateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114B82C512E5B00CDEC97 /* SendCertificateUseCase.swift */; };
+		838114BB2C512E6700CDEC97 /* SingleSignUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114BA2C512E6700CDEC97 /* SingleSignUseCase.swift */; };
+		838114BE2C512F9800CDEC97 /* StoreDataRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114BD2C512F9800CDEC97 /* StoreDataRest.swift */; };
+		838114C42C5131AA00CDEC97 /* PresignRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114C32C5131AA00CDEC97 /* PresignRest.swift */; };
+		838114C62C5131B600CDEC97 /* PostSignRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114C52C5131B600CDEC97 /* PostSignRest.swift */; };
+		838114C82C5131C600CDEC97 /* ReportErrorRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114C72C5131C600CDEC97 /* ReportErrorRest.swift */; };
+		838114CA2C5146FE00CDEC97 /* SignModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114C92C5146FE00CDEC97 /* SignModel.swift */; };
 		83A3DA922897B67400AF4355 /* BachRest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A3DA912897B67400AF4355 /* BachRest.m */; };
 		83C0EC852C3FE6B300244071 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC842C3FE6B300244071 /* PrivacyView.swift */; };
 		83C0EC8A2C3FEDB500244071 /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC892C3FEDB500244071 /* CheckBoxView.swift */; };
 		83C0EC8C2C3FEDD000244071 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC8B2C3FEDD000244071 /* NavigationBarModifier.swift */; };
 		83C0EC8F2C3FF37D00244071 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC8E2C3FF37D00244071 /* HomeViewController.swift */; };
-		83C0EC912C3FF39D00244071 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC902C3FF39D00244071 /* HomeView.swift */; };
+		83C0EC912C3FF39D00244071 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC902C3FF39D00244071 /* MainView.swift */; };
 		83C0EC932C3FF6CB00244071 /* NavigationBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC922C3FF6CB00244071 /* NavigationBarButton.swift */; };
 		83C0EC952C3FFABE00244071 /* NoCertificatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC942C3FFABE00244071 /* NoCertificatesView.swift */; };
 		83C0EC972C40006E00244071 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC962C40006E00244071 /* SettingsView.swift */; };
@@ -59,15 +66,18 @@
 		83C172592C3803E90057F5BD /* Pkcs1Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C1724E2C3803E80057F5BD /* Pkcs1Utils.m */; };
 		83C1725A2C3803E90057F5BD /* DerIndefLenConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C1724F2C3803E80057F5BD /* DerIndefLenConverter.m */; };
 		83DF46762C4876D6000C3F31 /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF46752C4876D6000C3F31 /* ViewUtils.swift */; };
-		83DF46792C48EBAD000C3F31 /* HomeViewModes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF46782C48EBAD000C3F31 /* HomeViewModes.swift */; };
+		83DF46792C48EBAD000C3F31 /* HomeViewMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF46782C48EBAD000C3F31 /* HomeViewMode.swift */; };
 		83DF467B2C48F084000C3F31 /* AddCertificateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF467A2C48F084000C3F31 /* AddCertificateView.swift */; };
 		83DF467D2C490E2E000C3F31 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF467C2C490E2E000C3F31 /* FileUtils.swift */; };
+		83DF46822C493C56000C3F31 /* ReceiveDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF46812C493C56000C3F31 /* ReceiveDataUseCase.swift */; };
+		83DF46842C494B00000C3F31 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF46832C494B00000C3F31 /* LoadingView.swift */; };
 		83E419C62C4502F100C21811 /* SignModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E419C52C4502F100C21811 /* SignModalView.swift */; };
 		83E419CA2C45184000C21811 /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E419C92C45184000C21811 /* DocumentPicker.swift */; };
 		83E419CC2C451EEC00C21811 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E419CB2C451EEC00C21811 /* PageControl.swift */; };
 		83E419CE2C451F3300C21811 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E419CD2C451F3300C21811 /* TutorialView.swift */; };
 		83E419D22C45295400C21811 /* AppStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E419D12C45295400C21811 /* AppStatus.swift */; };
 		83E419D42C452D1500C21811 /* AccesibleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E419D32C452D1500C21811 /* AccesibleText.swift */; };
+		83E561442C4A3C8200622C99 /* SignViewMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E561432C4A3C8200622C99 /* SignViewMode.swift */; };
 		83E5D8002C4847D3001A5AF1 /* DNICanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E5D7FF2C4847D3001A5AF1 /* DNICanView.swift */; };
 		83E5D8022C4847DF001A5AF1 /* DNIScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E5D8012C4847DF001A5AF1 /* DNIScanView.swift */; };
 		83E5D8042C48481A001A5AF1 /* DNIPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E5D8032C48481A001A5AF1 /* DNIPinView.swift */; };
@@ -284,13 +294,20 @@
 		83144EA42C3FDB1A00CC38AB /* ColorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
 		83144EA62C3FDFDD00CC38AB /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
 		8352FF2E2C47C500003402CC /* HomeErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeErrorView.swift; sourceTree = "<group>"; };
+		838114B82C512E5B00CDEC97 /* SendCertificateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCertificateUseCase.swift; sourceTree = "<group>"; };
+		838114BA2C512E6700CDEC97 /* SingleSignUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSignUseCase.swift; sourceTree = "<group>"; };
+		838114BD2C512F9800CDEC97 /* StoreDataRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDataRest.swift; sourceTree = "<group>"; };
+		838114C32C5131AA00CDEC97 /* PresignRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresignRest.swift; sourceTree = "<group>"; };
+		838114C52C5131B600CDEC97 /* PostSignRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSignRest.swift; sourceTree = "<group>"; };
+		838114C72C5131C600CDEC97 /* ReportErrorRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportErrorRest.swift; sourceTree = "<group>"; };
+		838114C92C5146FE00CDEC97 /* SignModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignModel.swift; sourceTree = "<group>"; };
 		83A3DA912897B67400AF4355 /* BachRest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BachRest.m; sourceTree = "<group>"; };
 		83A3DA932897B67D00AF4355 /* BachRest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BachRest.h; sourceTree = "<group>"; };
 		83C0EC842C3FE6B300244071 /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
 		83C0EC892C3FEDB500244071 /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
 		83C0EC8B2C3FEDD000244071 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
 		83C0EC8E2C3FF37D00244071 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		83C0EC902C3FF39D00244071 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		83C0EC902C3FF39D00244071 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		83C0EC922C3FF6CB00244071 /* NavigationBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarButton.swift; sourceTree = "<group>"; };
 		83C0EC942C3FFABE00244071 /* NoCertificatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoCertificatesView.swift; sourceTree = "<group>"; };
 		83C0EC962C40006E00244071 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -342,15 +359,18 @@
 		83C1724E2C3803E80057F5BD /* Pkcs1Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pkcs1Utils.m; sourceTree = "<group>"; };
 		83C1724F2C3803E80057F5BD /* DerIndefLenConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DerIndefLenConverter.m; sourceTree = "<group>"; };
 		83DF46752C4876D6000C3F31 /* ViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtils.swift; sourceTree = "<group>"; };
-		83DF46782C48EBAD000C3F31 /* HomeViewModes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModes.swift; sourceTree = "<group>"; };
+		83DF46782C48EBAD000C3F31 /* HomeViewMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewMode.swift; sourceTree = "<group>"; };
 		83DF467A2C48F084000C3F31 /* AddCertificateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCertificateView.swift; sourceTree = "<group>"; };
 		83DF467C2C490E2E000C3F31 /* FileUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUtils.swift; sourceTree = "<group>"; };
+		83DF46812C493C56000C3F31 /* ReceiveDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveDataUseCase.swift; sourceTree = "<group>"; };
+		83DF46832C494B00000C3F31 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		83E419C52C4502F100C21811 /* SignModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignModalView.swift; sourceTree = "<group>"; };
 		83E419C92C45184000C21811 /* DocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPicker.swift; sourceTree = "<group>"; };
 		83E419CB2C451EEC00C21811 /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
 		83E419CD2C451F3300C21811 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		83E419D12C45295400C21811 /* AppStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStatus.swift; sourceTree = "<group>"; };
 		83E419D32C452D1500C21811 /* AccesibleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccesibleText.swift; sourceTree = "<group>"; };
+		83E561432C4A3C8200622C99 /* SignViewMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewMode.swift; sourceTree = "<group>"; };
 		83E5D7FF2C4847D3001A5AF1 /* DNICanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNICanView.swift; sourceTree = "<group>"; };
 		83E5D8012C4847DF001A5AF1 /* DNIScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNIScanView.swift; sourceTree = "<group>"; };
 		83E5D8032C48481A001A5AF1 /* DNIPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNIPinView.swift; sourceTree = "<group>"; };
@@ -745,6 +765,56 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		838114BC2C512F8900CDEC97 /* StoreDataRest */ = {
+			isa = PBXGroup;
+			children = (
+				838114BD2C512F9800CDEC97 /* StoreDataRest.swift */,
+			);
+			path = StoreDataRest;
+			sourceTree = "<group>";
+		};
+		838114BF2C51306D00CDEC97 /* PresignRest */ = {
+			isa = PBXGroup;
+			children = (
+				838114C32C5131AA00CDEC97 /* PresignRest.swift */,
+			);
+			path = PresignRest;
+			sourceTree = "<group>";
+		};
+		838114C02C51307B00CDEC97 /* ReportErrorRest */ = {
+			isa = PBXGroup;
+			children = (
+				838114C72C5131C600CDEC97 /* ReportErrorRest.swift */,
+			);
+			path = ReportErrorRest;
+			sourceTree = "<group>";
+		};
+		838114C12C51308400CDEC97 /* PostSignRest */ = {
+			isa = PBXGroup;
+			children = (
+				838114C52C5131B600CDEC97 /* PostSignRest.swift */,
+			);
+			path = PostSignRest;
+			sourceTree = "<group>";
+		};
+		838114C22C51317100CDEC97 /* SwiftUseCase */ = {
+			isa = PBXGroup;
+			children = (
+				83DF46812C493C56000C3F31 /* ReceiveDataUseCase.swift */,
+				838114B82C512E5B00CDEC97 /* SendCertificateUseCase.swift */,
+				838114BA2C512E6700CDEC97 /* SingleSignUseCase.swift */,
+				838114C92C5146FE00CDEC97 /* SignModel.swift */,
+			);
+			path = SwiftUseCase;
+			sourceTree = "<group>";
+		};
+		8381F27A2C51190000CDEC97 /* Pades */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pades;
+			sourceTree = "<group>";
+		};
 		83A3DA902897B65A00AF4355 /* BachRest */ = {
 			isa = PBXGroup;
 			children = (
@@ -776,21 +846,23 @@
 				83E419D32C452D1500C21811 /* AccesibleText.swift */,
 				83EF14CE2C465EDF003EC42A /* ExitButton.swift */,
 				83FC0C472C48120A00BBB5A8 /* FloatingPlaceholderTextView.swift */,
+				83DF46832C494B00000C3F31 /* LoadingView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
 		};
-		83C0EC8D2C3FF36400244071 /* Home */ = {
+		83C0EC8D2C3FF36400244071 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				83DF46782C48EBAD000C3F31 /* HomeViewModes.swift */,
+				83DF46782C48EBAD000C3F31 /* HomeViewMode.swift */,
+				83E561432C4A3C8200622C99 /* SignViewMode.swift */,
 				83C0EC8E2C3FF37D00244071 /* HomeViewController.swift */,
-				83C0EC902C3FF39D00244071 /* HomeView.swift */,
+				83C0EC902C3FF39D00244071 /* MainView.swift */,
 				83C0EC942C3FFABE00244071 /* NoCertificatesView.swift */,
 				83E419D12C45295400C21811 /* AppStatus.swift */,
 				8352FF2E2C47C500003402CC /* HomeErrorView.swift */,
 			);
-			path = Home;
+			path = Main;
 			sourceTree = "<group>";
 		};
 		83C0EC9C2C41033A00244071 /* SettingsOptions */ = {
@@ -940,6 +1012,7 @@
 		A073AA792893E7BB00FE30CE /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				838114C22C51317100CDEC97 /* SwiftUseCase */,
 				A073AA7A2893E7FC00FE30CE /* BatchSignUseCase.h */,
 				A073AA7B2893E7FC00FE30CE /* BatchSignUseCase.m */,
 			);
@@ -951,7 +1024,7 @@
 			children = (
 				83DF46772C48EB40000C3F31 /* Certificate */,
 				83FC0C3E2C47F83A00BBB5A8 /* DNI */,
-				83C0EC8D2C3FF36400244071 /* Home */,
+				83C0EC8D2C3FF36400244071 /* Main */,
 				83C0EC882C3FEDA300244071 /* Components */,
 				83C0EC832C3FE69D00244071 /* Privacy */,
 				83FD0B062C3FC3E300902E19 /* Settings */,
@@ -1161,6 +1234,7 @@
 		C30B321C163804620072A515 = {
 			isa = PBXGroup;
 			children = (
+				8381F27A2C51190000CDEC97 /* Pades */,
 				83C0ECAB2C4132E500244071 /* Fonts */,
 				83C172392C3803C20057F5BD /* J2Objc */,
 				9226967023C6508600F099F0 /* Extensions */,
@@ -1211,6 +1285,10 @@
 		C30B3231163804620072A515 /* Firma_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				838114C02C51307B00CDEC97 /* ReportErrorRest */,
+				838114BF2C51306D00CDEC97 /* PresignRest */,
+				838114C12C51308400CDEC97 /* PostSignRest */,
+				838114BC2C512F8900CDEC97 /* StoreDataRest */,
 				83EBF99C289BAB1900E80A7E /* ParentRest */,
 				83EBF999289BAA6F00E80A7E /* ServletRest */,
 				83A3DA902897B65A00AF4355 /* BachRest */,
@@ -1660,6 +1738,7 @@
 				83C0EC9B2C400D4800244071 /* SettingsFooterView.swift in Sources */,
 				C3B11DC416FB642B00C0D623 /* AttributeType.c in Sources */,
 				C3B11DC616FB642B00C0D623 /* AttributeTypeAndValue.c in Sources */,
+				83DF46822C493C56000C3F31 /* ReceiveDataUseCase.swift in Sources */,
 				C3B11DC816FB642B00C0D623 /* AttributeValue.c in Sources */,
 				83C0EC9E2C41034F00244071 /* LanguageView.swift in Sources */,
 				C3B11DCA16FB642B00C0D623 /* ber_decoder.c in Sources */,
@@ -1685,16 +1764,19 @@
 				C3B11DD616FB642B00C0D623 /* CertPolicyId.c in Sources */,
 				C3B11DD816FB642B00C0D623 /* CMSVersion.c in Sources */,
 				C3B11DDA16FB642B00C0D623 /* constr_CHOICE.c in Sources */,
+				838114C82C5131C600CDEC97 /* ReportErrorRest.swift in Sources */,
 				C3B11DDC16FB642B00C0D623 /* constr_SEQUENCE_OF.c in Sources */,
 				B273960620A43E2800A7D05A /* AOCustomSegue.m in Sources */,
 				B273961020A43E2800A7D05A /* Firma.m in Sources */,
 				83144EA12C3FD97900CC38AB /* TextStyles.swift in Sources */,
 				83C172572C3803E90057F5BD /* DerInputStream.m in Sources */,
+				838114C42C5131AA00CDEC97 /* PresignRest.swift in Sources */,
 				C3B11DDE16FB642B00C0D623 /* constr_SEQUENCE.c in Sources */,
 				83C172552C3803E90057F5BD /* ByteArrayTagOrder.m in Sources */,
 				C3B11DE016FB642B00C0D623 /* constr_SET_OF.c in Sources */,
 				C3B11DE216FB642B00C0D623 /* constr_TYPE.c in Sources */,
 				C3B11DE416FB642B00C0D623 /* constraints.c in Sources */,
+				838114B92C512E5B00CDEC97 /* SendCertificateUseCase.swift in Sources */,
 				C3B11DE616FB642B00C0D623 /* ContentType.c in Sources */,
 				C3B11DE816FB642B00C0D623 /* CPSuri.c in Sources */,
 				83C0EC8F2C3FF37D00244071 /* HomeViewController.swift in Sources */,
@@ -1736,7 +1818,9 @@
 				C3B11E0C16FB642B00C0D623 /* OBJECT_IDENTIFIER.c in Sources */,
 				C3B11E0E16FB642B00C0D623 /* OCTET_STRING.c in Sources */,
 				C3B11E1016FB642B00C0D623 /* per_decoder.c in Sources */,
+				83DF46842C494B00000C3F31 /* LoadingView.swift in Sources */,
 				C3B11E1216FB642B00C0D623 /* per_encoder.c in Sources */,
+				838114C62C5131B600CDEC97 /* PostSignRest.swift in Sources */,
 				83C0EC992C40018A00244071 /* NavigationBarButtonLink.swift in Sources */,
 				83E419CA2C45184000C21811 /* DocumentPicker.swift in Sources */,
 				C3B11E1416FB642B00C0D623 /* per_opentype.c in Sources */,
@@ -1789,7 +1873,9 @@
 				C3B11E4016FB642B00C0D623 /* xer_decoder.c in Sources */,
 				C3B11E4216FB642B00C0D623 /* xer_encoder.c in Sources */,
 				C3B11E4416FB642B00C0D623 /* xer_support.c in Sources */,
+				83E561442C4A3C8200622C99 /* SignViewMode.swift in Sources */,
 				C3B14034170AE10000E3FD42 /* ContentHints.c in Sources */,
+				838114BB2C512E6700CDEC97 /* SingleSignUseCase.swift in Sources */,
 				83C0ECA42C4103D300244071 /* FAQView.swift in Sources */,
 				83C1725A2C3803E90057F5BD /* DerIndefLenConverter.m in Sources */,
 				C3B14038170AE15E00E3FD42 /* UTF8String.c in Sources */,
@@ -1801,11 +1887,13 @@
 				B273960820A43E2800A7D05A /* AOUtils.m in Sources */,
 				B2952CB520D981F700A4467B /* UITextView+Boldify.m in Sources */,
 				83E419CC2C451EEC00C21811 /* PageControl.swift in Sources */,
+				838114BE2C512F9800CDEC97 /* StoreDataRest.swift in Sources */,
 				83C0ECA02C41036D00244071 /* PermissionsView.swift in Sources */,
 				C3A44B71170C3B60000B551C /* NoticeReference.c in Sources */,
 				83EF14D32C46722D003EC42A /* RecoveryModalView.swift in Sources */,
 				C3A44B72170C3B60000B551C /* OtherHashAlgAndValue.c in Sources */,
 				C3A44B73170C3B60000B551C /* OtherHashValue.c in Sources */,
+				838114CA2C5146FE00CDEC97 /* SignModel.swift in Sources */,
 				B2406F3620C5CD4D008ED085 /* AOCertificateCell.m in Sources */,
 				83DF46762C4876D6000C3F31 /* ViewUtils.swift in Sources */,
 				C3A44B74170C3B60000B551C /* SignaturePolicyId.c in Sources */,
@@ -1822,7 +1910,7 @@
 				C3A44B79170C3B60000B551C /* SPuri.c in Sources */,
 				C3A44B7A170C3B60000B551C /* SPUserNotice.c in Sources */,
 				C3A44B87170C3CBF000B551C /* VisibleString.c in Sources */,
-				83DF46792C48EBAD000C3F31 /* HomeViewModes.swift in Sources */,
+				83DF46792C48EBAD000C3F31 /* HomeViewMode.swift in Sources */,
 				C3A44B8B170C3CE4000B551C /* BMPString.c in Sources */,
 				B273960520A43E2800A7D05A /* AOCounterSignXMLParser.m in Sources */,
 				83C0EC8C2C3FEDD000244071 /* NavigationBarModifier.swift in Sources */,
@@ -1830,7 +1918,7 @@
 				83E5D8002C4847D3001A5AF1 /* DNICanView.swift in Sources */,
 				83EF14D52C467241003EC42A /* DocumentErrorModalView.swift in Sources */,
 				83144EA52C3FDB1A00CC38AB /* ColorConstants.swift in Sources */,
-				83C0EC912C3FF39D00244071 /* HomeView.swift in Sources */,
+				83C0EC912C3FF39D00244071 /* MainView.swift in Sources */,
 				C3AB70651716CD4E003795F7 /* CADESSigner.c in Sources */,
 				83C172522C3803E90057F5BD /* ByteArrayLexOrder.m in Sources */,
 				B273960F20A43E2800A7D05A /* DesCypher.m in Sources */,

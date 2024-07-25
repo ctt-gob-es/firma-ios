@@ -1,5 +1,5 @@
 //
-//  HomeView.swift
+//  MainView.swift
 //  Cliente @firma
 //
 //  Created by Desarrollo Abamobile on 11/7/24.
@@ -12,63 +12,78 @@ import SwiftUI
     case sign
 }
 
-struct HomeView: View {
+struct MainView: View {
     @StateObject private var appStatus = AppStatus()
-    
     @State var certificates: [AOCertificateInfo]?
     @State private var sheetHeight: CGFloat = .zero
     @State private var navigationTitle = ""
     @State var certificateURL: URL?
     @State var viewMode: ViewModes = .home
+    @State var urlReceived: URL?
     
     var body: some View {
-	   NavigationStack {
-		  VStack {
+	   ZStack {
+		  NavigationStack {
 			 VStack {
-				if viewMode == .home {
-				    HomeViewMode(certificates: $certificates)
-				} else if viewMode == .sign {
-				    SignViewMode(
-					   certificates: $certificates,
-					   viewMode: $viewMode
+				VStack {
+				    if viewMode == .home {
+					   HomeViewMode(
+						  certificates: $certificates
+						  )
+				    } else if viewMode == .sign {
+					   if let urlReceived = urlReceived {
+						  SignViewMode(
+							 certificates: $certificates,
+							 viewMode: $viewMode,
+							 urlReceived: urlReceived
+						  )
+					   }
+				    }
+				}
+				.navigationBarTitle(navigationTitle, displayMode: .inline)
+				.navigationBarItems(leading:
+								    Image("Logo-autofirma_vector")
+				    .resizable()
+				    .renderingMode(.template)
+				    .scaledToFit()
+				    .frame(height: 28.94)
+				    .foregroundColor(Color(hex: "#C33400")),
+								trailing:
+								    HStack(spacing: 4) {
+				    NavigationBarButton(imageName: "info", action: {
+					   self.appStatus.showingInfoModal = true
+				    })
+				    
+				    NavigationBarButtonLink(
+					   destination: SettingsView(),
+					   imageName: "settings"
 				    )
 				}
-			 }
-			 .navigationBarTitle(navigationTitle, displayMode: .inline)
-			 .navigationBarItems(leading:
-								Image("Logo-autofirma_vector")
-				.resizable()
-				.renderingMode(.template)
-				.scaledToFit()
-				.frame(height: 28.94)
-				.foregroundColor(Color(hex: "#C33400")),
-							 trailing:
-								HStack(spacing: 4) {
-				NavigationBarButton(imageName: "info", action: {
-				    self.appStatus.showingInfoModal = true
-				})
-				
-				NavigationBarButtonLink(
-				    destination: SettingsView(),
-				    imageName: "settings"
+				    .padding(.bottom, 4)
 				)
 			 }
-				.padding(.bottom, 4)
-			 )
+			 .frame(maxWidth: .infinity, maxHeight: .infinity)
+			 .navigationDestination(isPresented: $appStatus.navigateToDNI) {
+				DNIView()
+			 }
+			 .navigationDestination(isPresented: $appStatus.navigateToSelectCertificate) {
+				SignViewMode(
+				    certificates: $certificates,
+				    viewMode: $viewMode
+				)
+			 }
+			 .navigationDestination(isPresented: $appStatus.navigateToAddCertificate) {
+				AddCertificateView(certificateURL: certificateURL)
+			 }
 		  }
-		  .navigationDestination(isPresented: $appStatus.navigateToDNI) {
-			 DNIView()
-		  }
-		  .navigationDestination(isPresented: $appStatus.navigateToSelectCertificate) {
-			 SignViewMode(
-				certificates: $certificates,
-				viewMode: $viewMode
-			 )
-		  }
-		  .navigationDestination(isPresented: $appStatus.navigateToAddCertificate) {
-			 AddCertificateView(certificateURL: certificateURL)
+		  if appStatus.isLoading {
+			 LoadingView()
+				.frame(maxWidth: .infinity, maxHeight: .infinity)
+				.background(ColorConstants.Background.main.opacity(0.8))
+				.edgesIgnoringSafeArea(.all)
 		  }
 	   }
+	   .frame(maxWidth: .infinity, maxHeight: .infinity)
 	   .navigationBarBackButtonHidden(true)
 	   .navigationBarColor(UIColor(ColorConstants.Background.main), titleColor: .black)
 	   .environmentObject(appStatus)
@@ -157,20 +172,5 @@ struct HomeView: View {
 	   } else {
 		  return []
 	   }
-    }
-}
-
-struct GetHeightModifier: ViewModifier {
-    @Binding var height: CGFloat
-    
-    func body(content: Content) -> some View {
-	   content.background(
-		  GeometryReader { geo -> Color in
-			 DispatchQueue.main.async {
-				height = geo.size.height
-			 }
-			 return Color.clear
-		  }
-	   )
     }
 }

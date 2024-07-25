@@ -5,6 +5,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "IOSPrimitiveArray.h"
 
 @interface CADESSignUtils : NSObject
 
@@ -23,5 +24,7 @@
 +(char*)getHashAlgorithmOID:(NSString*)algorithm;
 
 +(NSString*) getModifiedAlgorithmByCertificate: (SecKeyRef) privateKey alg:(NSString *)alg;
+
+-(NSData*)getDataFromIOSByteArray:(IOSByteArray*) byteArray;
 
 @end
