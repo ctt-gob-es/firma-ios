@@ -15,20 +15,28 @@ class SingleSignUseCase {
     
     static func getDefaultTriphaseServer(triphasicServerURL: String?, rtServlet: String?) -> URL? {
 	   if let triphasicServerURL = triphasicServerURL {
-		  // If we have the URL of the triphasic server, we return it
 		  return URL(string: triphasicServerURL)
 	   } else if let rtServlet = rtServlet {
-		  // Create the URL of the triphasic server from the rtServlet and the default triphasic signing path
 		  var urlComponents = URLComponents(string: rtServlet)
 		  urlComponents?.query = nil
-		  urlComponents?.path = PATH_DEFAULT_TRIPHASE_SIGN // Adjust PATH_DEFAULT_TRIPHASE_SIGN accordingly
+		  urlComponents?.path = PATH_DEFAULT_TRIPHASE_SIGN
 		  return urlComponents?.url
 	   } else {
 		  return nil
 	   }
     }
     
-    func preSign(operation: String, datosInUse: String, signFormat: String, signAlgoInUse: String, certificateData: String, extraParams: String?, triphasicServerURL: String?, rtServlet: String?, completion: @escaping (Result<String, Error>) -> Void) {
+    func preSign(
+	   operation: String,
+	   datosInUse: String,
+	   signFormat: String,
+	   signAlgoInUse: String,
+	   certificateData: String,
+	   extraParams: String?,
+	   triphasicServerURL: String?,
+	   rtServlet: String?,
+	   completion: @escaping (Result<String, Error>) -> Void
+    ) {
 	   presignRest.performPresignRequest(
 		  operation: operation,
 		  datosInUse: datosInUse,
@@ -54,31 +62,29 @@ class SingleSignUseCase {
 	   signAlgoInUse: String,
 	   signFormat: String?
     ) -> Data? {
-	   print(dataReceivedb64)
-	   
-	   // Decode the received data from base64
 	   guard let dataReceived = Base64Utils.decode(dataReceivedb64, urlSafe: true) else {
 		  print("Failed to decode base64 data")
 		  return nil
 	   }
+	   
 	   guard String(data: dataReceived, encoding: .utf8) != nil else {
-		  print("Failed to convert data to string")
 		  return nil
 	   }
 	   
-	   // Parse the XML data
 	   let parser = AOCounterSignXMLParser()
 	   guard let firmas = parser.parseXML(dataReceived) else {
 		  print("Failed to parse XML")
 		  return nil
 	   }
 	   
-	   // Iterate through the pre-signatures
 	   for firma in firmas {
-		  guard let pre = (firma as AnyObject).params["PRE"] as? String else {
+		  guard let pre = (firma as AnyObject).params[PRE] as? String else {
 			 print("Missing PRE in params")
 			 continue
 		  }
+		  
+		  let pk1Decoded = (firma as AnyObject).params[PK1_DECODED] as? Bool ?? false
+		  
 		  var preClean = pre.replacingOccurrences(of: "\n", with: "")
 		  preClean = preClean.replacingOccurrences(of: " ", with: "")
 		  
@@ -87,7 +93,6 @@ class SingleSignUseCase {
 			 continue
 		  }
 		  
-		  // With the decoded pre-signature data, proceed to perform the pkcs1 signing
 		  let signUtils = CADESSignUtils()
 		  var unmanagedPrivateKey: Unmanaged<SecKey>? = Unmanaged<SecKey>.passUnretained(privateKey)
 		  let pointerToUnmanagedPrivateKey: UnsafeMutablePointer<Unmanaged<SecKey>?> = UnsafeMutablePointer(&unmanagedPrivateKey)
@@ -101,9 +106,8 @@ class SingleSignUseCase {
 			 return nil
 		  }
 		  
-		  // Contains the signed pre-signatures
-		  // If it is XADES or FACTURA-E, we will do an additional process
-		  if let signFormat = signFormat, signFormat.contains("XAdES") || signFormat.contains("FacturaE") {
+		  // Si nos llega del servidor intermedio el pk1Decoded a true entonces tenemos que decodificar el PKCS#1 antes de pasarlo a Base64 y enviarlo al servidor
+		  if pk1Decoded {
 			 let stringSigned = Firma().processDataAndReturnEncodedString(dataSigned)
 			 (firma as AnyObject).params["PK1"] = stringSigned
 		  } else {
@@ -112,10 +116,8 @@ class SingleSignUseCase {
 		  }
 	   }
 	   
-	   // Generate the XML
 	   let preItems = AOCounterSignPreItems()
 	   
-	   // XML sent to the server with the date when the pkcs7 was prepared and the pairs of signed data and "dummy data"
 	   guard let newXML = preItems.generateXML(firmas) else {
 		  print("Failed to generate XML")
 		  return nil
@@ -141,10 +143,32 @@ class SingleSignUseCase {
 	   triphasicServerURL: String?,
 	   rtServlet: String?,
 	   completion: @escaping (Result<Data, Error>) -> Void) {
-		  postSignRest.postSign(operation: operation, dict: dict, datosInUse: datosInUse, signFormat: signFormat, signAlgoInUse: signAlgoInUse, base64UrlSafeCertificateData: base64UrlSafeCertificateData, extraParams: extraParams, encodedData: encodedData, triphasicServerURL: triphasicServerURL, rtServlet: rtServlet, completion: completion)
+		  postSignRest.postSign(
+			 operation: operation,
+			 dict: dict,
+			 datosInUse: datosInUse,
+			 signFormat: signFormat,
+			 signAlgoInUse: signAlgoInUse,
+			 base64UrlSafeCertificateData: base64UrlSafeCertificateData,
+			 extraParams: extraParams,
+			 encodedData: encodedData,
+			 triphasicServerURL: triphasicServerURL,
+			 rtServlet: rtServlet,
+			 completion: completion
+		  )
 	   }
     
-    func reportErrorAsync(urlServlet: String?, docId: String?, error: String, completion: @escaping (Result<Data, Error>) -> Void) {
-	   reportErrorRest.reportError(urlServlet: urlServlet, docId: docId, error: error, completion: completion)
+    func reportErrorAsync(
+	   urlServlet: String?,
+	   docId: String?,
+	   error: String,
+	   completion: @escaping (Result<Data, Error>) -> Void
+    ) {
+	   reportErrorRest.reportError(
+		  urlServlet: urlServlet,
+		  docId: docId,
+		  error: error,
+		  completion: completion
+	   )
     }
 }

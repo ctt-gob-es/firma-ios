@@ -21,7 +21,8 @@
 		838114C62C5131B600CDEC97 /* PostSignRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114C52C5131B600CDEC97 /* PostSignRest.swift */; };
 		838114C82C5131C600CDEC97 /* ReportErrorRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114C72C5131C600CDEC97 /* ReportErrorRest.swift */; };
 		838114CA2C5146FE00CDEC97 /* SignModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114C92C5146FE00CDEC97 /* SignModel.swift */; };
-		83A3DA922897B67400AF4355 /* BachRest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A3DA912897B67400AF4355 /* BachRest.m */; };
+		83A5EDBD2C5255DD00F93B6D /* BachRest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5EDBB2C5255DD00F93B6D /* BachRest.m */; };
+		83A5EDC02C527E6F00F93B6D /* ErrorHandlerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A5EDBF2C527E6F00F93B6D /* ErrorHandlerUtils.swift */; };
 		83C0EC852C3FE6B300244071 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC842C3FE6B300244071 /* PrivacyView.swift */; };
 		83C0EC8A2C3FEDB500244071 /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC892C3FEDB500244071 /* CheckBoxView.swift */; };
 		83C0EC8C2C3FEDD000244071 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC8B2C3FEDD000244071 /* NavigationBarModifier.swift */; };
@@ -301,8 +302,9 @@
 		838114C52C5131B600CDEC97 /* PostSignRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSignRest.swift; sourceTree = "<group>"; };
 		838114C72C5131C600CDEC97 /* ReportErrorRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportErrorRest.swift; sourceTree = "<group>"; };
 		838114C92C5146FE00CDEC97 /* SignModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignModel.swift; sourceTree = "<group>"; };
-		83A3DA912897B67400AF4355 /* BachRest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BachRest.m; sourceTree = "<group>"; };
-		83A3DA932897B67D00AF4355 /* BachRest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BachRest.h; sourceTree = "<group>"; };
+		83A5EDBA2C5255DD00F93B6D /* BachRest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BachRest.h; sourceTree = "<group>"; };
+		83A5EDBB2C5255DD00F93B6D /* BachRest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BachRest.m; sourceTree = "<group>"; };
+		83A5EDBF2C527E6F00F93B6D /* ErrorHandlerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandlerUtils.swift; sourceTree = "<group>"; };
 		83C0EC842C3FE6B300244071 /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
 		83C0EC892C3FEDB500244071 /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
 		83C0EC8B2C3FEDD000244071 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
@@ -815,13 +817,37 @@
 			path = Pades;
 			sourceTree = "<group>";
 		};
-		83A3DA902897B65A00AF4355 /* BachRest */ = {
+		83A5EDB92C52558700F93B6D /* Rest */ = {
 			isa = PBXGroup;
 			children = (
-				83A3DA912897B67400AF4355 /* BachRest.m */,
-				83A3DA932897B67D00AF4355 /* BachRest.h */,
+				83A5EDBC2C5255DD00F93B6D /* BachRest */,
+				838114C02C51307B00CDEC97 /* ReportErrorRest */,
+				838114BF2C51306D00CDEC97 /* PresignRest */,
+				838114C12C51308400CDEC97 /* PostSignRest */,
+				838114BC2C512F8900CDEC97 /* StoreDataRest */,
+				83EBF99C289BAB1900E80A7E /* ParentRest */,
+				83EBF999289BAA6F00E80A7E /* ServletRest */,
+			);
+			path = Rest;
+			sourceTree = "<group>";
+		};
+		83A5EDBC2C5255DD00F93B6D /* BachRest */ = {
+			isa = PBXGroup;
+			children = (
+				83A5EDBA2C5255DD00F93B6D /* BachRest.h */,
+				83A5EDBB2C5255DD00F93B6D /* BachRest.m */,
 			);
 			path = BachRest;
+			sourceTree = "<group>";
+		};
+		83A5EDBE2C5255F500F93B6D /* Certificates */ = {
+			isa = PBXGroup;
+			children = (
+				B2A7C4C72119F0D70071BF69 /* ANF_PF_Activo.p12 */,
+				B2A7C4C92119F5A10071BF69 /* PFActivoFirSHA1.pfx */,
+				B2A7C4C82119F5A00071BF69 /* pruebas_portafirmas.p12 */,
+			);
+			path = Certificates;
 			sourceTree = "<group>";
 		};
 		83C0EC832C3FE69D00244071 /* Privacy */ = {
@@ -1012,6 +1038,7 @@
 		A073AA792893E7BB00FE30CE /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				83A5EDB92C52558700F93B6D /* Rest */,
 				838114C22C51317100CDEC97 /* SwiftUseCase */,
 				A073AA7A2893E7FC00FE30CE /* BatchSignUseCase.h */,
 				A073AA7B2893E7FC00FE30CE /* BatchSignUseCase.m */,
@@ -1218,6 +1245,7 @@
 				83C0ECC42C4148AB00244071 /* AONSBundle+Language.h */,
 				83DF46752C4876D6000C3F31 /* ViewUtils.swift */,
 				83DF467C2C490E2E000C3F31 /* FileUtils.swift */,
+				83A5EDBF2C527E6F00F93B6D /* ErrorHandlerUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1285,17 +1313,8 @@
 		C30B3231163804620072A515 /* Firma_iOS */ = {
 			isa = PBXGroup;
 			children = (
-				838114C02C51307B00CDEC97 /* ReportErrorRest */,
-				838114BF2C51306D00CDEC97 /* PresignRest */,
-				838114C12C51308400CDEC97 /* PostSignRest */,
-				838114BC2C512F8900CDEC97 /* StoreDataRest */,
-				83EBF99C289BAB1900E80A7E /* ParentRest */,
-				83EBF999289BAA6F00E80A7E /* ServletRest */,
-				83A3DA902897B65A00AF4355 /* BachRest */,
+				83A5EDBE2C5255F500F93B6D /* Certificates */,
 				A073AA792893E7BB00FE30CE /* Domain */,
-				B2A7C4C72119F0D70071BF69 /* ANF_PF_Activo.p12 */,
-				B2A7C4C92119F5A10071BF69 /* PFActivoFirSHA1.pfx */,
-				B2A7C4C82119F5A00071BF69 /* pruebas_portafirmas.p12 */,
 				B240773A20A5C3D600A8EE1C /* Firma_iOS-Prefix.pch */,
 				B2EE5C0F20AC4359000A4A28 /* AOAppDelegate.h */,
 				B2EE5C0E20AC4358000A4A28 /* AOAppDelegate.m */,
@@ -1726,6 +1745,7 @@
 				B273961A20A447DB00A7D05A /* CADESOID.c in Sources */,
 				83DF467B2C48F084000C3F31 /* AddCertificateView.swift in Sources */,
 				C3B11DB816FB642B00C0D623 /* AlgorithmIdentifier.c in Sources */,
+				83A5EDBD2C5255DD00F93B6D /* BachRest.m in Sources */,
 				C3B11DBA16FB642B00C0D623 /* ANY.c in Sources */,
 				C3B11DBC16FB642B00C0D623 /* asn_codecs_prim.c in Sources */,
 				83C172562C3803E90057F5BD /* DerEncoder.m in Sources */,
@@ -1763,6 +1783,7 @@
 				83C0ECA82C41044E00244071 /* SettingsWebView.swift in Sources */,
 				C3B11DD616FB642B00C0D623 /* CertPolicyId.c in Sources */,
 				C3B11DD816FB642B00C0D623 /* CMSVersion.c in Sources */,
+				83A5EDC02C527E6F00F93B6D /* ErrorHandlerUtils.swift in Sources */,
 				C3B11DDA16FB642B00C0D623 /* constr_CHOICE.c in Sources */,
 				838114C82C5131C600CDEC97 /* ReportErrorRest.swift in Sources */,
 				C3B11DDC16FB642B00C0D623 /* constr_SEQUENCE_OF.c in Sources */,
@@ -1824,7 +1845,6 @@
 				83C0EC992C40018A00244071 /* NavigationBarButtonLink.swift in Sources */,
 				83E419CA2C45184000C21811 /* DocumentPicker.swift in Sources */,
 				C3B11E1416FB642B00C0D623 /* per_opentype.c in Sources */,
-				83A3DA922897B67400AF4355 /* BachRest.m in Sources */,
 				B273960E20A43E2800A7D05A /* DateHelper.m in Sources */,
 				C3B11E1616FB642B00C0D623 /* per_support.c in Sources */,
 				C3B11E1816FB642B00C0D623 /* PolicyInformation.c in Sources */,
@@ -2146,6 +2166,24 @@
 				);
 				MARKETING_VERSION = 1.8.3;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-l",
+					jre_emul,
+					"-l",
+					jre_zip,
+					"-l",
+					iconv,
+					"-l",
+					jre_net,
+					"-l",
+					jre_security,
+					"-l",
+					jre_ssl,
+					"-l",
+					jre_xml,
+					"-l",
+					protobuf,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "es.abamobile.gob.afirma.Cliente--firma";
 				PRODUCT_NAME = "Cliente @firma";
 				PROVISIONING_PROFILE = "c08ed7da-989b-4719-b284-d895789fd7db";

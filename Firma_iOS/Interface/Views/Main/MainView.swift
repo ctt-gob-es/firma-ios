@@ -147,6 +147,7 @@ struct MainView: View {
 	   .sheet(isPresented: $appStatus.showErrorModal) {
 		  ErrorModalView(
 			 viewMode: $viewMode,
+			 description: $appStatus.errorModalDescription,
 			 errorModalState: appStatus.errorModalState
 		  )
 		  .fixedSize(horizontal: false, vertical: true)

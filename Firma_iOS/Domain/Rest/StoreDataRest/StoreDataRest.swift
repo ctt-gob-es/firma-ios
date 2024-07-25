@@ -72,7 +72,6 @@ class StoreDataRest {
 				}
 				
 				if responseString.hasPrefix("OK") {
-				    print("Successfully sent certificate.")
 				    completion(.success(data))
 				} else {
 				    print("Failed to send certificate: \(responseString)")

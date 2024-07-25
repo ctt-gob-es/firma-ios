@@ -11,6 +11,7 @@ import SwiftUI
 struct ErrorModalView: View {
     @Environment(\.presentationMode) var presentationMode
     @Binding var viewMode: ViewModes
+    @Binding var description: String
     
     var errorModalState: ErrorModalState
     
@@ -49,7 +50,7 @@ struct ErrorModalView: View {
 				.accessibilityAddTraits(.isHeader)
 				.padding(.bottom)
 			 
-			 AccessibleText(content: errorModalState.description)
+			 AccessibleText(content: description == "" ? errorModalState.description : description)
 				.regularStyle(foregroundColor: ColorConstants.Text.secondary)
 		  }
 		  .frame(maxWidth: .infinity, alignment: .leading)

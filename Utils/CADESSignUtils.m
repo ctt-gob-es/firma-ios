@@ -145,7 +145,7 @@
     
     if([listItems count] > 0){
 	   NSString *alg = [listItems objectAtIndex:0];
-	   setKeyAlgorithm = [[CertificateUtils sharedWrapper] getAlgorithmByCertificate:privateKey alg:alg];
+	   setKeyAlgorithm = [[CertificateUtils sharedWrapper] getAlgorithmByCertificate:*privateKey alg:alg];
     }
     
     NSData *signature = (__bridge_transfer NSData *)SecKeyCreateSignature(*privateKey,

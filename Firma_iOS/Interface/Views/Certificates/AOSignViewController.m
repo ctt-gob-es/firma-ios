@@ -1025,6 +1025,8 @@ SecKeyRef privateKey = NULL;
         }
         
         NSString *pre = [firma.params objectForKey:PRE];
+        BOOL pk1Decoded = [firma.params objectForKey:PK1_DECODED];
+        
         pre = [pre stringByReplacingOccurrencesOfString:@"\n" withString:@""];
         
         NSData *data = [Base64Utils decode:pre urlSafe:true];
@@ -1035,9 +1037,8 @@ SecKeyRef privateKey = NULL;
 		  CADESSignUtils *signUtils = [[CADESSignUtils alloc] init];
 		  NSData *dataSigned = [signUtils signDataWithPrivateKey:&privateKey data:data algorithm:signAlgoInUse];
 		  
-		  // Contiene las prefirmas firmadas
-		  // Si es XADES o FACTURA-E Haremos un proceso adicional
-		  if (signFormat != nil && ([signFormat containsString:@"XAdES"] || [signFormat containsString:@"FacturaE"])) {
+		  // Si nos llega del servidor intermedio el pk1Decoded a true entonces tenemos que decodificar el PKCS#1 antes de pasarlo a Base64 y enviarlo al servidor
+		  if (pk1Decoded) {
 			 IOSByteArray *byteArray = [IOSByteArray arrayWithBytes:[dataSigned bytes] count:[dataSigned length]];
 			 IOSByteArray *decodedSignature = EsGobAfirmaCoreSignersPkcs1Utils_decodeSignatureWithByteArray_(byteArray);
 			 NSData *decodedSignatureData = [NSData dataWithBytes:[decodedSignature buffer] length:[decodedSignature length]];

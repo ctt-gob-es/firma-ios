@@ -23,6 +23,7 @@ struct SignViewMode: View {
     @State var signUseCase: SingleSignUseCase?
     @State var certificateUtils: CertificateUtils?
     @State var signModel: SignModel?
+    @State var buttonTitle: String = NSLocalizedString("home_certificates_sign_button_title", bundle: Bundle.main, comment: "")
     
     
     var body: some View {
@@ -67,181 +68,10 @@ struct SignViewMode: View {
 				VStack(spacing: 10) {
 				    Button(action: {
 					   if buttonEnabled {
-						  appStatus.isLoading = true
-						  if signModel?.operation == OPERATION_SELECT_CERTIFICATE{
-							 sendCertificateUseCase?.sendCertificate(dataSign: "", completion: { result in
-								switch result {
-								    case .success(let response):
-									   print(response)
-								    case .failure(let error):
-									   appStatus.errorPublisher.send(error.localizedDescription)
-								}
-							 })
-						  } else if signModel?.operation == OPERATION_SIGN {
-							 signUseCase?.preSign(
-								operation: signModel?.operation ?? "",
-								datosInUse: signModel?.datosInUse ?? "",
-								signFormat: signModel?.signFormat ?? "",
-								signAlgoInUse: signModel?.signAlgoInUse ?? "",
-								certificateData: certificateUtils?.base64UrlSafeCertificateData ?? "",
-								extraParams: signModel?.extraParams,
-								triphasicServerURL: signModel?.triphasicServerURL,
-								rtServlet: signModel?.rtServlet,
-								completion: { result in
-								    DispatchQueue.main.async {
-									   appStatus.isLoading = false
-								    }
-								    switch result{
-									   case .success(let serverResponse):
-										  guard let signAlgoInUse = signModel?.signAlgoInUse,
-											   let privateKey = certificateUtils?.privateKey,
-											   let encodedData = signUseCase?.generatePKCS1(
-												dataReceivedb64: serverResponse,
-												privateKey: privateKey,
-												signAlgoInUse: signAlgoInUse,
-												signFormat: signModel?.signFormat
-											   ) else {
-											 signUseCase?.reportErrorAsync(
-												urlServlet: signModel?.urlServlet,
-												docId: signModel?.docId,
-												error: "",
-												completion: { result in
-												    DispatchQueue.main.async {
-													   appStatus.errorModalState = .globalError
-													   appStatus.showErrorModal = true
-												    }
-												})
-											 return
-										  }
-										  DispatchQueue.main.async {
-											 appStatus.isLoading = true
-										  }
-										  signUseCase?.postSign(
-											 operation: signModel?.operation ?? "",
-											 dict: ["": ""],
-											 datosInUse: signModel?.datosInUse ?? "",
-											 signFormat: signModel?.signFormat ?? "",
-											 signAlgoInUse: signModel?.signAlgoInUse ?? "",
-											 base64UrlSafeCertificateData: certificateUtils?.base64UrlSafeCertificateData ?? "",
-											 extraParams: signModel?.extraParams,
-											 encodedData: encodedData,
-											 triphasicServerURL: signModel?.triphasicServerURL,
-											 rtServlet: signModel?.rtServlet,
-											 completion: { result in
-												DispatchQueue.main.async {
-												    appStatus.isLoading = false
-												}
-												switch result {
-												    case .success(let postSignResult):
-													   if let responseString = String(data: postSignResult, encoding: .utf8) {
-														  if responseString.contains("OK") {
-															 if let range = responseString.range(of: "=") {
-																let parte2 = String(responseString[range.upperBound...])
-																
-																guard let urlServlet = signModel?.urlServlet, let cipherKey = signModel?.cipherKey, let docId = signModel?.docId, let base64UrlSafeCertificateData = certificateUtils?.base64UrlSafeCertificateData else {
-																    return
-																}
-																self.sendCertificateUseCase = SendCertificateUseCase(
-																    urlServlet: urlServlet,
-																    cipherKey: cipherKey,
-																    docId: docId,
-																    base64UrlSafeCertificateData: base64UrlSafeCertificateData
-																)
-																DispatchQueue.main.async {
-																    appStatus.isLoading = true
-																}
-																sendCertificateUseCase?.sendCertificate(dataSign: parte2, completion: { result in
-																    appStatus.isLoading = false
-																    switch result {
-																	   case .success(let storeDataServerResponse):
-																		  if let response = String(data: storeDataServerResponse, encoding: .utf8) {
-																			 print(response)
-																		  }
-																		  DispatchQueue.main.async {
-																			 viewMode = .home
-																			 appStatus.successModalState = .successSign
-																			 appStatus.showSuccessModal = true
-																		  }
-																	   case .failure(let error):
-																		  signUseCase?.reportErrorAsync(
-																			 urlServlet: signModel?.urlServlet,
-																			 docId: signModel?.docId,
-																			 error: error.localizedDescription,
-																			 completion: { result in
-																				DispatchQueue.main.async {
-																				    appStatus.errorModalState = .globalError
-																				    appStatus.showErrorModal = true
-																				}
-																			 })
-																    }
-																})
-															 } else {
-																signUseCase?.reportErrorAsync(
-																    urlServlet: signModel?.urlServlet,
-																    docId: signModel?.docId,
-																    error: "",
-																    completion: { result in
-																	   DispatchQueue.main.async {
-																		  appStatus.errorModalState = .globalError
-																		  appStatus.showErrorModal = true
-																	   }
-																    })
-															 }
-														  } else {
-															 signUseCase?.reportErrorAsync(
-																urlServlet: signModel?.urlServlet,
-																docId: signModel?.docId,
-																error: "",
-																completion: { result in
-																    DispatchQueue.main.async {
-																	   appStatus.errorModalState = .globalError
-																	   appStatus.showErrorModal = true
-																    }
-																})
-														  }
-													   } else {
-														  signUseCase?.reportErrorAsync(
-															 urlServlet: signModel?.urlServlet,
-															 docId: signModel?.docId,
-															 error: "",
-															 completion: { result in
-																DispatchQueue.main.async {
-																    appStatus.errorModalState = .globalError
-																    appStatus.showErrorModal = true
-																}
-															 })
-													   }
-													   
-												    case .failure(let error):
-													   signUseCase?.reportErrorAsync(
-														  urlServlet: signModel?.urlServlet,
-														  docId: signModel?.docId,
-														  error: error.localizedDescription,
-														  completion: { result in
-															 DispatchQueue.main.async {
-																appStatus.errorModalState = .globalError
-																appStatus.showErrorModal = true
-															 }
-														  })
-												}
-											 })
-									   case .failure(let error):
-										  signUseCase?.reportErrorAsync(
-											 urlServlet: signModel?.urlServlet,
-											 docId: signModel?.docId,
-											 error: error.localizedDescription,
-											 completion: { result in
-												DispatchQueue.main.async {
-												    appStatus.errorModalState = .globalError
-												    appStatus.showErrorModal = true
-												}
-											 })
-								    }
-								})
-						  }
+						  handleButtonAction()
 					   }
 				    }) {
-					   AccessibleText(content: NSLocalizedString("home_certificates_sign_button_title", bundle: Bundle.main, comment: ""))
+					   AccessibleText(content: buttonTitle)
 				    }
 				    .buttonStyle(CustomButtonStyle(isEnabled: buttonEnabled))
 				}
@@ -249,10 +79,10 @@ struct SignViewMode: View {
 		  }
 	   }
 	   .onChange(of: appStatus.selectedCertificate, perform: { value in
-		  buttonEnabled = true
-		  
 		  if let value = value{
-			 updateSelectedCertificate(value.subject)
+			 DispatchQueue.global(qos: .background).async {
+				updateSelectedCertificate(value.subject)
+			 }
 		  }
 	   })
 	   .onAppear {
@@ -260,31 +90,237 @@ struct SignViewMode: View {
 			 appStatus.isLoading = true
 			 receiveDataUseCase = ReceiveDataUseCase(appStatus: appStatus)
 			 signUseCase = SingleSignUseCase()
-			 
 			 receiveDataUseCase?.parseUrl(urlReceived.absoluteString) { result in
-				appStatus.isLoading = false
-				switch result {
-				    case .success(let result):
-					   self.entity = result.0
-					   self.signModel = SignModel(dictionary: result.1)
-					   
-				    case .failure(let error):
-					   print("Error occurred: \(error.localizedDescription)")
-					   appStatus.errorPublisher.send(error.localizedDescription)
-					   handleSignError(error: error)
-				}
+				handleReceiveData(result: result)
 			 }
 		  }
 	   }
     }
     
-    func handleSignError(error: Error){
-	   //TODO: Depending on the error, show the modal
-	   appStatus.errorModalState = .globalError
-	   appStatus.showErrorModal.toggle()
+    func handleReceiveData(result: (Result<(AOEntity, NSMutableDictionary), Error>)) {
+	   appStatus.isLoading = false
+	   switch result {
+		  case .success(let result):
+			 self.entity = result.0
+			 self.signModel = SignModel(dictionary: result.1)
+			 if self.signModel?.operation == OPERATION_SELECT_CERTIFICATE {
+				buttonTitle = NSLocalizedString("send", bundle: Bundle.main, comment: "")
+			 } else if signModel?.operation == OPERATION_SIGN {
+				buttonTitle = NSLocalizedString("home_certificates_sign_button_title", bundle: Bundle.main, comment: "")
+			 }
+			 
+		  case .failure(let error):
+			 handleSignError(error: error)
+	   }
     }
     
-    func loadCertificateAndRetrieveValues(certName: String, password: String, fromDocument: Bool, completion: @escaping (String?, SecKey?) -> Void) {
+    func handleButtonAction() {
+	   appStatus.isLoading = true
+	   
+	   if signModel?.operation == OPERATION_SELECT_CERTIFICATE {
+		  guard let certificateData = certificateUtils?.base64UrlSafeCertificateData,
+			   let urlServlet = signModel?.urlServlet,
+			   let cipherKey = signModel?.cipherKey,
+			   let docId = signModel?.docId else {
+			 handleSignError(error:NSError(domain: "Error",code: -1,userInfo: [NSLocalizedDescriptionKey:NSLocalizedString("error_process_select_certificate",bundle: Bundle.main,comment: "")])
+			 )
+			 return
+		  }
+		  
+		  self.sendCertificateUseCase = SendCertificateUseCase(
+			 urlServlet: urlServlet,
+			 cipherKey: cipherKey,
+			 docId: docId,
+			 base64UrlSafeCertificateData: certificateData
+		  )
+		  
+		  //TODO: Get the data from the certificate
+		  sendCertificate(dataSign: certificateData)
+	   } else if signModel?.operation == OPERATION_SIGN {
+		  sign()
+	   }
+    }
+    
+    func sign() {
+	   guard let signModel else {
+		  handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_datos_firmar", bundle: Bundle.main, comment: "")]))
+		  return
+	   }
+	   
+	   presign(signModel: signModel)
+    }
+    
+    func sendCertificate(dataSign: String) {
+	   sendCertificateUseCase?.sendCertificate(dataSign: dataSign, completion: { result in
+		  switch result {
+			 case .success(let storeDataServerResponse):
+				if let response = String(data: storeDataServerResponse, encoding: .utf8) {
+				    if response == OK {
+					   DispatchQueue.main.async {
+						  appStatus.isLoading = false
+						  viewMode = .home
+						  appStatus.successModalState = .successSign
+						  appStatus.showSuccessModal = true
+					   }
+				    } else {
+					   handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_proceso_firma", bundle: Bundle.main, comment: "")]))
+				    }
+				}
+			 case .failure(let error):
+				handleSignError(error: error)
+		  }
+	   })
+    }
+    
+    func presign(signModel: SignModel) {
+	   guard let operation = signModel.operation,
+		    let datosInUse = signModel.datosInUse,
+		    let signFormat = signModel.signFormat,
+		    let signAlgoInUse = signModel.signAlgoInUse,
+		    let certificateData = certificateUtils?.base64UrlSafeCertificateData else {
+		  handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_datos_firmar", bundle: Bundle.main, comment: "")]))
+		  return
+	   }
+	   
+	   signUseCase?.preSign(
+		  operation: operation,
+		  datosInUse: datosInUse,
+		  signFormat: signFormat,
+		  signAlgoInUse: signAlgoInUse,
+		  certificateData: certificateData,
+		  extraParams: signModel.extraParams,
+		  triphasicServerURL: signModel.triphasicServerURL,
+		  rtServlet: signModel.rtServlet,
+		  completion: { result in
+			 handlePresingResult(signModel: signModel, result: result)
+		  })
+    }
+    
+    func handlePresingResult(signModel: SignModel, result: Result<String, Error>) {
+	   guard let signFormat = signModel.signFormat,
+		    let signAlgoInUse = signModel.signAlgoInUse else {
+		  handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_datos_firmar", bundle: Bundle.main, comment: "")]))
+		  return
+	   }
+	   
+	   switch result{
+		  case .success(let serverResponse):
+			 guard let privateKey = certificateUtils?.privateKey,
+				  let encodedData = signUseCase?.generatePKCS1(
+				    dataReceivedb64: serverResponse,
+				    privateKey: privateKey,
+				    signAlgoInUse: signAlgoInUse,
+				    signFormat: signFormat
+				  ) else {
+				handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: serverResponse]))
+				return
+			 }
+			 postsign(signModel: signModel, encodedData: encodedData)
+			 
+		  case .failure(let error):
+			 handleSignError(error: error)
+	   }
+    }
+    
+    func postsign(signModel: SignModel, encodedData: Data) {
+	   guard let operation = signModel.operation,
+		    let datosInUse = signModel.datosInUse,
+		    let signFormat = signModel.signFormat,
+		    let signAlgoInUse = signModel.signAlgoInUse,
+		    let certificateData = certificateUtils?.base64UrlSafeCertificateData else {
+		  handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_datos_firmar", bundle: Bundle.main, comment: "")]))
+		  return
+	   }
+	   signUseCase?.postSign(
+		  operation: operation,
+		  dict: ["": ""],
+		  datosInUse: datosInUse,
+		  signFormat: signFormat,
+		  signAlgoInUse: signAlgoInUse,
+		  base64UrlSafeCertificateData: certificateData,
+		  extraParams: signModel.extraParams,
+		  encodedData: encodedData,
+		  triphasicServerURL: signModel.triphasicServerURL,
+		  rtServlet: signModel.rtServlet,
+		  completion: { result in
+			 handlePostSignResult(
+				signModel: signModel,
+				result: result
+			 )
+		  })
+    }
+    
+    func handlePostSignResult(signModel: SignModel,  result: Result<Data, Error>) {
+	   guard let urlServlet = signModel.urlServlet,
+		    let cipherKey = signModel.cipherKey,
+		    let docId = signModel.docId,
+		    let certificateData = certificateUtils?.base64UrlSafeCertificateData else {
+		  handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_datos_firmar", bundle: Bundle.main, comment: "")]))
+		  return
+	   }
+	   switch result {
+		  case .success(let postSignResult):
+			 if let responseString = String(data: postSignResult, encoding: .utf8) {
+				if responseString.contains("OK") {
+				    if let range = responseString.range(of: "=") {
+					   let parte2 = String(responseString[range.upperBound...])
+					   
+					   self.sendCertificateUseCase = SendCertificateUseCase(
+						  urlServlet: urlServlet,
+						  cipherKey: cipherKey,
+						  docId: docId,
+						  base64UrlSafeCertificateData: certificateData
+					   )
+					   
+					   sendCertificate(dataSign: parte2)
+				    } else {
+					   handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_proceso_firma", bundle: Bundle.main, comment: "")]))
+				    }
+				} else {
+				    handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_proceso_firma", bundle: Bundle.main, comment: "")]))
+				}
+			 } else {
+				handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_proceso_firma", bundle: Bundle.main, comment: "")]))
+			 }
+			 
+		  case .failure(let error):
+			 handleSignError(error: error)
+	   }
+    }
+    
+    func handleSignError(error: Error){
+	   print("Error occurred: \(error.localizedDescription)")
+	   appStatus.errorPublisher.send(error.localizedDescription)
+	   
+	   signUseCase?.reportErrorAsync(
+		  urlServlet: signModel?.urlServlet,
+		  docId: signModel?.docId,
+		  error: ErrorHandlerUtils.getErrorModalDescriptionFromError(error: error),
+		  completion: { result in
+			 DispatchQueue.main.async {
+				appStatus.isLoading = false
+				appStatus.errorModalDescription = error.localizedDescription
+				appStatus.errorModalState = .globalError
+				appStatus.showErrorModal = true
+			 }
+			 //TODO: Depending on the error, show the modal description accordingly
+			 switch result {
+				case .success(let errorFromServer):
+				    if let response = String(data: errorFromServer, encoding: .utf8) {
+					   print("Server response from reportError: " + response)
+				    }
+				case .failure(let error):
+				    print(error.localizedDescription)
+			 }
+		  })
+    }
+    
+    func loadCertificateAndRetrieveValues(
+	   certName: String,
+	   password: String,
+	   fromDocument: Bool,
+	   completion: @escaping (String?, SecKey?) -> Void
+    ) {
 	   DispatchQueue.global(qos: .background).async {
 		  certificateUtils?.selectedCertificateName = certName
 		  let status = certificateUtils?.loadCertKeyChain(withName: certName, password: password, fromDocument: fromDocument)
@@ -314,6 +350,7 @@ struct SignViewMode: View {
 		  userDefaults.set([kAOUserDefaultsKeyAlias: selectedCertificateSubject], forKey: kAOUserDefaultsKeyCurrentCertificate)
 		  userDefaults.synchronize()
 		  certificateUtils?.selectedCertificateName = selectedCertificateSubject
+		  buttonEnabled = true
 	   }
     }
 }

@@ -39,6 +39,9 @@
 - (NSData *)getSignatureBytesSHA512:(NSData *)plainText;
 - (NSData *)getSignatureBytesSHA256:(NSData *)plainText;
 - (NSData *)getSignatureBytesSHA384:(NSData *)plainText;
-- (SecKeyAlgorithm)getAlgorithmByCertificate:(SecKeyRef *)privateKey alg:(NSString *)alg;
+- (SecKeyAlgorithm)getAlgorithmByCertificate:(SecKeyRef)privateKey alg:(NSString *)alg;
+- (BOOL) isCertificateECDSA:(SecKeyRef)privateKey;
+- (BOOL) isCertificateRSA:(SecKeyRef)privateKey;
+ 
 
 @end

@@ -17,6 +17,7 @@ class AppStatus: ObservableObject {
     @Published var successModalState: SuccessModalState = .successCertificate
     @Published var showErrorModal: Bool = false
     @Published var errorModalState: ErrorModalState = .trackingError
+    @Published var errorModalDescription: String = ""
     @Published var showRecoveryModal: Bool = false
     @Published var showDocumentErrorModal: Bool = false
     @Published var showDocumentPicker: Bool = false

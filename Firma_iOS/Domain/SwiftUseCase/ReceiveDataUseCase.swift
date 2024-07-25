@@ -21,23 +21,26 @@ import Foundation
     private var receivedDataCert: Data?
     private var receivedStringCert: String?
     private var numberOfRetries = 0
-
+    
     var appStatus: AppStatus
-
+    
     init(appStatus: AppStatus) {
 	   self.appStatus = appStatus
     }
-
-    public func parseUrl(_ urlString: String, completion: @escaping (Result<(AOEntity, NSMutableDictionary), Error>) -> Void) {
+    
+    public func parseUrl(
+	   _ urlString: String,
+	   completion: @escaping (Result<(AOEntity, NSMutableDictionary), Error>) -> Void
+    ) {
 	   self.startURL = urlString
-
+	   
 	   guard let urlParameters = CADESSignUtils.parseUrl(urlString) as? [String: Any] else {
 		  completion(.failure(NSError(domain: "Parse Error", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to parse URL parameters."])))
 		  return
 	   }
 	   self.opParameters = NSMutableDictionary(dictionary: urlParameters)
 	   var datosInUseCert: String?
-
+	   
 	   if self.opParameters?[PARAMETER_NAME_OPERATION] as? String == OPERATION_SELECT_CERTIFICATE {
 		  if let stServlet = self.opParameters?[PARAMETER_NAME_STSERVLET] as? String {
 			 self.stServletCert = stServlet
@@ -79,7 +82,7 @@ import Foundation
 		  }
 	   }
     }
-
+    
     private func reportError(errorCode: String, errorDesc: String) {
 	   let errorToSend = errorCode + ERROR_SEPARATOR + errorDesc
 	   if let _ = self.stServletCert, let _ = self.idDocCert {
@@ -87,14 +90,16 @@ import Foundation
 		  print("ERROR: \(errorToSend)")
 	   }
     }
-
+    
     private func errorReportAsync(_ error: String) {
 	   DispatchQueue.main.async {
 		  self.appStatus.errorPublisher.send(error)
 	   }
     }
-
-    private func loadDataFromRtservlet(completion: @escaping (Result<(AOEntity, NSMutableDictionary), Error>) -> Void) {
+    
+    private func loadDataFromRtservlet(
+	   completion: @escaping (Result<(AOEntity, NSMutableDictionary), Error>) -> Void
+    ) {
 	   var post = ""
 	   post += PARAMETER_NAME_OPERATION
 	   post += HTTP_EQUALS
@@ -107,10 +112,10 @@ import Foundation
 	   post += PARAMETER_NAME_ID
 	   post += HTTP_EQUALS
 	   post += fileIdCert ?? ""
-
+	   
 	   guard let postData = post.data(using: .utf8, allowLossyConversion: true) else { return }
 	   let postLength = String(postData.count)
-
+	   
 	   guard let requestUrl = URL(string: rtServletCert ?? "") else { return }
 	   var request = URLRequest(url: requestUrl, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 30.0)
 	   request.httpMethod = POST
@@ -118,11 +123,11 @@ import Foundation
 	   request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
 	   request.setValue("Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)", forHTTPHeaderField: "User-Agent")
 	   request.setValue("text/plain,text/html,application/xhtml+xml,application/xml", forHTTPHeaderField: "Accept")
-
+	   
 	   request.httpBody = postData
-
+	   
 	   retrievingDataFromServletCert = true
-
+	   
 	   let task = URLSession.shared.dataTask(with: request) { data, response, error in
 		  guard let data = data, error == nil else {
 			 print("Error: \(error?.localizedDescription ?? "No data")")
@@ -134,32 +139,38 @@ import Foundation
 	   }
 	   task.resume()
     }
-
-    private func connectionDidFinishLoading(data: Data, completion: @escaping (Result<(AOEntity, NSMutableDictionary), Error>) -> Void) {
+    
+    private func connectionDidFinishLoading(
+	   data: Data,
+	   completion: @escaping (Result<(AOEntity, NSMutableDictionary), Error>) -> Void
+    ) {
 	   guard let receivedData = receivedDataCert else { return }
-
+	   
 	   receivedStringCert = String(data: receivedData, encoding: .utf8)
-
+	   
 	   if retrievingDataFromServletCert {
 		  retrievingDataFromServletCert = false
 		  let responseString = String(data: receivedData, encoding: .utf8) ?? ""
-
+		  
 		  decodeData(responseString, completion: completion)
 	   } else if reportErrorCert {
 		  reportErrorCert = false
 	   }
     }
-
-    private func decodeData(_ responseString: String, completion: @escaping (Result<(AOEntity, NSMutableDictionary), Error>) -> Void) {
+    
+    private func decodeData(
+	   _ responseString: String,
+	   completion: @escaping (Result<(AOEntity, NSMutableDictionary), Error>) -> Void
+    ) {
 	   do {
 		  guard let cipherKeyCertData = cipherKeyCert?.data(using: .utf8) else {
 			 throw NSError(domain: "Cipher Key Error", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to encode cipher key."])
 		  }
-
+		  
 		  guard let decoded = DesCypher.decypherData(responseString, sk: cipherKeyCertData) else {
 			 throw NSError(domain: "Decryption Error", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to decrypt response data."])
 		  }
-
+		  
 		  if responseString.hasPrefix("ERR-06") && numberOfRetries < 3 {
 			 DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
 				self.parseUrl(self.startURL ?? "", completion: completion)
@@ -168,11 +179,11 @@ import Foundation
 		  } else {
 			 var datosInUse = String(data: decoded, encoding: .utf8)
 			 datosInUse = datosInUse?.removingPercentEncoding
-
+			 
 			 guard let entidad = AOXMLReader().loadXML(by: datosInUse ?? "") else {
 				throw NSError(domain: "XML Parsing Error", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to parse XML data."])
 			 }
-
+			 
 			 opParameters?[PARAMETER_NAME_DAT] = (entidad as AnyObject).datField ?? ""
 			 opParameters?[PARAMETER_NAME_FORMAT] = (entidad as AnyObject).formatField ?? ""
 			 opParameters?[PARAMETER_NAME_ALGORITHM2] = (entidad as AnyObject).algorithmField ?? ""
@@ -182,7 +193,7 @@ import Foundation
 			 opParameters?[PARAMETER_NAME_BATCH_PRESIGNER_URL] = (entidad as AnyObject).batchpresignerurl ?? ""
 			 opParameters?[PARAMETER_NAME_BATCH_POSTSIGNER_URL] = (entidad as AnyObject).batchpostsignerurl ?? ""
 			 opParameters?[PARAMETER_NAME_BATCH_JSON] = (entidad as AnyObject).batchjson ?? ""
-
+			 
 			 DispatchQueue.main.async {
 				if let opParameters = self.opParameters {
 				    completion(.success((entidad as! AOEntity, opParameters)))
