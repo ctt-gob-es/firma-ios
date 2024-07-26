@@ -11,7 +11,7 @@ import Foundation
 class ReportErrorRest {
     func reportError(urlServlet: String?, docId: String?, error: String, completion: @escaping (Result<Data, Error>) -> Void) {
 	   guard let urlServlet = urlServlet, let docId = docId else {
-		  completion(.failure(NSError(domain: "ReportErrorRest", code: -1, userInfo: [NSLocalizedDescriptionKey: "Missing urlServlet or docId"])))
+		  completion(.failure(NSError(domain: "Error",code: -1,userInfo: [NSLocalizedDescriptionKey:NSLocalizedString("error_datos_firmar",bundle: Bundle.main,comment: "")])))
 		  return
 	   }
 	   
@@ -22,14 +22,14 @@ class ReportErrorRest {
 	   post += "\(PARAMETER_NAME_DAT)=\(error)"
 	   
 	   guard let postData = post.data(using: .utf8, allowLossyConversion: true) else {
-		  completion(.failure(NSError(domain: "ReportErrorRest", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to encode post data"])))
+		  completion(.failure(NSError(domain: "Error",code: -1,userInfo: [NSLocalizedDescriptionKey:NSLocalizedString("error_datos_firmar",bundle: Bundle.main,comment: "")])))
 		  return
 	   }
 	   
 	   let postLength = "\(postData.count)"
 	   
 	   guard let requestUrl = URL(string: urlServlet) else {
-		  completion(.failure(NSError(domain: "ReportErrorRest", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid urlServlet"])))
+		  completion(.failure(NSError(domain: "Error",code: -1,userInfo: [NSLocalizedDescriptionKey:NSLocalizedString("error_url_servidor",bundle: Bundle.main,comment: "")])))
 		  return
 	   }
 	   

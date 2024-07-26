@@ -35,7 +35,7 @@ import Foundation
 	   self.startURL = urlString
 	   
 	   guard let urlParameters = CADESSignUtils.parseUrl(urlString) as? [String: Any] else {
-		  completion(.failure(NSError(domain: "Parse Error", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to parse URL parameters."])))
+		  completion(.failure(NSError(domain: "Error",code: -1,userInfo: [NSLocalizedDescriptionKey:NSLocalizedString("error_codigo_desconocido",bundle: Bundle.main,comment: "")])))
 		  return
 	   }
 	   self.opParameters = NSMutableDictionary(dictionary: urlParameters)
@@ -64,7 +64,7 @@ import Foundation
 			 }
 			 if self.fileIdCert == nil {
 				self.reportError(errorCode: ERROR_MISSING_DATA, errorDesc: DESC_ERROR_MISSING_DATA)
-				completion(.failure(NSError(domain: "Missing Data Error", code: -1, userInfo: [NSLocalizedDescriptionKey: "File ID is missing."])))
+				completion(.failure(NSError(domain: "Error",code: -1,userInfo: [NSLocalizedDescriptionKey:NSLocalizedString("error_descarga_fichero",bundle: Bundle.main,comment: "")])))
 			 } else {
 				if let rtServlet = self.opParameters?[PARAMETER_NAME_RTSERVLET] as? String {
 				    self.rtServletCert = rtServlet
@@ -76,7 +76,7 @@ import Foundation
 				    self.loadDataFromRtservlet(completion: completion)
 				} else {
 				    self.reportError(errorCode: ERROR_MISSING_DATA, errorDesc: DESC_ERROR_MISSING_DATA)
-				    completion(.failure(NSError(domain: "Missing Data Error", code: -1, userInfo: [NSLocalizedDescriptionKey: "Cipher Key or RT Servlet is missing."])))
+				    completion(.failure(NSError(domain: "Error",code: -1,userInfo: [NSLocalizedDescriptionKey:NSLocalizedString("error_descarga_fichero",bundle: Bundle.main,comment: "")])))
 				}
 			 }
 		  }
@@ -87,7 +87,6 @@ import Foundation
 	   let errorToSend = errorCode + ERROR_SEPARATOR + errorDesc
 	   if let _ = self.stServletCert, let _ = self.idDocCert {
 		  self.errorReportAsync(errorToSend)
-		  print("ERROR: \(errorToSend)")
 	   }
     }
     
@@ -131,7 +130,7 @@ import Foundation
 	   let task = URLSession.shared.dataTask(with: request) { data, response, error in
 		  guard let data = data, error == nil else {
 			 print("Error: \(error?.localizedDescription ?? "No data")")
-			 completion(.failure(error ?? NSError(domain: "Unknown Error", code: -1, userInfo: [NSLocalizedDescriptionKey: "Unknown error occurred."])))
+			 completion(.failure(NSError(domain: "Error",code: -1,userInfo: [NSLocalizedDescriptionKey:NSLocalizedString("error_url_servidor",bundle: Bundle.main,comment: "")])))
 			 return
 		  }
 		  self.receivedDataCert = data
@@ -164,11 +163,11 @@ import Foundation
     ) {
 	   do {
 		  guard let cipherKeyCertData = cipherKeyCert?.data(using: .utf8) else {
-			 throw NSError(domain: "Cipher Key Error", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to encode cipher key."])
+			 throw NSError(domain: "Error",code: -1,userInfo: [NSLocalizedDescriptionKey:NSLocalizedString("error_descarga_fichero",bundle: Bundle.main,comment: "")])
 		  }
 		  
 		  guard let decoded = DesCypher.decypherData(responseString, sk: cipherKeyCertData) else {
-			 throw NSError(domain: "Decryption Error", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to decrypt response data."])
+			 throw NSError(domain: "Error",code: -1,userInfo: [NSLocalizedDescriptionKey:NSLocalizedString("error_descarga_fichero",bundle: Bundle.main,comment: "")])
 		  }
 		  
 		  if responseString.hasPrefix("ERR-06") && numberOfRetries < 3 {
@@ -181,7 +180,7 @@ import Foundation
 			 datosInUse = datosInUse?.removingPercentEncoding
 			 
 			 guard let entidad = AOXMLReader().loadXML(by: datosInUse ?? "") else {
-				throw NSError(domain: "XML Parsing Error", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to parse XML data."])
+				throw NSError(domain: "Error",code: -1,userInfo: [NSLocalizedDescriptionKey:NSLocalizedString("error_descarga_fichero",bundle: Bundle.main,comment: "")])
 			 }
 			 
 			 opParameters?[PARAMETER_NAME_DAT] = (entidad as AnyObject).datField ?? ""
@@ -198,12 +197,11 @@ import Foundation
 				if let opParameters = self.opParameters {
 				    completion(.success((entidad as! AOEntity, opParameters)))
 				} else {
-				    completion(.failure(NSError(domain: "XML Parsing Error", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to parse XML data."])))
+				    completion(.failure(NSError(domain: "Error",code: -1,userInfo: [NSLocalizedDescriptionKey:NSLocalizedString("error_descarga_fichero",bundle: Bundle.main,comment: "")])))
 				}
 			 }
 		  }
 	   } catch {
-		  print("Error decoding data: \(error.localizedDescription)")
 		  DispatchQueue.main.async {
 			 completion(.failure(error))
 		  }

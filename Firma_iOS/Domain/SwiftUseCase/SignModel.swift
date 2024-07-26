@@ -36,7 +36,6 @@ class SignModel {
 	   self.fileId = dictionary[PARAMETER_NAME_FILE_ID] as? String
 	   
 	   if let extraParams = self.extraParams {
-		  // URL Decode
 		  if let dataReceived = Base64Utils.decode(extraParams, urlSafe: true),
 			let stringDataReceived = String(data: dataReceived, encoding: .utf8),
 			let dict = CADESSignUtils.javaProperties2Dictionary(stringDataReceived) as? [String: Any] {
