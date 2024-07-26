@@ -133,6 +133,8 @@ struct SignViewMode: View {
 				buttonTitle = NSLocalizedString("send", bundle: Bundle.main, comment: "")
 			 } else if signModel.operation == OPERATION_SIGN {
 				buttonTitle = NSLocalizedString("home_certificates_sign_button_title", bundle: Bundle.main, comment: "")
+			 } else if signModel.operation == OPERATION_DOWNLOAD {
+				buttonTitle = NSLocalizedString("download", bundle: Bundle.main, comment: "")
 			 }
 			 
 		  case .failure(let error):

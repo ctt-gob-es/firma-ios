@@ -72,6 +72,7 @@
 "selectcert_certificate_selector_label" = "Se ha seleccionado el siguiente certificado del almacén:";
 "selectcert_certificate_description_label" = "Se va a utilizar este certificado para realizar el procedimiento de envío de certificado. Pulse el siguiente botón para iniciar el proceso.";
 "send" = "Enviar";
+"download" = "Descargar";
 "sign_certificate_selector_label" = "Se ha seleccionado el siguiente certificado del almacén:";
 "sign_certificate_description_label" = "Se va a utilizar este certificado para realizar la firma. Pulse el siguiente botón para iniciar el proceso.";
 "help_menu_description_label" = "Los contenidos de esta sección son específicos de la versión móvil del servicio. Si desea consultar información general sobre el mismo, puede visitar el <a href='http://administracionelectronica.gob.es/'>Portal web de la Administración Electrónica</a>";

@@ -72,6 +72,7 @@
 "selectcert_certificate_selector_label" = "The next certificate is selected from the keychain: ";
 "selectcert_certificate_description_label" = "This certificate is going to be use in the send certificate procedure. Please, push the \"Send\" button to start the process.";
 "send" = "Send";
+"download" = "Download";
 "sign_certificate_selector_label" = "The next certificate is selected from the keychain: ";
 "sign_certificate_description_label" = "This certificate is going to be use in the signing procedure. Please, push the \"Sign\" button to start the process.";
 "help_menu_description_label" = "This section contents are specific to the mobile version of the service. For more general information about it, visit the <a href='http://administracionelectronica.gob.es/'>Web portal of the Electronic Administration</a>";
