@@ -36,7 +36,6 @@ struct FloatingPlaceholderTextField: View {
 				.onTapGesture {
 				    isFocused = true
 				}
-				.keyboardType(.numberPad)
 				.font(.custom("NunitoSans10pt-Regular", size: 16))
 				.foregroundColor(.primary)
 				.padding([.horizontal])
@@ -44,7 +43,6 @@ struct FloatingPlaceholderTextField: View {
 				TextField("", text: $text, onEditingChanged: { editing in
 				    isFocused = editing
 				})
-				.keyboardType(.numberPad)
 				.font(.custom("NunitoSans10pt-Regular", size: 16))
 				.foregroundColor(.primary)
 				.padding([.horizontal])

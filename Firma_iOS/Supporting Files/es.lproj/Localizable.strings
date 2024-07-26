@@ -140,7 +140,6 @@ trámite funciona en otros dispositivos. ¿Por qué?\n\n";
 "privacy_subtitle" = "Subtítulo";
 "privacy_policy_checkbox_description" = "He leído y estoy de acuerdo con la Política de Privacidad";
 "privacy_tou_checkbox_description" = "He leído y estoy de acuerdo con el Aviso Legal y los Términos y Condiciones de Uso";
-"privacy_button_title" = "Aceptar";
 
 //Home
 "home_certificates_label" = "Certificados";
@@ -347,3 +346,8 @@ Para funcionar correctamente debes instalar un certificado electrónico. Consult
 "find_dni_view_title" = "Buscando DNIe";
 "find_dni_view_description" = "Pon tu móvil sobre el DNIe lo más cerca posible del lector NFC.";
 "find_dni_button_title" = "Cancelar";
+
+//Pseudonym
+"pseudonym_modal_title" = "Aviso";
+"pseudonym_modal_description" = "El certificado escogido es un certificado de seudónimo. En la firma no parecerán sus datos personales";
+"change_certificate_button_title" = "Cambiar de certificado";

@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import Security
 
 class SwiftCertificateUtils {
-    func updateSelectedCertificate(certificateUtils: CertificateUtils?, _ selectedCertificateSubject: String)  -> Bool{
+   static func updateSelectedCertificate(certificateUtils: CertificateUtils?, _ selectedCertificateSubject: String)  -> Bool{
 	   if ((certificateUtils?.searchIdentity(byName: selectedCertificateSubject)) != nil) {
 		  let userDefaults = UserDefaults.standard
 		  userDefaults.set([kAOUserDefaultsKeyAlias: selectedCertificateSubject], forKey: kAOUserDefaultsKeyCurrentCertificate)

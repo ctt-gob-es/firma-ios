@@ -115,13 +115,6 @@ class SingleSignUseCase {
     }
     
     private func handlePostSignResult(signModel: SignModel, result: Result<Data, Error>, completion: @escaping (Result<Void, Error>) -> Void) {
-	   guard let urlServlet = signModel.urlServlet,
-		    let cipherKey = signModel.cipherKey,
-		    let docId = signModel.docId,
-		    let certificateData = certificateUtils?.base64UrlSafeCertificateData else {
-		  handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_datos_firmar", bundle: Bundle.main, comment: "")]), completion: completion)
-		  return
-	   }
 	   switch result {
 		  case .success(let postSignResult):
 			 if let responseString = String(data: postSignResult, encoding: .utf8) {

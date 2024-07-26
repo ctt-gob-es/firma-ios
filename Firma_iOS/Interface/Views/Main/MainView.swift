@@ -20,6 +20,7 @@ struct MainView: View {
     @State var certificateURL: URL?
     @State var viewMode: ViewModes = .home
     @State var urlReceived: URL?
+    @State var shouldSign: Bool = false
     @State var shouldReload: Bool = false
     
     var body: some View {
@@ -36,6 +37,7 @@ struct MainView: View {
 						  SignViewMode(
 							 certificates: $certificates,
 							 viewMode: $viewMode,
+							 shouldSign: $shouldSign,
 							 urlReceived: urlReceived
 						  )
 					   }
@@ -70,7 +72,8 @@ struct MainView: View {
 			 .navigationDestination(isPresented: $appStatus.navigateToSelectCertificate) {
 				SignViewMode(
 				    certificates: $certificates,
-				    viewMode: $viewMode
+				    viewMode: $viewMode,
+				    shouldSign: $shouldSign
 				)
 			 }
 			 .navigationDestination(isPresented: $appStatus.navigateToAddCertificate) {
@@ -108,10 +111,10 @@ struct MainView: View {
 				shouldReload: $shouldReload,
 				certificate: selectedCertificate
 			 )
-				.fixedSize(horizontal: false, vertical: true)
-				.modifier(GetHeightModifier(height: $sheetHeight))
-				.presentationDetents([.height(sheetHeight)])
-				.accessibility(addTraits: .isModal)
+			 .fixedSize(horizontal: false, vertical: true)
+			 .modifier(GetHeightModifier(height: $sheetHeight))
+			 .presentationDetents([.height(sheetHeight)])
+			 .accessibility(addTraits: .isModal)
 		  }
 	   }
 	   .sheet(isPresented: $appStatus.showSignModal) {
@@ -170,13 +173,19 @@ struct MainView: View {
 		  DocumentErrorModalView()
 			 .accessibility(addTraits: .isModal)
 	   }
+	   .sheet(isPresented: $appStatus.showPseudonymModal) {
+		  PseudonymModalView(shouldSign: $shouldSign)
+			 .fixedSize(horizontal: false, vertical: true)
+			 .modifier(GetHeightModifier(height: $sheetHeight))
+			 .presentationDetents([.height(sheetHeight)])
+			 .accessibility(addTraits: .isModal)
+	   }
 	   .onChange(of: shouldReload, perform: { value in
 		  if value {
 			 certificates = getCertificates()
 			 shouldReload = false
 		  }
-	   }
-	   )
+	   })
     }
     
     func getCertificates() -> [AOCertificateInfo] {

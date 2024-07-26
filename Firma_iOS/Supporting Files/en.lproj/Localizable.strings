@@ -139,7 +139,6 @@ procedure works on other devices. Why?\n\n";
 "privacy_subtitle" = "Subtitle";
 "privacy_policy_checkbox_description" = "I have read and agree to the Privacy Policy";
 "privacy_tou_checkbox_description" = "I have read and agree to the Legal Notice and the Terms and Conditions of Use";
-"privacy_button_title" = "Accept";
 
 //Home
 "home_certificates_label" = "Certificates";
@@ -350,3 +349,8 @@ To work correctly you must install an electronic certificate. Consult the docume
 "find_dni_view_title" = "Searching for e-ID";
 "find_dni_view_description" = "Place your mobile phone on the e-ID as close as possible to the NFC reader.";
 "find_dni_button_title" = "Cancel";
+
+//Pseudonym
+"pseudonym_modal_title" = "Notice";
+"pseudonym_modal_description" = "The chosen certificate is a pseudonym certificate. Your personal data will not appear in the signature";
+"change_certificate_button_title" = "Change certificate";

@@ -14,13 +14,16 @@ class AppStatus: ObservableObject {
     @Published var showDeleteModal: Bool = false
     @Published var showSignModal : Bool = false
     @Published var showSuccessModal: Bool = false
-    @Published var successModalState: SuccessModalState = .successCertificateAdded
     @Published var showErrorModal: Bool = false
-    @Published var errorModalState: ErrorModalState = .trackingError
-    @Published var errorModalDescription: String = ""
     @Published var showRecoveryModal: Bool = false
     @Published var showDocumentErrorModal: Bool = false
+    @Published var showPseudonymModal: Bool = false
     @Published var showDocumentPicker: Bool = false
+    
+    @Published var successModalState: SuccessModalState = .successCertificateAdded
+    @Published var errorModalState: ErrorModalState = .trackingError
+    
+    @Published var errorModalDescription: String = ""
     @Published var selectedCertificate: AOCertificateInfo? = nil
     @Published var shouldUseNFC: Bool? = false
     @Published var languageHasChanged: Bool? = false

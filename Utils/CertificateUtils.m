@@ -13,6 +13,7 @@
 #import "GlobalConstants.h"
 #import "OpenSSLCertificateHelper.h"
 #import <openssl/x509.h>
+#import <Security/Security.h>
 
 
 #define SHA1_DIGESTINFO_HEADER_LENGTH 15
@@ -696,6 +697,63 @@ static CertificateUtils *_sharedWrapper = nil;
 	   }
     }
     return  NULL;
+}
+
+
+- (BOOL)isPseudonymCertificate:(SecIdentityRef)identity {
+    SecCertificateRef certificate = NULL;
+    OSStatus status = SecIdentityCopyCertificate(identity, &certificate);
+    if (status != errSecSuccess || !certificate) {
+	   NSLog(@"No certificate found for the identity.");
+	   return NO;
+    }
+
+    CFDataRef certificateData = SecCertificateCopyData(certificate);
+    if (!certificateData) {
+	   CFRelease(certificate);
+	   NSLog(@"Failed to copy certificate data.");
+	   return NO;
+    }
+
+    const unsigned char *data = CFDataGetBytePtr(certificateData);
+    X509 *x509 = d2i_X509(NULL, &data, CFDataGetLength(certificateData));
+    if (!x509) {
+	   CFRelease(certificateData);
+	   CFRelease(certificate);
+	   NSLog(@"Failed to parse X509 certificate.");
+	   return NO;
+    }
+
+    BOOL isPseudonym = NO;
+    X509_NAME *subjectName = X509_get_subject_name(x509);
+    if (subjectName) {
+	   int entryCount = X509_NAME_entry_count(subjectName);
+	   for (int i = 0; i < entryCount; i++) {
+		  X509_NAME_ENTRY *entry = X509_NAME_get_entry(subjectName, i);
+		  ASN1_OBJECT *obj = X509_NAME_ENTRY_get_object(entry);
+		  ASN1_STRING *data = X509_NAME_ENTRY_get_data(entry);
+		  unsigned char *utf8;
+		  int length = ASN1_STRING_to_UTF8(&utf8, data);
+		  if (length >= 0) {
+			 char objbuf[128];
+			 OBJ_obj2txt(objbuf, sizeof(objbuf), obj, 1);
+			 NSString *label = [NSString stringWithUTF8String:objbuf];
+			 NSString *value = [[NSString alloc] initWithBytes:utf8 length:length encoding:NSUTF8StringEncoding];
+			 if (label && value) {
+				if ([label isEqualToString:@"2.5.4.65"]) {
+				    isPseudonym = YES;
+				}
+			 }
+			 OPENSSL_free(utf8);
+		  }
+	   }
+    }
+
+    X509_free(x509);
+    CFRelease(certificateData);
+    CFRelease(certificate);
+
+    return isPseudonym;
 }
 
 - (void)dealloc {

@@ -24,6 +24,7 @@
 		83A5EDBD2C5255DD00F93B6D /* BachRest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5EDBB2C5255DD00F93B6D /* BachRest.m */; };
 		83A5EDC02C527E6F00F93B6D /* ErrorHandlerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A5EDBF2C527E6F00F93B6D /* ErrorHandlerUtils.swift */; };
 		83A5EDC22C53B4BB00F93B6D /* SwiftCertificateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A5EDC12C53B4BB00F93B6D /* SwiftCertificateUtils.swift */; };
+		83A5EDC42C53C02100F93B6D /* PseudonymModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A5EDC32C53C02100F93B6D /* PseudonymModalView.swift */; };
 		83C0EC852C3FE6B300244071 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC842C3FE6B300244071 /* PrivacyView.swift */; };
 		83C0EC8A2C3FEDB500244071 /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC892C3FEDB500244071 /* CheckBoxView.swift */; };
 		83C0EC8C2C3FEDD000244071 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC8B2C3FEDD000244071 /* NavigationBarModifier.swift */; };
@@ -307,6 +308,7 @@
 		83A5EDBB2C5255DD00F93B6D /* BachRest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BachRest.m; sourceTree = "<group>"; };
 		83A5EDBF2C527E6F00F93B6D /* ErrorHandlerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandlerUtils.swift; sourceTree = "<group>"; };
 		83A5EDC12C53B4BB00F93B6D /* SwiftCertificateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCertificateUtils.swift; sourceTree = "<group>"; };
+		83A5EDC32C53C02100F93B6D /* PseudonymModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudonymModalView.swift; sourceTree = "<group>"; };
 		83C0EC842C3FE6B300244071 /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
 		83C0EC892C3FEDB500244071 /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
 		83C0EC8B2C3FEDD000244071 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
@@ -933,6 +935,7 @@
 				83EF14CC2C464DE5003EC42A /* ErrorModalView.swift */,
 				83EF14D22C46722D003EC42A /* RecoveryModalView.swift */,
 				83EF14D42C467241003EC42A /* DocumentErrorModalView.swift */,
+				83A5EDC32C53C02100F93B6D /* PseudonymModalView.swift */,
 			);
 			path = Modals;
 			sourceTree = "<group>";
@@ -1797,6 +1800,7 @@
 				838114C42C5131AA00CDEC97 /* PresignRest.swift in Sources */,
 				C3B11DDE16FB642B00C0D623 /* constr_SEQUENCE.c in Sources */,
 				83C172552C3803E90057F5BD /* ByteArrayTagOrder.m in Sources */,
+				83A5EDC42C53C02100F93B6D /* PseudonymModalView.swift in Sources */,
 				C3B11DE016FB642B00C0D623 /* constr_SET_OF.c in Sources */,
 				C3B11DE216FB642B00C0D623 /* constr_TYPE.c in Sources */,
 				C3B11DE416FB642B00C0D623 /* constraints.c in Sources */,

@@ -13,6 +13,7 @@ struct SignViewMode: View {
     @EnvironmentObject private var appStatus : AppStatus
     @Binding var certificates: [AOCertificateInfo]?
     @Binding var viewMode: ViewModes
+    @Binding var shouldSign: Bool
     @State var buttonEnabled: Bool = false
     @State var urlReceived: URL?
     @State private var isLoading: Bool = false
@@ -82,8 +83,22 @@ struct SignViewMode: View {
 	   .onChange(of: appStatus.selectedCertificate, perform: { value in
 		  if let value = value{
 			 DispatchQueue.global(qos: .background).async {
-				buttonEnabled = SwiftCertificateUtils().updateSelectedCertificate(certificateUtils: certificateUtils, value.subject)
+				buttonEnabled = SwiftCertificateUtils.updateSelectedCertificate(certificateUtils: certificateUtils, value.subject)
+				guard let certificateUtils = certificateUtils,
+					 let selectedCertificateName = certificateUtils.selectedCertificateName else {
+				    return
+				}
+				
+				DispatchQueue.main.async {
+				    appStatus.showPseudonymModal = certificateUtils.isPseudonymCertificate(getIdentityFromKeychain(certName: selectedCertificateName))
+				}
 			 }
+		  }
+	   })
+	   .onChange(of: shouldSign, perform: { value in
+		  if value {
+			 handleButtonAction()
+			 shouldSign = false
 		  }
 	   })
 	   .onAppear {
@@ -211,5 +226,25 @@ struct SignViewMode: View {
 		  }
 		  
 	   })
+    }
+    
+    func getIdentityFromKeychain(certName: String) -> SecIdentity? {
+	   let query: [String: Any] = [
+		  kSecClass as String: kSecClassIdentity,
+		  kSecAttrLabel as String: certName,
+		  kSecReturnRef as String: kCFBooleanTrue!,
+		  kSecMatchLimit as String: kSecMatchLimitOne
+	   ]
+
+	   var item: CFTypeRef?
+	   let status = SecItemCopyMatching(query as CFDictionary, &item)
+	   
+	   guard status == errSecSuccess else {
+		  print("Identity not found: \(status)")
+		  return nil
+	   }
+
+	   let identity = item as! SecIdentity
+	   return identity
     }
 }
