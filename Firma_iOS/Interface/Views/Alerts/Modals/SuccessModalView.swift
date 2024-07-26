@@ -54,13 +54,19 @@ struct SuccessModalView: View {
 }
 
 enum SuccessModalState {
-    case successCertificate
+    case successCertificateAdded
+    case successCertificateSent
+    case successCertificateDeleted
     case successSign
     
     var title: String {
 	   switch self {
-		  case .successCertificate:
+		  case .successCertificateAdded:
 			 return NSLocalizedString("certificate_added_success_title",bundle: Bundle.main, comment: "")
+		  case .successCertificateSent:
+			 return NSLocalizedString("certificate_sent_success_title",bundle: Bundle.main, comment: "")
+		  case .successCertificateDeleted:
+			 return NSLocalizedString("certificate_delete_success_title",bundle: Bundle.main, comment: "")
 		  case .successSign:
 			 return NSLocalizedString("sign_success_title",bundle: Bundle.main, comment: "")
 	   }
@@ -68,8 +74,12 @@ enum SuccessModalState {
     
     var description: String {
 	   switch self {
-		  case .successCertificate:
+		  case .successCertificateAdded:
 			 return NSLocalizedString("certificate_added_success_description",bundle: Bundle.main, comment: "")
+		  case .successCertificateSent:
+			 return NSLocalizedString("certificate_sent_success_description",bundle: Bundle.main, comment: "")
+		  case .successCertificateDeleted:
+			 return NSLocalizedString("certificate_delete_success_description",bundle: Bundle.main, comment: "")
 		  case .successSign:
 			 return NSLocalizedString("sign_success_description",bundle: Bundle.main, comment: "")
 	   }

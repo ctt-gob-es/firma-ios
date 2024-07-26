@@ -90,7 +90,7 @@ SecKeyRef privateKey = NULL;
         // Logo
     self.logo.accessibilityLabel = @"logo".localized;
     
-    self.useCase = [[BatchSignUseCase alloc] initWithCertificate: self.base64UrlSafeCertificateData withDelegate:self andPrivateKey:privateKey];
+    self.useCase = [[BatchSignUseCase alloc] initWithCertificate:self.base64UrlSafeCertificateData privateKey:privateKey];
     
     self.screenName = @"IOS AOSignViewController - Start signature process window";
     [self preloadData];

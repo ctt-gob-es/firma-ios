@@ -59,14 +59,6 @@ struct DeleteCertificateModalView: View {
 			 
 			 Button(action: {
 				let status = deleteCertificate(certificate)
-				
-				if status == errSecSuccess {
-				    print("Certificate deleted successfully")
-				    self.shouldReload = true
-				    self.presentationMode.wrappedValue.dismiss()
-				} else {
-				    print("Failed to delete certificate with status: \(status)")
-				}
 			 }) {
 				AccessibleText(content: NSLocalizedString("delete_certificate_button_title", bundle: Bundle.main, comment: ""))
 			 }
@@ -81,6 +73,9 @@ struct DeleteCertificateModalView: View {
     func deleteCertificate(_ certificateInfo: AOCertificateInfo) -> OSStatus {
 	   var status: OSStatus = noErr
 	   status = OpenSSLCertificateHelper.deleteCertificate(certificateInfo)
+	   
+	   self.shouldReload = true
+	   self.presentationMode.wrappedValue.dismiss()
 	   return status
     }
 }

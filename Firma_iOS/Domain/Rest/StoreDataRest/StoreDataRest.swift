@@ -9,7 +9,7 @@
 import Foundation
 
 class StoreDataRest {
-    func sendCertificate(urlServlet: String, cipherKey: String, docId: String, base64UrlSafeCertificateData: String, dataSign: String, completion: @escaping (Result<Data, Error>) -> Void) {
+    func storeData(urlServlet: String, cipherKey: String, docId: String, base64UrlSafeCertificateData: String, dataSign: String, completion: @escaping (Result<Data, Error>) -> Void) {
 	   
 	   DispatchQueue.global(qos: .background).async {
 		  var post = ""
@@ -61,7 +61,7 @@ class StoreDataRest {
 		  let task = session.dataTask(with: request) { data, response, error in
 			 DispatchQueue.main.async {
 				if let error = error {
-				    print("Error: \(error)")
+				    print("Error Storing data: \(error)")
 				    completion(.failure(error))
 				    return
 				}

@@ -14,8 +14,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BatchSignUseCase : NSObject<BatchRestDelegate,ServletRestDelegate>
-- (BatchSignUseCase*)initWithCertificate:(NSString *) base64UrlSafeCertificateData withDelegate:(id) delegate andPrivateKey:(SecKeyRef) thePrivateKey ;
+- (id)initWithCertificate:(NSString *)base64UrlSafeCertificateData privateKey:(SecKeyRef)thePrivateKey;
 - (void)signBatch:(NSDictionary*) dataOperation;
+- (void)signBatch:(NSDictionary *)dataOperation completion:(void (^)(NSString *responseMessage, NSError *error))completion;
 @end
 
 @protocol BatchSignUseCaseDelegate <NSObject>

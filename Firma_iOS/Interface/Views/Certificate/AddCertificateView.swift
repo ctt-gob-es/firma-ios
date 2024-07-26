@@ -102,7 +102,7 @@ struct AddCertificateView: View {
 			 
 			 DispatchQueue.main.asyncAfter(deadline: .now() + delayDuration) {
 				appStatus.showSuccessModal = true
-				appStatus.successModalState = .successCertificate
+				appStatus.successModalState = .successCertificateAdded
 				shouldReload = true
 			 }
 		  } else {

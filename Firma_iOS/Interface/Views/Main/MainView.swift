@@ -104,7 +104,10 @@ struct MainView: View {
 	   }
 	   .sheet(isPresented: $appStatus.showDeleteModal){
 		  if let selectedCertificate = appStatus.selectedCertificate {
-			 DeleteCertificateModalView(shouldReload: $shouldReload, certificate: selectedCertificate)
+			 DeleteCertificateModalView(
+				shouldReload: $shouldReload,
+				certificate: selectedCertificate
+			 )
 				.fixedSize(horizontal: false, vertical: true)
 				.modifier(GetHeightModifier(height: $sheetHeight))
 				.presentationDetents([.height(sheetHeight)])

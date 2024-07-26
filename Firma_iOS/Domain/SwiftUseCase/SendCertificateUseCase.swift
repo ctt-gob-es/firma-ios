@@ -31,7 +31,7 @@ class SendCertificateUseCase {
 	   dataSign: String,
 	   completion: @escaping (Result<Data, Error>
 	   ) -> Void) {
-	   storeDataRest.sendCertificate(
+	   storeDataRest.storeData(
 		  urlServlet: urlServlet,
 		  cipherKey: cipherKey,
 		  docId: docId,

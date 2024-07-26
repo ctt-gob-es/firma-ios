@@ -244,7 +244,11 @@ To work correctly you must install an electronic certificate. Consult the docume
 "certificate_use" = "Use";
 "certificate_delete" = "Delete";
 "certificate_added_success_title" = "Certificate added";
+"certificate_sent_success_title" = "Certificate sent";
+"certificate_delete_success_title" = "Certificate deleted";
 "certificate_added_success_description" = "The certificate has been added successfully.";
+"certificate_sent_success_description" = "The certificate has been sent successfully.";
+"certificate_delete_success_description" = "The certificate has been deleted successfully.";
 
 //Error Modals
 

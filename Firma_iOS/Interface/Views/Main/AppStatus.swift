@@ -14,7 +14,7 @@ class AppStatus: ObservableObject {
     @Published var showDeleteModal: Bool = false
     @Published var showSignModal : Bool = false
     @Published var showSuccessModal: Bool = false
-    @Published var successModalState: SuccessModalState = .successCertificate
+    @Published var successModalState: SuccessModalState = .successCertificateAdded
     @Published var showErrorModal: Bool = false
     @Published var errorModalState: ErrorModalState = .trackingError
     @Published var errorModalDescription: String = ""
