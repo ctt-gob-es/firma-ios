@@ -21,4 +21,23 @@ class SwiftCertificateUtils {
 		  return false
 	   }
     }
+    
+    static func getIdentityFromKeychain(certName: String) -> SecIdentity? {
+	   let query: [String: Any] = [
+		  kSecClass as String: kSecClassIdentity,
+		  kSecAttrLabel as String: certName,
+		  kSecReturnRef as String: kCFBooleanTrue!,
+		  kSecMatchLimit as String: kSecMatchLimitOne
+	   ]
+
+	   var item: CFTypeRef?
+	   let status = SecItemCopyMatching(query as CFDictionary, &item)
+	   
+	   guard status == errSecSuccess else {
+		  return nil
+	   }
+
+	   let identity = item as! SecIdentity
+	   return identity
+    }
 }

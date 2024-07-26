@@ -14,6 +14,8 @@ struct SignViewMode: View {
     @Binding var certificates: [AOCertificateInfo]?
     @Binding var viewMode: ViewModes
     @Binding var shouldSign: Bool
+    @Binding var showDocumentSavingPicker: Bool
+    @Binding var downloadedData: Data?
     @State var buttonEnabled: Bool = false
     @State var urlReceived: URL?
     @State private var isLoading: Bool = false
@@ -23,6 +25,7 @@ struct SignViewMode: View {
     @State var sendCertificateUseCase: SendCertificateUseCase?
     @State var signUseCase: SingleSignUseCase?
     @State var batchSignUseCase: BatchSignUseCase?
+    @State var downloadDataUseCase: DownloadDataUseCase?
     @State var certificateUtils: CertificateUtils?
     @State var signModel: SignModel?
     @State var parameters: NSMutableDictionary = [:]
@@ -90,7 +93,7 @@ struct SignViewMode: View {
 				}
 				
 				DispatchQueue.main.async {
-				    appStatus.showPseudonymModal = certificateUtils.isPseudonymCertificate(getIdentityFromKeychain(certName: selectedCertificateName))
+				    appStatus.showPseudonymModal = certificateUtils.isPseudonymCertificate(SwiftCertificateUtils.getIdentityFromKeychain(certName: selectedCertificateName))
 				}
 			 }
 		  }
@@ -149,6 +152,8 @@ struct SignViewMode: View {
 	   } else if signModel?.operation == OPERATION_SIGN {
 		  handleOperationSign()
 	   } else if signModel?.operation == OPERATION_BATCH {
+		  handleOperationBatch()
+	   } else if signModel?.operation == OPERATION_DOWNLOAD {
 		  handleOperationBatch()
 	   }
     }
@@ -228,23 +233,28 @@ struct SignViewMode: View {
 	   })
     }
     
-    func getIdentityFromKeychain(certName: String) -> SecIdentity? {
-	   let query: [String: Any] = [
-		  kSecClass as String: kSecClassIdentity,
-		  kSecAttrLabel as String: certName,
-		  kSecReturnRef as String: kCFBooleanTrue!,
-		  kSecMatchLimit as String: kSecMatchLimitOne
-	   ]
-
-	   var item: CFTypeRef?
-	   let status = SecItemCopyMatching(query as CFDictionary, &item)
-	   
-	   guard status == errSecSuccess else {
-		  print("Identity not found: \(status)")
-		  return nil
+    func handleOperationSaveData(urlString: String) {
+	   let downloadUseCase = DownloadDataUseCase()
+	   guard let urlString = signModel?.urlServlet else {
+		  appStatus.errorModalState = .globalError
+		  appStatus.showErrorModal = true
+		  return
 	   }
 
-	   let identity = item as! SecIdentity
-	   return identity
+	   downloadUseCase.downloadDataFromURL(urlString: urlString) { result in
+		  DispatchQueue.main.async {
+			 switch result {
+			 case .success(let data):
+				self.downloadedData = data
+				self.showDocumentSavingPicker = true
+
+			 case .failure(let error):
+				print("Failed to download data: \(error.localizedDescription)")
+				self.appStatus.errorModalState = .globalError
+				self.appStatus.errorModalDescription = error.localizedDescription
+				self.appStatus.showErrorModal = true
+			 }
+		  }
+	   }
     }
 }

@@ -38,6 +38,8 @@ struct MainView: View {
 							 certificates: $certificates,
 							 viewMode: $viewMode,
 							 shouldSign: $shouldSign,
+							 showDocumentSavingPicker: $appStatus.showDocumentSavingPicker,
+							 downloadedData: $appStatus.downloadedData,
 							 urlReceived: urlReceived
 						  )
 					   }
@@ -73,7 +75,9 @@ struct MainView: View {
 				SignViewMode(
 				    certificates: $certificates,
 				    viewMode: $viewMode,
-				    shouldSign: $shouldSign
+				    shouldSign: $shouldSign,
+				    showDocumentSavingPicker: $appStatus.showDocumentSavingPicker,
+				    downloadedData: $appStatus.downloadedData
 				)
 			 }
 			 .navigationDestination(isPresented: $appStatus.navigateToAddCertificate) {
@@ -179,6 +183,15 @@ struct MainView: View {
 			 .modifier(GetHeightModifier(height: $sheetHeight))
 			 .presentationDetents([.height(sheetHeight)])
 			 .accessibility(addTraits: .isModal)
+	   }
+	   .sheet(isPresented: $appStatus.showDocumentSavingPicker) {
+		  if let data = appStatus.downloadedData {
+			 DocumentSavingPicker(data: data, fileName: "DownloadedFile", completion: {
+				DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+				    UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
+				}
+			 })
+		  }
 	   }
 	   .onChange(of: shouldReload, perform: { value in
 		  if value {
