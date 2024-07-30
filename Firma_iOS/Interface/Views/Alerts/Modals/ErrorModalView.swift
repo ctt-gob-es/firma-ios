@@ -70,6 +70,7 @@ struct ErrorModalView: View {
 			 }  else {
 				if errorModalState.hasCancelButton {
 				    Button(action: {
+					   self.viewMode = .home
 					   self.presentationMode.wrappedValue.dismiss()
 				    }) {
 					   AccessibleText(content: NSLocalizedString("cancel_button_title", bundle: Bundle.main, comment: ""))
@@ -79,7 +80,7 @@ struct ErrorModalView: View {
 				}
 				
 				Button(action: {
-				    // Action for the main button
+				    self.presentationMode.wrappedValue.dismiss()
 				}) {
 				    if let buttonTitle = errorModalState.bottomButtonTitle {
 					   AccessibleText(content: buttonTitle)

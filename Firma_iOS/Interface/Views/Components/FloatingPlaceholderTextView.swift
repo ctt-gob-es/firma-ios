@@ -39,6 +39,8 @@ struct FloatingPlaceholderTextField: View {
 				.font(.custom("NunitoSans10pt-Regular", size: 16))
 				.foregroundColor(.primary)
 				.padding([.horizontal])
+				.textInputAutocapitalization(.none)
+				.autocapitalization(.none)
 			 } else {
 				TextField("", text: $text, onEditingChanged: { editing in
 				    isFocused = editing
@@ -46,6 +48,8 @@ struct FloatingPlaceholderTextField: View {
 				.font(.custom("NunitoSans10pt-Regular", size: 16))
 				.foregroundColor(.primary)
 				.padding([.horizontal])
+				.textInputAutocapitalization(.none)
+				.autocapitalization(.none)
 			 }
 			 
 			 ZStack {
@@ -69,9 +73,10 @@ struct FloatingPlaceholderTextField: View {
 					   }) {
 						  Image("eye")
 					   }
+					   .padding(.horizontal, 30)
 				    }
 				    .padding(.horizontal)
-				    .offset(y: -20)
+				    .offset(y: -22)
 				}
 			 }
 		  }

@@ -15,7 +15,7 @@ struct SignViewMode: View {
     @Binding var viewMode: ViewModes
     @Binding var shouldSign: Bool
     @Binding var showDocumentSavingPicker: Bool
-    @Binding var downloadedData: Data?
+    @Binding var downloadedData: URL?
     @State var buttonEnabled: Bool = false
     @State var urlReceived: URL?
     @State private var isLoading: Bool = false
@@ -25,11 +25,12 @@ struct SignViewMode: View {
     @State var sendCertificateUseCase: SendCertificateUseCase?
     @State var signUseCase: SingleSignUseCase?
     @State var batchSignUseCase: BatchSignUseCase?
-    @State var downloadDataUseCase: DownloadDataUseCase?
+    @State var saveDataUseCase: SaveDataUseCase?
     @State var certificateUtils: CertificateUtils?
     @State var signModel: SignModel?
     @State var parameters: NSMutableDictionary = [:]
-    @State var buttonTitle: String = NSLocalizedString("home_certificates_sign_button_title", bundle: Bundle.main, comment: "")
+    @State var buttonTitle: String?
+    @State var areCertificablesSelectable: Bool = false
     
     var body: some View {
 	   VStack {
@@ -54,7 +55,7 @@ struct SignViewMode: View {
 					   ForEach(certificates, id: \.certificateRef) { certificate in
 						  CertificateCellView(
 							 certificateInfo: certificate,
-							 isSelectable: true,
+							 isSelectable: $areCertificablesSelectable,
 							 isSelected: appStatus.selectedCertificate == certificate ? true : false
 						  )
 						  .listRowSeparator(.hidden)
@@ -71,14 +72,16 @@ struct SignViewMode: View {
 				}
 				
 				VStack(spacing: 10) {
-				    Button(action: {
-					   if buttonEnabled {
-						  handleButtonAction()
+				    if let buttonTitle = buttonTitle {
+					   Button(action: {
+						  if buttonEnabled {
+							 handleButtonAction()
+						  }
+					   }) {
+						  AccessibleText(content: buttonTitle)
 					   }
-				    }) {
-					   AccessibleText(content: buttonTitle)
+					   .buttonStyle(CustomButtonStyle(isEnabled: buttonEnabled))
 				    }
-				    .buttonStyle(CustomButtonStyle(isEnabled: buttonEnabled))
 				}
 			 }
 		  }
@@ -104,6 +107,18 @@ struct SignViewMode: View {
 			 shouldSign = false
 		  }
 	   })
+	   .onChange(of: appStatus.importedDataURLS, perform: { value in
+		  if let url = value {
+			 FileUtils.convertURLFileToData(urls: url) { result in
+				switch result {
+				    case .success(let data):
+					   signModel?.datosInUse = Base64Utils.encode(data)
+				    case .failure(let error):
+					   handleError(error: error)
+				}
+			 }
+		  }
+	   })
 	   .onAppear {
 		  self.certificateUtils = CertificateUtils()
 		  
@@ -127,22 +142,32 @@ struct SignViewMode: View {
 			 guard let signModel = self.signModel else {
 				return
 			 }
+			 signModel.operation = OPERATION_SIGN_FROM_LOCAL
 			 signUseCase = SingleSignUseCase(signModel: signModel,certificateUtils: certificateUtils)
-			 
-			 if signModel.operation == OPERATION_SELECT_CERTIFICATE {
-				buttonTitle = NSLocalizedString("send", bundle: Bundle.main, comment: "")
-			 } else if signModel.operation == OPERATION_SIGN {
-				buttonTitle = NSLocalizedString("home_certificates_sign_button_title", bundle: Bundle.main, comment: "")
-			 } else if signModel.operation == OPERATION_DOWNLOAD {
-				buttonTitle = NSLocalizedString("download", bundle: Bundle.main, comment: "")
-			 }
+			 configureMode(signModel: signModel)
 			 
 		  case .failure(let error):
 			 DispatchQueue.main.async {
-				appStatus.errorModalDescription = error.localizedDescription
-				appStatus.errorModalState = .globalError
-				appStatus.showErrorModal = true
+				handleError(error: error)
 			 }
+	   }
+    }
+    
+    func configureMode(signModel: SignModel) {
+	   if signModel.operation == OPERATION_SELECT_CERTIFICATE {
+		  areCertificablesSelectable = true
+		  buttonTitle = NSLocalizedString("send", bundle: Bundle.main, comment: "")
+	   } else if signModel.operation == OPERATION_SIGN || signModel.operation == OPERATION_BATCH {
+		  areCertificablesSelectable = true
+		  buttonTitle = NSLocalizedString("home_certificates_sign_button_title", bundle: Bundle.main, comment: "")
+	   } else if signModel.operation == OPERATION_SAVE {
+		  buttonEnabled = true
+		  areCertificablesSelectable = false
+		  buttonTitle = NSLocalizedString("download", bundle: Bundle.main, comment: "")
+	   } else if signModel.operation == OPERATION_SIGN_FROM_LOCAL {
+		  appStatus.showDocumentImportingPicker = true
+		  areCertificablesSelectable = true
+		  buttonTitle = NSLocalizedString("home_certificates_sign_button_title", bundle: Bundle.main, comment: "")
 	   }
     }
     
@@ -151,12 +176,12 @@ struct SignViewMode: View {
 	   
 	   if signModel?.operation == OPERATION_SELECT_CERTIFICATE {
 		  handleOperationSelectCertificate()
-	   } else if signModel?.operation == OPERATION_SIGN {
+	   } else if signModel?.operation == OPERATION_SIGN || signModel?.operation == OPERATION_SIGN_FROM_LOCAL {
 		  handleOperationSign()
 	   } else if signModel?.operation == OPERATION_BATCH {
 		  handleOperationBatch()
-	   } else if signModel?.operation == OPERATION_DOWNLOAD {
-		  handleOperationBatch()
+	   } else if signModel?.operation == OPERATION_SAVE {
+		  handleOperationSaveData()
 	   }
     }
     
@@ -184,9 +209,7 @@ struct SignViewMode: View {
 				    appStatus.successModalState = .successCertificateSent
 				    appStatus.showSuccessModal = true
 				case .failure(let error):
-				    appStatus.errorModalDescription = error.localizedDescription
-				    appStatus.errorModalState = .globalError
-				    appStatus.showErrorModal = true
+				    handleError(error: error)
 			 }
 		  }
 		  
@@ -203,9 +226,7 @@ struct SignViewMode: View {
 				    appStatus.successModalState = .successSign
 				    appStatus.showSuccessModal = true
 				case .failure(let error):
-				    appStatus.errorModalDescription = error.localizedDescription
-				    appStatus.errorModalState = .globalError
-				    appStatus.showErrorModal = true
+				    handleError(error: error)
 			 }
 		  }
 	   }
@@ -222,9 +243,7 @@ struct SignViewMode: View {
 	   batchSignUseCase?.signBatch(parameters as! [AnyHashable : Any], completion: { responseMessage, error in
 		  DispatchQueue.main.async {
 			 if let error = error as NSError? {
-				appStatus.errorModalDescription = error.localizedDescription
-				appStatus.errorModalState = .globalError
-				appStatus.showErrorModal = true
+				handleError(error: error)
 			 } else {
 				viewMode = .home
 				appStatus.successModalState = .successSign
@@ -235,28 +254,26 @@ struct SignViewMode: View {
 	   })
     }
     
-    func handleOperationSaveData(urlString: String) {
-	   let downloadUseCase = DownloadDataUseCase()
-	   guard let urlString = signModel?.urlServlet else {
-		  appStatus.errorModalState = .globalError
-		  appStatus.showErrorModal = true
-		  return
-	   }
-
-	   downloadUseCase.downloadDataFromURL(urlString: urlString) { result in
-		  DispatchQueue.main.async {
+    func handleOperationSaveData() {
+	   self.saveDataUseCase = SaveDataUseCase()
+	   if let receivedStringData = signModel?.datosInUse {
+		  saveDataUseCase?.saveFileFromBase64Data(base64Data: receivedStringData) { result in
+			 appStatus.isLoading = false
 			 switch result {
-			 case .success(let data):
-				self.downloadedData = data
-				self.showDocumentSavingPicker = true
-
-			 case .failure(let error):
-				print("Failed to download data: \(error.localizedDescription)")
-				self.appStatus.errorModalState = .globalError
-				self.appStatus.errorModalDescription = error.localizedDescription
-				self.appStatus.showErrorModal = true
+				case .success(let url):
+				    appStatus.downloadedData = url
+				    self.downloadedData = url
+				    appStatus.showDocumentSavingPicker = true
+				case .failure(let error):
+				    handleError(error: error)
 			 }
 		  }
 	   }
+    }
+    
+    func handleError(error: Error) {
+	   self.appStatus.errorModalState = .globalError
+	   self.appStatus.errorModalDescription = error.localizedDescription
+	   self.appStatus.showErrorModal = true
     }
 }

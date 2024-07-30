@@ -26,7 +26,7 @@ class SingleSignUseCase {
 		  handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_datos_firmar", bundle: Bundle.main, comment: "")]), completion: completion)
 		  return
 	   }
-	   
+	   signModel.operation = OPERATION_SIGN
 	   presign(signModel: signModel, completion: completion)
     }
     

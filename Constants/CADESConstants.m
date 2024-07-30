@@ -17,7 +17,8 @@ NSString *const OPERATION_POSTSIGN = @"post";
 NSString *const OPERATION_PUT = @"put";
 NSString *const OPERATION_GET = @"get";
 NSString *const OPERATION_BATCH = @"batch";
-NSString *const OPERATION_DOWNLOAD = @"download";
+NSString *const OPERATION_SAVE = @"save";
+NSString *const OPERATION_SIGN_FROM_LOCAL = @"localsign";
 
 NSString *const PARAMETER_NAME_OPERATION = @"op";
 NSString *const PARAMETER_NAME_COPERATION = @"cop";

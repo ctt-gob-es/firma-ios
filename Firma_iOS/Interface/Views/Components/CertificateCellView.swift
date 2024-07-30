@@ -10,11 +10,31 @@ import SwiftUI
 struct CertificateCellView: View {
     @EnvironmentObject private var appStatus : AppStatus
     var certificateInfo: AOCertificateInfo
-    var isSelectable: Bool
+    @Binding var isSelectable: Bool
     var isSelected: Bool?
+    @State private var geometryHeight: CGFloat = 0
     
     var body: some View {
 	   VStack(alignment: .leading, spacing: 10) {
+		  if SwiftCertificateUtils.getCertificateOption(certificate: certificateInfo) != .valid {
+			 HStack {
+				AccessibleText(content: SwiftCertificateUtils.getCertificateOption(certificate: certificateInfo).title)
+				    .semiboldStyleSmall(foregroundColor: .white)
+				    .padding(4)
+				    .padding(.horizontal, 8)
+				    .background(SwiftCertificateUtils.getCertificateOption(certificate: certificateInfo) == .almostExpired ? ColorConstants.Status.success : ColorConstants.Status.error)
+				    .cornerRadius(geometryHeight / 2)
+				    .background(
+					   GeometryReader { geometry in
+						  Color.clear
+							 .onAppear {
+								self.geometryHeight = geometry.size.height
+							 }
+					   }
+				    )
+			 }
+		  }
+		  
 		  HStack {
 			 VStack {
 				AccessibleText(content: certificateInfo.subject)

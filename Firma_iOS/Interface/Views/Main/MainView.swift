@@ -77,7 +77,8 @@ struct MainView: View {
 				    viewMode: $viewMode,
 				    shouldSign: $shouldSign,
 				    showDocumentSavingPicker: $appStatus.showDocumentSavingPicker,
-				    downloadedData: $appStatus.downloadedData
+				    downloadedData: $appStatus.downloadedData,
+				    areCertificablesSelectable: true
 				)
 			 }
 			 .navigationDestination(isPresented: $appStatus.navigateToAddCertificate) {
@@ -102,6 +103,17 @@ struct MainView: View {
 	   .onDisappear {
 		  navigationTitle = "Autofirma"
 	   }
+	   .onChange(of: shouldReload, perform: { value in
+		  if value {
+			 certificates = getCertificates()
+			 shouldReload = false
+		  }
+	   })
+	   .onChange(of: appStatus.showDocumentSavingPicker, perform: { value in
+		  if !value{
+			 viewMode = .home
+		  }
+	   })
 	   .sheet(isPresented: $appStatus.showingInfoModal) {
 		  InfoModalView()
 			 .fixedSize(horizontal: false, vertical: true)
@@ -185,20 +197,37 @@ struct MainView: View {
 			 .accessibility(addTraits: .isModal)
 	   }
 	   .sheet(isPresented: $appStatus.showDocumentSavingPicker) {
-		  if let data = appStatus.downloadedData {
-			 DocumentSavingPicker(data: data, fileName: "DownloadedFile", completion: {
-				DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-				    UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
+		  if let url = appStatus.downloadedData {
+			 DocumentSavingPicker(fileURL: url, onDismiss: { result in
+				viewMode = .home
+				switch result {
+				    case .success(let resultURL):
+					   print("User saved the data downloaded here: " + resultURL.absoluteString)
+					   
+				    case .failure(let error):
+					   print("Error while saving the data, : " + error.localizedDescription)
+					   handleError(error: error)
 				}
 			 })
 		  }
 	   }
-	   .onChange(of: shouldReload, perform: { value in
-		  if value {
-			 certificates = getCertificates()
-			 shouldReload = false
+	   .fileImporter(isPresented: $appStatus.showDocumentImportingPicker,
+				  allowedContentTypes: [.data],
+				  allowsMultipleSelection: false) { result in
+		  switch result {
+			 case .success(let urls):
+				appStatus.importedDataURLS = urls
+			 case .failure(let error):
+				print("File import failed with error: \(error.localizedDescription)")
+				handleError(error: error)
 		  }
-	   })
+	   }
+    }
+    
+    func handleError(error: Error) {
+	   appStatus.showErrorModal = true
+	   appStatus.errorModalState = .globalError
+	   appStatus.errorModalDescription = error.localizedDescription
     }
     
     func getCertificates() -> [AOCertificateInfo] {

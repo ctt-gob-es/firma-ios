@@ -25,8 +25,7 @@
 		83A5EDC02C527E6F00F93B6D /* ErrorHandlerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A5EDBF2C527E6F00F93B6D /* ErrorHandlerUtils.swift */; };
 		83A5EDC22C53B4BB00F93B6D /* SwiftCertificateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A5EDC12C53B4BB00F93B6D /* SwiftCertificateUtils.swift */; };
 		83A5EDC42C53C02100F93B6D /* PseudonymModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A5EDC32C53C02100F93B6D /* PseudonymModalView.swift */; };
-		83A5EDC62C53E2F600F93B6D /* DownloadDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A5EDC52C53E2F600F93B6D /* DownloadDataUseCase.swift */; };
-		83A5EDC92C53E3AF00F93B6D /* DownloadDataRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A5EDC82C53E3AF00F93B6D /* DownloadDataRest.swift */; };
+		83A5EDC62C53E2F600F93B6D /* SaveDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A5EDC52C53E2F600F93B6D /* SaveDataUseCase.swift */; };
 		83A5EDCB2C53E53100F93B6D /* DocumentSavingPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A5EDCA2C53E53100F93B6D /* DocumentSavingPicker.swift */; };
 		83C0EC852C3FE6B300244071 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC842C3FE6B300244071 /* PrivacyView.swift */; };
 		83C0EC8A2C3FEDB500244071 /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC892C3FEDB500244071 /* CheckBoxView.swift */; };
@@ -312,8 +311,7 @@
 		83A5EDBF2C527E6F00F93B6D /* ErrorHandlerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandlerUtils.swift; sourceTree = "<group>"; };
 		83A5EDC12C53B4BB00F93B6D /* SwiftCertificateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCertificateUtils.swift; sourceTree = "<group>"; };
 		83A5EDC32C53C02100F93B6D /* PseudonymModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudonymModalView.swift; sourceTree = "<group>"; };
-		83A5EDC52C53E2F600F93B6D /* DownloadDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadDataUseCase.swift; sourceTree = "<group>"; };
-		83A5EDC82C53E3AF00F93B6D /* DownloadDataRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadDataRest.swift; sourceTree = "<group>"; };
+		83A5EDC52C53E2F600F93B6D /* SaveDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveDataUseCase.swift; sourceTree = "<group>"; };
 		83A5EDCA2C53E53100F93B6D /* DocumentSavingPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentSavingPicker.swift; sourceTree = "<group>"; };
 		83C0EC842C3FE6B300244071 /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
 		83C0EC892C3FEDB500244071 /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
@@ -816,7 +814,7 @@
 				838114B82C512E5B00CDEC97 /* SendCertificateUseCase.swift */,
 				838114BA2C512E6700CDEC97 /* SingleSignUseCase.swift */,
 				838114C92C5146FE00CDEC97 /* SignModel.swift */,
-				83A5EDC52C53E2F600F93B6D /* DownloadDataUseCase.swift */,
+				83A5EDC52C53E2F600F93B6D /* SaveDataUseCase.swift */,
 			);
 			path = SwiftUseCase;
 			sourceTree = "<group>";
@@ -831,7 +829,6 @@
 		83A5EDB92C52558700F93B6D /* Rest */ = {
 			isa = PBXGroup;
 			children = (
-				83A5EDC72C53E3A100F93B6D /* DownloadDataRest */,
 				83A5EDBC2C5255DD00F93B6D /* BachRest */,
 				838114C02C51307B00CDEC97 /* ReportErrorRest */,
 				838114BF2C51306D00CDEC97 /* PresignRest */,
@@ -860,14 +857,6 @@
 				B2A7C4C82119F5A00071BF69 /* pruebas_portafirmas.p12 */,
 			);
 			path = Certificates;
-			sourceTree = "<group>";
-		};
-		83A5EDC72C53E3A100F93B6D /* DownloadDataRest */ = {
-			isa = PBXGroup;
-			children = (
-				83A5EDC82C53E3AF00F93B6D /* DownloadDataRest.swift */,
-			);
-			path = DownloadDataRest;
 			sourceTree = "<group>";
 		};
 		83C0EC832C3FE69D00244071 /* Privacy */ = {
@@ -1788,7 +1777,6 @@
 				83EF14CF2C465EDF003EC42A /* ExitButton.swift in Sources */,
 				9AB783512ACA9B98005C2B82 /* UIFont+Utils.m in Sources */,
 				B273961220A43E2800A7D05A /* NSDateFormatter+Utils.m in Sources */,
-				83A5EDC92C53E3AF00F93B6D /* DownloadDataRest.swift in Sources */,
 				3C57FA171AC1BB9D00FF7292 /* AOCertificateInfo.m in Sources */,
 				83E419D22C45295400C21811 /* AppStatus.swift in Sources */,
 				C3B11DCC16FB642B00C0D623 /* ber_tlv_length.c in Sources */,
@@ -1978,7 +1966,7 @@
 				C3D56A1017CF452200D7EBED /* CustomGeneralName.c in Sources */,
 				C3D56A1117CF452200D7EBED /* GeneralNames.c in Sources */,
 				A09BDEFD2B7B6D270016102B /* HeaderCertificateCell.m in Sources */,
-				83A5EDC62C53E2F600F93B6D /* DownloadDataUseCase.swift in Sources */,
+				83A5EDC62C53E2F600F93B6D /* SaveDataUseCase.swift in Sources */,
 				C3D56A1217CF452200D7EBED /* IssuerSerial.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

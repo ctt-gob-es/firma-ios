@@ -20,13 +20,15 @@ class AppStatus: ObservableObject {
     @Published var showPseudonymModal: Bool = false
     @Published var showDocumentPicker: Bool = false
     @Published var showDocumentSavingPicker: Bool = false
+    @Published var showDocumentImportingPicker: Bool = false
     
     @Published var successModalState: SuccessModalState = .successCertificateAdded
     @Published var errorModalState: ErrorModalState = .trackingError
     
     @Published var errorModalDescription: String = ""
     @Published var selectedCertificate: AOCertificateInfo? = nil
-    @Published var downloadedData: Data? = nil
+    @Published var downloadedData: URL? = nil
+    @Published var importedDataURLS: [URL]? = nil
     @Published var shouldUseNFC: Bool? = false
     @Published var languageHasChanged: Bool? = false
     @Published var updateNeeded: Bool = false

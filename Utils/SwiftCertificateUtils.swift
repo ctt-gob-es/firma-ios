@@ -9,8 +9,27 @@
 import Foundation
 import Security
 
+
+enum CertificateExpirationOptions {
+    case almostExpired
+    case expired
+    case valid
+    
+    var title: String {
+	   switch self {
+		  case .almostExpired:
+			 return NSLocalizedString("certificate_close_to_expire", bundle: Bundle.main, comment: "")
+		  case .expired:
+			 return NSLocalizedString("certificate_expired", bundle: Bundle.main, comment: "")
+		  case .valid:
+			 return ""
+	   }
+    }
+}
+
+
 class SwiftCertificateUtils {
-   static func updateSelectedCertificate(certificateUtils: CertificateUtils?, _ selectedCertificateSubject: String)  -> Bool{
+    static func updateSelectedCertificate(certificateUtils: CertificateUtils?, _ selectedCertificateSubject: String)  -> Bool{
 	   if ((certificateUtils?.searchIdentity(byName: selectedCertificateSubject)) != nil) {
 		  let userDefaults = UserDefaults.standard
 		  userDefaults.set([kAOUserDefaultsKeyAlias: selectedCertificateSubject], forKey: kAOUserDefaultsKeyCurrentCertificate)
@@ -29,15 +48,29 @@ class SwiftCertificateUtils {
 		  kSecReturnRef as String: kCFBooleanTrue!,
 		  kSecMatchLimit as String: kSecMatchLimitOne
 	   ]
-
+	   
 	   var item: CFTypeRef?
 	   let status = SecItemCopyMatching(query as CFDictionary, &item)
 	   
 	   guard status == errSecSuccess else {
 		  return nil
 	   }
-
+	   
 	   let identity = item as! SecIdentity
 	   return identity
+    }
+    
+    static func getCertificateOption(certificate: AOCertificateInfo) -> CertificateExpirationOptions {
+	   let today = Date()
+	   let calendar = Calendar.current
+	   let xDaysFromNow = calendar.date(byAdding: .day, value: DAYS_TO_EXPIRE, to: today)!
+	   
+	   if certificate.expirationDate < today {
+		  return .expired
+	   } else if certificate.expirationDate < xDaysFromNow {
+		  return .almostExpired
+	   } else {
+		  return .valid
+	   }
     }
 }

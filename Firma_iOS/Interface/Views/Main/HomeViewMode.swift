@@ -12,6 +12,7 @@ import Combine
 struct HomeViewMode: View {
     @EnvironmentObject private var appStatus : AppStatus
     @Binding var certificates: [AOCertificateInfo]?
+    @State var areCertificatesSelectable: Bool = false
     
     var body: some View {
 	   VStack {
@@ -36,7 +37,7 @@ struct HomeViewMode: View {
 					   ForEach(certificates, id: \.certificateRef) { certificate in
 						  CertificateCellView(
 							 certificateInfo: certificate,
-							 isSelectable: false
+							 isSelectable: $areCertificatesSelectable
 						  )
 						  .listRowSeparator(.hidden)
 					   }
@@ -53,12 +54,15 @@ struct HomeViewMode: View {
 				
 				VStack(spacing: 10) {
 				    //TODO: Next implementation, locally sign documents
-				    /*Button(action: {
-					appStatus.showSignModal.toggle()
+				    
+				    /*
+					Button(action: {
+					appStatus.showDocumentImportingPicker = true
 					}) {
 					AccessibleText(content: NSLocalizedString("home_certificates_sign_button_title", bundle: Bundle.main, comment: ""))
 					}
-					.buttonStyle(CustomButtonStyle(isEnabled: true))*/
+					.buttonStyle(CustomButtonStyle(isEnabled: true))
+					*/
 				    
 				    Button(action: {
 					   appStatus.showDocumentPicker.toggle()
@@ -70,6 +74,25 @@ struct HomeViewMode: View {
 			 }
 		  }
 	   }
+	   .onChange(of: appStatus.importedDataURLS, perform: { value in
+		  if let url = value {
+			 FileUtils.convertURLFileToData(urls: url) { result in
+				switch result {
+				    case .success(let data):
+					   let localArchiveToSign = Base64Utils.encode(data)
+					   print("Data from local archive: " + (localArchiveToSign ?? ""))
+					   appStatus.showSignModal = true
+				    case .failure(let error):
+					   handleError(error: error)
+				}
+			 }
+		  }
+	   })
     }
     
+    func handleError(error: Error) {
+	   appStatus.showErrorModal = true
+	   appStatus.errorModalState = .globalError
+	   appStatus.errorModalDescription = error.localizedDescription
+    }
 }

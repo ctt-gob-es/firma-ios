@@ -7,29 +7,39 @@
 //
 
 import Foundation
-
 import SwiftUI
 import UIKit
 
 struct DocumentSavingPicker: UIViewControllerRepresentable {
-    var data: Data
-    var fileName: String
-    var completion: () -> Void
+    var fileURL: URL
+    var onDismiss: (Result<URL, Error>) -> Void
+
+    func makeUIViewController(context: Context) -> UIViewController {
+	   let viewController = UIViewController()
+	   
+	   let documentPicker = UIDocumentPickerViewController(forExporting: [fileURL], asCopy: true)
+	   documentPicker.delegate = context.coordinator
+	   
+	   viewController.addChild(documentPicker)
+	   viewController.view.addSubview(documentPicker.view)
+	   documentPicker.didMove(toParent: viewController)
+	   
+	   documentPicker.view.translatesAutoresizingMaskIntoConstraints = false
+	   NSLayoutConstraint.activate([
+		  documentPicker.view.topAnchor.constraint(equalTo: viewController.view.topAnchor),
+		  documentPicker.view.leadingAnchor.constraint(equalTo: viewController.view.leadingAnchor),
+		  documentPicker.view.trailingAnchor.constraint(equalTo: viewController.view.trailingAnchor),
+		  documentPicker.view.bottomAnchor.constraint(equalTo: viewController.view.bottomAnchor)
+	   ])
+	   
+	   return viewController
+    }
+
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
 
     func makeCoordinator() -> Coordinator {
 	   Coordinator(self)
     }
-
-    func makeUIViewController(context: Context) -> UIDocumentPickerViewController {
-	   let tempURL = FileManager.default.temporaryDirectory.appendingPathComponent(fileName)
-	   try? data.write(to: tempURL)
-
-	   let documentPicker = UIDocumentPickerViewController(forExporting: [tempURL])
-	   documentPicker.delegate = context.coordinator
-	   return documentPicker
-    }
-
-    func updateUIViewController(_ uiViewController: UIDocumentPickerViewController, context: Context) {}
 
     class Coordinator: NSObject, UIDocumentPickerDelegate {
 	   var parent: DocumentSavingPicker
@@ -38,14 +48,16 @@ struct DocumentSavingPicker: UIViewControllerRepresentable {
 		  self.parent = parent
 	   }
 
-	   func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-		  // Handle the document picker result if needed
-		  parent.completion()
+	   func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+		  parent.onDismiss(.failure(NSError(domain: "DocumentPicker", code: 1, userInfo: [NSLocalizedDescriptionKey: "User cancelled document picker"])))
 	   }
 
-	   func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
-		  // Handle cancellation
-		  parent.completion()
+	   func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+		  if let url = urls.first {
+			 parent.onDismiss(.success(url))
+		  } else {
+			 parent.onDismiss(.failure(NSError(domain: "DocumentPicker", code: 2, userInfo: [NSLocalizedDescriptionKey: "No document picked"])))
+		  }
 	   }
     }
 }
