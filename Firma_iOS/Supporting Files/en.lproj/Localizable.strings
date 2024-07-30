@@ -172,6 +172,7 @@ procedure works on other devices. Why?\n\n";
 "settings_legal_advice_row" = "Legal Notice";
 "settings_privacy_policy_row" = "Privacy Policy";
 "settings_version_row" = "Version v1.0";
+"settings_historical_row" = "Historical archives signed";
 
 //Version
 "version_text" = "“@firma Client for Apple iOS” v.1.8 2023 Government of Spain\n\nThe @firma client for Apple iOS is Free Software; you can redistribute and/or modify it under the terms of the following license: “European Software License 1.1”, the full text of which can be consulted on the following website: http://ec.europa.eu/idabc/eupl.html\n\nThe source code for this program, as well as the rest of the project components, can be freely downloaded from: http://forja-ctt.administracionelectronica.gob.es\n\nThe @firma Client project is a collaborative project. If you wish to participate in it, do not hesitate to join the community, accessible from the following website: https://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc";
@@ -355,3 +356,8 @@ To work correctly you must install an electronic certificate. Consult the docume
 "pseudonym_modal_title" = "Notice";
 "pseudonym_modal_description" = "The chosen certificate is a pseudonym certificate. Your personal data will not appear in the signature";
 "change_certificate_button_title" = "Change certificate";
+
+//Historical archives
+"historical_archives_no_data_title" = "No files have been signed";
+"historical_archives_no_data_description" = "We were unable to find any signed files from this device.";
+"historical_view_title" = "Historical";

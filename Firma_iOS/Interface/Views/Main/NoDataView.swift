@@ -8,7 +8,10 @@
 
 import SwiftUI
 
-struct NoCertificatesView: View {
+struct NoDataView: View {
+    let title: String
+    let description: String
+
     var body: some View {
 	   VStack(spacing: 10) {
 		  Image("info_red")
@@ -17,13 +20,13 @@ struct NoCertificatesView: View {
 			 .frame(width: 72, height: 72)
 			 .padding(.vertical, 16)
 		  
-		  AccessibleText(content: NSLocalizedString("home_certificates_not_available_title", bundle: Bundle.main, comment: ""))
+		  AccessibleText(content: title)
 			 .titleStyleBlack(
 				foregroundColor: ColorConstants.Text.primary,
 				alignment: .center
 			 )
 		  
-		  AccessibleText(content: NSLocalizedString("home_certificates_not_available_description", bundle: Bundle.main, comment: ""))
+		  AccessibleText(content: description)
 			 .regularStyle(
 				foregroundColor: ColorConstants.Text.secondary,
 				alignment: .center

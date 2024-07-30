@@ -26,6 +26,7 @@ struct SignViewMode: View {
     @State var signUseCase: SingleSignUseCase?
     @State var batchSignUseCase: BatchSignUseCase?
     @State var saveDataUseCase: SaveDataUseCase?
+    @State var historicalUseCase: HistoricalUseCase?
     @State var certificateUtils: CertificateUtils?
     @State var signModel: SignModel?
     @State var parameters: NSMutableDictionary = [:]
@@ -66,7 +67,10 @@ struct SignViewMode: View {
 				} else {
 				    Spacer()
 				    
-				    NoCertificatesView()
+				    NoDataView(
+					   title: NSLocalizedString("home_certificates_not_available_title", bundle: Bundle.main, comment: ""),
+					   description: NSLocalizedString("home_certificates_not_available_description", bundle: Bundle.main, comment: "")
+				    )
 				    
 				    Spacer()
 				}
@@ -124,8 +128,11 @@ struct SignViewMode: View {
 		  
 		  if let urlReceived = urlReceived {
 			 appStatus.isLoading = true
-			 receiveDataUseCase = ReceiveDataUseCase(appStatus: appStatus)
-			 receiveDataUseCase?.parseUrl(urlReceived.absoluteString) { result in
+			 receiveDataUseCase = ReceiveDataUseCase(
+				appStatus: appStatus,
+				startURL: urlReceived.absoluteString
+			 )
+			 receiveDataUseCase?.parseUrl() { result in
 				handleReceiveData(result: result)
 			 }
 		  }
@@ -142,7 +149,7 @@ struct SignViewMode: View {
 			 guard let signModel = self.signModel else {
 				return
 			 }
-			 signModel.operation = OPERATION_SIGN_FROM_LOCAL
+			 
 			 signUseCase = SingleSignUseCase(signModel: signModel,certificateUtils: certificateUtils)
 			 configureMode(signModel: signModel)
 			 
@@ -167,6 +174,7 @@ struct SignViewMode: View {
 	   } else if signModel.operation == OPERATION_SIGN_FROM_LOCAL {
 		  appStatus.showDocumentImportingPicker = true
 		  areCertificablesSelectable = true
+		  signModel.operation = OPERATION_SIGN
 		  buttonTitle = NSLocalizedString("home_certificates_sign_button_title", bundle: Bundle.main, comment: "")
 	   }
     }
@@ -175,7 +183,7 @@ struct SignViewMode: View {
 	   appStatus.isLoading = true
 	   
 	   if signModel?.operation == OPERATION_SELECT_CERTIFICATE {
-		  handleOperationSelectCertificate()
+		  handleOperationSendCertificate()
 	   } else if signModel?.operation == OPERATION_SIGN || signModel?.operation == OPERATION_SIGN_FROM_LOCAL {
 		  handleOperationSign()
 	   } else if signModel?.operation == OPERATION_BATCH {
@@ -185,7 +193,7 @@ struct SignViewMode: View {
 	   }
     }
     
-    func handleOperationSelectCertificate() {
+    func handleOperationSendCertificate() {
 	   guard let certificateData = certificateUtils?.base64UrlSafeCertificateData,
 		    let urlServlet = signModel?.urlServlet,
 		    let cipherKey = signModel?.cipherKey,
@@ -208,6 +216,7 @@ struct SignViewMode: View {
 				    viewMode = .home
 				    appStatus.successModalState = .successCertificateSent
 				    appStatus.showSuccessModal = true
+				
 				case .failure(let error):
 				    handleError(error: error)
 			 }
@@ -222,9 +231,19 @@ struct SignViewMode: View {
 			 appStatus.isLoading = false
 			 switch result {
 				case .success(_):
-				    viewMode = .home
-				    appStatus.successModalState = .successSign
-				    appStatus.showSuccessModal = true
+				    historicalUseCase = HistoricalUseCase()
+				    
+				    //TODO: WE NEED TO GET THE ARCHIVE NAME
+				    historicalUseCase?.saveHistory(archiveName: UUID().uuidString, date: Date(), completion: { result in
+					   switch result {
+						  case .success():
+							 viewMode = .home
+							 appStatus.successModalState = .successCertificateSent
+							 appStatus.showSuccessModal = true
+						  case .failure(let error):
+							 handleError(error: error)
+					   }
+				    })
 				case .failure(let error):
 				    handleError(error: error)
 			 }
@@ -257,7 +276,8 @@ struct SignViewMode: View {
     func handleOperationSaveData() {
 	   self.saveDataUseCase = SaveDataUseCase()
 	   if let receivedStringData = signModel?.datosInUse {
-		  saveDataUseCase?.saveFileFromBase64Data(base64Data: receivedStringData) { result in
+		  //TODO: Get the archive name in order to save it
+		  saveDataUseCase?.saveFileFromBase64Data(archiveName: "", base64Data: receivedStringData) { result in
 			 appStatus.isLoading = false
 			 switch result {
 				case .success(let url):
@@ -275,5 +295,22 @@ struct SignViewMode: View {
 	   self.appStatus.errorModalState = .globalError
 	   self.appStatus.errorModalDescription = error.localizedDescription
 	   self.appStatus.showErrorModal = true
+	   
+	   let reportErrorUseCase = ReportErrorUseCase()
+	   
+	   reportErrorUseCase.reportErrorAsync(
+		  urlServlet: signModel?.urlServlet,
+		  docId: signModel?.docId,
+		  error: ErrorHandlerUtils.getErrorModalDescriptionFromError(error: error),
+		  completion: { result in
+			 switch result {
+				case .success(let errorFromServer):
+				    if let response = String(data: errorFromServer, encoding: .utf8) {
+					   print("Server response from reportError: " + response)
+				    }
+				case .failure(let error):
+				    print("Server error from reportError: " + error.localizedDescription)
+			 }
+		  })
     }
 }

@@ -23,6 +23,8 @@ struct MainView: View {
     @State var shouldSign: Bool = false
     @State var shouldReload: Bool = false
     
+    let persistenceController = CoreDataStack.shared
+    
     var body: some View {
 	   ZStack {
 		  NavigationStack {
@@ -96,6 +98,7 @@ struct MainView: View {
 	   .navigationBarBackButtonHidden(true)
 	   .navigationBarColor(UIColor(ColorConstants.Background.main), titleColor: .black)
 	   .environmentObject(appStatus)
+	   .environment(\.managedObjectContext, persistenceController.context)
 	   .onAppear() {
 		  navigationTitle = ""
 		  self.certificates = getCertificates()

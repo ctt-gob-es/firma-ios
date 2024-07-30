@@ -47,7 +47,10 @@ struct HomeViewMode: View {
 				} else {
 				    Spacer()
 				    
-				    NoCertificatesView()
+				    NoDataView(
+					   title: NSLocalizedString("home_certificates_not_available_title", bundle: Bundle.main, comment: ""),
+					   description: NSLocalizedString("home_certificates_not_available_description", bundle: Bundle.main, comment: "")
+				    )
 				    
 				    Spacer()
 				}

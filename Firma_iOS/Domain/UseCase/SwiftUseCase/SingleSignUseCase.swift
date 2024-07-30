@@ -11,7 +11,6 @@ import Foundation
 class SingleSignUseCase {
     private let presignRest: PresignRest = PresignRest()
     private let postSignRest: PostSignRest = PostSignRest()
-    private let reportErrorRest: ReportErrorRest = ReportErrorRest()
     
     var signModel: SignModel?
     var certificateUtils: CertificateUtils?
@@ -26,7 +25,6 @@ class SingleSignUseCase {
 		  handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_datos_firmar", bundle: Bundle.main, comment: "")]), completion: completion)
 		  return
 	   }
-	   signModel.operation = OPERATION_SIGN
 	   presign(signModel: signModel, completion: completion)
     }
     
@@ -40,18 +38,22 @@ class SingleSignUseCase {
 		  return
 	   }
 	   
-	   preSign(
-		  operation: operation,
-		  datosInUse: datosInUse,
-		  signFormat: signFormat,
-		  signAlgoInUse: signAlgoInUse,
-		  certificateData: certificateData,
-		  extraParams: signModel.extraParams,
-		  triphasicServerURL: signModel.triphasicServerURL,
-		  rtServlet: signModel.rtServlet,
-		  completion: { result in
-			 self.handlePresingResult(signModel: signModel, result: result, completion: completion)
-		  })
+	   if CADESSignUtils.isValidAlgorithm(signAlgoInUse) {
+		  preSign(
+			 operation: operation,
+			 datosInUse: datosInUse,
+			 signFormat: signFormat,
+			 signAlgoInUse: signAlgoInUse,
+			 certificateData: certificateData,
+			 extraParams: signModel.extraParams,
+			 triphasicServerURL: signModel.triphasicServerURL,
+			 rtServlet: signModel.rtServlet,
+			 completion: { result in
+				self.handlePresingResult(signModel: signModel, result: result, completion: completion)
+			 })
+	   } else {
+		  handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_algoritmo_no_soportado", bundle: Bundle.main, comment: "")]), completion: completion)
+	   }
     }
     
     private func handlePresingResult(signModel: SignModel, result: Result<String, Error>, completion: @escaping (Result<Void, Error>) -> Void) {
@@ -275,20 +277,6 @@ class SingleSignUseCase {
 	   )
     }
     
-    func reportErrorAsync(
-	   urlServlet: String?,
-	   docId: String?,
-	   error: String,
-	   completion: @escaping (Result<Data, Error>) -> Void
-    ) {
-	   reportErrorRest.reportError(
-		  urlServlet: urlServlet,
-		  docId: docId,
-		  error: error,
-		  completion: completion
-	   )
-    }
-    
     static func getDefaultTriphaseServer(triphasicServerURL: String?, rtServlet: String?) -> URL? {
 	   if let triphasicServerURL = triphasicServerURL {
 		  return URL(string: triphasicServerURL)
@@ -331,22 +319,7 @@ class SingleSignUseCase {
     
     private func handleSignError(error: Error, completion: @escaping (Result<Void, Error>) -> Void) {
 	   print("Error occurred: \(error.localizedDescription)")
-	   
-	   reportErrorAsync(
-		  urlServlet: signModel?.urlServlet,
-		  docId: signModel?.docId,
-		  error: ErrorHandlerUtils.getErrorModalDescriptionFromError(error: error),
-		  completion: { result in
-			 switch result {
-				case .success(let errorFromServer):
-				    if let response = String(data: errorFromServer, encoding: .utf8) {
-					   print("Server response from reportError: " + response)
-				    }
-				case .failure(let error):
-				    print("Server error from reportError: " + error.localizedDescription)
-			 }
-			 completion(.failure(error))
-		  })
+	   completion(.failure(error))
     }
     
     private func sendCertificate(dataSign: String, completion: @escaping (Result<Void, Error>) -> Void) {

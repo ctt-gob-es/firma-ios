@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3BC03D5D19D9988300FC1804 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AF7F6E17FD60C80084D916 /* libGoogleAnalyticsServices.a */; };
 		3C57FA171AC1BB9D00FF7292 /* AOCertificateInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C57FA161AC1BB9D00FF7292 /* AOCertificateInfo.m */; };
+		83094A582C58DCCA006CEB12 /* ReceiveDataRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83094A572C58DCCA006CEB12 /* ReceiveDataRest.swift */; };
 		83144EA12C3FD97900CC38AB /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83144EA02C3FD97900CC38AB /* TextStyles.swift */; };
 		83144EA32C3FDAE400CC38AB /* Color+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83144EA22C3FDAE400CC38AB /* Color+Utils.swift */; };
 		83144EA52C3FDB1A00CC38AB /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83144EA42C3FDB1A00CC38AB /* ColorConstants.swift */; };
@@ -21,6 +22,17 @@
 		838114C62C5131B600CDEC97 /* PostSignRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114C52C5131B600CDEC97 /* PostSignRest.swift */; };
 		838114C82C5131C600CDEC97 /* ReportErrorRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114C72C5131C600CDEC97 /* ReportErrorRest.swift */; };
 		838114CA2C5146FE00CDEC97 /* SignModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114C92C5146FE00CDEC97 /* SignModel.swift */; };
+		8393EEC72C58E2E0009FDE6E /* ParseURLParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EEC62C58E2E0009FDE6E /* ParseURLParameters.swift */; };
+		8393EEC92C58F675009FDE6E /* ReportErrorUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EEC82C58F675009FDE6E /* ReportErrorUseCase.swift */; };
+		8393EECB2C58F8E2009FDE6E /* HistoricalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EECA2C58F8E2009FDE6E /* HistoricalView.swift */; };
+		8393EECD2C58FA21009FDE6E /* HistoricalUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EECC2C58FA21009FDE6E /* HistoricalUseCase.swift */; };
+		8393EED22C58FAAD009FDE6E /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EED12C58FAAD009FDE6E /* CoreDataStack.swift */; };
+		8393EED42C58FAD4009FDE6E /* HistoricalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EED32C58FAD4009FDE6E /* HistoricalRepository.swift */; };
+		8393EED62C58FBB9009FDE6E /* HistoricalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EED52C58FBB9009FDE6E /* HistoricalViewModel.swift */; };
+		8393EED82C58FBD3009FDE6E /* SwiftDate+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EED72C58FBD3009FDE6E /* SwiftDate+Utils.swift */; };
+		8393EEDB2C58FC66009FDE6E /* AOCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8393EED92C58FC66009FDE6E /* AOCoreDataModel.xcdatamodeld */; };
+		8393EEDD2C59037E009FDE6E /* SettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EEDC2C59037E009FDE6E /* SettingsRow.swift */; };
+		8393EEDF2C590387009FDE6E /* SettingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EEDE2C590387009FDE6E /* SettingsHeaderView.swift */; };
 		83A5EDBD2C5255DD00F93B6D /* BachRest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5EDBB2C5255DD00F93B6D /* BachRest.m */; };
 		83A5EDC02C527E6F00F93B6D /* ErrorHandlerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A5EDBF2C527E6F00F93B6D /* ErrorHandlerUtils.swift */; };
 		83A5EDC22C53B4BB00F93B6D /* SwiftCertificateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A5EDC12C53B4BB00F93B6D /* SwiftCertificateUtils.swift */; };
@@ -33,7 +45,7 @@
 		83C0EC8F2C3FF37D00244071 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC8E2C3FF37D00244071 /* HomeViewController.swift */; };
 		83C0EC912C3FF39D00244071 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC902C3FF39D00244071 /* MainView.swift */; };
 		83C0EC932C3FF6CB00244071 /* NavigationBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC922C3FF6CB00244071 /* NavigationBarButton.swift */; };
-		83C0EC952C3FFABE00244071 /* NoCertificatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC942C3FFABE00244071 /* NoCertificatesView.swift */; };
+		83C0EC952C3FFABE00244071 /* NoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC942C3FFABE00244071 /* NoDataView.swift */; };
 		83C0EC972C40006E00244071 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC962C40006E00244071 /* SettingsView.swift */; };
 		83C0EC992C40018A00244071 /* NavigationBarButtonLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC982C40018A00244071 /* NavigationBarButtonLink.swift */; };
 		83C0EC9B2C400D4800244071 /* SettingsFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC9A2C400D4800244071 /* SettingsFooterView.swift */; };
@@ -294,6 +306,7 @@
 /* Begin PBXFileReference section */
 		3C57FA151AC1BB9D00FF7292 /* AOCertificateInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AOCertificateInfo.h; path = model/AOCertificateInfo.h; sourceTree = "<group>"; };
 		3C57FA161AC1BB9D00FF7292 /* AOCertificateInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AOCertificateInfo.m; path = model/AOCertificateInfo.m; sourceTree = "<group>"; };
+		83094A572C58DCCA006CEB12 /* ReceiveDataRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveDataRest.swift; sourceTree = "<group>"; };
 		83144EA02C3FD97900CC38AB /* TextStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
 		83144EA22C3FDAE400CC38AB /* Color+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Utils.swift"; sourceTree = "<group>"; };
 		83144EA42C3FDB1A00CC38AB /* ColorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
@@ -306,6 +319,17 @@
 		838114C52C5131B600CDEC97 /* PostSignRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSignRest.swift; sourceTree = "<group>"; };
 		838114C72C5131C600CDEC97 /* ReportErrorRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportErrorRest.swift; sourceTree = "<group>"; };
 		838114C92C5146FE00CDEC97 /* SignModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignModel.swift; sourceTree = "<group>"; };
+		8393EEC62C58E2E0009FDE6E /* ParseURLParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseURLParameters.swift; sourceTree = "<group>"; };
+		8393EEC82C58F675009FDE6E /* ReportErrorUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportErrorUseCase.swift; sourceTree = "<group>"; };
+		8393EECA2C58F8E2009FDE6E /* HistoricalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalView.swift; sourceTree = "<group>"; };
+		8393EECC2C58FA21009FDE6E /* HistoricalUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalUseCase.swift; sourceTree = "<group>"; };
+		8393EED12C58FAAD009FDE6E /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		8393EED32C58FAD4009FDE6E /* HistoricalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalRepository.swift; sourceTree = "<group>"; };
+		8393EED52C58FBB9009FDE6E /* HistoricalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalViewModel.swift; sourceTree = "<group>"; };
+		8393EED72C58FBD3009FDE6E /* SwiftDate+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftDate+Utils.swift"; sourceTree = "<group>"; };
+		8393EEDA2C58FC66009FDE6E /* AOCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AOCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		8393EEDC2C59037E009FDE6E /* SettingsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRow.swift; sourceTree = "<group>"; };
+		8393EEDE2C590387009FDE6E /* SettingsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHeaderView.swift; sourceTree = "<group>"; };
 		83A5EDBA2C5255DD00F93B6D /* BachRest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BachRest.h; sourceTree = "<group>"; };
 		83A5EDBB2C5255DD00F93B6D /* BachRest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BachRest.m; sourceTree = "<group>"; };
 		83A5EDBF2C527E6F00F93B6D /* ErrorHandlerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandlerUtils.swift; sourceTree = "<group>"; };
@@ -319,7 +343,7 @@
 		83C0EC8E2C3FF37D00244071 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		83C0EC902C3FF39D00244071 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		83C0EC922C3FF6CB00244071 /* NavigationBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarButton.swift; sourceTree = "<group>"; };
-		83C0EC942C3FFABE00244071 /* NoCertificatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoCertificatesView.swift; sourceTree = "<group>"; };
+		83C0EC942C3FFABE00244071 /* NoDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataView.swift; sourceTree = "<group>"; };
 		83C0EC962C40006E00244071 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		83C0EC982C40018A00244071 /* NavigationBarButtonLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarButtonLink.swift; sourceTree = "<group>"; };
 		83C0EC9A2C400D4800244071 /* SettingsFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFooterView.swift; sourceTree = "<group>"; };
@@ -767,44 +791,28 @@
 		3C57FA141AC1BB7100FF7292 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				838114C92C5146FE00CDEC97 /* SignModel.swift */,
 				3C57FA151AC1BB9D00FF7292 /* AOCertificateInfo.h */,
 				3C57FA161AC1BB9D00FF7292 /* AOCertificateInfo.m */,
 				A073AA7D2893F71E00FE30CE /* InputParametersBatch.h */,
 				A073AA7E2893F71E00FE30CE /* InputParametersBatch.m */,
+				8393EEC62C58E2E0009FDE6E /* ParseURLParameters.swift */,
+				8393EED52C58FBB9009FDE6E /* HistoricalViewModel.swift */,
+				8393EED92C58FC66009FDE6E /* AOCoreDataModel.xcdatamodeld */,
 			);
 			name = Model;
 			sourceTree = "<group>";
 		};
-		838114BC2C512F8900CDEC97 /* StoreDataRest */ = {
+		83094A562C58DC9B006CEB12 /* SwiftRest */ = {
 			isa = PBXGroup;
 			children = (
 				838114BD2C512F9800CDEC97 /* StoreDataRest.swift */,
-			);
-			path = StoreDataRest;
-			sourceTree = "<group>";
-		};
-		838114BF2C51306D00CDEC97 /* PresignRest */ = {
-			isa = PBXGroup;
-			children = (
-				838114C32C5131AA00CDEC97 /* PresignRest.swift */,
-			);
-			path = PresignRest;
-			sourceTree = "<group>";
-		};
-		838114C02C51307B00CDEC97 /* ReportErrorRest */ = {
-			isa = PBXGroup;
-			children = (
-				838114C72C5131C600CDEC97 /* ReportErrorRest.swift */,
-			);
-			path = ReportErrorRest;
-			sourceTree = "<group>";
-		};
-		838114C12C51308400CDEC97 /* PostSignRest */ = {
-			isa = PBXGroup;
-			children = (
 				838114C52C5131B600CDEC97 /* PostSignRest.swift */,
+				838114C32C5131AA00CDEC97 /* PresignRest.swift */,
+				838114C72C5131C600CDEC97 /* ReportErrorRest.swift */,
+				83094A572C58DCCA006CEB12 /* ReceiveDataRest.swift */,
 			);
-			path = PostSignRest;
+			path = SwiftRest;
 			sourceTree = "<group>";
 		};
 		838114C22C51317100CDEC97 /* SwiftUseCase */ = {
@@ -813,8 +821,9 @@
 				83DF46812C493C56000C3F31 /* ReceiveDataUseCase.swift */,
 				838114B82C512E5B00CDEC97 /* SendCertificateUseCase.swift */,
 				838114BA2C512E6700CDEC97 /* SingleSignUseCase.swift */,
-				838114C92C5146FE00CDEC97 /* SignModel.swift */,
 				83A5EDC52C53E2F600F93B6D /* SaveDataUseCase.swift */,
+				8393EEC82C58F675009FDE6E /* ReportErrorUseCase.swift */,
+				8393EECC2C58FA21009FDE6E /* HistoricalUseCase.swift */,
 			);
 			path = SwiftUseCase;
 			sourceTree = "<group>";
@@ -826,14 +835,30 @@
 			path = Pades;
 			sourceTree = "<group>";
 		};
+		8393EECF2C58FA67009FDE6E /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				A073AA7A2893E7FC00FE30CE /* BatchSignUseCase.h */,
+				A073AA7B2893E7FC00FE30CE /* BatchSignUseCase.m */,
+				838114C22C51317100CDEC97 /* SwiftUseCase */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		8393EED02C58FA98009FDE6E /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				8393EED12C58FAAD009FDE6E /* CoreDataStack.swift */,
+				8393EED32C58FAD4009FDE6E /* HistoricalRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 		83A5EDB92C52558700F93B6D /* Rest */ = {
 			isa = PBXGroup;
 			children = (
+				83094A562C58DC9B006CEB12 /* SwiftRest */,
 				83A5EDBC2C5255DD00F93B6D /* BachRest */,
-				838114C02C51307B00CDEC97 /* ReportErrorRest */,
-				838114BF2C51306D00CDEC97 /* PresignRest */,
-				838114C12C51308400CDEC97 /* PostSignRest */,
-				838114BC2C512F8900CDEC97 /* StoreDataRest */,
 				83EBF99C289BAB1900E80A7E /* ParentRest */,
 				83EBF999289BAA6F00E80A7E /* ServletRest */,
 			);
@@ -894,7 +919,7 @@
 				83E561432C4A3C8200622C99 /* SignViewMode.swift */,
 				83C0EC8E2C3FF37D00244071 /* HomeViewController.swift */,
 				83C0EC902C3FF39D00244071 /* MainView.swift */,
-				83C0EC942C3FFABE00244071 /* NoCertificatesView.swift */,
+				83C0EC942C3FFABE00244071 /* NoDataView.swift */,
 				83E419D12C45295400C21811 /* AppStatus.swift */,
 				8352FF2E2C47C500003402CC /* HomeErrorView.swift */,
 			);
@@ -910,6 +935,7 @@
 				83C0ECA32C4103D300244071 /* FAQView.swift */,
 				83C0ECA52C4103E700244071 /* InstallCertificateView.swift */,
 				83C0ECA72C41044E00244071 /* SettingsWebView.swift */,
+				8393EECA2C58F8E2009FDE6E /* HistoricalView.swift */,
 			);
 			path = SettingsOptions;
 			sourceTree = "<group>";
@@ -1031,6 +1057,8 @@
 				83C0EC9C2C41033A00244071 /* SettingsOptions */,
 				83C0EC962C40006E00244071 /* SettingsView.swift */,
 				83C0EC9A2C400D4800244071 /* SettingsFooterView.swift */,
+				8393EEDC2C59037E009FDE6E /* SettingsRow.swift */,
+				8393EEDE2C590387009FDE6E /* SettingsHeaderView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -1049,10 +1077,9 @@
 		A073AA792893E7BB00FE30CE /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				8393EED02C58FA98009FDE6E /* Repository */,
+				8393EECF2C58FA67009FDE6E /* UseCase */,
 				83A5EDB92C52558700F93B6D /* Rest */,
-				838114C22C51317100CDEC97 /* SwiftUseCase */,
-				A073AA7A2893E7FC00FE30CE /* BatchSignUseCase.h */,
-				A073AA7B2893E7FC00FE30CE /* BatchSignUseCase.m */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -1258,6 +1285,7 @@
 				83DF467C2C490E2E000C3F31 /* FileUtils.swift */,
 				83A5EDBF2C527E6F00F93B6D /* ErrorHandlerUtils.swift */,
 				83A5EDC12C53B4BB00F93B6D /* SwiftCertificateUtils.swift */,
+				8393EED72C58FBD3009FDE6E /* SwiftDate+Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1748,6 +1776,7 @@
 				B2406F3920C5CE6F008ED085 /* AORegisterCertificateVC.m in Sources */,
 				B273960B20A43E2800A7D05A /* CADESSignUtils.m in Sources */,
 				83DF467D2C490E2E000C3F31 /* FileUtils.swift in Sources */,
+				8393EECB2C58F8E2009FDE6E /* HistoricalView.swift in Sources */,
 				C36554EE16F9D11F0048252D /* CADESSignedAttributes.c in Sources */,
 				83FC0C482C48120B00BBB5A8 /* FloatingPlaceholderTextView.swift in Sources */,
 				C36554F016F9D11F0048252D /* CADESSignerInfo.c in Sources */,
@@ -1769,11 +1798,13 @@
 				B273960D20A43E2800A7D05A /* ColorChart.m in Sources */,
 				83C0EC9B2C400D4800244071 /* SettingsFooterView.swift in Sources */,
 				C3B11DC416FB642B00C0D623 /* AttributeType.c in Sources */,
+				8393EED62C58FBB9009FDE6E /* HistoricalViewModel.swift in Sources */,
 				C3B11DC616FB642B00C0D623 /* AttributeTypeAndValue.c in Sources */,
 				83DF46822C493C56000C3F31 /* ReceiveDataUseCase.swift in Sources */,
 				C3B11DC816FB642B00C0D623 /* AttributeValue.c in Sources */,
 				83C0EC9E2C41034F00244071 /* LanguageView.swift in Sources */,
 				C3B11DCA16FB642B00C0D623 /* ber_decoder.c in Sources */,
+				8393EED82C58FBD3009FDE6E /* SwiftDate+Utils.swift in Sources */,
 				83EF14CF2C465EDF003EC42A /* ExitButton.swift in Sources */,
 				9AB783512ACA9B98005C2B82 /* UIFont+Utils.m in Sources */,
 				B273961220A43E2800A7D05A /* NSDateFormatter+Utils.m in Sources */,
@@ -1783,7 +1814,7 @@
 				83FD0B092C3FC96200902E19 /* OnboardingView.swift in Sources */,
 				B27395CD20A4384300A7D05A /* CADESConstants.m in Sources */,
 				C3B11DCE16FB642B00C0D623 /* ber_tlv_tag.c in Sources */,
-				83C0EC952C3FFABE00244071 /* NoCertificatesView.swift in Sources */,
+				83C0EC952C3FFABE00244071 /* NoDataView.swift in Sources */,
 				B2D0158D20CA7F9400FD4102 /* CommonAlert.m in Sources */,
 				83C0EC852C3FE6B300244071 /* PrivacyView.swift in Sources */,
 				83C0ECA22C4103BC00244071 /* VersionView.swift in Sources */,
@@ -1793,6 +1824,7 @@
 				9AD3D2B22B6CF23300F04B14 /* UIImage+Utils.m in Sources */,
 				C3B11DD416FB642B00C0D623 /* CertificateSet.c in Sources */,
 				83A5EDCB2C53E53100F93B6D /* DocumentSavingPicker.swift in Sources */,
+				8393EEDD2C59037E009FDE6E /* SettingsRow.swift in Sources */,
 				83C0ECA82C41044E00244071 /* SettingsWebView.swift in Sources */,
 				C3B11DD616FB642B00C0D623 /* CertPolicyId.c in Sources */,
 				C3B11DD816FB642B00C0D623 /* CMSVersion.c in Sources */,
@@ -1803,6 +1835,7 @@
 				B273960620A43E2800A7D05A /* AOCustomSegue.m in Sources */,
 				B273961020A43E2800A7D05A /* Firma.m in Sources */,
 				83144EA12C3FD97900CC38AB /* TextStyles.swift in Sources */,
+				8393EEDB2C58FC66009FDE6E /* AOCoreDataModel.xcdatamodeld in Sources */,
 				83C172572C3803E90057F5BD /* DerInputStream.m in Sources */,
 				838114C42C5131AA00CDEC97 /* PresignRest.swift in Sources */,
 				C3B11DDE16FB642B00C0D623 /* constr_SEQUENCE.c in Sources */,
@@ -1824,6 +1857,7 @@
 				C3B11DEC16FB642B00C0D623 /* DigestAlgorithmIdentifier.c in Sources */,
 				C3B11DEE16FB642B00C0D623 /* DigestAlgorithmIdentifiers.c in Sources */,
 				83EF14CD2C464DE5003EC42A /* ErrorModalView.swift in Sources */,
+				8393EEDF2C590387009FDE6E /* SettingsHeaderView.swift in Sources */,
 				C3B11DF016FB642B00C0D623 /* EncapsulatedContentInfo.c in Sources */,
 				83E419C62C4502F100C21811 /* SignModalView.swift in Sources */,
 				C3B11DF216FB642B00C0D623 /* ESSCertID.c in Sources */,
@@ -1860,6 +1894,7 @@
 				83C0EC992C40018A00244071 /* NavigationBarButtonLink.swift in Sources */,
 				83E419CA2C45184000C21811 /* DocumentPicker.swift in Sources */,
 				C3B11E1416FB642B00C0D623 /* per_opentype.c in Sources */,
+				8393EECD2C58FA21009FDE6E /* HistoricalUseCase.swift in Sources */,
 				B273960E20A43E2800A7D05A /* DateHelper.m in Sources */,
 				C3B11E1616FB642B00C0D623 /* per_support.c in Sources */,
 				C3B11E1816FB642B00C0D623 /* PolicyInformation.c in Sources */,
@@ -1872,6 +1907,7 @@
 				C3B11E2216FB642B00C0D623 /* RevocationInfoChoices.c in Sources */,
 				C3B11E2416FB642B00C0D623 /* SignatureAlgorithmIdentifier.c in Sources */,
 				B2406F4020C5D043008ED085 /* AOSignViewController.m in Sources */,
+				83094A582C58DCCA006CEB12 /* ReceiveDataRest.swift in Sources */,
 				B273960C20A43E2800A7D05A /* CertificateUtils.m in Sources */,
 				83E419D42C452D1500C21811 /* AccesibleText.swift in Sources */,
 				C3B11E2616FB642B00C0D623 /* SignatureValue.c in Sources */,
@@ -1917,6 +1953,7 @@
 				B2EE5C1020AC4359000A4A28 /* AOAppDelegate.m in Sources */,
 				C3B14045170B2B7800E3FD42 /* NULL.c in Sources */,
 				C3B14049170B2BF000E3FD42 /* BOOLEAN.c in Sources */,
+				8393EEC92C58F675009FDE6E /* ReportErrorUseCase.swift in Sources */,
 				C3B1404D170B34B500E3FD42 /* EncapsulatedSignedData.c in Sources */,
 				C3A44B70170C3B60000B551C /* DisplayText.c in Sources */,
 				B273960820A43E2800A7D05A /* AOUtils.m in Sources */,
@@ -1925,6 +1962,7 @@
 				838114BE2C512F9800CDEC97 /* StoreDataRest.swift in Sources */,
 				83C0ECA02C41036D00244071 /* PermissionsView.swift in Sources */,
 				C3A44B71170C3B60000B551C /* NoticeReference.c in Sources */,
+				8393EED22C58FAAD009FDE6E /* CoreDataStack.swift in Sources */,
 				83EF14D32C46722D003EC42A /* RecoveryModalView.swift in Sources */,
 				C3A44B72170C3B60000B551C /* OtherHashAlgAndValue.c in Sources */,
 				C3A44B73170C3B60000B551C /* OtherHashValue.c in Sources */,
@@ -1949,11 +1987,13 @@
 				C3A44B8B170C3CE4000B551C /* BMPString.c in Sources */,
 				B273960520A43E2800A7D05A /* AOCounterSignXMLParser.m in Sources */,
 				83C0EC8C2C3FEDD000244071 /* NavigationBarModifier.swift in Sources */,
+				8393EEC72C58E2E0009FDE6E /* ParseURLParameters.swift in Sources */,
 				B240772D20A5B87B00A8EE1C /* main.m in Sources */,
 				83E5D8002C4847D3001A5AF1 /* DNICanView.swift in Sources */,
 				83EF14D52C467241003EC42A /* DocumentErrorModalView.swift in Sources */,
 				83144EA52C3FDB1A00CC38AB /* ColorConstants.swift in Sources */,
 				83C0EC912C3FF39D00244071 /* MainView.swift in Sources */,
+				8393EED42C58FAD4009FDE6E /* HistoricalRepository.swift in Sources */,
 				C3AB70651716CD4E003795F7 /* CADESSigner.c in Sources */,
 				83C172522C3803E90057F5BD /* ByteArrayLexOrder.m in Sources */,
 				B273960F20A43E2800A7D05A /* DesCypher.m in Sources */,
@@ -2277,6 +2317,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8393EED92C58FC66009FDE6E /* AOCoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8393EEDA2C58FC66009FDE6E /* AOCoreDataModel.xcdatamodel */,
+			);
+			currentVersion = 8393EEDA2C58FC66009FDE6E /* AOCoreDataModel.xcdatamodel */;
+			name = AOCoreDataModel.xcdatamodeld;
+			path = /Users/desarrolloabamobile/Documents/iOS/firmaiOS/AOCoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C30B321E163804620072A515 /* Project object */;
 }

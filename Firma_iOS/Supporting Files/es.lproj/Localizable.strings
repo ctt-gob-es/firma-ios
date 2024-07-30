@@ -173,6 +173,7 @@ trámite funciona en otros dispositivos. ¿Por qué?\n\n";
 "settings_legal_advice_row" = "Aviso legal";
 "settings_privacy_policy_row" = "Política de privacidad";
 "settings_version_row" = "Versión v1.0";
+"settings_historical_row" = "Histórico de archivos firmados";
 
 //Version
 "version_text" = "“Cliente @firma para Apple iOS” v.1.8 2023 Gobierno de España\n\nEl cliente @firma para Apple iOS es Software Libre; puedes redistribuirlo y/o modificarlo bajo los términos de la siguiente licencia: “European Software License 1.1”, cuyo texto completo puede consultarse en la siguiente página Web: http://ec.europa.eu/idabc/eupl.html\n\nEl código fuente de este programa, así como del resto de los componentes del proyecto se pueden descargar libremente desde: http://forja-ctt.administracionelectronica.gob.es\n\nEl proyecto Cliente @firma es un proyecto colaborativo, si desea participar en él, no dude en unirse a la comunidad, accesible desde la siguiente página Web: https://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc";
@@ -242,10 +243,14 @@ Para funcionar correctamente debes instalar un certificado electrónico. Consult
 //Certificates
 "certificate_issuer" = "Emisor";
 "certificate_valid_date" = "Válido hasta";
-"certificate_use" = "Uso";
+"certificate_use" = "Usar";
 "certificate_delete" = "Eliminar";
 "certificate_added_success_title" = "Certificado añadido";
+"certificate_sent_success_title" = "Certificado enviado";
+"certificate_delete_success_title" = "Certificado eliminado";
 "certificate_added_success_description" = "El certificado se ha añadido correctamente.";
+"certificate_sent_success_description" = "El certificado se ha enviado correctamente.";
+"certificate_delete_success_description" = "El certificado se ha eliminado correctamente.";
 
 //Error Modals
 
@@ -352,3 +357,8 @@ Para funcionar correctamente debes instalar un certificado electrónico. Consult
 "pseudonym_modal_title" = "Aviso";
 "pseudonym_modal_description" = "El certificado escogido es un certificado de seudónimo. En la firma no parecerán sus datos personales";
 "change_certificate_button_title" = "Cambiar de certificado";
+
+//Historical archives
+"historical_archives_no_data_title" = "No se ha firmado ningún archivo";
+"historical_archives_no_data_description" = "No hemos podido encontrar ningún archivo firmado desde este dispositivo.";
+"historical_view_title" = "Histórico";

@@ -9,15 +9,25 @@ import SwiftUI
 
 struct NavigationBarButton: View {
     let imageName: String
+    var isNativeIcon: Bool = false
     let action: () -> Void
     
     var body: some View {
 	   Button(action: action) {
-		  Image(imageName)
-			 .resizable()
-			 .scaledToFit()
-			 .frame(height: 40)
-			 .padding(.vertical,6)
+		  if isNativeIcon {
+			 Image(systemName: imageName)
+				.resizable()
+				.scaledToFit()
+				.frame(height: 30)
+				.padding(.vertical,6)
+				.foregroundColor(ColorConstants.Text.secondary)
+		  } else {
+			 Image(imageName)
+				.resizable()
+				.scaledToFit()
+				.frame(height: 40)
+				.padding(.vertical,6)
+		  }
 	   }
     }
 }

@@ -1,10 +1,19 @@
-//
-//  SettingsView.swift
-//  Cliente @firma
-//
-//  Created by Desarrollo Abamobile on 11/7/24.
-//  Copyright © 2024 Solid GEAR. All rights reserved.
-//
+import SwiftUI
+
+struct SettingsSection: Identifiable {
+    let id = UUID()
+    let header: String
+    let rows: [SettingsRowItem]
+}
+
+struct SettingsRowItem: Identifiable {
+    let id = UUID()
+    let icon: String
+    let text: String
+    let detailText: String?
+    let destination: AnyView
+}
+
 import SwiftUI
 
 struct SettingsView: View {
@@ -17,73 +26,24 @@ struct SettingsView: View {
     var body: some View {
 	   VStack(spacing: 0) {
 		  List {
-			 Section(header: CustomHeaderView(title: NSLocalizedString("settings_my_config_title",bundle: Bundle.main ,comment: ""))) {
-				ZStack {
-				    SettingsRow(icon: "flag", text: NSLocalizedString("settings_language_row",bundle: Bundle.main ,comment: ""), detailText: currentLanguage.uppercased())
-				    NavigationLink(destination: LanguageView()) {
-					   EmptyView()
+			 ForEach(createSettingsSections()) { section in
+				Section(header: SettingsHeaderView(title: section.header)) {
+				    ForEach(section.rows) { row in
+					   ZStack {
+						  SettingsRow(
+							 icon: row.icon,
+							 text: row.text,
+							 detailText: row.detailText
+						  )
+						  NavigationLink(destination: row.destination) {
+							 EmptyView()
+						  }
+						  .opacity(0)
+					   }
+					   .alignmentGuide(.listRowSeparatorLeading) { viewDimensions in
+						  return -100
+					   }
 				    }
-				    .opacity(0)
-				}
-				
-				ZStack {
-				    SettingsRow(icon: "gearshape", text: NSLocalizedString("settings_permission_row",bundle: Bundle.main ,comment: ""))
-				    NavigationLink(destination: PermissionsView()) {
-					   EmptyView()
-				    }
-				    .opacity(0)
-				}
-			 }
-			 
-			 Section(header: CustomHeaderView(title: NSLocalizedString("settings_help_title",bundle: Bundle.main ,comment: ""))) {
-				ZStack {
-				    SettingsRow(icon: "questionmark.circle", text: NSLocalizedString("settings_faq_row",bundle: Bundle.main ,comment: ""))
-				    NavigationLink(destination: FAQView()) {
-					   EmptyView()
-				    }
-				    .opacity(0)
-				}
-				
-				ZStack {
-				    SettingsRow(icon: "tray", text: NSLocalizedString("settings_install_certificate_row",bundle: Bundle.main ,comment: ""))
-				    NavigationLink(destination: InstallCertificateView()) {
-					   EmptyView()
-				    }
-				    .opacity(0)
-				}
-			 }
-			 
-			 Section(header: CustomHeaderView(title: NSLocalizedString("settings_general_info_title",bundle: Bundle.main ,comment: ""))) {
-				ZStack {
-				    SettingsRow(icon: "accessibility", text: NSLocalizedString("settings_accesibility_info_row",bundle: Bundle.main ,comment: ""))
-				    NavigationLink(destination: WebView(urlString: NSLocalizedString("url_accessibility_statement",bundle: Bundle.main ,comment: ""))) {
-					   EmptyView()
-				    }
-				    .opacity(0)
-				}
-				
-				ZStack {
-				    SettingsRow(icon: "shield", text: NSLocalizedString("settings_legal_advice_row",bundle: Bundle.main ,comment: ""))
-				    NavigationLink(destination: WebView(urlString: NSLocalizedString("url_forja",bundle: Bundle.main ,comment: ""))) {
-					   EmptyView()
-				    }
-				    .opacity(0)
-				}
-				
-				ZStack {
-				    SettingsRow(icon: "lock", text: NSLocalizedString("settings_privacy_policy_row",bundle: Bundle.main ,comment: ""))
-				    NavigationLink(destination: WebView(urlString: NSLocalizedString("url_privacy_policy",bundle: Bundle.main ,comment: ""))) {
-					   EmptyView()
-				    }
-				    .opacity(0)
-				}
-				
-				ZStack {
-				    SettingsRow(icon: "iphone", text: NSLocalizedString("settings_version_row",bundle: Bundle.main ,comment: ""))
-				    NavigationLink(destination: VersionView()) {
-					   EmptyView()
-				    }
-				    .opacity(0)
 				}
 			 }
 		  }
@@ -104,45 +64,35 @@ struct SettingsView: View {
 			 .background(Color.white)
 	   }
 	   .background(Color.white.edgesIgnoringSafeArea(.all))
-	   .navigationBarTitle(NSLocalizedString("settings_title",bundle: Bundle.main ,comment: ""), displayMode: .inline)
+	   .navigationBarTitle(NSLocalizedString("settings_title", bundle: Bundle.main, comment: ""), displayMode: .inline)
     }
-}
-
-struct CustomHeaderView: View {
-    let title: String
     
-    var body: some View {
-	   AccessibleText(content: title)
-		  .regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
-    }
-}
-
-struct SettingsRow: View {
-    let icon: String
-    let text: String
-    var detailText: String? = nil
-    
-    var body: some View {
-	   HStack {
-		  Image(systemName: icon)
-			 .foregroundColor(ColorConstants.Text.accent)
-		  AccessibleText(content: text)
-			 .regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
-		  
-		  Spacer()
-		  if let detailText = detailText {
-			 AccessibleText(content: detailText)
-				.semiboldStyleSmall(foregroundColor: Color(hex: "#224D70"))
-				.padding(.horizontal, 10)
-				.background(
-				    RoundedRectangle(cornerRadius: 12)
-					   .stroke(Color(hex: "#224D70"), lineWidth: 1)
-				)
-			 
-		  }
-		  Image(systemName: "chevron.right")
-			 .foregroundColor(ColorConstants.Text.accent)
-	   }
-	   .padding(.vertical, 8)
+    private func createSettingsSections() -> [SettingsSection] {
+	   return [
+		  SettingsSection(
+			 header: NSLocalizedString("settings_my_config_title", bundle: Bundle.main, comment: ""),
+			 rows: [
+				SettingsRowItem(icon: "flag", text: NSLocalizedString("settings_language_row", bundle: Bundle.main, comment: ""), detailText: currentLanguage.uppercased(), destination: AnyView(LanguageView())),
+				SettingsRowItem(icon: "gearshape", text: NSLocalizedString("settings_permission_row", bundle: Bundle.main, comment: ""), detailText: nil, destination: AnyView(PermissionsView()))
+			 ]
+		  ),
+		  SettingsSection(
+			 header: NSLocalizedString("settings_help_title", bundle: Bundle.main, comment: ""),
+			 rows: [
+				SettingsRowItem(icon: "questionmark.circle", text: NSLocalizedString("settings_faq_row", bundle: Bundle.main, comment: ""), detailText: nil, destination: AnyView(FAQView())),
+				SettingsRowItem(icon: "tray", text: NSLocalizedString("settings_install_certificate_row", bundle: Bundle.main, comment: ""), detailText: nil, destination: AnyView(InstallCertificateView()))
+			 ]
+		  ),
+		  SettingsSection(
+			 header: NSLocalizedString("settings_general_info_title", bundle: Bundle.main, comment: ""),
+			 rows: [
+				SettingsRowItem(icon: "clock.arrow.circlepath", text: NSLocalizedString("settings_historical_row", bundle: Bundle.main, comment: ""), detailText: nil, destination: AnyView(HistoricalView())),
+				SettingsRowItem(icon: "accessibility", text: NSLocalizedString("settings_accesibility_info_row", bundle: Bundle.main, comment: ""), detailText: nil, destination: AnyView(WebView(urlString: NSLocalizedString("url_accessibility_statement", bundle: Bundle.main, comment: "")))),
+				SettingsRowItem(icon: "shield", text: NSLocalizedString("settings_legal_advice_row", bundle: Bundle.main, comment: ""), detailText: nil, destination: AnyView(WebView(urlString: NSLocalizedString("url_forja", bundle: Bundle.main, comment: "")))),
+				SettingsRowItem(icon: "lock", text: NSLocalizedString("settings_privacy_policy_row", bundle: Bundle.main, comment: ""), detailText: nil, destination: AnyView(WebView(urlString: NSLocalizedString("url_privacy_policy", bundle: Bundle.main, comment: "")))),
+				SettingsRowItem(icon: "iphone", text: NSLocalizedString("settings_version_row", bundle: Bundle.main, comment: ""), detailText: nil, destination: AnyView(VersionView()))
+			 ]
+		  )
+	   ]
     }
 }
