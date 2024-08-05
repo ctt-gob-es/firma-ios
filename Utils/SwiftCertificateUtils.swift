@@ -73,4 +73,20 @@ class SwiftCertificateUtils {
 		  return .valid
 	   }
     }
+    
+    static func loadCertificate(
+	   certName: String,
+	   password: String,
+	   fromDocument: Bool
+    ) -> OSStatus? {
+	   var status: OSStatus?
+	   
+	   let certificateUtils = CertificateUtils.sharedWrapper()
+	   
+	   if let certificateUtils = certificateUtils {
+		  status = certificateUtils.loadCertKeyChain(withName: certName, password: password, fromDocument: fromDocument)
+	   }
+	   
+	   return status
+    }
 }

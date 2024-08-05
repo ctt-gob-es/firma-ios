@@ -9,39 +9,33 @@
 import SwiftUI
 
 struct TutorialView: View {
-    let imageName: String
-    let title: String
-    let description: String
-    let buttonText: String
-    let buttonAction: () -> Void
-    let currentPage: Int
-    let numberOfPages: Int
-
+    @StateObject var viewModel: TutorialViewModel
+    
     var body: some View {
 	   VStack {
 		  VStack(alignment: .leading) {
-			 AccessibleText(content: title)
+			 AccessibleText(content: viewModel.title)
 				.titleStyleBlack(foregroundColor: ColorConstants.Text.primary)
 				.accessibilityAddTraits(.isHeader)
 			 
-			 AccessibleText(content: description)
+			 AccessibleText(content: viewModel.description)
 				.regularStyle(foregroundColor: ColorConstants.Text.primary)
 				.multilineTextAlignment(.leading)
 		  }
 		  .frame(maxWidth: .infinity, alignment: .leading)
 
-		  Image(imageName)
+		  Image(viewModel.imageName)
 			 .resizable()
 			 .scaledToFit()
 
 		  Spacer()
 
-		  PageControl(numberOfPages: numberOfPages, currentPage: .constant(currentPage))
+		  PageControl(numberOfPages: viewModel.numberOfPages, currentPage: .constant(viewModel.currentPage))
 			 .padding(.vertical)
-			 .accessibility(label: Text("\(currentPage + 1) of \(numberOfPages)"))
+			 .accessibility(label: Text("\(viewModel.currentPage + 1) of \(viewModel.numberOfPages)"))
 
-		  Button(action: buttonAction) {
-			 AccessibleText(content: buttonText)
+		  Button(action: viewModel.buttonAction) {
+			 AccessibleText(content: viewModel.buttonText)
 		  }
 		  .buttonStyle(CustomButtonStyle(isEnabled: true))
 		  .padding(.bottom, 20)

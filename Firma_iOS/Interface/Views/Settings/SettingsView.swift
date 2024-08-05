@@ -1,21 +1,5 @@
 import SwiftUI
 
-struct SettingsSection: Identifiable {
-    let id = UUID()
-    let header: String
-    let rows: [SettingsRowItem]
-}
-
-struct SettingsRowItem: Identifiable {
-    let id = UUID()
-    let icon: String
-    let text: String
-    let detailText: String?
-    let destination: AnyView
-}
-
-import SwiftUI
-
 struct SettingsView: View {
     @State private var currentLanguage: String = UserDefaults.standard.string(forKey: "appLanguage") ?? Locale.current.language.languageCode?.identifier ?? "es"
     

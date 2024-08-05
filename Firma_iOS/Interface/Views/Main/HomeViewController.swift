@@ -10,12 +10,10 @@ import Foundation
 import SwiftUI
 
 @objc class HomeViewController: UIViewController {
-    var mode: ViewModes
-    var urlReceived: URL?
+    var model: MainViewModel
     
-    @objc init(mode: ViewModes, urlReceived: URL? = nil) {
-	   self.mode = mode
-	   self.urlReceived = urlReceived
+    @objc init(model: MainViewModel) {
+	   self.model = model
 	   super.init(nibName: nil, bundle: nil)
     }
     
@@ -26,9 +24,7 @@ import SwiftUI
     override func viewDidLoad() {
 	   super.viewDidLoad()
 	   
-	   let contentView = MainView(viewMode: mode, urlReceived: urlReceived)
-	   contentView.viewMode = mode
-	   
+	   let contentView = MainView(viewModel: self.model)
 	   
 	   let hostingController = UIHostingController(rootView: contentView)
 	   
@@ -39,6 +35,6 @@ import SwiftUI
     }
     
     @objc public func updateMode(mode: ViewModes) {
-	   self.mode = mode
+	   self.model.viewMode = mode
     }
 }

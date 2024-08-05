@@ -38,3 +38,17 @@ struct SettingsRow: View {
 	   .padding(.vertical, 8)
     }
 }
+
+struct SettingsSection: Identifiable {
+    let id = UUID()
+    let header: String
+    let rows: [SettingsRowItem]
+}
+
+struct SettingsRowItem: Identifiable {
+    let id = UUID()
+    let icon: String
+    let text: String
+    let detailText: String?
+    let destination: AnyView
+}

@@ -10,10 +10,7 @@ import SwiftUI
 
 struct AddCertificateView: View {
     @EnvironmentObject private var appStatus : AppStatus
-    @State var certificateURL: URL?
-    @State var password: String = ""
-    @State var showFieldError: Bool = false
-    @State var buttonEnabled: Bool = false
+    @StateObject var viewModel: AddCertificateViewModel
     @Binding var shouldReload: Bool
     
     var body: some View {
@@ -30,7 +27,7 @@ struct AddCertificateView: View {
 			 .padding([.horizontal, .top])
 			 
 			 VStack(alignment: .leading) {
-				if let url = certificateURL {
+				if let url = viewModel.certificateURL {
 				    let fileName = url.lastPathComponent
 				    AccessibleText(content: fileName)
 					   .boldStyleSmall(foregroundColor: ColorConstants.Text.secondary)
@@ -39,12 +36,12 @@ struct AddCertificateView: View {
 				FloatingPlaceholderTextField(
 				    placeholder: NSLocalizedString("password", bundle: Bundle.main, comment: ""),
 				    errorplaceholder: NSLocalizedString("add_certificates_error_placeholder", bundle: Bundle.main, comment: ""),
-				    text: $password,
-				    showError: $showFieldError,
+				    text: $viewModel.password,
+				    showError: $viewModel.showFieldError,
 				    imageName: "xmark",
 				    isSecureTextEntry: true,
 				    validation: { password in
-					   return showFieldError
+					   return viewModel.showFieldError
 				    }
 				)
 			 }
@@ -54,44 +51,28 @@ struct AddCertificateView: View {
 			 
 			 VStack(spacing: 10) {
 				Button(action: {
-				    if buttonEnabled {
-					   if let url = certificateURL {
+				    if viewModel.buttonEnabled {
+					   if let url = viewModel.certificateURL {
 						  let fileName = url.lastPathComponent
-						  validateStatus(status: loadCertificate(certName: fileName, password: password, fromDocument: true))
+						  validateStatus(status: SwiftCertificateUtils.loadCertificate(certName: fileName, password: viewModel.password, fromDocument: true))
 					   }
 				    }
 				}) {
 				    AccessibleText(content: NSLocalizedString("install_certificate_button_one_title", bundle: Bundle.main, comment: ""))
 				}
-				.buttonStyle(CustomButtonStyle(isEnabled: buttonEnabled))
+				.buttonStyle(CustomButtonStyle(isEnabled: viewModel.buttonEnabled))
 			 }
 		  }
 		  .dismissKeyboardOnTap()
 	   }
-	   .onChange(of: password, perform: { value in
+	   .onChange(of: viewModel.password, perform: { value in
 		  if value.count > 0 {
-			 buttonEnabled = true
+			 viewModel.buttonEnabled = true
 		  } else {
-			 buttonEnabled = false
-			 showFieldError = false
+			 viewModel.buttonEnabled = false
+			 viewModel.showFieldError = false
 		  }
 	   })
-    }
-    
-    func loadCertificate(
-	   certName: String,
-	   password: String,
-	   fromDocument: Bool
-    ) -> OSStatus? {
-	   var status: OSStatus?
-	   
-	   let certificateUtils = CertificateUtils.sharedWrapper()
-	   
-	   if let certificateUtils = certificateUtils {
-		  status = certificateUtils.loadCertKeyChain(withName: certName, password: password, fromDocument: fromDocument)
-	   }
-	   
-	   return status
     }
     
     func validateStatus(status: OSStatus?) {
@@ -110,7 +91,7 @@ struct AddCertificateView: View {
 				case errSecItemNotFound:
 				    break;
 				case errSecAuthFailed:
-				    showFieldError.toggle()
+				    viewModel.showFieldError.toggle()
 				    break;
 				case errSecDuplicateItem:
 				    break;

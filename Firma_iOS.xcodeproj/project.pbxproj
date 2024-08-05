@@ -14,6 +14,8 @@
 		83144EA32C3FDAE400CC38AB /* Color+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83144EA22C3FDAE400CC38AB /* Color+Utils.swift */; };
 		83144EA52C3FDB1A00CC38AB /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83144EA42C3FDB1A00CC38AB /* ColorConstants.swift */; };
 		83144EA72C3FDFDD00CC38AB /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83144EA62C3FDFDD00CC38AB /* CustomButtonStyle.swift */; };
+		835135A02C60BD3A005081EE /* AddCertificateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8351359F2C60BD3A005081EE /* AddCertificateModel.swift */; };
+		835135A32C60BF00005081EE /* TutorialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835135A22C60BF00005081EE /* TutorialViewModel.swift */; };
 		8352FF2F2C47C500003402CC /* HomeErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8352FF2E2C47C500003402CC /* HomeErrorView.swift */; };
 		838114B92C512E5B00CDEC97 /* SendCertificateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114B82C512E5B00CDEC97 /* SendCertificateUseCase.swift */; };
 		838114BB2C512E6700CDEC97 /* SingleSignUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114BA2C512E6700CDEC97 /* SingleSignUseCase.swift */; };
@@ -22,6 +24,8 @@
 		838114C62C5131B600CDEC97 /* PostSignRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114C52C5131B600CDEC97 /* PostSignRest.swift */; };
 		838114C82C5131C600CDEC97 /* ReportErrorRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114C72C5131C600CDEC97 /* ReportErrorRest.swift */; };
 		838114CA2C5146FE00CDEC97 /* SignModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114C92C5146FE00CDEC97 /* SignModel.swift */; };
+		83939A742C5CEA6A009FDE6E /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83939A732C5CEA6A009FDE6E /* MainViewModel.swift */; };
+		83939A782C5D01A4009FDE6E /* SignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83939A772C5D01A4009FDE6E /* SignViewModel.swift */; };
 		8393EEC72C58E2E0009FDE6E /* ParseURLParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EEC62C58E2E0009FDE6E /* ParseURLParameters.swift */; };
 		8393EEC92C58F675009FDE6E /* ReportErrorUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EEC82C58F675009FDE6E /* ReportErrorUseCase.swift */; };
 		8393EECB2C58F8E2009FDE6E /* HistoricalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EECA2C58F8E2009FDE6E /* HistoricalView.swift */; };
@@ -311,6 +315,8 @@
 		83144EA22C3FDAE400CC38AB /* Color+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Utils.swift"; sourceTree = "<group>"; };
 		83144EA42C3FDB1A00CC38AB /* ColorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
 		83144EA62C3FDFDD00CC38AB /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
+		8351359F2C60BD3A005081EE /* AddCertificateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCertificateModel.swift; sourceTree = "<group>"; };
+		835135A22C60BF00005081EE /* TutorialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewModel.swift; sourceTree = "<group>"; };
 		8352FF2E2C47C500003402CC /* HomeErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeErrorView.swift; sourceTree = "<group>"; };
 		838114B82C512E5B00CDEC97 /* SendCertificateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCertificateUseCase.swift; sourceTree = "<group>"; };
 		838114BA2C512E6700CDEC97 /* SingleSignUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSignUseCase.swift; sourceTree = "<group>"; };
@@ -319,6 +325,8 @@
 		838114C52C5131B600CDEC97 /* PostSignRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSignRest.swift; sourceTree = "<group>"; };
 		838114C72C5131C600CDEC97 /* ReportErrorRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportErrorRest.swift; sourceTree = "<group>"; };
 		838114C92C5146FE00CDEC97 /* SignModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignModel.swift; sourceTree = "<group>"; };
+		83939A732C5CEA6A009FDE6E /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		83939A772C5D01A4009FDE6E /* SignViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewModel.swift; sourceTree = "<group>"; };
 		8393EEC62C58E2E0009FDE6E /* ParseURLParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseURLParameters.swift; sourceTree = "<group>"; };
 		8393EEC82C58F675009FDE6E /* ReportErrorUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportErrorUseCase.swift; sourceTree = "<group>"; };
 		8393EECA2C58F8E2009FDE6E /* HistoricalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalView.swift; sourceTree = "<group>"; };
@@ -791,13 +799,13 @@
 		3C57FA141AC1BB7100FF7292 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				835135A12C60BEF0005081EE /* ViewModel */,
 				838114C92C5146FE00CDEC97 /* SignModel.swift */,
 				3C57FA151AC1BB9D00FF7292 /* AOCertificateInfo.h */,
 				3C57FA161AC1BB9D00FF7292 /* AOCertificateInfo.m */,
 				A073AA7D2893F71E00FE30CE /* InputParametersBatch.h */,
 				A073AA7E2893F71E00FE30CE /* InputParametersBatch.m */,
 				8393EEC62C58E2E0009FDE6E /* ParseURLParameters.swift */,
-				8393EED52C58FBB9009FDE6E /* HistoricalViewModel.swift */,
 				8393EED92C58FC66009FDE6E /* AOCoreDataModel.xcdatamodeld */,
 			);
 			name = Model;
@@ -813,6 +821,18 @@
 				83094A572C58DCCA006CEB12 /* ReceiveDataRest.swift */,
 			);
 			path = SwiftRest;
+			sourceTree = "<group>";
+		};
+		835135A12C60BEF0005081EE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				835135A22C60BF00005081EE /* TutorialViewModel.swift */,
+				83939A732C5CEA6A009FDE6E /* MainViewModel.swift */,
+				83939A772C5D01A4009FDE6E /* SignViewModel.swift */,
+				8351359F2C60BD3A005081EE /* AddCertificateModel.swift */,
+				8393EED52C58FBB9009FDE6E /* HistoricalViewModel.swift */,
+			);
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 		838114C22C51317100CDEC97 /* SwiftUseCase */ = {
@@ -1816,6 +1836,7 @@
 				C3B11DCE16FB642B00C0D623 /* ber_tlv_tag.c in Sources */,
 				83C0EC952C3FFABE00244071 /* NoDataView.swift in Sources */,
 				B2D0158D20CA7F9400FD4102 /* CommonAlert.m in Sources */,
+				835135A02C60BD3A005081EE /* AddCertificateModel.swift in Sources */,
 				83C0EC852C3FE6B300244071 /* PrivacyView.swift in Sources */,
 				83C0ECA22C4103BC00244071 /* VersionView.swift in Sources */,
 				A073AA7F2893F71E00FE30CE /* InputParametersBatch.m in Sources */,
@@ -1918,6 +1939,7 @@
 				C3B11E2A16FB642B00C0D623 /* SignedData.c in Sources */,
 				8352FF2F2C47C500003402CC /* HomeErrorView.swift in Sources */,
 				83E5D8042C48481A001A5AF1 /* DNIPinView.swift in Sources */,
+				83939A742C5CEA6A009FDE6E /* MainViewModel.swift in Sources */,
 				C3B11E2C16FB642B00C0D623 /* SignerIdentifier.c in Sources */,
 				C3B11E2E16FB642B00C0D623 /* SignerInfo.c in Sources */,
 				9A51A79A2B79FEC700826C72 /* AOHelpOptionView.m in Sources */,
@@ -1996,6 +2018,8 @@
 				8393EED42C58FAD4009FDE6E /* HistoricalRepository.swift in Sources */,
 				C3AB70651716CD4E003795F7 /* CADESSigner.c in Sources */,
 				83C172522C3803E90057F5BD /* ByteArrayLexOrder.m in Sources */,
+				835135A32C60BF00005081EE /* TutorialViewModel.swift in Sources */,
+				83939A782C5D01A4009FDE6E /* SignViewModel.swift in Sources */,
 				B273960F20A43E2800A7D05A /* DesCypher.m in Sources */,
 				C3B3E38F17253C8900F3D458 /* AOXMLReader.m in Sources */,
 				B273961320A43E2800A7D05A /* OpenSSLCertificateHelper.m in Sources */,

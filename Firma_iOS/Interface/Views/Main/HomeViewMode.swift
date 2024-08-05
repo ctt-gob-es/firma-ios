@@ -12,7 +12,7 @@ import Combine
 struct HomeViewMode: View {
     @EnvironmentObject private var appStatus : AppStatus
     @Binding var certificates: [AOCertificateInfo]?
-    @State var areCertificatesSelectable: Bool = false
+    @State var areCertificatesSelectable: Bool? = false
     
     var body: some View {
 	   VStack {

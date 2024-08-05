@@ -12,12 +12,9 @@ public class ReceiveDataUseCase: NSObject {
     private let restClient: ReceiveDataRest
     private var urlParameters : ParseURLParameters = ParseURLParameters()
     private var opParameters: NSMutableDictionary?
-    private var appStatus: AppStatus
     
-    init(appStatus: AppStatus,
-	    startURL : String,
+    init(startURL : String,
 	    restClient: ReceiveDataRest = ReceiveDataRest()) {
-	   self.appStatus = appStatus
 	   self.startURL = startURL
 	   self.restClient = restClient
     }

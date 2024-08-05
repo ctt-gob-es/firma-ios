@@ -10,7 +10,7 @@ import SwiftUI
 struct CertificateCellView: View {
     @EnvironmentObject private var appStatus : AppStatus
     var certificateInfo: AOCertificateInfo
-    @Binding var isSelectable: Bool
+    @Binding var isSelectable: Bool?
     var isSelected: Bool?
     @State private var geometryHeight: CGFloat = 0
     
@@ -45,7 +45,7 @@ struct CertificateCellView: View {
 			 }
 			 Spacer()
 			 
-			 if isSelectable {
+			 if let isSelectable = isSelectable{
 				Spacer()
 				if let isSelected = isSelected {
 				    if isSelected {
