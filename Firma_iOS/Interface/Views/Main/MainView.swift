@@ -15,20 +15,20 @@ struct MainView: View {
     
     private var contentView: some View {
 	   VStack {
-		  if viewModel.viewMode == .home {
-			 HomeViewMode(
-				certificates: $viewModel.certificates
-			 )
-		  } else if viewModel.viewMode == .sign, let urlReceived = viewModel.urlReceived {
-			 SignViewMode(
-				certificates: $viewModel.certificates,
-				viewMode: $viewModel.viewMode,
-				shouldSign: $viewModel.shouldSign,
-				showDocumentSavingPicker: $appStatus.showDocumentSavingPicker,
-				downloadedData: $appStatus.downloadedData,
-				viewModel: SignViewModel(urlReceived: urlReceived)
-			 )
-		  }
+		  let homeViewModel = HomeViewModel(
+			 urlReceived: viewModel.urlReceived,
+			 areCertificatesSelectable: viewModel.viewMode == .home ? false : true,
+			 viewMode: viewModel.viewMode
+		  )
+		  
+		  HomeView(
+			 certificates: $viewModel.certificates,
+			 viewMode: $viewModel.viewMode,
+			 shouldSign: $viewModel.shouldSign,
+			 showDocumentSavingPicker: $appStatus.showDocumentSavingPicker,
+			 downloadedData: $appStatus.downloadedData,
+			 viewModel: homeViewModel
+		  )
 	   }
     }
     
@@ -73,13 +73,13 @@ struct MainView: View {
 				DNIView()
 			 }
 			 .navigationDestination(isPresented: $appStatus.navigateToSelectCertificate) {
-				SignViewMode(
+				HomeView(
 				    certificates: $viewModel.certificates,
 				    viewMode: $viewModel.viewMode,
 				    shouldSign: $viewModel.shouldSign,
 				    showDocumentSavingPicker: $appStatus.showDocumentSavingPicker,
 				    downloadedData: $appStatus.downloadedData,
-				    viewModel: SignViewModel(areCertificatesSelectable: true)
+				    viewModel: HomeViewModel(areCertificatesSelectable: true)
 				)
 			 }
 			 .navigationDestination(isPresented: $appStatus.navigateToAddCertificate) {

@@ -1,5 +1,5 @@
 //
-//  SignViewModel.swift
+//  HomeViewModel.swift
 //  Cliente @firma
 //
 //  Created by Desarrollo Abamobile on 2/8/24.
@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 import Combine
 
-class SignViewModel: ObservableObject {
+class HomeViewModel: ObservableObject {
     @Published var buttonEnabled: Bool? = false
     @Published var urlReceived: URL? = nil
     @Published var isLoading: Bool? = false
@@ -79,6 +79,7 @@ class SignViewModel: ObservableObject {
     
     func onAppear() {
 	   certificateUtils = CertificateUtils()
+	   
 	   if let urlReceived = urlReceived {
 		  isLoading = true
 		  receiveDataUseCase = ReceiveDataUseCase(startURL: urlReceived.absoluteString)
@@ -204,8 +205,9 @@ class SignViewModel: ObservableObject {
 				    switch result {
 					   case .success():
 						  self.viewMode = .home
-						  self.successModalState = .successCertificateSent
+						  self.successModalState = .successSign
 						  self.showSuccessModal = true
+						  self.areCertificatesSelectable = false
 					   case .failure(let error):
 						  self.handleError(error: error)
 				    }

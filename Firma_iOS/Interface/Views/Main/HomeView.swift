@@ -9,9 +9,9 @@
 import SwiftUI
 import Combine
 
-struct SignViewMode: View {
+struct HomeView: View {
     @EnvironmentObject private var appStatus: AppStatus
-    @StateObject private var viewModel: SignViewModel
+    @StateObject private var viewModel: HomeViewModel
     
     @Binding var certificates: [AOCertificateInfo]?
     @Binding var shouldSign: Bool
@@ -24,7 +24,7 @@ struct SignViewMode: View {
 	    shouldSign: Binding<Bool>,
 	    showDocumentSavingPicker: Binding<Bool>,
 	    downloadedData: Binding<URL?>,
-	    viewModel: SignViewModel) {
+	    viewModel: HomeViewModel) {
 	   self._viewModel = StateObject(wrappedValue: viewModel)
 	   self._certificates = certificates
 	   self._shouldSign = shouldSign
@@ -73,7 +73,7 @@ struct SignViewMode: View {
 			 .titleStyleBlack(foregroundColor: ColorConstants.Text.primary)
 			 .accessibilityAddTraits(.isHeader)
 		  
-		  AccessibleText(content: NSLocalizedString("select_certificates_description", bundle: Bundle.main, comment: ""))
+		  AccessibleText(content: viewMode == .sign ? NSLocalizedString("select_certificates_description", bundle: Bundle.main, comment: "") : NSLocalizedString("home_certificates_description", bundle: Bundle.main, comment: ""))
 			 .regularStyle(foregroundColor: ColorConstants.Text.secondary)
 	   }
 	   .padding([.horizontal, .top])
@@ -106,12 +106,41 @@ struct SignViewMode: View {
     
     private var actionButton: some View {
 	   VStack(spacing: 10) {
-		  if let buttonTitle = viewModel.buttonTitle {
-			 Button(action: viewModel.handleButtonAction) {
-				AccessibleText(content: buttonTitle)
-			 }
-			 .buttonStyle(CustomButtonStyle(isEnabled: viewModel.buttonEnabled ?? false))
+		  if viewMode == .home {
+			 homeButtons
+		  } else {
+			 signButtons
 		  }
 	   }
     }
+    
+    private var homeButtons : some View {
+	   //TODO: Next implementation, locally sign documents
+	   
+	   /*
+	    Button(action: {
+	    appStatus.showDocumentImportingPicker = true
+	    }) {
+	    AccessibleText(content: NSLocalizedString("home_certificates_sign_button_title", bundle: Bundle.main, comment: ""))
+	    }
+	    .buttonStyle(CustomButtonStyle(isEnabled: true))
+	    */
+	   
+	   Button(action: {
+		  appStatus.showDocumentPicker.toggle()
+	   }) {
+		  AccessibleText(content: NSLocalizedString("home_certificates_add_certificate_button_title", bundle: Bundle.main, comment: ""))
+	   }
+	   .buttonStyle(BorderedButtonStyle())
+    }
+    
+    private var signButtons: some View {
+	   Button(action: viewModel.handleButtonAction) {
+		  if let buttonTitle = viewModel.buttonTitle {
+			 AccessibleText(content: buttonTitle)
+		  }
+	   }
+	   .buttonStyle(CustomButtonStyle(isEnabled: viewModel.buttonEnabled ?? false))
+    }
 }
+

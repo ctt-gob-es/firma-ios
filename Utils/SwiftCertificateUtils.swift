@@ -89,4 +89,11 @@ class SwiftCertificateUtils {
 	   
 	   return status
     }
+    
+    static func deleteCertificate(_ certificateInfo: AOCertificateInfo) -> OSStatus {
+	   var status: OSStatus = noErr
+	   status = OpenSSLCertificateHelper.deleteCertificate(certificateInfo)
+	   
+	   return status
+    }
 }

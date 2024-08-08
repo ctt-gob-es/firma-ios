@@ -45,7 +45,7 @@ struct CertificateCellView: View {
 			 }
 			 Spacer()
 			 
-			 if let isSelectable = isSelectable{
+			 if isSelectable ?? false {
 				Spacer()
 				if let isSelected = isSelected {
 				    if isSelected {
@@ -78,18 +78,24 @@ struct CertificateCellView: View {
 		  }
 		  .frame(maxWidth: .infinity)
 		  
-		  Button(action: {
-			 appStatus.selectedCertificate = self.certificateInfo
-			 appStatus.showDeleteModal.toggle()
-		  }) {
-			 AccessibleText(content: NSLocalizedString("certificate_delete", bundle: Bundle.main, comment: ""))
-				.boldStyleSmall(foregroundColor: ColorConstants.Background.buttonEnabled)
-				.underline()
+		  if let isSelectable = isSelectable {
+			 if isSelectable == false {
+				Button(action: {
+				    appStatus.selectedCertificate = self.certificateInfo
+				    appStatus.showDeleteModal.toggle()
+				}) {
+				    AccessibleText(content: NSLocalizedString("certificate_delete", bundle: Bundle.main, comment: ""))
+					   .boldStyleSmall(foregroundColor: ColorConstants.Background.buttonEnabled)
+					   .underline()
+				}
+				.buttonStyle(PlainButtonStyle())
+			 }
 		  }
-		  .buttonStyle(PlainButtonStyle())
 	   }
 	   .onTapGesture {
-		  appStatus.selectedCertificate = certificateInfo
+		  if isSelectable ?? false {
+			 appStatus.selectedCertificate = certificateInfo
+		  }
 	   }
 	   .padding()
 	   .background(ColorConstants.Background.main)
