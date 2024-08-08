@@ -1684,9 +1684,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C30B3226163804620072A515 /* Cliente @firma */ = {
+		C30B3226163804620072A515 /* Autofirma */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C30B3263163804620072A515 /* Build configuration list for PBXNativeTarget "Cliente @firma" */;
+			buildConfigurationList = C30B3263163804620072A515 /* Build configuration list for PBXNativeTarget "Autofirma" */;
 			buildPhases = (
 				C30B3223163804620072A515 /* Sources */,
 				C30B3224163804620072A515 /* Frameworks */,
@@ -1697,7 +1697,7 @@
 			);
 			dependencies = (
 			);
-			name = "Cliente @firma";
+			name = Autofirma;
 			productName = SignSample02;
 			productReference = C30B3227163804620072A515 /* Cliente @firma.app */;
 			productType = "com.apple.product-type.application";
@@ -1735,7 +1735,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C30B3226163804620072A515 /* Cliente @firma */,
+				C30B3226163804620072A515 /* Autofirma */,
 			);
 		};
 /* End PBXProject section */
@@ -2327,7 +2327,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C30B3263163804620072A515 /* Build configuration list for PBXNativeTarget "Cliente @firma" */ = {
+		C30B3263163804620072A515 /* Build configuration list for PBXNativeTarget "Autofirma" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C30B3264163804620072A515 /* Debug */,
