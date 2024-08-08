@@ -1,11 +1,3 @@
-//
-//  FloatingPlaceholderTextView.swift
-//  Cliente @firma
-//
-//  Created by Desarrollo Abamobile on 17/7/24.
-//  Copyright © 2024 Solid GEAR. All rights reserved.
-//
-
 import SwiftUI
 
 struct FloatingPlaceholderTextField: View {
@@ -29,55 +21,52 @@ struct FloatingPlaceholderTextField: View {
 				.scaleEffect(isFocused || !text.isEmpty ? 0.75 : 1.0, anchor: .zero)
 				.padding(.top, 4)
 			 
-			 if isSecureTextEntry && !isSecureTextShown {
-				SecureField("", text: $text, onCommit: {
-				    isFocused = false
-				})
-				.onTapGesture {
-				    isFocused = true
-				}
-				.font(.custom("NunitoSans10pt-Regular", size: 16))
-				.foregroundColor(.primary)
-				.padding([.horizontal])
-				.textInputAutocapitalization(.none)
-				.autocapitalization(.none)
-			 } else {
-				TextField("", text: $text, onEditingChanged: { editing in
-				    isFocused = editing
-				})
-				.font(.custom("NunitoSans10pt-Regular", size: 16))
-				.foregroundColor(.primary)
-				.padding([.horizontal])
-				.textInputAutocapitalization(.none)
-				.autocapitalization(.none)
-			 }
-			 
-			 ZStack {
-				if showError {
-				    HStack {
-					   Image(systemName: imageName)
-						  .foregroundColor(ColorConstants.Status.error)
-					   AccessibleText(content: errorplaceholder)
-						  .semiboldStyleSmall(foregroundColor: ColorConstants.Status.error)
-					   Spacer()
+			 HStack {
+				if isSecureTextEntry && !isSecureTextShown {
+				    SecureField("", text: $text, onCommit: {
+					   isFocused = false
+				    })
+				    .onTapGesture {
+					   isFocused = true
 				    }
+				    .font(.custom("NunitoSans10pt-Regular", size: 16))
+				    .foregroundColor(.primary)
 				    .padding(.horizontal)
-				    .padding(.bottom, 4)
+				    .textInputAutocapitalization(.none)
+				    .autocapitalization(.none)
+				} else {
+				    TextField("", text: $text, onEditingChanged: { editing in
+					   isFocused = editing
+				    })
+				    .font(.custom("NunitoSans10pt-Regular", size: 16))
+				    .foregroundColor(.primary)
+				    .padding(.horizontal)
+				    .textInputAutocapitalization(.none)
+				    .autocapitalization(.none)
 				}
 				
-				if isSecureTextEntry && text.count > 0{
-				    HStack {
-					   Spacer()
-					   Button(action: {
-						  isSecureTextShown.toggle()
-					   }) {
-						  Image("eye")
-					   }
-					   .padding(.horizontal, 30)
+				if isSecureTextEntry && !text.isEmpty {
+				    Button(action: {
+					   isSecureTextShown.toggle()
+				    }) {
+					   Image("eye")
+						  .foregroundColor(.gray)
 				    }
-				    .padding(.horizontal)
-				    .offset(y: -22)
+				    .padding(.trailing, 10)
 				}
+			 }
+			 .padding(.bottom, 2)
+			 
+			 if showError {
+				HStack {
+				    Image(systemName: imageName)
+					   .foregroundColor(ColorConstants.Status.error)
+				    AccessibleText(content: errorplaceholder)
+					   .semiboldStyleSmall(foregroundColor: ColorConstants.Status.error)
+				    Spacer()
+				}
+				.padding(.horizontal)
+				.padding(.bottom, 4)
 			 }
 		  }
 		  .background(
