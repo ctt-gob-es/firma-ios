@@ -48,7 +48,7 @@ struct DocumentErrorModalView: View {
 			 Spacer()
 			 
 			 Button(action: {
-				// Retry action
+
 			 }) {
 				AccessibleText(content: NSLocalizedString("retry_button_title", bundle: Bundle.main, comment: ""))
 			 }
@@ -57,7 +57,6 @@ struct DocumentErrorModalView: View {
 		  .padding()
 		  .navigationTitle(NSLocalizedString("document_error_controller_title", bundle: Bundle.main, comment: ""))
 		  .navigationBarTitleDisplayMode(.inline)
-		  .navigationBarColor(UIColor(ColorConstants.Background.main), titleColor: .black)
 	   }
     }
 }

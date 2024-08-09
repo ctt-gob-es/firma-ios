@@ -47,6 +47,8 @@ NSString *const PARAMETER_NAME_FILE_ID = @"fileid";
 NSString *const PARAMETER_NAME_TARGET = @"target";
 NSString *const PARAMETER_NAME_TARGET_TREE = @"tree";
 NSString *const PARAMETER_NAME_TARGET_LEAFS = @"leafs";
+NSString *const PARAMETER_NAME_FILENAME = @"filename";
+NSString *const PARAMETER_NAME_EXTENSION = @"extension";
 
 NSString *const PARAMETER_LOCAL_SIGNATURE = @"local";
 NSString *const PARAMETER_LOCAL_CLOUD_NAME = @"cloudname";
@@ -115,4 +117,6 @@ NSString *const PROPERTY_NAME_SESSION_DATA_PREFIX = @"session";
 NSString *const PROPERTY_NAME_PKCS1_SIGN_PREFIX = @"PK1.";
 NSString *const PROPERTY_NAME_NEED_DATA =@"NEED_DATA";
 NSString *const PROPERTY_NAME_NEED_PRE =@"NEED_PRE";
+
+NSString *const DEFAULT_NAME_DOCUMENT =@"default_autofirma_document_name";
 @end

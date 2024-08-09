@@ -232,6 +232,10 @@ To work correctly you must install an electronic certificate. Consult the docume
 "sign_success_title" = "File signed";
 "sign_success_description" = "The file has been successfully signed.";
 
+//Save modal
+"save_success_title" = "File saved";
+"save_success_description" = "The file has been successfully saved.";
+
 //Delete certificate modal
 "delete_certificate_title" = "Delete certificate";
 "delete_certificate_subtitle" = "Do you want to delete";
@@ -361,3 +365,14 @@ To work correctly you must install an electronic certificate. Consult the docume
 "historical_archives_no_data_title" = "No files have been signed";
 "historical_archives_no_data_description" = "We were unable to find any signed files from this device.";
 "historical_view_title" = "Historical";
+"historical_local_sign_type" = "Local signature";
+"historical_local_data_type" = "Local file";
+"historical_external_sign_type" = "External signature";
+"historical_external_data_type" = "External file";
+
+//Delete historical modal
+"delete_historical_title" = "Delete historical";
+"delete_historical_description" = "If you delete the historical you will not be able to recover it.";
+"delete_historical_cancel_button_title" = "Cancel";
+"delete_historical_button_title" = "Delete historical";
+"default_autofirma_document_name" = "Autofirma document";

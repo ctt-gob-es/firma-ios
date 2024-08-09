@@ -64,9 +64,18 @@ struct MainView: View {
 	   ZStack {
 		  NavigationStack {
 			 VStack {
+				CustomNavigationBar(
+				    logo: logo,
+				    title: nil,
+				    trailingButtons: { navigationBarButtons }
+				)
+				
 				contentView
 				    .navigationBarTitle(viewModel.navigationTitle, displayMode: .inline)
 				    .navigationBarItems(leading: logo, trailing: navigationBarButtons)
+				    .toolbar(.hidden)
+				    .navigationTitle(viewModel.navigationTitle)
+				    .navigationBarHidden(true)
 			 }
 			 .frame(maxWidth: .infinity, maxHeight: .infinity)
 			 .navigationDestination(isPresented: $appStatus.navigateToDNI) {
@@ -97,7 +106,12 @@ struct MainView: View {
 	   .onDisappear(perform: onDisappear)
 	   .onChange(of: viewModel.shouldReload, perform: handleReload)
 	   .onChange(of: appStatus.showDocumentSavingPicker, perform: handleDocumentSavingPicker)
-	   .fileImporter(isPresented: $appStatus.showDocumentImportingPicker, allowedContentTypes: [.data], allowsMultipleSelection: false, onCompletion: handleFileImport)
+	   .fileImporter(
+		  isPresented: $appStatus.showDocumentImportingPicker,
+		  allowedContentTypes: [.data],
+		  allowsMultipleSelection: false,
+		  onCompletion: handleFileImport
+	   )
 	   .sheet(isPresented: $appStatus.showingInfoModal) {
 		  InfoModalView()
 			 .fixedSize(horizontal: false, vertical: true)
@@ -128,15 +142,19 @@ struct MainView: View {
 		  .accessibility(addTraits: .isModal)
 	   }
 	   .sheet(isPresented: $appStatus.showDocumentPicker) {
-		  DocumentPicker(onDocumentsPicked: { url in
-			 if FileUtils().handleFile(at: url) {
-				viewModel.certificateURL = url
-				appStatus.navigateToAddCertificate.toggle()
-			 } else {
-				appStatus.errorModalState = .certificateNotImported
-				appStatus.showErrorModal.toggle()
+		  DocumentPicker(
+			 onDocumentsPicked: { url in
+				if FileUtils().handleFile(at: url) {
+				    viewModel.certificateURL = url
+				    appStatus.navigateToAddCertificate.toggle()
+				} else {
+				    appStatus.errorModalState = .certificateNotImported
+				    appStatus.showErrorModal.toggle()
+				}
+			 }, onCancel: {
+				print("User cancelled the Document Interaction")
 			 }
-		  }, onCancel: {})
+		  )
 		  .accessibility(addTraits: .isModal)
 	   }
 	   .sheet(isPresented: $appStatus.showSuccessModal) {
@@ -183,8 +201,9 @@ struct MainView: View {
 			 DocumentSavingPicker(fileURL: url, onDismiss: { result in
 				viewModel.viewMode = .home
 				switch result {
-				    case .success(let resultURL):
-					   print("User saved the data downloaded here: " + resultURL.absoluteString)
+				    case .success(_):
+					   appStatus.showSuccessModal = true
+					   appStatus.successModalState = .successArhiveAdded
 				    case .failure(let error):
 					   print("Error while saving the data, : " + error.localizedDescription)
 					   handleError(error: error)
@@ -195,13 +214,10 @@ struct MainView: View {
     }
     
     private func onAppear() {
-	   viewModel.navigationTitle = ""
 	   viewModel.updateCertificates(viewModel.getCertificates())
     }
     
-    private func onDisappear() {
-	   viewModel.navigationTitle = "Autofirma"
-    }
+    private func onDisappear() {}
     
     private func handleReload(_ value: Bool) {
 	   if value {

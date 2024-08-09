@@ -47,3 +47,38 @@ extension UINavigationController {
 	   navigationBar.topItem?.backButtonDisplayMode = .minimal
     }
 }
+
+
+struct CustomNavigationBar<LeadingContent: View, TrailingContent: View>: View {
+    let leadingView: LeadingContent
+    let title: String?
+    let trailingView: TrailingContent
+    
+    init(logo: LeadingContent, title: String? = nil, @ViewBuilder trailingButtons: () -> TrailingContent) {
+	   self.leadingView = logo
+	   self.title = title
+	   self.trailingView = trailingButtons()
+    }
+    
+    var body: some View {
+	   HStack {
+		  leadingView
+
+		  Spacer()
+		  
+		  if let title = title {
+			 Text(title)
+				.font(.headline)
+				.foregroundColor(.primary)
+		  }
+
+		  Spacer()
+
+		  trailingView
+	   }
+	   .padding(.horizontal)
+	   .frame(height: 44)
+	   .background(ColorConstants.Background.main) // Background color for your navigation bar
+
+    }
+}

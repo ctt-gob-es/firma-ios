@@ -27,21 +27,38 @@ public class ReceiveDataUseCase: NSObject {
 		  return
 	   }
 	   self.opParameters = NSMutableDictionary(dictionary: urlParameters)
+	   print(startURL)
 	   
-	   //OPERATION: SELECT CERTIFICATE OPERATION
 	   if self.opParameters?[PARAMETER_NAME_OPERATION] as? String == OPERATION_SELECT_CERTIFICATE {
-		  self.urlParameters.stServletCert = self.opParameters?[PARAMETER_NAME_STSERVLET] as? String
-		  self.urlParameters.idDocCert = self.opParameters?[PARAMETER_NAME_DOCID] as? String
-		  self.urlParameters.cipherKeyCert = self.opParameters?[PARAMETER_NAME_CIPHER_KEY] as? String
-		  
-		  let aoEntity = AOEntity()
-		  if let opParameters = self.opParameters {
-			 completion(.success((aoEntity, opParameters)))
-		  } else {
-			 completion(.failure(NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_codigo_desconocido", bundle: Bundle.main, comment: "")])))
-		  }
+		  //OPERATION: SELECT CERTIFICATE OPERATION
+		  processSelectCertificateOperation(completion: completion)
+	   } else if self.opParameters?[PARAMETER_NAME_DAT] == nil && self.opParameters?[PARAMETER_NAME_FILE_ID] == nil{
+		  //OPERATION: SIGN LOCAL ARCHIVE
+		  processSignLocalArchiveOperation(completion: completion)
 	   } else {
 		  handleCertificateParameters(completion: completion)
+	   }
+    }
+    
+    private func processSelectCertificateOperation(completion: @escaping (Result<(AOEntity, NSMutableDictionary), Error>) -> Void) {
+	   self.urlParameters.stServletCert = self.opParameters?[PARAMETER_NAME_STSERVLET] as? String
+	   self.urlParameters.idDocCert = self.opParameters?[PARAMETER_NAME_DOCID] as? String
+	   self.urlParameters.cipherKeyCert = self.opParameters?[PARAMETER_NAME_CIPHER_KEY] as? String
+	   
+	   let aoEntity = AOEntity()
+	   if let opParameters = self.opParameters {
+		  completion(.success((aoEntity, opParameters)))
+	   } else {
+		  completion(.failure(NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_codigo_desconocido", bundle: Bundle.main, comment: "")])))
+	   }
+    }
+    
+    private func processSignLocalArchiveOperation(completion: @escaping (Result<(AOEntity, NSMutableDictionary), Error>) -> Void) {
+	   let aoEntity = AOEntity()
+	   if let opParameters = self.opParameters {
+		  completion(.success((aoEntity, opParameters)))
+	   } else {
+		  completion(.failure(NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_codigo_desconocido", bundle: Bundle.main, comment: "")])))
 	   }
     }
     
@@ -55,6 +72,7 @@ public class ReceiveDataUseCase: NSObject {
 	   if datosInUseCert == nil {
 		  self.urlParameters.fileIdCert = self.opParameters?[PARAMETER_NAME_FILE_ID] as? String
 		  if self.urlParameters.fileIdCert == nil {
+			 
 			 completion(.failure(NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_descarga_fichero", bundle: Bundle.main, comment: "")])))
 		  } else {
 			 self.urlParameters.rtServletCert = self.opParameters?[PARAMETER_NAME_RTSERVLET] as? String

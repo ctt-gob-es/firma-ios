@@ -10,10 +10,8 @@ import Foundation
 
 class PostSignRest {
     func postSign(operation: String, dict: [String: String], datosInUse: String, signFormat: String, signAlgoInUse: String, base64UrlSafeCertificateData: String, extraParams: String?, encodedData: Data, triphasicServerURL: String?, rtServlet: String?, completion: @escaping (Result<Data, Error>) -> Void) {
-	   
 	   var post = ""
 	   
-	   // Append parameters to the post string
 	   post += "\(PARAMETER_NAME_OPERATION)=\(OPERATION_POSTSIGN)&"
 	   post += "\(PARAMETER_NAME_COPERATION)=\(operation)&"
 	   

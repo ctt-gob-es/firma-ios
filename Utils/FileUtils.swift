@@ -58,26 +58,6 @@ class FileUtils {
 	   return matches
     }
     
-    static func getMimeType(from data: Data) -> String? {
-	   let temporaryDirectoryURL = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
-	   let temporaryFileURL = temporaryDirectoryURL.appendingPathComponent(UUID().uuidString)
-	   
-	   do {
-		  try data.write(to: temporaryFileURL)
-		  
-		  if let mimeType = UTType(filenameExtension: temporaryFileURL.pathExtension)?.preferredMIMEType {
-			 try FileManager.default.removeItem(at: temporaryFileURL)
-			 return mimeType
-		  } else {
-			 try FileManager.default.removeItem(at: temporaryFileURL)
-			 return ".txt"
-		  }
-	   } catch {
-		  print("Error determining MIME type: \(error.localizedDescription)")
-		  return nil
-	   }
-    }
-    
     static func convertURLFileToData(urls: [URL], completion: @escaping (Result<Data, Error>) -> Void) {
 	   guard let url = urls.first else {
 		  completion(.failure(NSError(domain: "URLConversion", code: 1, userInfo: [NSLocalizedDescriptionKey: "No URL found."])))
@@ -99,6 +79,15 @@ class FileUtils {
 	   } catch let error {
 		  completion(.failure(error))
 	   }
+    }
+    
+    static func getArchiveNameFromParameters(parameters: NSMutableDictionary?) -> String{
+	   let archiveName = parameters?[PARAMETER_NAME_FILENAME] as? String
+	   return (archiveName == nil ? NSLocalizedString(DEFAULT_NAME_DOCUMENT, bundle: Bundle.main, comment: "") : archiveName!) + (parameters?[PARAMETER_NAME_EXTENSION]  as? String ?? "")
+    }
+    
+    static func getExtensionFromParameters(parameters: NSMutableDictionary?) -> String{
+	   return parameters?[PARAMETER_NAME_EXTENSION] as? String ?? ""
     }
 }
 

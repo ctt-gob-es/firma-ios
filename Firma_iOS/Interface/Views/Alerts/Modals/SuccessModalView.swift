@@ -58,6 +58,7 @@ enum SuccessModalState {
     case successCertificateSent
     case successCertificateDeleted
     case successSign
+    case successArhiveAdded
     
     var title: String {
 	   switch self {
@@ -69,6 +70,8 @@ enum SuccessModalState {
 			 return NSLocalizedString("certificate_delete_success_title",bundle: Bundle.main, comment: "")
 		  case .successSign:
 			 return NSLocalizedString("sign_success_title",bundle: Bundle.main, comment: "")
+		  case .successArhiveAdded:
+			 return NSLocalizedString("save_success_title",bundle: Bundle.main, comment: "")
 	   }
     }
     
@@ -82,6 +85,8 @@ enum SuccessModalState {
 			 return NSLocalizedString("certificate_delete_success_description",bundle: Bundle.main, comment: "")
 		  case .successSign:
 			 return NSLocalizedString("sign_success_description",bundle: Bundle.main, comment: "")
+		  case .successArhiveAdded:
+			 return NSLocalizedString("save_success_description",bundle: Bundle.main, comment: "")
 	   }
     }
 }

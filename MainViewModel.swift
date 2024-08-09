@@ -11,7 +11,7 @@ import Foundation
 @objc class MainViewModel: NSObject, ObservableObject {
     @Published var certificates: [AOCertificateInfo]?
     @Published var sheetHeight: CGFloat = .zero
-    @Published var navigationTitle = ""
+    @Published var navigationTitle = "Autofirma"
     @Published var certificateURL: URL?
     @objc @Published var viewMode: ViewModes = .home
     @objc @Published var urlReceived: URL?

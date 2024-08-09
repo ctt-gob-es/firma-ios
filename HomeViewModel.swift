@@ -37,6 +37,9 @@ class HomeViewModel: ObservableObject {
     @Published var showDocumentImportingPicker: Bool? = false
     @Published var showDocumentSavingPicker: Bool? = false
     @Published var errorModalDescription: String? = ""
+    @Published var showSignModal: Bool? = false
+    @Published var signType: SignType? = nil
+    @Published var dataType: DataType? = nil
     
     init(buttonEnabled: Bool? = false,
 	    urlReceived: URL? = nil,
@@ -92,13 +95,21 @@ class HomeViewModel: ObservableObject {
     func handleCertificateChange(_ value: AOCertificateInfo?) {
 	   guard let value = value else { return }
 	   
-	   self.buttonEnabled = SwiftCertificateUtils.updateSelectedCertificate(certificateUtils: self.certificateUtils, value.subject)
-	   guard let certificateUtils = self.certificateUtils,
-		    let selectedCertificateName = certificateUtils.selectedCertificateName else {
-		  return
-	   }
-	   self.showPseudonymModal = certificateUtils.isPseudonymCertificate(SwiftCertificateUtils.getIdentityFromKeychain(certName: selectedCertificateName))
+	   DispatchQueue.global(qos: .userInitiated).async {
+		  let isButtonEnabled = SwiftCertificateUtils.updateSelectedCertificate(certificateUtils: self.certificateUtils, value.subject)
+		  
+		  guard let certificateUtils = self.certificateUtils,
+			   let selectedCertificateName = certificateUtils.selectedCertificateName else {
+			 return
+		  }
+		  
+		  let shouldShowPseudonymModal = certificateUtils.isPseudonymCertificate(SwiftCertificateUtils.getIdentityFromKeychain(certName: selectedCertificateName))
 	   
+		  DispatchQueue.main.async {
+			 self.buttonEnabled = isButtonEnabled
+			 self.showPseudonymModal = shouldShowPseudonymModal
+		  }
+	   }
     }
     
     func handleShouldSignChange(_ value: Bool) {
@@ -109,11 +120,13 @@ class HomeViewModel: ObservableObject {
     }
     
     func handleImportedDataURLsChange(_ value: [URL]?) {
+	   self.isLoading = true
 	   guard let url = value else { return }
 	   FileUtils.convertURLFileToData(urls: url) { result in
 		  switch result {
 			 case .success(let data):
 				self.signModel?.datosInUse = Base64Utils.encode(data)
+				self.isLoading = false
 			 case .failure(let error):
 				self.handleError(error: error)
 		  }
@@ -136,6 +149,14 @@ class HomeViewModel: ObservableObject {
     }
     
     private func configureMode(signModel: SignModel) {
+	   if signModel.datosInUse == nil && signModel.fileId == nil{
+		  //IF THE DATA IS NIL WE MUST GET THE ARCHIVE LOCALLY
+		  signModel.operation = OPERATION_SIGN_FROM_LOCAL
+		  dataType = .local
+	   } else {
+		  dataType = .external
+	   }
+	   
 	   switch signModel.operation {
 		  case OPERATION_SELECT_CERTIFICATE:
 			 areCertificatesSelectable = true
@@ -201,7 +222,14 @@ class HomeViewModel: ObservableObject {
 		  switch result {
 			 case .success(_):
 				self.historicalUseCase = HistoricalUseCase()
-				self.historicalUseCase?.saveHistory(archiveName: UUID().uuidString, date: Date()) { result in
+				let history = HistoryModel(
+				    date: Date(),
+				    signType: self.signType ?? .external,
+				    externalApp: nil,
+				    dataType: self.dataType ?? .external,
+				    filename: FileUtils.getArchiveNameFromParameters(parameters: self.parameters)
+				)
+				self.historicalUseCase?.saveHistory(history: history) { result in
 				    switch result {
 					   case .success():
 						  self.viewMode = .home
@@ -237,8 +265,12 @@ class HomeViewModel: ObservableObject {
     
     private func handleOperationSaveData() {
 	   saveDataUseCase = SaveDataUseCase()
+	   
 	   if let receivedStringData = signModel?.datosInUse {
-		  saveDataUseCase?.saveFileFromBase64Data(archiveName: "", base64Data: receivedStringData) { result in
+		  saveDataUseCase?.saveFileFromBase64Data(
+			 archiveName: FileUtils.getArchiveNameFromParameters(parameters: parameters),
+			 base64Data: receivedStringData
+		  ) { result in
 			 self.isLoading = false
 			 switch result {
 				case .success(let url):
@@ -252,9 +284,12 @@ class HomeViewModel: ObservableObject {
     }
     
     private func handleError(error: Error) {
-	   errorModalState = .globalError
-	   errorModalDescription = error.localizedDescription
-	   showErrorModal = true
+	   DispatchQueue.main.async {
+		  self.errorModalState = .globalError
+		  self.errorModalDescription = error.localizedDescription
+		  self.showErrorModal = true
+	   }
+	   
 	   let reportErrorUseCase = ReportErrorUseCase()
 	   reportErrorUseCase.reportErrorAsync(urlServlet: signModel?.urlServlet, docId: signModel?.docId, error: ErrorHandlerUtils.getErrorModalDescriptionFromError(error: error)) { result in
 		  switch result {

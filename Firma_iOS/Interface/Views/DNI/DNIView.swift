@@ -12,7 +12,6 @@ struct DNIView: View {
     @State var isShowingModal: Bool = false
     @State private var sheetHeight: CGFloat = .zero
     @State var navigateToConnection = false
-    @State private var navigationTitle = ""
     
     var body: some View {
 	   VStack(alignment: .center, spacing: 20) {
@@ -65,12 +64,6 @@ struct DNIView: View {
 			 .modifier(GetHeightModifier(height: $sheetHeight))
 			 .presentationDetents([.height(sheetHeight)])
 			 .accessibility(addTraits: .isModal)
-	   }
-	   .onAppear() {
-		  navigationTitle = ""
-	   }
-	   .onDisappear {
-		  navigationTitle = NSLocalizedString("dni_view_title", bundle: Bundle.main, comment: "")
 	   }
     }
 }

@@ -14,7 +14,6 @@ struct DNIConnectionView: View {
     @State var buttonEnabled: Bool = false
     @State var isSearching: Bool = false
     @State private var sheetHeight: CGFloat = .zero
-    @State private var navigationTitle = ""
     
     var body: some View {
 	   VStack {
@@ -59,12 +58,6 @@ struct DNIConnectionView: View {
 			 .modifier(GetHeightModifier(height: $sheetHeight))
 			 .presentationDetents([.height(sheetHeight)])
 			 .accessibility(addTraits: .isModal)
-	   }
-	   .onAppear() {
-		  navigationTitle = ""
-	   }
-	   .onDisappear {
-		  navigationTitle = step.title
 	   }
     }
     

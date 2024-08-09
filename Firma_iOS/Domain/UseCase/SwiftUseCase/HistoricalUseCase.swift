@@ -16,8 +16,8 @@ class HistoricalUseCase {
 	   self.repository = repository
     }
 
-    func saveHistory(archiveName: String, date: Date, completion: @escaping (Result<Void, Error>) -> Void) {
-	   repository.saveHistory(archiveName: archiveName, date: date, completion: completion)
+    func saveHistory(history: HistoryModel, completion: @escaping (Result<Void, Error>) -> Void) {
+	   repository.saveHistory(history: history, completion: completion)
     }
 
     func fetchHistory(completion: @escaping (Result<[History], Error>) -> Void) {

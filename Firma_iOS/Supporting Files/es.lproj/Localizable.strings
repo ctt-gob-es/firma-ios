@@ -233,6 +233,10 @@ Para funcionar correctamente debes instalar un certificado electrónico. Consult
 "sign_success_title" = "Fichero firmado";
 "sign_success_description" = "El fichero ha sido firmado correctamente.";
 
+//Save modal
+"save_success_title" = "Fichero guardado";
+"save_success_description" = "El fichero ha sido guardado correctamente.";
+
 //Delete certificate modal
 "delete_certificate_title" = "Eliminar certificado";
 "delete_certificate_subtitle" = "¿Quieres eliminar";
@@ -362,3 +366,14 @@ Para funcionar correctamente debes instalar un certificado electrónico. Consult
 "historical_archives_no_data_title" = "No se ha firmado ningún archivo";
 "historical_archives_no_data_description" = "No hemos podido encontrar ningún archivo firmado desde este dispositivo.";
 "historical_view_title" = "Histórico";
+"historical_local_sign_type" = "Firma local";
+"historical_local_data_type" = "Fichero local";
+"historical_external_sign_type" = "Firma externa";
+"historical_external_data_type" = "Fichero externa";
+
+//Delete historical modal
+"delete_historical_title" = "Eliminar histórico";
+"delete_historical_description" = "Si eliminas el histórico no podrás recuperarlo.";
+"delete_historical_cancel_button_title" = "Cancelar";
+"delete_historical_button_title" = "Eliminar histórico";
+"default_autofirma_document_name" = "Documento Autofirma";

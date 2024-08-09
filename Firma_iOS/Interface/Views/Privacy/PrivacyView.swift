@@ -49,7 +49,6 @@ struct PrivacyView: View {
 	   }
 	   .navigationBarBackButtonHidden(true)
 	   .navigationBarTitle(NSLocalizedString("privacy_controller_title", bundle: Bundle.main, comment: ""), displayMode: .inline)
-	   .navigationBarColor(UIColor(ColorConstants.Background.main), titleColor: .black)
 	   .padding()
 	   .onDisappear {
 		  UserDefaults.standard.setValue(true, forKey: "user_privacy_accepted")

@@ -57,6 +57,8 @@ struct HomeView: View {
 	   .onChange(of: viewModel.showDocumentImportingPicker) { appStatus.showDocumentImportingPicker = $0 ?? false }
 	   .onChange(of: viewModel.showDocumentSavingPicker) { appStatus.showDocumentSavingPicker = $0 ?? false }
 	   .onChange(of: viewModel.errorModalDescription) { appStatus.errorModalDescription = $0 ?? "" }
+	   .onChange(of: viewModel.downloadedData) { appStatus.downloadedData = $0 }
+	   .onChange(of: viewModel.showSignModal) { appStatus.showSignModal = $0 ?? false}
     }
     
     private var mainContent: some View {
@@ -115,23 +117,21 @@ struct HomeView: View {
     }
     
     private var homeButtons : some View {
-	   //TODO: Next implementation, locally sign documents
-	   
-	   /*
-	    Button(action: {
-	    appStatus.showDocumentImportingPicker = true
-	    }) {
-	    AccessibleText(content: NSLocalizedString("home_certificates_sign_button_title", bundle: Bundle.main, comment: ""))
-	    }
-	    .buttonStyle(CustomButtonStyle(isEnabled: true))
-	    */
-	   
-	   Button(action: {
-		  appStatus.showDocumentPicker.toggle()
-	   }) {
-		  AccessibleText(content: NSLocalizedString("home_certificates_add_certificate_button_title", bundle: Bundle.main, comment: ""))
+	   VStack {
+		  /*Button(action: {
+		  appStatus.showDocumentImportingPicker = true
+		  }) {
+		  AccessibleText(content: NSLocalizedString("home_certificates_sign_button_title", bundle: Bundle.main, comment: ""))
+		  }
+		  .buttonStyle(CustomButtonStyle(isEnabled: true))*/
+		 
+		 Button(action: {
+			appStatus.showDocumentPicker.toggle()
+		 }) {
+			AccessibleText(content: NSLocalizedString("home_certificates_add_certificate_button_title", bundle: Bundle.main, comment: ""))
+		 }
+		 .buttonStyle(BorderedButtonStyle())
 	   }
-	   .buttonStyle(BorderedButtonStyle())
     }
     
     private var signButtons: some View {

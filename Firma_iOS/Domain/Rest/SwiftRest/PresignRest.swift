@@ -20,7 +20,6 @@ class PresignRest {
 	   rtServlet: String?,
 	   completion: @escaping (Result<String, Error>) -> Void) {
 		  
-	   // Construct the POST data
 	   var post = "\(PARAMETER_NAME_OPERATION)=\(OPERATION_PRESIGN)&"
 	   post += "\(PARAMETER_NAME_COPERATION)=\(operation)&"
 	   post += "\(PARAMETER_NAME_DOCID)=\(datosInUse)&"

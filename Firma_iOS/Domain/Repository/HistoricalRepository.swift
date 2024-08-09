@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 protocol HistoricalRepositoryProtocol {
-    func saveHistory(archiveName: String, date: Date, completion: @escaping (Result<Void, Error>) -> Void)
+    func saveHistory(history: HistoryModel, completion: @escaping (Result<Void, Error>) -> Void)
     func fetchHistory(completion: @escaping (Result<[History], Error>) -> Void)
     func deleteHistory(history: History, completion: @escaping (Result<Void, Error>) -> Void)
     func deleteAllHistory(completion: @escaping (Result<Void, Error>) -> Void)
@@ -23,10 +23,13 @@ class HistoricalRepository: HistoricalRepositoryProtocol {
 	   self.context = context
     }
 
-    func saveHistory(archiveName: String, date: Date, completion: @escaping (Result<Void, Error>) -> Void) {
-	   let history = History(context: context)
-	   history.archiveName = archiveName
-	   history.date = date
+    func saveHistory(history: HistoryModel, completion: @escaping (Result<Void, Error>) -> Void) {
+	   let historyCoreData = History(context: context)
+	   historyCoreData.date = history.date
+	   historyCoreData.signType = history.signType.rawValue
+	   historyCoreData.externalApp = history.externalApp
+	   historyCoreData.dataType = history.dataType.rawValue
+	   historyCoreData.filename = history.filename
 
 	   do {
 		  try context.save()

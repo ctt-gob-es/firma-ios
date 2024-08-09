@@ -14,6 +14,8 @@
 		83144EA32C3FDAE400CC38AB /* Color+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83144EA22C3FDAE400CC38AB /* Color+Utils.swift */; };
 		83144EA52C3FDB1A00CC38AB /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83144EA42C3FDB1A00CC38AB /* ColorConstants.swift */; };
 		83144EA72C3FDFDD00CC38AB /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83144EA62C3FDFDD00CC38AB /* CustomButtonStyle.swift */; };
+		832037662C661D4800755F7E /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832037652C661D4800755F7E /* HistoryModel.swift */; };
+		832037682C661FA700755F7E /* DeleteHistoricalModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832037672C661FA700755F7E /* DeleteHistoricalModalView.swift */; };
 		835135A02C60BD3A005081EE /* AddCertificateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8351359F2C60BD3A005081EE /* AddCertificateViewModel.swift */; };
 		835135A32C60BF00005081EE /* TutorialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835135A22C60BF00005081EE /* TutorialViewModel.swift */; };
 		8352FF2F2C47C500003402CC /* HomeErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8352FF2E2C47C500003402CC /* HomeErrorView.swift */; };
@@ -314,6 +316,8 @@
 		83144EA22C3FDAE400CC38AB /* Color+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Utils.swift"; sourceTree = "<group>"; };
 		83144EA42C3FDB1A00CC38AB /* ColorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
 		83144EA62C3FDFDD00CC38AB /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
+		832037652C661D4800755F7E /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
+		832037672C661FA700755F7E /* DeleteHistoricalModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteHistoricalModalView.swift; sourceTree = "<group>"; };
 		8351359F2C60BD3A005081EE /* AddCertificateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCertificateViewModel.swift; sourceTree = "<group>"; };
 		835135A22C60BF00005081EE /* TutorialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewModel.swift; sourceTree = "<group>"; };
 		8352FF2E2C47C500003402CC /* HomeErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeErrorView.swift; sourceTree = "<group>"; };
@@ -805,6 +809,7 @@
 				A073AA7E2893F71E00FE30CE /* InputParametersBatch.m */,
 				8393EEC62C58E2E0009FDE6E /* ParseURLParameters.swift */,
 				8393EED92C58FC66009FDE6E /* AOCoreDataModel.xcdatamodeld */,
+				832037652C661D4800755F7E /* HistoryModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -985,6 +990,7 @@
 				83EF14D22C46722D003EC42A /* RecoveryModalView.swift */,
 				83EF14D42C467241003EC42A /* DocumentErrorModalView.swift */,
 				83A5EDC32C53C02100F93B6D /* PseudonymModalView.swift */,
+				832037672C661FA700755F7E /* DeleteHistoricalModalView.swift */,
 			);
 			path = Modals;
 			sourceTree = "<group>";
@@ -1802,6 +1808,7 @@
 				C36554F116F9D11F0048252D /* Utiles.c in Sources */,
 				B273961A20A447DB00A7D05A /* CADESOID.c in Sources */,
 				83DF467B2C48F084000C3F31 /* AddCertificateView.swift in Sources */,
+				832037682C661FA700755F7E /* DeleteHistoricalModalView.swift in Sources */,
 				C3B11DB816FB642B00C0D623 /* AlgorithmIdentifier.c in Sources */,
 				83A5EDBD2C5255DD00F93B6D /* BachRest.m in Sources */,
 				C3B11DBA16FB642B00C0D623 /* ANY.c in Sources */,
@@ -1965,6 +1972,7 @@
 				C3B11E4416FB642B00C0D623 /* xer_support.c in Sources */,
 				83E561442C4A3C8200622C99 /* HomeView.swift in Sources */,
 				C3B14034170AE10000E3FD42 /* ContentHints.c in Sources */,
+				832037662C661D4800755F7E /* HistoryModel.swift in Sources */,
 				838114BB2C512E6700CDEC97 /* SingleSignUseCase.swift in Sources */,
 				83C0ECA42C4103D300244071 /* FAQView.swift in Sources */,
 				83C1725A2C3803E90057F5BD /* DerIndefLenConverter.m in Sources */,
