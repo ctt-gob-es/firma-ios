@@ -1,7 +1,7 @@
 #import "BatchSignUseCase.h"
 #import "CADESConstants.h"
 #import "InputParametersBatch.h"
-#import "BachRest.h"
+#import "BachRestIOS.h"
 #import "ServletRest.h"
 #import "Base64Utils.h"
 #import "CADESSignUtils.h"

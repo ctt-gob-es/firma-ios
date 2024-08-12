@@ -38,6 +38,6 @@ extern asn_TYPE_descriptor_t asn_DEF_RelativeDistinguishedName;
 #endif
 
 /* Referred external types */
-#include "AttributeTypeAndValue.h"
+#include "AttributeTypeAndValueIOS.h"
 
 #endif	/* _RelativeDistinguishedName_H_ */

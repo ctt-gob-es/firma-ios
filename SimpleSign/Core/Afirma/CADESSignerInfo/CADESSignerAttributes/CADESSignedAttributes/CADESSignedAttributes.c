@@ -9,14 +9,14 @@
 #include <openssl/x509.h>
 #include "CADESOID.h"
 #include "UTCTime.h"
-#include "ContentHints.h"
+#include "ContentHintsIOS.h"
 #include "asn_SEQUENCE_OF.h"
 #include "SignaturePolicyId.h"
 #include "NULL.h"
 #include "IA5String.h"
-#include "SigningCertificate.h"
-#include "SigningCertificateV2.h"
-#include "SignerIdentifier.h"
+#include "SigningCertificateIOS.h"
+#include "SigningCertificateV2IOS.h"
+#include "SignerIdentifierIOS.h"
 #include "CertificateUtil.h"
 
 void getCADESSigningTime(Attribute_t **at_ext, struct tm *local){

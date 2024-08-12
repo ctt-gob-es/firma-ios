@@ -12,7 +12,7 @@
 #include "asn_application.h"
 
 /* Including external dependencies */
-#include "AlgorithmIdentifier.h"
+#include "AlgorithmIdentifierIOS.h"
 
 #ifdef __cplusplus
 extern "C" {

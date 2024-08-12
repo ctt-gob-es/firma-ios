@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BachRest.h"
+#import "BachRestIOS.h"
 #import "ServletRest.h"
 @protocol BatchSignUseCaseDelegate;
 

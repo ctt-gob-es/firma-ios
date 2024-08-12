@@ -38,6 +38,6 @@ extern asn_TYPE_descriptor_t asn_DEF_UnsignedAttributes;
 #endif
 
 /* Referred external types */
-#include "Attribute.h"
+#include "AttributeIOS.h"
 
 #endif	/* _UnsignedAttributes_H_ */
