@@ -377,3 +377,9 @@ Para funcionar correctamente debes instalar un certificado electrónico. Consult
 "delete_historical_cancel_button_title" = "Cancelar";
 "delete_historical_button_title" = "Eliminar histórico";
 "default_autofirma_document_name" = "Documento Autofirma";
+
+//Textfield modal
+"textfield_modal_title" = "El documento está encriptado";
+"textfield_modal_description" = "Por favor, introduce la contraseña del documento para poder continuar con el proceso de firma";
+"textfield_modal_button_title" = "Introducir contraseña";
+"textfield_modal_cancel_button_title" = "Cancelar";

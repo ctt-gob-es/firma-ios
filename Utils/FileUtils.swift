@@ -89,6 +89,34 @@ class FileUtils {
     static func getExtensionFromParameters(parameters: NSMutableDictionary?) -> String{
 	   return parameters?[PARAMETER_NAME_EXTENSION] as? String ?? ""
     }
+    
+    static func fileType(from data: Data) -> String? {
+	   var bytes = [UInt8](repeating: 0, count: 12)
+	   data.copyBytes(to: &bytes, count: 12)
+	   
+	   if bytes.starts(with: [0xFF, 0xD8, 0xFF]) {
+		  return "jpg"
+	   } else if bytes.starts(with: [0x89, 0x50, 0x4E, 0x47]) {
+		  return "png"
+	   } else if bytes.starts(with: [0x25, 0x50, 0x44, 0x46]) {
+		  return "pdf"
+	   } else if bytes.starts(with: [0x50, 0x4B, 0x03, 0x04]) {
+		  return "zip"
+	   } else if bytes.starts(with: [0x1F, 0x8B]) {
+		  return "gz"
+	   } else if bytes.starts(with: [0x49, 0x49, 0x2A, 0x00]) || bytes.starts(with: [0x4D, 0x4D, 0x00, 0x2A]) {
+		  return "tiff"
+	   } else if bytes.starts(with: [0x42, 0x4D]) {
+		  return "bmp"
+	   }
+	   
+	   return nil
+    }
+    
+    static func isValidFileExtension(_ ext: String) -> Bool {
+	   let validExtensions = ["jpg", "jpeg", "png", "pdf", "zip", "gz", "tiff", "bmp"]
+	   return validExtensions.contains(ext.lowercased())
+    }
 }
 
 struct GetHeightModifier: ViewModifier {

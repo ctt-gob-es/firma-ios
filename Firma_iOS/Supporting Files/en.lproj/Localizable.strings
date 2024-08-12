@@ -376,3 +376,9 @@ To work correctly you must install an electronic certificate. Consult the docume
 "delete_historical_cancel_button_title" = "Cancel";
 "delete_historical_button_title" = "Delete historical";
 "default_autofirma_document_name" = "Autofirma document";
+
+//Textfield modal
+"textfield_modal_title" = "The document is encrypted";
+"textfield_modal_description" = "Please enter the document password to continue with the signing process";
+"textfield_modal_button_title" = "Enter password";
+"textfield_modal_cancel_button_title" = "Cancel";

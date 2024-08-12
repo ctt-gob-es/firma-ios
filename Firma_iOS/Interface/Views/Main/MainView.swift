@@ -43,8 +43,10 @@ struct MainView: View {
     
     private var navigationBarButtons: some View {
 	   HStack(spacing: 4) {
-		  NavigationBarButton(imageName: "info", action: { appStatus.showingInfoModal = true })
-		  NavigationBarButtonLink(destination: SettingsView(), imageName: "settings")
+		  if viewModel.viewMode == .home {
+			 NavigationBarButton(imageName: "info", action: { appStatus.showingInfoModal = true })
+			 NavigationBarButtonLink(destination: SettingsView(), imageName: "settings")
+		  }
 	   }
 	   .padding(.bottom, 4)
     }
@@ -201,7 +203,8 @@ struct MainView: View {
 			 DocumentSavingPicker(fileURL: url, onDismiss: { result in
 				viewModel.viewMode = .home
 				switch result {
-				    case .success(_):
+				    case .success(let url):
+					   print("URL of the saved archive: " + url.absoluteString)
 					   appStatus.showSuccessModal = true
 					   appStatus.successModalState = .successArhiveAdded
 				    case .failure(let error):

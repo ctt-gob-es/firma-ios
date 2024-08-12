@@ -19,6 +19,9 @@ struct HomeView: View {
     @Binding var downloadedData: URL?
     @Binding var viewMode: ViewModes
     
+    @State var password: String = ""
+    @State var shouldCancelOperation: Bool = false
+    
     init(certificates: Binding<[AOCertificateInfo]?>,
 	    viewMode: Binding<ViewModes>,
 	    shouldSign: Binding<Bool>,
@@ -59,6 +62,21 @@ struct HomeView: View {
 	   .onChange(of: viewModel.errorModalDescription) { appStatus.errorModalDescription = $0 ?? "" }
 	   .onChange(of: viewModel.downloadedData) { appStatus.downloadedData = $0 }
 	   .onChange(of: viewModel.showSignModal) { appStatus.showSignModal = $0 ?? false}
+	   .onChange(of: shouldCancelOperation) { if $0 == true { viewModel.viewMode = .home ; viewModel.areCertificatesSelectable = false } }
+	   .onChange(of: viewModel.showTextfieldModal) { result in
+		  if !result {
+			 if password != "" {
+				viewModel.signModel?.updateExtraParams(dict: ["ownerPassword": password])
+			 }
+		  }
+	   }
+	   .sheet(isPresented: $viewModel.showTextfieldModal) {
+		  TextfieldModalView(password: $password, shouldCancelOperation: $shouldCancelOperation)
+			 .fixedSize(horizontal: false, vertical: true)
+			 .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
+			 .presentationDetents([.height(viewModel.sheetHeight)])
+			 .accessibility(addTraits: .isModal)
+	   }
     }
     
     private var mainContent: some View {

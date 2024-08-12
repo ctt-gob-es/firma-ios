@@ -16,6 +16,7 @@
 		83144EA72C3FDFDD00CC38AB /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83144EA62C3FDFDD00CC38AB /* CustomButtonStyle.swift */; };
 		832037662C661D4800755F7E /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832037652C661D4800755F7E /* HistoryModel.swift */; };
 		832037682C661FA700755F7E /* DeleteHistoricalModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832037672C661FA700755F7E /* DeleteHistoricalModalView.swift */; };
+		8320376A2C6645FA00755F7E /* TextfieldModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832037692C6645F900755F7E /* TextfieldModalView.swift */; };
 		835135A02C60BD3A005081EE /* AddCertificateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8351359F2C60BD3A005081EE /* AddCertificateViewModel.swift */; };
 		835135A32C60BF00005081EE /* TutorialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835135A22C60BF00005081EE /* TutorialViewModel.swift */; };
 		8352FF2F2C47C500003402CC /* HomeErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8352FF2E2C47C500003402CC /* HomeErrorView.swift */; };
@@ -318,6 +319,7 @@
 		83144EA62C3FDFDD00CC38AB /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
 		832037652C661D4800755F7E /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
 		832037672C661FA700755F7E /* DeleteHistoricalModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteHistoricalModalView.swift; sourceTree = "<group>"; };
+		832037692C6645F900755F7E /* TextfieldModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextfieldModalView.swift; sourceTree = "<group>"; };
 		8351359F2C60BD3A005081EE /* AddCertificateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCertificateViewModel.swift; sourceTree = "<group>"; };
 		835135A22C60BF00005081EE /* TutorialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewModel.swift; sourceTree = "<group>"; };
 		8352FF2E2C47C500003402CC /* HomeErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeErrorView.swift; sourceTree = "<group>"; };
@@ -991,6 +993,7 @@
 				83EF14D42C467241003EC42A /* DocumentErrorModalView.swift */,
 				83A5EDC32C53C02100F93B6D /* PseudonymModalView.swift */,
 				832037672C661FA700755F7E /* DeleteHistoricalModalView.swift */,
+				832037692C6645F900755F7E /* TextfieldModalView.swift */,
 			);
 			path = Modals;
 			sourceTree = "<group>";
@@ -1867,6 +1870,7 @@
 				83C172552C3803E90057F5BD /* ByteArrayTagOrder.m in Sources */,
 				83A5EDC42C53C02100F93B6D /* PseudonymModalView.swift in Sources */,
 				C3B11DE016FB642B00C0D623 /* constr_SET_OF.c in Sources */,
+				8320376A2C6645FA00755F7E /* TextfieldModalView.swift in Sources */,
 				C3B11DE216FB642B00C0D623 /* constr_TYPE.c in Sources */,
 				C3B11DE416FB642B00C0D623 /* constraints.c in Sources */,
 				838114B92C512E5B00CDEC97 /* SendCertificateUseCase.swift in Sources */,

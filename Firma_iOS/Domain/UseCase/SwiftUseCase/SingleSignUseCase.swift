@@ -20,7 +20,7 @@ class SingleSignUseCase {
 	   self.certificateUtils = certificateUtils
     }
     
-    func singleSign(completion: @escaping (Result<Void, Error>) -> Void) {
+    func singleSign(completion: @escaping (Result<Bool, Error>) -> Void) {
 	   guard let signModel else {
 		  handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_datos_firmar", bundle: Bundle.main, comment: "")]), completion: completion)
 		  return
@@ -28,7 +28,7 @@ class SingleSignUseCase {
 	   presign(signModel: signModel, completion: completion)
     }
     
-    private func presign(signModel: SignModel, completion: @escaping (Result<Void, Error>) -> Void) {
+    private func presign(signModel: SignModel, completion: @escaping (Result<Bool, Error>) -> Void) {
 	   guard let operation = signModel.operation,
 		    let datosInUse = signModel.datosInUse,
 		    let signFormat = signModel.signFormat,
@@ -56,7 +56,7 @@ class SingleSignUseCase {
 	   }
     }
     
-    private func handlePresingResult(signModel: SignModel, result: Result<String, Error>, completion: @escaping (Result<Void, Error>) -> Void) {
+    private func handlePresingResult(signModel: SignModel, result: Result<String, Error>, completion: @escaping (Result<Bool, Error>) -> Void) {
 	   guard let signFormat = signModel.signFormat,
 		    let signAlgoInUse = signModel.signAlgoInUse else {
 		  handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_datos_firmar", bundle: Bundle.main, comment: "")]), completion: completion)
@@ -72,11 +72,16 @@ class SingleSignUseCase {
 				    signAlgoInUse: signAlgoInUse,
 				    signFormat: signFormat
 				  ) else {
-				if let range = serverResponse.range(of: ":", options: .backwards) {
-				    let result = serverResponse[range.upperBound...]
-				    handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: result]), completion: completion)
+				
+				if serverResponse.contains(ERR_PASSWORD_PROTECTED) || serverResponse.contains(ERR_BAD_PASSWORD) {
+				    handleRetryWithPassword(completion: completion)
 				} else {
-				    handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_proceso_firma", bundle: Bundle.main, comment: "")]), completion: completion)
+				    if let range = serverResponse.range(of: ":", options: .backwards) {
+					   let result = serverResponse[range.upperBound...]
+					   handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: result]), completion: completion)
+				    } else {
+					   handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_proceso_firma", bundle: Bundle.main, comment: "")]), completion: completion)
+				    }
 				}
 				return
 			 }
@@ -87,7 +92,7 @@ class SingleSignUseCase {
 	   }
     }
     
-    private func postsign(signModel: SignModel, encodedData: Data, completion: @escaping (Result<Void, Error>) -> Void) {
+    private func postsign(signModel: SignModel, encodedData: Data, completion: @escaping (Result<Bool, Error>) -> Void) {
 	   guard let operation = signModel.operation,
 		    let datosInUse = signModel.datosInUse,
 		    let signFormat = signModel.signFormat,
@@ -116,7 +121,7 @@ class SingleSignUseCase {
 		  })
     }
     
-    private func handlePostSignResult(signModel: SignModel, result: Result<Data, Error>, completion: @escaping (Result<Void, Error>) -> Void) {
+    private func handlePostSignResult(signModel: SignModel, result: Result<Data, Error>, completion: @escaping (Result<Bool, Error>) -> Void) {
 	   switch result {
 		  case .success(let postSignResult):
 			 if let responseString = String(data: postSignResult, encoding: .utf8) {
@@ -186,6 +191,7 @@ class SingleSignUseCase {
 	   }
 	   
 	   guard String(data: dataReceived, encoding: .utf8) != nil else {
+		  print(dataReceivedb64)
 		  return nil
 	   }
 	   
@@ -317,12 +323,16 @@ class SingleSignUseCase {
 	   }
     }
     
-    private func handleSignError(error: Error, completion: @escaping (Result<Void, Error>) -> Void) {
+    private func handleSignError(error: Error, completion: @escaping (Result<Bool, Error>) -> Void) {
 	   print("Error occurred: \(error.localizedDescription)")
 	   completion(.failure(error))
     }
     
-    private func sendCertificate(dataSign: String, completion: @escaping (Result<Void, Error>) -> Void) {
+    private func handleRetryWithPassword(completion: @escaping (Result<Bool, Error>) -> Void) {
+	   completion(.success(true))
+    }
+    
+    private func sendCertificate(dataSign: String, completion: @escaping (Result<Bool, Error>) -> Void) {
 	   guard let urlServlet = signModel?.urlServlet,
 		    let cipherKey = signModel?.cipherKey,
 		    let docId = signModel?.docId,
@@ -342,7 +352,7 @@ class SingleSignUseCase {
 			 case .success(let storeDataServerResponse):
 				if let response = String(data: storeDataServerResponse, encoding: .utf8) {
 				    if response == OK {
-					   completion(.success(()))
+					   completion(.success(false))
 				    } else {
 					   self.handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_proceso_firma", bundle: Bundle.main, comment: "")]), completion: completion)
 				    }

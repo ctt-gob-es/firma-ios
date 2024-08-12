@@ -27,7 +27,6 @@ public class ReceiveDataUseCase: NSObject {
 		  return
 	   }
 	   self.opParameters = NSMutableDictionary(dictionary: urlParameters)
-	   print(startURL)
 	   
 	   if self.opParameters?[PARAMETER_NAME_OPERATION] as? String == OPERATION_SELECT_CERTIFICATE {
 		  //OPERATION: SELECT CERTIFICATE OPERATION

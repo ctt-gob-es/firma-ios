@@ -17,6 +17,7 @@ import Foundation
     @objc @Published var urlReceived: URL?
     @Published var shouldSign: Bool = false
     @Published var shouldReload: Bool = false
+    @Published var isNavigationDisabled: Bool = false
     
     func updateCertificates(_ newCertificates: [AOCertificateInfo]) {
 	   self.certificates = newCertificates

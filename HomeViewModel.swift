@@ -40,6 +40,8 @@ class HomeViewModel: ObservableObject {
     @Published var showSignModal: Bool? = false
     @Published var signType: SignType? = nil
     @Published var dataType: DataType? = nil
+    @Published var showTextfieldModal: Bool = false
+    @Published var sheetHeight: CGFloat = .zero
     
     init(buttonEnabled: Bool? = false,
 	    urlReceived: URL? = nil,
@@ -81,13 +83,18 @@ class HomeViewModel: ObservableObject {
     }
     
     func onAppear() {
+	   loadData()
+    }
+    
+    func loadData() {
 	   certificateUtils = CertificateUtils()
-	   
-	   if let urlReceived = urlReceived {
-		  isLoading = true
-		  receiveDataUseCase = ReceiveDataUseCase(startURL: urlReceived.absoluteString)
-		  receiveDataUseCase?.parseUrl { result in
-			 self.handleReceiveData(result: result)
+	   if viewMode == .sign {
+		  if let urlReceived = urlReceived {
+			 isLoading = true
+			 receiveDataUseCase = ReceiveDataUseCase(startURL: urlReceived.absoluteString)
+			 receiveDataUseCase?.parseUrl { result in
+				self.handleReceiveData(result: result)
+			 }
 		  }
 	   }
     }
@@ -104,7 +111,7 @@ class HomeViewModel: ObservableObject {
 		  }
 		  
 		  let shouldShowPseudonymModal = certificateUtils.isPseudonymCertificate(SwiftCertificateUtils.getIdentityFromKeychain(certName: selectedCertificateName))
-	   
+		  
 		  DispatchQueue.main.async {
 			 self.buttonEnabled = isButtonEnabled
 			 self.showPseudonymModal = shouldShowPseudonymModal
@@ -125,7 +132,7 @@ class HomeViewModel: ObservableObject {
 	   FileUtils.convertURLFileToData(urls: url) { result in
 		  switch result {
 			 case .success(let data):
-				self.signModel?.datosInUse = Base64Utils.encode(data)
+				self.signModel?.datosInUse = Base64Utils.encode(data,urlSafe: true)
 				self.isLoading = false
 			 case .failure(let error):
 				self.handleError(error: error)
@@ -217,31 +224,40 @@ class HomeViewModel: ObservableObject {
     }
     
     private func handleOperationSign() {
-	   signUseCase?.singleSign { result in
-		  self.isLoading = false
-		  switch result {
-			 case .success(_):
-				self.historicalUseCase = HistoricalUseCase()
-				let history = HistoryModel(
-				    date: Date(),
-				    signType: self.signType ?? .external,
-				    externalApp: nil,
-				    dataType: self.dataType ?? .external,
-				    filename: FileUtils.getArchiveNameFromParameters(parameters: self.parameters)
-				)
-				self.historicalUseCase?.saveHistory(history: history) { result in
-				    switch result {
-					   case .success():
-						  self.viewMode = .home
-						  self.successModalState = .successSign
-						  self.showSuccessModal = true
-						  self.areCertificatesSelectable = false
-					   case .failure(let error):
-						  self.handleError(error: error)
+	   
+	   self.signUseCase?.singleSign { result in
+		  DispatchQueue.main.async {
+			 self.isLoading = false
+			 
+			 switch result {
+				case .success(let shouldRetry):
+				    if shouldRetry {
+					   self.showTextfieldModal = true
+				    } else {
+					   self.historicalUseCase = HistoricalUseCase()
+					   let history = HistoryModel(
+						  date: Date(),
+						  signType: self.signType ?? .external,
+						  externalApp: nil,
+						  dataType: self.dataType ?? .external,
+						  filename: FileUtils.getArchiveNameFromParameters(parameters: self.parameters)
+					   )
+					   self.historicalUseCase?.saveHistory(history: history) { result in
+						  switch result {
+							 case .success():
+								self.viewMode = .home
+								self.successModalState = .successSign
+								self.showSuccessModal = true
+								self.areCertificatesSelectable = false
+							 case .failure(let error):
+								self.handleError(error: error)
+						  }
+					   }
 				    }
-				}
-			 case .failure(let error):
-				self.handleError(error: error)
+				    
+				case .failure(let error):
+				    self.handleError(error: error)
+			 }
 		  }
 	   }
     }
