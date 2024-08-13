@@ -112,6 +112,7 @@ class HomeViewModel: ObservableObject {
 		  DispatchQueue.main.async {
 			 self.buttonEnabled = isButtonEnabled
 			 self.showPseudonymModal = shouldShowPseudonymModal
+			 self.signLocalPdf()
 		  }
 	   }
     }
@@ -352,6 +353,50 @@ class HomeViewModel: ObservableObject {
 			 }
 		  case .failure(let error):
 			 print("Server error from reportError: " + error.localizedDescription)
+	   }
+    }
+    
+    func signLocalPdf() {
+	   guard
+		  let pdfData = Data(base64Encoded: PDFConstants.mockPDFString),
+		  let privateKeyRef = certificateUtils?.privateKey,
+		  let certificateName = certificateUtils?.selectedCertificateName,
+		  let identity = SwiftCertificateUtils.getIdentityFromKeychain(certName: certificateName),
+		  let certificateRef = SwiftCertificateUtils.getCertificateRefFromIdentity(identity: identity) else {
+		  print("Missing required data for signing")
+			 handleError(error: NSError(domain: "SignError", code: 1, userInfo: [NSLocalizedDescriptionKey: "Unknown error"]))
+		  return
+	   }
+	   
+	   let padesUtils = PadesUtils()
+	   
+	   padesUtils.signPdf(
+		  pdfData: pdfData,
+		  algorithm: nil,
+		  privateKey: privateKeyRef,
+		  certificateRef: certificateRef,
+		  extraParams: nil
+	   ) { [weak self] result in
+		  DispatchQueue.main.async {
+			 self?.handleSignPdfResult(result)
+		  }
+	   }
+    }
+    
+    private func handleSignPdfResult(_ result: EsGobAfirmaIosSignatureResult?) {
+	   isLoading = false
+	   guard let result = result else {
+		  handleError(error: NSError(domain: "SignError", code: -1, userInfo: [NSLocalizedDescriptionKey: "No result returned from signing"]))
+		  return
+	   }
+	   
+	   if result.isError() {
+		  handleError(error: NSError(domain: "SignError", code: Int(result.getErrorCode()), userInfo: [NSLocalizedDescriptionKey: result.getErrorMessage() ?? "Unknown error"]))
+	   } else if let signedPdfData = result.getSignature() {
+		  print("Successfully signed the PDF, result: " + signedPdfData.debugDescription)
+		  viewMode = .home
+		  successModalState = .successSign
+		  showSuccessModal = true
 	   }
     }
 }

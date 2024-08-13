@@ -2,6 +2,7 @@
 //  Use this file to import your target's public headers that you would like to expose to Swift.
 //
 
+//OBJC CODE
 #import "AOSignViewController.h"
 #import "GlobalConstants.h"
 #import "AOCertificateInfo.h"
@@ -25,10 +26,12 @@
 #import "Firma.h"
 #import "AOPadesUtils.h"
 #import "SignatureResult.h"
+#import "IOSClass.h"
+#import "IOSObjectArray.h"
+
+
+//JAVA CODE
 #include "java/util/Properties.h"
 #include "java/security/PrivateKey.h"
-#include "IOSClass.h"
-#include "IOSObjectArray.h"
+#include "java/security/PublicKey.h"
 #include "java/security/cert/Certificate.h"
-#include "PdfSignatureAppearance.h"
-#include "KeyStoreManager.h"

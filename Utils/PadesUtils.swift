@@ -7,23 +7,25 @@
 //
 
 import Foundation
+import Security
 
 class PadesUtils {
     func signPdf(
 	   pdfData: Data,
 	   algorithm: String?,
-	   privateKey: JavaSecurityPrivateKeyProtocol,
-	   certChain: [JavaSecurityCertCertificate],
+	   privateKey: SecKey,
+	   certificateRef: SecCertificate,
 	   extraParams: [String: String]?,
 	   completion: @escaping (EsGobAfirmaIosSignatureResult?) -> Void
     ) {
 	   DispatchQueue.global(qos: .userInitiated).async {
 		  let utils = AOPadesUtils()
+		  
 		  let result = utils.signPdf(
 			 with: pdfData,
 			 algorithm: algorithm,
 			 privateKey: privateKey,
-			 certChain: certChain,
+			 certificate: certificateRef,
 			 extraParams: extraParams
 		  )
 		  

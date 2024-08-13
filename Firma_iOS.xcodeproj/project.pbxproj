@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3BC03D5D19D9988300FC1804 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AF7F6E17FD60C80084D916 /* libGoogleAnalyticsServices.a */; };
 		3C57FA171AC1BB9D00FF7292 /* AOCertificateInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C57FA161AC1BB9D00FF7292 /* AOCertificateInfo.m */; };
+		83063D0E2C6B5B2E00E88046 /* PDFConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83063D0D2C6B5B2E00E88046 /* PDFConstants.swift */; };
 		83094A582C58DCCA006CEB12 /* ReceiveDataRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83094A572C58DCCA006CEB12 /* ReceiveDataRest.swift */; };
 		830CDA052C6AAEA300E2890D /* AbstractECMultiplier.m in Sources */ = {isa = PBXBuildFile; fileRef = 830CD0CB2C6AAEA200E2890D /* AbstractECMultiplier.m */; };
 		830CDA062C6AAEA300E2890D /* AbstractX500NameStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 830CD0CD2C6AAEA200E2890D /* AbstractX500NameStyle.m */; };
@@ -1484,6 +1485,7 @@
 /* Begin PBXFileReference section */
 		3C57FA151AC1BB9D00FF7292 /* AOCertificateInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AOCertificateInfo.h; path = model/AOCertificateInfo.h; sourceTree = "<group>"; };
 		3C57FA161AC1BB9D00FF7292 /* AOCertificateInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AOCertificateInfo.m; path = model/AOCertificateInfo.m; sourceTree = "<group>"; };
+		83063D0D2C6B5B2E00E88046 /* PDFConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFConstants.swift; sourceTree = "<group>"; };
 		83094A572C58DCCA006CEB12 /* ReceiveDataRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveDataRest.swift; sourceTree = "<group>"; };
 		830CD0CA2C6AAEA200E2890D /* AbstractECMultiplier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractECMultiplier.h; sourceTree = "<group>"; };
 		830CD0CB2C6AAEA200E2890D /* AbstractECMultiplier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractECMultiplier.m; sourceTree = "<group>"; };
@@ -7172,6 +7174,7 @@
 				830CDEA22C6AAF5C00E2890D /* AOPadesUtils.m */,
 				830CDEA42C6AAF6C00E2890D /* AOPadesUtils.h */,
 				830CDEA92C6AB23600E2890D /* PadesUtils.swift */,
+				83063D0D2C6B5B2E00E88046 /* PDFConstants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -8157,6 +8160,7 @@
 				830CDDB62C6AAEA300E2890D /* SecT131Field.m in Sources */,
 				830CDE702C6AAEA300E2890D /* X9ObjectIdentifiers.m in Sources */,
 				830CDBBF2C6AAEA300E2890D /* GostR3410TransportParameters.m in Sources */,
+				83063D0E2C6B5B2E00E88046 /* PDFConstants.swift in Sources */,
 				830CDB3D2C6AAEA300E2890D /* DERSetParser.m in Sources */,
 				830CDB1F2C6AAEA300E2890D /* DefaultJcaJceHelper.m in Sources */,
 				830CDDC22C6AAEA300E2890D /* SecT163R2Curve.m in Sources */,

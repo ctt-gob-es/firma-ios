@@ -60,6 +60,17 @@ class SwiftCertificateUtils {
 	   return identity
     }
     
+    static func getCertificateRefFromIdentity(identity: SecIdentity) -> SecCertificate? {
+	   var certificate: SecCertificate?
+	   let status = SecIdentityCopyCertificate(identity, &certificate)
+
+	   if status == errSecSuccess, let cert = certificate {
+		  return cert
+	   } else {
+		  return nil
+	   }
+    }
+    
     static func getCertificateOption(certificate: AOCertificateInfo) -> CertificateExpirationOptions {
 	   let today = Date()
 	   let calendar = Calendar.current
