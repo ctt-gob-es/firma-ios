@@ -27,6 +27,11 @@
 								withJavaSecurityCertCertificateArray:certChainArray
 										  withJavaUtilProperties:javaProperties];
 
+    IOSByteArray *byteArray = [result getSignature];
+    NSString *base64String = [self convertIOSByteArrayToBase64String:byteArray];
+    
+    NSLog(@"Base64 String: %@", base64String);
+    
     return result;
 }
 
@@ -39,12 +44,11 @@
     NSData *privateKeyNSData = CFDictionaryGetValue(attributes, kSecValueData);
     IOSByteArray *privateKeyData = [IOSByteArray arrayWithBytes:[privateKeyNSData bytes] count:[privateKeyNSData length]];
     JavaIoByteArrayInputStream *inputStream = [[JavaIoByteArrayInputStream alloc] initWithByteArray:privateKeyData];
+    id<JavaSecurityPrivateKey> pvt = [KeyloaderKeyLoader loadPrivateKeyWithJavaIoInputStream:inputStream];
     
     if (attributes) {
 	   CFRelease(attributes);
     }
-
-    JavaSecurityPrivateKey *pvt = [[JavaSecurityPrivateKey alloc] init];
 
     return pvt;
 }
@@ -58,6 +62,10 @@
     JavaSecurityCertCertificate *certChain = [cf generateCertificateWithJavaIoInputStream:inputStream];
     IOSObjectArray *certChainArray = [IOSObjectArray arrayWithLength:1 type:JavaSecurityCertCertificate_class_()];
     [certChainArray replaceObjectAtIndex:0 withObject:certChain];
+    
+    if (certData) {
+	   CFRelease(certData);
+    }
     return certChainArray;
 }
 
@@ -67,6 +75,12 @@
 	   [javaProperties setPropertyWithNSString:key withNSString:[extraParams objectForKey:key]];
     }
     return javaProperties;
+}
+
+- (NSString *)convertIOSByteArrayToBase64String:(IOSByteArray *)byteArray {
+    NSData *data = [NSData dataWithBytes:byteArray->buffer_ length:byteArray->size_];
+    NSString *base64String = [data base64EncodedStringWithOptions:0];
+    return base64String;
 }
 
 @end

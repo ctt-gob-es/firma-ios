@@ -13,6 +13,8 @@
 #import "IOSObjectArray.h"
 #import "J2ObjC_source.h"
 #import "IOSPrimitiveArray.h"
+#import "Keyloader.h"
+#import "SignatureResult.h"
 
 #include "java/util/Properties.h"
 #include "java/security/KeyFactory.h"
