@@ -137,7 +137,7 @@ struct HomeView: View {
     private var homeButtons : some View {
 	   VStack {
 		  /*Button(action: {
-		  appStatus.showDocumentImportingPicker = true
+		  appStatus.showSignModal = true
 		  }) {
 		  AccessibleText(content: NSLocalizedString("home_certificates_sign_button_title", bundle: Bundle.main, comment: ""))
 		  }

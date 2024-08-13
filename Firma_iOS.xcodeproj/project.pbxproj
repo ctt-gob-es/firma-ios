@@ -1191,6 +1191,8 @@
 		830CDE9F2C6AAEA300E2890D /* XmpSchema.m in Sources */ = {isa = PBXBuildFile; fileRef = 830CD9FF2C6AAEA200E2890D /* XmpSchema.m */; };
 		830CDEA02C6AAEA300E2890D /* XmpWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 830CDA012C6AAEA200E2890D /* XmpWriter.m */; };
 		830CDEA12C6AAEA300E2890D /* ZTauElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 830CDA032C6AAEA200E2890D /* ZTauElement.m */; };
+		830CDEA32C6AAF5C00E2890D /* AOPadesUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 830CDEA22C6AAF5C00E2890D /* AOPadesUtils.m */; };
+		830CDEAA2C6AB23600E2890D /* PadesUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830CDEA92C6AB23600E2890D /* PadesUtils.swift */; };
 		83144EA12C3FD97900CC38AB /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83144EA02C3FD97900CC38AB /* TextStyles.swift */; };
 		83144EA32C3FDAE400CC38AB /* Color+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83144EA22C3FDAE400CC38AB /* Color+Utils.swift */; };
 		83144EA52C3FDB1A00CC38AB /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83144EA42C3FDB1A00CC38AB /* ColorConstants.swift */; };
@@ -3845,6 +3847,9 @@
 		830CDA012C6AAEA200E2890D /* XmpWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XmpWriter.m; sourceTree = "<group>"; };
 		830CDA022C6AAEA200E2890D /* ZTauElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTauElement.h; sourceTree = "<group>"; };
 		830CDA032C6AAEA200E2890D /* ZTauElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTauElement.m; sourceTree = "<group>"; };
+		830CDEA22C6AAF5C00E2890D /* AOPadesUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AOPadesUtils.m; sourceTree = "<group>"; };
+		830CDEA42C6AAF6C00E2890D /* AOPadesUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOPadesUtils.h; sourceTree = "<group>"; };
+		830CDEA92C6AB23600E2890D /* PadesUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PadesUtils.swift; sourceTree = "<group>"; };
 		83144EA02C3FD97900CC38AB /* TextStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
 		83144EA22C3FDAE400CC38AB /* Color+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Utils.swift"; sourceTree = "<group>"; };
 		83144EA42C3FDB1A00CC38AB /* ColorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
@@ -7164,6 +7169,9 @@
 				83A5EDBF2C527E6F00F93B6D /* ErrorHandlerUtils.swift */,
 				83A5EDC12C53B4BB00F93B6D /* SwiftCertificateUtils.swift */,
 				8393EED72C58FBD3009FDE6E /* SwiftDate+Utils.swift */,
+				830CDEA22C6AAF5C00E2890D /* AOPadesUtils.m */,
+				830CDEA42C6AAF6C00E2890D /* AOPadesUtils.h */,
+				830CDEA92C6AB23600E2890D /* PadesUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -7998,6 +8006,7 @@
 				830CDB732C6AAEA300E2890D /* ECPublicKeyParameters.m in Sources */,
 				830CDBA52C6AAEA300E2890D /* GeneralNames.m in Sources */,
 				830CDB072C6AAEA300E2890D /* ContentVerifierProvider.m in Sources */,
+				830CDEAA2C6AB23600E2890D /* PadesUtils.swift in Sources */,
 				830CDC162C6AAEA300E2890D /* KeyParameter.m in Sources */,
 				830CDBC02C6AAEA300E2890D /* GraphicsState.m in Sources */,
 				83A5EDC02C527E6F00F93B6D /* ErrorHandlerUtils.swift in Sources */,
@@ -8608,6 +8617,7 @@
 				830CDD8E2C6AAEA300E2890D /* SecP160R2Point.m in Sources */,
 				830CDAA02C6AAEA300E2890D /* BitArray.m in Sources */,
 				830CDE772C6AAEA300E2890D /* X509AttributeCertificateHolder.m in Sources */,
+				830CDEA32C6AAF5C00E2890D /* AOPadesUtils.m in Sources */,
 				83C0ECC62C415A4B00244071 /* InfoModalView.swift in Sources */,
 				830CDE3C2C6AAEA300E2890D /* TIFFDirectory.m in Sources */,
 				830CDC752C6AAEA300E2890D /* OriginatorInfo.m in Sources */,
