@@ -340,27 +340,16 @@ class HomeViewModel: ObservableObject {
 		  privateKey: privateKeyRef,
 		  certificateRef: certificateRef,
 		  extraParams: nil
-	   ) { [weak self] result in
-		  DispatchQueue.main.async {
-			 self?.handleSignPdfResult(result)
+	   ) { result in
+		  switch result {
+			 case .success(let signature):
+				self.viewMode = .home
+				self.successModalState = .successSign
+				self.showSuccessModal = true
+				
+			 case .failure(let error):
+				self.handleError(error: error)
 		  }
-	   }
-    }
-    
-    private func handleSignPdfResult(_ result: EsGobAfirmaIosSignatureResult?) {
-	   isLoading = false
-	   guard let result = result else {
-		  handleError(error: NSError(domain: "SignError", code: -1, userInfo: [NSLocalizedDescriptionKey: "No result returned from signing"]))
-		  return
-	   }
-	   
-	   if result.isError() {
-		  handleError(error: NSError(domain: "SignError", code: Int(result.getErrorCode()), userInfo: [NSLocalizedDescriptionKey: result.getErrorMessage() ?? "Unknown error"]))
-	   } else if let signedPdfData = result.getSignature() {
-		  print("Successfully signed the PDF, result: " + signedPdfData.debugDescription)
-		  viewMode = .home
-		  successModalState = .successSign
-		  showSuccessModal = true
 	   }
     }
 }

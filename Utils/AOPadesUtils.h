@@ -25,11 +25,14 @@
 
 @interface AOPadesUtils : NSObject
 
-- (EsGobAfirmaIosSignatureResult *)signPdfWithData:(NSData *)pdfData
-								 algorithm:(NSString *)algorithm
-								 privateKey:(SecKeyRef)privateKey
-								 certificate:(SecCertificateRef)certificate
-								 extraParams:(NSDictionary *)extraParams;
+typedef void (^SignPdfCompletionHandler)(NSString * result, NSError * error);
+
+- (void)signPdfWithData:(NSData *)pdfData
+		    algorithm:(NSString *)algorithm
+		   privateKey:(SecKeyRef)privateKey
+		  certificate:(SecCertificateRef)certificate
+		  extraParams:(NSDictionary *)extraParams
+		   completion:(SignPdfCompletionHandler)completion;
 
 - (IOSByteArray *)obtainPdfData:(NSData *)pdfData;
 - (JavaSecurityPrivateKey *)obtainPrivateKey:(SecKeyRef)privateKey;

@@ -9,6 +9,8 @@
 import Foundation
 import Security
 
+
+
 class PadesUtils {
     func signPdf(
 	   pdfData: Data,
@@ -16,21 +18,28 @@ class PadesUtils {
 	   privateKey: SecKey,
 	   certificateRef: SecCertificate,
 	   extraParams: [String: String]?,
-	   completion: @escaping (EsGobAfirmaIosSignatureResult?) -> Void
+	   completion: @escaping (Result<String, Error>) -> Void
     ) {
 	   DispatchQueue.global(qos: .userInitiated).async {
 		  let utils = AOPadesUtils()
-		  
-		  let result = utils.signPdf(
+
+		  utils.signPdf(
 			 with: pdfData,
 			 algorithm: algorithm,
 			 privateKey: privateKey,
 			 certificate: certificateRef,
 			 extraParams: extraParams
-		  )
-		  
-		  DispatchQueue.main.async {
-			 completion(result)
+		  ) { result, error in
+			 DispatchQueue.main.async {
+				if let error = error {
+				    completion(.failure(error))
+				} else if let result = result {
+				    completion(.success(result))
+				} else {
+				    let unknownError = NSError(domain: "Error", code: 9999, userInfo: [NSLocalizedDescriptionKey: "Unknown error occurred"])
+				    completion(.failure(unknownError))
+				}
+			 }
 		  }
 	   }
     }

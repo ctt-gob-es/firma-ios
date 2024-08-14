@@ -9,12 +9,15 @@
 
 @implementation AOPadesUtils
 
-- (EsGobAfirmaIosSignatureResult *)signPdfWithData:(NSData *)pdfData
-								 algorithm:(NSString *)algorithm
-								 privateKey:(SecKeyRef)privateKey
-								 certificate:(SecCertificateRef)certificate
-								 extraParams:(NSDictionary *)extraParams {
+typedef void (^SignPdfCompletionHandler)(NSString * result, NSError * error);
 
+- (void)signPdfWithData:(NSData *)pdfData
+		    algorithm:(NSString *)algorithm
+		   privateKey:(SecKeyRef)privateKey
+		  certificate:(SecCertificateRef)certificate
+		  extraParams:(NSDictionary *)extraParams
+		   completion:(SignPdfCompletionHandler)completion {
+    
     IOSByteArray *iosPdfData = [self obtainPdfData:pdfData];
     JavaSecurityPrivateKey *pvt = [self obtainPrivateKey:privateKey];
     IOSObjectArray *certChainArray = [self obtainCertificateChain:certificate];
@@ -27,12 +30,18 @@
 								withJavaSecurityCertCertificateArray:certChainArray
 										  withJavaUtilProperties:javaProperties];
 
-    IOSByteArray *byteArray = [result getSignature];
-    NSString *base64String = [self convertIOSByteArrayToBase64String:byteArray];
-    
-    NSLog(@"Base64 String: %@", base64String);
-    
-    return result;
+    if(result.getErrorCode == -1) {
+	   IOSByteArray *byteArray = [result getSignature];
+	   NSString *base64String = [self convertIOSByteArrayToBase64String:byteArray];
+	   printf("Signature generated in device : %s\n", [base64String UTF8String]);
+	   completion(base64String, nil);
+    } else {
+	   NSInteger errorCode = [result getErrorCode];
+				    NSError *error = [NSError errorWithDomain:@"Error Signing PDF"
+												 code:errorCode
+											  userInfo:@{NSLocalizedDescriptionKey: @"Signing failed"}];
+	   completion(nil, error);
+    }
 }
 
 - (IOSByteArray *)obtainPdfData:(NSData *)pdfData {
