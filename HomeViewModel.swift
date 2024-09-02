@@ -328,28 +328,30 @@ class HomeViewModel: ObservableObject {
 		  let identity = SwiftCertificateUtils.getIdentityFromKeychain(certName: certificateName),
 		  let certificateRef = SwiftCertificateUtils.getCertificateRefFromIdentity(identity: identity) else {
 		  print("Missing required data for signing")
-			 handleError(error: NSError(domain: "SignError", code: 1, userInfo: [NSLocalizedDescriptionKey: "Unknown error"]))
+		  handleError(error: NSError(domain: "SignError", code: 1, userInfo: [NSLocalizedDescriptionKey: "Unknown error"]))
 		  return
 	   }
 	   
 	   let padesUtils = PadesUtils()
+	   let extraParams = [
+		  "signaturePositionOnPageLowerLeftX": "0",
+		  "signaturePositionOnPageLowerLeftY": "0",
+		  "signaturePositionOnPageUpperRightX": "200",
+		  "signaturePositionOnPageUpperRightY": "200",
+		  "signaturePages": "1"
+	   ]
 	   
 	   padesUtils.signPdf(
 		  pdfData: pdfData,
 		  algorithm: nil,
 		  privateKey: privateKeyRef,
 		  certificateRef: certificateRef,
-		  extraParams: nil
-	   ) { result in
-		  switch result {
-			 case .success(let signature):
-				self.viewMode = .home
-				self.successModalState = .successSign
-				self.showSuccessModal = true
-				
-			 case .failure(let error):
-				self.handleError(error: error)
-		  }
+		  extraParams: extraParams
+	   ) { base64Signature in
+		  print(base64Signature)
+		  self.viewMode = .home
+		  self.successModalState = .successSign
+		  self.showSuccessModal = true
 	   }
     }
 }

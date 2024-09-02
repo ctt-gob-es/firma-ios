@@ -1204,6 +1204,21 @@
 		835135A02C60BD3A005081EE /* AddCertificateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8351359F2C60BD3A005081EE /* AddCertificateViewModel.swift */; };
 		835135A32C60BF00005081EE /* TutorialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835135A22C60BF00005081EE /* TutorialViewModel.swift */; };
 		8352FF2F2C47C500003402CC /* HomeErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8352FF2E2C47C500003402CC /* HomeErrorView.swift */; };
+		836925582C6CD87E00FFDC9E /* Times-BoldItalic.afm in Resources */ = {isa = PBXBuildFile; fileRef = 836925482C6CD87C00FFDC9E /* Times-BoldItalic.afm */; };
+		836925592C6CD87E00FFDC9E /* Helvetica-Oblique.afm in Resources */ = {isa = PBXBuildFile; fileRef = 836925492C6CD87D00FFDC9E /* Helvetica-Oblique.afm */; };
+		8369255A2C6CD87E00FFDC9E /* Times-Italic.afm in Resources */ = {isa = PBXBuildFile; fileRef = 8369254A2C6CD87D00FFDC9E /* Times-Italic.afm */; };
+		8369255B2C6CD87E00FFDC9E /* Helvetica-BoldOblique.afm in Resources */ = {isa = PBXBuildFile; fileRef = 8369254B2C6CD87D00FFDC9E /* Helvetica-BoldOblique.afm */; };
+		8369255C2C6CD87E00FFDC9E /* Courier-BoldOblique.afm in Resources */ = {isa = PBXBuildFile; fileRef = 8369254C2C6CD87D00FFDC9E /* Courier-BoldOblique.afm */; };
+		8369255D2C6CD87E00FFDC9E /* Courier-Oblique.afm in Resources */ = {isa = PBXBuildFile; fileRef = 8369254D2C6CD87D00FFDC9E /* Courier-Oblique.afm */; };
+		8369255E2C6CD87E00FFDC9E /* Helvetica-Bold.afm in Resources */ = {isa = PBXBuildFile; fileRef = 8369254E2C6CD87D00FFDC9E /* Helvetica-Bold.afm */; };
+		8369255F2C6CD87E00FFDC9E /* Courier-Bold.afm in Resources */ = {isa = PBXBuildFile; fileRef = 8369254F2C6CD87D00FFDC9E /* Courier-Bold.afm */; };
+		836925602C6CD87E00FFDC9E /* Helvetica.afm in Resources */ = {isa = PBXBuildFile; fileRef = 836925502C6CD87D00FFDC9E /* Helvetica.afm */; };
+		836925612C6CD87E00FFDC9E /* glyphlist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 836925512C6CD87D00FFDC9E /* glyphlist.txt */; };
+		836925622C6CD87E00FFDC9E /* Times-Bold.afm in Resources */ = {isa = PBXBuildFile; fileRef = 836925522C6CD87E00FFDC9E /* Times-Bold.afm */; };
+		836925632C6CD87E00FFDC9E /* ZapfDingbats.afm in Resources */ = {isa = PBXBuildFile; fileRef = 836925532C6CD87E00FFDC9E /* ZapfDingbats.afm */; };
+		836925642C6CD87E00FFDC9E /* Courier.afm in Resources */ = {isa = PBXBuildFile; fileRef = 836925542C6CD87E00FFDC9E /* Courier.afm */; };
+		836925652C6CD87E00FFDC9E /* Symbol.afm in Resources */ = {isa = PBXBuildFile; fileRef = 836925552C6CD87E00FFDC9E /* Symbol.afm */; };
+		836925672C6CD87E00FFDC9E /* Times-Roman.afm in Resources */ = {isa = PBXBuildFile; fileRef = 836925572C6CD87E00FFDC9E /* Times-Roman.afm */; };
 		838114B92C512E5B00CDEC97 /* SendCertificateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114B82C512E5B00CDEC97 /* SendCertificateUseCase.swift */; };
 		838114BB2C512E6700CDEC97 /* SingleSignUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114BA2C512E6700CDEC97 /* SingleSignUseCase.swift */; };
 		838114BE2C512F9800CDEC97 /* StoreDataRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114BD2C512F9800CDEC97 /* StoreDataRest.swift */; };
@@ -3862,6 +3877,21 @@
 		8351359F2C60BD3A005081EE /* AddCertificateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCertificateViewModel.swift; sourceTree = "<group>"; };
 		835135A22C60BF00005081EE /* TutorialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewModel.swift; sourceTree = "<group>"; };
 		8352FF2E2C47C500003402CC /* HomeErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeErrorView.swift; sourceTree = "<group>"; };
+		836925482C6CD87C00FFDC9E /* Times-BoldItalic.afm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Times-BoldItalic.afm"; sourceTree = "<group>"; };
+		836925492C6CD87D00FFDC9E /* Helvetica-Oblique.afm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Helvetica-Oblique.afm"; sourceTree = "<group>"; };
+		8369254A2C6CD87D00FFDC9E /* Times-Italic.afm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Times-Italic.afm"; sourceTree = "<group>"; };
+		8369254B2C6CD87D00FFDC9E /* Helvetica-BoldOblique.afm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Helvetica-BoldOblique.afm"; sourceTree = "<group>"; };
+		8369254C2C6CD87D00FFDC9E /* Courier-BoldOblique.afm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Courier-BoldOblique.afm"; sourceTree = "<group>"; };
+		8369254D2C6CD87D00FFDC9E /* Courier-Oblique.afm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Courier-Oblique.afm"; sourceTree = "<group>"; };
+		8369254E2C6CD87D00FFDC9E /* Helvetica-Bold.afm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Helvetica-Bold.afm"; sourceTree = "<group>"; };
+		8369254F2C6CD87D00FFDC9E /* Courier-Bold.afm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Courier-Bold.afm"; sourceTree = "<group>"; };
+		836925502C6CD87D00FFDC9E /* Helvetica.afm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Helvetica.afm; sourceTree = "<group>"; };
+		836925512C6CD87D00FFDC9E /* glyphlist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = glyphlist.txt; sourceTree = "<group>"; };
+		836925522C6CD87E00FFDC9E /* Times-Bold.afm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Times-Bold.afm"; sourceTree = "<group>"; };
+		836925532C6CD87E00FFDC9E /* ZapfDingbats.afm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ZapfDingbats.afm; sourceTree = "<group>"; };
+		836925542C6CD87E00FFDC9E /* Courier.afm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Courier.afm; sourceTree = "<group>"; };
+		836925552C6CD87E00FFDC9E /* Symbol.afm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Symbol.afm; sourceTree = "<group>"; };
+		836925572C6CD87E00FFDC9E /* Times-Roman.afm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Times-Roman.afm"; sourceTree = "<group>"; };
 		838114B82C512E5B00CDEC97 /* SendCertificateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCertificateUseCase.swift; sourceTree = "<group>"; };
 		838114BA2C512E6700CDEC97 /* SingleSignUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSignUseCase.swift; sourceTree = "<group>"; };
 		838114BD2C512F9800CDEC97 /* StoreDataRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDataRest.swift; sourceTree = "<group>"; };
@@ -4356,6 +4386,21 @@
 		83275D6A2C6BB2A50092BF56 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				8369254F2C6CD87D00FFDC9E /* Courier-Bold.afm */,
+				8369254C2C6CD87D00FFDC9E /* Courier-BoldOblique.afm */,
+				8369254D2C6CD87D00FFDC9E /* Courier-Oblique.afm */,
+				836925542C6CD87E00FFDC9E /* Courier.afm */,
+				836925512C6CD87D00FFDC9E /* glyphlist.txt */,
+				8369254E2C6CD87D00FFDC9E /* Helvetica-Bold.afm */,
+				8369254B2C6CD87D00FFDC9E /* Helvetica-BoldOblique.afm */,
+				836925492C6CD87D00FFDC9E /* Helvetica-Oblique.afm */,
+				836925502C6CD87D00FFDC9E /* Helvetica.afm */,
+				836925552C6CD87E00FFDC9E /* Symbol.afm */,
+				836925522C6CD87E00FFDC9E /* Times-Bold.afm */,
+				836925482C6CD87C00FFDC9E /* Times-BoldItalic.afm */,
+				8369254A2C6CD87D00FFDC9E /* Times-Italic.afm */,
+				836925572C6CD87E00FFDC9E /* Times-Roman.afm */,
+				836925532C6CD87E00FFDC9E /* ZapfDingbats.afm */,
 				832754302C6BB2A50092BF56 /* AbstractECMultiplier.h */,
 				832754312C6BB2A50092BF56 /* AbstractECMultiplier.m */,
 				832754322C6BB2A50092BF56 /* AbstractX500NameStyle.h */,
@@ -7617,10 +7662,13 @@
 			files = (
 				B281A196211ACBE10032FB86 /* pruebas_portafirmas.p12 in Resources */,
 				B281A195211ACB9E0032FB86 /* PFActivoFirSHA1.pfx in Resources */,
+				836925592C6CD87E00FFDC9E /* Helvetica-Oblique.afm in Resources */,
+				836925632C6CD87E00FFDC9E /* ZapfDingbats.afm in Resources */,
 				B281A194211ACB5F0032FB86 /* ANF_PF_Activo.p12 in Resources */,
 				B27395DC20A43AF800A7D05A /* info_mini.png in Resources */,
 				83C0ECB92C41331200244071 /* Merriweather-Regular.ttf in Resources */,
 				B27395D820A43AF800A7D05A /* cert_menu.png in Resources */,
+				8369255E2C6CD87E00FFDC9E /* Helvetica-Bold.afm in Resources */,
 				B240773120A5B87B00A8EE1C /* Localizable.strings in Resources */,
 				B240772E20A5B87B00A8EE1C /* InfoPlist.strings in Resources */,
 				B27395D920A43AF800A7D05A /* flecha.png in Resources */,
@@ -7629,17 +7677,28 @@
 				C3461CA81696F98C007237D1 /* logo_cliente.png in Resources */,
 				B27395E020A43AF800A7D05A /* warning_mini.png in Resources */,
 				9A51A7A02B7A371A00826C72 /* flecha_dcha.png in Resources */,
+				8369255B2C6CD87E00FFDC9E /* Helvetica-BoldOblique.afm in Resources */,
+				836925652C6CD87E00FFDC9E /* Symbol.afm in Resources */,
+				8369255F2C6CD87E00FFDC9E /* Courier-Bold.afm in Resources */,
+				836925602C6CD87E00FFDC9E /* Helvetica.afm in Resources */,
+				836925612C6CD87E00FFDC9E /* glyphlist.txt in Resources */,
 				83C0ECBB2C41331200244071 /* Merriweather-Bold.ttf in Resources */,
 				B240773020A5B87B00A8EE1C /* InfoPlist.strings in Resources */,
+				836925622C6CD87E00FFDC9E /* Times-Bold.afm in Resources */,
+				836925582C6CD87E00FFDC9E /* Times-BoldItalic.afm in Resources */,
 				B243848120C539DA0087BAE0 /* iPhoneStoryboard.storyboard in Resources */,
 				B27395DB20A43AF800A7D05A /* help2.png in Resources */,
 				B273961620A441FF00A7D05A /* Images.xcassets in Resources */,
+				836925642C6CD87E00FFDC9E /* Courier.afm in Resources */,
 				C389C78D16DE70CC000382C0 /* Settings.bundle in Resources */,
 				83C0ECB52C41331200244071 /* Merriweather-LightItalic.ttf in Resources */,
+				8369255A2C6CD87E00FFDC9E /* Times-Italic.afm in Resources */,
 				B240772F20A5B87B00A8EE1C /* Localizable.strings in Resources */,
 				83C0ECB42C41331200244071 /* Merriweather-Light.ttf in Resources */,
 				83C0ECBA2C41331200244071 /* Merriweather-Italic.ttf in Resources */,
+				8369255D2C6CD87E00FFDC9E /* Courier-Oblique.afm in Resources */,
 				E47E065D16E2DC1C00BC7855 /* certificados.png in Resources */,
+				836925672C6CD87E00FFDC9E /* Times-Roman.afm in Resources */,
 				83C0ECB62C41331200244071 /* Merriweather-BoldItalic.ttf in Resources */,
 				83C0ECBF2C4135D100244071 /* NunitoSans_10pt-Bold.ttf in Resources */,
 				83C0ECBD2C41358400244071 /* NunitoSans_10pt-Regular.ttf in Resources */,
@@ -7649,6 +7708,7 @@
 				B27395DA20A43AF800A7D05A /* help.png in Resources */,
 				B243848220C539DA0087BAE0 /* iPadStoryboard.storyboard in Resources */,
 				83C0ECB82C41331200244071 /* Merriweather-Black.ttf in Resources */,
+				8369255C2C6CD87E00FFDC9E /* Courier-BoldOblique.afm in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -9272,7 +9332,7 @@
 				DEVELOPMENT_TEAM = LCLHA32ZLW;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"$(SRCROOT)",
 				);
 				GCC_NO_COMMON_BLOCKS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -9336,7 +9396,8 @@
 				DEVELOPMENT_TEAM = LCLHA32ZLW;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"$(SRCROOT)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_NO_COMMON_BLOCKS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

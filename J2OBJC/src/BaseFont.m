@@ -90,7 +90,7 @@ IOSIntArray *ComAowagieTextPdfBaseFont_CHAR_RANGE_LATIN;
 IOSIntArray *ComAowagieTextPdfBaseFont_CHAR_RANGE_ARABIC;
 IOSIntArray *ComAowagieTextPdfBaseFont_CHAR_RANGE_HEBREW;
 IOSIntArray *ComAowagieTextPdfBaseFont_CHAR_RANGE_CYRILLIC;
-NSString *ComAowagieTextPdfBaseFont_RESOURCE_PATH = @"com/lowagie/text/pdf/fonts/";
+NSString *ComAowagieTextPdfBaseFont_RESOURCE_PATH = @"./";
 NSString *ComAowagieTextPdfBaseFont_notdef = @".notdef";
 JavaUtilHashMap *ComAowagieTextPdfBaseFont_fontCache;
 JavaUtilHashMap *ComAowagieTextPdfBaseFont_BuiltinFonts14;
