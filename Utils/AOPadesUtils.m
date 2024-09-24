@@ -7,29 +7,48 @@
 //
 #import "AOPadesUtils.h"
 
+#import "PadesSignerWrapper.h"
+
+//JAVA J2OBJC FILES
+#import "IOSObjectArray.h"
+#import "J2ObjC_source.h"
+#import "IOSPrimitiveArray.h"
+#import "Keyloader.h"
+#import "SignatureResult.h"
+
+#include "java/util/Properties.h"
+#include "java/security/KeyFactory.h"
+#include "java/io/ByteArrayInputStream.h"
+#include "java/security/cert/CertificateFactory.h"
+#include "java/security/cert/Certificate.h"
+#include "java/security/PrivateKey.h"
+
 @implementation AOPadesUtils
 
 typedef void (^SignPdfCompletionHandler)(NSString * result, NSError * error);
 
 - (void)signPdfWithData:(NSData *)pdfData
-		    algorithm:(NSString *)algorithm
+		signAlgorithm:(NSString *)signAlgorithm
 		   privateKey:(SecKeyRef)privateKey
 		  certificate:(SecCertificateRef)certificate
+   certificateAlgorithm:(NSString *)certificateAlgorithm
 		  extraParams:(NSDictionary *)extraParams
 		   completion:(SignPdfCompletionHandler)completion {
     
     IOSByteArray *iosPdfData = [self obtainPdfData:pdfData];
-    JavaSecurityPrivateKey *pvt = [self obtainPrivateKey:privateKey];
+    JavaSecurityPrivateKey *pvt = [self obtainPrivateKey:privateKey withNSString:certificateAlgorithm];
     IOSObjectArray *certChainArray = [self obtainCertificateChain:certificate];
     JavaUtilProperties *javaProperties = [self obtainExtraParams:extraParams];
-
+    
     EsGobAfirmaIosPadesSignerWrapper *signerWrapper = [[EsGobAfirmaIosPadesSignerWrapper alloc] init];
+    
+    //We don´t know the sign algorithm to use so we pass nil
     EsGobAfirmaIosSignatureResult *result = [signerWrapper signWithByteArray:iosPdfData
-												    withNSString:algorithm
-										  withJavaSecurityPrivateKey:pvt
+												    withNSString:signAlgorithm
+										withJavaSecurityPrivateKey:pvt
 								withJavaSecurityCertCertificateArray:certChainArray
-										  withJavaUtilProperties:javaProperties];
-
+										    withJavaUtilProperties:javaProperties];
+    
     if(result.getErrorCode == -1) {
 	   IOSByteArray *byteArray = [result getSignature];
 	   NSString *base64String = [self convertIOSByteArrayToBase64String:byteArray];
@@ -37,9 +56,9 @@ typedef void (^SignPdfCompletionHandler)(NSString * result, NSError * error);
 	   completion(base64String, nil);
     } else {
 	   NSInteger errorCode = [result getErrorCode];
-				    NSError *error = [NSError errorWithDomain:@"Error Signing PDF"
-												 code:errorCode
-											  userInfo:@{NSLocalizedDescriptionKey: @"Signing failed"}];
+	   NSError *error = [NSError errorWithDomain:@"Error Signing PDF"
+									code:errorCode
+								 userInfo:@{NSLocalizedDescriptionKey: @"Signing failed"}];
 	   completion(nil, error);
     }
 }
@@ -48,17 +67,17 @@ typedef void (^SignPdfCompletionHandler)(NSString * result, NSError * error);
     return [IOSByteArray arrayWithBytes:[pdfData bytes] count:[pdfData length]];
 }
 
-- (JavaSecurityPrivateKey *)obtainPrivateKey:(SecKeyRef)privateKey {
+- (JavaSecurityPrivateKey *)obtainPrivateKey:(SecKeyRef)privateKey withNSString:(NSString *)algorithm {
     CFDictionaryRef attributes = SecKeyCopyAttributes(privateKey);
     NSData *privateKeyNSData = CFDictionaryGetValue(attributes, kSecValueData);
     IOSByteArray *privateKeyData = [IOSByteArray arrayWithBytes:[privateKeyNSData bytes] count:[privateKeyNSData length]];
     JavaIoByteArrayInputStream *inputStream = [[JavaIoByteArrayInputStream alloc] initWithByteArray:privateKeyData];
-    id<JavaSecurityPrivateKey> pvt = [KeyloaderKeyLoader loadPrivateKeyWithJavaIoInputStream:inputStream];
+    id<JavaSecurityPrivateKey> pvt = [EsGobAfirmaIosKeyLoader loadPrivateKeyWithJavaIoInputStream:inputStream withNSString: algorithm];
     
     if (attributes) {
 	   CFRelease(attributes);
     }
-
+    
     return pvt;
 }
 

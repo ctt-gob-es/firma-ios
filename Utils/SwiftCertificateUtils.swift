@@ -71,6 +71,37 @@ class SwiftCertificateUtils {
 	   }
     }
     
+    static func getAlgorithmFromCertificate(certificate: SecCertificate) -> String? {
+	   guard let certificateData = SecCertificateCopyData(certificate) as Data? else {
+		  print("Unable to extract certificate data")
+		  return nil
+	   }
+	   let certificateRef = SecCertificateCreateWithData(nil, certificateData as CFData)
+
+	   guard let publicKey = SecCertificateCopyKey(certificateRef!) else {
+		  print("Unable to extract public key from certificate")
+		  return nil
+	   }
+
+	   guard let keyAttributes = SecKeyCopyAttributes(publicKey) as? [String: Any] else {
+		  print("Unable to extract key attributes")
+		  return nil
+	   }
+
+	   if let keyType = keyAttributes[kSecAttrKeyType as String] as? String {
+		  switch keyType as CFString {
+		  case kSecAttrKeyTypeRSA:
+			 return "RSA"
+		  case kSecAttrKeyTypeEC:
+			 return "ECDSA"
+		  default:
+			 return "Unknown Algorithm"
+		  }
+	   }
+
+	   return nil
+    }
+    
     static func getCertificateOption(certificate: AOCertificateInfo) -> CertificateExpirationOptions {
 	   let today = Date()
 	   let calendar = Calendar.current

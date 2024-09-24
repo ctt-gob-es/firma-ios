@@ -49,6 +49,7 @@ NSString *const PARAMETER_NAME_TARGET_TREE = @"tree";
 NSString *const PARAMETER_NAME_TARGET_LEAFS = @"leafs";
 NSString *const PARAMETER_NAME_FILENAME = @"filename";
 NSString *const PARAMETER_NAME_EXTENSION = @"extension";
+NSString *const PARAMETER_NAME_RETURN_URL = @"returnURL";
 
 NSString *const PARAMETER_LOCAL_SIGNATURE = @"local";
 NSString *const PARAMETER_LOCAL_CLOUD_NAME = @"cloudname";

@@ -10,7 +10,7 @@
 #import "Firma.h"
 #import "IOSPrimitiveArray.h"
 #import "Base64Utils.h"
-#import "Pkcs1Utils.h"
+#import "es/gob/afirma/core/signers/Pkcs1Utils.h"
 
 @implementation Firma
 

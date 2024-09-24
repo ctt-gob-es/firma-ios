@@ -25,6 +25,7 @@
 #import "AOUtils.h"
 #import "Firma.h"
 #import "AOPadesUtils.h"
+#import "PadesUtils.h"
 #import "SignatureResult.h"
 #import "IOSClass.h"
 #import "IOSObjectArray.h"

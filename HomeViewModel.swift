@@ -115,7 +115,6 @@ class HomeViewModel: ObservableObject {
 		  DispatchQueue.main.async {
 			 self.buttonEnabled = isButtonEnabled
 			 self.showPseudonymModal = shouldShowPseudonymModal
-			 self.signLocalPdf()
 		  }
 	   }
     }
@@ -200,6 +199,16 @@ class HomeViewModel: ObservableObject {
 			 handleOperationSaveData()
 		  default:
 			 break
+	   }
+    }
+    
+    func handleOpenReturnURL() {
+	   if let url = signModel?.returnURL {
+		  if let urlFromModel = URL(string: url) {
+			 UIApplication.shared.open(urlFromModel) { success in
+				print("Open \(success)")
+			 }
+		  }
 	   }
     }
     
@@ -305,6 +314,7 @@ class HomeViewModel: ObservableObject {
 		  self.errorModalState = .globalError
 		  self.errorModalDescription = error.localizedDescription
 		  self.showErrorModal = true
+		  self.signModel?.returnURL = nil
 	   }
 	   
 	   let reportErrorUseCase = ReportErrorUseCase()
@@ -326,13 +336,13 @@ class HomeViewModel: ObservableObject {
 		  let privateKeyRef = certificateUtils?.privateKey,
 		  let certificateName = certificateUtils?.selectedCertificateName,
 		  let identity = SwiftCertificateUtils.getIdentityFromKeychain(certName: certificateName),
-		  let certificateRef = SwiftCertificateUtils.getCertificateRefFromIdentity(identity: identity) else {
+		  let certificateRef = SwiftCertificateUtils.getCertificateRefFromIdentity(identity: identity),
+		  let certificateAlgorithm = SwiftCertificateUtils.getAlgorithmFromCertificate(certificate: certificateRef) else {
 		  print("Missing required data for signing")
 		  handleError(error: NSError(domain: "SignError", code: 1, userInfo: [NSLocalizedDescriptionKey: "Unknown error"]))
 		  return
 	   }
 	   
-	   let padesUtils = PadesUtils()
 	   let extraParams = [
 		  "signaturePositionOnPageLowerLeftX": "0",
 		  "signaturePositionOnPageLowerLeftY": "0",
@@ -341,17 +351,34 @@ class HomeViewModel: ObservableObject {
 		  "signaturePages": "1"
 	   ]
 	   
-	   padesUtils.signPdf(
+	   let swiftPadesUtils = PadesUtilsSwift()
+	   swiftPadesUtils.signPdf(
 		  pdfData: pdfData,
-		  algorithm: nil,
+		  signAlgorithm: nil,
 		  privateKey: privateKeyRef,
 		  certificateRef: certificateRef,
+		  certificateAlgorithm: certificateAlgorithm,
 		  extraParams: extraParams
-	   ) { base64Signature in
+	   ) { base64Signature  in
 		  print(base64Signature)
 		  self.viewMode = .home
 		  self.successModalState = .successSign
 		  self.showSuccessModal = true
 	   }
+	   
+	   /*let padesUtils = PadesUtils()
+	   padesUtils.signPdf(
+		  pdfData,
+		  signAlgorithm: nil,
+		  privateKey: privateKeyRef,
+		  certificate: certificateRef,
+		  certificateRefAlgorithm: certificateRefAlgorithm,
+		  extraParams: extraParams
+	   ) { base64Signature, error  in
+		  print(base64Signature)
+		  self.viewMode = .home
+		  self.successModalState = .successSign
+		  self.showSuccessModal = true
+	   }*/
     }
 }

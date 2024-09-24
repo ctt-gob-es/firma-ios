@@ -22,6 +22,7 @@ class SignModel {
     var fileId: String?
     var rtServlet: String?
     var cloudName: String?
+    var returnURL: String?
     
     init(dictionary: NSMutableDictionary) {
 	   self.operation = dictionary[PARAMETER_NAME_OPERATION] as? String
@@ -34,6 +35,7 @@ class SignModel {
 	   self.extraParams = dictionary[PARAMETER_NAME_PROPERTIES] as? String
 	   self.rtServlet = dictionary[PARAMETER_NAME_RTSERVLET] as? String
 	   self.fileId = dictionary[PARAMETER_NAME_FILE_ID] as? String
+	   self.returnURL  = dictionary[PARAMETER_NAME_RETURN_URL] as? String
 	   
 	   if let extraParams = self.extraParams {
 		  if let dataReceived = Base64Utils.decode(extraParams, urlSafe: true),
