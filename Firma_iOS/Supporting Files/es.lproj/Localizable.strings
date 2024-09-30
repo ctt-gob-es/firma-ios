@@ -383,3 +383,6 @@ Para funcionar correctamente debes instalar un certificado electrónico. Consult
 "textfield_modal_description" = "Por favor, introduce la contraseña del documento para poder continuar con el proceso de firma";
 "textfield_modal_button_title" = "Introducir contraseña";
 "textfield_modal_cancel_button_title" = "Cancelar";
+
+//DNI
+"NFC_DESCRIPTION" = "La aplicación necesita acceso a NFC para leer el DNIe.";

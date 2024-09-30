@@ -1,2 +1,3 @@
 /* Localized versions of Info.plist keys */
 
+"NFCReaderUsageDescription" = "Esta aplicación requiere acceso a NFC para interactuar con tarjetas inteligentes.";

@@ -22,6 +22,11 @@ struct HomeView: View {
     @State var password: String = ""
     @State var shouldCancelOperation: Bool = false
     
+    @State var model = NFCViewModel(
+	   can: PrivateConstants.can,
+	   pin: PrivateConstants.pin
+    )
+    
     init(certificates: Binding<[AOCertificateInfo]?>,
 	    viewMode: Binding<ViewModes>,
 	    shouldSign: Binding<Bool>,
@@ -142,6 +147,12 @@ struct HomeView: View {
 		  AccessibleText(content: NSLocalizedString("home_certificates_sign_button_title", bundle: Bundle.main, comment: ""))
 		  }
 		  .buttonStyle(CustomButtonStyle(isEnabled: true))*/
+		  Button(action: {
+			 model.startNFCSession()
+		  }) {
+			 AccessibleText(content: NSLocalizedString("dni_view_title", bundle: Bundle.main, comment: ""))
+		  }
+		  .buttonStyle(BorderedButtonStyle())
 		 
 		 Button(action: {
 			appStatus.showDocumentPicker.toggle()

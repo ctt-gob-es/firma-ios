@@ -382,3 +382,7 @@ To work correctly you must install an electronic certificate. Consult the docume
 "textfield_modal_description" = "Please enter the document password to continue with the signing process";
 "textfield_modal_button_title" = "Enter password";
 "textfield_modal_cancel_button_title" = "Cancel";
+
+
+//NFC
+"NFC_DESCRIPTION" = "App needs access to NFC to read DNIe.";

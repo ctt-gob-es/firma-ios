@@ -36,3 +36,28 @@
 #include "java/security/PrivateKey.h"
 #include "java/security/PublicKey.h"
 #include "java/security/cert/Certificate.h"
+
+//JAVAX
+#include "javax/security/auth/callback/Callback.h"
+#include "javax/security/auth/callback/CallbackHandler.h"
+#include "javax/security/auth/callback/PasswordCallback.h"
+#include "javax/security/auth/callback/UnsupportedCallbackException.h"
+#include "es/gob/jmulticard/callback/CustomTextInputCallback.h"
+
+//DNI
+#include "es/gob/jmulticard/connection/ApduConnectionProtocol.h"
+#include "es/gob/jmulticard/connection/ApduConnection.h"
+#include "es/gob/jmulticard/apdu/ResponseApdu.h"
+#include "es/gob/jmulticard/apdu/CommandApdu.h"
+#include "es/gob/jmulticard/connection/AbstractApduConnectionIso7816.h"
+#include "es/gob/jmulticard/HexUtils.h"
+#include "es/gob/jmulticard/apdu/ResponseApdu.h"
+#include "es/gob/jmulticard/apdu/dnie/VerifyApduCommand.h"
+#include "es/gob/jmulticard/connection/AbstractApduConnectionIso7816.h"
+#include "es/gob/jmulticard/connection/ApduConnection.h"
+#include "es/gob/jmulticard/connection/ApduConnectionException.h"
+#include "es/gob/jmulticard/connection/ApduConnectionProtocol.h"
+#include "es/gob/jmulticard/card/dnie/DnieFactory.h"
+#include "es/gob/jmulticard/crypto/BcCryptoHelper.h"
+#include "es/gob/jmulticard/card/dnie/DnieNfc.h"
+#include "es/gob/jmulticard/card/dnie/Dnie.h"
