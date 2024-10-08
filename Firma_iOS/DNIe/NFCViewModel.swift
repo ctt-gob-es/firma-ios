@@ -35,12 +35,8 @@ class NFCViewModel: NSObject, ObservableObject {
     }
     
     func fetchDNIeInfo() {
-	   do {
-		  if let dnie = try dniService?.getDNIe() {
-			 resultMessage = "DNIe obtenido con éxito"
-		  }
-	   } catch {
-		  nfcError = NFCError(errorDescription: "Error al obtener el DNIe")
+	   if (dniService?.getDNIe()) != nil {
+		  resultMessage = "DNIe obtenido con éxito"
 	   }
     }
     

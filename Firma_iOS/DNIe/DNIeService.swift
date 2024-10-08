@@ -16,7 +16,8 @@ protocol DNIeServiceProtocol {
 }
 
 class DNIeService: DNIeServiceProtocol, IOSNFCSessionDelegate {
-    private var dnieWrapper: DNIeWrapper?
+    private var swiftDNIeWrapper: SwiftDNIeWrapper?
+    private var newDnieWrapper: EsGobJmulticardIosDnieWrapper?
     private var nfcSessionManager: IOSNFCSessionManager?
     private var apduConnection: IOSApduConnection?
     private let cryptoHelper = EsGobJmulticardCryptoBcCryptoHelper()
@@ -39,22 +40,38 @@ class DNIeService: DNIeServiceProtocol, IOSNFCSessionDelegate {
 		  nfcSession: nfcSessionManager
 	   )
 
-	   self.dnieWrapper = DNIeWrapper(
+	   self.swiftDNIeWrapper = SwiftDNIeWrapper(
 		  connection: apduConnection!,
 		  cryptoHelper: cryptoHelper!,
 		  callbackHandler: callbackHandler!
 	   )
+	   
 	   Task {
-		  print(getDNIe())
+		  let dnie = getDNIe()
+		  
+		  /*let wrapper = self.getWrapperDNIe()
+		  print(wrapper?.getDnie().getIdesp() ?? "DNIe vacío")
+		  print(wrapper?.getDnie().getConnection() ?? "Connexión vacía")
+		  print("Error code: " + String(getJMulticardDNIe()?.getErrorCode() ?? 0))*/
+		  
+		  //let dnieNFC = self.getDNIeNFC()
 	   }
     }
     
     func getDNIe() -> EsGobJmulticardCardDnieDnie? {
-	   return try? dnieWrapper!.getDnie()
+	   return try? swiftDNIeWrapper!.getDnie()
+    }
+    
+    func getWrapperDNIe() -> EsGobJmulticardIosDnieWrapper? {
+	   return try? swiftDNIeWrapper!.getWrapperDNIe()
+    }
+    
+    func getDNIeNFC() -> EsGobJmulticardCardDnieDnieNfc? {
+	   return try? swiftDNIeWrapper!.getDNIeNFC()
     }
     
     func getRemainingPinRetries() -> Int {
-	   return dnieWrapper!.getPinRetriesLeft()
+	   return swiftDNIeWrapper!.getPinRetriesLeft()
     }
     
     func didBecomeActive() {

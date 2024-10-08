@@ -61,3 +61,6 @@
 #include "es/gob/jmulticard/crypto/BcCryptoHelper.h"
 #include "es/gob/jmulticard/card/dnie/DnieNfc.h"
 #include "es/gob/jmulticard/card/dnie/Dnie.h"
+#include "es/gob/jmulticard/ios/DnieFactoryWrapper.h"
+#include "es/gob/jmulticard/ios/DnieWrapper.h"
+#include "es/gob/jmulticard/ios/ErrorCode.h"

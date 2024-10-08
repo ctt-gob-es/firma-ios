@@ -16,7 +16,6 @@ class LogUtils {
 		  byteArray.append(UInt8(bitPattern: iosByteArray.byte(at: UInt(i))))
 	   }
 	   let hexString = byteArray.map { String(format: "%02X", $0) }.joined()
-	   print("Received APDUResponse. IOSByteArray: \(byteArray)")
 	   print("Received APDUResponse. HexString: \(hexString)")
     }
     

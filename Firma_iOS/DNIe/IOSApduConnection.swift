@@ -19,6 +19,7 @@ class IOSApduConnection: EsGobJmulticardConnectionAbstractApduConnectionIso7816 
     private var nfcTag: NFCISO7816Tag?
     private var nfcSession: IOSNFCSessionManager?
     private var semaphore = DispatchSemaphore(value: 0)
+    private var firstReset = true
     
     // MARK: - Init with tag & reader session
     init(tag: NFCISO7816Tag?,
@@ -29,9 +30,6 @@ class IOSApduConnection: EsGobJmulticardConnectionAbstractApduConnectionIso7816 
     
     // MARK: - Abrir conexión JMulticard
     override func open() {
-	   if nfcTag == nil {
-		  nfcSession?.nfcSession?.restartPolling()
-	   }
     }
     
     // MARK: - Cerrar conexión JMulticard
@@ -52,7 +50,7 @@ class IOSApduConnection: EsGobJmulticardConnectionAbstractApduConnectionIso7816 
     
     // MARK: - Obtener información de un terminal específico
     override func getTerminalInfo(with terminal: jint) -> String! {
-	   return ""
+	   return "iOS NFC"
     }
     
     // MARK: - Obtener información de los terminales
@@ -66,14 +64,10 @@ class IOSApduConnection: EsGobJmulticardConnectionAbstractApduConnectionIso7816 
 	   
 	   return longArray
     }
-
+    
     // MARK: - Comprobar si la conexión NFC está abierta
     override func isOpen() -> jboolean {
-	   if let isOpen = nfcSession?.nfcSession?.isReady {
-		  return isOpen
-	   } else {
-		  return false
-	   }
+	   return true
     }
     
     // MARK: - Obtener subclase de conexión APDU
@@ -83,44 +77,61 @@ class IOSApduConnection: EsGobJmulticardConnectionAbstractApduConnectionIso7816 
     
     // MARK: - Tamaño máximo de APDU
     override func getMaxApduSize() -> jint {
-	   return 261
+	   return 0xff
     }
     
     // MARK: - Reiniciar conexión NFC
     override func reset()  -> IOSByteArray! {
+	   print("Sending reset APDU")
+	   
+	   if firstReset {
+		  firstReset.toggle()
+		  
+		  getNFCTagData()
+		  
+		  let state: StateAPDUCommand = StateAPDUCommand()
+		  
+		  DispatchQueue.global().async {
+			 Task {
+				do {
+				    let resetResponse = try await self.sendResetCardCommand()
+				    print("Reset response:")
+				    print(resetResponse as Any)
+				    state.returnIOSByteArray = resetResponse
+				    state.isFinished.toggle()
+				    self.semaphore.signal()
+				} catch {
+				    print("Error while creating the RESET command")
+				}
+			 }
+		  }
+		  
+		  semaphore.wait()
+		  
+		  return IOSByteArray()
+	   } else {
+		  return IOSByteArray()
+	   }
+    }
+    
+    private func getNFCTagData() -> IOSByteArray?{
 	   var byteArray: IOSByteArray?
 	   if nfcTag != nil {
 		  if let historicalBytes = IOSByteArray(nsData: nfcTag?.historicalBytes) {
 			 byteArray = historicalBytes
-			 print("Historical Bytes: " + (byteArray?.description ?? ""))
+			 if byteArray?.length() ?? 0 > 0 {
+				print("Historical Bytes: " + (byteArray?.description ?? ""))
+			 }
 		  }
 		  if let applicationData = IOSByteArray(nsData: nfcTag?.applicationData) {
 			 byteArray = applicationData
-			 print("Application Data Bytes: " + (byteArray?.description ?? ""))
-		  }
-	   }
-	   
-	   let state: StateAPDUCommand = StateAPDUCommand()
-	   
-	   DispatchQueue.global().async {
-		  Task {
-			 do {
-				print("Sending reset APDU")
-				let resetResponse = try await self.sendResetCardCommand()
-				print("Reset response:")
-				print(resetResponse as Any)
-				state.returnIOSByteArray = resetResponse
-				state.isFinished.toggle()
-				self.semaphore.signal()
-			 } catch {
-				print("Error while creating the RESET command")
+			 if byteArray?.length() ?? 0 > 0 {
+				print("Application Data Bytes: " + (byteArray?.description ?? ""))
 			 }
 		  }
 	   }
 	   
-	   semaphore.wait()
-	   
-	   return IOSByteArray()
+	   return byteArray
     }
     
     private func sendResetCardCommand() async throws -> IOSByteArray? {
@@ -130,8 +141,7 @@ class IOSApduConnection: EsGobJmulticardConnectionAbstractApduConnectionIso7816 
 	   }
 	   
 	   do {
-		  let byteArray = try await sendApdu(apdu: apdu)
-		  return byteArray
+		  return try await sendApdu(apdu: apdu)
 	   } catch {
 		  print("Error during sendResetCardCommand: \(error.localizedDescription)")
 		  throw error
@@ -150,18 +160,15 @@ class IOSApduConnection: EsGobJmulticardConnectionAbstractApduConnectionIso7816 
 	   DispatchQueue.global().async {
 		  Task {
 			 print("Sending internalTransmit APDU")
-			let response =  try? await self.sendApdu(apdu: apduCommand)
+			 let response =  try? await self.sendApdu(apdu: apduCommand)
 			 state.returnIOSByteArray = response
 			 state.isFinished.toggle()
-			 print("internalTransmit response:")
-			 print(response as Any)
 			 self.semaphore.signal()
 		  }
 	   }
 	   
 	   semaphore.wait()
-
-	   //TODO: Pass the correct ResponseApdu to JMulticard Library
+	   
 	   return EsGobJmulticardApduResponseApdu(byteArray: state.returnIOSByteArray)
     }
     
@@ -181,20 +188,18 @@ class IOSApduConnection: EsGobJmulticardConnectionAbstractApduConnectionIso7816 
 				return
 			 }
 			 
-			 guard sw1 == 0x90 && sw2 == 0x00 else {
-				let errorDescription = "Error in response: SW1 = \(sw1), SW2 = \(sw2)"
-				continuation.resume(throwing: NSError(domain: "NFCErrorDomain", code: 2, userInfo: [NSLocalizedDescriptionKey: errorDescription]))
-				return
-			 }
+			 var nativeByteArray = [UInt8](responseData)
+			 nativeByteArray.append(sw1)
+			 nativeByteArray.append(sw2)
 			 
-			 let nativeByteArray = [UInt8](responseData)
-			 let hexString = nativeByteArray.map { String(format: "%02X", $0) }.joined(separator: " ")
-			 print("Native Response Data Bytes: \(hexString)")
+			 let byteArray = IOSByteArray(length: UInt(responseData.count + 2))
 			 
-			 let byteArray = IOSByteArray(length: UInt(responseData.count))
 			 for (index, byte) in responseData.enumerated() {
 				byteArray?.replaceByte(at: UInt(index), withByte: jbyte(bitPattern: byte))
 			 }
+			 
+			 byteArray?.replaceByte(at: UInt((byteArray?.length())! - 2), withByte: jbyte(bitPattern: sw1))
+			 byteArray?.replaceByte(at: UInt((byteArray?.length())! - 1), withByte: jbyte(bitPattern: sw2))
 			 
 			 LogUtils.printIOSByteArray(byteArray!)
 			 
