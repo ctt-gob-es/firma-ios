@@ -92,6 +92,20 @@ struct MainView: View {
 				    downloadedData: $appStatus.downloadedData,
 				    viewModel: HomeViewModel(areCertificatesSelectable: true)
 				)
+				.onChange(of: viewModel.viewMode, perform: { mode in
+				    if mode == .home {
+					   appStatus.isLoading = false
+					   appStatus.navigateToSelectCertificate = false
+				    }
+				    })
+				.onAppear() {
+				    viewModel.viewMode = .sign
+				}
+				.onDisappear() {
+				    //TODO: There are better places to reset the viewMode to .home but now the flux is complete
+				    viewModel.viewMode = .home
+				    appStatus.selectedCertificate = nil
+				}
 			 }
 			 .navigationDestination(isPresented: $appStatus.navigateToAddCertificate) {
 				AddCertificateView(viewModel: AddCertificateViewModel(certificateURL: viewModel.certificateURL), shouldReload: $viewModel.shouldReload)
@@ -108,11 +122,15 @@ struct MainView: View {
 	   .onDisappear(perform: onDisappear)
 	   .onChange(of: viewModel.shouldReload, perform: handleReload)
 	   .onChange(of: appStatus.showDocumentSavingPicker, perform: handleDocumentSavingPicker)
+	   .onChange(of: appStatus.navigateToDNI, perform: { newValue in
+		  appStatus.showDocumentImportingPicker = newValue
+	   })
 	   .fileImporter(
 		  isPresented: $appStatus.showDocumentImportingPicker,
 		  allowedContentTypes: [.data],
 		  allowsMultipleSelection: false,
-		  onCompletion: handleFileImport
+		  onCompletion: handleFileImport,
+		  onCancellation: handleFileImportCancellation
 	   )
 	   .sheet(isPresented: $appStatus.showingInfoModal) {
 		  InfoModalView()
@@ -173,6 +191,7 @@ struct MainView: View {
 		  ErrorModalView(
 			 viewMode: $viewModel.viewMode,
 			 description: $appStatus.errorModalDescription,
+			 shouldReloadParentView: $appStatus.navigateToSelectCertificate,
 			 errorModalState: appStatus.errorModalState
 		  )
 		  .fixedSize(horizontal: false, vertical: true)
@@ -236,6 +255,7 @@ struct MainView: View {
     }
     
     private func handleFileImport(result: Result<[URL], Error>) {
+	   
 	   switch result {
 		  case .success(let urls):
 			 appStatus.importedDataURLS = urls
@@ -243,6 +263,13 @@ struct MainView: View {
 			 print("File import failed with error: \(error.localizedDescription)")
 			 handleError(error: error)
 	   }
+    }
+    
+    private func handleFileImportCancellation() {
+	   appStatus.showErrorModal = true
+	   appStatus.errorModalState = .dataNotImported
+	   appStatus.navigateToDNI = false
+	   appStatus.navigateToAddCertificate = false
     }
     
     private func handleError(error: Error) {

@@ -22,11 +22,6 @@ struct HomeView: View {
     @State var password: String = ""
     @State var shouldCancelOperation: Bool = false
     
-    @State var model = NFCViewModel(
-	   can: PrivateConstants.can,
-	   pin: PrivateConstants.pin
-    )
-    
     init(certificates: Binding<[AOCertificateInfo]?>,
 	    viewMode: Binding<ViewModes>,
 	    shouldSign: Binding<Bool>,
@@ -67,12 +62,24 @@ struct HomeView: View {
 	   .onChange(of: viewModel.errorModalDescription) { appStatus.errorModalDescription = $0 ?? "" }
 	   .onChange(of: viewModel.downloadedData) { appStatus.downloadedData = $0 }
 	   .onChange(of: viewModel.showSignModal) { appStatus.showSignModal = $0 ?? false}
-	   .onChange(of: shouldCancelOperation) { if $0 == true { viewModel.viewMode = .home ; viewModel.areCertificatesSelectable = false } }
+	   .onChange(of: viewModel.selectDNIe) { result in if result == true { viewModel.signMode = .idCard }}
+	   .onChange(of: shouldCancelOperation) {
+		  if $0 == true {
+			 viewModel.viewMode = .home ; viewModel.areCertificatesSelectable = false
+		  }
+	   }
 	   .onChange(of: viewModel.showTextfieldModal) { result in
 		  if !result {
 			 if password != "" {
 				viewModel.signModel?.updateExtraParams(dict: ["ownerPassword": password])
 			 }
+		  }
+	   }
+	   .onChange(of: viewModel.selectElectronicCertificate) {
+		  result in
+		  if result == true {
+			 viewModel.signMode = .electronicCertificate
+			 viewModel.areCertificatesSelectable = true
 		  }
 	   }
 	   .sheet(isPresented: $viewModel.showTextfieldModal) {
@@ -81,6 +88,21 @@ struct HomeView: View {
 			 .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
 			 .presentationDetents([.height(viewModel.sheetHeight)])
 			 .accessibility(addTraits: .isModal)
+	   }
+	   .sheet(isPresented: $viewModel.showSelectSignMode) {
+		  SignModalView(
+			 certificateSignAction: $viewModel.selectElectronicCertificate,
+			 dniSignAction: $viewModel.selectDNIe
+		  )
+		  .fixedSize(horizontal: false, vertical: true)
+		  .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
+		  .presentationDetents([.height(viewModel.sheetHeight)])
+		  .accessibility(addTraits: .isModal)
+	   }
+	   .navigationDestination(isPresented: $viewModel.selectDNIe) {
+		  if let dataToSign = Base64Utils.decode(viewModel.signModel?.datosInUse, urlSafe: true) {
+			 DNIView(dataToSign: dataToSign, algorithm: viewModel.signModel?.signAlgoInUse)
+		  }
 	   }
     }
     
@@ -147,12 +169,6 @@ struct HomeView: View {
 		  AccessibleText(content: NSLocalizedString("home_certificates_sign_button_title", bundle: Bundle.main, comment: ""))
 		  }
 		  .buttonStyle(CustomButtonStyle(isEnabled: true))*/
-		  Button(action: {
-			 model.startNFCSession()
-		  }) {
-			 AccessibleText(content: NSLocalizedString("dni_view_title", bundle: Bundle.main, comment: ""))
-		  }
-		  .buttonStyle(BorderedButtonStyle())
 		 
 		 Button(action: {
 			appStatus.showDocumentPicker.toggle()

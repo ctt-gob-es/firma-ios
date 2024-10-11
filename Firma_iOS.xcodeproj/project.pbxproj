@@ -10,6 +10,7 @@
 		3BC03D5D19D9988300FC1804 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AF7F6E17FD60C80084D916 /* libGoogleAnalyticsServices.a */; };
 		3C57FA171AC1BB9D00FF7292 /* AOCertificateInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C57FA161AC1BB9D00FF7292 /* AOCertificateInfo.m */; };
 		83063D0E2C6B5B2E00E88046 /* PDFConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83063D0D2C6B5B2E00E88046 /* PDFConstants.swift */; };
+		8308DD082CB56C5A006C6032 /* DNIeSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308DD072CB56C5A006C6032 /* DNIeSigner.m */; };
 		83094A582C58DCCA006CEB12 /* ReceiveDataRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83094A572C58DCCA006CEB12 /* ReceiveDataRest.swift */; };
 		830CDEA32C6AAF5C00E2890D /* AOPadesUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 830CDEA22C6AAF5C00E2890D /* AOPadesUtils.m */; };
 		83144EA12C3FD97900CC38AB /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83144EA02C3FD97900CC38AB /* TextStyles.swift */; };
@@ -2506,6 +2507,7 @@
 		83A5EDC42C53C02100F93B6D /* PseudonymModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A5EDC32C53C02100F93B6D /* PseudonymModalView.swift */; };
 		83A5EDC62C53E2F600F93B6D /* SaveDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A5EDC52C53E2F600F93B6D /* SaveDataUseCase.swift */; };
 		83A5EDCB2C53E53100F93B6D /* DocumentSavingPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A5EDCA2C53E53100F93B6D /* DocumentSavingPicker.swift */; };
+		83ACD2F92CB7B18D00A3EFA5 /* DNIConnectionSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ACD2F82CB7B18D00A3EFA5 /* DNIConnectionSteps.swift */; };
 		83AF00002CA2C95D00A26C0F /* EncapsulatedSignedData.c in Sources */ = {isa = PBXBuildFile; fileRef = 83AFFF572CA2C95D00A26C0F /* EncapsulatedSignedData.c */; };
 		83AF00012CA2C95D00A26C0F /* ESSCertIDIOS.c in Sources */ = {isa = PBXBuildFile; fileRef = 83AFFF592CA2C95D00A26C0F /* ESSCertIDIOS.c */; };
 		83AF00022CA2C95D00A26C0F /* ESSCertIDv2IOS.c in Sources */ = {isa = PBXBuildFile; fileRef = 83AFFF5B2CA2C95D00A26C0F /* ESSCertIDv2IOS.c */; };
@@ -2643,6 +2645,7 @@
 		83C0ECC62C415A4B00244071 /* InfoModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0ECC52C415A4B00244071 /* InfoModalView.swift */; };
 		83C0ECC92C44F77900244071 /* DeleteCertificateModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0ECC82C44F77900244071 /* DeleteCertificateModalView.swift */; };
 		83C0ECCB2C44F89600244071 /* CertificateCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0ECCA2C44F89600244071 /* CertificateCellView.swift */; };
+		83C471BA2CB91B31006CF7A7 /* DNISingleSignUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C471B92CB91B31006CF7A7 /* DNISingleSignUseCase.swift */; };
 		83D3900A2CA544BA00D16BA6 /* LogUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D390092CA544BA00D16BA6 /* LogUtils.swift */; };
 		83D3900C2CA5455200D16BA6 /* ByteArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D3900B2CA5455200D16BA6 /* ByteArrayUtils.swift */; };
 		83DF46762C4876D6000C3F31 /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF46752C4876D6000C3F31 /* ViewUtils.swift */; };
@@ -2773,6 +2776,8 @@
 		3C57FA151AC1BB9D00FF7292 /* AOCertificateInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AOCertificateInfo.h; path = model/AOCertificateInfo.h; sourceTree = "<group>"; };
 		3C57FA161AC1BB9D00FF7292 /* AOCertificateInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AOCertificateInfo.m; path = model/AOCertificateInfo.m; sourceTree = "<group>"; };
 		83063D0D2C6B5B2E00E88046 /* PDFConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFConstants.swift; sourceTree = "<group>"; };
+		8308DD062CB56C4E006C6032 /* DNIeSigner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DNIeSigner.h; sourceTree = "<group>"; };
+		8308DD072CB56C5A006C6032 /* DNIeSigner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DNIeSigner.m; sourceTree = "<group>"; };
 		83094A572C58DCCA006CEB12 /* ReceiveDataRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveDataRest.swift; sourceTree = "<group>"; };
 		830CDEA22C6AAF5C00E2890D /* AOPadesUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AOPadesUtils.m; sourceTree = "<group>"; };
 		830CDEA42C6AAF6C00E2890D /* AOPadesUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOPadesUtils.h; sourceTree = "<group>"; };
@@ -7712,6 +7717,7 @@
 		83A5EDC32C53C02100F93B6D /* PseudonymModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudonymModalView.swift; sourceTree = "<group>"; };
 		83A5EDC52C53E2F600F93B6D /* SaveDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveDataUseCase.swift; sourceTree = "<group>"; };
 		83A5EDCA2C53E53100F93B6D /* DocumentSavingPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentSavingPicker.swift; sourceTree = "<group>"; };
+		83ACD2F82CB7B18D00A3EFA5 /* DNIConnectionSteps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNIConnectionSteps.swift; sourceTree = "<group>"; };
 		83AF00412CA2CB7700A26C0F /* NFCError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCError.swift; sourceTree = "<group>"; };
 		83AF00432CA2CB9500A26C0F /* IOSApduConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSApduConnection.swift; sourceTree = "<group>"; };
 		83AF00462CA2CBAB00A26C0F /* SwiftDNIeWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDNIeWrapper.swift; sourceTree = "<group>"; };
@@ -7951,6 +7957,7 @@
 		83C0ECC52C415A4B00244071 /* InfoModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModalView.swift; sourceTree = "<group>"; };
 		83C0ECC82C44F77900244071 /* DeleteCertificateModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCertificateModalView.swift; sourceTree = "<group>"; };
 		83C0ECCA2C44F89600244071 /* CertificateCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateCellView.swift; sourceTree = "<group>"; };
+		83C471B92CB91B31006CF7A7 /* DNISingleSignUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNISingleSignUseCase.swift; sourceTree = "<group>"; };
 		83D390092CA544BA00D16BA6 /* LogUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogUtils.swift; sourceTree = "<group>"; };
 		83D3900B2CA5455200D16BA6 /* ByteArrayUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByteArrayUtils.swift; sourceTree = "<group>"; };
 		83DF46752C4876D6000C3F31 /* ViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtils.swift; sourceTree = "<group>"; };
@@ -15526,6 +15533,7 @@
 				83A5EDC52C53E2F600F93B6D /* SaveDataUseCase.swift */,
 				8393EEC82C58F675009FDE6E /* ReportErrorUseCase.swift */,
 				8393EECC2C58FA21009FDE6E /* HistoricalUseCase.swift */,
+				83C471B92CB91B31006CF7A7 /* DNISingleSignUseCase.swift */,
 			);
 			path = SwiftUseCase;
 			sourceTree = "<group>";
@@ -15598,6 +15606,8 @@
 				83AF004A2CA2DB1F00A26C0F /* DNIeService.swift */,
 				83AF004C2CA2E51E00A26C0F /* IOSCallbackHandler.swift */,
 				83904CCD2CA43754005F345B /* IOSNFCSessionManager.swift */,
+				8308DD062CB56C4E006C6032 /* DNIeSigner.h */,
+				8308DD072CB56C5A006C6032 /* DNIeSigner.m */,
 			);
 			path = DNIe;
 			sourceTree = "<group>";
@@ -16005,6 +16015,7 @@
 				83E5D8012C4847DF001A5AF1 /* DNIScanView.swift */,
 				83E5D8032C48481A001A5AF1 /* DNIPinView.swift */,
 				83E5D8052C48483C001A5AF1 /* DNIStepHeaderView.swift */,
+				83ACD2F82CB7B18D00A3EFA5 /* DNIConnectionSteps.swift */,
 			);
 			path = DNI;
 			sourceTree = "<group>";
@@ -16638,6 +16649,7 @@
 				8325D4E12CAADD17007224E9 /* Extension.m in Sources */,
 				833C285A2CA2B89A00DFF6CD /* TargetInformation.m in Sources */,
 				8325D5622CAADD17007224E9 /* DLExternal.m in Sources */,
+				83ACD2F92CB7B18D00A3EFA5 /* DNIConnectionSteps.swift in Sources */,
 				83AFFFF22CA2C95D00A26C0F /* constr_SEQUENCE_OF.c in Sources */,
 				833C2A152CA2B89B00DFF6CD /* Nat224.m in Sources */,
 				833C29FE2CA2B89B00DFF6CD /* ECEndomorphism.m in Sources */,
@@ -17154,6 +17166,7 @@
 				8325D66C2CAADD18007224E9 /* SecP256R1Curve.m in Sources */,
 				8325D6932CAADD18007224E9 /* SecT233FieldElement.m in Sources */,
 				833C29682CA2B89A00DFF6CD /* TeeInputStream.m in Sources */,
+				8308DD082CB56C5A006C6032 /* DNIeSigner.m in Sources */,
 				8325D7112CAADD18007224E9 /* GF.m in Sources */,
 				833C2AF62CA2B89B00DFF6CD /* AOTreeUtil.m in Sources */,
 				833C28532CA2B89A00DFF6CD /* DistributionPointName.m in Sources */,
@@ -19035,6 +19048,7 @@
 				833C2A342CA2B89B00DFF6CD /* JcaJceExtHelper.m in Sources */,
 				833C28882CA2B89A00DFF6CD /* AttributeTable.m in Sources */,
 				8325D5D32CAADD18007224E9 /* ECNamedDomainParameters.m in Sources */,
+				83C471BA2CB91B31006CF7A7 /* DNISingleSignUseCase.swift in Sources */,
 				8325D4412CAADD17007224E9 /* WirelessInitializerMrz.m in Sources */,
 				833C2C202CA2B89C00DFF6CD /* GrayColor.m in Sources */,
 				8325D8582CAADD18007224E9 /* Iterable.m in Sources */,
@@ -19275,7 +19289,7 @@
 					"include/**",
 					"./lib/**",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				J2OBJC_HOME = "/Users/desarrolloabamobile/Downloads/j2objc-2.8";
 				LIBRARY_SEARCH_PATHS = "${J2OBJC_HOME}/lib";
 				ONLY_ACTIVE_ARCH = YES;
@@ -19351,7 +19365,7 @@
 					"include/**",
 					"./lib/**",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				J2OBJC_HOME = "/Users/desarrolloabamobile/Downloads/j2objc-2.8";
 				LIBRARY_SEARCH_PATHS = "${J2OBJC_HOME}/lib";
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
@@ -19387,7 +19401,7 @@
 				GCC_PREFIX_HEADER = "Firma_iOS/Firma_iOS-Prefix.pch";
 				HEADER_SEARCH_PATHS = "include/**";
 				INFOPLIST_FILE = "Firma_iOS/Supporting Files/Firma_iOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					lib,
@@ -19455,7 +19469,7 @@
 				GCC_PREFIX_HEADER = "Firma_iOS/Firma_iOS-Prefix.pch";
 				HEADER_SEARCH_PATHS = "include/**";
 				INFOPLIST_FILE = "Firma_iOS/Supporting Files/Firma_iOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					lib,

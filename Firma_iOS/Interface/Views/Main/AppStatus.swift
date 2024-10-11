@@ -38,5 +38,8 @@ class AppStatus: ObservableObject {
     @Published var navigateToAddCertificate: Bool = false
     @Published var isLoading: Bool = false
     
+    @Published var userIDCAN: String? = nil
+    @Published var userIDPIN: String? = nil
+    
     var errorPublisher = PassthroughSubject<String, Never>()
 }

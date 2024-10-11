@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct DNIStepHeaderView: View {
-    @Binding var step: ConnectionSteps
+    @Binding var step: DNIConnectionSteps
     var totalSteps: Int = 3
     var body: some View {
 	   VStack(alignment: .leading, spacing: 10) {

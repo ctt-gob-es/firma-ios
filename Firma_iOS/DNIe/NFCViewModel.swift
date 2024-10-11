@@ -11,36 +11,29 @@ import CoreNFC
 import SwiftUI
 
 class NFCViewModel: NSObject, ObservableObject {
-    
     @State var can: String
     @State var pin: String
+    @State var dataToSign: Data? = nil
+    @State var algorithm: String
     @Published var nfcError: NFCError?
     @Published var sessionActiveMessage: String = ""
     @Published var resultMessage: String?
     
-    private var dniService: DNIeService?
+    private var dniWrapper: SwiftDNIeWrapper?
     
-    init(can: String, pin: String) {
+    init(can: String, pin: String, algorithm: String) {
 	   self.can = can
 	   self.pin = pin
+	   self.algorithm = algorithm
     }
     
-    func startNFCSession() {
-	   self.dniService = DNIeService(
-		  can: can,
-		  pin: pin
-	   )
-	   dniService?.initializeDNIeConnection()
-	   sessionActiveMessage = "Sesión NFC activa. Acerca el dispositivo al DNIe."
+    func getDNIeNFC(completion: DNIeResult) {
+	   self.dniWrapper = SwiftDNIeWrapper(can: can, pin: pin)
+	   dniWrapper?.getDNIe(completion: completion)
+	   self.sessionActiveMessage = "Sesión NFC activa. Acerca el dispositivo al DNIe."
     }
     
-    func fetchDNIeInfo() {
-	   if (dniService?.getDNIe()) != nil {
-		  resultMessage = "DNIe obtenido con éxito"
-	   }
-    }
-    
-    func checkPinRetries() -> Int {
-	   return dniService?.getRemainingPinRetries() ?? 0
+    func signData(dnie: EsGobJmulticardCardDnieDnieNfc, dataToSign: Data) {
+	   
     }
 }

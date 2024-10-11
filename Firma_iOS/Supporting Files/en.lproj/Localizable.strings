@@ -278,6 +278,8 @@ To work correctly you must install an electronic certificate. Consult the docume
 "update_error_title" = "New version available";
 "importing_certificate_error_title" = "We were unable to add your certificate";
 "importing_certificate_error_description" = "We were unable to add your certificate to the Portafirmas application correctly. Please try again later.";
+"importing_data_error_title" = "We were unable to add your files";
+"importing_data_error_description" = "We were unable to add your files to the Portafirmas application correctly. Please try again later.";
 
 // Descriptions
 "certificate_needed_description" = "To sign you need to register a digital certificate.";
@@ -383,6 +385,23 @@ To work correctly you must install an electronic certificate. Consult the docume
 "textfield_modal_button_title" = "Enter password";
 "textfield_modal_cancel_button_title" = "Cancel";
 
-
 //NFC
 "NFC_DESCRIPTION" = "App needs access to NFC to read DNIe.";
+"nfc_session_opened" = "NFC session opened. Ready to transmit APDU commands.";
+"nfc_session_closed" = "NFC session closed.";
+"nfc_resetting" = "Resetting NFC connection...";
+"nfc_reset_successful" = "NFC connection reset successfully.";
+"apdu_transmitting" = "Transmitting APDU command...";
+"apdu_transmitted" = "APDU command transmitted successfully.";
+"apdu_error" = "Error transmitting APDU command.";
+"apdu_response_received" = "APDU response received.";
+"apdu_no_tag" = "Error: No NFC tag found.";
+"apdu_send_error" = "Error during APDU transmission: %@";
+"nfc_dni_warning" = "Do not move the DNI or the reading will fail.";
+"nfc_not_supported" = "This device does not support NFC.";
+"nfc_dni_warning" = "Do not move the DNI or the reading will fail.";
+"nfc_detected_tags" = "Detected %d tags.";
+"nfc_multiple_tags_error" = "More than 1 tag was found. Please present only 1 tag.";
+"nfc_no_tag_error" = "Unable to get first tag.";
+"nfc_connection_error" = "Error connecting to NFC tag: %@";
+"nfc_unsupported_tag_error" = "The detected tag is not supported.";

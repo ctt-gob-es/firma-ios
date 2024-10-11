@@ -16,78 +16,78 @@ protocol IOSNFCSessionDelegate: AnyObject {
 }
 
 class IOSNFCSessionManager: NSObject, NFCTagReaderSessionDelegate {
-    
+
     internal var nfcSession: NFCTagReaderSession?
     var delegate: IOSNFCSessionDelegate?
     var nfcTag: NFCISO7816Tag?
-    
+
     // MARK: - Iniciar la sesión NFC
     func beginSession() {
 	   guard NFCTagReaderSession.readingAvailable else {
-		  print("Este dispositivo no soporta NFC.")
+		  print(NSLocalizedString("nfc_not_supported", comment: ""))
 		  return
 	   }
 	   nfcSession = NFCTagReaderSession(pollingOption: [.iso14443], delegate: self)
-	   nfcSession?.alertMessage = "Acerca tu dispositivo a la etiqueta NFC para leer."
+	   nfcSession?.alertMessage = NSLocalizedString("nfc_dni_warning", comment: "")
 	   nfcSession?.begin()
     }
-    
+
     // MARK: - Reiniciar la sesión NFC
     func resetSession() {
 	   nfcSession?.restartPolling()
     }
-    
+
     // MARK: - Cerrar la sesión NFC
     func closeSession() {
 	   nfcSession?.invalidate()
     }
-    
+
     // MARK: - NFCTagReaderSessionDelegate - Detectar etiquetas NFC
     func tagReaderSessionDidBecomeActive(_ session: NFCTagReaderSession) {
 	   delegate?.didBecomeActive()
     }
-    
+
     func tagReaderSession(_ session: NFCTagReaderSession, didDetect tags: [NFCTag]) {
-	   print("Detected \(tags.count) tags")
-	   
+	   print(NSLocalizedString("nfc_detected_tags", comment: "\(tags.count)"))
+
 	   if tags.count > 1 {
-		  session.invalidate(errorMessage: "More than 1 tag was found. Please present only 1 tag.")
+		  session.invalidate(errorMessage: NSLocalizedString("nfc_multiple_tags_error", comment: ""))
 		  return
 	   }
-	   
+
 	   guard let firstTag = tags.first else {
-		  session.invalidate(errorMessage: "Unable to get first tag")
+		  session.invalidate(errorMessage: NSLocalizedString("nfc_no_tag_error", comment: ""))
 		  return
 	   }
-	   
+
 	   session.connect(to: firstTag) { (error: Error?) in
 		  if let error = error {
-			 session.invalidate(errorMessage: "Error al conectar con la etiqueta NFC: \(error.localizedDescription)")
+			 session.invalidate(errorMessage: String(format: NSLocalizedString("nfc_connection_error", comment: ""), error.localizedDescription))
 			 return
 		  }
-		  
+
 		  switch firstTag {
 			 case .feliCa(_), .iso15693(_), .miFare(_):
-				session.invalidate(errorMessage: "La etiqueta detectada no es compatible.")
+				session.invalidate(errorMessage: NSLocalizedString("nfc_unsupported_tag_error", comment: ""))
 				return
 			 case .iso7816(let iso7816Tag):
 				self.nfcTag = iso7816Tag
 				self.delegate?.didDetectNFC(tag: iso7816Tag)
 			 @unknown default:
-				session.invalidate(errorMessage: "La etiqueta detectada no es compatible.")
+				session.invalidate(errorMessage: NSLocalizedString("nfc_unsupported_tag_error", comment: ""))
 				return
 		  }
 	   }
     }
-    
+
     func tagReaderSession(_ session: NFCTagReaderSession, didInvalidateWithError error: Error) {
 	   delegate?.didInvalidateNFCSession(with: error)
     }
-    
+
     func isOpen() -> Bool {
 	   return nfcSession?.isReady ?? false
     }
-    
+
     func getDetectedTag() -> NFCISO7816Tag? {
 	   return self.nfcTag
     }

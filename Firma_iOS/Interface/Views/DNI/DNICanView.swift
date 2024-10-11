@@ -10,7 +10,9 @@ import SwiftUI
 
 struct DNICanView: View {
     @Binding var buttonEnabled: Bool
-    @State var can: String
+    @Binding var showError: Bool
+    @Binding var can: String
+    
     var body: some View {
 	   VStack {
 		  ScrollView {
@@ -28,7 +30,7 @@ struct DNICanView: View {
 				placeholder: NSLocalizedString("dni_connection_can_placeholder", bundle: Bundle.main, comment: ""),
 				errorplaceholder: NSLocalizedString("dni_connection_can_error", bundle: Bundle.main, comment: ""),
 				text: $can,
-				showError: $buttonEnabled,
+				showError: $showError,
 				imageName: "exclamationmark.triangle",
 				isSecureTextEntry: false,
 				validation: { can in
@@ -43,13 +45,13 @@ struct DNICanView: View {
 	   .padding()
     }
     
-    func canValidation(can: String) -> Bool{
+    func canValidation(can: String) -> Bool {
 	   if can.count != 6 {
 		  buttonEnabled = false
-		  return true
+		  return false
 	   } else {
 		  buttonEnabled = true
-		  return false
+		  return true
 	   }
     }
 }

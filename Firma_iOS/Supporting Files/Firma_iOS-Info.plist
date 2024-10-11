@@ -93,14 +93,22 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
+	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
+	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
 	<key>NFCReaderUsageDescription</key>
 	<string>This app needs NFC access to read your DNIe.</string>
 	<key>com.apple.developer.nfc.readersession.iso7816.select-identifiers</key>
 	<array>
-		<string>A00000016745</string>
+		<string>A00000000386980701</string>
+		<string>A000000063504B43532D3135</string>
 		<string>A0000002471001</string>
+		<string>A0000002472001</string>
 		<string>00000000000000</string>
 	</array>
 </dict>

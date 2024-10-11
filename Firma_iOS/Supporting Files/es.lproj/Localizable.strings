@@ -279,6 +279,8 @@ Para funcionar correctamente debes instalar un certificado electrónico. Consult
 "update_error_title" = "Nueva versión disponible";
 "importing_certificate_error_title" = "No hemos podido añadir tu certificado";
 "importing_certificate_error_description" = "No hemos podido añadir tu certificado a la aplicación de Portafirmas de manera correcta. Inténtalo de nuevo más tade.";
+"importing_data_error_title" = "No hemos podido añadir tu archivo";
+"importing_data_error_description" = "No hemos podido añadir tu archivo a la aplicación de Portafirmas de manera correcta. Inténtalo de nuevo más tade.";
 
 // Descriptions
 "certificate_needed_description" = "Para firmar necesitas registrar un certificado digital.";
@@ -386,3 +388,21 @@ Para funcionar correctamente debes instalar un certificado electrónico. Consult
 
 //DNI
 "NFC_DESCRIPTION" = "La aplicación necesita acceso a NFC para leer el DNIe.";
+"nfc_session_opened" = "Sesión NFC abierta. Lista para transmitir comandos APDU.";
+"nfc_session_closed" = "Sesión NFC cerrada.";
+"nfc_resetting" = "Reiniciando la conexión NFC...";
+"nfc_reset_successful" = "Conexión NFC restablecida con éxito.";
+"apdu_transmitting" = "Transmitiendo comando APDU...";
+"apdu_transmitted" = "Comando APDU transmitido con éxito.";
+"apdu_error" = "Error al transmitir el comando APDU.";
+"apdu_response_received" = "Respuesta APDU recibida.";
+"apdu_no_tag" = "Error: No se encontró ninguna etiqueta NFC.";
+"apdu_send_error" = "Error durante la transmisión del APDU: %@";
+"nfc_dni_warning" = "No muevas el DNI o la lectura fallará.";
+"nfc_not_supported" = "Este dispositivo no soporta NFC.";
+"nfc_dni_warning" = "No muevas el DNI o la lectura fallará.";
+"nfc_detected_tags" = "Detectadas %d etiquetas.";
+"nfc_multiple_tags_error" = "Se encontró más de una etiqueta. Presenta solo una etiqueta.";
+"nfc_no_tag_error" = "No se pudo obtener la primera etiqueta.";
+"nfc_connection_error" = "Error al conectar con la etiqueta NFC: %@";
+"nfc_unsupported_tag_error" = "La etiqueta detectada no es compatible.";

@@ -10,7 +10,7 @@ import Foundation
 
 class SingleSignUseCase {
     private let presignRest: PresignRest = PresignRest()
-    private let postSignRest: PostSignRest = PostSignRest()
+    let postSignRest: PostSignRest = PostSignRest()
     
     var signModel: SignModel?
     var certificateUtils: CertificateUtils?
@@ -66,7 +66,7 @@ class SingleSignUseCase {
 	   switch result {
 		  case .success(let serverResponse):
 			 guard let privateKey = certificateUtils?.privateKey,
-				  let encodedData = generatePKCS1(
+				  let pkcs1 = generatePKCS1(
 				    dataReceivedb64: serverResponse,
 				    privateKey: privateKey,
 				    signAlgoInUse: signAlgoInUse,
@@ -85,7 +85,7 @@ class SingleSignUseCase {
 				}
 				return
 			 }
-			 postsign(signModel: signModel, encodedData: encodedData, completion: completion)
+			 postsign(signModel: signModel, encodedData: pkcs1, completion: completion)
 			 
 		  case .failure(let error):
 			 handleSignError(error: error, completion: completion)
@@ -121,7 +121,7 @@ class SingleSignUseCase {
 		  })
     }
     
-    private func handlePostSignResult(signModel: SignModel, result: Result<Data, Error>, completion: @escaping (Result<Bool, Error>) -> Void) {
+    func handlePostSignResult(signModel: SignModel, result: Result<Data, Error>, completion: @escaping (Result<Bool, Error>) -> Void) {
 	   switch result {
 		  case .success(let postSignResult):
 			 if let responseString = String(data: postSignResult, encoding: .utf8) {
@@ -323,12 +323,12 @@ class SingleSignUseCase {
 	   }
     }
     
-    private func handleSignError(error: Error, completion: @escaping (Result<Bool, Error>) -> Void) {
+    func handleSignError(error: Error, completion: @escaping (Result<Bool, Error>) -> Void) {
 	   print("Error occurred: \(error.localizedDescription)")
 	   completion(.failure(error))
     }
     
-    private func handleRetryWithPassword(completion: @escaping (Result<Bool, Error>) -> Void) {
+    func handleRetryWithPassword(completion: @escaping (Result<Bool, Error>) -> Void) {
 	   completion(.success(true))
     }
     

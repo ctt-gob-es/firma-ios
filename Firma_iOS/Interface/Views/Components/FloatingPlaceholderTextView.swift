@@ -35,8 +35,11 @@ struct FloatingPlaceholderTextField: View {
 				    .textInputAutocapitalization(.none)
 				    .autocapitalization(.none)
 				} else {
-				    TextField("", text: $text, onEditingChanged: { editing in
+				    TextField("",
+						    text: $text,
+						    onEditingChanged: { editing in
 					   isFocused = editing
+					   showError = !validation(text)
 				    })
 				    .font(.custom("NunitoSans10pt-Regular", size: 16))
 				    .foregroundColor(.primary)

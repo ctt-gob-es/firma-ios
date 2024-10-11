@@ -29,13 +29,14 @@
 #import "SignatureResult.h"
 #import "IOSClass.h"
 #import "IOSObjectArray.h"
-
+#import "DNIeSigner.h"
 
 //JAVA CODE
 #include "java/util/Properties.h"
 #include "java/security/PrivateKey.h"
 #include "java/security/PublicKey.h"
 #include "java/security/cert/Certificate.h"
+#include "java/security/cert/X509Certificate.h"
 
 //JAVAX
 #include "javax/security/auth/callback/Callback.h"
@@ -64,3 +65,6 @@
 #include "es/gob/jmulticard/ios/DnieFactoryWrapper.h"
 #include "es/gob/jmulticard/ios/DnieWrapper.h"
 #include "es/gob/jmulticard/ios/ErrorCode.h"
+#include "es/gob/afirma/core/misc/Base64.h"
+#include "es/gob/jmulticard/card/dnie/Dnie3.h"
+#include "es/gob/jmulticard/card/CryptoCard.h"

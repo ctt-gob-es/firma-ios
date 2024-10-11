@@ -10,6 +10,7 @@ import SwiftUI
 
 struct FindDNIModalView: View {
     @Environment(\.presentationMode) var presentationMode
+    @State var model : NFCViewModel?
     
     var body: some View {
 	   VStack(alignment: .leading, spacing: 10) {
@@ -54,5 +55,23 @@ struct FindDNIModalView: View {
 	   .padding()
 	   .background(Color.white)
 	   .cornerRadius(10)
+	   .onAppear() {
+		  DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+			 if let model = model {
+				let nfcHandler = NFCSessionHandler()
+				model.getDNIeNFC(completion: nfcHandler)
+			 }
+		  }
+	   }
+    }
+}
+
+class NFCSessionHandler: DNIeResult {
+    func getDNIeNFCSuccess(dnie: EsGobJmulticardCardDnieDnieNfc) {
+	   LogUtils.printDNIeAttributes(dnie: dnie)
+    }
+
+    func getDNIeError() {
+	   print("Error reading DNIe.")
     }
 }

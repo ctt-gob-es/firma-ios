@@ -27,4 +27,37 @@ class LogUtils {
 		  print("Sending Native APDU. HexString: \(hexString)")
 	   }
     }
+    
+    static func printDNIeAttributes(dnie: EsGobJmulticardCardDnieDnie) {
+	   print("Leído DNIE:")
+
+	   if let idesp = dnie.getIdesp() {
+		  print("IDESP: \(idesp)")
+	   } else {
+		  print("IDESP: no disponible")
+	   }
+
+	   if let serialNumber = dnie.getSerialNumber() {
+		  print("Número de serie: \(serialNumber)")
+	   } else {
+		  print("Número de serie: no disponible")
+	   }
+
+	   if let aliases = dnie.getAliases() {
+		  print("Alias disponibles: \(aliases)")
+	   } else {
+		  print("Alias no disponibles")
+	   }
+
+	   print("Nombre de la tarjeta: \(String(describing: dnie.getName()))")
+	   
+	   let isSecurityChannelOpen = dnie.isSecurityChannelOpen()
+	   print("Canal de seguridad abierto: \(isSecurityChannelOpen)")
+
+	   if let rsaPublicKey = dnie.getIccCertPublicKey() {
+		  print("Clave pública RSA: \(rsaPublicKey)")
+	   } else {
+		  print("Clave pública RSA no disponible")
+	   }
+    }
 }

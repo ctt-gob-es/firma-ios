@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct DNIPinView: View {
-    @State var pin: String
+    @Binding var pin: String
     @State var showError: Bool = false
     
     var body: some View {
@@ -39,10 +39,6 @@ struct DNIPinView: View {
     }
     
     func pinValidation(pin: String) -> Bool{
-	   if pin.count != 6 {
-		  return true
-	   } else {
-		  return false
-	   }
+	   return true
     }
 }

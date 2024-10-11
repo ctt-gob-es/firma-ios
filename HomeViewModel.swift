@@ -10,6 +10,11 @@ import Foundation
 import SwiftUI
 import Combine
 
+enum SignMode {
+    case idCard
+    case electronicCertificate
+}
+
 class HomeViewModel: ObservableObject {
     @Published var buttonEnabled: Bool? = false
     @Published var urlReceived: URL? = nil
@@ -42,6 +47,14 @@ class HomeViewModel: ObservableObject {
     @Published var dataType: DataType? = nil
     @Published var showTextfieldModal: Bool = false
     @Published var sheetHeight: CGFloat = .zero
+    
+    @Published var showSelectSignMode: Bool = false
+    @Published var selectDNIe: Bool = false
+    @Published var selectElectronicCertificate: Bool = false
+    @Published var signMode: SignMode?
+    
+    var isLocalSign: Bool = false
+    var localSignData: Data?
     
     init(buttonEnabled: Bool? = false,
 	    urlReceived: URL? = nil,
@@ -83,6 +96,13 @@ class HomeViewModel: ObservableObject {
     }
     
     func onAppear() {
+	   NotificationCenter.default.addObserver(
+		  self,
+		  selector: #selector(handlePKCS1SignatureNotification(_:)),
+		  name: NSNotification.Name("PKCS1SignatureNotification"),
+		  object: nil
+	   )
+	   
 	   loadData()
     }
     
@@ -95,6 +115,12 @@ class HomeViewModel: ObservableObject {
 			 receiveDataUseCase?.parseUrl { result in
 				self.handleReceiveData(result: result)
 			 }
+		  } else {
+			 //TODO: If we don't have any URL, its signing locally
+			 self.isLocalSign = true
+			 self.signModel = SignModel(dictionary: NSMutableDictionary())
+			 self.signUseCase = SingleSignUseCase(signModel: signModel!, certificateUtils: certificateUtils)
+			 configureMode(signModel: signModel!)
 		  }
 	   }
     }
@@ -121,9 +147,17 @@ class HomeViewModel: ObservableObject {
     
     func handleShouldSignChange(_ value: Bool) {
 	   if value {
-		  handleButtonAction()
-		  shouldSign = false
+		  if signMode == nil {
+			 selectSignMode()
+		  } else {
+			 handleButtonAction()
+			 shouldSign = false
+		  }
 	   }
+    }
+    
+    func selectSignMode() {
+	   showSelectSignMode = true
     }
     
     func handleImportedDataURLsChange(_ value: [URL]?) {
@@ -148,8 +182,8 @@ class HomeViewModel: ObservableObject {
 			 self.signModel = SignModel(dictionary: result.1)
 			 self.parameters = result.1
 			 guard let signModel = self.signModel else { return }
-			 self.signUseCase = SingleSignUseCase(signModel: signModel, certificateUtils: certificateUtils)
 			 configureMode(signModel: signModel)
+			 selectSignMode()
 		  case .failure(let error):
 			 handleError(error: error)
 	   }
@@ -166,18 +200,15 @@ class HomeViewModel: ObservableObject {
 	   
 	   switch signModel.operation {
 		  case OPERATION_SELECT_CERTIFICATE:
-			 areCertificatesSelectable = true
 			 buttonTitle = NSLocalizedString("send", bundle: Bundle.main, comment: "")
-		  case OPERATION_SIGN, OPERATION_BATCH:
-			 areCertificatesSelectable = true
+		  case OPERATION_SIGN,
+			  OPERATION_BATCH:
 			 buttonTitle = NSLocalizedString("home_certificates_sign_button_title", bundle: Bundle.main, comment: "")
 		  case OPERATION_SAVE:
 			 buttonEnabled = true
-			 areCertificatesSelectable = false
 			 buttonTitle = NSLocalizedString("download", bundle: Bundle.main, comment: "")
 		  case OPERATION_SIGN_FROM_LOCAL:
 			 showDocumentImportingPicker = true
-			 areCertificatesSelectable = true
 			 signModel.operation = OPERATION_SIGN
 			 buttonTitle = NSLocalizedString("home_certificates_sign_button_title", bundle: Bundle.main, comment: "")
 		  default:
@@ -186,19 +217,11 @@ class HomeViewModel: ObservableObject {
     }
     
     func handleButtonAction() {
-	   isLoading = true
-	   guard let operation = signModel?.operation else { return }
-	   switch operation {
-		  case OPERATION_SELECT_CERTIFICATE:
-			 handleOperationSendCertificate()
-		  case OPERATION_SIGN, OPERATION_SIGN_FROM_LOCAL:
-			 handleOperationSign()
-		  case OPERATION_BATCH:
-			 handleOperationBatch()
-		  case OPERATION_SAVE:
-			 handleOperationSaveData()
-		  default:
-			 break
+	   if signMode == nil {
+		  selectSignMode()
+		  return
+	   } else if signMode == .electronicCertificate {
+		  handleOperationSignWithElectronicCertificate()
 	   }
     }
     
@@ -234,39 +257,42 @@ class HomeViewModel: ObservableObject {
     }
     
     private func handleOperationSign() {
-	   
-	   self.signUseCase?.singleSign { result in
-		  DispatchQueue.main.async {
-			 self.isLoading = false
-			 
-			 switch result {
-				case .success(let shouldRetry):
-				    if shouldRetry {
-					   self.showTextfieldModal = true
-				    } else {
-					   self.historicalUseCase = HistoricalUseCase()
-					   let history = HistoryModel(
-						  date: Date(),
-						  signType: self.signType ?? .external,
-						  externalApp: nil,
-						  dataType: self.dataType ?? .external,
-						  filename: FileUtils.getArchiveNameFromParameters(parameters: self.parameters)
-					   )
-					   self.historicalUseCase?.saveHistory(history: history) { result in
-						  switch result {
-							 case .success():
-								self.viewMode = .home
-								self.successModalState = .successSign
-								self.showSuccessModal = true
-								self.areCertificatesSelectable = false
-							 case .failure(let error):
-								self.handleError(error: error)
+	   if isLocalSign {
+		  signLocalPdf()
+	   } else {
+		  self.signUseCase?.singleSign { result in
+			 DispatchQueue.main.async {
+				self.isLoading = false
+				
+				switch result {
+				    case .success(let shouldRetry):
+					   if shouldRetry {
+						  self.showTextfieldModal = true
+					   } else {
+						  self.historicalUseCase = HistoricalUseCase()
+						  let history = HistoryModel(
+							 date: Date(),
+							 signType: self.signType ?? .external,
+							 externalApp: nil,
+							 dataType: self.dataType ?? .external,
+							 filename: FileUtils.getArchiveNameFromParameters(parameters: self.parameters)
+						  )
+						  self.historicalUseCase?.saveHistory(history: history) { result in
+							 switch result {
+								case .success():
+								    self.viewMode = .home
+								    self.successModalState = .successSign
+								    self.showSuccessModal = true
+								    self.areCertificatesSelectable = false
+								case .failure(let error):
+								    self.handleError(error: error)
+							 }
 						  }
 					   }
-				    }
-				    
-				case .failure(let error):
-				    self.handleError(error: error)
+					   
+				    case .failure(let error):
+					   self.handleError(error: error)
+				}
 			 }
 		  }
 	   }
@@ -310,11 +336,15 @@ class HomeViewModel: ObservableObject {
     }
     
     private func handleError(error: Error) {
+	   self.isLoading = false
 	   DispatchQueue.main.async {
-		  self.errorModalState = .globalError
-		  self.errorModalDescription = error.localizedDescription
-		  self.showErrorModal = true
-		  self.signModel?.returnURL = nil
+		  self.showErrorModal = false
+		  DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+			 self.errorModalState = .globalError
+			 self.errorModalDescription = error.localizedDescription
+			 self.showErrorModal = true
+			 self.signModel?.returnURL = nil
+		  }
 	   }
 	   
 	   let reportErrorUseCase = ReportErrorUseCase()
@@ -332,7 +362,8 @@ class HomeViewModel: ObservableObject {
     
     func signLocalPdf() {
 	   guard
-		  let pdfData = Data(base64Encoded: PDFConstants.mockPDFString),
+		  let stringBase64Data = signModel?.datosInUse,
+		  let pdfData = Base64Utils.decode(stringBase64Data, urlSafe: true),
 		  let privateKeyRef = certificateUtils?.privateKey,
 		  let certificateName = certificateUtils?.selectedCertificateName,
 		  let identity = SwiftCertificateUtils.getIdentityFromKeychain(certName: certificateName),
@@ -340,6 +371,7 @@ class HomeViewModel: ObservableObject {
 		  let certificateAlgorithm = SwiftCertificateUtils.getAlgorithmFromCertificate(certificate: certificateRef) else {
 		  print("Missing required data for signing")
 		  handleError(error: NSError(domain: "SignError", code: 1, userInfo: [NSLocalizedDescriptionKey: "Unknown error"]))
+		  isLoading = false
 		  return
 	   }
 	   
@@ -365,20 +397,42 @@ class HomeViewModel: ObservableObject {
 		  self.successModalState = .successSign
 		  self.showSuccessModal = true
 	   }
+    }
+    
+    func handleOperationSignWithElectronicCertificate() {
+	   guard let signModel = self.signModel else { return }
+	   self.signUseCase = SingleSignUseCase(signModel: signModel, certificateUtils: certificateUtils)
 	   
-	   /*let padesUtils = PadesUtils()
-	   padesUtils.signPdf(
-		  pdfData,
-		  signAlgorithm: nil,
-		  privateKey: privateKeyRef,
-		  certificate: certificateRef,
-		  certificateRefAlgorithm: certificateRefAlgorithm,
-		  extraParams: extraParams
-	   ) { base64Signature, error  in
-		  print(base64Signature)
-		  self.viewMode = .home
-		  self.successModalState = .successSign
-		  self.showSuccessModal = true
-	   }*/
+	   isLoading = true
+	   guard let operation = signModel.operation else { return }
+	   switch operation {
+		  case OPERATION_SELECT_CERTIFICATE:
+			 handleOperationSendCertificate()
+		  case OPERATION_SIGN,
+		  OPERATION_SIGN_FROM_LOCAL:
+			 handleOperationSign()
+		  case OPERATION_BATCH:
+			 handleOperationBatch()
+		  case OPERATION_SAVE:
+			 handleOperationSaveData()
+		  default:
+			 break
+	   }
+    }
+    
+    @objc func handlePKCS1SignatureNotification(_ notification: Notification) {
+	   DispatchQueue.main.async {
+		  if let userInfo = notification.userInfo,
+			let pkcs1Signature = userInfo["pkcs1Signature"] as? Data,
+			let certString = userInfo["certString"] as? String {
+			 print("Received PKCS1 Signature: \(pkcs1Signature)")
+			 print("Received Certificate: \(certString)")
+			 guard let signModel = self.signModel else { return }
+			 
+			 self.signUseCase = DNISingleSignUseCase(can: "", pin: "", signModel: signModel, certificateUtils: self.certificateUtils)
+			 
+			 self.handleOperationSign()
+		  }
+	   }
     }
 }
