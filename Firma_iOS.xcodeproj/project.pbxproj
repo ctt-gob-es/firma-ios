@@ -2575,7 +2575,6 @@
 		83AF00442CA2CB9500A26C0F /* IOSApduConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AF00432CA2CB9500A26C0F /* IOSApduConnection.swift */; };
 		83AF00472CA2CBAB00A26C0F /* SwiftDNIeWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AF00462CA2CBAB00A26C0F /* SwiftDNIeWrapper.swift */; };
 		83AF00492CA2CBBE00A26C0F /* NFCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AF00482CA2CBBE00A26C0F /* NFCViewModel.swift */; };
-		83AF004B2CA2DB1F00A26C0F /* DNIeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AF004A2CA2DB1F00A26C0F /* DNIeService.swift */; };
 		83AF004D2CA2E51E00A26C0F /* IOSCallbackHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AF004C2CA2E51E00A26C0F /* IOSCallbackHandler.swift */; };
 		83AF00502CA423D100A26C0F /* cardmessages.properties in Resources */ = {isa = PBXBuildFile; fileRef = 83AF004F2CA423D100A26C0F /* cardmessages.properties */; };
 		83AF00522CA4284E00A26C0F /* PrivateConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AF00512CA4284E00A26C0F /* PrivateConstants.swift */; };
@@ -7723,7 +7722,6 @@
 		83AF00432CA2CB9500A26C0F /* IOSApduConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSApduConnection.swift; sourceTree = "<group>"; };
 		83AF00462CA2CBAB00A26C0F /* SwiftDNIeWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDNIeWrapper.swift; sourceTree = "<group>"; };
 		83AF00482CA2CBBE00A26C0F /* NFCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCViewModel.swift; sourceTree = "<group>"; };
-		83AF004A2CA2DB1F00A26C0F /* DNIeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNIeService.swift; sourceTree = "<group>"; };
 		83AF004C2CA2E51E00A26C0F /* IOSCallbackHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSCallbackHandler.swift; sourceTree = "<group>"; };
 		83AF004F2CA423D100A26C0F /* cardmessages.properties */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cardmessages.properties; sourceTree = "<group>"; };
 		83AF00512CA4284E00A26C0F /* PrivateConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateConstants.swift; sourceTree = "<group>"; };
@@ -15606,7 +15604,6 @@
 				83AF00412CA2CB7700A26C0F /* NFCError.swift */,
 				83AF00432CA2CB9500A26C0F /* IOSApduConnection.swift */,
 				83AF00462CA2CBAB00A26C0F /* SwiftDNIeWrapper.swift */,
-				83AF004A2CA2DB1F00A26C0F /* DNIeService.swift */,
 				83AF004C2CA2E51E00A26C0F /* IOSCallbackHandler.swift */,
 				83904CCD2CA43754005F345B /* IOSNFCSessionManager.swift */,
 				8308DD062CB56C4E006C6032 /* DNIeSigner.h */,
@@ -16612,7 +16609,6 @@
 				833C27EC2CA2B89A00DFF6CD /* DEROctetStringParser.m in Sources */,
 				8325D4472CAADD17007224E9 /* Iso7816FourCardException.m in Sources */,
 				8325D7EB2CAADD18007224E9 /* BCqTESLAPublicKey.m in Sources */,
-				83AF004B2CA2DB1F00A26C0F /* DNIeService.swift in Sources */,
 				833C2AA62CA2B89B00DFF6CD /* ICC_ProfileRGB.m in Sources */,
 				8325D7D12CAADD18007224E9 /* NHPrivateKey.m in Sources */,
 				833C287D2CA2B89A00DFF6CD /* KEKRecipientInfo.m in Sources */,

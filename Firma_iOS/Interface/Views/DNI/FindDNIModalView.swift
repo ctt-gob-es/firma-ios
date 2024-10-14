@@ -10,7 +10,7 @@ import SwiftUI
 
 struct FindDNIModalView: View {
     @Environment(\.presentationMode) var presentationMode
-    @State var model : NFCViewModel?
+    @State var model : NFCViewModel
     
     var body: some View {
 	   VStack(alignment: .leading, spacing: 10) {
@@ -57,7 +57,7 @@ struct FindDNIModalView: View {
 	   .cornerRadius(10)
 	   .onAppear {
 		  DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-			 model?.getDNIeNFC { result in
+			 model.getDNIeNFC { result in
 				switch result {
 				case .success:
 				    print("NFC session succeeded.")

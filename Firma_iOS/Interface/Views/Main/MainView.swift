@@ -82,6 +82,12 @@ struct MainView: View {
 			 .frame(maxWidth: .infinity, maxHeight: .infinity)
 			 .navigationDestination(isPresented: $appStatus.navigateToDNI) {
 				DNIView()
+				    .onReceive(NotificationCenter.default.publisher(for: .ErrorModalCancelButtonAction)) { _ in
+					   appStatus.showErrorModal = false
+					   appStatus.navigateToDNI = false
+					   appStatus.navigateToSelectCertificate = false
+					   appStatus.navigateToAddCertificate = false
+				    }
 			 }
 			 .navigationDestination(isPresented: $appStatus.navigateToSelectCertificate) {
 				HomeView(
@@ -194,6 +200,7 @@ struct MainView: View {
 			 shouldReloadParentView: $appStatus.navigateToSelectCertificate,
 			 errorModalState: appStatus.errorModalState
 		  )
+		  .environmentObject(appStatus)
 		  .fixedSize(horizontal: false, vertical: true)
 		  .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
 		  .presentationDetents([.height(viewModel.sheetHeight)])

@@ -9,11 +9,12 @@
 import SwiftUI
 
 struct DNIView: View {
+    @EnvironmentObject private var appStatus : AppStatus
+    @Environment(\.presentationMode) var presentationMode
     @State var isShowingModal: Bool = false
     @State private var sheetHeight: CGFloat = .zero
     @State var navigateToConnection = false
     @State var signModel: SignModel? = nil
-    @State var certificateUtils: CertificateUtils? = nil
     
     var body: some View {
 	   VStack(alignment: .center, spacing: 20) {
@@ -58,14 +59,11 @@ struct DNIView: View {
 	   .padding()
 	   .background(ColorConstants.Background.main)
 	   .navigationDestination(isPresented: $navigateToConnection) {
-		  if let signModel = signModel,
-		  let algorithm = signModel.signAlgoInUse,
-		  let certificateUtils = certificateUtils {
+		  if let signModel = signModel {
 			 DNIConnectionView(
 				isPresented: $navigateToConnection,
-				algorithm: algorithm,
-				signModel: signModel,
-				certificateUtils: certificateUtils)
+				signModel: signModel
+			 )
 		  }
 	   }
 	   .sheet(isPresented: $isShowingModal) {
@@ -74,6 +72,11 @@ struct DNIView: View {
 			 .modifier(GetHeightModifier(height: $sheetHeight))
 			 .presentationDetents([.height(sheetHeight)])
 			 .accessibility(addTraits: .isModal)
+	   }
+	   .onReceive(NotificationCenter.default.publisher(for: .ErrorModalCancelButtonAction)) { _ in
+		  navigateToConnection = false
+		  appStatus.navigateToDNI = false
+		  presentationMode.wrappedValue.dismiss()
 	   }
     }
 }

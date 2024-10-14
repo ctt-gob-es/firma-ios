@@ -72,6 +72,9 @@ struct ErrorModalView: View {
 				if errorModalState.hasCancelButton {
 				    Button(action: {
 					   self.viewMode = .home
+					   DispatchQueue.main.async {
+						  NotificationCenter.default.post(name: .ErrorModalCancelButtonAction, object: nil, userInfo: nil)
+					   }
 					   self.presentationMode.wrappedValue.dismiss()
 				    }) {
 					   AccessibleText(content: NSLocalizedString("cancel_button_title", bundle: Bundle.main, comment: ""))
@@ -395,4 +398,8 @@ enum ErrorModalState {
 			 return
 	   }
     }
+}
+
+extension Notification.Name {
+    static let ErrorModalCancelButtonAction = Notification.Name("CancelButtonAction")
 }

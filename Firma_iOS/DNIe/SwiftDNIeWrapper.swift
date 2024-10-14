@@ -10,14 +10,14 @@ import Foundation
 import CoreNFC
 
 protocol DNIeResult {
-    func getDNIeNFCSuccess(dnie: EsGobJmulticardCardDnieDnieNfc)
-    func getDNIeError()
+    func getDNIeNFCSuccess(dnie: EsGobJmulticardCardDnieDnie)
+    func getDNIeError(errorCode: Int, errorMessage: String)
 }
 
 class SwiftDNIeWrapper : IOSNFCSessionDelegate{
     private var connection: EsGobJmulticardConnectionApduConnection?
     private var callbackHandler: IOSCallbackHandler
-    private var nfcSessionManager: IOSNFCSessionManager?
+    var nfcSessionManager: IOSNFCSessionManager?
     private var dniResult: DNIeResult?
     
     init(can: String, pin: String) {
@@ -33,6 +33,7 @@ class SwiftDNIeWrapper : IOSNFCSessionDelegate{
     
     func didInvalidateNFCSession(with error: any Error) {
 	   print("NFC session invalidated with error: \(error.localizedDescription)")
+	   dniResult?.getDNIeError(errorCode: 1, errorMessage: error.localizedDescription)
     }
     
     func didBecomeActive() {
@@ -46,10 +47,17 @@ class SwiftDNIeWrapper : IOSNFCSessionDelegate{
 	   )
 	   
 	   Task {
-		  if let dni = try? getDNIeNFC() {
-			 dniResult?.getDNIeNFCSuccess(dnie: dni)
-		  }else {
-			 dniResult?.getDNIeError()
+		  if let wrapper = try? getWrapperDNIe() {
+			 if let dni = wrapper.getDnie() {
+				dniResult?.getDNIeNFCSuccess(dnie: dni)
+			 }else {
+				let errorCode = Int(wrapper.getErrorCode())
+				let errorMessage = wrapper.getErrorMessage() ?? ""
+				dniResult?.getDNIeError(errorCode: errorCode, errorMessage: errorMessage)
+				DispatchQueue.main.async {
+				    NotificationCenter.default.post(name: .DNIeError, object: nil, userInfo: ["errorCode": errorCode, "errorMessage": errorMessage])
+				}
+			 }
 		  }
 	   }
     }
@@ -57,10 +65,10 @@ class SwiftDNIeWrapper : IOSNFCSessionDelegate{
     private func getWrapperDNIe () throws -> EsGobJmulticardIosDnieWrapper? {
 	   return EsGobJmulticardIosDnieFactoryWrapper.getDnieWith(connection, with: callbackHandler)
     }
-    
-    private func getDNIeNFC () throws -> EsGobJmulticardCardDnieDnieNfc? {
-	   return EsGobJmulticardCardDnieDnieFactory.getDnieNfc(with: connection, with: EsGobJmulticardCryptoBcCryptoHelper(), with: callbackHandler)
-    }
 }
 
 
+extension Notification.Name {
+    static let DNIeSuccess = Notification.Name("DNIeSuccess")
+    static let DNIeError = Notification.Name("DNIeError")
+}

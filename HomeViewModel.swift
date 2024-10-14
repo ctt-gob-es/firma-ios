@@ -96,13 +96,6 @@ class HomeViewModel: ObservableObject {
     }
     
     func onAppear() {
-	   NotificationCenter.default.addObserver(
-		  self,
-		  selector: #selector(handlePKCS1SignatureNotification(_:)),
-		  name: NSNotification.Name("PKCS1SignatureNotification"),
-		  object: nil
-	   )
-	   
 	   loadData()
     }
     
@@ -420,19 +413,9 @@ class HomeViewModel: ObservableObject {
 	   }
     }
     
-    @objc func handlePKCS1SignatureNotification(_ notification: Notification) {
-	   DispatchQueue.main.async {
-		  if let userInfo = notification.userInfo,
-			let pkcs1Signature = userInfo["pkcs1Signature"] as? Data,
-			let certString = userInfo["certString"] as? String {
-			 print("Received PKCS1 Signature: \(pkcs1Signature)")
-			 print("Received Certificate: \(certString)")
-			 guard let signModel = self.signModel else { return }
-			 
-			
-			 
-			 self.handleOperationSign()
-		  }
-	   }
+    func handleDNISignSuccess() {
+	   self.selectDNIe = false
+	   self.viewMode = .home
+	   self.areCertificatesSelectable = false
     }
 }

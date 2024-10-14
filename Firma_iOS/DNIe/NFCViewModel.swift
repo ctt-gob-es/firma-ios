@@ -14,9 +14,7 @@ class NFCViewModel: NSObject, ObservableObject {
     @State var can: String
     @State var pin: String
     @State var dataToSign: Data? = nil
-    @State var algorithm: String
     @State var signModel: SignModel
-    @State var certificateUtils: CertificateUtils
     
     @Published var nfcError: NFCError?
     @Published var sessionActiveMessage: String = ""
@@ -26,15 +24,11 @@ class NFCViewModel: NSObject, ObservableObject {
     
     init(can: String,
 	    pin: String,
-	    algorithm: String,
-	    signModel: SignModel,
-	    certificateUtils: CertificateUtils
+	    signModel: SignModel
     ) {
 	   self.can = can
 	   self.pin = pin
-	   self.algorithm = algorithm
 	   self.signModel = signModel
-	   self.certificateUtils = certificateUtils
 	   
 	   self.dniSignleSignUseCase = DNISingleSignUseCase(
 		  can: can,
@@ -48,6 +42,9 @@ class NFCViewModel: NSObject, ObservableObject {
 		  switch result {
 		  case .success(let success):
 			 print("DNIe NFC process was successful.")
+				DispatchQueue.main.async {
+				    NotificationCenter.default.post(name: .DNIeSuccess, object: "")
+				}
 			 completion(.success(success))
 		  case .failure(let error):
 			 print("DNIe NFC process failed with error: \(error.localizedDescription)")
@@ -57,7 +54,7 @@ class NFCViewModel: NSObject, ObservableObject {
 	   self.sessionActiveMessage = "Sesión NFC activa. Acerca el dispositivo al DNIe."
     }
     
-    func signData(dnie: EsGobJmulticardCardDnieDnieNfc, dataToSign: Data) {
-	   
+    func invalidateSession(errorMessage: String) {
+	   self.dniSignleSignUseCase?.wrapper?.nfcSessionManager?.nfcSession?.invalidate(errorMessage: errorMessage)
     }
 }

@@ -101,9 +101,14 @@ struct HomeView: View {
 	   }
 	   .navigationDestination(isPresented: $viewModel.selectDNIe) {
 		  DNIView(
-			 signModel: viewModel.signModel,
-			 certificateUtils: viewModel.certificateUtils
+			 signModel: viewModel.signModel
 		  )
+	   }
+	   .onReceive(NotificationCenter.default.publisher(for: .DNIeSuccess)) { _ in
+		  viewModel.handleDNISignSuccess()
+		  appStatus.isLoading = false
+		  appStatus.showSuccessModal = true
+		  appStatus.successModalState = .successSign
 	   }
     }
     
