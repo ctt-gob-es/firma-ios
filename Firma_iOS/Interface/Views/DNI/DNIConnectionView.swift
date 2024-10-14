@@ -19,6 +19,8 @@ struct DNIConnectionView: View {
     @State var can: String = PrivateConstants.can
     @State var pin: String = PrivateConstants.pin
     @State var algorithm: String
+    @State var signModel: SignModel
+    @State var certificateUtils: CertificateUtils
     
     var body: some View {
 	   VStack {
@@ -64,7 +66,9 @@ struct DNIConnectionView: View {
 			 model: NFCViewModel(
 				can: can,
 				pin: pin,
-				algorithm: algorithm
+				algorithm: algorithm,
+				signModel: signModel,
+				certificateUtils: certificateUtils
 			 )
 		  )
 		  .fixedSize(horizontal: false, vertical: true)

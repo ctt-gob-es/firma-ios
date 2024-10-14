@@ -362,8 +362,8 @@ class HomeViewModel: ObservableObject {
     
     func signLocalPdf() {
 	   guard
-		  let stringBase64Data = signModel?.datosInUse,
-		  let pdfData = Base64Utils.decode(stringBase64Data, urlSafe: true),
+		  //let stringBase64Data = PDFConstants.mockPDFString,
+		  let pdfData = Base64Utils.decode(PDFConstants.mockPDFString, urlSafe: true),
 		  let privateKeyRef = certificateUtils?.privateKey,
 		  let certificateName = certificateUtils?.selectedCertificateName,
 		  let identity = SwiftCertificateUtils.getIdentityFromKeychain(certName: certificateName),
@@ -429,7 +429,7 @@ class HomeViewModel: ObservableObject {
 			 print("Received Certificate: \(certString)")
 			 guard let signModel = self.signModel else { return }
 			 
-			 self.signUseCase = DNISingleSignUseCase(can: "", pin: "", signModel: signModel, certificateUtils: self.certificateUtils)
+			
 			 
 			 self.handleOperationSign()
 		  }

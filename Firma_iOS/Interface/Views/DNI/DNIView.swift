@@ -12,8 +12,8 @@ struct DNIView: View {
     @State var isShowingModal: Bool = false
     @State private var sheetHeight: CGFloat = .zero
     @State var navigateToConnection = false
-    @State var dataToSign: Data? = nil
-    @State var algorithm: String? = nil
+    @State var signModel: SignModel? = nil
+    @State var certificateUtils: CertificateUtils? = nil
     
     var body: some View {
 	   VStack(alignment: .center, spacing: 20) {
@@ -58,8 +58,14 @@ struct DNIView: View {
 	   .padding()
 	   .background(ColorConstants.Background.main)
 	   .navigationDestination(isPresented: $navigateToConnection) {
-		  if let algorithm = algorithm {
-			 DNIConnectionView(isPresented: $navigateToConnection ,algorithm: algorithm)
+		  if let signModel = signModel,
+		  let algorithm = signModel.signAlgoInUse,
+		  let certificateUtils = certificateUtils {
+			 DNIConnectionView(
+				isPresented: $navigateToConnection,
+				algorithm: algorithm,
+				signModel: signModel,
+				certificateUtils: certificateUtils)
 		  }
 	   }
 	   .sheet(isPresented: $isShowingModal) {

@@ -100,9 +100,10 @@ struct HomeView: View {
 		  .accessibility(addTraits: .isModal)
 	   }
 	   .navigationDestination(isPresented: $viewModel.selectDNIe) {
-		  if let dataToSign = Base64Utils.decode(viewModel.signModel?.datosInUse, urlSafe: true) {
-			 DNIView(dataToSign: dataToSign, algorithm: viewModel.signModel?.signAlgoInUse)
-		  }
+		  DNIView(
+			 signModel: viewModel.signModel,
+			 certificateUtils: viewModel.certificateUtils
+		  )
 	   }
     }
     

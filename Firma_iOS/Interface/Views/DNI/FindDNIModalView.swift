@@ -55,23 +55,17 @@ struct FindDNIModalView: View {
 	   .padding()
 	   .background(Color.white)
 	   .cornerRadius(10)
-	   .onAppear() {
+	   .onAppear {
 		  DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-			 if let model = model {
-				let nfcHandler = NFCSessionHandler()
-				model.getDNIeNFC(completion: nfcHandler)
+			 model?.getDNIeNFC { result in
+				switch result {
+				case .success:
+				    print("NFC session succeeded.")
+				case .failure(let error):
+				    print("NFC session failed: \(error.localizedDescription)")
+				}
 			 }
 		  }
 	   }
-    }
-}
-
-class NFCSessionHandler: DNIeResult {
-    func getDNIeNFCSuccess(dnie: EsGobJmulticardCardDnieDnieNfc) {
-	   LogUtils.printDNIeAttributes(dnie: dnie)
-    }
-
-    func getDNIeError() {
-	   print("Error reading DNIe.")
     }
 }

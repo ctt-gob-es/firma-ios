@@ -2646,6 +2646,7 @@
 		83C0ECC92C44F77900244071 /* DeleteCertificateModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0ECC82C44F77900244071 /* DeleteCertificateModalView.swift */; };
 		83C0ECCB2C44F89600244071 /* CertificateCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0ECCA2C44F89600244071 /* CertificateCellView.swift */; };
 		83C471BA2CB91B31006CF7A7 /* DNISingleSignUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C471B92CB91B31006CF7A7 /* DNISingleSignUseCase.swift */; };
+		83C471BC2CBD111B006CF7A7 /* GenericSignUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C471BB2CBD111B006CF7A7 /* GenericSignUseCase.swift */; };
 		83D3900A2CA544BA00D16BA6 /* LogUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D390092CA544BA00D16BA6 /* LogUtils.swift */; };
 		83D3900C2CA5455200D16BA6 /* ByteArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D3900B2CA5455200D16BA6 /* ByteArrayUtils.swift */; };
 		83DF46762C4876D6000C3F31 /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF46752C4876D6000C3F31 /* ViewUtils.swift */; };
@@ -7958,6 +7959,7 @@
 		83C0ECC82C44F77900244071 /* DeleteCertificateModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCertificateModalView.swift; sourceTree = "<group>"; };
 		83C0ECCA2C44F89600244071 /* CertificateCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateCellView.swift; sourceTree = "<group>"; };
 		83C471B92CB91B31006CF7A7 /* DNISingleSignUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNISingleSignUseCase.swift; sourceTree = "<group>"; };
+		83C471BB2CBD111B006CF7A7 /* GenericSignUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSignUseCase.swift; sourceTree = "<group>"; };
 		83D390092CA544BA00D16BA6 /* LogUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogUtils.swift; sourceTree = "<group>"; };
 		83D3900B2CA5455200D16BA6 /* ByteArrayUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByteArrayUtils.swift; sourceTree = "<group>"; };
 		83DF46752C4876D6000C3F31 /* ViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtils.swift; sourceTree = "<group>"; };
@@ -15534,6 +15536,7 @@
 				8393EEC82C58F675009FDE6E /* ReportErrorUseCase.swift */,
 				8393EECC2C58FA21009FDE6E /* HistoricalUseCase.swift */,
 				83C471B92CB91B31006CF7A7 /* DNISingleSignUseCase.swift */,
+				83C471BB2CBD111B006CF7A7 /* GenericSignUseCase.swift */,
 			);
 			path = SwiftUseCase;
 			sourceTree = "<group>";
@@ -17038,6 +17041,7 @@
 				833C2B0F2CA2B89B00DFF6CD /* BitArray.m in Sources */,
 				8325D41F2CAADD17007224E9 /* Dnie3UsrCwa14890Constants.m in Sources */,
 				833C28B72CA2B89A00DFF6CD /* SingleResponse.m in Sources */,
+				83C471BC2CBD111B006CF7A7 /* GenericSignUseCase.swift in Sources */,
 				8325D8222CAADD18007224E9 /* GFElement.m in Sources */,
 				833C28092CA2B89A00DFF6CD /* ASN1Encoding.m in Sources */,
 				833C29502CA2B89A00DFF6CD /* BCPEMUtil.m in Sources */,

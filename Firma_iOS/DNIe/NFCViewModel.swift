@@ -15,21 +15,45 @@ class NFCViewModel: NSObject, ObservableObject {
     @State var pin: String
     @State var dataToSign: Data? = nil
     @State var algorithm: String
+    @State var signModel: SignModel
+    @State var certificateUtils: CertificateUtils
+    
     @Published var nfcError: NFCError?
     @Published var sessionActiveMessage: String = ""
     @Published var resultMessage: String?
     
-    private var dniWrapper: SwiftDNIeWrapper?
+    private var dniSignleSignUseCase: DNISingleSignUseCase?
     
-    init(can: String, pin: String, algorithm: String) {
+    init(can: String,
+	    pin: String,
+	    algorithm: String,
+	    signModel: SignModel,
+	    certificateUtils: CertificateUtils
+    ) {
 	   self.can = can
 	   self.pin = pin
 	   self.algorithm = algorithm
+	   self.signModel = signModel
+	   self.certificateUtils = certificateUtils
+	   
+	   self.dniSignleSignUseCase = DNISingleSignUseCase(
+		  can: can,
+		  pin: pin,
+		  signModel: signModel
+	   )
     }
     
-    func getDNIeNFC(completion: DNIeResult) {
-	   self.dniWrapper = SwiftDNIeWrapper(can: can, pin: pin)
-	   dniWrapper?.getDNIe(completion: completion)
+    func getDNIeNFC(completion: @escaping (Result<Bool, Error>) -> Void) {
+	   self.dniSignleSignUseCase?.singleSign(completion: { result in
+		  switch result {
+		  case .success(let success):
+			 print("DNIe NFC process was successful.")
+			 completion(.success(success))
+		  case .failure(let error):
+			 print("DNIe NFC process failed with error: \(error.localizedDescription)")
+			 completion(.failure(error))
+		  }
+	   })
 	   self.sessionActiveMessage = "Sesión NFC activa. Acerca el dispositivo al DNIe."
     }
     
