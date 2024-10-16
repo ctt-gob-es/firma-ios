@@ -84,7 +84,7 @@ NSString *URLString, *state = @"Inactive";
     MainViewModel *viewModel =  [[MainViewModel alloc] init];
     
     if ([defaults objectForKey:@"user_privacy_accepted"] != nil && privacyAccepted) {
-	   rootViewController = [[HomeViewController alloc] initWithModel:viewModel];
+	   rootViewController = [[MainViewController alloc] initWithModel:viewModel];
     } else {
 	   rootViewController = [[OnboardingViewController alloc] init];
     }
@@ -118,16 +118,16 @@ void setAppLanguage(NSString *language) {
     self.window.rootViewController = registeredCertificatesTVC;*/
     
     /*  NUEVO */
-    [self updateOrCreateHomeViewControllerWithMode:ViewModesSign :url];
+    [self updateOrCreateMainViewControllerWithMode:ViewModesSign :url];
     
     return YES;
 }
 
-- (void)updateOrCreateHomeViewControllerWithMode:(ViewModes)mode :(NSURL*)url{
+- (void)updateOrCreateMainViewControllerWithMode:(ViewModes)mode :(NSURL*)url{
     MainViewModel *viewModel =  [[MainViewModel alloc] init];
     viewModel.viewMode = mode;
     viewModel.urlReceived = url;
-    HomeViewController *rootViewController = [[HomeViewController alloc] initWithModel:viewModel];
+    MainViewController *rootViewController = [[MainViewController alloc] initWithModel:viewModel];
     self.window.rootViewController =  rootViewController;
     [self.window makeKeyAndVisible];
 }

@@ -9,41 +9,62 @@
 import SwiftUI
 
 struct PermissionsView: View {
-    @State private var isNfcEnabled: Bool = false
+    @Environment(\.presentationMode) var presentationMode
+    @State private var isNfcEnabled: Bool = true
+    @State private var showToast = false
     
     var body: some View {
-	   VStack {
-		  Form {
-			 Section {
-				VStack {
-				    Toggle(isOn: $isNfcEnabled) {
-					   AccessibleText(content: NSLocalizedString("permissions_nfc_description",bundle: Bundle.main ,comment: ""))
-						  .regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
+	   ZStack {
+		  VStack {
+			 Form {
+				Section {
+				    VStack {
+					   Toggle(isOn: $isNfcEnabled) {
+						  AccessibleText(content: NSLocalizedString("permissions_nfc_description", bundle: Bundle.main, comment: ""))
+							 .regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
+					   }
+					   .toggleStyle(CustomToggleStyle())
+					   
+					   Divider()
 				    }
-				    .toggleStyle(CustomToggleStyle())
-				    
-				    Divider()
 				}
 			 }
+			 .background(Color.white)
+			 .scrollContentBackground(.hidden)
+			 
+			 Spacer()
+			 
+			 Button(action: {
+				UserDefaults.standard.set(isNfcEnabled, forKey: "isNfcEnabled")
+				showToast = true
+				
+				DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+				    showToast = false
+				    self.presentationMode.wrappedValue.dismiss()
+				}
+			 }) {
+				AccessibleText(content: NSLocalizedString("permissions_button_title", bundle: Bundle.main, comment: ""))
+			 }
+			 .buttonStyle(CustomButtonStyle(isEnabled: true))
+			 .padding(.bottom, 20)
 		  }
-		  .background(Color.white)
-		  .background {
-			 Color.white
+		  .background(Color.white.edgesIgnoringSafeArea(.all))
+		  .navigationBarTitle(NSLocalizedString("permissions_title", bundle: Bundle.main, comment: ""), displayMode: .inline)
+		  .onAppear {
+			 if let savedValue = UserDefaults.standard.object(forKey: "isNfcEnabled") as? Bool {
+				isNfcEnabled = savedValue
+			 } else {
+				isNfcEnabled = true
+			 }
 		  }
-		  .scrollContentBackground(.hidden)
 		  
-		  Spacer()
-		  
-		  Button(action: {
-			 // Acción para el botón guardar
-		  }) {
-			 AccessibleText(content: NSLocalizedString("permissions_button_title",bundle: Bundle.main ,comment: ""))
+		  if showToast {
+			 ToastView(message: NSLocalizedString("nfc_permission_set", bundle: Bundle.main, comment: ""))
+				.transition(.opacity)
+				.animation(.easeInOut)
+				.padding(.bottom, 50)
 		  }
-		  .buttonStyle(CustomButtonStyle(isEnabled: true))
-		  .padding(.bottom, 20)
 	   }
-	   .background(Color.white.edgesIgnoringSafeArea(.all))
-	   .navigationBarTitle(NSLocalizedString("permissions_title",bundle: Bundle.main ,comment: ""), displayMode: .inline)
     }
 }
 
@@ -71,5 +92,26 @@ struct CustomToggleStyle: ToggleStyle {
 				configuration.isOn.toggle()
 			 }
 	   }
+    }
+}
+
+struct ToastView: View {
+    var message: String
+    
+    var body: some View {
+	   Text(message)
+		  .padding()
+		  .background(Color.black.opacity(0.8))
+		  .foregroundColor(.white)
+		  .cornerRadius(10)
+		  .shadow(radius: 10)
+		  .transition(.opacity)
+		  .animation(.easeInOut)
+    }
+}
+
+struct PermissionsView_Previews: PreviewProvider {
+    static var previews: some View {
+	   PermissionsView()
     }
 }

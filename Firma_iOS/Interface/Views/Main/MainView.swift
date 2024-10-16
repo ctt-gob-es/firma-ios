@@ -81,13 +81,7 @@ struct MainView: View {
 			 }
 			 .frame(maxWidth: .infinity, maxHeight: .infinity)
 			 .navigationDestination(isPresented: $appStatus.navigateToDNI) {
-				DNIView()
-				    .onReceive(NotificationCenter.default.publisher(for: .ErrorModalCancelButtonAction)) { _ in
-					   appStatus.showErrorModal = false
-					   appStatus.navigateToDNI = false
-					   appStatus.navigateToSelectCertificate = false
-					   appStatus.navigateToAddCertificate = false
-				    }
+				DNIView(hasDismissed: $viewModel.shouldCancel)
 			 }
 			 .navigationDestination(isPresented: $appStatus.navigateToSelectCertificate) {
 				HomeView(
@@ -108,13 +102,15 @@ struct MainView: View {
 				    viewModel.viewMode = .sign
 				}
 				.onDisappear() {
-				    //TODO: There are better places to reset the viewMode to .home but now the flux is complete
 				    viewModel.viewMode = .home
 				    appStatus.selectedCertificate = nil
 				}
 			 }
 			 .navigationDestination(isPresented: $appStatus.navigateToAddCertificate) {
-				AddCertificateView(viewModel: AddCertificateViewModel(certificateURL: viewModel.certificateURL), shouldReload: $viewModel.shouldReload)
+				AddCertificateView(
+				    viewModel: AddCertificateViewModel(certificateURL: viewModel.certificateURL),
+				    shouldReload: $viewModel.shouldReload
+				)
 			 }
 		  }
 		  loadingView
@@ -128,9 +124,6 @@ struct MainView: View {
 	   .onDisappear(perform: onDisappear)
 	   .onChange(of: viewModel.shouldReload, perform: handleReload)
 	   .onChange(of: appStatus.showDocumentSavingPicker, perform: handleDocumentSavingPicker)
-	   .onChange(of: appStatus.navigateToDNI, perform: { newValue in
-		  appStatus.showDocumentImportingPicker = newValue
-	   })
 	   .fileImporter(
 		  isPresented: $appStatus.showDocumentImportingPicker,
 		  allowedContentTypes: [.data],
@@ -157,7 +150,13 @@ struct MainView: View {
 			 .accessibility(addTraits: .isModal)
 		  }
 	   }
-	   .sheet(isPresented: $appStatus.showSignModal) {
+	   .sheet(isPresented: $appStatus.showSignModal,
+			onDismiss: {
+		  if appStatus.navigateToSelectCertificate == false
+			 && appStatus.navigateToDNI == false {
+			 appStatus.showSignModal = true
+		  }
+	   }) {
 		  SignModalView(
 			 certificateSignAction: $appStatus.navigateToSelectCertificate,
 			 dniSignAction: $appStatus.navigateToDNI

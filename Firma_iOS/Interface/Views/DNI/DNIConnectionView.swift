@@ -86,7 +86,6 @@ struct DNIConnectionView: View {
 		  if let userInfo = notification.userInfo,
 			let errorCode = userInfo["errorCode"] as? Int,
 			let errorMessage = userInfo["errorMessage"] as? String {
-			 print("Error from DNIeCard: " + errorMessage)
 			 nfcViewModel?.invalidateSession(errorMessage: selectInvalidationReason(error: errorCode))
 		  }
 	   }
@@ -111,23 +110,26 @@ struct DNIConnectionView: View {
 	   }
     }
     
-    func selectInvalidationReason(error: Int) -> String{
-	   if error == 1 {
-		  appStatus.errorModalState = .dniReadingError
-	   } else if error == 2 {
-		  appStatus.errorModalState = .dniBroken
-	   } else if error == 3 {
-		  appStatus.errorModalState = .dniReadingErrorLong
-	   } else if error == 4 {
-		  appStatus.errorModalState = .dniReadingError
-	   } else if error == 5 {
-		  appStatus.errorModalState = .dniReadingError
-	   } else if error == 6 {
-		  appStatus.errorModalState = .dniIncorrectPin
-	   } else if error == 7 {
-		  appStatus.errorModalState = .dniBlockedPin
-	   } else if error == 8 {
-		  appStatus.errorModalState = .dniExpired
+    func selectInvalidationReason(error: Int) -> String {
+	   if let errorCode = DNIeErrorCodes(rawValue: error) {
+		  switch errorCode {
+			 case .invalidCard:
+				appStatus.errorModalState = .dniReadingError
+			 case .burnedCard:
+				appStatus.errorModalState = .dniBroken
+			 case .connectionError:
+				appStatus.errorModalState = .dniReadingErrorLong
+			 case .notInitialized:
+				appStatus.errorModalState = .dniReadingError
+			 case .operationError:
+				appStatus.errorModalState = .dniReadingError
+			 case .badPin:
+				appStatus.errorModalState = .dniIncorrectPin
+			 case .lockedCard:
+				appStatus.errorModalState = .dniBlockedPin
+			 case .pinError:
+				appStatus.errorModalState = .dniExpired
+		  }
 	   }
 	   
 	   return appStatus.errorModalState.title

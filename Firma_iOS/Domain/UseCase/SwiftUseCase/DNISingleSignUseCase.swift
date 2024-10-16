@@ -12,7 +12,7 @@ class DNISingleSignUseCase : GenericSignUseCase, DNIeResult {
     var pkcs1: Data? = nil
     private var certificateData: String? = nil
     var wrapper: SwiftDNIeWrapper?
-    private var dnie: EsGobJmulticardCardDnieDnie?
+    private var dnieWrapper: EsGobJmulticardIosDnieWrapper?
     
     init(can: String,
 	    pin: String,
@@ -22,17 +22,29 @@ class DNISingleSignUseCase : GenericSignUseCase, DNIeResult {
 	   wrapper = SwiftDNIeWrapper(can: can, pin: pin)
     }
     
+    private func handleErrorDnieWrapper() {
+	   if let errorCode = dnieWrapper?.getErrorCode(),
+		 let errorMessage = dnieWrapper?.getErrorMessage() {
+		  handleSignError(
+			 error:  NSError(
+				domain: "Error", code: Int(errorCode),
+				userInfo: ["errorMessage" : errorMessage]
+			 ),
+			 completion: self.completionCallback!
+		  )
+	   }
+    }
+    
     override func getCertificateData() -> String? {
 	   return certificateData
     }
     
     override func getPKCS1Sign(dataToSign: Data, algorithm: String) -> Data? {
-	   guard let privateKeyReference = dnie?.getPrivateKey(with: "CertFirmaDigital"),
-		  let dataSigned = dnie?.sign(with: IOSByteArray(nsData: dataToSign), with: algorithm, with: privateKeyReference)
-	   else {
-		 print("Failed to sign data")
-		 return nil
-	  }
+	   guard let privateKeyReference = dnieWrapper?.getPrivateKey(with: "CertFirmaDigital"),
+		    let dataSigned = dnieWrapper?.sign(with: IOSByteArray(nsData: dataToSign), with: algorithm, with: privateKeyReference) else {
+		  handleErrorDnieWrapper()
+		  return nil
+	   }
 	   return dataSigned.toNSData()
     }
     
@@ -45,14 +57,14 @@ class DNISingleSignUseCase : GenericSignUseCase, DNIeResult {
 	   wrapper?.getDNIe(completion: self)
     }
     
-    func getDNIeNFCSuccess(dnie: EsGobJmulticardCardDnieDnie) {
-	   let certJ509 = dnie.getCertificateWith("CertFirmaDigital")
+    func getDNIeNFCSuccess(wrapper: EsGobJmulticardIosDnieWrapper) {
+	   let certJ509 = wrapper.getCertificateWith("CertFirmaDigital")
 	   self.certificateData = EsGobAfirmaCoreMiscBase64_encodeWithByteArray_withBoolean_(certJ509?.getEncoded(), true)
-	   self.dnie = dnie
+	   self.dnieWrapper = wrapper
 	   presign(signModel: signModel!)
     }
     
     func getDNIeError(errorCode: Int, errorMessage: String) {
-	   handleSignError(error: NSError(domain: "Error", code: errorCode, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_datos_firmar", bundle: Bundle.main, comment: "")]), completion: self.completionCallback!)
+	   handleSignError(error: NSError(domain: "Error", code: errorCode, userInfo: ["errorMessage": errorMessage]), completion: self.completionCallback!)
     }
 }

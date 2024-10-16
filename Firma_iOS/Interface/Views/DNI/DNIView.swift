@@ -11,50 +11,21 @@ import SwiftUI
 struct DNIView: View {
     @EnvironmentObject private var appStatus : AppStatus
     @Environment(\.presentationMode) var presentationMode
-    @State var isShowingModal: Bool = false
+    @State private var isShowingModal: Bool = false
     @State private var sheetHeight: CGFloat = .zero
-    @State var navigateToConnection = false
+    @State private var navigateToConnection: Bool = false
     @State var signModel: SignModel? = nil
+    @Binding var hasDismissed: Bool
     
     var body: some View {
 	   VStack(alignment: .center, spacing: 20) {
-		  VStack(alignment: .leading) {
-			 AccessibleText(content: NSLocalizedString("dni_view_title", bundle: Bundle.main, comment: ""))
-				.titleBigStyleBlack(
-				    foregroundColor: ColorConstants.Text.primary,
-				    alignment: .leading
-				)
-				.padding(.bottom)
-			 
-			 (
-				Text(NSLocalizedString("dni_view_description_1", bundle: Bundle.main, comment: ""))
-				    .regularStyle(foregroundColor: ColorConstants.Text.secondary)
-				+ Text(NSLocalizedString("dni_view_description_2", bundle: Bundle.main, comment: ""))
-				    .regularBoldStyle(foregroundColor: ColorConstants.Text.secondary)
-				+ Text(NSLocalizedString("dni_view_description_3", bundle: Bundle.main, comment: ""))
-				    .regularStyle(foregroundColor: ColorConstants.Text.secondary)
-				+ Text(NSLocalizedString("dni_view_description_4", bundle: Bundle.main, comment: ""))
-				    .regularBoldStyle(foregroundColor: ColorConstants.Text.secondary)
-			 )
-			 .accessibilityLabel(Text(NSLocalizedString("dni_view_description_1", bundle: Bundle.main, comment: "") + NSLocalizedString("dni_view_description_2", bundle: Bundle.main, comment: "")  + NSLocalizedString("dni_view_description_3", bundle: Bundle.main, comment: "")  + NSLocalizedString("dni_view_description_4", bundle: Bundle.main, comment: "")))
-		  }
+		  descriptionView
 		  
 		  Spacer()
 		  
-		  Button(action: {
-			 isShowingModal.toggle()
-		  }) {
-			 AccessibleText(content: NSLocalizedString("dni_compatible_button_title", bundle: Bundle.main, comment: ""))
-				.titleStyleBlack(foregroundColor: ColorConstants.Background.buttonEnabled)
-				.underline()
-		  }
+		  compatibleButton
 		  
-		  Button(action: {
-			 navigateToConnection.toggle()
-		  }) {
-			 AccessibleText(content: NSLocalizedString("dni_view_button_title", bundle: Bundle.main, comment: ""))
-		  }
-		  .buttonStyle(CustomButtonStyle(isEnabled: true))
+		  signButton
 	   }
 	   .padding()
 	   .background(ColorConstants.Background.main)
@@ -67,16 +38,74 @@ struct DNIView: View {
 		  }
 	   }
 	   .sheet(isPresented: $isShowingModal) {
-		  DNICompatibleModalView()
-			 .fixedSize(horizontal: false, vertical: true)
-			 .modifier(GetHeightModifier(height: $sheetHeight))
-			 .presentationDetents([.height(sheetHeight)])
-			 .accessibility(addTraits: .isModal)
+		  modalView
 	   }
-	   .onReceive(NotificationCenter.default.publisher(for: .ErrorModalCancelButtonAction)) { _ in
-		  navigateToConnection = false
-		  appStatus.navigateToDNI = false
-		  presentationMode.wrappedValue.dismiss()
+	   .navigationBarBackButtonHidden(true)
+	   .toolbar {
+		  ToolbarItem(placement: .navigationBarLeading) {
+			 Button(action: {
+				handleBackButton()
+			 }) {
+				HStack {
+				    Image("backbutton")
+				}
+			 }
+		  }
 	   }
+    }
+    
+    // MARK: - Subviews
+    
+    private var descriptionView: some View {
+	   VStack(alignment: .leading) {
+		  AccessibleText(content: NSLocalizedString("dni_view_title", bundle: Bundle.main, comment: ""))
+			 .titleBigStyleBlack(
+				foregroundColor: ColorConstants.Text.primary,
+				alignment: .leading
+			 )
+			 .padding(.bottom)
+		  
+		  let descriptionText = NSLocalizedString("dni_view_description_1", bundle: Bundle.main, comment: "")
+			 + NSLocalizedString("dni_view_description_2", bundle: Bundle.main, comment: "")
+			 + NSLocalizedString("dni_view_description_3", bundle: Bundle.main, comment: "")
+			 + NSLocalizedString("dni_view_description_4", bundle: Bundle.main, comment: "")
+		  
+		  Text(descriptionText)
+			 .regularStyle(foregroundColor: ColorConstants.Text.secondary)
+			 .accessibilityLabel(Text(descriptionText))
+	   }
+    }
+    
+    private var compatibleButton: some View {
+	   Button(action: {
+		  isShowingModal.toggle()
+	   }) {
+		  AccessibleText(content: NSLocalizedString("dni_compatible_button_title", bundle: Bundle.main, comment: ""))
+			 .titleStyleBlack(foregroundColor: ColorConstants.Background.buttonEnabled)
+			 .underline()
+	   }
+    }
+    
+    private var signButton: some View {
+	   Button(action: {
+		  navigateToConnection.toggle()
+	   }) {
+		  AccessibleText(content: NSLocalizedString("dni_view_button_title", bundle: Bundle.main, comment: ""))
+	   }
+	   .buttonStyle(CustomButtonStyle(isEnabled: true))
+    }
+    
+    private var modalView: some View {
+	   DNICompatibleModalView()
+		  .fixedSize(horizontal: false, vertical: true)
+		  .modifier(GetHeightModifier(height: $sheetHeight))
+		  .presentationDetents([.height(sheetHeight)])
+		  .accessibility(addTraits: .isModal)
+    }
+    
+    // MARK: - Custom Back Button Handler
+    private func handleBackButton() {
+	   hasDismissed = true
+	   presentationMode.wrappedValue.dismiss()  // Optionally dismiss the view
     }
 }

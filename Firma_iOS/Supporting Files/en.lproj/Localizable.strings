@@ -399,9 +399,10 @@ To work correctly you must install an electronic certificate. Consult the docume
 "apdu_send_error" = "Error during APDU transmission: %@";
 "nfc_dni_warning" = "Do not move the DNI or the reading will fail.";
 "nfc_not_supported" = "This device does not support NFC.";
-"nfc_dni_warning" = "Do not move the DNI or the reading will fail.";
+"nfc_dni_active_conexion_warning" = "Connection established, do not move the DNI or the communication will fail.";
 "nfc_detected_tags" = "Detected %d tags.";
 "nfc_multiple_tags_error" = "More than 1 tag was found. Please present only 1 tag.";
 "nfc_no_tag_error" = "Unable to get first tag.";
 "nfc_connection_error" = "Error connecting to NFC tag: %@";
 "nfc_unsupported_tag_error" = "The detected tag is not supported.";
+"nfc_permission_set" = "Your preferences has been saved";

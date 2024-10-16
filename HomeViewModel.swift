@@ -102,6 +102,7 @@ class HomeViewModel: ObservableObject {
     func loadData() {
 	   certificateUtils = CertificateUtils()
 	   if viewMode == .sign {
+		  self.areCertificatesSelectable = false
 		  if let urlReceived = urlReceived {
 			 isLoading = true
 			 receiveDataUseCase = ReceiveDataUseCase(startURL: urlReceived.absoluteString)
@@ -150,7 +151,13 @@ class HomeViewModel: ObservableObject {
     }
     
     func selectSignMode() {
-	   showSelectSignMode = true
+	   let nfcEnabled = UserDefaults.standard.object(forKey: "isNfcEnabled") == nil ? true : UserDefaults.standard.bool(forKey: "isNfcEnabled")
+	   if nfcEnabled {
+		  showSelectSignMode = true
+	   } else {
+		  areCertificatesSelectable = true
+		  signMode = .electronicCertificate
+	   }
     }
     
     func handleImportedDataURLsChange(_ value: [URL]?) {
@@ -333,15 +340,21 @@ class HomeViewModel: ObservableObject {
 	   DispatchQueue.main.async {
 		  self.showErrorModal = false
 		  DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-			 self.errorModalState = .globalError
-			 self.errorModalDescription = error.localizedDescription
-			 self.showErrorModal = true
+			 self.showErrorModalStateFromError(error: error)
 			 self.signModel?.returnURL = nil
 		  }
 	   }
 	   
+	   self.sendError(error: error)
+    }
+    
+    func sendError(error: Error) {
 	   let reportErrorUseCase = ReportErrorUseCase()
-	   reportErrorUseCase.reportErrorAsync(urlServlet: signModel?.urlServlet, docId: signModel?.docId, error: ErrorHandlerUtils.getErrorModalDescriptionFromError(error: error)) { result in
+	   reportErrorUseCase.reportErrorAsync(
+		  urlServlet: signModel?.urlServlet,
+		  docId: signModel?.docId,
+		  error: ErrorHandlerUtils.getServerError(error: error)
+	   ) { result in
 		  switch result {
 			 case .success(let errorFromServer):
 				if let response = String(data: errorFromServer, encoding: .utf8) {
@@ -351,6 +364,12 @@ class HomeViewModel: ObservableObject {
 				print("Server error from reportError: " + error.localizedDescription)
 		  }
 	   }
+    }
+    
+    func showErrorModalStateFromError(error: Error) {
+	   self.errorModalState = ErrorHandlerUtils.chooseStateFromError(error: error)
+	   self.errorModalDescription = ErrorHandlerUtils.getErrorModalDescriptionFromError(error: error)
+	   self.showErrorModal = true
     }
     
     func signLocalPdf() {
@@ -413,7 +432,7 @@ class HomeViewModel: ObservableObject {
 	   }
     }
     
-    func handleDNISignSuccess() {
+    func handleFinishDNISign() {
 	   self.selectDNIe = false
 	   self.viewMode = .home
 	   self.areCertificatesSelectable = false

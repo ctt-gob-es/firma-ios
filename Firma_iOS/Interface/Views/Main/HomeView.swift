@@ -21,6 +21,7 @@ struct HomeView: View {
     
     @State var password: String = ""
     @State var shouldCancelOperation: Bool = false
+    @State var shouldSendStopSign: Bool = false
     
     init(certificates: Binding<[AOCertificateInfo]?>,
 	    viewMode: Binding<ViewModes>,
@@ -46,42 +47,16 @@ struct HomeView: View {
 			 mainContent
 		  }
 	   }
-	   .onAppear() { viewModel.onAppear() }
-	   .onChange(of: viewModel.viewMode) { viewMode = $0 ?? .home}
-	   .onChange(of: appStatus.selectedCertificate, perform: viewModel.handleCertificateChange)
-	   .onChange(of: shouldSign, perform: viewModel.handleShouldSignChange)
-	   .onChange(of: appStatus.importedDataURLS, perform: viewModel.handleImportedDataURLsChange)
-	   .onChange(of: viewModel.isLoading) { appStatus.isLoading = $0 ?? false }
-	   .onChange(of: viewModel.showPseudonymModal) { appStatus.showPseudonymModal = $0 ?? false }
-	   .onChange(of: viewModel.errorModalState) { appStatus.errorModalState = $0 ?? .globalError }
-	   .onChange(of: viewModel.successModalState) { appStatus.successModalState = $0 ?? .successSign}
-	   .onChange(of: viewModel.showErrorModal) { appStatus.showErrorModal = $0 ?? false }
-	   .onChange(of: viewModel.showSuccessModal) { appStatus.showSuccessModal = $0 ?? false }
-	   .onChange(of: viewModel.showDocumentImportingPicker) { appStatus.showDocumentImportingPicker = $0 ?? false }
-	   .onChange(of: viewModel.showDocumentSavingPicker) { appStatus.showDocumentSavingPicker = $0 ?? false }
-	   .onChange(of: viewModel.errorModalDescription) { appStatus.errorModalDescription = $0 ?? "" }
-	   .onChange(of: viewModel.downloadedData) { appStatus.downloadedData = $0 }
-	   .onChange(of: viewModel.showSignModal) { appStatus.showSignModal = $0 ?? false}
-	   .onChange(of: viewModel.selectDNIe) { result in if result == true { viewModel.signMode = .idCard }}
-	   .onChange(of: shouldCancelOperation) {
-		  if $0 == true {
-			 viewModel.viewMode = .home ; viewModel.areCertificatesSelectable = false
-		  }
-	   }
-	   .onChange(of: viewModel.showTextfieldModal) { result in
-		  if !result {
-			 if password != "" {
-				viewModel.signModel?.updateExtraParams(dict: ["ownerPassword": password])
-			 }
-		  }
-	   }
-	   .onChange(of: viewModel.selectElectronicCertificate) {
-		  result in
-		  if result == true {
-			 viewModel.signMode = .electronicCertificate
-			 viewModel.areCertificatesSelectable = true
-		  }
-	   }
+	   .applyHomeViewBindings(
+		  viewModel: viewModel,
+		  appStatus: appStatus,
+		  certificates: $certificates,
+		  shouldSign: $shouldSign,
+		  shouldCancelOperation: $shouldCancelOperation,
+		  shouldSendStopSign: $shouldSendStopSign,
+		  viewMode: $viewMode,
+		  password: $password
+	   )
 	   .sheet(isPresented: $viewModel.showTextfieldModal) {
 		  TextfieldModalView(password: $password, shouldCancelOperation: $shouldCancelOperation)
 			 .fixedSize(horizontal: false, vertical: true)
@@ -89,9 +64,20 @@ struct HomeView: View {
 			 .presentationDetents([.height(viewModel.sheetHeight)])
 			 .accessibility(addTraits: .isModal)
 	   }
-	   .sheet(isPresented: $viewModel.showSelectSignMode) {
+	   .sheet(isPresented: $viewModel.showSelectSignMode,
+			onDismiss: {
+		  if viewMode == .sign {
+			 if (appStatus.keepParentController == false && viewModel.selectDNIe == false) {
+				viewModel.showSelectSignMode = true
+			 }
+		  } else {
+			 if (appStatus.navigateToSelectCertificate == false && viewModel.selectDNIe == false) {
+				viewModel.showSelectSignMode = true
+			 }
+		  }
+	   }) {
 		  SignModalView(
-			 certificateSignAction: $viewModel.selectElectronicCertificate,
+			 certificateSignAction: viewMode == .sign ? $appStatus.keepParentController : $appStatus.navigateToSelectCertificate,
 			 dniSignAction: $viewModel.selectDNIe
 		  )
 		  .fixedSize(horizontal: false, vertical: true)
@@ -101,14 +87,9 @@ struct HomeView: View {
 	   }
 	   .navigationDestination(isPresented: $viewModel.selectDNIe) {
 		  DNIView(
-			 signModel: viewModel.signModel
+			 signModel: viewModel.signModel,
+			 hasDismissed: $shouldSendStopSign
 		  )
-	   }
-	   .onReceive(NotificationCenter.default.publisher(for: .DNIeSuccess)) { _ in
-		  viewModel.handleDNISignSuccess()
-		  appStatus.isLoading = false
-		  appStatus.showSuccessModal = true
-		  appStatus.successModalState = .successSign
 	   }
     }
     

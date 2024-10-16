@@ -74,22 +74,21 @@ class GenericSignUseCase {
 	   
 	   switch result {
 		  case .success(let serverResponse):
+			 if serverResponse.contains(ERR_PASSWORD_PROTECTED) || serverResponse.contains(ERR_BAD_PASSWORD) {
+				handleRetryWithPassword(completion: completion)
+			 } else {
+				if let range = serverResponse.range(of: ":", options: .backwards) {
+				    let result = serverResponse[range.upperBound...]
+				    handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: result]), completion: completion)
+				}
+			 }
+			 
 			 guard let pkcs1 = generatePKCS1(
 				    dataReceivedb64: serverResponse,
 				    signAlgoInUse: signAlgoInUse,
 				    signFormat: signFormat
-				  ) else {
-				
-				if serverResponse.contains(ERR_PASSWORD_PROTECTED) || serverResponse.contains(ERR_BAD_PASSWORD) {
-				    handleRetryWithPassword(completion: completion)
-				} else {
-				    if let range = serverResponse.range(of: ":", options: .backwards) {
-					   let result = serverResponse[range.upperBound...]
-					   handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: result]), completion: completion)
-				    } else {
-					   handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_proceso_firma", bundle: Bundle.main, comment: "")]), completion: completion)
-				    }
-				}
+				  )  else {
+				handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_proceso_firma", bundle: Bundle.main, comment: "")]), completion: completion)
 				return
 			 }
 			 postsign(signModel: signModel, encodedData: pkcs1, completion: completion)

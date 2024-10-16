@@ -13,6 +13,7 @@ struct SignModalView: View {
     @Binding var dniSignAction: Bool
     
     @Environment(\.presentationMode) var presentationMode
+    @State private var isNfcEnabled = UserDefaults.standard.object(forKey: "isNfcEnabled") == nil ? true : UserDefaults.standard.bool(forKey: "isNfcEnabled")
     
     var body: some View {
 	   VStack(spacing: 20) {
@@ -43,15 +44,18 @@ struct SignModalView: View {
 			 
 			 HStack {
 				Image("credit-card")
-				    .foregroundColor(ColorConstants.Background.buttonEnabled)
-				AccessibleText(content: NSLocalizedString("sign_with_dni", bundle: Bundle.main, comment: "o"))
-				    .regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
+				    .foregroundColor(isNfcEnabled ? ColorConstants.Background.buttonEnabled : Color.gray)
+				AccessibleText(content: NSLocalizedString("sign_with_dni", bundle: Bundle.main, comment: ""))
+				    .regularBoldStyle(foregroundColor: isNfcEnabled ? ColorConstants.Text.primary : Color.gray)
 			 }
 			 .frame(maxWidth: .infinity, alignment: .leading)
 			 .onTapGesture {
-				self.presentationMode.wrappedValue.dismiss()
-				dniSignAction.toggle()
+				if isNfcEnabled {
+				    self.presentationMode.wrappedValue.dismiss()
+				    dniSignAction.toggle()
+				}
 			 }
+			 .disabled(!isNfcEnabled)
 		  }
 		  Spacer()
 	   }

@@ -1330,8 +1330,8 @@ SecKeyRef privateKey = NULL;
     
         // Como se presenta de forma modal hacemos un dismiss y posteriormente lanzamos el controller de about como root view controller (No seria necesario hacer el dismiss porque al cambiar el root view controller desparace ese controller y todos los hijos)
     [self dismissViewControllerAnimated:NO completion:^() {
-        UIViewController *homeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AOAboutViewController"];
-        UINavigationController *objectNav = [[UINavigationController alloc] initWithRootViewController:homeViewController];
+        UIViewController *mainViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AOAboutViewController"];
+        UINavigationController *objectNav = [[UINavigationController alloc] initWithRootViewController:mainViewController];
         [[UIApplication sharedApplication].keyWindow setRootViewController: objectNav];
         
     }];

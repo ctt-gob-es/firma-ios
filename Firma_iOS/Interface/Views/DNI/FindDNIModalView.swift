@@ -57,12 +57,12 @@ struct FindDNIModalView: View {
 	   .cornerRadius(10)
 	   .onAppear {
 		  DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-			 model.getDNIeNFC { result in
+			 model.signWithDNIe { result in
 				switch result {
 				case .success:
-				    print("NFC session succeeded.")
+				    print("Sign completed")
 				case .failure(let error):
-				    print("NFC session failed: \(error.localizedDescription)")
+				    print("Sign failed due to : \(error.localizedDescription)")
 				}
 			 }
 		  }

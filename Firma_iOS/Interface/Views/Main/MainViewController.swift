@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  MainViewController.swift
 //  Cliente @firma
 //
 //  Created by Desarrollo Abamobile on 11/7/24.
@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-@objc class HomeViewController: UIViewController {
+@objc class MainViewController: UIViewController {
     var model: MainViewModel
     
     @objc init(model: MainViewModel) {
@@ -25,9 +25,7 @@ import SwiftUI
 	   super.viewDidLoad()
 	   
 	   let contentView = MainView(viewModel: self.model)
-	   
 	   let hostingController = UIHostingController(rootView: contentView)
-	   
 	   addChild(hostingController)
 	   hostingController.view.frame = self.view.bounds
 	   view.addSubview(hostingController.view)

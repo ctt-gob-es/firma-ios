@@ -2615,7 +2615,7 @@
 		83C0EC852C3FE6B300244071 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC842C3FE6B300244071 /* PrivacyView.swift */; };
 		83C0EC8A2C3FEDB500244071 /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC892C3FEDB500244071 /* CheckBoxView.swift */; };
 		83C0EC8C2C3FEDD000244071 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC8B2C3FEDD000244071 /* NavigationBarModifier.swift */; };
-		83C0EC8F2C3FF37D00244071 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC8E2C3FF37D00244071 /* HomeViewController.swift */; };
+		83C0EC8F2C3FF37D00244071 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC8E2C3FF37D00244071 /* MainViewController.swift */; };
 		83C0EC912C3FF39D00244071 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC902C3FF39D00244071 /* MainView.swift */; };
 		83C0EC932C3FF6CB00244071 /* NavigationBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC922C3FF6CB00244071 /* NavigationBarButton.swift */; };
 		83C0EC952C3FFABE00244071 /* NoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC942C3FFABE00244071 /* NoDataView.swift */; };
@@ -2648,6 +2648,8 @@
 		83C471BC2CBD111B006CF7A7 /* GenericSignUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C471BB2CBD111B006CF7A7 /* GenericSignUseCase.swift */; };
 		83D3900A2CA544BA00D16BA6 /* LogUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D390092CA544BA00D16BA6 /* LogUtils.swift */; };
 		83D3900C2CA5455200D16BA6 /* ByteArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D3900B2CA5455200D16BA6 /* ByteArrayUtils.swift */; };
+		83DB247E2CBE727600D1DD8C /* DNIeErrorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DB247D2CBE727500D1DD8C /* DNIeErrorCodes.swift */; };
+		83DB24802CBFCD6900D1DD8C /* HomeViewBindings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DB247F2CBFCD6900D1DD8C /* HomeViewBindings.swift */; };
 		83DF46762C4876D6000C3F31 /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF46752C4876D6000C3F31 /* ViewUtils.swift */; };
 		83DF467B2C48F084000C3F31 /* AddCertificateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF467A2C48F084000C3F31 /* AddCertificateView.swift */; };
 		83DF467D2C490E2E000C3F31 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF467C2C490E2E000C3F31 /* FileUtils.swift */; };
@@ -7926,7 +7928,7 @@
 		83C0EC842C3FE6B300244071 /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
 		83C0EC892C3FEDB500244071 /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
 		83C0EC8B2C3FEDD000244071 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
-		83C0EC8E2C3FF37D00244071 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		83C0EC8E2C3FF37D00244071 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		83C0EC902C3FF39D00244071 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		83C0EC922C3FF6CB00244071 /* NavigationBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarButton.swift; sourceTree = "<group>"; };
 		83C0EC942C3FFABE00244071 /* NoDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataView.swift; sourceTree = "<group>"; };
@@ -7960,6 +7962,8 @@
 		83C471BB2CBD111B006CF7A7 /* GenericSignUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSignUseCase.swift; sourceTree = "<group>"; };
 		83D390092CA544BA00D16BA6 /* LogUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogUtils.swift; sourceTree = "<group>"; };
 		83D3900B2CA5455200D16BA6 /* ByteArrayUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByteArrayUtils.swift; sourceTree = "<group>"; };
+		83DB247D2CBE727500D1DD8C /* DNIeErrorCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNIeErrorCodes.swift; sourceTree = "<group>"; };
+		83DB247F2CBFCD6900D1DD8C /* HomeViewBindings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewBindings.swift; sourceTree = "<group>"; };
 		83DF46752C4876D6000C3F31 /* ViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtils.swift; sourceTree = "<group>"; };
 		83DF467A2C48F084000C3F31 /* AddCertificateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCertificateView.swift; sourceTree = "<group>"; };
 		83DF467C2C490E2E000C3F31 /* FileUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUtils.swift; sourceTree = "<group>"; };
@@ -15608,6 +15612,7 @@
 				83904CCD2CA43754005F345B /* IOSNFCSessionManager.swift */,
 				8308DD062CB56C4E006C6032 /* DNIeSigner.h */,
 				8308DD072CB56C5A006C6032 /* DNIeSigner.m */,
+				83DB247D2CBE727500D1DD8C /* DNIeErrorCodes.swift */,
 			);
 			path = DNIe;
 			sourceTree = "<group>";
@@ -15921,11 +15926,12 @@
 			isa = PBXGroup;
 			children = (
 				83E561432C4A3C8200622C99 /* HomeView.swift */,
-				83C0EC8E2C3FF37D00244071 /* HomeViewController.swift */,
+				83C0EC8E2C3FF37D00244071 /* MainViewController.swift */,
 				83C0EC902C3FF39D00244071 /* MainView.swift */,
 				83C0EC942C3FFABE00244071 /* NoDataView.swift */,
 				83E419D12C45295400C21811 /* AppStatus.swift */,
 				8352FF2E2C47C500003402CC /* HomeErrorView.swift */,
+				83DB247F2CBFCD6900D1DD8C /* HomeViewBindings.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -17500,8 +17506,9 @@
 				8325D57B2CAADD17007224E9 /* X509AttributeCertificateHolder.m in Sources */,
 				8325D6922CAADD18007224E9 /* SecT233Field.m in Sources */,
 				8325D7472CAADD18007224E9 /* McElieceKobaraImaiCipher.m in Sources */,
-				83C0EC8F2C3FF37D00244071 /* HomeViewController.swift in Sources */,
+				83C0EC8F2C3FF37D00244071 /* MainViewController.swift in Sources */,
 				833C29C92CA2B89B00DFF6CD /* SecT113R1Curve.m in Sources */,
+				83DB247E2CBE727600D1DD8C /* DNIeErrorCodes.swift in Sources */,
 				8325D63D2CAADD18007224E9 /* ECPrivateKeySpec.m in Sources */,
 				8325D3F62CAADD17007224E9 /* IcaoUtils.m in Sources */,
 				B2406F2E20C5CACA008ED085 /* AORegisteredCertificatesTVC.m in Sources */,
@@ -18370,6 +18377,7 @@
 				833C28C72CA2B89A00DFF6CD /* RC2CBCParameter.m in Sources */,
 				83FC0C422C47F86B00BBB5A8 /* DNICompatibleModalView.swift in Sources */,
 				833C2A832CA2B89B00DFF6CD /* BcDigestProvider.m in Sources */,
+				83DB24802CBFCD6900D1DD8C /* HomeViewBindings.swift in Sources */,
 				833C2B012CA2B89B00DFF6CD /* KeyStoreManager.m in Sources */,
 				8325D58B2CAADD18007224E9 /* CMSTypedData.m in Sources */,
 				833C2BBB2CA2B89C00DFF6CD /* TIFFFaxDecoder.m in Sources */,

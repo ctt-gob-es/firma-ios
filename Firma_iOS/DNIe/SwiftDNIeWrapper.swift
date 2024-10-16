@@ -9,8 +9,13 @@
 import Foundation
 import CoreNFC
 
+extension Notification.Name {
+    static let DNIeSuccess = Notification.Name("DNIeSuccess")
+    static let DNIeError = Notification.Name("DNIeError")
+}
+
 protocol DNIeResult {
-    func getDNIeNFCSuccess(dnie: EsGobJmulticardCardDnieDnie)
+    func getDNIeNFCSuccess(wrapper: EsGobJmulticardIosDnieWrapper)
     func getDNIeError(errorCode: Int, errorMessage: String)
 }
 
@@ -32,8 +37,14 @@ class SwiftDNIeWrapper : IOSNFCSessionDelegate{
     }
     
     func didInvalidateNFCSession(with error: any Error) {
-	   print("NFC session invalidated with error: \(error.localizedDescription)")
-	   dniResult?.getDNIeError(errorCode: 1, errorMessage: error.localizedDescription)
+	   if let nfcError = error as? NFCReaderError {
+		  switch nfcError.code {
+		  case .readerSessionInvalidationErrorSessionTimeout:
+			 dniResult?.getDNIeError(errorCode: 3, errorMessage: error.localizedDescription)
+		  default:
+			 print("NFC session invalidated with error: \(error.localizedDescription)")
+		  }
+	   }
     }
     
     func didBecomeActive() {
@@ -48,15 +59,13 @@ class SwiftDNIeWrapper : IOSNFCSessionDelegate{
 	   
 	   Task {
 		  if let wrapper = try? getWrapperDNIe() {
-			 if let dni = wrapper.getDnie() {
-				dniResult?.getDNIeNFCSuccess(dnie: dni)
-			 }else {
-				let errorCode = Int(wrapper.getErrorCode())
-				let errorMessage = wrapper.getErrorMessage() ?? ""
-				dniResult?.getDNIeError(errorCode: errorCode, errorMessage: errorMessage)
-				DispatchQueue.main.async {
-				    NotificationCenter.default.post(name: .DNIeError, object: nil, userInfo: ["errorCode": errorCode, "errorMessage": errorMessage])
-				}
+			 if let _ = wrapper.getDnie() {
+				dniResult?.getDNIeNFCSuccess(wrapper: wrapper)
+			 } else {
+				dniResult?.getDNIeError(
+				    errorCode: getWrapperError(wrapper: wrapper).0,
+				    errorMessage: getWrapperError(wrapper: wrapper).1
+				)
 			 }
 		  }
 	   }
@@ -65,10 +74,10 @@ class SwiftDNIeWrapper : IOSNFCSessionDelegate{
     private func getWrapperDNIe () throws -> EsGobJmulticardIosDnieWrapper? {
 	   return EsGobJmulticardIosDnieFactoryWrapper.getDnieWith(connection, with: callbackHandler)
     }
-}
-
-
-extension Notification.Name {
-    static let DNIeSuccess = Notification.Name("DNIeSuccess")
-    static let DNIeError = Notification.Name("DNIeError")
+    
+    private func getWrapperError(wrapper: EsGobJmulticardIosDnieWrapper) -> (Int, String) {
+	   let errorCode = Int(wrapper.getErrorCode())
+	   let errorMessage = wrapper.getErrorMessage() ?? ""
+	   return (errorCode, errorMessage)
+    }
 }

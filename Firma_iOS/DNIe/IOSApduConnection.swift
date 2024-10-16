@@ -20,14 +20,11 @@ class IOSApduConnection: EsGobJmulticardConnectionAbstractApduConnectionIso7816 
     }
     
     // MARK: - Abrir conexión JMulticard
-    override func open() {
-	   nfcSession?.nfcSession?.alertMessage = NSLocalizedString("nfc_session_opened", comment: "")
-    }
+    override func open() {}
     
     // MARK: - Cerrar conexión JMulticard
     override func close() {
 	   nfcSession?.nfcSession?.invalidate()
-	   nfcSession?.nfcSession?.alertMessage = NSLocalizedString("nfc_session_closed", comment: "")
     }
     
     // MARK: - Implementación de EsGobJmulticardConnectionApduConnection
@@ -74,7 +71,6 @@ class IOSApduConnection: EsGobJmulticardConnectionAbstractApduConnectionIso7816 
     
     // MARK: - Reiniciar conexión NFC
     override func reset()  -> IOSByteArray! {
-	   nfcSession?.nfcSession?.alertMessage = NSLocalizedString("nfc_resetting", comment: "")
 	   print("Sending reset APDU")
 	   
 	   if firstReset {
@@ -92,7 +88,6 @@ class IOSApduConnection: EsGobJmulticardConnectionAbstractApduConnectionIso7816 
 				    print(resetResponse as Any)
 				    state.returnIOSByteArray = resetResponse
 				    state.isFinished.toggle()
-				    self.nfcSession?.nfcSession?.alertMessage = NSLocalizedString("nfc_reset_successful", comment: "")
 				    self.semaphore.signal()
 				} catch {
 				    print("Error while creating the RESET command")
@@ -144,8 +139,6 @@ class IOSApduConnection: EsGobJmulticardConnectionAbstractApduConnectionIso7816 
     
     // MARK: - Enviar comando APDU y recibir respuesta
     override func internalTransmit(with apdu: IOSByteArray!) -> EsGobJmulticardApduResponseApdu! {
-	   nfcSession?.nfcSession?.alertMessage = NSLocalizedString("apdu_transmitting", comment: "")
-	   
 	   guard let apduCommand = ByteArrayUtils.getApduFromAPDUIOSByteArray(apdu: apdu) else {
 		  print("Error: No se puede crear el apdu.")
 		  return nil
@@ -170,8 +163,6 @@ class IOSApduConnection: EsGobJmulticardConnectionAbstractApduConnectionIso7816 
     
     //MARK: Send Native APDU and retrieve an IOSByteArray
     private func sendApdu(apdu: NFCISO7816APDU) async throws -> IOSByteArray? {
-	   nfcSession?.nfcSession?.alertMessage = NSLocalizedString("apdu_transmitting", comment: "")
-	   
 	   return try await withCheckedThrowingContinuation { continuation in
 		  guard let nfcTag = nfcTag else {
 			 continuation.resume(throwing: NSError(domain: "NFCErrorDomain", code: 1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("apdu_no_tag", comment: "")]))
@@ -182,12 +173,9 @@ class IOSApduConnection: EsGobJmulticardConnectionAbstractApduConnectionIso7816 
 		  
 		  nfcTag.sendCommand(apdu: apdu) { (responseData, sw1, sw2, error) in
 			 if let error = error {
-				self.nfcSession?.nfcSession?.alertMessage = NSLocalizedString("apdu_send_error", comment: "") + error.localizedDescription
 				continuation.resume(throwing: error)
 				return
 			 }
-			 
-			 self.nfcSession?.nfcSession?.alertMessage = NSLocalizedString("apdu_response_received", comment: "")
 			 
 			 var nativeByteArray = [UInt8](responseData)
 			 nativeByteArray.append(sw1)

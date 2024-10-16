@@ -73,6 +73,7 @@ class IOSNFCSessionManager: NSObject, NFCTagReaderSessionDelegate {
 			 case .iso7816(let iso7816Tag):
 				self.nfcTag = iso7816Tag
 				self.delegate?.didDetectNFC(tag: iso7816Tag)
+				session.alertMessage = NSLocalizedString("nfc_dni_active_conexion_warning", comment: "")
 			 @unknown default:
 				session.invalidate(errorMessage: NSLocalizedString("nfc_unsupported_tag_error", comment: ""))
 				return

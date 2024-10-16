@@ -17,8 +17,6 @@ class NFCViewModel: NSObject, ObservableObject {
     @State var signModel: SignModel
     
     @Published var nfcError: NFCError?
-    @Published var sessionActiveMessage: String = ""
-    @Published var resultMessage: String?
     
     private var dniSignleSignUseCase: DNISingleSignUseCase?
     
@@ -37,24 +35,45 @@ class NFCViewModel: NSObject, ObservableObject {
 	   )
     }
     
-    func getDNIeNFC(completion: @escaping (Result<Bool, Error>) -> Void) {
+    func signWithDNIe(completion: @escaping (Result<Bool, Error>) -> Void) {
 	   self.dniSignleSignUseCase?.singleSign(completion: { result in
 		  switch result {
-		  case .success(let success):
-			 print("DNIe NFC process was successful.")
+			 case .success(let success):
 				DispatchQueue.main.async {
 				    NotificationCenter.default.post(name: .DNIeSuccess, object: "")
 				}
-			 completion(.success(success))
-		  case .failure(let error):
-			 print("DNIe NFC process failed with error: \(error.localizedDescription)")
-			 completion(.failure(error))
+				completion(.success(success))
+			 case .failure(let error):
+				if let nsError = error as? NSError {
+				    DispatchQueue.main.async {
+					   NotificationCenter.default.post(name: .DNIeError, object: nil, userInfo: ["errorCode": nsError.code, "errorMessage": nsError.userInfo["errorMessage"] as? String ?? nsError.localizedDescription])
+				    }
+				}
+				self.handleError(error: error)
+				completion(.failure(error))
 		  }
 	   })
-	   self.sessionActiveMessage = "Sesión NFC activa. Acerca el dispositivo al DNIe."
     }
     
     func invalidateSession(errorMessage: String) {
 	   self.dniSignleSignUseCase?.wrapper?.nfcSessionManager?.nfcSession?.invalidate(errorMessage: errorMessage)
+    }
+    
+    private func handleError(error: Error) {
+	   let reportErrorUseCase = ReportErrorUseCase()
+	   reportErrorUseCase.reportErrorAsync(
+		  urlServlet: signModel.urlServlet,
+		  docId: signModel.docId,
+		  error: ErrorHandlerUtils.getServerError(error: error)
+	   ) { result in
+		  switch result {
+			 case .success(let errorFromServer):
+				if let response = String(data: errorFromServer, encoding: .utf8) {
+				    print("Server response from reportError: " + response)
+				}
+			 case .failure(let error):
+				print("Server error from reportError: " + error.localizedDescription)
+		  }
+	   }
     }
 }

@@ -36,6 +36,7 @@ class AppStatus: ObservableObject {
     @Published var navigateToDNI: Bool = false
     @Published var navigateToSelectCertificate = false
     @Published var navigateToAddCertificate: Bool = false
+    @Published var keepParentController = false
     @Published var isLoading: Bool = false
     
     @Published var userIDCAN: String? = nil
