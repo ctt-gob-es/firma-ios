@@ -18,7 +18,8 @@ struct MainView: View {
 		  let homeViewModel = HomeViewModel(
 			 urlReceived: viewModel.urlReceived,
 			 areCertificatesSelectable: viewModel.viewMode == .home ? false : true,
-			 viewMode: viewModel.viewMode
+			 viewMode: viewModel.viewMode,
+			 certificates: viewModel.certificates
 		  )
 		  
 		  HomeView(
@@ -261,7 +262,6 @@ struct MainView: View {
     }
     
     private func handleFileImport(result: Result<[URL], Error>) {
-	   
 	   switch result {
 		  case .success(let urls):
 			 appStatus.importedDataURLS = urls

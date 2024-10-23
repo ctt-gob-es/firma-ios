@@ -43,8 +43,10 @@ J2OBJC_IGNORE_DESIGNATED_END
     { "BAD_PIN", "I", .constantValue.asInt = EsGobJmulticardIosErrorCode_BAD_PIN, 0x19, -1, -1, -1, -1 },
     { "LOCKED_CARD", "I", .constantValue.asInt = EsGobJmulticardIosErrorCode_LOCKED_CARD, 0x19, -1, -1, -1, -1 },
     { "PIN_ERROR", "I", .constantValue.asInt = EsGobJmulticardIosErrorCode_PIN_ERROR, 0x19, -1, -1, -1, -1 },
+    { "BAD_CAN", "I", .constantValue.asInt = EsGobJmulticardIosErrorCode_BAD_CAN, 0x19, -1, -1, -1, -1 },
+    { "SEVERE_ERROR", "I", .constantValue.asInt = EsGobJmulticardIosErrorCode_SEVERE_ERROR, 0x19, -1, -1, -1, -1 },
   };
-  static const J2ObjcClassInfo _EsGobJmulticardIosErrorCode = { "ErrorCode", "es.gob.jmulticard.ios", NULL, methods, fields, 7, 0x1, 1, 8, -1, -1, -1, -1, -1 };
+  static const J2ObjcClassInfo _EsGobJmulticardIosErrorCode = { "ErrorCode", "es.gob.jmulticard.ios", NULL, methods, fields, 7, 0x1, 1, 10, -1, -1, -1, -1, -1 };
   return &_EsGobJmulticardIosErrorCode;
 }
 

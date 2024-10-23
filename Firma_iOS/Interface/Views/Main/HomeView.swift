@@ -68,11 +68,18 @@ struct HomeView: View {
 			onDismiss: {
 		  if viewMode == .sign {
 			 if (appStatus.keepParentController == false && viewModel.selectDNIe == false) {
-				viewModel.showSelectSignMode = true
+				//User aborted sign
+				viewModel.sendError(error: ErrorGenerator.generateError(from: FunctionalErrorCodes.userOperationCanceled))
+			 } else {
+				if appStatus.keepParentController && ( self.certificates?.count == 0 || self.certificates == nil)  {
+				    //There is no certificate in the app
+				    viewModel.sendError(error: ErrorGenerator.generateError(from: FunctionalErrorCodes.certificateNeeded))
+				    viewModel.showErrorModalStateFromError(error: ErrorGenerator.generateError(from: FunctionalErrorCodes.certificateNeeded))
+				}
 			 }
 		  } else {
 			 if (appStatus.navigateToSelectCertificate == false && viewModel.selectDNIe == false) {
-				viewModel.showSelectSignMode = true
+				//User aborted local archive sign
 			 }
 		  }
 	   }) {

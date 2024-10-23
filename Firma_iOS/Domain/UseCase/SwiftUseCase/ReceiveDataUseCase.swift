@@ -23,16 +23,14 @@ public class ReceiveDataUseCase: NSObject {
 	   completion: @escaping (Result<(AOEntity, NSMutableDictionary), Error>) -> Void
     ) {
 	   guard let urlParameters = CADESSignUtils.parseUrl(startURL) as? [String: Any] else {
-		  completion(.failure(NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_codigo_desconocido", bundle: Bundle.main, comment: "")])))
+		  completion(.failure(ErrorGenerator.generateError(from: RequestErrorCodes.generalRequestError)))
 		  return
 	   }
 	   self.opParameters = NSMutableDictionary(dictionary: urlParameters)
 	   
 	   if self.opParameters?[PARAMETER_NAME_OPERATION] as? String == OPERATION_SELECT_CERTIFICATE {
-		  //OPERATION: SELECT CERTIFICATE OPERATION
 		  processSelectCertificateOperation(completion: completion)
-	   } else if self.opParameters?[PARAMETER_NAME_DAT] == nil && self.opParameters?[PARAMETER_NAME_FILE_ID] == nil{
-		  //OPERATION: SIGN LOCAL ARCHIVE
+	   } else if self.opParameters?[PARAMETER_NAME_DAT] == nil && self.opParameters?[PARAMETER_NAME_FILE_ID] == nil {
 		  processSignLocalArchiveOperation(completion: completion)
 	   } else {
 		  handleCertificateParameters(completion: completion)
@@ -48,7 +46,7 @@ public class ReceiveDataUseCase: NSObject {
 	   if let opParameters = self.opParameters {
 		  completion(.success((aoEntity, opParameters)))
 	   } else {
-		  completion(.failure(NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_codigo_desconocido", bundle: Bundle.main, comment: "")])))
+		  completion(.failure(ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.certificateManagementError)))
 	   }
     }
     
@@ -57,7 +55,7 @@ public class ReceiveDataUseCase: NSObject {
 	   if let opParameters = self.opParameters {
 		  completion(.success((aoEntity, opParameters)))
 	   } else {
-		  completion(.failure(NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_codigo_desconocido", bundle: Bundle.main, comment: "")])))
+		  completion(.failure(ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.dataSavingError)))
 	   }
     }
     
@@ -71,8 +69,7 @@ public class ReceiveDataUseCase: NSObject {
 	   if datosInUseCert == nil {
 		  self.urlParameters.fileIdCert = self.opParameters?[PARAMETER_NAME_FILE_ID] as? String
 		  if self.urlParameters.fileIdCert == nil {
-			 
-			 completion(.failure(NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_descarga_fichero", bundle: Bundle.main, comment: "")])))
+			 completion(.failure(ErrorGenerator.generateError(from: CommunicationErrorCodes.signatureDownloadError)))
 		  } else {
 			 self.urlParameters.rtServletCert = self.opParameters?[PARAMETER_NAME_RTSERVLET] as? String
 			 self.urlParameters.cipherKeyCert = self.opParameters?[PARAMETER_NAME_CIPHER_KEY] as? String
@@ -86,7 +83,7 @@ public class ReceiveDataUseCase: NSObject {
 				    }
 				}
 			 } else {
-				completion(.failure(NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_descarga_fichero", bundle: Bundle.main, comment: "")])))
+				completion(.failure(ErrorGenerator.generateError(from: CommunicationErrorCodes.signatureDownloadError)))
 			 }
 		  }
 	   }
@@ -100,11 +97,11 @@ public class ReceiveDataUseCase: NSObject {
 	   
 	   do {
 		  guard let cipherKeyCertData = urlParameters.cipherKeyCert?.data(using: .utf8) else {
-			 throw NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_descarga_fichero", bundle: Bundle.main, comment: "")])
+			 throw ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.jsonBatchOperationError)
 		  }
 		  
 		  guard let decoded = DesCypher.decypherData(String(data: data, encoding: .utf8) ?? "", sk: cipherKeyCertData) else {
-			 throw NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_descarga_fichero", bundle: Bundle.main, comment: "")])
+			 throw ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.jsonBatchOperationError)
 		  }
 		  
 		  if String(data: data, encoding: .utf8)?.hasPrefix("ERR-06") == true && self.urlParameters.numberOfRetries < 3 {
@@ -131,7 +128,7 @@ public class ReceiveDataUseCase: NSObject {
 		  datosInUse = datosInUse?.removingPercentEncoding
 		  
 		  guard let entidad = AOXMLReader().loadXML(by: datosInUse ?? "") else {
-			 throw NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_descarga_fichero", bundle: Bundle.main, comment: "")])
+			 throw ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.xmlBatchOperationError)
 		  }
 		  
 		  opParameters?[PARAMETER_NAME_DAT] = (entidad as AnyObject).datField ?? ""
@@ -148,7 +145,7 @@ public class ReceiveDataUseCase: NSObject {
 			 if let opParameters = self.opParameters {
 				completion(.success((entidad as! AOEntity, opParameters)))
 			 } else {
-				completion(.failure(NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_descarga_fichero", bundle: Bundle.main, comment: "")])))
+				completion(.failure(ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.jsonBatchOperationError)))
 			 }
 		  }
 	   } catch {

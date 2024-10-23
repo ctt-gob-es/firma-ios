@@ -15,6 +15,7 @@
 #include "es/gob/jmulticard/connection/ApduConnectionException.h"
 #include "es/gob/jmulticard/ios/DnieWrapper.h"
 #include "es/gob/jmulticard/ios/ErrorCode.h"
+#include "java/lang/Throwable.h"
 #include "java/security/cert/X509Certificate.h"
 
 #if !__has_feature(objc_arc)
@@ -214,10 +215,16 @@ withEsGobJmulticardCardPrivateKeyReference:(id<EsGobJmulticardCardPrivateKeyRefe
       self->errorCode_ = EsGobJmulticardIosErrorCode_PIN_ERROR;
       self->errorMessage_ = [e getMessage];
     }
+    @catch (
+#line 203
+    JavaLangThrowable *e) {
+      self->errorCode_ = EsGobJmulticardIosErrorCode_SEVERE_ERROR;
+      self->errorMessage_ = [e description];
+    }
   }
   else {
     
-#line 205
+#line 208
     self->errorCode_ = EsGobJmulticardIosErrorCode_NOT_INITIALIZED;
     self->errorMessage_ = @"No se inicio la conexion con la tarjeta";
   }

@@ -21,10 +21,12 @@
 #include "es/gob/jmulticard/card/dnie/DnieAtr.h"
 #include "es/gob/jmulticard/card/dnie/DnieFactory.h"
 #include "es/gob/jmulticard/card/dnie/DnieNfc.h"
+#include "es/gob/jmulticard/card/dnie/InvalidAccessCodeException.h"
 #include "es/gob/jmulticard/card/dnie/ceressc/CeresSc.h"
 #include "es/gob/jmulticard/card/dnie/tif/Tif.h"
 #include "es/gob/jmulticard/card/icao/IcaoException.h"
 #include "es/gob/jmulticard/card/icao/IcaoMrtdWithPace.h"
+#include "es/gob/jmulticard/card/icao/InvalidCanOrMrzException.h"
 #include "es/gob/jmulticard/card/icao/MrtdLds1.h"
 #include "es/gob/jmulticard/connection/ApduConnection.h"
 #include "es/gob/jmulticard/connection/ApduConnectionException.h"
@@ -87,12 +89,12 @@ __attribute__((unused)) static EsGobJmulticardCardDnieDnieFactory *create_EsGobJ
 J2OBJC_INITIALIZED_DEFN(EsGobJmulticardCardDnieDnieFactory)
 
 
-#line 22
+#line 23
 @implementation EsGobJmulticardCardDnieDnieFactory
 
 J2OBJC_IGNORE_DESIGNATED_BEGIN
 
-#line 61
+#line 62
 - (instancetype)init {
   EsGobJmulticardCardDnieDnieFactory_init(self);
   return self;
@@ -100,7 +102,7 @@ J2OBJC_IGNORE_DESIGNATED_BEGIN
 J2OBJC_IGNORE_DESIGNATED_END
 
 
-#line 75
+#line 76
 + (EsGobJmulticardCardDnieDnie *)getDnieWithEsGobJmulticardConnectionApduConnection:(id<EsGobJmulticardConnectionApduConnection>)conn
                                       withJavaxSecurityAuthCallbackPasswordCallback:(JavaxSecurityAuthCallbackPasswordCallback *)pwc
                                                     withEsGobJmulticardCryptoHelper:(EsGobJmulticardCryptoHelper *)cryptoHelper
@@ -109,7 +111,7 @@ J2OBJC_IGNORE_DESIGNATED_END
 }
 
 
-#line 93
+#line 94
 + (EsGobJmulticardCardDnieDnieNfc *)getDnieNfcWithEsGobJmulticardConnectionApduConnection:(id<EsGobJmulticardConnectionApduConnection>)conn
                                                           withEsGobJmulticardCryptoHelper:(EsGobJmulticardCryptoHelper *)cryptoHelper
                                              withJavaxSecurityAuthCallbackCallbackHandler:(id<JavaxSecurityAuthCallbackCallbackHandler>)ch {
@@ -117,7 +119,7 @@ J2OBJC_IGNORE_DESIGNATED_END
 }
 
 
-#line 170
+#line 174
 + (id<EsGobJmulticardCardIcaoMrtdLds1>)getEmrtdNfcWithEsGobJmulticardConnectionApduConnection:(id<EsGobJmulticardConnectionApduConnection>)conn
                                                               withEsGobJmulticardCryptoHelper:(EsGobJmulticardCryptoHelper *)cryptoHelper
                                                  withJavaxSecurityAuthCallbackCallbackHandler:(id<JavaxSecurityAuthCallbackCallbackHandler>)ch {
@@ -125,7 +127,7 @@ J2OBJC_IGNORE_DESIGNATED_END
 }
 
 
-#line 223
+#line 230
 + (EsGobJmulticardCardDnieDnie *)getDnieWithEsGobJmulticardConnectionApduConnection:(id<EsGobJmulticardConnectionApduConnection>)conn
                                       withJavaxSecurityAuthCallbackPasswordCallback:(JavaxSecurityAuthCallbackPasswordCallback *)pwc
                                                     withEsGobJmulticardCryptoHelper:(EsGobJmulticardCryptoHelper *)cryptoHelper
@@ -135,13 +137,13 @@ J2OBJC_IGNORE_DESIGNATED_END
 }
 
 
-#line 316
+#line 326
 + (EsGobJmulticardCardDnieDnie3Cwa14890Constants *)getDnie3UsrCwa14890ConstantsWithNSString:(NSString *)idesp {
   return EsGobJmulticardCardDnieDnieFactory_getDnie3UsrCwa14890ConstantsWithNSString_(idesp);
 }
 
 
-#line 329
+#line 339
 + (EsGobJmulticardCardDnieDnie3Cwa14890Constants *)getDnie3PinCwa14890ConstantsWithNSString:(NSString *)idesp {
   return EsGobJmulticardCardDnieDnieFactory_getDnie3PinCwa14890ConstantsWithNSString_(idesp);
 }
@@ -185,47 +187,47 @@ J2OBJC_IGNORE_DESIGNATED_END
 + (void)initialize {
   if (self == [EsGobJmulticardCardDnieDnieFactory class]) {
     EsGobJmulticardCardDnieDnieFactory_ATR_MASK = [IOSByteArray newArrayWithBytes:(jbyte[]){
-#line 25
-      (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0x00, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF,
 #line 26
+      (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0x00, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF,
+#line 27
       (jbyte) (jint) 0xFF, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF } count:20];
       EsGobJmulticardCardDnieDnieFactory_ATR_NFC_MASK = [IOSByteArray newArrayWithBytes:(jbyte[]){
-#line 30
-        (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF,
 #line 31
+        (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF,
+#line 32
         (jbyte) (jint) 0x00, (jbyte) (jint) 0xFF, (jbyte) (jint) 0x00 } count:13];
         EsGobJmulticardCardDnieDnieFactory_ATR_NFC2_MASK = [IOSByteArray newArrayWithBytes:(jbyte[]){
-#line 35
-          (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0xFF,
 #line 36
+          (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0xFF,
+#line 37
           (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0xFF, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00 } count:17];
           EsGobJmulticardCardDnieDnieFactory_ATR_NFC = new_EsGobJmulticardCardAtr_initWithByteArray_withByteArray_([IOSByteArray newArrayWithBytes:(jbyte[]){
-#line 40
-            (jbyte) (jint) 0x3B, (jbyte) (jint) 0x88, (jbyte) (jint) 0x80, (jbyte) (jint) 0x01, (jbyte) (jint) 0xE1, (jbyte) (jint) 0xF3, (jbyte) (jint) 0x5E, (jbyte) (jint) 0x11, (jbyte) (jint) 0x77, (jbyte) (jint) 0x81,
 #line 41
-            (jbyte) (jint) 0xA1, (jbyte) (jint) 0x00, (jbyte) (jint) 0x03 } count:13],
+            (jbyte) (jint) 0x3B, (jbyte) (jint) 0x88, (jbyte) (jint) 0x80, (jbyte) (jint) 0x01, (jbyte) (jint) 0xE1, (jbyte) (jint) 0xF3, (jbyte) (jint) 0x5E, (jbyte) (jint) 0x11, (jbyte) (jint) 0x77, (jbyte) (jint) 0x81,
 #line 42
+            (jbyte) (jint) 0xA1, (jbyte) (jint) 0x00, (jbyte) (jint) 0x03 } count:13],
+#line 43
             EsGobJmulticardCardDnieDnieFactory_ATR_NFC_MASK);
             EsGobJmulticardCardDnieDnieFactory_ATR_NFC2 = new_EsGobJmulticardCardAtr_initWithByteArray_withByteArray_([IOSByteArray newArrayWithBytes:(jbyte[]){
-#line 45
-              (jbyte) (jint) 0x3B, (jbyte) (jint) 0x8C, (jbyte) (jint) 0x80, (jbyte) (jint) 0x01, (jbyte) (jint) 0x50, (jbyte) (jint) 0x42, (jbyte) (jint) 0x8E, (jbyte) (jint) 0x93, (jbyte) (jint) 0x2A, (jbyte) (jint) 0xE1,
 #line 46
-              (jbyte) (jint) 0xF3, (jbyte) (jint) 0x5E, (jbyte) (jint) 0x11, (jbyte) (jint) 0x77, (jbyte) (jint) 0x81, (jbyte) (jint) 0x81, (jbyte) (jint) 0x02 } count:17],
+              (jbyte) (jint) 0x3B, (jbyte) (jint) 0x8C, (jbyte) (jint) 0x80, (jbyte) (jint) 0x01, (jbyte) (jint) 0x50, (jbyte) (jint) 0x42, (jbyte) (jint) 0x8E, (jbyte) (jint) 0x93, (jbyte) (jint) 0x2A, (jbyte) (jint) 0xE1,
 #line 47
+              (jbyte) (jint) 0xF3, (jbyte) (jint) 0x5E, (jbyte) (jint) 0x11, (jbyte) (jint) 0x77, (jbyte) (jint) 0x81, (jbyte) (jint) 0x81, (jbyte) (jint) 0x02 } count:17],
+#line 48
               EsGobJmulticardCardDnieDnieFactory_ATR_NFC2_MASK);
               EsGobJmulticardCardDnieDnieFactory_ATR = new_EsGobJmulticardCardAtr_initWithByteArray_withByteArray_([IOSByteArray newArrayWithBytes:(jbyte[]){
-#line 50
-                (jbyte) (jint) 0x3B, (jbyte) (jint) 0x7F, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x6A, (jbyte) (jint) 0x44, (jbyte) (jint) 0x4E, (jbyte) (jint) 0x49,
 #line 51
-                (jbyte) (jint) 0x65, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x90, (jbyte) (jint) 0x00 } count:20],
+                (jbyte) (jint) 0x3B, (jbyte) (jint) 0x7F, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x6A, (jbyte) (jint) 0x44, (jbyte) (jint) 0x4E, (jbyte) (jint) 0x49,
 #line 52
+                (jbyte) (jint) 0x65, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x90, (jbyte) (jint) 0x00 } count:20],
+#line 53
                 EsGobJmulticardCardDnieDnieFactory_ATR_MASK);
                 EsGobJmulticardCardDnieDnieFactory_ATR_TIF = new_EsGobJmulticardCardAtr_initWithByteArray_withByteArray_([IOSByteArray newArrayWithBytes:(jbyte[]){
-#line 55
-                  (jbyte) (jint) 0x3B, (jbyte) (jint) 0x7F, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x6A, (jbyte) (jint) 0x54, (jbyte) (jint) 0x49, (jbyte) (jint) 0x46,
 #line 56
-                  (jbyte) (jint) 0x31, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x90, (jbyte) (jint) 0x00 } count:20],
+                  (jbyte) (jint) 0x3B, (jbyte) (jint) 0x7F, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x6A, (jbyte) (jint) 0x54, (jbyte) (jint) 0x49, (jbyte) (jint) 0x46,
 #line 57
+                  (jbyte) (jint) 0x31, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x00, (jbyte) (jint) 0x90, (jbyte) (jint) 0x00 } count:20],
+#line 58
                   EsGobJmulticardCardDnieDnieFactory_ATR_MASK);
                   J2OBJC_SET_INITIALIZED(EsGobJmulticardCardDnieDnieFactory)
                 }
@@ -234,38 +236,38 @@ J2OBJC_IGNORE_DESIGNATED_END
 @end
 
 
-#line 61
+#line 62
 void EsGobJmulticardCardDnieDnieFactory_init(EsGobJmulticardCardDnieDnieFactory *self) {
   NSObject_init(self);
 }
 
 
-#line 61
+#line 62
 EsGobJmulticardCardDnieDnieFactory *new_EsGobJmulticardCardDnieDnieFactory_init() {
   J2OBJC_NEW_IMPL(EsGobJmulticardCardDnieDnieFactory, init)
 }
 
 
-#line 61
+#line 62
 EsGobJmulticardCardDnieDnieFactory *create_EsGobJmulticardCardDnieDnieFactory_init() {
   J2OBJC_CREATE_IMPL(EsGobJmulticardCardDnieDnieFactory, init)
 }
 
 
-#line 75
+#line 76
 EsGobJmulticardCardDnieDnie *EsGobJmulticardCardDnieDnieFactory_getDnieWithEsGobJmulticardConnectionApduConnection_withJavaxSecurityAuthCallbackPasswordCallback_withEsGobJmulticardCryptoHelper_withJavaxSecurityAuthCallbackCallbackHandler_(id<EsGobJmulticardConnectionApduConnection> conn, JavaxSecurityAuthCallbackPasswordCallback *pwc, EsGobJmulticardCryptoHelper *cryptoHelper, id<JavaxSecurityAuthCallbackCallbackHandler> ch) {
   EsGobJmulticardCardDnieDnieFactory_initialize();
   
-#line 81
+#line 82
   return EsGobJmulticardCardDnieDnieFactory_getDnieWithEsGobJmulticardConnectionApduConnection_withJavaxSecurityAuthCallbackPasswordCallback_withEsGobJmulticardCryptoHelper_withJavaxSecurityAuthCallbackCallbackHandler_withBoolean_(conn, pwc, cryptoHelper, ch, true);
 }
 
 
-#line 93
+#line 94
 EsGobJmulticardCardDnieDnieNfc *EsGobJmulticardCardDnieDnieFactory_getDnieNfcWithEsGobJmulticardConnectionApduConnection_withEsGobJmulticardCryptoHelper_withJavaxSecurityAuthCallbackCallbackHandler_(id<EsGobJmulticardConnectionApduConnection> conn, EsGobJmulticardCryptoHelper *cryptoHelper, id<JavaxSecurityAuthCallbackCallbackHandler> ch) {
   EsGobJmulticardCardDnieDnieFactory_initialize();
   
-#line 98
+#line 99
   if (conn == nil) {
     @throw new_JavaLangIllegalArgumentException_initWithNSString_(@"La conexion no puede ser nula");
   }
@@ -276,7 +278,7 @@ EsGobJmulticardCardDnieDnieNfc *EsGobJmulticardCardDnieDnieFactory_getDnieNfcWit
     @throw new_JavaLangIllegalArgumentException_initWithNSString_(@"El CallbackHandler no puede ser nulo");
   }
   
-#line 108
+#line 109
   IOSByteArray *responseAtr;
   EsGobJmulticardCardAtr *actualAtr;
   EsGobJmulticardCardInvalidCardException *invalidCardException = nil;
@@ -287,14 +289,14 @@ EsGobJmulticardCardDnieDnieNfc *EsGobJmulticardCardDnieDnieFactory_getDnieNfcWit
   }
   {
     IOSLongArray *a__ =
-#line 116
+#line 117
     terminals;
     jlong const *b__ = a__->buffer_;
     jlong const *e__ = b__ + a__->size_;
     while (b__ < e__) {
       jlong terminal = *b__++;
       
-#line 117
+#line 118
       [conn setTerminalWithInt:(jint) terminal];
       @try {
         responseAtr = [conn reset];
@@ -308,40 +310,43 @@ EsGobJmulticardCardDnieDnieNfc *EsGobJmulticardCardDnieDnieFactory_getDnieNfcWit
       if ([((EsGobJmulticardCardAtr *) nil_chk(EsGobJmulticardCardDnieDnieFactory_ATR_NFC)) isEqual:actualAtr] || [((EsGobJmulticardCardAtr *) nil_chk(EsGobJmulticardCardDnieDnieFactory_ATR_NFC2)) isEqual:actualAtr]) {
         @try {
           
-#line 132
-          EsGobJmulticardJmcLogger_infoWithNSString_withNSString_withNSString_(
 #line 133
-          [EsGobJmulticardCardDnieDnieFactory_class_() getName],
+          EsGobJmulticardJmcLogger_infoWithNSString_withNSString_withNSString_(
 #line 134
-          @"getDnieNfc", JreStrcat("$@", @"Detectado DNIe 3.0 o 4.0 por NFC: ", new_EsGobJmulticardCardDnieDnieAtr_initWithEsGobJmulticardCardAtr_(
+          [EsGobJmulticardCardDnieDnieFactory_class_() getName],
 #line 135
+          @"getDnieNfc", JreStrcat("$@", @"Detectado DNIe 3.0 o 4.0 por NFC: ", new_EsGobJmulticardCardDnieDnieAtr_initWithEsGobJmulticardCardAtr_(
+#line 136
           actualAtr)));
           
-#line 137
+#line 138
           return new_EsGobJmulticardCardDnieDnieNfc_initWithEsGobJmulticardConnectionApduConnection_withJavaxSecurityAuthCallbackPasswordCallback_withEsGobJmulticardCryptoHelper_withJavaxSecurityAuthCallbackCallbackHandler_(conn, nil, cryptoHelper, ch);
+        }
+        @catch (EsGobJmulticardCardIcaoInvalidCanOrMrzException *e) {
+          @throw new_EsGobJmulticardCardDnieInvalidAccessCodeException_initWithNSString_withJavaLangThrowable_(@"El CAN indicado del DNIe no es correcto", e);
         }
         @catch (EsGobJmulticardCardIcaoIcaoException *e) {
           @throw new_EsGobJmulticardConnectionApduConnectionException_initWithNSString_withJavaLangThrowable_(@"No se ha podido abrir el canal PACE", e);
         }
       }
       
-#line 146
+#line 150
       if (
-#line 147
+#line 151
       IOSByteArray_Get(actualAtrBytes, ((IOSByteArray *) nil_chk(actualAtrBytes))->size_ - 1) == (jbyte) (jint) 0x81 &&
-#line 148
+#line 152
       IOSByteArray_Get(actualAtrBytes, actualAtrBytes->size_ - 2) == (jbyte) (jint) 0x65) {
         
-#line 150
+#line 154
         @throw new_EsGobJmulticardCardDnieBurnedDnieCardException_initWithEsGobJmulticardCardAtr_(actualAtr);
       }
       
-#line 153
+#line 157
       invalidCardException = new_EsGobJmulticardCardInvalidCardException_initWithNSString_withEsGobJmulticardCardAtr_withByteArray_(@"DNIe por NFC", EsGobJmulticardCardDnieDnieFactory_ATR, responseAtr);
     }
   }
   
-#line 155
+#line 159
   if (invalidCardException != nil) {
     @throw invalidCardException;
   }
@@ -352,16 +357,16 @@ EsGobJmulticardCardDnieDnieNfc *EsGobJmulticardCardDnieDnieFactory_getDnieNfcWit
 }
 
 
-#line 170
+#line 174
 id<EsGobJmulticardCardIcaoMrtdLds1> EsGobJmulticardCardDnieDnieFactory_getEmrtdNfcWithEsGobJmulticardConnectionApduConnection_withEsGobJmulticardCryptoHelper_withJavaxSecurityAuthCallbackCallbackHandler_(id<EsGobJmulticardConnectionApduConnection> conn, EsGobJmulticardCryptoHelper *cryptoHelper, id<JavaxSecurityAuthCallbackCallbackHandler> ch) {
   EsGobJmulticardCardDnieDnieFactory_initialize();
   
-#line 173
+#line 177
   if (conn == nil) {
     @throw new_JavaLangIllegalArgumentException_initWithNSString_(@"La conexion no puede ser nula");
   }
   
-#line 177
+#line 181
   IOSByteArray *responseAtr;
   EsGobJmulticardCardAtr *actualAtr;
   EsGobJmulticardConnectionCardNotPresentException *cardNotPresentException = nil;
@@ -371,14 +376,14 @@ id<EsGobJmulticardCardIcaoMrtdLds1> EsGobJmulticardCardDnieDnieFactory_getEmrtdN
   }
   {
     IOSLongArray *a__ =
-#line 184
+#line 188
     terminals;
     jlong const *b__ = a__->buffer_;
     jlong const *e__ = b__ + a__->size_;
     while (b__ < e__) {
       jlong terminal = *b__++;
       
-#line 185
+#line 189
       [conn setTerminalWithInt:(jint) terminal];
       @try {
         responseAtr = [conn reset];
@@ -393,6 +398,9 @@ id<EsGobJmulticardCardIcaoMrtdLds1> EsGobJmulticardCardDnieDnieFactory_getEmrtdN
           EsGobJmulticardJmcLogger_infoWithNSString_withNSString_withNSString_([EsGobJmulticardCardDnieDnieFactory_class_() getName], @"getEmrtdNfc", JreStrcat("$@", @"Detectado eMRTD con ATR: ", new_EsGobJmulticardCardDnieDnieAtr_initWithEsGobJmulticardCardAtr_(actualAtr)));
           return new_EsGobJmulticardCardIcaoIcaoMrtdWithPace_initWithEsGobJmulticardConnectionApduConnection_withEsGobJmulticardCryptoHelper_withJavaxSecurityAuthCallbackCallbackHandler_(conn, cryptoHelper, ch);
         }
+        @catch (EsGobJmulticardCardIcaoInvalidCanOrMrzException *e) {
+          @throw new_EsGobJmulticardCardDnieInvalidAccessCodeException_initWithNSString_withJavaLangThrowable_(@"El MRZ del documento de viaje no es correcto", e);
+        }
         @catch (EsGobJmulticardCardIcaoIcaoException *e) {
           @throw new_EsGobJmulticardConnectionApduConnectionException_initWithNSString_withJavaLangThrowable_(@"No se ha podido abrir el canal PACE", e);
         }
@@ -400,7 +408,7 @@ id<EsGobJmulticardCardIcaoMrtdLds1> EsGobJmulticardCardDnieDnieFactory_getEmrtdN
     }
   }
   
-#line 204
+#line 211
   if (cardNotPresentException != nil) {
     @throw cardNotPresentException;
   }
@@ -408,11 +416,11 @@ id<EsGobJmulticardCardIcaoMrtdLds1> EsGobJmulticardCardDnieDnieFactory_getEmrtdN
 }
 
 
-#line 223
+#line 230
 EsGobJmulticardCardDnieDnie *EsGobJmulticardCardDnieDnieFactory_getDnieWithEsGobJmulticardConnectionApduConnection_withJavaxSecurityAuthCallbackPasswordCallback_withEsGobJmulticardCryptoHelper_withJavaxSecurityAuthCallbackCallbackHandler_withBoolean_(id<EsGobJmulticardConnectionApduConnection> conn, JavaxSecurityAuthCallbackPasswordCallback *pwc, EsGobJmulticardCryptoHelper *cryptoHelper, id<JavaxSecurityAuthCallbackCallbackHandler> ch, jboolean includeCloneCards) {
   EsGobJmulticardCardDnieDnieFactory_initialize();
   
-#line 230
+#line 237
   if (conn == nil) {
     @throw new_JavaLangIllegalArgumentException_initWithNSString_(@"La conexion no puede ser nula");
   }
@@ -420,7 +428,7 @@ EsGobJmulticardCardDnieDnie *EsGobJmulticardCardDnieDnieFactory_getDnieWithEsGob
     @throw new_JavaLangIllegalArgumentException_initWithNSString_(@"El CryptoHelper no puede ser nulo");
   }
   
-#line 237
+#line 244
   IOSByteArray *responseAtr;
   EsGobJmulticardCardAtr *actualAtr;
   EsGobJmulticardCardInvalidCardException *invalidCardException = nil;
@@ -431,14 +439,14 @@ EsGobJmulticardCardDnieDnie *EsGobJmulticardCardDnieDnieFactory_getDnieWithEsGob
   }
   {
     IOSLongArray *a__ =
-#line 245
+#line 252
     terminals;
     jlong const *b__ = a__->buffer_;
     jlong const *e__ = b__ + a__->size_;
     while (b__ < e__) {
       jlong terminal = *b__++;
       
-#line 246
+#line 253
       [conn setTerminalWithInt:(jint) terminal];
       @try {
         responseAtr = [conn reset];
@@ -452,9 +460,12 @@ EsGobJmulticardCardDnieDnie *EsGobJmulticardCardDnieDnieFactory_getDnieWithEsGob
       if ([((EsGobJmulticardCardAtr *) nil_chk(EsGobJmulticardCardDnieDnieFactory_ATR_NFC)) isEqual:actualAtr] || [((EsGobJmulticardCardAtr *) nil_chk(EsGobJmulticardCardDnieDnieFactory_ATR_NFC2)) isEqual:actualAtr]) {
         @try {
           
-#line 261
+#line 268
           EsGobJmulticardJmcLogger_infoWithNSString_withNSString_withNSString_([EsGobJmulticardCardDnieDnieFactory_class_() getName], @"getDnie", JreStrcat("$@", @"Detectado DNIe 3.0 o 4.0: ", new_EsGobJmulticardCardDnieDnieAtr_initWithEsGobJmulticardCardAtr_(actualAtr)));
           return new_EsGobJmulticardCardDnieDnieNfc_initWithEsGobJmulticardConnectionApduConnection_withJavaxSecurityAuthCallbackPasswordCallback_withEsGobJmulticardCryptoHelper_withJavaxSecurityAuthCallbackCallbackHandler_(conn, pwc, cryptoHelper, ch);
+        }
+        @catch (EsGobJmulticardCardIcaoInvalidCanOrMrzException *e) {
+          @throw new_EsGobJmulticardCardDnieInvalidAccessCodeException_initWithNSString_withJavaLangThrowable_(@"El CAN indicado del DNIe no es correcto", e);
         }
         @catch (EsGobJmulticardCardIcaoIcaoException *e) {
           @throw new_EsGobJmulticardConnectionApduConnectionException_initWithNSString_withJavaLangThrowable_(@"No se ha podido abrir el canal PACE", e);
@@ -463,14 +474,14 @@ EsGobJmulticardCardDnieDnie *EsGobJmulticardCardDnieDnieFactory_getDnieWithEsGob
       if ([((EsGobJmulticardCardAtr *) nil_chk(EsGobJmulticardCardDnieDnieFactory_ATR)) isEqual:actualAtr]) {
         if (IOSByteArray_Get(nil_chk(actualAtrBytes), 15) == (jint) 0x04) {
           EsGobJmulticardJmcLogger_infoWithNSString_withNSString_withNSString_(
-#line 271
+#line 281
           [EsGobJmulticardCardDnieDnieFactory_class_() getName],
-#line 272
+#line 282
           @"getDnie", JreStrcat("$$", @"Detectado DNIe 3.0 o 4.0 con ATR ",
-#line 273
+#line 283
           [new_EsGobJmulticardCardDnieDnieAtr_initWithEsGobJmulticardCardAtr_(actualAtr) description]));
           
-#line 275
+#line 285
           return new_EsGobJmulticardCardDnieDnie3_initWithEsGobJmulticardConnectionApduConnection_withJavaxSecurityAuthCallbackPasswordCallback_withEsGobJmulticardCryptoHelper_withJavaxSecurityAuthCallbackCallbackHandler_(conn, pwc, cryptoHelper, ch);
         }
         EsGobJmulticardJmcLogger_infoWithNSString_withNSString_withNSString_([EsGobJmulticardCardDnieDnieFactory_class_() getName], @"getDnie", @"Detectado DNIe 2.0");
@@ -482,30 +493,30 @@ EsGobJmulticardCardDnieDnie *EsGobJmulticardCardDnieDnieFactory_getDnieWithEsGob
           return new_EsGobJmulticardCardDnieTifTif_initWithEsGobJmulticardConnectionApduConnection_withJavaxSecurityAuthCallbackPasswordCallback_withEsGobJmulticardCryptoHelper_withJavaxSecurityAuthCallbackCallbackHandler_(conn, pwc, cryptoHelper, ch);
         }
         
-#line 287
+#line 297
         if ([((EsGobJmulticardCardAtr *) nil_chk(JreLoadStatic(EsGobJmulticardCardDnieCeresscCeresSc, ATR_TC))) isEqual:actualAtr]) {
           EsGobJmulticardJmcLogger_infoWithNSString_withNSString_withNSString_([EsGobJmulticardCardDnieDnieFactory_class_() getName], @"getDnie", @"Detectada tarjeta FNMT CERES 4.30 o superior");
           return new_EsGobJmulticardCardDnieCeresscCeresSc_initWithEsGobJmulticardConnectionApduConnection_withJavaxSecurityAuthCallbackPasswordCallback_withEsGobJmulticardCryptoHelper_withJavaxSecurityAuthCallbackCallbackHandler_(conn, pwc, cryptoHelper, ch);
         }
       }
       
-#line 295
+#line 305
       if (
-#line 296
+#line 306
       IOSByteArray_Get(actualAtrBytes, ((IOSByteArray *) nil_chk(actualAtrBytes))->size_ - 1) == (jbyte) (jint) 0x81 &&
-#line 297
+#line 307
       IOSByteArray_Get(actualAtrBytes, actualAtrBytes->size_ - 2) == (jbyte) (jint) 0x65) {
         
-#line 299
+#line 309
         @throw new_EsGobJmulticardCardDnieBurnedDnieCardException_initWithEsGobJmulticardCardAtr_(actualAtr);
       }
       
-#line 302
+#line 312
       invalidCardException = new_EsGobJmulticardCardInvalidCardException_initWithNSString_withEsGobJmulticardCardAtr_withByteArray_(@"DNIe", EsGobJmulticardCardDnieDnieFactory_ATR, responseAtr);
     }
   }
   
-#line 304
+#line 314
   if (invalidCardException != nil) {
     @throw invalidCardException;
   }
@@ -516,17 +527,17 @@ EsGobJmulticardCardDnieDnie *EsGobJmulticardCardDnieDnieFactory_getDnieWithEsGob
 }
 
 
-#line 316
+#line 326
 EsGobJmulticardCardDnieDnie3Cwa14890Constants *EsGobJmulticardCardDnieDnieFactory_getDnie3UsrCwa14890ConstantsWithNSString_(NSString *idesp) {
   EsGobJmulticardCardDnieDnieFactory_initialize();
   
-#line 317
+#line 327
   if (idesp == nil || [idesp java_isEmpty]) {
     EsGobJmulticardJmcLogger_warningWithNSString_(
-#line 319
+#line 329
     @"El IDESP proporcionado es nulo o vacio, se usaran las constantes CWA14890 de usuario para los DNIe 3 modernos");
     
-#line 321
+#line 331
     return new_EsGobJmulticardCardDnieDnie3r2UsrCwa14890Constants_initPackagePrivate();
   }
   if ([((NSString *) nil_chk(EsGobJmulticardCardDnieDnieFactory_DNIE3_R2_IDESP)) compareToWithId:idesp] > 0) {
@@ -536,17 +547,17 @@ EsGobJmulticardCardDnieDnie3Cwa14890Constants *EsGobJmulticardCardDnieDnieFactor
 }
 
 
-#line 329
+#line 339
 EsGobJmulticardCardDnieDnie3Cwa14890Constants *EsGobJmulticardCardDnieDnieFactory_getDnie3PinCwa14890ConstantsWithNSString_(NSString *idesp) {
   EsGobJmulticardCardDnieDnieFactory_initialize();
   
-#line 330
+#line 340
   if (idesp == nil || [idesp java_isEmpty]) {
     EsGobJmulticardJmcLogger_warningWithNSString_(
-#line 332
+#line 342
     @"El IDESP proporcionado era nulo o vacio, se usaran las constantes CWA14890 de PIN para los DNIe 3 modernos");
     
-#line 334
+#line 344
     return new_EsGobJmulticardCardDnieDnie3r2PinCwa14890Constants_initPackagePrivate();
   }
   if ([((NSString *) nil_chk(EsGobJmulticardCardDnieDnieFactory_DNIE3_R2_IDESP)) compareToWithId:idesp] > 0) {

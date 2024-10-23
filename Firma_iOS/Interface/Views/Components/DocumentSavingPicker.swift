@@ -49,14 +49,14 @@ struct DocumentSavingPicker: UIViewControllerRepresentable {
 	   }
 
 	   func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
-		  parent.onDismiss(.failure(NSError(domain: "DocumentPicker", code: 1, userInfo: [NSLocalizedDescriptionKey: "User cancelled document picker"])))
+		  parent.onDismiss(.failure(ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.generalSoftwareError)))
 	   }
 
 	   func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
 		  if let url = urls.first {
 			 parent.onDismiss(.success(url))
 		  } else {
-			 parent.onDismiss(.failure(NSError(domain: "DocumentPicker", code: 2, userInfo: [NSLocalizedDescriptionKey: "No document picked"])))
+			 parent.onDismiss(.failure(ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.generalSoftwareError)))
 		  }
 	   }
     }

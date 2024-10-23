@@ -52,7 +52,7 @@ extension View {
 		  if $0 == true {
 			 viewModel.viewMode = .home
 			 viewModel.areCertificatesSelectable = false
-			 viewModel.sendError(error: NSError(domain: "SignError", code: 1, userInfo: [NSLocalizedDescriptionKey: "Unknown error"]))
+			 viewModel.sendError(error: ErrorGenerator.generateError(from: FunctionalErrorCodes.userOperationCanceled))
 		  }
 	   }
 	   .onChange(of: viewModel.showTextfieldModal) { oldValue, newValue in
@@ -69,13 +69,14 @@ extension View {
 		  }
 	   }
 	   .onReceive(NotificationCenter.default.publisher(for: .DNIeSuccess)) { _ in
-		  viewModel.handleFinishDNISign()
+		  viewModel.handleFinishSign()
 		  appStatus.isLoading = false
 		  appStatus.showSuccessModal = true
 		  appStatus.successModalState = .successSign
 	   }
 	   .onReceive(NotificationCenter.default.publisher(for: .ErrorModalCancelButtonAction)) { _ in
-		  viewModel.handleFinishDNISign()
+		  viewModel.handleFinishSign()
+		  viewModel.sendError(error: ErrorGenerator.generateError(from: FunctionalErrorCodes.userOperationCanceled))
 		  appStatus.isLoading = false
 	   }
     }

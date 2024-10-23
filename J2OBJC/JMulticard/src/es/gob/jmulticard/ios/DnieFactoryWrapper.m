@@ -8,12 +8,14 @@
 #include "es/gob/jmulticard/card/dnie/BurnedDnieCardException.h"
 #include "es/gob/jmulticard/card/dnie/Dnie.h"
 #include "es/gob/jmulticard/card/dnie/DnieFactory.h"
+#include "es/gob/jmulticard/card/dnie/InvalidAccessCodeException.h"
 #include "es/gob/jmulticard/connection/ApduConnection.h"
 #include "es/gob/jmulticard/connection/ApduConnectionException.h"
 #include "es/gob/jmulticard/crypto/BcCryptoHelper.h"
 #include "es/gob/jmulticard/ios/DnieFactoryWrapper.h"
 #include "es/gob/jmulticard/ios/DnieWrapper.h"
 #include "es/gob/jmulticard/ios/ErrorCode.h"
+#include "java/lang/Throwable.h"
 #include "javax/security/auth/callback/CallbackHandler.h"
 
 #if !__has_feature(objc_arc)
@@ -23,12 +25,12 @@
 #line 1 "/Users/desarrolloabamobile/Downloads/jmulticard-ios/src/main/java/es/gob/jmulticard/ios/DnieFactoryWrapper.java"
 
 
-#line 16
+#line 17
 @implementation EsGobJmulticardIosDnieFactoryWrapper
 
 J2OBJC_IGNORE_DESIGNATED_BEGIN
 
-#line 16
+#line 17
 - (instancetype)init {
   EsGobJmulticardIosDnieFactoryWrapper_init(self);
   return self;
@@ -36,7 +38,7 @@ J2OBJC_IGNORE_DESIGNATED_BEGIN
 J2OBJC_IGNORE_DESIGNATED_END
 
 
-#line 26
+#line 27
 + (EsGobJmulticardIosDnieWrapper *)getDnieWithEsGobJmulticardConnectionApduConnection:(id<EsGobJmulticardConnectionApduConnection>)conn
                                          withJavaxSecurityAuthCallbackCallbackHandler:(id<JavaxSecurityAuthCallbackCallbackHandler>)callbackHandler {
   return EsGobJmulticardIosDnieFactoryWrapper_getDnieWithEsGobJmulticardConnectionApduConnection_withJavaxSecurityAuthCallbackCallbackHandler_(conn, callbackHandler);
@@ -61,25 +63,25 @@ J2OBJC_IGNORE_DESIGNATED_END
 @end
 
 
-#line 16
+#line 17
 void EsGobJmulticardIosDnieFactoryWrapper_init(EsGobJmulticardIosDnieFactoryWrapper *self) {
   NSObject_init(self);
 }
 
 
-#line 16
+#line 17
 EsGobJmulticardIosDnieFactoryWrapper *new_EsGobJmulticardIosDnieFactoryWrapper_init() {
   J2OBJC_NEW_IMPL(EsGobJmulticardIosDnieFactoryWrapper, init)
 }
 
 
-#line 16
+#line 17
 EsGobJmulticardIosDnieFactoryWrapper *create_EsGobJmulticardIosDnieFactoryWrapper_init() {
   J2OBJC_CREATE_IMPL(EsGobJmulticardIosDnieFactoryWrapper, init)
 }
 
 
-#line 26
+#line 27
 EsGobJmulticardIosDnieWrapper *EsGobJmulticardIosDnieFactoryWrapper_getDnieWithEsGobJmulticardConnectionApduConnection_withJavaxSecurityAuthCallbackCallbackHandler_(id<EsGobJmulticardConnectionApduConnection> conn, id<JavaxSecurityAuthCallbackCallbackHandler> callbackHandler) {
   EsGobJmulticardIosDnieFactoryWrapper_initialize();
   EsGobJmulticardCardDnieDnie *dnie = nil;
@@ -89,36 +91,48 @@ EsGobJmulticardIosDnieWrapper *EsGobJmulticardIosDnieFactoryWrapper_getDnieWithE
     dnie = EsGobJmulticardCardDnieDnieFactory_getDnieWithEsGobJmulticardConnectionApduConnection_withJavaxSecurityAuthCallbackPasswordCallback_withEsGobJmulticardCryptoHelper_withJavaxSecurityAuthCallbackCallbackHandler_(conn, nil, new_EsGobJmulticardCryptoBcCryptoHelper_init(), callbackHandler);
   }
   @catch (
-#line 33
+#line 34
   EsGobJmulticardCardInvalidCardException *e) {
     errorCode = EsGobJmulticardIosErrorCode_INVALID_CARD;
     errorMessage = [e getMessage];
   }
   @catch (
-#line 36
+#line 37
   EsGobJmulticardCardDnieBurnedDnieCardException *e) {
     errorCode = EsGobJmulticardIosErrorCode_BURNED_CARD;
     errorMessage = [e getMessage];
   }
   @catch (
-#line 39
+#line 40
+  EsGobJmulticardCardDnieInvalidAccessCodeException *e) {
+    errorCode = EsGobJmulticardIosErrorCode_BAD_CAN;
+    errorMessage = [e getMessage];
+  }
+  @catch (
+#line 43
   EsGobJmulticardConnectionApduConnectionException *e) {
     errorCode = EsGobJmulticardIosErrorCode_CONNECTION_ERROR;
     errorMessage = [e getMessage];
   }
+  @catch (
+#line 46
+  JavaLangThrowable *e) {
+    errorCode = EsGobJmulticardIosErrorCode_SEVERE_ERROR;
+    errorMessage = [e description];
+  }
   
-#line 45
+#line 52
   EsGobJmulticardIosDnieWrapper *result;
   if (dnie != nil) {
     result = new_EsGobJmulticardIosDnieWrapper_initWithEsGobJmulticardCardDnieDnie_(dnie);
   }
   else {
     
-#line 49
+#line 56
     result = new_EsGobJmulticardIosDnieWrapper_initWithInt_withNSString_(errorCode, errorMessage);
   }
   
-#line 53
+#line 60
   return result;
 }
 

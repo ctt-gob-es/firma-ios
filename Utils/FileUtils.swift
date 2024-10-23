@@ -26,7 +26,7 @@ class FileUtils {
 		  let fileDirectory = documentDirectory.appendingPathComponent(url.lastPathComponent)
 		  
 		  if fileManager.fileExists(atPath: fileDirectory.path) {
-			 try fileManager.removeItem(at: fileDirectory)  // Remove the existing file
+			 try fileManager.removeItem(at: fileDirectory)
 		  }
 		  
 		  try fileManager.copyItem(at: url, to: fileDirectory)
@@ -60,12 +60,12 @@ class FileUtils {
     
     static func convertURLFileToData(urls: [URL], completion: @escaping (Result<Data, Error>) -> Void) {
 	   guard let url = urls.first else {
-		  completion(.failure(NSError(domain: "URLConversion", code: 1, userInfo: [NSLocalizedDescriptionKey: "No URL found."])))
+		  completion(.failure(ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.generalSoftwareError)))
 		  return
 	   }
 	   
 	   guard url.startAccessingSecurityScopedResource() else {
-		  completion(.failure(NSError(domain: "URLConversion", code: 2, userInfo: [NSLocalizedDescriptionKey: "Could not access security-scoped resource."])))
+		  completion(.failure(ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.generalSoftwareError)))
 		  return
 	   }
 	   

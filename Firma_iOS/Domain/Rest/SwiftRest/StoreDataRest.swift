@@ -19,7 +19,7 @@ class StoreDataRest {
 		  
 		  // Encrypt signature
 		  guard let signdata = Base64Utils.decode(dataSign, urlSafe: true) else {
-			 completion(.failure(NSError(domain: "Error",code: -1,userInfo: [NSLocalizedDescriptionKey:NSLocalizedString("error_proceso_firma",bundle: Bundle.main,comment: "")])))
+			 completion(.failure(ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.jsonBatchOperationError)))
 			 return
 		  }
 		  let encryptedSignDataB64 = DesCypher.cypherData(signdata, sk: cipherKey.data(using: .utf8)!)
@@ -27,7 +27,7 @@ class StoreDataRest {
 		  // Encrypt certificate
 		  let certificateString = Base64Utils.urlSafeEncode(base64UrlSafeCertificateData)
 		  guard let dataCertificate = Base64Utils.decode(certificateString, urlSafe: true) else {
-			 completion(.failure(NSError(domain: "Error",code: -1,userInfo: [NSLocalizedDescriptionKey:NSLocalizedString("error_proceso_firma",bundle: Bundle.main,comment: "")])))
+			 completion(.failure(ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.jsonBatchOperationError)))
 			 return
 		  }
 		  let encryptedCertificateDataB64 = DesCypher.cypherData(dataCertificate, sk: cipherKey.data(using: .utf8)!)
@@ -38,7 +38,7 @@ class StoreDataRest {
 		  
 		  // Encode the post string
 		  guard let postData = post.data(using: .utf8, allowLossyConversion: true) else {
-			 completion(.failure(NSError(domain: "Error",code: -1,userInfo: [NSLocalizedDescriptionKey:NSLocalizedString("error_proceso_firma",bundle: Bundle.main,comment: "")])))
+			 completion(.failure(ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.jsonBatchOperationError)))
 			 return
 		  }
 		  
@@ -46,7 +46,7 @@ class StoreDataRest {
 		  
 		  // Create URL request
 		  guard let requestUrl = URL(string: urlServlet) else {
-			 completion(.failure(NSError(domain: "Error",code: -1,userInfo: [NSLocalizedDescriptionKey:NSLocalizedString("error_url_servidor",bundle: Bundle.main,comment: "")])))
+			 completion(.failure(ErrorGenerator.generateError(from: RequestErrorCodes.generalRequestError)))
 			 return
 		  }
 		  var request = URLRequest(url: requestUrl, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 30.0)
@@ -67,7 +67,7 @@ class StoreDataRest {
 				}
 				
 				guard let data = data, let responseString = String(data: data, encoding: .utf8) else {
-				    completion(.failure(NSError(domain: "Error",code: -1,userInfo: [NSLocalizedDescriptionKey:NSLocalizedString("error_proceso_firma",bundle: Bundle.main,comment: "")])))
+				    completion(.failure(ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.dataSavingError)))
 				    return
 				}
 				
@@ -75,7 +75,7 @@ class StoreDataRest {
 				    completion(.success(data))
 				} else {
 				    print("Failed to send certificate: \(responseString)")
-				    completion(.failure(NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: responseString])))
+				    completion(.failure(ErrorGenerator.generateError(from: FunctionalErrorCodes.signatureOperationError)))
 				}
 			 }
 		  }

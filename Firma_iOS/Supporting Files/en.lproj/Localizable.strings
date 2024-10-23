@@ -268,7 +268,8 @@ To work correctly you must install an electronic certificate. Consult the docume
 "dni_broken_title" = "Error reading your DNIe";
 "dni_reading_error_long_title" = "Error reading your DNIe";
 "dni_blocked_pin_title" = "Error reading your DNIe";
-"dni_incorrect_pin_title" = "Incorrect pin";
+"dni_incorrect_pin_title" = "Incorrect PIN";
+"dni_incorrect_can_title" = "Incorrect CAN";
 "dni_expired_title" = "Error reading your DNIe";
 "global_error_title" = "Something went wrong!";
 "tracking_error_title" = "Activity information";
@@ -293,6 +294,7 @@ To work correctly you must install an electronic certificate. Consult the docume
 "dni_reading_error_long_description" = "An error has occurred when trying to read your e-ID. Please try again. Remember to keep it on a flat surface and hold your mobile phone fixed on the card for a few seconds for it to be read correctly.";
 "dni_blocked_pin_description" = "The e-ID has a blocked PIN. You can go to a National Police station to a DNIe Update Point (PAD) to unblock it.";
 "dni_incorrect_pin_description" = "The PIN is incorrect. Remember that after 3 incorrect attempts the e-ID is blocked.";
+"dni_incorrect_can_description" = "The CAN is incorrect. Remember that we need the correct CAN to connect with the DNIe.";
 "dni_expired_description" = "The e-DNI you have entered does not have a signature certificate or the certificate has expired. You can go to a National Police station to a DNIe Update Point (PAD) to resolve this.";
 "global_error_description" = "We have tried to process your request, but it could not be completed successfully. Please review the documentation.";
 "tracking_error_description" = "Allow the app to send activity information to help its development?";

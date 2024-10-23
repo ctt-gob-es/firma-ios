@@ -17,6 +17,8 @@ enum DNIeErrorCodes: Int {
     case badPin = 6               // PIN incorrecto.
     case lockedCard = 7           // Tarjeta bloqueada.
     case pinError = 8             // Error durante la validación del PIN.
+    case badCan = 9               // Error durante la validación del CAN.
+    case severeError = 10         // Error durante la validación del CAN.
     
     static func getMessage(for code: DNIeErrorCodes) -> String {
 	   switch code {
@@ -36,6 +38,10 @@ enum DNIeErrorCodes: Int {
 		  return "Tarjeta bloqueada."
 	   case .pinError:
 		  return "Error durante la validación del PIN."
+	   case .badCan:
+		  return "Error durante la validación del CAN."
+	   case .severeError:
+		  return "Error genérico durante la comunicación con el DNIe"
 	   }
     }
 }

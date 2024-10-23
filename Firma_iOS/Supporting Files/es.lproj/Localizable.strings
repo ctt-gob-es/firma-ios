@@ -269,7 +269,8 @@ Para funcionar correctamente debes instalar un certificado electrónico. Consult
 "dni_broken_title" = "Error en la lectura de tu DNIe";
 "dni_reading_error_long_title" = "Error en la lectura de tu DNIe";
 "dni_blocked_pin_title" = "Error en la lectura de tu DNIe";
-"dni_incorrect_pin_title" = "Pin incorrecto";
+"dni_incorrect_pin_title" = "PIN incorrecto";
+"dni_incorrect_can_title" = "CAN incorrecto";
 "dni_expired_title" = "Error en la lectura de tu DNIe";
 "global_error_title" = "¡Algo salió mal!";
 "tracking_error_title" = "Información de actividad";
@@ -293,7 +294,8 @@ Para funcionar correctamente debes instalar un certificado electrónico. Consult
 "dni_broken_description" = "El DNIe que has proporcionado parece estar dañado. Necesitas acudir a tu comisaría de Policía Nacional para solicitar uno nuevo.";
 "dni_reading_error_long_description" = "Se ha producido un error al intentar leer tu DNIe. Por favor, vuelve a intentarlo. Recuerda mantenerlo en una superficie lisa y mantener tu teléfono móvil unos segundos fijo sobre la tarjeta para su correcta lectura.";
 "dni_blocked_pin_description" = "El DNIe tiene el PIN bloqueado. Puedes acudir a una comisaría de Policía Nacional a un Punto de Actualización del DNIe (PAD) para desbloquearlo.";
-"dni_incorrect_pin_description" = "El pin es incorrecto. Recuerda que tras 3 intentos erróneos el DNIe se bloquea.";
+"dni_incorrect_pin_description" = "El PIN es incorrecto. Recuerda que tras 3 intentos erróneos el DNIe se bloquea.";
+"dni_incorrect_can_description" = "El CAN es incorrecto. Recuerda que necesitamos el CAN correcto para conectar con el DNIe.";
 "dni_expired_description" = "El DNIe que has aproximado no tiene certificado de firma o el certificado está caducado. Puedes acudir a una comisaría de Policía Nacional a un Punto de Actualización del DNIe (PAD), para solucionarlo.";
 "global_error_description" = "Hemos intentado procesar tu solicitud, pero no ha podido ser completada con éxito. Por favor revisa la documentación.";
 "tracking_error_description" = "¿Permitir que la app envíe información de actividad para ayudar a su desarrollo?";

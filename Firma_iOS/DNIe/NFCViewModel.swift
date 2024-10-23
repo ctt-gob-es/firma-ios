@@ -44,10 +44,13 @@ class NFCViewModel: NSObject, ObservableObject {
 				}
 				completion(.success(success))
 			 case .failure(let error):
-				if let nsError = error as? NSError {
-				    DispatchQueue.main.async {
-					   NotificationCenter.default.post(name: .DNIeError, object: nil, userInfo: ["errorCode": nsError.code, "errorMessage": nsError.userInfo["errorMessage"] as? String ?? nsError.localizedDescription])
-				    }
+				let nsError = error as NSError
+				DispatchQueue.main.async {
+				    NotificationCenter.default.post(
+					   name: .DNIeError,
+					   object: nil,
+					   userInfo: ["errorCode": nsError.code, "errorMessage": nsError.userInfo["errorMessage"] as? String ?? nsError.localizedDescription]
+				    )
 				}
 				self.handleError(error: error)
 				completion(.failure(error))
@@ -64,7 +67,7 @@ class NFCViewModel: NSObject, ObservableObject {
 	   reportErrorUseCase.reportErrorAsync(
 		  urlServlet: signModel.urlServlet,
 		  docId: signModel.docId,
-		  error: ErrorHandlerUtils.getServerError(error: error)
+		  error: ErrorHandlerUtils.getServerError(error: error as NSError)
 	   ) { result in
 		  switch result {
 			 case .success(let errorFromServer):

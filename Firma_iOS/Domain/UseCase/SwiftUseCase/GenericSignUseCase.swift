@@ -30,7 +30,7 @@ class GenericSignUseCase {
     
     func singleSign(completion: @escaping (Result<Bool, Error>) -> Void) {
 	   guard let signModel else {
-		  handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_datos_firmar", bundle: Bundle.main, comment: "")]), completion: completion)
+		  handleSignError(error: ErrorGenerator.generateError(from: FunctionalErrorCodes.signatureOperationError), completion: completion)
 		  return
 	   }
 	   self.completionCallback = completion
@@ -43,7 +43,7 @@ class GenericSignUseCase {
 		    let signFormat = signModel.signFormat,
 		    let signAlgoInUse = signModel.signAlgoInUse,
 		    let certificateData = getCertificateData() else {
-		  handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_datos_firmar", bundle: Bundle.main, comment: "")]), completion: self.completionCallback!)
+		  handleSignError(error: ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.signingError), completion: self.completionCallback!)
 		  return
 	   }
 	   
@@ -61,14 +61,14 @@ class GenericSignUseCase {
 				self.handlePresingResult(signModel: signModel, result: result, completion: self.completionCallback!)
 			 })
 	   } else {
-		  handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_algoritmo_no_soportado", bundle: Bundle.main, comment: "")]), completion: self.completionCallback!)
+		  handleSignError(error: ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.appConfigurationError), completion: self.completionCallback!)
 	   }
     }
     
     private func handlePresingResult(signModel: SignModel, result: Result<String, Error>, completion: @escaping (Result<Bool, Error>) -> Void) {
 	   guard let signFormat = signModel.signFormat,
 		    let signAlgoInUse = signModel.signAlgoInUse else {
-		  handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_datos_firmar", bundle: Bundle.main, comment: "")]), completion: completion)
+		  handleSignError(error: ErrorGenerator.generateError(from: FunctionalErrorCodes.signatureOperationError), completion: completion)
 		  return
 	   }
 	   
@@ -79,7 +79,7 @@ class GenericSignUseCase {
 			 } else {
 				if let range = serverResponse.range(of: ":", options: .backwards) {
 				    let result = serverResponse[range.upperBound...]
-				    handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: result]), completion: completion)
+				    handleSignError(error: ErrorGenerator.generateError(from: FunctionalErrorCodes.signatureOperationError), completion: completion)
 				}
 			 }
 			 
@@ -88,7 +88,7 @@ class GenericSignUseCase {
 				    signAlgoInUse: signAlgoInUse,
 				    signFormat: signFormat
 				  )  else {
-				handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_proceso_firma", bundle: Bundle.main, comment: "")]), completion: completion)
+				handleSignError(error: ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.signingError), completion: completion)
 				return
 			 }
 			 postsign(signModel: signModel, encodedData: pkcs1, completion: completion)
@@ -104,7 +104,7 @@ class GenericSignUseCase {
 		    let signFormat = signModel.signFormat,
 		    let signAlgoInUse = signModel.signAlgoInUse,
 		    let certificateData = getCertificateData() else {
-		  handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_datos_firmar", bundle: Bundle.main, comment: "")]), completion: completion)
+		  handleSignError(error: ErrorGenerator.generateError(from: CommunicationErrorCodes.signatureUploadError), completion: completion)
 		  return
 	   }
 	   postSign(
@@ -136,18 +136,18 @@ class GenericSignUseCase {
 					   let parte2 = String(responseString[range.upperBound...])
 					   sendCertificate(dataSign: parte2, completion: completion)
 				    } else {
-					   handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_proceso_firma", bundle: Bundle.main, comment: "")]), completion: completion)
+					   handleSignError(error: ErrorGenerator.generateError(from: FunctionalErrorCodes.signatureOperationError), completion: completion)
 				    }
 				} else {
 				    if let range = responseString.range(of: ":", options: .backwards) {
 					   let result = responseString[range.upperBound...]
-					   handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: result]), completion: completion)
+					   handleSignError(error: ErrorGenerator.generateError(from: CommunicationErrorCodes.generalCommunicationError), completion: completion)
 				    } else {
-					   handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_proceso_firma", bundle: Bundle.main, comment: "")]), completion: completion)
+					   handleSignError(error: ErrorGenerator.generateError(from: FunctionalErrorCodes.signatureOperationError), completion: completion)
 				    }
 				}
 			 } else {
-				handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_proceso_firma", bundle: Bundle.main, comment: "")]), completion: completion)
+				handleSignError(error: ErrorGenerator.generateError(from: FunctionalErrorCodes.signatureOperationError), completion: completion)
 			 }
 			 
 		  case .failure(let error):
@@ -352,7 +352,7 @@ class GenericSignUseCase {
 				    if response == OK {
 					   completion(.success(false))
 				    } else {
-					   self.handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_proceso_firma", bundle: Bundle.main, comment: "")]), completion: completion)
+					   self.handleSignError(error: ErrorGenerator.generateError(from: CommunicationErrorCodes.certificateSelectionUploadError), completion: completion)
 				    }
 				}
 			 case .failure(let error):

@@ -47,11 +47,11 @@ class HomeViewModel: ObservableObject {
     @Published var dataType: DataType? = nil
     @Published var showTextfieldModal: Bool = false
     @Published var sheetHeight: CGFloat = .zero
-    
     @Published var showSelectSignMode: Bool = false
     @Published var selectDNIe: Bool = false
     @Published var selectElectronicCertificate: Bool = false
     @Published var signMode: SignMode?
+    @Published var certificates: [AOCertificateInfo]?
     
     var isLocalSign: Bool = false
     var localSignData: Data?
@@ -73,7 +73,8 @@ class HomeViewModel: ObservableObject {
 	    areCertificatesSelectable: Bool? = false,
 	    shouldSign: Bool? = nil,
 	    viewMode: ViewModes? = .sign,
-	    downloadedData: URL? = nil
+	    downloadedData: URL? = nil,
+	    certificates: [AOCertificateInfo]? = []
     ) {
 	   self.buttonEnabled = buttonEnabled
 	   self.urlReceived = urlReceived
@@ -93,6 +94,7 @@ class HomeViewModel: ObservableObject {
 	   self.shouldSign = shouldSign
 	   self.viewMode = viewMode
 	   self.downloadedData = downloadedData
+	   self.certificates = certificates
     }
     
     func onAppear() {
@@ -337,6 +339,7 @@ class HomeViewModel: ObservableObject {
     
     private func handleError(error: Error) {
 	   self.isLoading = false
+	   self.areCertificatesSelectable = false
 	   DispatchQueue.main.async {
 		  self.showErrorModal = false
 		  DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
@@ -353,7 +356,7 @@ class HomeViewModel: ObservableObject {
 	   reportErrorUseCase.reportErrorAsync(
 		  urlServlet: signModel?.urlServlet,
 		  docId: signModel?.docId,
-		  error: ErrorHandlerUtils.getServerError(error: error)
+		  error: ErrorHandlerUtils.getServerError(error: error as NSError)
 	   ) { result in
 		  switch result {
 			 case .success(let errorFromServer):
@@ -368,7 +371,6 @@ class HomeViewModel: ObservableObject {
     
     func showErrorModalStateFromError(error: Error) {
 	   self.errorModalState = ErrorHandlerUtils.chooseStateFromError(error: error)
-	   self.errorModalDescription = ErrorHandlerUtils.getErrorModalDescriptionFromError(error: error)
 	   self.showErrorModal = true
     }
     
@@ -382,7 +384,7 @@ class HomeViewModel: ObservableObject {
 		  let certificateRef = SwiftCertificateUtils.getCertificateRefFromIdentity(identity: identity),
 		  let certificateAlgorithm = SwiftCertificateUtils.getAlgorithmFromCertificate(certificate: certificateRef) else {
 		  print("Missing required data for signing")
-		  handleError(error: NSError(domain: "SignError", code: 1, userInfo: [NSLocalizedDescriptionKey: "Unknown error"]))
+		  handleError(error: ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.generalSoftwareError))
 		  isLoading = false
 		  return
 	   }
@@ -432,7 +434,8 @@ class HomeViewModel: ObservableObject {
 	   }
     }
     
-    func handleFinishDNISign() {
+    func handleFinishSign() {
+	   self.selectElectronicCertificate = false
 	   self.selectDNIe = false
 	   self.viewMode = .home
 	   self.areCertificatesSelectable = false

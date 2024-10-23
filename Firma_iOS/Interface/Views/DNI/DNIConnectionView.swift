@@ -85,7 +85,7 @@ struct DNIConnectionView: View {
 		  
 		  if let userInfo = notification.userInfo,
 			let errorCode = userInfo["errorCode"] as? Int,
-			let errorMessage = userInfo["errorMessage"] as? String {
+			let _ = userInfo["errorMessage"] as? String {
 			 nfcViewModel?.invalidateSession(errorMessage: selectInvalidationReason(error: errorCode))
 		  }
 	   }
@@ -128,7 +128,11 @@ struct DNIConnectionView: View {
 			 case .lockedCard:
 				appStatus.errorModalState = .dniBlockedPin
 			 case .pinError:
-				appStatus.errorModalState = .dniExpired
+				appStatus.errorModalState = .dniIncorrectPin
+			 case .badCan:
+				appStatus.errorModalState = .dniIncorrectCan
+			 case .severeError:
+				appStatus.errorModalState = .dniReadingErrorLong
 		  }
 	   }
 	   

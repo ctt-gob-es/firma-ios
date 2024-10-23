@@ -34,14 +34,14 @@ class PresignRest {
 	   }
 		  
 	   guard let postData = post.data(using: .utf8) else {
-		  completion(.failure(NSError(domain: "Error",code: -1,userInfo: [NSLocalizedDescriptionKey:NSLocalizedString("error_datos_firmar",bundle: Bundle.main,comment: "")])))
+		  completion(.failure(ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.generalSoftwareError)))
 		  return
 	   }
 	   
 	   let postLength = String(postData.count)
 	   
 	   guard let requestUrl = SingleSignUseCase.getDefaultTriphaseServer(triphasicServerURL: triphasicServerURL, rtServlet: rtServlet) else {
-		  completion(.failure(NSError(domain: "Error",code: -1,userInfo: [NSLocalizedDescriptionKey:NSLocalizedString("error_server_triphase",bundle: Bundle.main,comment: "")])))
+		  completion(.failure(ErrorGenerator.generateError(from: CommunicationErrorCodes.threePhaseSignatureError)))
 		  return
 	   }
 	   
@@ -60,7 +60,7 @@ class PresignRest {
 		  }
 		  
 		  guard let data = data, let responseString = String(data: data, encoding: .utf8) else {
-			 completion(.failure(NSError(domain: "Error",code: -1,userInfo: [NSLocalizedDescriptionKey:NSLocalizedString("error_formato_firma",bundle: Bundle.main,comment: "")])))
+			 completion(.failure(ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.signingError)))
 			 return
 		  }
 		  

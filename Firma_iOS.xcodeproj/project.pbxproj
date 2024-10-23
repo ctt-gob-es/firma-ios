@@ -2477,6 +2477,7 @@
 		833C2C932CA2B89D00DFF6CD /* Helvetica-BoldOblique.afm in Resources */ = {isa = PBXBuildFile; fileRef = 833C27E72CA2B89A00DFF6CD /* Helvetica-BoldOblique.afm */; };
 		833C2C942CA2B89D00DFF6CD /* Courier-Bold.afm in Resources */ = {isa = PBXBuildFile; fileRef = 833C27E82CA2B89A00DFF6CD /* Courier-Bold.afm */; };
 		833C2C952CA2B89D00DFF6CD /* Times-Roman.afm in Resources */ = {isa = PBXBuildFile; fileRef = 833C27E92CA2B89A00DFF6CD /* Times-Roman.afm */; };
+		833D30132CC9103500F510F8 /* InvalidAccessCodeException.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D30122CC9103500F510F8 /* InvalidAccessCodeException.m */; };
 		835135A02C60BD3A005081EE /* AddCertificateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8351359F2C60BD3A005081EE /* AddCertificateViewModel.swift */; };
 		835135A32C60BF00005081EE /* TutorialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835135A22C60BF00005081EE /* TutorialViewModel.swift */; };
 		8352FF2F2C47C500003402CC /* HomeErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8352FF2E2C47C500003402CC /* HomeErrorView.swift */; };
@@ -2612,6 +2613,7 @@
 		83AFFFFD2CA2C95D00A26C0F /* DigestAlgorithmIdentifiers.c in Sources */ = {isa = PBXBuildFile; fileRef = 83AFFF512CA2C95D00A26C0F /* DigestAlgorithmIdentifiers.c */; };
 		83AFFFFE2CA2C95D00A26C0F /* DisplayText.c in Sources */ = {isa = PBXBuildFile; fileRef = 83AFFF532CA2C95D00A26C0F /* DisplayText.c */; };
 		83AFFFFF2CA2C95D00A26C0F /* EncapsulatedContentInfo.c in Sources */ = {isa = PBXBuildFile; fileRef = 83AFFF552CA2C95D00A26C0F /* EncapsulatedContentInfo.c */; };
+		83B60AEC2CC2565B0096BB3E /* ErrorModalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B60AEB2CC2565B0096BB3E /* ErrorModalState.swift */; };
 		83C0EC852C3FE6B300244071 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC842C3FE6B300244071 /* PrivacyView.swift */; };
 		83C0EC8A2C3FEDB500244071 /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC892C3FEDB500244071 /* CheckBoxView.swift */; };
 		83C0EC8C2C3FEDD000244071 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC8B2C3FEDD000244071 /* NavigationBarModifier.swift */; };
@@ -2650,6 +2652,15 @@
 		83D3900C2CA5455200D16BA6 /* ByteArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D3900B2CA5455200D16BA6 /* ByteArrayUtils.swift */; };
 		83DB247E2CBE727600D1DD8C /* DNIeErrorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DB247D2CBE727500D1DD8C /* DNIeErrorCodes.swift */; };
 		83DB24802CBFCD6900D1DD8C /* HomeViewBindings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DB247F2CBFCD6900D1DD8C /* HomeViewBindings.swift */; };
+		83DB24822CBFD11C00D1DD8C /* GenericErrorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DB24812CBFD11C00D1DD8C /* GenericErrorCodes.swift */; };
+		83DB24852CBFD90900D1DD8C /* HardwareErrorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DB24842CBFD90900D1DD8C /* HardwareErrorCodes.swift */; };
+		83DB24872CBFD91700D1DD8C /* InternalSoftwareErrorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DB24862CBFD91700D1DD8C /* InternalSoftwareErrorCodes.swift */; };
+		83DB24892CBFD92700D1DD8C /* ThirdPartyErrorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DB24882CBFD92700D1DD8C /* ThirdPartyErrorCodes.swift */; };
+		83DB248B2CBFD94300D1DD8C /* FunctionalErrorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DB248A2CBFD94300D1DD8C /* FunctionalErrorCodes.swift */; };
+		83DB248D2CBFD95000D1DD8C /* RequestErrorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DB248C2CBFD95000D1DD8C /* RequestErrorCodes.swift */; };
+		83DB248F2CBFD97800D1DD8C /* CommunicationErrorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DB248E2CBFD97800D1DD8C /* CommunicationErrorCodes.swift */; };
+		83DB24922CBFD9F500D1DD8C /* ErrorGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DB24912CBFD9F500D1DD8C /* ErrorGenerator.swift */; };
+		83DB24942CBFDB5E00D1DD8C /* ErrorDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DB24932CBFDB5E00D1DD8C /* ErrorDomain.swift */; };
 		83DF46762C4876D6000C3F31 /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF46752C4876D6000C3F31 /* ViewUtils.swift */; };
 		83DF467B2C48F084000C3F31 /* AddCertificateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF467A2C48F084000C3F31 /* AddCertificateView.swift */; };
 		83DF467D2C490E2E000C3F31 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF467C2C490E2E000C3F31 /* FileUtils.swift */; };
@@ -7688,6 +7699,8 @@
 		833C27E72CA2B89A00DFF6CD /* Helvetica-BoldOblique.afm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Helvetica-BoldOblique.afm"; sourceTree = "<group>"; };
 		833C27E82CA2B89A00DFF6CD /* Courier-Bold.afm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Courier-Bold.afm"; sourceTree = "<group>"; };
 		833C27E92CA2B89A00DFF6CD /* Times-Roman.afm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Times-Roman.afm"; sourceTree = "<group>"; };
+		833D30112CC9103400F510F8 /* InvalidAccessCodeException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvalidAccessCodeException.h; sourceTree = "<group>"; };
+		833D30122CC9103500F510F8 /* InvalidAccessCodeException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvalidAccessCodeException.m; sourceTree = "<group>"; };
 		8351359F2C60BD3A005081EE /* AddCertificateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCertificateViewModel.swift; sourceTree = "<group>"; };
 		835135A22C60BF00005081EE /* TutorialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewModel.swift; sourceTree = "<group>"; };
 		8352FF2E2C47C500003402CC /* HomeErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeErrorView.swift; sourceTree = "<group>"; };
@@ -7925,6 +7938,7 @@
 		83AFFFD72CA2C95D00A26C0F /* Utiles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utiles.h; sourceTree = "<group>"; };
 		83AFFFD92CA2C95D00A26C0F /* CADESSigner.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CADESSigner.c; sourceTree = "<group>"; };
 		83AFFFDA2CA2C95D00A26C0F /* CADESSigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADESSigner.h; sourceTree = "<group>"; };
+		83B60AEB2CC2565B0096BB3E /* ErrorModalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModalState.swift; sourceTree = "<group>"; };
 		83C0EC842C3FE6B300244071 /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
 		83C0EC892C3FEDB500244071 /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
 		83C0EC8B2C3FEDD000244071 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
@@ -7964,6 +7978,15 @@
 		83D3900B2CA5455200D16BA6 /* ByteArrayUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByteArrayUtils.swift; sourceTree = "<group>"; };
 		83DB247D2CBE727500D1DD8C /* DNIeErrorCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNIeErrorCodes.swift; sourceTree = "<group>"; };
 		83DB247F2CBFCD6900D1DD8C /* HomeViewBindings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewBindings.swift; sourceTree = "<group>"; };
+		83DB24812CBFD11C00D1DD8C /* GenericErrorCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericErrorCodes.swift; sourceTree = "<group>"; };
+		83DB24842CBFD90900D1DD8C /* HardwareErrorCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardwareErrorCodes.swift; sourceTree = "<group>"; };
+		83DB24862CBFD91700D1DD8C /* InternalSoftwareErrorCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalSoftwareErrorCodes.swift; sourceTree = "<group>"; };
+		83DB24882CBFD92700D1DD8C /* ThirdPartyErrorCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartyErrorCodes.swift; sourceTree = "<group>"; };
+		83DB248A2CBFD94300D1DD8C /* FunctionalErrorCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionalErrorCodes.swift; sourceTree = "<group>"; };
+		83DB248C2CBFD95000D1DD8C /* RequestErrorCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestErrorCodes.swift; sourceTree = "<group>"; };
+		83DB248E2CBFD97800D1DD8C /* CommunicationErrorCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationErrorCodes.swift; sourceTree = "<group>"; };
+		83DB24912CBFD9F500D1DD8C /* ErrorGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorGenerator.swift; sourceTree = "<group>"; };
+		83DB24932CBFDB5E00D1DD8C /* ErrorDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDomain.swift; sourceTree = "<group>"; };
 		83DF46752C4876D6000C3F31 /* ViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtils.swift; sourceTree = "<group>"; };
 		83DF467A2C48F084000C3F31 /* AddCertificateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCertificateView.swift; sourceTree = "<group>"; };
 		83DF467C2C490E2E000C3F31 /* FileUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUtils.swift; sourceTree = "<group>"; };
@@ -8685,6 +8708,8 @@
 		8325CA792CAADD16007224E9 /* dnie */ = {
 			isa = PBXGroup;
 			children = (
+				833D30112CC9103400F510F8 /* InvalidAccessCodeException.h */,
+				833D30122CC9103500F510F8 /* InvalidAccessCodeException.m */,
 				8325CA4B2CAADD16007224E9 /* ceressc */,
 				8325CA522CAADD16007224E9 /* tif */,
 				8325CA532CAADD16007224E9 /* BurnedDnieCardException.h */,
@@ -15605,14 +15630,12 @@
 			isa = PBXGroup;
 			children = (
 				83AF00482CA2CBBE00A26C0F /* NFCViewModel.swift */,
-				83AF00412CA2CB7700A26C0F /* NFCError.swift */,
 				83AF00432CA2CB9500A26C0F /* IOSApduConnection.swift */,
 				83AF00462CA2CBAB00A26C0F /* SwiftDNIeWrapper.swift */,
 				83AF004C2CA2E51E00A26C0F /* IOSCallbackHandler.swift */,
 				83904CCD2CA43754005F345B /* IOSNFCSessionManager.swift */,
 				8308DD062CB56C4E006C6032 /* DNIeSigner.h */,
 				8308DD072CB56C5A006C6032 /* DNIeSigner.m */,
-				83DB247D2CBE727500D1DD8C /* DNIeErrorCodes.swift */,
 			);
 			path = DNIe;
 			sourceTree = "<group>";
@@ -15984,6 +16007,33 @@
 			path = Modals;
 			sourceTree = "<group>";
 		};
+		83DB24832CBFD8B400D1DD8C /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				83DB24902CBFD9E000D1DD8C /* ErrorCodes */,
+				83AF00412CA2CB7700A26C0F /* NFCError.swift */,
+				83DB24912CBFD9F500D1DD8C /* ErrorGenerator.swift */,
+				83DB24932CBFDB5E00D1DD8C /* ErrorDomain.swift */,
+				83B60AEB2CC2565B0096BB3E /* ErrorModalState.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		83DB24902CBFD9E000D1DD8C /* ErrorCodes */ = {
+			isa = PBXGroup;
+			children = (
+				83DB24812CBFD11C00D1DD8C /* GenericErrorCodes.swift */,
+				83DB247D2CBE727500D1DD8C /* DNIeErrorCodes.swift */,
+				83DB24842CBFD90900D1DD8C /* HardwareErrorCodes.swift */,
+				83DB24862CBFD91700D1DD8C /* InternalSoftwareErrorCodes.swift */,
+				83DB24882CBFD92700D1DD8C /* ThirdPartyErrorCodes.swift */,
+				83DB248A2CBFD94300D1DD8C /* FunctionalErrorCodes.swift */,
+				83DB248C2CBFD95000D1DD8C /* RequestErrorCodes.swift */,
+				83DB248E2CBFD97800D1DD8C /* CommunicationErrorCodes.swift */,
+			);
+			path = ErrorCodes;
+			sourceTree = "<group>";
+		};
 		83DF46772C48EB40000C3F31 /* Certificate */ = {
 			isa = PBXGroup;
 			children = (
@@ -16061,6 +16111,7 @@
 		A073AA792893E7BB00FE30CE /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				83DB24832CBFD8B400D1DD8C /* Errors */,
 				8393EED02C58FA98009FDE6E /* Repository */,
 				8393EECF2C58FA67009FDE6E /* UseCase */,
 				83A5EDB92C52558700F93B6D /* Rest */,
@@ -16655,6 +16706,7 @@
 				833C285A2CA2B89A00DFF6CD /* TargetInformation.m in Sources */,
 				8325D5622CAADD17007224E9 /* DLExternal.m in Sources */,
 				83ACD2F92CB7B18D00A3EFA5 /* DNIConnectionSteps.swift in Sources */,
+				83DB24822CBFD11C00D1DD8C /* GenericErrorCodes.swift in Sources */,
 				83AFFFF22CA2C95D00A26C0F /* constr_SEQUENCE_OF.c in Sources */,
 				833C2A152CA2B89B00DFF6CD /* Nat224.m in Sources */,
 				833C29FE2CA2B89B00DFF6CD /* ECEndomorphism.m in Sources */,
@@ -16662,6 +16714,7 @@
 				8325D4792CAADD17007224E9 /* NoReadersFoundException.m in Sources */,
 				8325D3B02CAADD17007224E9 /* CeresScPrivateKeyObject.m in Sources */,
 				8325D6662CAADD18007224E9 /* SecP224R1FieldElement.m in Sources */,
+				83DB248B2CBFD94300D1DD8C /* FunctionalErrorCodes.swift in Sources */,
 				8325D6F42CAADD18007224E9 /* DigestCalculator.m in Sources */,
 				83AFFFE32CA2C95D00A26C0F /* AttributeIOS.c in Sources */,
 				8325D6032CAADD18007224E9 /* StatelessProcessing.m in Sources */,
@@ -16705,6 +16758,7 @@
 				8325D4112CAADD17007224E9 /* package-info.m in Sources */,
 				8325D5B12CAADD18007224E9 /* SHA512tDigest.m in Sources */,
 				833C2BCB2CA2B89C00DFF6CD /* PdfAnnotationsImp.m in Sources */,
+				83DB24892CBFD92700D1DD8C /* ThirdPartyErrorCodes.swift in Sources */,
 				833C28032CA2B89A00DFF6CD /* DERBitString.m in Sources */,
 				833C2BDA2CA2B89C00DFF6CD /* AcroFields.m in Sources */,
 				833C2A9E2CA2B89B00DFF6CD /* LUTColorConverter.m in Sources */,
@@ -16762,6 +16816,7 @@
 				8325D6A22CAADD18007224E9 /* SecT409Field.m in Sources */,
 				833C286B2CA2B89A00DFF6CD /* DLSequence.m in Sources */,
 				8325D7D32CAADD18007224E9 /* QTESLAKey.m in Sources */,
+				83DB248D2CBFD95000D1DD8C /* RequestErrorCodes.swift in Sources */,
 				833C2B832CA2B89C00DFF6CD /* PdfStructureTreeRoot.m in Sources */,
 				833C29112CA2B89A00DFF6CD /* KeccakDigest.m in Sources */,
 				833C2C262CA2B89C00DFF6CD /* PdfPCellEventForwarder.m in Sources */,
@@ -16855,6 +16910,7 @@
 				83DF46822C493C56000C3F31 /* ReceiveDataUseCase.swift in Sources */,
 				8325D71D2CAADD18007224E9 /* HSS.m in Sources */,
 				833C2B182CA2B89B00DFF6CD /* AOSimpleSignInfo.m in Sources */,
+				83DB24872CBFD91700D1DD8C /* InternalSoftwareErrorCodes.swift in Sources */,
 				8325D6152CAADD18007224E9 /* ExtCRLException.m in Sources */,
 				833C2A932CA2B89B00DFF6CD /* OperatorException.m in Sources */,
 				8325D52A2CAADD17007224E9 /* ASN1UniversalType.m in Sources */,
@@ -16965,6 +17021,7 @@
 				833C29942CA2B89A00DFF6CD /* SecT233K1Curve.m in Sources */,
 				8325D45C2CAADD17007224E9 /* PrivateKeyReference.m in Sources */,
 				8325D40D2CAADD17007224E9 /* package-info.m in Sources */,
+				83DB24922CBFD9F500D1DD8C /* ErrorGenerator.swift in Sources */,
 				8325D5D12CAADD18007224E9 /* ECKeyGenerationParameters.m in Sources */,
 				833C29BC2CA2B89B00DFF6CD /* SecP128R1Point.m in Sources */,
 				83E419D22C45295400C21811 /* AppStatus.swift in Sources */,
@@ -17070,6 +17127,7 @@
 				8325D7522CAADD18007224E9 /* NHKeyPairGenerator.m in Sources */,
 				8325D5F32CAADD18007224E9 /* DerivationParameters.m in Sources */,
 				83AF000E2CA2C95D00A26C0F /* NoticeReference.c in Sources */,
+				83DB24852CBFD90900D1DD8C /* HardwareErrorCodes.swift in Sources */,
 				8325D47E2CAADD17007224E9 /* package-info.m in Sources */,
 				8325D6AA2CAADD18007224E9 /* SecT571K1Curve.m in Sources */,
 				8325D3E72CAADD17007224E9 /* GeneralizedTime.m in Sources */,
@@ -18075,6 +18133,7 @@
 				833C281C2CA2B89A00DFF6CD /* StreamUtil.m in Sources */,
 				833C29782CA2B89A00DFF6CD /* Base64Encoder.m in Sources */,
 				833C2B3C2CA2B89C00DFF6CD /* CAdESSignerMetadataHelper.m in Sources */,
+				833D30132CC9103500F510F8 /* InvalidAccessCodeException.m in Sources */,
 				8325D5D22CAADD18007224E9 /* ECKeyParameters.m in Sources */,
 				8325D71A2CAADD18007224E9 /* FrodoPublicKeyParameters.m in Sources */,
 				8325D5762CAADD17007224E9 /* AttributeCertificateHolder.m in Sources */,
@@ -18086,6 +18145,7 @@
 				8325D4422CAADD17007224E9 /* WirelessInitializerPin.m in Sources */,
 				833C2AE32CA2B89B00DFF6CD /* UrlHttpMethod.m in Sources */,
 				8325D50B2CAADD17007224E9 /* ASN1GeneralizedTime.m in Sources */,
+				83DB24942CBFDB5E00D1DD8C /* ErrorDomain.swift in Sources */,
 				833C1E112CA2B6F600DFF6CD /* PadesUtilsSwift.swift in Sources */,
 				833C2A892CA2B89B00DFF6CD /* OutputEncryptor.m in Sources */,
 				833C2C142CA2B89C00DFF6CD /* PushbuttonField.m in Sources */,
@@ -18642,6 +18702,7 @@
 				8325D70B2CAADD18007224E9 /* BENES13.m in Sources */,
 				8325D6F62CAADD18007224E9 /* OperatorCreationException.m in Sources */,
 				8325D6B52CAADD18007224E9 /* AbstractECLookupTable.m in Sources */,
+				83DB248F2CBFD97800D1DD8C /* CommunicationErrorCodes.swift in Sources */,
 				8325D72C2CAADD18007224E9 /* LMSContextBasedVerifier.m in Sources */,
 				8325D5C52CAADD18007224E9 /* BlockCipherPadding.m in Sources */,
 				833C2A0C2CA2B89B00DFF6CD /* Nat128.m in Sources */,
@@ -18773,6 +18834,7 @@
 				8325D4A82CAADD17007224E9 /* VerisignCzagExtension.m in Sources */,
 				833C29712CA2B89A00DFF6CD /* Selector.m in Sources */,
 				833C2C112CA2B89C00DFF6CD /* BaseField.m in Sources */,
+				83B60AEC2CC2565B0096BB3E /* ErrorModalState.swift in Sources */,
 				833C2B752CA2B89C00DFF6CD /* Row.m in Sources */,
 				838114CA2C5146FE00CDEC97 /* SignModel.swift in Sources */,
 				833C28462CA2B89A00DFF6CD /* GeneralSubtree.m in Sources */,
@@ -19266,7 +19328,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -19274,8 +19336,9 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_BITCODE = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				ENABLE_TESTABILITY = YES;
+				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = "${J2OBJC_HOME}/frameworks";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -19351,7 +19414,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -19359,7 +19422,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_BITCODE = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = "${J2OBJC_HOME}/frameworks";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;

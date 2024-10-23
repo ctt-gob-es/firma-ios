@@ -22,14 +22,14 @@ class ReceiveDataRest {
 	   post += PARAMETER_NAME_ID + HTTP_EQUALS + (fileIdCert ?? "")
 	   
 	   guard let postData = post.data(using: .utf8, allowLossyConversion: true) else {
-		  completion(.failure(NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid post data"])))
+		  completion(.failure(ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.generalSoftwareError)))
 		  return
 	   }
 	   
 	   let postLength = String(postData.count)
 	   
 	   guard let requestUrl = URL(string: rtServletCert ?? "") else {
-		  completion(.failure(NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])))
+		  completion(.failure(ErrorGenerator.generateError(from: ThirdPartySoftwareErrorCodes.generalThirdPartyError)))
 		  return
 	   }
 	   
@@ -45,7 +45,7 @@ class ReceiveDataRest {
 	   let task = URLSession.shared.dataTask(with: request) { data, response, error in
 		  guard let data = data, error == nil else {
 			 print("Error: \(error?.localizedDescription ?? "No data")")
-			 completion(.failure(NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_url_servidor", bundle: Bundle.main, comment: "")])))
+			 completion(.failure(ErrorGenerator.generateError(from: ThirdPartySoftwareErrorCodes.generalThirdPartyError)))
 			 return
 		  }
 		  completion(.success(data))

@@ -88,6 +88,20 @@ inline jint EsGobJmulticardIosErrorCode_get_PIN_ERROR(void);
 #define EsGobJmulticardIosErrorCode_PIN_ERROR 8
 J2OBJC_STATIC_FIELD_CONSTANT(EsGobJmulticardIosErrorCode, PIN_ERROR, jint)
 
+/*!
+ @brief CAN incorrecto.
+ */
+inline jint EsGobJmulticardIosErrorCode_get_BAD_CAN(void);
+#define EsGobJmulticardIosErrorCode_BAD_CAN 9
+J2OBJC_STATIC_FIELD_CONSTANT(EsGobJmulticardIosErrorCode, BAD_CAN, jint)
+
+/*!
+ @brief Error grave no reconocido.
+ */
+inline jint EsGobJmulticardIosErrorCode_get_SEVERE_ERROR(void);
+#define EsGobJmulticardIosErrorCode_SEVERE_ERROR 10
+J2OBJC_STATIC_FIELD_CONSTANT(EsGobJmulticardIosErrorCode, SEVERE_ERROR, jint)
+
 FOUNDATION_EXPORT void EsGobJmulticardIosErrorCode_init(EsGobJmulticardIosErrorCode *self);
 
 FOUNDATION_EXPORT EsGobJmulticardIosErrorCode *new_EsGobJmulticardIosErrorCode_init(void) NS_RETURNS_RETAINED;

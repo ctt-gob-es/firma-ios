@@ -36,7 +36,7 @@ class PadesUtilsSwift {
 				} else if let result = result {
 				    completion(.success(result))
 				} else {
-				    let unknownError = NSError(domain: "Error", code: 9999, userInfo: [NSLocalizedDescriptionKey: "Unknown error occurred"])
+				    let unknownError = ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.generalSoftwareError)
 				    completion(.failure(unknownError))
 				}
 			 }

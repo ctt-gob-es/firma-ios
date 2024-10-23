@@ -126,7 +126,7 @@ class IOSApduConnection: EsGobJmulticardConnectionAbstractApduConnectionIso7816 
     private func sendResetCardCommand() async throws -> IOSByteArray? {
 	   let apduData = Data([0x00, 0xA4, 0x00, 0x00])
 	   guard let apdu = NFCISO7816APDU(data: apduData) else {
-		  throw NSError(domain: "NFCErrorDomain", code: 3, userInfo: [NSLocalizedDescriptionKey: "Failed to create APDU command"])
+		  throw ErrorGenerator.generateError(from: HardwareErrorCodes.nfcCardError)
 	   }
 	   
 	   do {
@@ -165,7 +165,7 @@ class IOSApduConnection: EsGobJmulticardConnectionAbstractApduConnectionIso7816 
     private func sendApdu(apdu: NFCISO7816APDU) async throws -> IOSByteArray? {
 	   return try await withCheckedThrowingContinuation { continuation in
 		  guard let nfcTag = nfcTag else {
-			 continuation.resume(throwing: NSError(domain: "NFCErrorDomain", code: 1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("apdu_no_tag", comment: "")]))
+			 continuation.resume(throwing: ErrorGenerator.generateError(from: HardwareErrorCodes.nfcError))
 			 return
 		  }
 		  

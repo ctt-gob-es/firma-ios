@@ -23,16 +23,10 @@ class DNISingleSignUseCase : GenericSignUseCase, DNIeResult {
     }
     
     private func handleErrorDnieWrapper() {
-	   if let errorCode = dnieWrapper?.getErrorCode(),
-		 let errorMessage = dnieWrapper?.getErrorMessage() {
-		  handleSignError(
-			 error:  NSError(
-				domain: "Error", code: Int(errorCode),
-				userInfo: ["errorMessage" : errorMessage]
-			 ),
-			 completion: self.completionCallback!
-		  )
-	   }
+	   handleSignError(
+		  error:  ErrorGenerator.generateError(from: HardwareErrorCodes.nfcError),
+		  completion: self.completionCallback!
+	   )
     }
     
     override func getCertificateData() -> String? {
@@ -50,7 +44,7 @@ class DNISingleSignUseCase : GenericSignUseCase, DNIeResult {
     
     override func singleSign(completion: @escaping (Result<Bool, Error>) -> Void) {
 	   guard signModel != nil else {
-		  handleSignError(error: NSError(domain: "Error", code: -1, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("error_datos_firmar", bundle: Bundle.main, comment: "")]), completion: completion)
+		  handleSignError(error: ErrorGenerator.generateError(from: FunctionalErrorCodes.signatureOperationError), completion: completion)
 		  return
 	   }
 	   self.completionCallback = completion
@@ -64,7 +58,16 @@ class DNISingleSignUseCase : GenericSignUseCase, DNIeResult {
 	   presign(signModel: signModel!)
     }
     
-    func getDNIeError(errorCode: Int, errorMessage: String) {
-	   handleSignError(error: NSError(domain: "Error", code: errorCode, userInfo: ["errorMessage": errorMessage]), completion: self.completionCallback!)
+    func getDNIeError(
+	   errorCode: Int,
+	   errorMessage: String
+    ) {
+	   handleSignError(
+		  error: NSError(
+			 domain: "Error",
+			 code: errorCode,
+			 userInfo: ["errorMessage": errorMessage]
+		  ),
+		  completion: self.completionCallback!)
     }
 }
