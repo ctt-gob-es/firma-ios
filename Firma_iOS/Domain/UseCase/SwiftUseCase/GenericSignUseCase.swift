@@ -88,7 +88,9 @@ class GenericSignUseCase {
 				    signAlgoInUse: signAlgoInUse,
 				    signFormat: signFormat
 				  )  else {
-				handleSignError(error: ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.signingError), completion: completion)
+				if self is SingleSignUseCase {
+				    handleSignError(error: ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.signingError), completion: completion)
+				}
 				return
 			 }
 			 postsign(signModel: signModel, encodedData: pkcs1, completion: completion)

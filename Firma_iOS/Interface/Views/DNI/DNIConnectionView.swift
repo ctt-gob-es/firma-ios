@@ -81,12 +81,21 @@ struct DNIConnectionView: View {
 	   .onReceive(NotificationCenter.default.publisher(for: .DNIeError)) { notification in
 		  appStatus.isLoading = false
 		  appStatus.showErrorModal = true
-		  step = .canStep
 		  
 		  if let userInfo = notification.userInfo,
 			let errorCode = userInfo["errorCode"] as? Int,
-			let _ = userInfo["errorMessage"] as? String {
+			let errorMessage = userInfo["errorMessage"] as? String {
+			 if errorCode == Int(DNIeErrorCodes.badCan.rawValue) {
+				step = .canStep
+			 } else if errorCode == Int(DNIeErrorCodes.badPin.rawValue) {
+				step = .pinStep
+			 } else {
+				step = .nfcStep
+				initModel()
+			 }
 			 nfcViewModel?.invalidateSession(errorMessage: selectInvalidationReason(error: errorCode))
+		  } else {
+			 print("No user info available in the notification")
 		  }
 	   }
     }
@@ -111,7 +120,7 @@ struct DNIConnectionView: View {
     }
     
     func selectInvalidationReason(error: Int) -> String {
-	   if let errorCode = DNIeErrorCodes(rawValue: error) {
+	   if let errorCode = DNIeErrorCodes(rawValue: String(error)) {
 		  switch errorCode {
 			 case .invalidCard:
 				appStatus.errorModalState = .dniReadingError

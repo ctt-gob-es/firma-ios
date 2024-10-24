@@ -22,9 +22,9 @@ class DNISingleSignUseCase : GenericSignUseCase, DNIeResult {
 	   wrapper = SwiftDNIeWrapper(can: can, pin: pin)
     }
     
-    private func handleErrorDnieWrapper() {
+    private func handleErrorDnieWrapper(errorCode: Int) {
 	   handleSignError(
-		  error:  ErrorGenerator.generateError(from: HardwareErrorCodes.nfcError),
+		  error:  ErrorGenerator.generateError(from: DNIeErrorCodes(rawValue: String(errorCode))!),
 		  completion: self.completionCallback!
 	   )
     }
@@ -36,7 +36,7 @@ class DNISingleSignUseCase : GenericSignUseCase, DNIeResult {
     override func getPKCS1Sign(dataToSign: Data, algorithm: String) -> Data? {
 	   guard let privateKeyReference = dnieWrapper?.getPrivateKey(with: "CertFirmaDigital"),
 		    let dataSigned = dnieWrapper?.sign(with: IOSByteArray(nsData: dataToSign), with: algorithm, with: privateKeyReference) else {
-		  handleErrorDnieWrapper()
+		  handleErrorDnieWrapper(errorCode: Int(dnieWrapper?.getErrorCode() ?? 10))
 		  return nil
 	   }
 	   return dataSigned.toNSData()

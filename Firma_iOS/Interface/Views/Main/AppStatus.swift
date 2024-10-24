@@ -23,7 +23,7 @@ class AppStatus: ObservableObject {
     @Published var showDocumentImportingPicker: Bool = false
     
     @Published var successModalState: SuccessModalState = .successCertificateAdded
-    @Published var errorModalState: ErrorModalState = .trackingError
+    @Published var errorModalState: ErrorModalState = .globalError
     
     @Published var errorModalDescription: String = ""
     @Published var selectedCertificate: AOCertificateInfo? = nil

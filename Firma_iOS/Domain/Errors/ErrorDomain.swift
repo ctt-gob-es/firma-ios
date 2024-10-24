@@ -16,6 +16,7 @@ struct ErrorDomain {
     static let communication = "es.autofirma.AI.communication"
     static let functional = "es.autofirma.AI.functional"
     static let request = "es.autofirma.AI.request"
+    static let dnie = "es.autofirma.AI.dnie"
     static let general = "es.autofirma.AI"
 }
 

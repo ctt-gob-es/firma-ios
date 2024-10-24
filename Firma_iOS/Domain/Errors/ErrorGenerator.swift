@@ -31,6 +31,9 @@ class ErrorGenerator {
 	   } else if let requestError = code as? RequestErrorCodes {
 		  errorMessage = RequestErrorCodes.getMessage(for: requestError)
 		  errorDomain = ErrorDomain.request
+	   }  else if let requestError = code as? DNIeErrorCodes {
+		  errorMessage = DNIeErrorCodes.getMessage(for: requestError)
+		  errorDomain = ErrorDomain.dnie
 	   }
 
 	   let userInfo = [NSLocalizedDescriptionKey: errorMessage]

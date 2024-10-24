@@ -59,7 +59,7 @@ class SwiftDNIeWrapper : IOSNFCSessionDelegate{
 	   
 	   Task {
 		  if let wrapper = try? getWrapperDNIe() {
-			 if let _ = wrapper.getDnie() {
+			 if let dnie = wrapper.getDnie() {
 				dniResult?.getDNIeNFCSuccess(wrapper: wrapper)
 			 } else {
 				dniResult?.getDNIeError(
