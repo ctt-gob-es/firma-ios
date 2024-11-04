@@ -30,6 +30,8 @@
 #import "IOSClass.h"
 #import "IOSObjectArray.h"
 #import "DNIeSigner.h"
+#import "InputParametersBatch.h"
+#import "BachRestIOS.h"
 
 //JAVA CODE
 #include "java/util/Properties.h"

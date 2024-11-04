@@ -34,7 +34,7 @@ class DNISingleSignUseCase : GenericSignUseCase, DNIeResult {
     }
     
     override func getPKCS1Sign(dataToSign: Data, algorithm: String) -> Data? {
-	   guard let privateKeyReference = dnieWrapper?.getPrivateKey(with: "CertFirmaDigital"),
+	   guard let privateKeyReference = dnieWrapper?.getPrivateKey(with: PrivateConstants.certFromDNIe),
 		    let dataSigned = dnieWrapper?.sign(with: IOSByteArray(nsData: dataToSign), with: algorithm, with: privateKeyReference) else {
 		  handleErrorDnieWrapper(errorCode: Int(dnieWrapper?.getErrorCode() ?? 10))
 		  return nil
@@ -52,8 +52,14 @@ class DNISingleSignUseCase : GenericSignUseCase, DNIeResult {
     }
     
     func getDNIeNFCSuccess(wrapper: EsGobJmulticardIosDnieWrapper) {
-	   let certJ509 = wrapper.getCertificateWith("CertFirmaDigital")
-	   self.certificateData = EsGobAfirmaCoreMiscBase64_encodeWithByteArray_withBoolean_(certJ509?.getEncoded(), true)
+	   let certJ509 = wrapper.getCertificateWith(PrivateConstants.certFromDNIe)
+	   if let certJ509 = certJ509 {
+		  self.certificateData = EsGobAfirmaCoreMiscBase64_encodeWithByteArray_withBoolean_(certJ509.getEncoded(), true)
+	   } else{
+		  handleErrorDnieWrapper(errorCode: 11)
+		  return
+	   }
+	   
 	   self.dnieWrapper = wrapper
 	   presign(signModel: signModel!)
     }

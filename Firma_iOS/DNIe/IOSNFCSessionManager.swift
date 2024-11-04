@@ -27,7 +27,7 @@ class IOSNFCSessionManager: NSObject, NFCTagReaderSessionDelegate {
 		  print(NSLocalizedString("nfc_not_supported", comment: ""))
 		  return
 	   }
-	   nfcSession = NFCTagReaderSession(pollingOption: [.iso14443], delegate: self)
+	   nfcSession = NFCTagReaderSession(pollingOption: [.pace], delegate: self)
 	   nfcSession?.alertMessage = NSLocalizedString("nfc_dni_warning", comment: "")
 	   nfcSession?.begin()
     }

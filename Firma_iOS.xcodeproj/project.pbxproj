@@ -2478,6 +2478,9 @@
 		833C2C942CA2B89D00DFF6CD /* Courier-Bold.afm in Resources */ = {isa = PBXBuildFile; fileRef = 833C27E82CA2B89A00DFF6CD /* Courier-Bold.afm */; };
 		833C2C952CA2B89D00DFF6CD /* Times-Roman.afm in Resources */ = {isa = PBXBuildFile; fileRef = 833C27E92CA2B89A00DFF6CD /* Times-Roman.afm */; };
 		833D30132CC9103500F510F8 /* InvalidAccessCodeException.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D30122CC9103500F510F8 /* InvalidAccessCodeException.m */; };
+		833D30152CCA5D4B00F510F8 /* GenericBatchSignUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D30142CCA5D4B00F510F8 /* GenericBatchSignUseCase.swift */; };
+		833D30332CCB805400F510F8 /* CertificateBatchSignUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D30322CCB805400F510F8 /* CertificateBatchSignUseCase.swift */; };
+		833D30352CCB806400F510F8 /* DNIeBatchSignUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D30342CCB806400F510F8 /* DNIeBatchSignUseCase.swift */; };
 		835135A02C60BD3A005081EE /* AddCertificateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8351359F2C60BD3A005081EE /* AddCertificateViewModel.swift */; };
 		835135A32C60BF00005081EE /* TutorialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835135A22C60BF00005081EE /* TutorialViewModel.swift */; };
 		8352FF2F2C47C500003402CC /* HomeErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8352FF2E2C47C500003402CC /* HomeErrorView.swift */; };
@@ -7701,6 +7704,9 @@
 		833C27E92CA2B89A00DFF6CD /* Times-Roman.afm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Times-Roman.afm"; sourceTree = "<group>"; };
 		833D30112CC9103400F510F8 /* InvalidAccessCodeException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvalidAccessCodeException.h; sourceTree = "<group>"; };
 		833D30122CC9103500F510F8 /* InvalidAccessCodeException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvalidAccessCodeException.m; sourceTree = "<group>"; };
+		833D30142CCA5D4B00F510F8 /* GenericBatchSignUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericBatchSignUseCase.swift; sourceTree = "<group>"; };
+		833D30322CCB805400F510F8 /* CertificateBatchSignUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateBatchSignUseCase.swift; sourceTree = "<group>"; };
+		833D30342CCB806400F510F8 /* DNIeBatchSignUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNIeBatchSignUseCase.swift; sourceTree = "<group>"; };
 		8351359F2C60BD3A005081EE /* AddCertificateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCertificateViewModel.swift; sourceTree = "<group>"; };
 		835135A22C60BF00005081EE /* TutorialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewModel.swift; sourceTree = "<group>"; };
 		8352FF2E2C47C500003402CC /* HomeErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeErrorView.swift; sourceTree = "<group>"; };
@@ -15564,6 +15570,9 @@
 				8393EECC2C58FA21009FDE6E /* HistoricalUseCase.swift */,
 				83C471B92CB91B31006CF7A7 /* DNISingleSignUseCase.swift */,
 				83C471BB2CBD111B006CF7A7 /* GenericSignUseCase.swift */,
+				833D30142CCA5D4B00F510F8 /* GenericBatchSignUseCase.swift */,
+				833D30322CCB805400F510F8 /* CertificateBatchSignUseCase.swift */,
+				833D30342CCB806400F510F8 /* DNIeBatchSignUseCase.swift */,
 			);
 			path = SwiftUseCase;
 			sourceTree = "<group>";
@@ -16027,9 +16036,9 @@
 				83DB24842CBFD90900D1DD8C /* HardwareErrorCodes.swift */,
 				83DB24862CBFD91700D1DD8C /* InternalSoftwareErrorCodes.swift */,
 				83DB24882CBFD92700D1DD8C /* ThirdPartyErrorCodes.swift */,
-				83DB248A2CBFD94300D1DD8C /* FunctionalErrorCodes.swift */,
 				83DB248C2CBFD95000D1DD8C /* RequestErrorCodes.swift */,
 				83DB248E2CBFD97800D1DD8C /* CommunicationErrorCodes.swift */,
+				83DB248A2CBFD94300D1DD8C /* FunctionalErrorCodes.swift */,
 			);
 			path = ErrorCodes;
 			sourceTree = "<group>";
@@ -16835,6 +16844,7 @@
 				833C28BE2CA2B89A00DFF6CD /* LimitedInputStream.m in Sources */,
 				8325D5D52CAADD18007224E9 /* ECPublicKeyParameters.m in Sources */,
 				833C28A22CA2B89A00DFF6CD /* SigningCertificate.m in Sources */,
+				833D30332CCB805400F510F8 /* CertificateBatchSignUseCase.swift in Sources */,
 				8325D5EA2CAADD18007224E9 /* CryptoServiceProperties.m in Sources */,
 				833C29C22CA2B89B00DFF6CD /* SecT571Field.m in Sources */,
 				833C2AFB2CA2B89B00DFF6CD /* RuntimePasswordNeededException.m in Sources */,
@@ -17989,6 +17999,7 @@
 				8325D3B32CAADD17007224E9 /* EmptyCommonPrivateKeyAttributes.m in Sources */,
 				8325D7872CAADD18007224E9 /* HT.m in Sources */,
 				833C2AF02CA2B89B00DFF6CD /* AOUIManager.m in Sources */,
+				833D30352CCB806400F510F8 /* DNIeBatchSignUseCase.swift in Sources */,
 				833C29CD2CA2B89B00DFF6CD /* SecT113R2Point.m in Sources */,
 				833C2C862CA2B89D00DFF6CD /* SimpleTable.m in Sources */,
 				8325D5A72CAADD18007224E9 /* NullDigest.m in Sources */,
@@ -18709,6 +18720,7 @@
 				8325D49C2CAADD17007224E9 /* GOST3410PublicKeyAlgParameters.m in Sources */,
 				8325D3972CAADD17007224E9 /* ReadBinaryApduCommand.m in Sources */,
 				8325D8052CAADD18007224E9 /* XMSSMTKeyFactorySpi.m in Sources */,
+				833D30152CCA5D4B00F510F8 /* GenericBatchSignUseCase.swift in Sources */,
 				833C2BE52CA2B89C00DFF6CD /* GraphicsState.m in Sources */,
 				833C2C832CA2B89D00DFF6CD /* ElementListener.m in Sources */,
 				833C2B712CA2B89C00DFF6CD /* Meta.m in Sources */,

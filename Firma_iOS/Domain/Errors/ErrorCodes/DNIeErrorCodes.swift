@@ -18,7 +18,8 @@ enum DNIeErrorCodes: String, ErrorCode {
     case lockedCard = "7"           // Tarjeta bloqueada.
     case pinError = "8"             // Error durante la validación del PIN.
     case badCan = "9"               // Error durante la validación del CAN.
-    case severeError = "10"         // Error durante la validación del CAN.
+    case severeError = "10"         // Error genérico.
+    case noCertAvailable = "11"	 // Error, no se dispone de certificado de firma digital
     
     static func getMessage(for code: DNIeErrorCodes) -> String {
 	   switch code {
@@ -42,6 +43,8 @@ enum DNIeErrorCodes: String, ErrorCode {
 		  return "Error durante la validación del CAN."
 	   case .severeError:
 		  return "Error genérico durante la comunicación con el DNIe"
+	   case .noCertAvailable:
+		  return "No se dispone de certificado de firma digital"
 	   }
     }
 }

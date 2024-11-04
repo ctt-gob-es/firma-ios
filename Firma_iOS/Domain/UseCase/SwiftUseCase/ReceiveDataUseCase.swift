@@ -86,6 +86,16 @@ public class ReceiveDataUseCase: NSObject {
 				completion(.failure(ErrorGenerator.generateError(from: CommunicationErrorCodes.signatureDownloadError)))
 			 }
 		  }
+	   } else {
+		   let entidad = AOXMLReader().loadXML(by: datosInUseCert)
+		  
+		  DispatchQueue.main.async {
+			 if let opParameters = self.opParameters {
+				completion(.success((entidad as! AOEntity, opParameters)))
+			 } else {
+				completion(.failure(ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.jsonBatchOperationError)))
+			 }
+		  }
 	   }
     }
     

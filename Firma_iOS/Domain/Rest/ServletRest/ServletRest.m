@@ -79,7 +79,7 @@ ServletRequestType currentType;
     }
 }
 
--(void)storeDataError:(NSString*) error stServlet:(NSString *) stServlet cipherKey:(NSString *) cipherKey docId:(NSString *) docId {
+/*-(void)storeDataError:(NSString*) error stServlet:(NSString *) stServlet cipherKey:(NSString *) cipherKey docId:(NSString *) docId {
     currentType = storeData;
     //Creamos la cadena de envío al servidor POST
     NSString *post = @"";
@@ -117,9 +117,72 @@ ServletRequestType currentType;
             [connection start];
         });
     });
+}*/
+
+-(void)storeDataError:(NSString*) error stServlet:(NSString *) stServlet cipherKey:(NSString *) cipherKey docId:(NSString *) docId {
+    currentType = storeData;
+    //Creamos la cadena de envío al servidor POST
+    NSString *post = @"";
+    post = [post stringByAppendingString:PARAMETER_NAME_OPERATION];
+    post = [post stringByAppendingString:HTTP_EQUALS];
+    post = [post stringByAppendingString:OPERATION_PUT];
+    post = [post stringByAppendingString:HTTP_AND];
+    post = [post stringByAppendingString:PARAMETER_NAME_VERSION];
+    post = [post stringByAppendingString:HTTP_EQUALS];
+    post = [post stringByAppendingString:PARAMETER_NAME_VERSION_1_0];
+    post = [post stringByAppendingString:HTTP_AND];
+    post = [post stringByAppendingString:PARAMETER_NAME_ID];
+    post = [post stringByAppendingString:HTTP_EQUALS];
+    post = [post stringByAppendingString:docId];
+    post = [post stringByAppendingString:HTTP_AND];
+    post = [post stringByAppendingString:PARAMETER_NAME_DAT];
+    post = [post stringByAppendingString:HTTP_EQUALS];
+    post = [post stringByAppendingString:error];
+
+    //Codificamos la url de post
+    NSData *postData = [post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%d", (int)[postData length]];
+
+    // Obtenemos la URL del servidor de la pantalla de preferencias
+    NSURL* requestUrl = [[NSURL alloc] initWithString:stServlet];
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval: 30.0];
+    [request setHTTPMethod:POST];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [self setHeaders:request];
+    [request setHTTPBody:postData];
+
+    NSURLSession *session = [NSURLSession sharedSession];
+    __block NSMutableData *receivedData = [NSMutableData data];
+    __block NSInteger statusCode = 0;
+    
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request
+								    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+	   if (error) {
+		  if ([self.delegate respondsToSelector:@selector(didErrorStoreData:)]) {
+			 [self.delegate didErrorStoreData:error.localizedDescription];
+		  }
+		  return;
+	   }
+	   
+	   NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+	   statusCode = httpResponse.statusCode;
+	   
+	   [receivedData appendData:data];
+	   
+	   NSString *jsonString = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
+	   
+	   if (jsonString == nil) {
+		  NSString *errorToSend = @"err-07:= Los datos recibidos al guardar en el servlet son inválidos";
+		  [self.delegate didErrorStoreData:errorToSend];
+	   }
+	   
+	   [self.delegate didSuccessStoreData:jsonString];
+    }];
+    
+    [task resume];
 }
 
--(void)storeData:(NSData*) data certificateBase64:(NSString *) certificateBase64 stServlet:(NSString *) stServlet cipherKey:(NSString *) cipherKey docId:(NSString *) docId
+/*-(void)storeData:(NSData*) data certificateBase64:(NSString *) certificateBase64 stServlet:(NSString *) stServlet cipherKey:(NSString *) cipherKey docId:(NSString *) docId
 {
     currentType = storeData;
     //Creamos la cadena de envío al servidor POST
@@ -175,6 +238,88 @@ ServletRequestType currentType;
             [connection start];
         });
     });
+}*/
+
+-(void)storeData:(NSData*) data certificateBase64:(NSString *) certificateBase64 stServlet:(NSString *) stServlet cipherKey:(NSString *) cipherKey docId:(NSString *) docId
+{
+    currentType = storeData;
+    //Creamos la cadena de envío al servidor POST
+    NSString *post = @"";
+    post = [post stringByAppendingString:PARAMETER_NAME_OPERATION];
+    post = [post stringByAppendingString:HTTP_EQUALS];
+    post = [post stringByAppendingString:OPERATION_PUT];
+    post = [post stringByAppendingString:HTTP_AND];
+    post = [post stringByAppendingString:PARAMETER_NAME_VERSION];
+    post = [post stringByAppendingString:HTTP_EQUALS];
+    post = [post stringByAppendingString:PARAMETER_NAME_VERSION_1_0];
+    post = [post stringByAppendingString:HTTP_AND];
+    post = [post stringByAppendingString:PARAMETER_NAME_ID];
+    post = [post stringByAppendingString:HTTP_EQUALS];
+    post = [post stringByAppendingString:docId];
+    post = [post stringByAppendingString:HTTP_AND];
+    
+    //cifrado de la firma
+    NSString *encryptedSignDataB64 = [DesCypher cypherData:data sk:[cipherKey dataUsingEncoding:NSUTF8StringEncoding]];
+    NSString *encryptedDataB64 = nil;
+    if (certificateBase64 != nil) {
+	   //cifrado del certificado
+	   NSString * certificateString = [Base64Utils urlSafeEncode: certificateBase64];
+	   NSData *dataCertificate = [Base64Utils decode:certificateString urlSafe:true];
+	   NSString *encryptedCertificateDataB64 = [DesCypher cypherData:dataCertificate sk:[cipherKey dataUsingEncoding:NSUTF8StringEncoding]];
+	   
+	   // Concatenacion
+	   encryptedDataB64 = [NSString stringWithFormat:@"%@|%@", encryptedSignDataB64, encryptedCertificateDataB64];
+    } else {
+	   encryptedDataB64 = encryptedSignDataB64;
+    }
+    
+    // Se envia la firma cifrada y en base64
+    post = [post stringByAppendingString:PARAMETER_NAME_DAT];
+    post = [post stringByAppendingString:HTTP_EQUALS];
+    post = [post stringByAppendingString:encryptedDataB64];
+    
+    //Codificamos la url de post
+    NSData *postData = [post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%d", (int)[postData length]];
+    
+    // Obtenemos la URL del servidor de la pantalla de preferencias
+    NSURL* requestUrl = [[NSURL alloc] initWithString:stServlet];
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval: 30.0];
+    [request setHTTPMethod:POST];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [self setHeaders:request];
+    [request setHTTPBody:postData];
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    __block NSMutableData *receivedData = [NSMutableData data];
+    __block NSInteger statusCode = 0;
+    
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request
+								    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+	   if (error) {
+		  if ([self.delegate respondsToSelector:@selector(didErrorStoreData:)]) {
+			 [self.delegate didErrorStoreData:error.localizedDescription];
+		  }
+		  return;
+	   }
+	   
+	   NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+	   statusCode = httpResponse.statusCode;
+	   
+	   [receivedData appendData:data];
+	   
+	   NSError *jsonError;
+	   NSString *jsonString = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
+	   
+	   if (jsonString == nil) {
+		  NSString *errorToSend = @"err-07:= Los datos recibidos al guardar en el servlet son inválidos";
+		  [self.delegate didErrorStoreData:errorToSend];
+	   }
+	   
+	   [self.delegate didSuccessStoreData:jsonString];
+    }];
+    
+    [task resume];
 }
 
 /* METODOS DONDE SE RECIBE LA RESPUESTA DE LA CONEXION ASINCRONA */

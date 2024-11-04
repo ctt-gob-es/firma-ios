@@ -37,12 +37,14 @@ class SwiftDNIeWrapper : IOSNFCSessionDelegate{
     }
     
     func didInvalidateNFCSession(with error: any Error) {
+	   print("NFC session invalidated")
 	   if let nfcError = error as? NFCReaderError {
 		  switch nfcError.code {
-		  case .readerSessionInvalidationErrorSessionTimeout:
+		  case .readerSessionInvalidationErrorSessionTimeout,
+			 .readerSessionInvalidationErrorUserCanceled:
 			 dniResult?.getDNIeError(errorCode: 3, errorMessage: error.localizedDescription)
 		  default:
-			 print("NFC session invalidated with error: \(error.localizedDescription)")
+			 print("With error: \(error.localizedDescription)")
 		  }
 	   }
     }
@@ -59,7 +61,7 @@ class SwiftDNIeWrapper : IOSNFCSessionDelegate{
 	   
 	   Task {
 		  if let wrapper = try? getWrapperDNIe() {
-			 if let dnie = wrapper.getDnie() {
+			 if let _ = wrapper.getDnie() {
 				dniResult?.getDNIeNFCSuccess(wrapper: wrapper)
 			 } else {
 				dniResult?.getDNIeError(

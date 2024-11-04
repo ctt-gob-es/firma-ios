@@ -229,22 +229,28 @@ withEsGobJmulticardConnectionApduConnection:(id<EsGobJmulticardConnectionApduCon
   
 #line 229
   EsGobJmulticardApduCommandApdu *selectCommand = new_EsGobJmulticardApduIso7816fourSelectDfByNameApduCommand_initWithByte_withByteArray_([self getCla], name);
+  EsGobJmulticardJmcLogger_warningWithNSString_(JreStrcat("$$", @"Select command by name :", [selectCommand description]));
   EsGobJmulticardApduResponseApdu *response = [self sendArbitraryApduWithEsGobJmulticardApduCommandApdu:selectCommand];
-  if ([((EsGobJmulticardApduResponseApdu *) nil_chk(response)) isOk]) {
+  EsGobJmulticardJmcLogger_warningWithNSString_(JreStrcat("$$", @"Select file by name :", [((EsGobJmulticardApduResponseApdu *) nil_chk(response)) description]));
+  if ([response isOk]) {
+    EsGobJmulticardJmcLogger_warningWithNSString_(@"Response is OK");
     return [new_EsGobJmulticardApduIso7816fourSelectFileApduResponse_initWithEsGobJmulticardApduApdu_(response) getFileLength];
   }
+  EsGobJmulticardJmcLogger_warningWithNSString_(@"Response is not OK ");
   EsGobJmulticardApduStatusWord *sw = [response getStatusWord];
   if ([((EsGobJmulticardApduStatusWord *) nil_chk(EsGobJmulticardCardIso7816fourAbstractIso7816FourCard_SW_FILE_NOT_FOUND)) isEqual:sw]) {
+    EsGobJmulticardJmcLogger_warningWithNSString_(JreStrcat("$@", @"File not found exception  ", name));
     @throw new_EsGobJmulticardCardIso7816fourFileNotFoundException_initWithByteArray_(name);
   }
+  EsGobJmulticardJmcLogger_warningWithNSString_(JreStrcat("$$", @"FourCardException , statusWord: ", [((EsGobJmulticardApduStatusWord *) nil_chk(sw)) description]));
   @throw new_EsGobJmulticardCardIso7816fourIso7816FourCardException_initWithEsGobJmulticardApduStatusWord_withEsGobJmulticardApduApdu_(sw, selectCommand);
 }
 
 
-#line 246
+#line 252
 - (jint)selectFileByIdWithByteArray:(IOSByteArray *)id_ {
   
-#line 248
+#line 254
   EsGobJmulticardApduCommandApdu *selectCommand = new_EsGobJmulticardApduIso7816fourSelectFileByIdApduCommand_initWithByte_withByteArray_([self getCla], id_);
   EsGobJmulticardApduResponseApdu *res = [((id<EsGobJmulticardConnectionApduConnection>) nil_chk([self getConnection])) transmitWithEsGobJmulticardApduCommandApdu:selectCommand];
   if ([((EsGobJmulticardApduStatusWord *) nil_chk(EsGobJmulticardCardIso7816fourAbstractIso7816FourCard_SW_FILE_NOT_FOUND)) isEqual:[((EsGobJmulticardApduResponseApdu *) nil_chk(res)) getStatusWord]]) {
@@ -265,75 +271,75 @@ withEsGobJmulticardConnectionApduConnection:(id<EsGobJmulticardConnectionApduCon
 }
 
 
-#line 273
+#line 279
 - (IOSByteArray *)selectFileByIdAndReadWithByteArray:(IOSByteArray *)id_ {
   
-#line 275
+#line 281
   jint fileLength = [self selectFileByIdWithByteArray:id_];
   return [self readBinaryCompleteWithInt:fileLength];
 }
 
 
-#line 284
+#line 290
 - (jint)selectFileByLocationWithEsGobJmulticardCardLocation:(EsGobJmulticardCardLocation *)location {
   return EsGobJmulticardCardIso7816fourAbstractIso7816FourCard_selectFileByLocationWithEsGobJmulticardCardLocation_(self, location);
 }
 
 
-#line 303
+#line 309
 - (IOSByteArray *)selectFileByLocationAndReadWithEsGobJmulticardCardLocation:(EsGobJmulticardCardLocation *)location {
   
-#line 305
+#line 311
   jint fileLenght = EsGobJmulticardCardIso7816fourAbstractIso7816FourCard_selectFileByLocationWithEsGobJmulticardCardLocation_(self, location);
   return [self readBinaryCompleteWithInt:fileLenght];
 }
 
 
-#line 312
+#line 318
 - (void)selectMasterFile {
   // can't call an abstract method
   [self doesNotRecognizeSelector:_cmd];
 }
 
 
-#line 319
+#line 325
 - (void)setPublicKeyToVerificationWithByteArray:(IOSByteArray *)refPublicKey {
   EsGobJmulticardApduResponseApdu *res = [self sendArbitraryApduWithEsGobJmulticardApduCommandApdu:new_EsGobJmulticardApduCommandApdu_initWithByte_withByte_withByte_withByte_withByteArray_withJavaLangInteger_(
-#line 322
+#line 328
   (jbyte) (jint) 0x00,
-#line 323
+#line 329
   (jbyte) (jint) 0x22,
-#line 324
+#line 330
   (jbyte) (jint) 0x81,
-#line 325
+#line 331
   (jbyte) (jint) 0xB6,
-#line 326
+#line 332
   [new_EsGobJmulticardAsn1Tlv_initWithByte_withByteArray_((jbyte) (jint) 0x83, refPublicKey) getBytes],
-#line 327
+#line 333
   nil)];
   
-#line 330
+#line 336
   if (![((EsGobJmulticardApduResponseApdu *) nil_chk(res)) isOk]) {
     @throw new_EsGobJmulticardConnectionCwa14890SecureChannelException_initWithNSString_(JreStrcat("$@", @"Error estableciendo la clave publica para verificacion, con respuesta: ",
-#line 333
+#line 339
     [res getStatusWord]));
   }
 }
 
 
-#line 341
+#line 347
 - (IOSByteArray *)getChallenge {
   EsGobJmulticardApduResponseApdu *res = [((id<EsGobJmulticardConnectionApduConnection>) nil_chk([self getConnection])) transmitWithEsGobJmulticardApduCommandApdu:new_EsGobJmulticardApduIso7816fourGetChallengeApduCommand_initWithByte_((jbyte) (jint) 0x00)];
   if ([((EsGobJmulticardApduResponseApdu *) nil_chk(res)) isOk]) {
     return [res getData];
   }
   @throw new_EsGobJmulticardConnectionApduConnectionException_initWithNSString_(JreStrcat("$@", @"Respuesta invalida en la obtencion de desafio con el codigo: ",
-#line 347
+#line 353
   [res getStatusWord]));
 }
 
 
-#line 361
+#line 367
 - (void)verifyPinWithJavaxSecurityAuthCallbackPasswordCallback:(JavaxSecurityAuthCallbackPasswordCallback *)pinPc {
   // can't call an abstract method
   [self doesNotRecognizeSelector:_cmd];
@@ -444,10 +450,10 @@ EsGobJmulticardApduResponseApdu *EsGobJmulticardCardIso7816fourAbstractIso7816Fo
 }
 
 
-#line 284
+#line 290
 jint EsGobJmulticardCardIso7816fourAbstractIso7816FourCard_selectFileByLocationWithEsGobJmulticardCardLocation_(EsGobJmulticardCardIso7816fourAbstractIso7816FourCard *self, EsGobJmulticardCardLocation *location) {
   
-#line 286
+#line 292
   jint fileLength = 0;
   EsGobJmulticardCardLocation *loc = location;
   [self selectMasterFile];

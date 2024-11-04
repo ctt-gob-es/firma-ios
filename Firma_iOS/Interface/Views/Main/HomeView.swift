@@ -95,6 +95,7 @@ struct HomeView: View {
 	   .navigationDestination(isPresented: $viewModel.selectDNIe) {
 		  DNIView(
 			 signModel: viewModel.signModel,
+			 parameters: viewModel.parameters,
 			 hasDismissed: $shouldSendStopSign
 		  )
 	   }

@@ -61,7 +61,7 @@ class IOSApduConnection: EsGobJmulticardConnectionAbstractApduConnectionIso7816 
     
     // MARK: - Obtener subclase de conexión APDU
     override func getSub() -> (any EsGobJmulticardConnectionApduConnection)! {
-	   return nil
+	   return self
     }
     
     // MARK: - Tamaño máximo de APDU
@@ -172,8 +172,8 @@ class IOSApduConnection: EsGobJmulticardConnectionAbstractApduConnectionIso7816 
 		  LogUtils.printNativeAPDUCommand(apduCommand: apdu)
 		  
 		  nfcTag.sendCommand(apdu: apdu) { (responseData, sw1, sw2, error) in
-			 if let error = error {
-				continuation.resume(throwing: error)
+			 if let _ = error as? NFCReaderError {
+				continuation.resume(throwing: ErrorGenerator.generateError(from: HardwareErrorCodes.nfcError))
 				return
 			 }
 			 

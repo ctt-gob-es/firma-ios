@@ -402,10 +402,11 @@ Para funcionar correctamente debes instalar un certificado electrónico. Consult
 "apdu_send_error" = "Error durante la transmisión del APDU: %@";
 "nfc_dni_warning" = "No muevas el DNI o la lectura fallará.";
 "nfc_not_supported" = "Este dispositivo no soporta NFC.";
-"nfc_dni_active_conexion_warning" = "Conexión establecida, no muevas el DNI o la comunicación fallará.";
+"nfc_dni_active_conexion_warning" = "Conexión establecida.";
 "nfc_detected_tags" = "Detectadas %d etiquetas.";
 "nfc_multiple_tags_error" = "Se encontró más de una etiqueta. Presenta solo una etiqueta.";
 "nfc_no_tag_error" = "No se pudo obtener la primera etiqueta.";
 "nfc_connection_error" = "Error al conectar con la etiqueta NFC: %@";
 "nfc_unsupported_tag_error" = "La etiqueta detectada no es compatible.";
 "nfc_permission_set" = "Tus preferencias se han guardado";
+"nfc_dni_sign_success" = "Se ha firmado correctamente";

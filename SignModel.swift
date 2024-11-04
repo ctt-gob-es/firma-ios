@@ -82,4 +82,30 @@ class SignModel {
 		  }
 	   }
     }
+    
+    func toDictionary() -> [String: Any] {
+	   var dict: [String: Any] = [:]
+	   
+	   if let operation = operation { dict[PARAMETER_NAME_OPERATION] = operation }
+	   if let datosInUse = datosInUse { dict[PARAMETER_NAME_DAT] = datosInUse }
+	   if let signAlgoInUse = signAlgoInUse { dict[PARAMETER_NAME_ALGORITHM2] = signAlgoInUse }
+	   if let docId = docId { dict[PARAMETER_NAME_ID] = docId }
+	   if let cipherKey = cipherKey { dict[PARAMETER_NAME_CIPHER_KEY] = cipherKey }
+	   if let urlServlet = urlServlet { dict[PARAMETER_NAME_STSERVLET] = urlServlet }
+	   if let signFormat = signFormat { dict[PARAMETER_NAME_FORMAT] = signFormat }
+	   if let extraParams = extraParams { dict[PARAMETER_NAME_PROPERTIES] = extraParams }
+	   if let rtServlet = rtServlet { dict[PARAMETER_NAME_RTSERVLET] = rtServlet }
+	   if let fileId = fileId { dict[PARAMETER_NAME_FILE_ID] = fileId }
+	   if let returnURL = returnURL { dict[PARAMETER_NAME_RETURN_URL] = returnURL }
+	   
+	   if let dictExtraParams = dictExtraParams {
+		  dict["dictExtraParams"] = dictExtraParams
+	   }
+	   
+	   if let triphasicServerURL = triphasicServerURL {
+		  dict[PARAMETER_NAME_TRIPHASIC_SERVER_URL] = triphasicServerURL
+	   }
+
+	   return dict
+    }
 }

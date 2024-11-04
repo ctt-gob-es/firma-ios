@@ -15,7 +15,7 @@ enum SignMode {
     case electronicCertificate
 }
 
-class HomeViewModel: ObservableObject {
+class HomeViewModel: ObservableObject, BatchSignUseCaseDelegate {
     @Published var buttonEnabled: Bool? = false
     @Published var urlReceived: URL? = nil
     @Published var isLoading: Bool? = false
@@ -23,7 +23,8 @@ class HomeViewModel: ObservableObject {
     @Published var receiveDataUseCase: ReceiveDataUseCase? = nil
     @Published var sendCertificateUseCase: SendCertificateUseCase? = nil
     @Published var signUseCase: SingleSignUseCase? = nil
-    @Published var batchSignUseCase: BatchSignUseCase? = nil
+    @Published var batchSignUseCase: GenericBatchSignUseCase? = nil
+    //@Published var batchSignUseCase: BatchSignUseCase? = nil
     @Published var saveDataUseCase: SaveDataUseCase? = nil
     @Published var historicalUseCase: HistoricalUseCase? = nil
     @Published var certificateUtils: CertificateUtils? = nil
@@ -63,7 +64,8 @@ class HomeViewModel: ObservableObject {
 	    receiveDataUseCase: ReceiveDataUseCase? = nil,
 	    sendCertificateUseCase: SendCertificateUseCase? = nil,
 	    signUseCase: SingleSignUseCase? = nil,
-	    batchSignUseCase: BatchSignUseCase? = nil,
+	    //batchSignUseCase: BatchSignUseCase? = nil,
+	    batchSignUseCase: GenericBatchSignUseCase? = nil,
 	    saveDataUseCase: SaveDataUseCase? = nil,
 	    historicalUseCase: HistoricalUseCase? = nil,
 	    certificateUtils: CertificateUtils? = nil,
@@ -184,6 +186,7 @@ class HomeViewModel: ObservableObject {
 			 self.signModel = SignModel(dictionary: result.1)
 			 self.parameters = result.1
 			 guard let signModel = self.signModel else { return }
+			 guard let signModel = self.signModel else { return }
 			 configureMode(signModel: signModel)
 			 selectSignMode()
 		  case .failure(let error):
@@ -301,20 +304,44 @@ class HomeViewModel: ObservableObject {
     }
     
     private func handleOperationBatch() {
-	   guard let certificateData = certificateUtils?.base64UrlSafeCertificateData,
-		    let privateKey = certificateUtils?.privateKey else {
-		  return
+	   if signMode == .electronicCertificate {
+		  guard let certificateData = certificateUtils?.base64UrlSafeCertificateData,
+			   let privateKey = certificateUtils?.privateKey else {
+			 return
+		  }
+		  batchSignUseCase = CertificateBatchSignUseCase(certificate: certificateData, privateKey: privateKey)
 	   }
-	   batchSignUseCase = BatchSignUseCase(certificate: certificateData, privateKey: privateKey)
-	   batchSignUseCase?.signBatch(parameters as! [AnyHashable: Any]) { responseMessage, error in
+	   
+	   batchSignUseCase?.delegate = self
+	   batchSignUseCase?.signBatch(dataOperation: parameters as! [String : Any]) { responseMessage, error in
+	    self.isLoading = false
 		  if let error = error as NSError? {
 			 self.handleError(error: error)
 		  } else {
+			 self.areCertificatesSelectable = false
 			 self.viewMode = .home
 			 self.successModalState = .successSign
 			 self.showSuccessModal = true
 		  }
 	   }
+	   
+	   /*guard let certificateData = certificateUtils?.base64UrlSafeCertificateData,
+		    let privateKey = certificateUtils?.privateKey else {
+		  return
+	   }
+	   batchSignUseCase = BatchSignUseCase(certificate: certificateData, privateKey: privateKey)
+	   batchSignUseCase?.signBatch(parameters as! [AnyHashable: Any]) { responseMessage, error in
+		  self.isLoading = false
+		  
+		  if let error = error as NSError? {
+			 self.handleError(error: error)
+		  } else {
+			 self.areCertificatesSelectable = false
+			 self.viewMode = .home
+			 self.successModalState = .successSign
+			 self.showSuccessModal = true
+		  }
+	   }*/
     }
     
     private func handleOperationSaveData() {
@@ -339,7 +366,6 @@ class HomeViewModel: ObservableObject {
     
     private func handleError(error: Error) {
 	   self.isLoading = false
-	   self.areCertificatesSelectable = false
 	   DispatchQueue.main.async {
 		  self.showErrorModal = false
 		  DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
@@ -439,5 +465,13 @@ class HomeViewModel: ObservableObject {
 	   self.selectDNIe = false
 	   self.viewMode = .home
 	   self.areCertificatesSelectable = false
+    }
+    
+    func didSuccessBatch(response: String) {
+	   
+    }
+    
+    func didErrorBatch(error: Error) {
+	   
     }
 }

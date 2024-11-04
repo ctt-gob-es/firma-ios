@@ -44,7 +44,7 @@ SecKeyRef privateKey;
     }
 }
 
-- (void)signBatch:(NSDictionary *)dataOperation completion:(void (^)(NSString *responseMessage, NSError *error))completion {
+- (void)signBatch:(NSDictionary *)dataOperation completion:(void (^)(NSString * _Nullable responseMessage, NSError * _Nullable error))completion {
     self.completionHandler = completion;
     
     // Obtenemos los datos que nos llegan de la petición batch y validamos

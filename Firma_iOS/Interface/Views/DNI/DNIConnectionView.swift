@@ -20,6 +20,7 @@ struct DNIConnectionView: View {
     @State var can: String = PrivateConstants.can
     @State var pin: String = PrivateConstants.pin
     @State var signModel: SignModel
+    @State var parameters: NSMutableDictionary?
     @State var nfcViewModel: NFCViewModel?
     
     var body: some View {
@@ -104,7 +105,8 @@ struct DNIConnectionView: View {
 	   self.nfcViewModel = NFCViewModel(
 		  can: can,
 		  pin: pin,
-		  signModel: signModel
+		  signModel: signModel,
+		  parameters: parameters
 	   )
     }
     
@@ -142,6 +144,8 @@ struct DNIConnectionView: View {
 				appStatus.errorModalState = .dniIncorrectCan
 			 case .severeError:
 				appStatus.errorModalState = .dniReadingErrorLong
+			 case .noCertAvailable:
+				appStatus.errorModalState = .certificateNeeded
 		  }
 	   }
 	   

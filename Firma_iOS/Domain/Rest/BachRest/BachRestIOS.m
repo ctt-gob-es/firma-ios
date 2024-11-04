@@ -44,7 +44,7 @@ BatchRequestType currentType;
     }
 }
 
--(void)bachPresign:(NSString*)urlPresign withJsonData:(NSString*)json withCerts:(NSString*)certs {
+/*-(void)bachPresign:(NSString*)urlPresign withJsonData:(NSString*)json withCerts:(NSString*)certs {
     currentType = preSign;
     //Creamos la cadena de envío al servidor POST
     NSString *safeJson = [Base64Utils urlSafeEncode: json];
@@ -74,10 +74,74 @@ BatchRequestType currentType;
             [connection start];
         });
     });
+}*/
+
+
+- (void)bachPresign:(NSString *)urlPresign withJsonData:(NSString *)json withCerts:(NSString *)certs {
+    currentType = preSign;
     
+    NSString *safeJson = [Base64Utils urlSafeEncode:json];
+    NSString *safeCerts = [[Base64Utils urlSafeEncode:certs] stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    [dict setValue:safeJson forKey:@"json"];
+    [dict setValue:safeCerts forKey:@"certs"];
+    
+    NSString *post = [self getParametersFromDictionary:dict];
+    NSData *postData = [post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
+    
+    NSURL *requestUrl = [NSURL URLWithString:urlPresign];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:requestUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30.0];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[postData length]] forHTTPHeaderField:@"Content-Length"];
+    [self setHeaders:request];
+    [request setHTTPBody:postData];
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    __block NSMutableData *receivedData = [NSMutableData data];
+    __block NSInteger statusCode = 0;
+    
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request
+								    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+	   if (error) {
+		  if ([self.delegate respondsToSelector:@selector(didErrorBachPresign:)]) {
+			 [self.delegate didErrorBachPresign:error.localizedDescription];
+		  }
+		  return;
+	   }
+	   
+	   NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+	   statusCode = httpResponse.statusCode;
+	   
+	   [receivedData appendData:data];
+	   
+	   NSError *jsonError;
+	   NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:receivedData options:NSJSONReadingMutableContainers error:&jsonError];
+	   
+	   if (jsonError || !responseDict) {
+		  NSString *errorToSend;
+		  if (statusCode == 400) {
+			 errorToSend = @"err-07:= Los parametros enviados al servicio no eran validos";
+		  } else if (statusCode > 400 && statusCode < 500) {
+			 errorToSend = @"err-09:= Error de comunicacion con el servicio";
+		  } else {
+			 errorToSend = @"err-07:= Los datos de prefirma recibidos son inválidos";
+		  }
+		  
+		  if ([self.delegate respondsToSelector:@selector(didErrorBachPresign:)]) {
+			 [self.delegate didErrorBachPresign:errorToSend];
+		  }
+	   } else {
+		  if ([self.delegate respondsToSelector:@selector(didSuccessBachPresign:)]) {
+			 [self.delegate didSuccessBachPresign:responseDict];
+		  }
+	   }
+    }];
+    
+    [task resume];
 }
 
-- (void)bachPostsign:(NSString *)urlPostsign withJsonData:(NSString *)json withCerts:(NSString *)certs withTriData:(NSString *)tridata{
+/*- (void)bachPostsign:(NSString *)urlPostsign withJsonData:(NSString *)json withCerts:(NSString *)certs withTriData:(NSString *)tridata{
     currentType = postSign;
     //Creamos la cadena de envío al servidor POST
     NSString *safeJson = [Base64Utils urlSafeEncode: json];
@@ -108,6 +172,72 @@ BatchRequestType currentType;
             [connection start];
         });
     });
+}*/
+
+- (void)bachPostsign:(NSString *)urlPostsign withJsonData:(NSString *)json withCerts:(NSString *)certs withTriData:(NSString *)tridata {
+    currentType = postSign;
+    
+    NSString *safeJson = [Base64Utils urlSafeEncode:json];
+    NSString *safeCerts = [[Base64Utils urlSafeEncode:certs] stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    NSString *safeTridata = [Base64Utils urlSafeEncode:tridata];
+    
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    [dict setValue:safeJson forKey:@"json"];
+    [dict setValue:safeCerts forKey:@"certs"];
+    [dict setValue:safeTridata forKey:@"tridata"];
+    
+    NSString *post = [self getParametersFromDictionary:dict];
+    NSData *postData = [post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
+    
+    NSURL *requestUrl = [NSURL URLWithString:urlPostsign];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:requestUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30.0];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[postData length]] forHTTPHeaderField:@"Content-Length"];
+    [self setHeaders:request];
+    [request setHTTPBody:postData];
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    __block NSMutableData *receivedData = [NSMutableData data];
+    __block NSInteger statusCode = 0;
+    
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request
+								    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+	   if (error) {
+		  if ([self.delegate respondsToSelector:@selector(didErrorBachPostsign:)]) {
+			 [self.delegate didErrorBachPostsign:error.localizedDescription];
+		  }
+		  return;
+	   }
+	   
+	   NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+	   statusCode = httpResponse.statusCode;
+	   
+	   [receivedData appendData:data];
+	   
+	   NSError *jsonError;
+	   NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:receivedData options:NSJSONReadingMutableContainers error:&jsonError];
+	   
+	   if (jsonError || !responseDict) {
+		  NSString *errorToSend;
+		  if (statusCode == 400) {
+			 errorToSend = @"err-07:= Los parametros enviados al servicio no eran validos";
+		  } else if (statusCode > 400 && statusCode < 500) {
+			 errorToSend = @"err-09:= Error de comunicacion con el servicio";
+		  } else {
+			 errorToSend = @"err-07:= Los datos de postfirma recibidos son inválidos";
+		  }
+		  
+		  if ([self.delegate respondsToSelector:@selector(didErrorBachPostsign:)]) {
+			 [self.delegate didErrorBachPostsign:errorToSend];
+		  }
+	   } else {
+		  if ([self.delegate respondsToSelector:@selector(didSuccessBachPostsign:)]) {
+			 [self.delegate didSuccessBachPostsign:responseDict];
+		  }
+	   }
+    }];
+    
+    [task resume];
 }
 
 /* METODOS DONDE SE RECIBE LA RESPUESTA DE LA CONEXION ASINCRONA */

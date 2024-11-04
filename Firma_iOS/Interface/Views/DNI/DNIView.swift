@@ -15,6 +15,7 @@ struct DNIView: View {
     @State private var sheetHeight: CGFloat = .zero
     @State private var navigateToConnection: Bool = false
     @State var signModel: SignModel? = nil
+    @State var parameters: NSMutableDictionary? = nil
     @Binding var hasDismissed: Bool
     
     var body: some View {
@@ -33,7 +34,8 @@ struct DNIView: View {
 		  if let signModel = signModel {
 			 DNIConnectionView(
 				isPresented: $navigateToConnection,
-				signModel: signModel
+				signModel: signModel,
+				parameters: parameters
 			 )
 		  }
 	   }

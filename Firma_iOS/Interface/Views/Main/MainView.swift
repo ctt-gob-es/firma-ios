@@ -125,6 +125,7 @@ struct MainView: View {
 	   .onDisappear(perform: onDisappear)
 	   .onChange(of: viewModel.shouldReload, perform: handleReload)
 	   .onChange(of: appStatus.showDocumentSavingPicker, perform: handleDocumentSavingPicker)
+	   //TODO: USE UIKIT SELECTOR for iOS 16
 	   .fileImporter(
 		  isPresented: $appStatus.showDocumentImportingPicker,
 		  allowedContentTypes: [.data],
