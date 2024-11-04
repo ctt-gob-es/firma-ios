@@ -32,6 +32,8 @@
 #import "DNIeSigner.h"
 #import "InputParametersBatch.h"
 #import "BachRestIOS.h"
+#import "PDFCustomTextAnnotation.h"
+#import "PDFImageAnnotation.h"
 
 //JAVA CODE
 #include "java/util/Properties.h"

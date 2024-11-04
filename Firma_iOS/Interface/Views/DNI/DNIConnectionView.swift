@@ -22,6 +22,8 @@ struct DNIConnectionView: View {
     @State var signModel: SignModel
     @State var parameters: NSMutableDictionary?
     @State var nfcViewModel: NFCViewModel?
+    @State var showSignCoordinatesModal: Bool = false
+    @State var annotations: [PDFAnnotation] = []
     
     var body: some View {
 	   VStack {
@@ -54,6 +56,9 @@ struct DNIConnectionView: View {
 		  }
 		  .buttonStyle(CustomButtonStyle(isEnabled: buttonEnabled))
 	   }
+	   .onAppear() {
+		  onAppear()
+	   }
 	   .dismissKeyboardOnTap()
 	   .navigationBarItems(trailing: HStack(spacing: 4) {
 		  NavigationBarButton(imageName: "cross_gray", action: {
@@ -77,6 +82,24 @@ struct DNIConnectionView: View {
 				    appStatus.isLoading = true
 				}
 			 }
+		  }
+	   }
+	   .sheet(isPresented: $showSignCoordinatesModal, onDismiss: {
+		  if self.annotations.isEmpty {
+			 
+		  }
+	   }) {
+		  if let stringBase64Data = signModel.datosInUse,
+			let pdfData = Base64Utils.decode(stringBase64Data, urlSafe: true) {
+			 PDFCoordinatesModalWrapper(
+				pdfData: pdfData,
+				annotations: $annotations
+			 )
+		  }
+	   }
+	   .onChange(of: annotations) {
+		  if $0.count > 0 {
+			 handleCoordinatesSelection(signModel: self.signModel, annotation: $0[0])
 		  }
 	   }
 	   .onReceive(NotificationCenter.default.publisher(for: .DNIeError)) { notification in
@@ -119,6 +142,10 @@ struct DNIConnectionView: View {
 	   } else if step == .nfcStep {
 		  isSearching = true
 	   }
+    }
+    
+    func handleCoordinatesSelection(signModel: SignModel, annotation: PDFAnnotation) {
+	   PDFCoordinateUtils.setCoordinatesFromAnnotation(signModel: signModel, annotation: annotation)
     }
     
     func selectInvalidationReason(error: Int) -> String {

@@ -23,6 +23,7 @@ class SignModel {
     var rtServlet: String?
     var cloudName: String?
     var returnURL: String?
+    var visibleSignature: Bool = false
     
     init(dictionary: NSMutableDictionary) {
 	   self.operation = dictionary[PARAMETER_NAME_OPERATION] as? String
@@ -35,25 +36,29 @@ class SignModel {
 	   self.extraParams = dictionary[PARAMETER_NAME_PROPERTIES] as? String
 	   self.rtServlet = dictionary[PARAMETER_NAME_RTSERVLET] as? String
 	   self.fileId = dictionary[PARAMETER_NAME_FILE_ID] as? String
-	   self.returnURL  = dictionary[PARAMETER_NAME_RETURN_URL] as? String
-	   
+	   self.returnURL = dictionary[PARAMETER_NAME_RETURN_URL] as? String
+
+	   if let visibleSignatureString = dictionary[PARAMETER_NAME_VISIBLE_SIGNATURE] as? String {
+		  self.visibleSignature = (visibleSignatureString.lowercased() == "true")
+	   }
+
 	   if let extraParams = self.extraParams {
 		  if let dataReceived = Base64Utils.decode(extraParams, urlSafe: true),
 			let stringDataReceived = String(data: dataReceived, encoding: .utf8),
 			let dict = CADESSignUtils.javaProperties2Dictionary(stringDataReceived) as? [String: Any] {
 			 self.dictExtraParams = dict
 			 self.triphasicServerURL = dict[PARAMETER_NAME_TRIPHASIC_SERVER_URL] as? String
-			 
+
 			 if let triphasicServerURL = self.triphasicServerURL, triphasicServerURL.last != "e" {
 				self.triphasicServerURL = String(triphasicServerURL.dropLast())
 			 }
 		  }
 	   }
-	   
+
 	   if let extraParams2 = dictionary[PARAMETER_NAME_TARGET] as? String {
 		  if let decodedTarget = String(data: Base64Utils.decode(extraParams2, urlSafe: true)!, encoding: .utf8) {
 			 var aux = self.dictExtraParams ?? [:]
-			 
+
 			 if decodedTarget != PARAMETER_NAME_TARGET_TREE && decodedTarget != PARAMETER_NAME_TARGET_LEAFS {
 				
 			 } else {
@@ -105,7 +110,9 @@ class SignModel {
 	   if let triphasicServerURL = triphasicServerURL {
 		  dict[PARAMETER_NAME_TRIPHASIC_SERVER_URL] = triphasicServerURL
 	   }
-
+	   
+	   dict[PARAMETER_NAME_VISIBLE_SIGNATURE] = visibleSignature ? "true" : "false"
+	   
 	   return dict
     }
 }

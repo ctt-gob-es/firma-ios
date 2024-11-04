@@ -21,6 +21,7 @@ class AppStatus: ObservableObject {
     @Published var showDocumentPicker: Bool = false
     @Published var showDocumentSavingPicker: Bool = false
     @Published var showDocumentImportingPicker: Bool = false
+    @Published var showSignCoordinatesModal: Bool = false
     
     @Published var successModalState: SuccessModalState = .successCertificateAdded
     @Published var errorModalState: ErrorModalState = .globalError

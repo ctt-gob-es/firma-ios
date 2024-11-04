@@ -281,6 +281,8 @@ To work correctly you must install an electronic certificate. Consult the docume
 "importing_certificate_error_description" = "We were unable to add your certificate to the Portafirmas application correctly. Please try again later.";
 "importing_data_error_title" = "We were unable to add your files";
 "importing_data_error_description" = "We were unable to add your files to the Portafirmas application correctly. Please try again later.";
+"user_cancelled_error_title" = "Signing process cancelled";
+"user_cancelled_error_description" = "You have cancelled the signing process, if you want to sign the file, you will have to repeat the entire process.";
 
 // Descriptions
 "certificate_needed_description" = "To sign you need to register a digital certificate.";
@@ -409,3 +411,7 @@ To work correctly you must install an electronic certificate. Consult the docume
 "nfc_unsupported_tag_error" = "The detected tag is not supported.";
 "nfc_permission_set" = "Your preferences has been saved";
 "nfc_dni_sign_success" = "Signed successfully";
+
+//PDF COORDINATES MODAL
+"pdf_coordinates_title" = "Where you'd like to sign?";
+"pdf_coordinates_only_one_sign_available" = "You can only choose one place to sign";

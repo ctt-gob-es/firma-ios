@@ -282,6 +282,8 @@ Para funcionar correctamente debes instalar un certificado electrónico. Consult
 "importing_certificate_error_description" = "No hemos podido añadir tu certificado a la aplicación de Portafirmas de manera correcta. Inténtalo de nuevo más tade.";
 "importing_data_error_title" = "No hemos podido añadir tu archivo";
 "importing_data_error_description" = "No hemos podido añadir tu archivo a la aplicación de Portafirmas de manera correcta. Inténtalo de nuevo más tade.";
+"user_cancelled_error_title" = "Proceso de firma cancelado";
+"user_cancelled_error_description" = "Has cancelado el proceso de firma, si quieres firmar el archivo, deberás repetir el proceso completo.";
 
 // Descriptions
 "certificate_needed_description" = "Para firmar necesitas registrar un certificado digital.";
@@ -410,3 +412,7 @@ Para funcionar correctamente debes instalar un certificado electrónico. Consult
 "nfc_unsupported_tag_error" = "La etiqueta detectada no es compatible.";
 "nfc_permission_set" = "Tus preferencias se han guardado";
 "nfc_dni_sign_success" = "Se ha firmado correctamente";
+
+//PDF COORDINATES MODAL
+"pdf_coordinates_title" = "¿Dónde te gustaría firmar?";
+"pdf_coordinates_only_one_sign_available" = "Sólo puedes escoger un sitio donde firmar";

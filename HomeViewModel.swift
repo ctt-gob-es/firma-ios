@@ -24,7 +24,6 @@ class HomeViewModel: ObservableObject, BatchSignUseCaseDelegate {
     @Published var sendCertificateUseCase: SendCertificateUseCase? = nil
     @Published var signUseCase: SingleSignUseCase? = nil
     @Published var batchSignUseCase: GenericBatchSignUseCase? = nil
-    //@Published var batchSignUseCase: BatchSignUseCase? = nil
     @Published var saveDataUseCase: SaveDataUseCase? = nil
     @Published var historicalUseCase: HistoricalUseCase? = nil
     @Published var certificateUtils: CertificateUtils? = nil
@@ -44,6 +43,7 @@ class HomeViewModel: ObservableObject, BatchSignUseCaseDelegate {
     @Published var showDocumentSavingPicker: Bool? = false
     @Published var errorModalDescription: String? = ""
     @Published var showSignModal: Bool? = false
+    @Published var showSignCoordinatesModal: Bool = false
     @Published var signType: SignType? = nil
     @Published var dataType: DataType? = nil
     @Published var showTextfieldModal: Bool = false
@@ -53,6 +53,7 @@ class HomeViewModel: ObservableObject, BatchSignUseCaseDelegate {
     @Published var selectElectronicCertificate: Bool = false
     @Published var signMode: SignMode?
     @Published var certificates: [AOCertificateInfo]?
+    @Published var annotations: [PDFAnnotation] = []
     
     var isLocalSign: Bool = false
     var localSignData: Data?
@@ -64,7 +65,6 @@ class HomeViewModel: ObservableObject, BatchSignUseCaseDelegate {
 	    receiveDataUseCase: ReceiveDataUseCase? = nil,
 	    sendCertificateUseCase: SendCertificateUseCase? = nil,
 	    signUseCase: SingleSignUseCase? = nil,
-	    //batchSignUseCase: BatchSignUseCase? = nil,
 	    batchSignUseCase: GenericBatchSignUseCase? = nil,
 	    saveDataUseCase: SaveDataUseCase? = nil,
 	    historicalUseCase: HistoricalUseCase? = nil,
@@ -185,7 +185,6 @@ class HomeViewModel: ObservableObject, BatchSignUseCaseDelegate {
 			 self.entity = result.0
 			 self.signModel = SignModel(dictionary: result.1)
 			 self.parameters = result.1
-			 guard let signModel = self.signModel else { return }
 			 guard let signModel = self.signModel else { return }
 			 configureMode(signModel: signModel)
 			 selectSignMode()
@@ -324,24 +323,6 @@ class HomeViewModel: ObservableObject, BatchSignUseCaseDelegate {
 			 self.showSuccessModal = true
 		  }
 	   }
-	   
-	   /*guard let certificateData = certificateUtils?.base64UrlSafeCertificateData,
-		    let privateKey = certificateUtils?.privateKey else {
-		  return
-	   }
-	   batchSignUseCase = BatchSignUseCase(certificate: certificateData, privateKey: privateKey)
-	   batchSignUseCase?.signBatch(parameters as! [AnyHashable: Any]) { responseMessage, error in
-		  self.isLoading = false
-		  
-		  if let error = error as NSError? {
-			 self.handleError(error: error)
-		  } else {
-			 self.areCertificatesSelectable = false
-			 self.viewMode = .home
-			 self.successModalState = .successSign
-			 self.showSuccessModal = true
-		  }
-	   }*/
     }
     
     private func handleOperationSaveData() {
@@ -461,10 +442,7 @@ class HomeViewModel: ObservableObject, BatchSignUseCaseDelegate {
     }
     
     func handleFinishSign() {
-	   self.selectElectronicCertificate = false
-	   self.selectDNIe = false
-	   self.viewMode = .home
-	   self.areCertificatesSelectable = false
+	   self.resetHomeViewModelVariables()
     }
     
     func didSuccessBatch(response: String) {
@@ -473,5 +451,24 @@ class HomeViewModel: ObservableObject, BatchSignUseCaseDelegate {
     
     func didErrorBatch(error: Error) {
 	   
+    }
+    
+    func handleCoordinatesSelection(signModel: SignModel?, annotation: PDFAnnotation) {
+	   if let signModel = signModel {
+		  PDFCoordinateUtils.setCoordinatesFromAnnotation(signModel: signModel, annotation: annotation)
+	   }
+    }
+    
+    func handleNotAnyCoordinatesSelected() {
+	   self.areCertificatesSelectable = false
+	   self.viewMode = .home
+	   self.handleError(error: ErrorGenerator.generateError(from: FunctionalErrorCodes.userOperationCanceled))
+    }
+    
+    func resetHomeViewModelVariables() {
+	   self.selectElectronicCertificate = false
+	   self.selectDNIe = false
+	   self.viewMode = .home
+	   self.areCertificatesSelectable = false
     }
 }

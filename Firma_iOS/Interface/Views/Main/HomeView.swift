@@ -76,6 +76,11 @@ struct HomeView: View {
 				    viewModel.sendError(error: ErrorGenerator.generateError(from: FunctionalErrorCodes.certificateNeeded))
 				    viewModel.showErrorModalStateFromError(error: ErrorGenerator.generateError(from: FunctionalErrorCodes.certificateNeeded))
 				}
+				if let visibleSignature = viewModel.signModel?.visibleSignature,
+				    visibleSignature {
+				    //We need to select the coordinates of the sign
+				    viewModel.showSignCoordinatesModal = true
+				}
 			 }
 		  } else {
 			 if (appStatus.navigateToSelectCertificate == false && viewModel.selectDNIe == false) {
@@ -91,6 +96,19 @@ struct HomeView: View {
 		  .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
 		  .presentationDetents([.height(viewModel.sheetHeight)])
 		  .accessibility(addTraits: .isModal)
+	   }
+	   .sheet(isPresented: $viewModel.showSignCoordinatesModal, onDismiss: {
+		  if viewModel.annotations.isEmpty {
+			 viewModel.handleNotAnyCoordinatesSelected()
+		  }
+	   }) {
+		  if let stringBase64Data = viewModel.signModel?.datosInUse,
+			let pdfData = Base64Utils.decode(stringBase64Data, urlSafe: true) {
+			 PDFCoordinatesModalWrapper(
+				pdfData: pdfData,
+				annotations: $viewModel.annotations
+			 )
+		  }
 	   }
 	   .navigationDestination(isPresented: $viewModel.selectDNIe) {
 		  DNIView(

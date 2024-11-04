@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
-    @StateObject private var appStatus = AppStatus()
+    @StateObject var appStatus = AppStatus()
     @StateObject var viewModel = MainViewModel()
     
     let persistenceController = CoreDataStack.shared
@@ -279,7 +279,7 @@ struct MainView: View {
 	   appStatus.navigateToAddCertificate = false
     }
     
-    private func handleError(error: Error) {
+    func handleError(error: Error) {
 	   appStatus.showErrorModal = true
 	   appStatus.errorModalState = .globalError
 	   appStatus.errorModalDescription = error.localizedDescription

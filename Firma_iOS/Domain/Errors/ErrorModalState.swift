@@ -34,6 +34,8 @@ enum ErrorModalState {
     
     case dataNotImported
     
+    case userCancelled
+    
     var title: String {
 	   switch self {
 		  case .certificateNeeded:
@@ -74,6 +76,8 @@ enum ErrorModalState {
 			 return NSLocalizedString("importing_certificate_error_title", bundle: Bundle.main, comment: "")
 		  case .dataNotImported:
 			 return NSLocalizedString("importing_data_error_title", bundle: Bundle.main, comment: "")
+		  case .userCancelled:
+			 return NSLocalizedString("user_cancelled_error_title", bundle: Bundle.main, comment: "")
 	   }
     }
     
@@ -117,6 +121,8 @@ enum ErrorModalState {
 			 return NSLocalizedString("importing_certificate_error_description", bundle: Bundle.main, comment: "")
 		  case .dataNotImported:
 			 return NSLocalizedString("importing_data_error_description", bundle: Bundle.main, comment: "")
+		  case .userCancelled:
+			 return NSLocalizedString("user_cancelled_error_description", bundle: Bundle.main, comment: "")
 	   }
     }
     
@@ -124,7 +130,7 @@ enum ErrorModalState {
 	   switch self {
 		  case .certificateNeeded, .certificateNotImported, .dataNotImported:
 			 return "cross"
-		  case .certificateGenericError, .certificateGenericErrorLong, .dniReadingError, .dniReadingErrorLong, .dniBroken, .dniBlockedPin, .dniIncorrectPin, .dniIncorrectCan, .dniExpired, .jailbreakError:
+		  case .certificateGenericError, .certificateGenericErrorLong, .dniReadingError, .dniReadingErrorLong, .dniBroken, .dniBlockedPin, .dniIncorrectPin, .dniIncorrectCan, .dniExpired, .jailbreakError, .userCancelled:
 			 return "warning"
 		  case .certificateExpired, .certificateRevoked, .certificateNearExpiry, .globalError, .trackingError:
 			 return "info_red"
@@ -137,14 +143,14 @@ enum ErrorModalState {
 	   switch self {
 		  case .certificateGenericError, .certificateGenericErrorLong, .certificateExpired, .certificateRevoked, .certificateNearExpiry:
 			 return true
-		  case .certificateNeeded, .dniReadingError, .dniBroken, .dniReadingErrorLong, .dniBlockedPin, .dniIncorrectPin,.dniIncorrectCan , .dniExpired, .globalError, .trackingError, .jailbreakError, .updateError, .certificateNotImported, .dataNotImported:
+		  case .certificateNeeded, .dniReadingError, .dniBroken, .dniReadingErrorLong, .dniBlockedPin, .dniIncorrectPin,.dniIncorrectCan , .dniExpired, .globalError, .trackingError, .jailbreakError, .updateError, .certificateNotImported, .dataNotImported, .userCancelled:
 			 return false
 	   }
     }
     
     var hasCancelButton: Bool {
 	   switch self {
-		  case .certificateGenericError, .certificateGenericErrorLong, .certificateExpired, .certificateRevoked, .certificateNearExpiry, .dniIncorrectPin, .globalError, .trackingError, .jailbreakError, .updateError, .dataNotImported:
+		  case .certificateGenericError, .certificateGenericErrorLong, .certificateExpired, .certificateRevoked, .certificateNearExpiry, .dniIncorrectPin, .globalError, .trackingError, .jailbreakError, .updateError, .dataNotImported, .userCancelled:
 			 return false
 		  case .certificateNeeded, .dniReadingError, .dniBroken, .dniReadingErrorLong, .dniBlockedPin,.dniIncorrectCan, .dniExpired, .certificateNotImported:
 			 return true
@@ -157,7 +163,7 @@ enum ErrorModalState {
 			 return NSLocalizedString("certificate_needed_button_title", bundle: Bundle.main, comment: "")
 		  case .certificateGenericError, .certificateGenericErrorLong, .dniIncorrectPin:
 			 return NSLocalizedString("generic_error_button_title", bundle: Bundle.main, comment: "")
-		  case .certificateExpired, .certificateRevoked, .certificateNearExpiry:
+		  case .certificateExpired, .certificateRevoked, .certificateNearExpiry, .userCancelled:
 			 return NSLocalizedString("accept_button_title", bundle: Bundle.main, comment: "")
 		  case .dniReadingError, .dniBroken, .dniReadingErrorLong, .dniBlockedPin,.dniIncorrectCan, .dniExpired, .certificateNotImported:
 			 return NSLocalizedString("retry_button_title", bundle: Bundle.main, comment: "")

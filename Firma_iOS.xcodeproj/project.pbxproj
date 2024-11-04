@@ -2484,6 +2484,10 @@
 		835135A02C60BD3A005081EE /* AddCertificateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8351359F2C60BD3A005081EE /* AddCertificateViewModel.swift */; };
 		835135A32C60BF00005081EE /* TutorialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835135A22C60BF00005081EE /* TutorialViewModel.swift */; };
 		8352FF2F2C47C500003402CC /* HomeErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8352FF2E2C47C500003402CC /* HomeErrorView.swift */; };
+		8369D1112CD8B5C6005B5129 /* PDFCustomTextAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8369D10D2CD8B5C6005B5129 /* PDFCustomTextAnnotation.m */; };
+		8369D1122CD8B5C6005B5129 /* PDFImageAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8369D10F2CD8B5C6005B5129 /* PDFImageAnnotation.m */; };
+		8369D1142CD8B65F005B5129 /* PDFCoordinatesModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8369D1132CD8B65F005B5129 /* PDFCoordinatesModalView.swift */; };
+		8369D1162CD8FD87005B5129 /* PDFCoordinateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8369D1152CD8FD87005B5129 /* PDFCoordinateUtils.swift */; };
 		838114B92C512E5B00CDEC97 /* SendCertificateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114B82C512E5B00CDEC97 /* SendCertificateUseCase.swift */; };
 		838114BB2C512E6700CDEC97 /* SingleSignUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114BA2C512E6700CDEC97 /* SingleSignUseCase.swift */; };
 		838114BE2C512F9800CDEC97 /* StoreDataRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114BD2C512F9800CDEC97 /* StoreDataRest.swift */; };
@@ -7710,6 +7714,12 @@
 		8351359F2C60BD3A005081EE /* AddCertificateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCertificateViewModel.swift; sourceTree = "<group>"; };
 		835135A22C60BF00005081EE /* TutorialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewModel.swift; sourceTree = "<group>"; };
 		8352FF2E2C47C500003402CC /* HomeErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeErrorView.swift; sourceTree = "<group>"; };
+		8369D10D2CD8B5C6005B5129 /* PDFCustomTextAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFCustomTextAnnotation.m; sourceTree = "<group>"; };
+		8369D10E2CD8B5C6005B5129 /* PDFImageAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFImageAnnotation.h; sourceTree = "<group>"; };
+		8369D10F2CD8B5C6005B5129 /* PDFImageAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFImageAnnotation.m; sourceTree = "<group>"; };
+		8369D1102CD8B5C6005B5129 /* PDFCustomTextAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFCustomTextAnnotation.h; sourceTree = "<group>"; };
+		8369D1132CD8B65F005B5129 /* PDFCoordinatesModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFCoordinatesModalView.swift; sourceTree = "<group>"; };
+		8369D1152CD8FD87005B5129 /* PDFCoordinateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFCoordinateUtils.swift; sourceTree = "<group>"; };
 		838114B82C512E5B00CDEC97 /* SendCertificateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCertificateUseCase.swift; sourceTree = "<group>"; };
 		838114BA2C512E6700CDEC97 /* SingleSignUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSignUseCase.swift; sourceTree = "<group>"; };
 		838114BD2C512F9800CDEC97 /* StoreDataRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDataRest.swift; sourceTree = "<group>"; };
@@ -15559,6 +15569,18 @@
 			name = ViewModel;
 			sourceTree = "<group>";
 		};
+		8369D10C2CD8B5B4005B5129 /* PDFUtils */ = {
+			isa = PBXGroup;
+			children = (
+				8369D1102CD8B5C6005B5129 /* PDFCustomTextAnnotation.h */,
+				8369D10D2CD8B5C6005B5129 /* PDFCustomTextAnnotation.m */,
+				8369D10E2CD8B5C6005B5129 /* PDFImageAnnotation.h */,
+				8369D10F2CD8B5C6005B5129 /* PDFImageAnnotation.m */,
+				8369D1152CD8FD87005B5129 /* PDFCoordinateUtils.swift */,
+			);
+			path = PDFUtils;
+			sourceTree = "<group>";
+		};
 		838114C22C51317100CDEC97 /* SwiftUseCase */ = {
 			isa = PBXGroup;
 			children = (
@@ -16012,6 +16034,7 @@
 				83A5EDC32C53C02100F93B6D /* PseudonymModalView.swift */,
 				832037672C661FA700755F7E /* DeleteHistoricalModalView.swift */,
 				832037692C6645F900755F7E /* TextfieldModalView.swift */,
+				8369D1132CD8B65F005B5129 /* PDFCoordinatesModalView.swift */,
 			);
 			path = Modals;
 			sourceTree = "<group>";
@@ -16273,6 +16296,7 @@
 		B27395E120A43E2800A7D05A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				8369D10C2CD8B5B4005B5129 /* PDFUtils */,
 				833C1E0F2CA2B6F600DFF6CD /* PadesUtils.h */,
 				833C1E102CA2B6F600DFF6CD /* PadesUtils.m */,
 				833C1E0E2CA2B6F600DFF6CD /* PadesUtilsSwift.swift */,
@@ -17065,6 +17089,7 @@
 				8325D7752CAADD18007224E9 /* SABERPrivateKeyParameters.m in Sources */,
 				8325D68E2CAADD18007224E9 /* SecT193R1Curve.m in Sources */,
 				833C2BBA2CA2B89C00DFF6CD /* PngImage.m in Sources */,
+				8369D1112CD8B5C6005B5129 /* PDFCustomTextAnnotation.m in Sources */,
 				833C2C002CA2B89C00DFF6CD /* SimpleNamedDestination.m in Sources */,
 				833C2C612CA2B89C00DFF6CD /* DublinCoreSchema.m in Sources */,
 				83FD0B092C3FC96200902E19 /* OnboardingView.swift in Sources */,
@@ -17609,6 +17634,7 @@
 				833C27EE2CA2B89A00DFF6CD /* NetscapeRevocationURL.m in Sources */,
 				8325D6C42CAADD18007224E9 /* PreCompCallback.m in Sources */,
 				B2406F3320C5CB8E008ED085 /* AlertProgressBar.m in Sources */,
+				8369D1142CD8B65F005B5129 /* PDFCoordinatesModalView.swift in Sources */,
 				8325D6B02CAADD18007224E9 /* EndoUtil.m in Sources */,
 				833C2B1B2CA2B89B00DFF6CD /* AOPkcs1TriPhaseSigner.m in Sources */,
 				8325D83E2CAADD18007224E9 /* Util.m in Sources */,
@@ -17870,6 +17896,7 @@
 				833C2A032CA2B89B00DFF6CD /* GenericPolynomialExtensionField.m in Sources */,
 				833C2A332CA2B89B00DFF6CD /* ProviderJcaJceExtHelper.m in Sources */,
 				8325D60E2CAADD18007224E9 /* KeyPairGeneratorSpi.m in Sources */,
+				8369D1162CD8FD87005B5129 /* PDFCoordinateUtils.swift in Sources */,
 				8325D3962CAADD17007224E9 /* package-info.m in Sources */,
 				8325D81A2CAADD18007224E9 /* GF2nField.m in Sources */,
 				833C28B12CA2B89A00DFF6CD /* OCSPResponseStatus.m in Sources */,
@@ -19262,6 +19289,7 @@
 				8325D3BB2CAADD17007224E9 /* Cdf.m in Sources */,
 				833C2A482CA2B89B00DFF6CD /* CMSProcessable.m in Sources */,
 				8325D58F2CAADD18007224E9 /* NullOutputStream.m in Sources */,
+				8369D1122CD8B5C6005B5129 /* PDFImageAnnotation.m in Sources */,
 				833C2C132CA2B89C00DFF6CD /* PdfEFStream.m in Sources */,
 				833C2C252CA2B89C00DFF6CD /* PdfPublicKeySecurityHandler.m in Sources */,
 				833C28122CA2B89A00DFF6CD /* DERUTF8String.m in Sources */,

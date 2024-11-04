@@ -68,6 +68,11 @@ extension View {
 			 }
 		  }
 		  .onChange(of: viewModel.downloadedData) { appStatus.downloadedData = $0 }
+		  .onChange(of: viewModel.annotations) {
+			 if $0.count > 0 {
+				viewModel.handleCoordinatesSelection(signModel: viewModel.signModel, annotation: $0[0])
+			 }
+		  }
     }
     
     // MARK: - Modal Bindings
@@ -82,6 +87,7 @@ extension View {
 		  .onChange(of: viewModel.showDocumentImportingPicker) { appStatus.showDocumentImportingPicker = $0 ?? false }
 		  .onChange(of: viewModel.showDocumentSavingPicker) { appStatus.showDocumentSavingPicker = $0 ?? false }
 		  .onChange(of: viewModel.showSignModal) { appStatus.showSignModal = $0 ?? false }
+		  .onChange(of: viewModel.showSignCoordinatesModal) { appStatus.showSignCoordinatesModal = $0 ?? false }
     }
     
     // MARK: - Action Bindings
