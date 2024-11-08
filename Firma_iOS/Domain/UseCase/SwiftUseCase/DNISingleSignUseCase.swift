@@ -42,12 +42,7 @@ class DNISingleSignUseCase : GenericSignUseCase, DNIeResult {
 	   return dataSigned.toNSData()
     }
     
-    override func singleSign(completion: @escaping (Result<Bool, Error>) -> Void) {
-	   guard signModel != nil else {
-		  handleSignError(error: ErrorGenerator.generateError(from: FunctionalErrorCodes.signatureOperationError), completion: completion)
-		  return
-	   }
-	   self.completionCallback = completion
+    override func configure() {
 	   wrapper?.getDNIe(completion: self)
     }
     
@@ -61,7 +56,7 @@ class DNISingleSignUseCase : GenericSignUseCase, DNIeResult {
 	   }
 	   
 	   self.dnieWrapper = wrapper
-	   presign(signModel: signModel!)
+	   startSign()
     }
     
     func getDNIeError(

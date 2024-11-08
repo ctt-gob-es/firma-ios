@@ -43,6 +43,14 @@ import Foundation
 		  return []
 	   }
     }
+    
+    func cancelSign() {
+	   self.viewMode = .home
+	   self.shouldSign = false
+	   self.urlReceived = nil
+	   self.shouldCancel = true
+	   self.shouldReload = true
+    }
 }
 
 @objc enum ViewModes: Int {

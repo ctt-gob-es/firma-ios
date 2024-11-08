@@ -28,7 +28,8 @@ struct MainView: View {
 			 shouldSign: $viewModel.shouldSign,
 			 showDocumentSavingPicker: $appStatus.showDocumentSavingPicker,
 			 downloadedData: $appStatus.downloadedData,
-			 viewModel: homeViewModel
+			 viewModel: homeViewModel,
+			 shouldCancel: $viewModel.shouldCancel
 		  )
 	   }
     }
@@ -44,9 +45,12 @@ struct MainView: View {
     
     private var navigationBarButtons: some View {
 	   HStack(spacing: 4) {
-		  if viewModel.viewMode == .home {
-			 NavigationBarButton(imageName: "info", action: { appStatus.showingInfoModal = true })
-			 NavigationBarButtonLink(destination: SettingsView(), imageName: "settings")
+		  switch viewModel.viewMode {
+			 case .home:
+				NavigationBarButton(imageName: "info", action: { appStatus.showingInfoModal = true })
+				NavigationBarButtonLink(destination: SettingsView(), imageName: "settings")
+			 case .sign:
+				NavigationBarButton(imageName: "close", action: { viewModel.cancelSign() })
 		  }
 	   }
 	   .padding(.bottom, 4)
@@ -91,7 +95,8 @@ struct MainView: View {
 				    shouldSign: $viewModel.shouldSign,
 				    showDocumentSavingPicker: $appStatus.showDocumentSavingPicker,
 				    downloadedData: $appStatus.downloadedData,
-				    viewModel: HomeViewModel(areCertificatesSelectable: true)
+				    viewModel: HomeViewModel(areCertificatesSelectable: true),
+				    shouldCancel: $viewModel.shouldCancel
 				)
 				.onChange(of: viewModel.viewMode, perform: { mode in
 				    if mode == .home {

@@ -12,7 +12,7 @@ class GenericSignUseCase {
     private let presignRest: PresignRest = PresignRest()
     let postSignRest: PostSignRest = PostSignRest()
     
-    var signModel: SignModel?
+    var signModel: SignModel
     
     var completionCallback: ((Result<Bool, Error>) -> Void)?
     
@@ -28,16 +28,123 @@ class GenericSignUseCase {
 	   fatalError("This method must be overrided")
     }
     
+    
     func singleSign(completion: @escaping (Result<Bool, Error>) -> Void) {
-	   guard let signModel else {
-		  handleSignError(error: ErrorGenerator.generateError(from: FunctionalErrorCodes.signatureOperationError), completion: completion)
-		  return
-	   }
 	   self.completionCallback = completion
-	   presign(signModel: signModel)
+	   if validateData() {
+		  configure()
+	   }
     }
     
-    func presign(signModel: SignModel) {
+    private func validateData() -> Bool {
+	   let supportedFormats: [String] = [
+		  CADES_FORMAT,
+		  CADES_TRI_FORMAT,
+		  PADES_FORMAT,
+		  PADES_TRI_FORMAT,
+		  XADES_FORMAT,
+		  XADES_TRI_FORMAT,
+		  NONE_TRI_FORMAT,
+		  NONE_FORMAT,
+		  FACTURAE_FORMAT,
+		  FACTURAE_TRI_FORMAT
+	   ]
+	   
+	   guard let signFormat = signModel.signFormat, supportedFormats.contains(signFormat) else {
+		  let error = ErrorGenerator.generateError(from: ServerErrorCodes.unsupportedSignatureFormat)
+		  self.handleSignError(error: error, completion: self.completionCallback!)
+		  return false
+	   }
+	   
+	   guard let urlServlet = signModel.urlServlet, !urlServlet.isEmpty else {
+		  let error = ErrorGenerator.generateError(from: ServerErrorCodes.unknownOperation)
+		  self.handleSignError(error: error, completion: self.completionCallback!)
+		  return false
+	   }
+	   
+	   guard let signAlgoInUse = signModel.signAlgoInUse, CADESSignUtils.isValidAlgorithm(signAlgoInUse) else {
+		  let error = ErrorGenerator.generateError(from: ServerErrorCodes.unsupportedSignatureAlgorithm)
+		  self.handleSignError(error: error, completion: self.completionCallback!)
+		  return false
+	   }
+	   
+	   guard let docId = signModel.docId, !docId.isEmpty else {
+		  let error = ErrorGenerator.generateError(from: ServerErrorCodes.missingDocumentID)
+		  self.handleSignError(error: error, completion: self.completionCallback!)
+		  return false
+	   }
+	   
+	   guard let operation = signModel.operation,
+		    operation == OPERATION_SIGN ||
+		    operation == OPERATION_COSIGN ||
+		    operation == OPERATION_COUNTERSIGN else {
+		  let error = ErrorGenerator.generateError(from: ServerErrorCodes.invalidSubOperation)
+		  self.handleSignError(error: error, completion: self.completionCallback!)
+		  return false
+	   }
+	   
+	   //TODO: CHECK THE TARGET ERRORS
+	   /*if let encodedTarget = signModel.extraParams {
+		  if let decodedData = Base64Utils.decode(encodedTarget, urlSafe: true),
+			let target = String(data: decodedData, encoding: .utf8) {
+			 
+			 let validTargets = [PARAMETER_NAME_TARGET_TREE, PARAMETER_NAME_TARGET_LEAFS]
+			 if !validTargets.contains(target) {
+				let error = ErrorGenerator.generateError(from: ServerErrorCodes.invalidAdditionalParamsFormat)
+				self.handleSignError(error: error, completion: self.completionCallback!)
+				return false
+			 }
+		  } else {
+			 let error = ErrorGenerator.generateError(from: ServerErrorCodes.invalidAdditionalParamsFormat)
+			 self.handleSignError(error: error, completion: self.completionCallback!)
+			 return false
+		  }
+	   }*/
+	   
+	   return true
+    }
+    
+    func startSign() {
+	   if (signModel.signFormat == NONE_FORMAT)
+	   {
+		  //THIS IS MONOPHASIC SIGN
+		  self.singleSignMonophasic()
+	   } else {
+		  //THIS IS TRIPHASIC SIGN
+		  self.presign()
+	   }
+    }
+    
+    func configure() {
+	   //Generic does not need any additional configuration, but DNISingleSign is overriding it
+	   startSign()
+    }
+
+    
+    func singleSignMonophasic() {
+	   guard let datosInUse = signModel.datosInUse,
+		    let signFormat = signModel.signFormat,
+		    let signAlgoInUse = signModel.signAlgoInUse else {
+		  handleSignError(error: ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.signingError), completion: self.completionCallback!)
+		  return
+	   }
+	   
+	   guard let decodedDatosInUse = Base64Utils.decode(datosInUse, urlSafe: true) else {
+		  handleSignError(error: ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.signingError), completion: self.completionCallback!)
+		  return
+	   }
+	   
+	   guard let pkcs1 = getPKCS1Sign(dataToSign: decodedDatosInUse, algorithm: signAlgoInUse),
+		    let encodedPKCS1 = Base64Utils.encode(pkcs1, urlSafe: true)
+	   else {
+		  handleSignError(error: ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.signingError), completion: self.completionCallback!)
+		  return
+	   }
+	   
+	   storeData(dataSign: encodedPKCS1, completion: self.completionCallback!)
+    }
+    
+    func presign() {
 	   guard let operation = signModel.operation,
 		    let datosInUse = signModel.datosInUse,
 		    let signFormat = signModel.signFormat,
@@ -58,14 +165,14 @@ class GenericSignUseCase {
 			 triphasicServerURL: signModel.triphasicServerURL,
 			 rtServlet: signModel.rtServlet,
 			 completion: { result in
-				self.handlePresingResult(signModel: signModel, result: result, completion: self.completionCallback!)
+				self.handlePresingResult(result: result, completion: self.completionCallback!)
 			 })
 	   } else {
 		  handleSignError(error: ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.appConfigurationError), completion: self.completionCallback!)
 	   }
     }
     
-    private func handlePresingResult(signModel: SignModel, result: Result<String, Error>, completion: @escaping (Result<Bool, Error>) -> Void) {
+    private func handlePresingResult(result: Result<String, Error>, completion: @escaping (Result<Bool, Error>) -> Void) {
 	   guard let signFormat = signModel.signFormat,
 		    let signAlgoInUse = signModel.signAlgoInUse else {
 		  handleSignError(error: ErrorGenerator.generateError(from: FunctionalErrorCodes.signatureOperationError), completion: completion)
@@ -79,7 +186,7 @@ class GenericSignUseCase {
 			 } else {
 				if let range = serverResponse.range(of: ":", options: .backwards) {
 				    let result = serverResponse[range.upperBound...]
-				    handleSignError(error: ErrorGenerator.generateError(from: FunctionalErrorCodes.signatureOperationError), completion: completion)
+				    handleSignError(error: ErrorGenerator.generateServerError(from: String(result)), completion: completion)
 				}
 			 }
 			 
@@ -93,14 +200,14 @@ class GenericSignUseCase {
 				}
 				return
 			 }
-			 postsign(signModel: signModel, encodedData: pkcs1, completion: completion)
+			 postsign(encodedData: pkcs1, completion: completion)
 			 
 		  case .failure(let error):
 			 handleSignError(error: error, completion: completion)
 	   }
     }
     
-    private func postsign(signModel: SignModel, encodedData: Data, completion: @escaping (Result<Bool, Error>) -> Void) {
+    private func postsign(encodedData: Data, completion: @escaping (Result<Bool, Error>) -> Void) {
 	   guard let operation = signModel.operation,
 		    let datosInUse = signModel.datosInUse,
 		    let signFormat = signModel.signFormat,
@@ -122,28 +229,27 @@ class GenericSignUseCase {
 		  rtServlet: signModel.rtServlet,
 		  completion: { result in
 			 self.handlePostSignResult(
-				signModel: signModel,
 				result: result,
 				completion: completion
 			 )
 		  })
     }
     
-    func handlePostSignResult(signModel: SignModel, result: Result<Data, Error>, completion: @escaping (Result<Bool, Error>) -> Void) {
+    func handlePostSignResult(result: Result<Data, Error>, completion: @escaping (Result<Bool, Error>) -> Void) {
 	   switch result {
 		  case .success(let postSignResult):
 			 if let responseString = String(data: postSignResult, encoding: .utf8) {
 				if responseString.contains("OK") {
 				    if let range = responseString.range(of: "=") {
 					   let parte2 = String(responseString[range.upperBound...])
-					   sendCertificate(dataSign: parte2, completion: completion)
+					   storeData(dataSign: parte2, completion: completion)
 				    } else {
 					   handleSignError(error: ErrorGenerator.generateError(from: FunctionalErrorCodes.signatureOperationError), completion: completion)
 				    }
 				} else {
 				    if let range = responseString.range(of: ":", options: .backwards) {
 					   let result = responseString[range.upperBound...]
-					   handleSignError(error: ErrorGenerator.generateError(from: CommunicationErrorCodes.generalCommunicationError), completion: completion)
+					   handleSignError(error: ErrorGenerator.generateServerError(from: String(result)), completion: completion)
 				    } else {
 					   handleSignError(error: ErrorGenerator.generateError(from: FunctionalErrorCodes.signatureOperationError), completion: completion)
 				    }
@@ -332,22 +438,22 @@ class GenericSignUseCase {
 	   completion(.success(true))
     }
     
-    private func sendCertificate(dataSign: String, completion: @escaping (Result<Bool, Error>) -> Void) {
-	   guard let urlServlet = signModel?.urlServlet,
-		    let cipherKey = signModel?.cipherKey,
-		    let docId = signModel?.docId,
+    private func storeData(dataSign: String, completion: @escaping (Result<Bool, Error>) -> Void) {
+	   guard let urlServlet = signModel.urlServlet,
+		    let cipherKey = signModel.cipherKey,
+		    let docId = signModel.docId,
 		    let certificateData = getCertificateData() else {
 		  return
 	   }
 	   
-	   let sendCertificateUseCase = SendCertificateUseCase(
+	   let storeDataUseCase = StoreDataUseCase(
 		  urlServlet: urlServlet,
 		  cipherKey: cipherKey,
 		  docId: docId,
 		  base64UrlSafeCertificateData: certificateData
 	   )
 	   
-	   sendCertificateUseCase.sendCertificate(dataSign: dataSign, completion: { result in
+	   storeDataUseCase.storeData(dataSign: dataSign, completion: { result in
 		  switch result {
 			 case .success(let storeDataServerResponse):
 				if let response = String(data: storeDataServerResponse, encoding: .utf8) {

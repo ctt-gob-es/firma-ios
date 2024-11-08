@@ -34,9 +34,24 @@ class ErrorGenerator {
 	   }  else if let requestError = code as? DNIeErrorCodes {
 		  errorMessage = DNIeErrorCodes.getMessage(for: requestError)
 		  errorDomain = ErrorDomain.dnie
+	   }  else if let requestError = code as? ServerErrorCodes {
+		  errorMessage = ServerErrorCodes.getMessage(for: requestError)
+		  errorDomain = ErrorDomain.server
 	   }
 
 	   let userInfo = [NSLocalizedDescriptionKey: errorMessage]
 	   return NSError(domain: errorDomain, code: Int(code.rawValue) ?? 0, userInfo: userInfo)
+    }
+    
+    static func generateServerError(from errorString: String) -> NSError {
+	   guard let errorCode = ServerErrorCodes(rawValue: errorString) else {
+		  let errorMessage = "Unknown Server Error"
+		  let userInfo = [NSLocalizedDescriptionKey: errorMessage]
+		  return NSError(domain: ErrorDomain.server, code: 0, userInfo: userInfo)
+	   }
+	   let errorMessage = ServerErrorCodes.getMessage(for: errorCode)
+	   let userInfo = [NSLocalizedDescriptionKey: errorMessage]
+	   
+	   return NSError(domain: ErrorDomain.server, code: Int(errorCode.rawValue) ?? 0, userInfo: userInfo)
     }
 }

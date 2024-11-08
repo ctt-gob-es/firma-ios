@@ -20,7 +20,7 @@ struct HomeView: View {
     @Binding var viewMode: ViewModes
     
     @State var password: String = ""
-    @State var shouldCancelOperation: Bool = false
+    @Binding var shouldCancelOperation: Bool
     @State var shouldSendStopSign: Bool = false
     
     init(certificates: Binding<[AOCertificateInfo]?>,
@@ -28,13 +28,15 @@ struct HomeView: View {
 	    shouldSign: Binding<Bool>,
 	    showDocumentSavingPicker: Binding<Bool>,
 	    downloadedData: Binding<URL?>,
-	    viewModel: HomeViewModel) {
+	    viewModel: HomeViewModel,
+	    shouldCancel: Binding<Bool>) {
 	   self._viewModel = StateObject(wrappedValue: viewModel)
 	   self._certificates = certificates
 	   self._shouldSign = shouldSign
 	   self._showDocumentSavingPicker = showDocumentSavingPicker
 	   self._downloadedData = downloadedData
 	   self._viewMode = viewMode
+	   self._shouldCancelOperation = shouldCancel
     }
     
     var body: some View {
@@ -70,6 +72,7 @@ struct HomeView: View {
 			 if (appStatus.keepParentController == false && viewModel.selectDNIe == false) {
 				//User aborted sign
 				viewModel.sendError(error: ErrorGenerator.generateError(from: FunctionalErrorCodes.userOperationCanceled))
+				shouldCancelOperation = true
 			 } else {
 				if appStatus.keepParentController && ( self.certificates?.count == 0 || self.certificates == nil)  {
 				    //There is no certificate in the app

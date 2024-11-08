@@ -122,6 +122,9 @@ extension View {
 				}
 			 }
 		  }
+		  .onChange(of: viewModel.shouldCancel) { newValue in
+			 viewModel.areCertificatesSelectable = false
+		  }
 		  .onReceive(NotificationCenter.default.publisher(for: .DNIeSuccess)) { _ in
 			 viewModel.handleFinishSign()
 			 appStatus.isLoading = false

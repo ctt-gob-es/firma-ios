@@ -36,7 +36,7 @@ class ErrorHandlerUtils {
 			 case .generalSoftwareError:
 				return .globalError
 			 case .signingError:
-				return .certificateGenericError
+				return .globalError
 			 case .certificateSelectionError:
 				return .certificateGenericError
 			 case .dataSavingError:
@@ -96,6 +96,76 @@ class ErrorHandlerUtils {
 			 case .certificateSelectionRequestError:
 				return .certificateGenericError
 			 default:
+				return .globalError
+		  }
+	   } else if let dnieError = DNIeErrorCodes(rawValue: errorCodeString) {
+		  switch dnieError {
+			 case .invalidCard:
+				return .dniBroken
+			 case .burnedCard:
+				return .dniBroken
+			 case .connectionError:
+				return .dniReadingError
+			 case .notInitialized:
+				return .dniReadingError
+			 case .operationError:
+				return .dniReadingError
+			 case .badPin:
+				return .dniIncorrectPin
+			 case .lockedCard:
+				return .dniBlockedPin
+			 case .pinError:
+				return .dniIncorrectPin
+			 case .badCan:
+				return .dniIncorrectCan
+			 case .severeError:
+				return .globalError
+			 case .noCertAvailable:
+				return .globalError
+		  }
+	   } else if let serverError = ServerErrorCodes(rawValue: errorCodeString) {
+		  switch serverError {
+			 case .missingOperation:
+				return .globalError
+			 case .missingDocumentID:
+				return .globalError
+			 case .missingSignatureAlgorithm:
+				return .globalError
+			 case .missingSignatureFormat:
+				return .globalError
+			 case .missingUserCertificate:
+				return .globalError
+			 case .invalidAdditionalParamsFormat:
+				return .globalError
+			 case .userCertificateNotX509:
+				return .globalError
+			 case .unsupportedSignatureFormat:
+				return .globalError
+			 case .preSignatureError:
+				return .globalError
+			 case .documentStorageError:
+				return .globalError
+			 case .unknownOperation:
+				return .globalError
+			 case .postSignatureError:
+				return .globalError
+			 case .invalidSubOperation:
+				return .globalError
+			 case .documentRetrievalError:
+				return .globalError
+			 case .invalidSessionDataFormat:
+				return .globalError
+			 case .verificationCodeGenerationError:
+				return .globalError
+			 case .verificationCodeCheckError:
+				return .globalError
+			 case .signatureIntegrityError:
+				return .globalError
+			 case .invalidOperationDataFormat:
+				return .globalError
+			 case .unsupportedSignatureAlgorithm:
+				return .globalError
+			 case .userInterventionRequired:
 				return .globalError
 		  }
 	   }

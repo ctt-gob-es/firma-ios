@@ -18,7 +18,6 @@ class GenericBatchSignUseCase: NSObject, BatchRestDelegate, ServletRestDelegate 
     // MARK: - Properties
     
     var parametersBatch: InputParametersBatch?
-    var responseMessage: String?
     var completionHandler: ((Bool, Error?) -> Void)?
     weak var delegate: BatchSignUseCaseDelegate?
     
@@ -71,7 +70,6 @@ class GenericBatchSignUseCase: NSObject, BatchRestDelegate, ServletRestDelegate 
 	   
 	   let validationError = validateDataOperation(parameterBatch: batch)
 	   if let error = validationError {
-		  responseMessage = "batch_signs_generic_error"
 		  servletRest.storeDataError(error, stServlet: batch.stservlet, cipherKey: batch.cipherKey, docId: batch.identifier)
 	   } else {
 		  bachRest.bachPresign(batch.batchpresignerUrl, withJsonData: batch.data, withCerts: getCertificateData())
@@ -102,7 +100,6 @@ class GenericBatchSignUseCase: NSObject, BatchRestDelegate, ServletRestDelegate 
 	   
 	   guard let presignsOk = responseDict["td"] as? [String: Any],
 		    var dataPostSignBase64 = parametersBatch?.data else {
-		  responseMessage = "batch_signs_generic_error"
 		  servletRest.storeDataError("Error in presign response", stServlet: stServlet, cipherKey: cipherKey, docId: identifier)
 		  return
 	   }
@@ -117,7 +114,6 @@ class GenericBatchSignUseCase: NSObject, BatchRestDelegate, ServletRestDelegate 
 				let pk1 = self.sign(pre: pre, algorithm: getAlgorithm(), pk1Decoded: pk1Decoded)
 				
 				if pk1.isEmpty {
-				    responseMessage = "batch_signs_generic_error"
 				    servletRest.storeDataError("err-14:= Signing error", stServlet: stServlet, cipherKey: cipherKey, docId: identifier)
 				    return
 				}
@@ -142,7 +138,6 @@ class GenericBatchSignUseCase: NSObject, BatchRestDelegate, ServletRestDelegate 
     }
     
     func didErrorBachPresign(_ errorMessage: String) {
-	   self.responseMessage = "batch_signs_generic_error"
 	   self.servletRest.storeDataError(
 		  errorMessage,
 		  stServlet: self.parametersBatch?.stservlet ?? "",
@@ -154,12 +149,10 @@ class GenericBatchSignUseCase: NSObject, BatchRestDelegate, ServletRestDelegate 
     func didSuccessBachPostsign(_ responseDict: [AnyHashable : Any]) {
 	   do {
 		  let jsonData = try JSONSerialization.data(withJSONObject: responseDict, options: .prettyPrinted)
-		  self.responseMessage = "batch_signs_all_ok"
 		  
 		  if let signs = responseDict["signs"] as? [[String: Any]] {
 			 for signDict in signs {
 				if let result = signDict["result"] as? String, result != "DONE_AND_SAVED" {
-				    self.responseMessage = "batch_signs_ok_with_signs_error"
 				    break
 				}
 			 }
@@ -174,14 +167,12 @@ class GenericBatchSignUseCase: NSObject, BatchRestDelegate, ServletRestDelegate 
 		  )
 		  
 	   } catch {
-		  self.responseMessage = "batch_signs_generic_error"
 		  let errorToSend = "err-07:= Los datos de postfirma recibidos son inválidos"
 		  self.servletRest.storeDataError(errorToSend, stServlet: self.parametersBatch?.stservlet ?? "", cipherKey: self.parametersBatch?.cipherKey ?? "", docId: self.parametersBatch?.identifier ?? "")
 	   }
     }
     
     func didErrorBachPostsign(_ errorMessage: String) {
-	   self.responseMessage = "batch_signs_generic_error"
 	   self.servletRest.storeDataError(
 		  errorMessage,
 		  stServlet: self.parametersBatch?.stservlet ?? "",
@@ -196,26 +187,12 @@ class GenericBatchSignUseCase: NSObject, BatchRestDelegate, ServletRestDelegate 
     }
     
     func didErrorLoadData(fromServer errorMessage: String) {
-	   self.responseMessage = "batch_signs_generic_error"
 	   self.servletRest.storeDataError(
 		  errorMessage,
 		  stServlet: self.parametersBatch?.stservlet ?? "",
 		  cipherKey: self.parametersBatch?.cipherKey ?? "",
 		  docId: self.parametersBatch?.identifier ?? ""
 	   )
-    }
-    
-    func didSuccessStoreData(_ response: String) {
-	   if self.responseMessage == "batch_signs_generic_error" {
-		  self.completionHandler?(false, NSError(domain: "BatchSignUseCase", code: -1, userInfo: [NSLocalizedDescriptionKey: response]))
-	   } else {
-		  self.completionHandler?(true, nil)
-	   }
-    }
-    
-    func didErrorStoreData(_ errorMessage: String) {
-	   let error = NSError(domain: "BatchSignUseCase", code: -1, userInfo: [NSLocalizedDescriptionKey: errorMessage])
-	   self.completionHandler?(false, error)
     }
     
     // MARK: - Helper Functions

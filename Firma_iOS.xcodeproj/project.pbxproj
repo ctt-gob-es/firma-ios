@@ -2488,7 +2488,7 @@
 		8369D1122CD8B5C6005B5129 /* PDFImageAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8369D10F2CD8B5C6005B5129 /* PDFImageAnnotation.m */; };
 		8369D1142CD8B65F005B5129 /* PDFCoordinatesModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8369D1132CD8B65F005B5129 /* PDFCoordinatesModalView.swift */; };
 		8369D1162CD8FD87005B5129 /* PDFCoordinateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8369D1152CD8FD87005B5129 /* PDFCoordinateUtils.swift */; };
-		838114B92C512E5B00CDEC97 /* SendCertificateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114B82C512E5B00CDEC97 /* SendCertificateUseCase.swift */; };
+		838114B92C512E5B00CDEC97 /* StoreDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114B82C512E5B00CDEC97 /* StoreDataUseCase.swift */; };
 		838114BB2C512E6700CDEC97 /* SingleSignUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114BA2C512E6700CDEC97 /* SingleSignUseCase.swift */; };
 		838114BE2C512F9800CDEC97 /* StoreDataRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114BD2C512F9800CDEC97 /* StoreDataRest.swift */; };
 		838114C42C5131AA00CDEC97 /* PresignRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114C32C5131AA00CDEC97 /* PresignRest.swift */; };
@@ -2498,6 +2498,7 @@
 		83904CCE2CA43754005F345B /* IOSNFCSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83904CCD2CA43754005F345B /* IOSNFCSessionManager.swift */; };
 		83939A742C5CEA6A009FDE6E /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83939A732C5CEA6A009FDE6E /* MainViewModel.swift */; };
 		83939A782C5D01A4009FDE6E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83939A772C5D01A4009FDE6E /* HomeViewModel.swift */; };
+		8393EDF32CDCEA1F00BA2051 /* ServerErrorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EDF22CDCEA1F00BA2051 /* ServerErrorCodes.swift */; };
 		8393EEC72C58E2E0009FDE6E /* ParseURLParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EEC62C58E2E0009FDE6E /* ParseURLParameters.swift */; };
 		8393EEC92C58F675009FDE6E /* ReportErrorUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EEC82C58F675009FDE6E /* ReportErrorUseCase.swift */; };
 		8393EECB2C58F8E2009FDE6E /* HistoricalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EECA2C58F8E2009FDE6E /* HistoricalView.swift */; };
@@ -7720,7 +7721,7 @@
 		8369D1102CD8B5C6005B5129 /* PDFCustomTextAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFCustomTextAnnotation.h; sourceTree = "<group>"; };
 		8369D1132CD8B65F005B5129 /* PDFCoordinatesModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFCoordinatesModalView.swift; sourceTree = "<group>"; };
 		8369D1152CD8FD87005B5129 /* PDFCoordinateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFCoordinateUtils.swift; sourceTree = "<group>"; };
-		838114B82C512E5B00CDEC97 /* SendCertificateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCertificateUseCase.swift; sourceTree = "<group>"; };
+		838114B82C512E5B00CDEC97 /* StoreDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDataUseCase.swift; sourceTree = "<group>"; };
 		838114BA2C512E6700CDEC97 /* SingleSignUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSignUseCase.swift; sourceTree = "<group>"; };
 		838114BD2C512F9800CDEC97 /* StoreDataRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDataRest.swift; sourceTree = "<group>"; };
 		838114C32C5131AA00CDEC97 /* PresignRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresignRest.swift; sourceTree = "<group>"; };
@@ -7730,6 +7731,7 @@
 		83904CCD2CA43754005F345B /* IOSNFCSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSNFCSessionManager.swift; sourceTree = "<group>"; };
 		83939A732C5CEA6A009FDE6E /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		83939A772C5D01A4009FDE6E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		8393EDF22CDCEA1F00BA2051 /* ServerErrorCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerErrorCodes.swift; sourceTree = "<group>"; };
 		8393EEC62C58E2E0009FDE6E /* ParseURLParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseURLParameters.swift; sourceTree = "<group>"; };
 		8393EEC82C58F675009FDE6E /* ReportErrorUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportErrorUseCase.swift; sourceTree = "<group>"; };
 		8393EECA2C58F8E2009FDE6E /* HistoricalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalView.swift; sourceTree = "<group>"; };
@@ -15585,7 +15587,7 @@
 			isa = PBXGroup;
 			children = (
 				83DF46812C493C56000C3F31 /* ReceiveDataUseCase.swift */,
-				838114B82C512E5B00CDEC97 /* SendCertificateUseCase.swift */,
+				838114B82C512E5B00CDEC97 /* StoreDataUseCase.swift */,
 				838114BA2C512E6700CDEC97 /* SingleSignUseCase.swift */,
 				83A5EDC52C53E2F600F93B6D /* SaveDataUseCase.swift */,
 				8393EEC82C58F675009FDE6E /* ReportErrorUseCase.swift */,
@@ -16062,6 +16064,7 @@
 				83DB248C2CBFD95000D1DD8C /* RequestErrorCodes.swift */,
 				83DB248E2CBFD97800D1DD8C /* CommunicationErrorCodes.swift */,
 				83DB248A2CBFD94300D1DD8C /* FunctionalErrorCodes.swift */,
+				8393EDF22CDCEA1F00BA2051 /* ServerErrorCodes.swift */,
 			);
 			path = ErrorCodes;
 			sourceTree = "<group>";
@@ -16957,6 +16960,7 @@
 				833C28392CA2B89A00DFF6CD /* ObjectDigestInfo.m in Sources */,
 				8325D73C2CAADD18007224E9 /* McElieceCCA2KeyPairGenerator.m in Sources */,
 				83AF00522CA4284E00A26C0F /* PrivateConstants.swift in Sources */,
+				8393EDF32CDCEA1F00BA2051 /* ServerErrorCodes.swift in Sources */,
 				8393EED82C58FBD3009FDE6E /* SwiftDate+Utils.swift in Sources */,
 				8325D6642CAADD18007224E9 /* SecP224R1Curve.m in Sources */,
 				833C282A2CA2B89A00DFF6CD /* ASN1OctetStringParser.m in Sources */,
@@ -17566,7 +17570,7 @@
 				833C28312CA2B89A00DFF6CD /* BERFactory.m in Sources */,
 				8325D6292CAADD18007224E9 /* AlgorithmParametersUtils.m in Sources */,
 				833C28302CA2B89A00DFF6CD /* NISTNamedCurves.m in Sources */,
-				838114B92C512E5B00CDEC97 /* SendCertificateUseCase.swift in Sources */,
+				838114B92C512E5B00CDEC97 /* StoreDataUseCase.swift in Sources */,
 				833C2BEC2CA2B89C00DFF6CD /* PdfStamperImp.m in Sources */,
 				83AF00112CA2C95D00A26C0F /* OCTET_STRING.c in Sources */,
 				833C2BF22CA2B89C00DFF6CD /* PdfPageEventHelper.m in Sources */,

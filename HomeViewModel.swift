@@ -21,7 +21,7 @@ class HomeViewModel: ObservableObject, BatchSignUseCaseDelegate {
     @Published var isLoading: Bool? = false
     @Published var entity: AOEntity? = nil
     @Published var receiveDataUseCase: ReceiveDataUseCase? = nil
-    @Published var sendCertificateUseCase: SendCertificateUseCase? = nil
+    @Published var storeDataUseCase: StoreDataUseCase? = nil
     @Published var signUseCase: SingleSignUseCase? = nil
     @Published var batchSignUseCase: GenericBatchSignUseCase? = nil
     @Published var saveDataUseCase: SaveDataUseCase? = nil
@@ -52,6 +52,7 @@ class HomeViewModel: ObservableObject, BatchSignUseCaseDelegate {
     @Published var selectDNIe: Bool = false
     @Published var selectElectronicCertificate: Bool = false
     @Published var signMode: SignMode?
+    @Published var shouldCancel: Bool? = false
     @Published var certificates: [AOCertificateInfo]?
     @Published var annotations: [PDFAnnotation] = []
     
@@ -63,7 +64,7 @@ class HomeViewModel: ObservableObject, BatchSignUseCaseDelegate {
 	    isLoading: Bool? = false,
 	    entity: AOEntity? = nil,
 	    receiveDataUseCase: ReceiveDataUseCase? = nil,
-	    sendCertificateUseCase: SendCertificateUseCase? = nil,
+	    storeDataUseCase: StoreDataUseCase? = nil,
 	    signUseCase: SingleSignUseCase? = nil,
 	    batchSignUseCase: GenericBatchSignUseCase? = nil,
 	    saveDataUseCase: SaveDataUseCase? = nil,
@@ -76,14 +77,15 @@ class HomeViewModel: ObservableObject, BatchSignUseCaseDelegate {
 	    shouldSign: Bool? = nil,
 	    viewMode: ViewModes? = .sign,
 	    downloadedData: URL? = nil,
-	    certificates: [AOCertificateInfo]? = []
+	    certificates: [AOCertificateInfo]? = [],
+	    shouldCancel: Bool? = nil
     ) {
 	   self.buttonEnabled = buttonEnabled
 	   self.urlReceived = urlReceived
 	   self.isLoading = isLoading
 	   self.entity = entity
 	   self.receiveDataUseCase = receiveDataUseCase
-	   self.sendCertificateUseCase = sendCertificateUseCase
+	   self.storeDataUseCase = storeDataUseCase
 	   self.signUseCase = signUseCase
 	   self.batchSignUseCase = batchSignUseCase
 	   self.saveDataUseCase = saveDataUseCase
@@ -97,6 +99,7 @@ class HomeViewModel: ObservableObject, BatchSignUseCaseDelegate {
 	   self.viewMode = viewMode
 	   self.downloadedData = downloadedData
 	   self.certificates = certificates
+	   self.shouldCancel = shouldCancel
     }
     
     func onAppear() {
@@ -172,6 +175,7 @@ class HomeViewModel: ObservableObject, BatchSignUseCaseDelegate {
 			 case .success(let data):
 				self.signModel?.datosInUse = Base64Utils.encode(data,urlSafe: true)
 				self.isLoading = false
+				self.selectSignMode()
 			 case .failure(let error):
 				self.handleError(error: error)
 		  }
@@ -187,7 +191,6 @@ class HomeViewModel: ObservableObject, BatchSignUseCaseDelegate {
 			 self.parameters = result.1
 			 guard let signModel = self.signModel else { return }
 			 configureMode(signModel: signModel)
-			 selectSignMode()
 		  case .failure(let error):
 			 handleError(error: error)
 	   }
@@ -200,13 +203,16 @@ class HomeViewModel: ObservableObject, BatchSignUseCaseDelegate {
 		  dataType = .local
 	   } else {
 		  dataType = .external
+		  selectSignMode()
 	   }
 	   
 	   switch signModel.operation {
 		  case OPERATION_SELECT_CERTIFICATE:
 			 buttonTitle = NSLocalizedString("send", bundle: Bundle.main, comment: "")
 		  case OPERATION_SIGN,
-			  OPERATION_BATCH:
+			  OPERATION_BATCH,
+			  OPERATION_COSIGN,
+			  OPERATION_COUNTERSIGN:
 			 buttonTitle = NSLocalizedString("home_certificates_sign_button_title", bundle: Bundle.main, comment: "")
 		  case OPERATION_SAVE:
 			 buttonEnabled = true
@@ -239,15 +245,15 @@ class HomeViewModel: ObservableObject, BatchSignUseCaseDelegate {
 	   }
     }
     
-    private func handleOperationSendCertificate() {
+    private func handleOperationStoreData() {
 	   guard let certificateData = certificateUtils?.base64UrlSafeCertificateData,
 		    let urlServlet = signModel?.urlServlet,
 		    let cipherKey = signModel?.cipherKey,
 		    let docId = signModel?.docId else {
 		  return
 	   }
-	   sendCertificateUseCase = SendCertificateUseCase(urlServlet: urlServlet, cipherKey: cipherKey, docId: docId, base64UrlSafeCertificateData: certificateData)
-	   sendCertificateUseCase?.sendCertificate(dataSign: certificateData) { result in
+	   storeDataUseCase = StoreDataUseCase(urlServlet: urlServlet, cipherKey: cipherKey, docId: docId, base64UrlSafeCertificateData: certificateData)
+	   storeDataUseCase?.storeData(dataSign: certificateData) { result in
 		  switch result {
 			 case .success(let result):
 				print("Success sending certificate, result: " + (String(data: result, encoding: .utf8) ?? ""))
@@ -277,7 +283,7 @@ class HomeViewModel: ObservableObject, BatchSignUseCaseDelegate {
 						  let history = HistoryModel(
 							 date: Date(),
 							 signType: self.signType ?? .external,
-							 externalApp: nil,
+							 externalApp: self.signModel?.appname,
 							 dataType: self.dataType ?? .external,
 							 filename: FileUtils.getArchiveNameFromParameters(parameters: self.parameters)
 						  )
@@ -428,9 +434,11 @@ class HomeViewModel: ObservableObject, BatchSignUseCaseDelegate {
 	   guard let operation = signModel.operation else { return }
 	   switch operation {
 		  case OPERATION_SELECT_CERTIFICATE:
-			 handleOperationSendCertificate()
+			 handleOperationStoreData()
 		  case OPERATION_SIGN,
-		  OPERATION_SIGN_FROM_LOCAL:
+			 OPERATION_COSIGN,
+			 OPERATION_COUNTERSIGN,
+			 OPERATION_SIGN_FROM_LOCAL:
 			 handleOperationSign()
 		  case OPERATION_BATCH:
 			 handleOperationBatch()
@@ -438,6 +446,7 @@ class HomeViewModel: ObservableObject, BatchSignUseCaseDelegate {
 			 handleOperationSaveData()
 		  default:
 			 break
+			 //TODO: HANDLE ERROR: SIGN OPERATION NOT SUPPORTED
 	   }
     }
     

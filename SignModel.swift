@@ -24,6 +24,7 @@ class SignModel {
     var cloudName: String?
     var returnURL: String?
     var visibleSignature: Bool = false
+    var appname: String?
     
     init(dictionary: NSMutableDictionary) {
 	   self.operation = dictionary[PARAMETER_NAME_OPERATION] as? String
@@ -38,19 +39,19 @@ class SignModel {
 	   self.fileId = dictionary[PARAMETER_NAME_FILE_ID] as? String
 	   self.returnURL = dictionary[PARAMETER_NAME_RETURN_URL] as? String
 
-	   if let visibleSignatureString = dictionary[PARAMETER_NAME_VISIBLE_SIGNATURE] as? String {
-		  self.visibleSignature = (visibleSignatureString.lowercased() == "true")
-	   }
-
 	   if let extraParams = self.extraParams {
 		  if let dataReceived = Base64Utils.decode(extraParams, urlSafe: true),
 			let stringDataReceived = String(data: dataReceived, encoding: .utf8),
 			let dict = CADESSignUtils.javaProperties2Dictionary(stringDataReceived) as? [String: Any] {
 			 self.dictExtraParams = dict
 			 self.triphasicServerURL = dict[PARAMETER_NAME_TRIPHASIC_SERVER_URL] as? String
-
+			 
 			 if let triphasicServerURL = self.triphasicServerURL, triphasicServerURL.last != "e" {
 				self.triphasicServerURL = String(triphasicServerURL.dropLast())
+			 }
+			 
+			 if let visibleSignatureString = dict[PARAMETER_NAME_VISIBLE_SIGNATURE] as? String {
+				self.visibleSignature = (visibleSignatureString.lowercased() == "true")
 			 }
 		  }
 	   }
@@ -66,6 +67,10 @@ class SignModel {
 				self.dictExtraParams = aux
 			 }
 		  }
+	   }
+	   
+	   if let appNameString = dictionary[PARAMETER_NAME_VISIBLE_SIGNATURE] as? String {
+		  self.appname = appNameString
 	   }
     }
     
@@ -86,33 +91,5 @@ class SignModel {
 			 extraParams = updatedString
 		  }
 	   }
-    }
-    
-    func toDictionary() -> [String: Any] {
-	   var dict: [String: Any] = [:]
-	   
-	   if let operation = operation { dict[PARAMETER_NAME_OPERATION] = operation }
-	   if let datosInUse = datosInUse { dict[PARAMETER_NAME_DAT] = datosInUse }
-	   if let signAlgoInUse = signAlgoInUse { dict[PARAMETER_NAME_ALGORITHM2] = signAlgoInUse }
-	   if let docId = docId { dict[PARAMETER_NAME_ID] = docId }
-	   if let cipherKey = cipherKey { dict[PARAMETER_NAME_CIPHER_KEY] = cipherKey }
-	   if let urlServlet = urlServlet { dict[PARAMETER_NAME_STSERVLET] = urlServlet }
-	   if let signFormat = signFormat { dict[PARAMETER_NAME_FORMAT] = signFormat }
-	   if let extraParams = extraParams { dict[PARAMETER_NAME_PROPERTIES] = extraParams }
-	   if let rtServlet = rtServlet { dict[PARAMETER_NAME_RTSERVLET] = rtServlet }
-	   if let fileId = fileId { dict[PARAMETER_NAME_FILE_ID] = fileId }
-	   if let returnURL = returnURL { dict[PARAMETER_NAME_RETURN_URL] = returnURL }
-	   
-	   if let dictExtraParams = dictExtraParams {
-		  dict["dictExtraParams"] = dictExtraParams
-	   }
-	   
-	   if let triphasicServerURL = triphasicServerURL {
-		  dict[PARAMETER_NAME_TRIPHASIC_SERVER_URL] = triphasicServerURL
-	   }
-	   
-	   dict[PARAMETER_NAME_VISIBLE_SIGNATURE] = visibleSignature ? "true" : "false"
-	   
-	   return dict
     }
 }

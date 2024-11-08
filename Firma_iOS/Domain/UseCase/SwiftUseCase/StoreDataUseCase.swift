@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SendCertificateUseCase {
+class StoreDataUseCase {
     private let storeDataRest: StoreDataRest = StoreDataRest()
     private let urlServlet: String
     private let cipherKey: String
@@ -27,7 +27,7 @@ class SendCertificateUseCase {
 	   self.base64UrlSafeCertificateData = base64UrlSafeCertificateData
     }
     
-    func sendCertificate(
+    func storeData(
 	   dataSign: String,
 	   completion: @escaping (Result<Data, Error>
 	   ) -> Void) {
