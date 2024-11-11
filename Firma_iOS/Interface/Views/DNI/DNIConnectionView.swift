@@ -24,6 +24,7 @@ struct DNIConnectionView: View {
     @State var nfcViewModel: NFCViewModel?
     @State var showSignCoordinatesModal: Bool = false
     @State var annotations: [PDFAnnotation] = []
+    @State var password: String = ""
     
     var body: some View {
 	   VStack {
@@ -93,14 +94,18 @@ struct DNIConnectionView: View {
 			let pdfData = Base64Utils.decode(stringBase64Data, urlSafe: true) {
 			 PDFCoordinatesModalWrapper(
 				pdfData: pdfData,
-				annotations: $annotations
+				annotations: $annotations,
+				password: $password
 			 )
 		  }
 	   }
 	   .onChange(of: annotations) {
 		  if $0.count > 0 {
-			 handleCoordinatesSelection(signModel: self.signModel, annotation: $0[0])
+			 handleCoordinatesSelection(annotation: $0[0])
 		  }
+	   }
+	   .onChange(of: password) {
+		  handlePasswordEncryption(password: password)
 	   }
 	   .onReceive(NotificationCenter.default.publisher(for: .DNIeError)) { notification in
 		  appStatus.isLoading = false
@@ -144,8 +149,12 @@ struct DNIConnectionView: View {
 	   }
     }
     
-    func handleCoordinatesSelection(signModel: SignModel, annotation: PDFAnnotation) {
-	   PDFCoordinateUtils.setCoordinatesFromAnnotation(signModel: signModel, annotation: annotation)
+    func handleCoordinatesSelection(annotation: PDFAnnotation) {
+	   PDFCoordinateUtils.setCoordinatesFromAnnotation(signModel: self.signModel, annotation: annotation)
+    }
+    
+    func handlePasswordEncryption(password: String) {
+	   self.signModel.updateExtraParams(dict: ["ownerPassword": password])
     }
     
     func selectInvalidationReason(error: Int) -> String {

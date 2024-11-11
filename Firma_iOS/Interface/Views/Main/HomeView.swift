@@ -109,7 +109,8 @@ struct HomeView: View {
 			let pdfData = Base64Utils.decode(stringBase64Data, urlSafe: true) {
 			 PDFCoordinatesModalWrapper(
 				pdfData: pdfData,
-				annotations: $viewModel.annotations
+				annotations: $viewModel.annotations,
+				password: $viewModel.password
 			 )
 		  }
 	   }

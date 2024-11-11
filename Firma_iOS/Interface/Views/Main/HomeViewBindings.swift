@@ -70,8 +70,11 @@ extension View {
 		  .onChange(of: viewModel.downloadedData) { appStatus.downloadedData = $0 }
 		  .onChange(of: viewModel.annotations) {
 			 if $0.count > 0 {
-				viewModel.handleCoordinatesSelection(signModel: viewModel.signModel, annotation: $0[0])
+				viewModel.handleCoordinatesSelection(annotation: $0[0])
 			 }
+		  }
+		  .onChange(of: viewModel.password) {
+			 viewModel.handlePasswordEncryption(password: $0)
 		  }
     }
     

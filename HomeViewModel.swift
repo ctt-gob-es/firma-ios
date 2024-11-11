@@ -55,6 +55,7 @@ class HomeViewModel: ObservableObject, BatchSignUseCaseDelegate {
     @Published var shouldCancel: Bool? = false
     @Published var certificates: [AOCertificateInfo]?
     @Published var annotations: [PDFAnnotation] = []
+    @Published var password: String = ""
     
     var isLocalSign: Bool = false
     var localSignData: Data?
@@ -462,10 +463,14 @@ class HomeViewModel: ObservableObject, BatchSignUseCaseDelegate {
 	   
     }
     
-    func handleCoordinatesSelection(signModel: SignModel?, annotation: PDFAnnotation) {
+    func handleCoordinatesSelection(annotation: PDFAnnotation) {
 	   if let signModel = signModel {
 		  PDFCoordinateUtils.setCoordinatesFromAnnotation(signModel: signModel, annotation: annotation)
 	   }
+    }
+    
+    func handlePasswordEncryption(password: String) {
+	   self.signModel?.updateExtraParams(dict: ["ownerPassword": password])
     }
     
     func handleNotAnyCoordinatesSelected() {
