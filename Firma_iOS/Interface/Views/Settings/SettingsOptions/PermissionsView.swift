@@ -95,21 +95,6 @@ struct CustomToggleStyle: ToggleStyle {
     }
 }
 
-struct ToastView: View {
-    var message: String
-    
-    var body: some View {
-	   Text(message)
-		  .padding()
-		  .background(Color.black.opacity(0.8))
-		  .foregroundColor(.white)
-		  .cornerRadius(10)
-		  .shadow(radius: 10)
-		  .transition(.opacity)
-		  .animation(.easeInOut)
-    }
-}
-
 struct PermissionsView_Previews: PreviewProvider {
     static var previews: some View {
 	   PermissionsView()

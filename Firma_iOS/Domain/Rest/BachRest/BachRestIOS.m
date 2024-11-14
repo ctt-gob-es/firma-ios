@@ -12,6 +12,7 @@
 #import "Base64Utils.h"
 #import "DesCypher.h"
 #import "CADESConstants.h"
+#import "BatchErrorCodes.h"
 
 @interface BachRest ()
 
@@ -121,11 +122,11 @@ BatchRequestType currentType;
 	   if (jsonError || !responseDict) {
 		  NSString *errorToSend;
 		  if (statusCode == 400) {
-			 errorToSend = @"err-07:= Los parametros enviados al servicio no eran validos";
+			 errorToSend = [BatchErrorGenerator stringFromErrorCode:BatchErrorCodeInvalidParamsPreSign];
 		  } else if (statusCode > 400 && statusCode < 500) {
-			 errorToSend = @"err-09:= Error de comunicacion con el servicio";
+			 errorToSend = [BatchErrorGenerator stringFromErrorCode:BatchErrorCodeCommunicationError];
 		  } else {
-			 errorToSend = @"err-07:= Los datos de prefirma recibidos son inválidos";
+			 errorToSend = [BatchErrorGenerator stringFromErrorCode:BatchErrorCodeInvalidParamsPreSign];
 		  }
 		  
 		  if ([self.delegate respondsToSelector:@selector(didErrorBachPresign:)]) {
@@ -220,11 +221,11 @@ BatchRequestType currentType;
 	   if (jsonError || !responseDict) {
 		  NSString *errorToSend;
 		  if (statusCode == 400) {
-			 errorToSend = @"err-07:= Los parametros enviados al servicio no eran validos";
+			 errorToSend = [BatchErrorGenerator stringFromErrorCode:BatchErrorCodeInvalidParamsPreSign];
 		  } else if (statusCode > 400 && statusCode < 500) {
-			 errorToSend = @"err-09:= Error de comunicacion con el servicio";
+			 errorToSend = [BatchErrorGenerator stringFromErrorCode:BatchErrorCodeCommunicationError];
 		  } else {
-			 errorToSend = @"err-07:= Los datos de postfirma recibidos son inválidos";
+			 errorToSend = [BatchErrorGenerator stringFromErrorCode:BatchErrorCodeInvalidParamsPostSign];
 		  }
 		  
 		  if ([self.delegate respondsToSelector:@selector(didErrorBachPostsign:)]) {
@@ -279,15 +280,15 @@ BatchRequestType currentType;
     
     if (jsonError != nil || dict == nil) {
         if (currentType == preSign) {
-            NSString *errorToSend = @"err-07:= Los datos de prefirma recibidos son inválidos";
+		  NSString *errorToSend = [BatchErrorGenerator stringFromErrorCode:BatchErrorCodeInvalidPresignUrl];
             if (statusCode == 400) {
-                errorToSend = @"err-07:= Los parametros enviados al servicio no eran validos";
+			 errorToSend = [BatchErrorGenerator stringFromErrorCode:BatchErrorCodeInvalidParamsPreSign];
             } else if (statusCode > 400 && statusCode < 500) {
-                errorToSend = @"err-09:= Error de comunicacion con el servicio";
+			 errorToSend = [BatchErrorGenerator stringFromErrorCode:BatchErrorCodeCommunicationError];
             }
             [self.delegate didErrorBachPresign:errorToSend];
         } else {
-            NSString *errorToSend = @"err-07:= Los datos de postfirma recibidos son inválidos";
+		  NSString *errorToSend = [BatchErrorGenerator stringFromErrorCode:BatchErrorCodeInvalidParamsPostSign];
             [self.delegate didErrorBachPostsign:errorToSend];
         }
     } else {
@@ -330,11 +331,11 @@ BatchRequestType currentType;
     // Liberar la conexión
     if (currentType == preSign){
         //Notificamos del error al servidor
-        NSString *errorToSend = @"err-09:= La URL del servicio de prefirma de lotes no es válida";
+	   NSString *errorToSend = [BatchErrorGenerator stringFromErrorCode:BatchErrorCodeInvalidPresignUrl];
         [self.delegate didErrorBachPresign:errorToSend];
     }else if(currentType == postSign){
         //Notificamos del error al servidor
-        NSString *errorToSend = @"err-09:= La URL del servicio de postfirma de lotes no es válida";
+	   NSString *errorToSend = [BatchErrorGenerator stringFromErrorCode:BatchErrorCodeInvalidPostsignUrl];
         [self.delegate didErrorBachPostsign:errorToSend];
     }
 }

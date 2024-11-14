@@ -12,6 +12,7 @@
 #import "Base64Utils.h"
 #import "DesCypher.h"
 #import "CADESConstants.h"
+#import "BatchErrorCodes.h"
 
 @interface ServletRest ()
 
@@ -172,7 +173,7 @@ ServletRequestType currentType;
 	   NSString *jsonString = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
 	   
 	   if (jsonString == nil) {
-		  NSString *errorToSend = @"err-07:= Los datos recibidos al guardar en el servlet son inválidos";
+		  NSString *errorToSend = [BatchErrorGenerator stringFromErrorCode:BatchErrorCodeInvalidDataOnSave];
 		  [self.delegate didErrorStoreData:errorToSend];
 	   }
 	   
@@ -312,7 +313,7 @@ ServletRequestType currentType;
 	   NSString *jsonString = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
 	   
 	   if (jsonString == nil) {
-		  NSString *errorToSend = @"err-07:= Los datos recibidos al guardar en el servlet son inválidos";
+		  NSString *errorToSend = [BatchErrorGenerator stringFromErrorCode:BatchErrorCodeInvalidDataOnSave];
 		  [self.delegate didErrorStoreData:errorToSend];
 	   }
 	   
@@ -354,10 +355,10 @@ ServletRequestType currentType;
     
     if (jsonString == nil) {
         if (currentType == storeData) {
-            NSString *errorToSend = @"err-07:= Los datos recibidos al guardar en el servlet son inválidos";
+		  NSString *errorToSend = [BatchErrorGenerator stringFromErrorCode:BatchErrorCodeInvalidDataOnSave];
             [self.delegate didErrorStoreData:errorToSend];
         } else if(currentType == loadDataFromRtservlet) {
-            NSString *errorToSend = @"err-07:= La datos recibidos del servlet son invalidos";
+		  NSString *errorToSend = [BatchErrorGenerator stringFromErrorCode:BatchErrorCodeInvalidSaveServletUrl];
             [self.delegate didErrorStoreData:errorToSend];
         }
     }
@@ -408,11 +409,11 @@ ServletRequestType currentType;
     if (currentType == storeData){
         //Notificamos del error al servidor
         //Notificamos del error al servidor
-        NSString *errorToSend = @"err-09:= La ruta del Servlet para guardar datos es inválida";
+	   NSString *errorToSend = [BatchErrorGenerator stringFromErrorCode:BatchErrorCodeInvalidRetrieveServletUrl];
         [self.delegate didErrorStoreData:errorToSend];
     }else if(currentType == loadDataFromRtservlet){
         //Notificamos del error al servidor
-        NSString *errorToSend = @"err-09:= La ruta del Servlet para obtener datos es inválida";
+	   NSString *errorToSend = [BatchErrorGenerator stringFromErrorCode:BatchErrorCodeInvalidRetrieveServletUrl];
         [self.delegate didErrorLoadDataFromServer:errorToSend];
     }
 }

@@ -41,18 +41,9 @@ struct PDFCoordinatesModalWrapper: View {
 				)
 
 				if showToast {
-				    AccessibleText(content: NSLocalizedString("pdf_coordinates_only_one_sign_available", bundle: Bundle.main, comment: ""))
-					   .titleStyleBlack(
-						  foregroundColor: ColorConstants.Text.primary,
-						  alignment: .center
-					   )
-					   .accessibilityAddTraits(.isHeader)
-					   .padding()
-					   .background(Color.black.opacity(0.7))
-					   .foregroundColor(.white)
-					   .cornerRadius(8)
-					   .padding(.top, 50)
+				    ToastView(message: NSLocalizedString("pdf_coordinates_only_one_sign_available", bundle: Bundle.main, comment: ""))
 					   .transition(.opacity)
+					   .animation(.easeInOut)
 				}
 
 				if showPasswordPrompt {
@@ -91,6 +82,7 @@ struct PDFCoordinatesModalWrapper: View {
 						  }
 						  .buttonStyle(CustomButtonStyle(isEnabled: true))
 					   }
+					   .padding(.top)
 				    }
 				    .padding()
 				    .background(Color.white)

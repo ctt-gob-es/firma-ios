@@ -34,6 +34,7 @@
 #import "BachRestIOS.h"
 #import "PDFCustomTextAnnotation.h"
 #import "PDFImageAnnotation.h"
+#import "BatchErrorCodes.h"
 
 //JAVA CODE
 #include "java/util/Properties.h"

@@ -14,7 +14,7 @@ class ErrorHandlerUtils {
 		  return "Unknown Error"
 	   }
 	   let errorMessage = ErrorGenerator.generateError(from: errorToSend).localizedDescription
-	   return "ERR-\(error.code): \(errorMessage)"
+	   return "\(error.code): \(errorMessage)"
     }
     
     static func chooseStateFromError(error: Error) -> ErrorModalState {
@@ -166,6 +166,18 @@ class ErrorHandlerUtils {
 			 case .unsupportedSignatureAlgorithm:
 				return .globalError
 			 case .userInterventionRequired:
+				return .globalError
+			 case .communicationError:
+				return .globalError
+			 case .invalidPresignUrl:
+				return .globalError
+			 case .invalidPostsignUrl:
+				return .globalError
+			 case .invalidDataOnSave:
+				return .globalError
+			 case .invalidSaveServletUrl:
+				return .globalError
+			 case .invalidRetrieveServletUrl:
 				return .globalError
 		  }
 	   }

@@ -39,16 +39,20 @@ struct PDFCoordinatesModalView: UIViewRepresentable {
     func updateUIView(_ uiView: PDFView, context: Context) {
 	   // Reload the document in case it was updated with a correct password
 	   if let document = document, uiView.document != document {
-		  uiView.document = document
-		  uiView.autoScales = true  // Ensure the PDF fills the screen
-		  uiView.go(to: document.page(at: currentPageIndex) ?? document.page(at: 0)!)
+		  DispatchQueue.main.async {
+			 uiView.document = document
+			 uiView.autoScales = true  // Ensure the PDF fills the screen
+			 uiView.go(to: document.page(at: currentPageIndex) ?? document.page(at: 0)!)
+		  }
 	   }
 	   
 	   // Update the page if currentPageIndex changes
 	   if let document = uiView.document, currentPageIndex < document.pageCount {
 		  let page = document.page(at: currentPageIndex) ?? document.page(at: 0)!
 		  if uiView.currentPage != page {
-			 uiView.go(to: page)
+			 DispatchQueue.main.async {
+				uiView.go(to: page)
+			 }
 		  }
 	   }
     }

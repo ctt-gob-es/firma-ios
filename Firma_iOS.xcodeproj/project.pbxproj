@@ -2501,6 +2501,7 @@
 		8393EDF32CDCEA1F00BA2051 /* ServerErrorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EDF22CDCEA1F00BA2051 /* ServerErrorCodes.swift */; };
 		8393EDF62CE2098200BA2051 /* PDFCoordinatesModalWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EDF52CE2098200BA2051 /* PDFCoordinatesModalWrapper.swift */; };
 		8393EDF82CE209D200BA2051 /* DisabledInteractionPDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EDF72CE209D200BA2051 /* DisabledInteractionPDF.swift */; };
+		8393EDFE2CE356EA00BA2051 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EDFD2CE356EA00BA2051 /* ToastView.swift */; };
 		8393EEC72C58E2E0009FDE6E /* ParseURLParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EEC62C58E2E0009FDE6E /* ParseURLParameters.swift */; };
 		8393EEC92C58F675009FDE6E /* ReportErrorUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EEC82C58F675009FDE6E /* ReportErrorUseCase.swift */; };
 		8393EECB2C58F8E2009FDE6E /* HistoricalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EECA2C58F8E2009FDE6E /* HistoricalView.swift */; };
@@ -2694,6 +2695,8 @@
 		83EF14CF2C465EDF003EC42A /* ExitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EF14CE2C465EDF003EC42A /* ExitButton.swift */; };
 		83EF14D32C46722D003EC42A /* RecoveryModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EF14D22C46722D003EC42A /* RecoveryModalView.swift */; };
 		83EF14D52C467241003EC42A /* DocumentErrorModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EF14D42C467241003EC42A /* DocumentErrorModalView.swift */; };
+		83F2351F2CE5E4FA00A6AE3B /* BatchErrorCodes.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F2351E2CE5E4FA00A6AE3B /* BatchErrorCodes.m */; };
+		83F235212CE63DE500A6AE3B /* ServerBatchErrorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F235202CE63DE400A6AE3B /* ServerBatchErrorCodes.swift */; };
 		83FC0C402C47F84700BBB5A8 /* DNIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC0C3F2C47F84700BBB5A8 /* DNIView.swift */; };
 		83FC0C422C47F86B00BBB5A8 /* DNICompatibleModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC0C412C47F86B00BBB5A8 /* DNICompatibleModalView.swift */; };
 		83FC0C442C48010E00BBB5A8 /* DNIConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC0C432C48010E00BBB5A8 /* DNIConnectionView.swift */; };
@@ -7736,6 +7739,7 @@
 		8393EDF22CDCEA1F00BA2051 /* ServerErrorCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerErrorCodes.swift; sourceTree = "<group>"; };
 		8393EDF52CE2098200BA2051 /* PDFCoordinatesModalWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFCoordinatesModalWrapper.swift; sourceTree = "<group>"; };
 		8393EDF72CE209D200BA2051 /* DisabledInteractionPDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisabledInteractionPDF.swift; sourceTree = "<group>"; };
+		8393EDFD2CE356EA00BA2051 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		8393EEC62C58E2E0009FDE6E /* ParseURLParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseURLParameters.swift; sourceTree = "<group>"; };
 		8393EEC82C58F675009FDE6E /* ReportErrorUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportErrorUseCase.swift; sourceTree = "<group>"; };
 		8393EECA2C58F8E2009FDE6E /* HistoricalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalView.swift; sourceTree = "<group>"; };
@@ -8034,6 +8038,9 @@
 		83EF14CE2C465EDF003EC42A /* ExitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitButton.swift; sourceTree = "<group>"; };
 		83EF14D22C46722D003EC42A /* RecoveryModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryModalView.swift; sourceTree = "<group>"; };
 		83EF14D42C467241003EC42A /* DocumentErrorModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentErrorModalView.swift; sourceTree = "<group>"; };
+		83F2351D2CE5E4C500A6AE3B /* BatchErrorCodes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BatchErrorCodes.h; sourceTree = "<group>"; };
+		83F2351E2CE5E4FA00A6AE3B /* BatchErrorCodes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BatchErrorCodes.m; sourceTree = "<group>"; };
+		83F235202CE63DE400A6AE3B /* ServerBatchErrorCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerBatchErrorCodes.swift; sourceTree = "<group>"; };
 		83FC0C3F2C47F84700BBB5A8 /* DNIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNIView.swift; sourceTree = "<group>"; };
 		83FC0C412C47F86B00BBB5A8 /* DNICompatibleModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNICompatibleModalView.swift; sourceTree = "<group>"; };
 		83FC0C432C48010E00BBB5A8 /* DNIConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNIConnectionView.swift; sourceTree = "<group>"; };
@@ -15611,6 +15618,7 @@
 				8369D1132CD8B65F005B5129 /* PDFCoordinatesModalView.swift */,
 				8393EDF52CE2098200BA2051 /* PDFCoordinatesModalWrapper.swift */,
 				8393EDF72CE209D200BA2051 /* DisabledInteractionPDF.swift */,
+				8393EDFD2CE356EA00BA2051 /* ToastView.swift */,
 			);
 			path = PDFViews;
 			sourceTree = "<group>";
@@ -16079,6 +16087,9 @@
 				83DB248E2CBFD97800D1DD8C /* CommunicationErrorCodes.swift */,
 				83DB248A2CBFD94300D1DD8C /* FunctionalErrorCodes.swift */,
 				8393EDF22CDCEA1F00BA2051 /* ServerErrorCodes.swift */,
+				83F2351D2CE5E4C500A6AE3B /* BatchErrorCodes.h */,
+				83F2351E2CE5E4FA00A6AE3B /* BatchErrorCodes.m */,
+				83F235202CE63DE400A6AE3B /* ServerBatchErrorCodes.swift */,
 			);
 			path = ErrorCodes;
 			sourceTree = "<group>";
@@ -17787,6 +17798,7 @@
 				833C2AC42CA2B89B00DFF6CD /* Color.m in Sources */,
 				8325D61C2CAADD18007224E9 /* X509CRLEntryObject.m in Sources */,
 				833C2BA92CA2B89C00DFF6CD /* PdfWriter.m in Sources */,
+				83F2351F2CE5E4FA00A6AE3B /* BatchErrorCodes.m in Sources */,
 				8325D42B2CAADD17007224E9 /* package-info.m in Sources */,
 				833C281D2CA2B89A00DFF6CD /* ASN1OctetString.m in Sources */,
 				833C2B842CA2B89C00DFF6CD /* PdfFunction.m in Sources */,
@@ -18263,6 +18275,7 @@
 				8325D3C82CAADD17007224E9 /* package-info.m in Sources */,
 				833C29F02CA2B89B00DFF6CD /* SecP256K1FieldElement.m in Sources */,
 				833C2B802CA2B89C00DFF6CD /* PdfImage.m in Sources */,
+				8393EDFE2CE356EA00BA2051 /* ToastView.swift in Sources */,
 				8325D5D02CAADD18007224E9 /* ECDomainParameters.m in Sources */,
 				833C2B122CA2B89B00DFF6CD /* ObjectIdentifier.m in Sources */,
 				833C2B6E2CA2B89C00DFF6CD /* Annotation.m in Sources */,
@@ -18817,6 +18830,7 @@
 				8325D4212CAADD17007224E9 /* DnieCardException.m in Sources */,
 				83AF00382CA2C95D00A26C0F /* xer_support.c in Sources */,
 				8325D4D32CAADD17007224E9 /* AttCertIssuer.m in Sources */,
+				83F235212CE63DE500A6AE3B /* ServerBatchErrorCodes.swift in Sources */,
 				833C29E52CA2B89B00DFF6CD /* SecP224K1FieldElement.m in Sources */,
 				8325D5242CAADD17007224E9 /* ASN1T61String.m in Sources */,
 				833C2A762CA2B89B00DFF6CD /* BasicOCSPResp.m in Sources */,

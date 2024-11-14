@@ -64,13 +64,13 @@ class GenericBatchSignUseCase: NSObject, BatchRestDelegate, ServletRestDelegate 
     
     func presign() {
 	   guard let batch = parametersBatch else {
-		  delegate?.didErrorBatch(error: NSError(domain: "BatchSignUseCase", code: -1, userInfo: [NSLocalizedDescriptionKey: "No parametersBatch"]))
+		  delegate?.didErrorBatch(error: ErrorGenerator.generateServerError(from: ServerErrorCodes.preSignatureError.rawValue))
 		  return
 	   }
 	   
 	   let validationError = validateDataOperation(parameterBatch: batch)
 	   if let error = validationError {
-		  servletRest.storeDataError(error, stServlet: batch.stservlet, cipherKey: batch.cipherKey, docId: batch.identifier)
+		  servletRest.storeDataError(error.localizedDescription, stServlet: batch.stservlet, cipherKey: batch.cipherKey, docId: batch.identifier)
 	   } else {
 		  bachRest.bachPresign(batch.batchpresignerUrl, withJsonData: batch.data, withCerts: getCertificateData())
 	   }
@@ -78,7 +78,7 @@ class GenericBatchSignUseCase: NSObject, BatchRestDelegate, ServletRestDelegate 
     
     func postsign(triData: String) {
 	   guard let batch = parametersBatch else {
-		  delegate?.didErrorBatch(error: NSError(domain: "BatchSignUseCase", code: -1, userInfo: [NSLocalizedDescriptionKey: "No parametersBatch"]))
+		  delegate?.didErrorBatch(error: ErrorGenerator.generateServerError(from: ServerErrorCodes.postSignatureError.rawValue))
 		  return
 	   }
 	   
@@ -100,7 +100,8 @@ class GenericBatchSignUseCase: NSObject, BatchRestDelegate, ServletRestDelegate 
 	   
 	   guard let presignsOk = responseDict["td"] as? [String: Any],
 		    var dataPostSignBase64 = parametersBatch?.data else {
-		  servletRest.storeDataError("Error in presign response", stServlet: stServlet, cipherKey: cipherKey, docId: identifier)
+			 let error = ErrorGenerator.generateServerError(from: ServerErrorCodes.preSignatureError.rawValue)
+		  servletRest.storeDataError(error.localizedDescription, stServlet: stServlet, cipherKey: cipherKey, docId: identifier)
 		  return
 	   }
 	   
@@ -114,7 +115,8 @@ class GenericBatchSignUseCase: NSObject, BatchRestDelegate, ServletRestDelegate 
 				let pk1 = self.sign(pre: pre, algorithm: getAlgorithm(), pk1Decoded: pk1Decoded)
 				
 				if pk1.isEmpty {
-				    servletRest.storeDataError("err-14:= Signing error", stServlet: stServlet, cipherKey: cipherKey, docId: identifier)
+				    let error = ErrorGenerator.generateServerError(from: ServerErrorCodes.unsupportedSignatureFormat.rawValue)
+				    servletRest.storeDataError(error.localizedDescription, stServlet: stServlet, cipherKey: cipherKey, docId: identifier)
 				    return
 				}
 				
@@ -138,8 +140,9 @@ class GenericBatchSignUseCase: NSObject, BatchRestDelegate, ServletRestDelegate 
     }
     
     func didErrorBachPresign(_ errorMessage: String) {
+	   let error = ErrorGenerator.generateServerError(from: errorMessage)
 	   self.servletRest.storeDataError(
-		  errorMessage,
+		  error.localizedDescription,
 		  stServlet: self.parametersBatch?.stservlet ?? "",
 		  cipherKey: self.parametersBatch?.cipherKey ?? "",
 		  docId: self.parametersBatch?.identifier ?? ""
@@ -167,8 +170,8 @@ class GenericBatchSignUseCase: NSObject, BatchRestDelegate, ServletRestDelegate 
 		  )
 		  
 	   } catch {
-		  let errorToSend = "err-07:= Los datos de postfirma recibidos son inválidos"
-		  self.servletRest.storeDataError(errorToSend, stServlet: self.parametersBatch?.stservlet ?? "", cipherKey: self.parametersBatch?.cipherKey ?? "", docId: self.parametersBatch?.identifier ?? "")
+		  let error = ErrorGenerator.generateServerError(from: ServerErrorCodes.preSignatureError.rawValue)
+		  self.servletRest.storeDataError(error.localizedDescription, stServlet: self.parametersBatch?.stservlet ?? "", cipherKey: self.parametersBatch?.cipherKey ?? "", docId: self.parametersBatch?.identifier ?? "")
 	   }
     }
     
@@ -197,21 +200,33 @@ class GenericBatchSignUseCase: NSObject, BatchRestDelegate, ServletRestDelegate 
     
     // MARK: - Helper Functions
 
-    func validateDataOperation(parameterBatch: InputParametersBatch?) -> String? {
-	   guard let batch = parameterBatch else { return "err-00:= No operation code provided" }
-	   if batch.operation.isEmpty { return "err-00:= No operation code provided" }
-	   if batch.data.isEmpty { return "err-02:= No data provided for the operation" }
-	   if batch.stservlet.isEmpty { return "err-08:= No servlet provided for data communication" }
-	   if batch.batchpresignerUrl.isEmpty { return "err-08:= No presigner URL provided" }
-	   if batch.batchpostsignerUrl.isEmpty { return "err-08:= No postsigner URL provided" }
-	   
+    func validateDataOperation(parameterBatch: InputParametersBatch?) -> NSError? {
+	   guard let batch = parameterBatch else {
+		  return ErrorGenerator.generateServerError(from: ServerErrorCodes.missingOperation.rawValue)
+	   }
+	   if batch.operation.isEmpty {
+		  return ErrorGenerator.generateServerError(from: ServerErrorCodes.missingOperation.rawValue)
+	   }
+	   if batch.data.isEmpty {
+		  return ErrorGenerator.generateServerError(from: ServerErrorCodes.invalidOperationDataFormat.rawValue)
+	   }
+	   if batch.stservlet.isEmpty {
+		  return ErrorGenerator.generateServerError(from: ServerErrorCodes.documentRetrievalError.rawValue)
+	   }
+	   if batch.batchpresignerUrl.isEmpty {
+		  return ErrorGenerator.generateServerError(from: ServerErrorCodes.preSignatureError.rawValue)
+	   }
+	   if batch.batchpostsignerUrl.isEmpty {
+		  return ErrorGenerator.generateServerError(from: ServerErrorCodes.postSignatureError.rawValue)
+	   }
+
 	   let dataDictionary = parseDataBase64toDictionary(batch.data)
 	   if dataDictionary == nil {
-		  return "err-12:= Error in base64 encoding"
+		  return ErrorGenerator.generateServerError(from: ServerErrorCodes.invalidOperationDataFormat.rawValue)
 	   } else if dataDictionary?["algorithm"] == nil {
-		  return "err-10:= No signing algorithm provided"
+		  return ErrorGenerator.generateServerError(from: ServerErrorCodes.unsupportedSignatureAlgorithm.rawValue)
 	   }
-	   
+
 	   return nil
     }
 

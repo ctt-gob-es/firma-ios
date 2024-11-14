@@ -19,6 +19,7 @@ struct ErrorDomain {
     static let dnie = "es.autofirma.AI.dnie"
     static let general = "es.autofirma.AI"
     static let server = "es.autofirma.AI.server"
+    static let batch = "es.autofirma.AI.batch"
 }
 
 protocol ErrorCode: RawRepresentable where RawValue == String {}
@@ -39,9 +40,10 @@ class ErrorCodeFactory {
 		  return requestError
 	   } else if let requestError = DNIeErrorCodes(rawValue: code) {
 		  return requestError
-	   } else if let requestError = ServerErrorCodes(rawValue: code) {
-		  return requestError
+	   } else if let serverError = ServerErrorCodes(rawValue: code) {
+		  return serverError
 	   }
+	   
 	   return nil
     }
 }
