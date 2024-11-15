@@ -67,7 +67,7 @@ class StoreDataRest {
 				}
 				
 				guard let data = data, let responseString = String(data: data, encoding: .utf8) else {
-				    completion(.failure(ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.dataSavingError)))
+                        completion(.failure(ErrorCodes.InternalSoftwareErrorCodes.dataSavingError.info))
 				    return
 				}
 				
@@ -75,7 +75,7 @@ class StoreDataRest {
 				    completion(.success(data))
 				} else {
 				    print("Failed to send certificate: \(responseString)")
-				    completion(.failure(ErrorGenerator.generateError(from: FunctionalErrorCodes.signatureOperationError)))
+                        completion(.failure(ErrorCodes.FunctionalErrorCodes.signatureOperationError.info))
 				}
 			 }
 		  }

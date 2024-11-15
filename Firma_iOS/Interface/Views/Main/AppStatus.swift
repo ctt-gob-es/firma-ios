@@ -24,7 +24,7 @@ class AppStatus: ObservableObject {
     @Published var showSignCoordinatesModal: Bool = false
     
     @Published var successModalState: SuccessModalState = .successCertificateAdded
-    @Published var errorModalState: ErrorModalState = .globalError
+    @Published var errorInfo: ErrorInfo = ErrorInfo("","")
     
     @Published var errorModalDescription: String = ""
     @Published var selectedCertificate: AOCertificateInfo? = nil

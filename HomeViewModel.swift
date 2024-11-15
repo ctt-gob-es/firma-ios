@@ -35,7 +35,7 @@ class HomeViewModel: ObservableObject {
     @Published var viewMode : ViewModes? = .sign
     @Published var downloadedData : URL? = nil
     @Published var showPseudonymModal: Bool? = false
-    @Published var errorModalState: ErrorModalState? = nil
+    @Published var errorInfo: ErrorInfo? = nil
     @Published var successModalState: SuccessModalState? = nil
     @Published var showErrorModal: Bool? = false
     @Published var showSuccessModal: Bool? = false
@@ -256,13 +256,17 @@ class HomeViewModel: ObservableObject {
 	   storeDataUseCase = StoreDataUseCase(urlServlet: urlServlet, cipherKey: cipherKey, docId: docId, base64UrlSafeCertificateData: certificateData)
 	   storeDataUseCase?.storeData(dataSign: certificateData) { result in
 		  switch result {
-			 case .success(let result):
-				print("Success sending certificate, result: " + (String(data: result, encoding: .utf8) ?? ""))
-				self.viewMode = .home
-				self.successModalState = .successCertificateSent
-				self.showSuccessModal = true
-			 case .failure(let error):
-				self.handleError(error: error)
+            case .success(let result):
+                print("Success sending certificate, result: " + (String(data: result, encoding: .utf8) ?? ""))
+                self.viewMode = .home
+                self.successModalState = .successCertificateSent
+                self.showSuccessModal = true
+            case .failure(let error):
+                if let errorInfo = error as? ErrorInfo {
+                    self.handleError(error: errorInfo)
+                } else {
+                    self.handleError(error: ErrorCodes.InternalSoftwareErrorCodes.generalSoftwareError.info)
+                }
 		  }
 	   }
     }
@@ -296,7 +300,7 @@ class HomeViewModel: ObservableObject {
 								    self.showSuccessModal = true
 								    self.areCertificatesSelectable = false
 								case .failure(let error):
-								    self.handleError(error: error)
+                                            self.handleError(error: ErrorCodes.InternalSoftwareErrorCodes.saveHistorySign.info)
 							 }
 						  }
 					   }
@@ -341,36 +345,43 @@ class HomeViewModel: ObservableObject {
 		  ) { result in
 			 self.isLoading = false
 			 switch result {
-				case .success(let url):
-				    self.downloadedData = url
-				    self.showDocumentSavingPicker = true
-				case .failure(let error):
-				    self.handleError(error: error)
+                case .success(let url):
+                    self.downloadedData = url
+                    self.showDocumentSavingPicker = true
+                case .failure(let error):
+                    if let errorInfo = error as? ErrorInfo {
+                        self.handleError(error: errorInfo)
+                    } 
 			 }
 		  }
 	   }
     }
     
     private func handleError(error: Error) {
+        var errorInfo = ErrorCodes.InternalSoftwareErrorCodes.generalSoftwareError.info
+        if let errorAux = error as? ErrorInfo {
+            errorInfo = errorAux
+        }
+        
 	   self.isLoading = false
 	   DispatchQueue.main.async {
 		  self.showErrorModal = false
 		  DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-			 self.showErrorModalStateFromError(error: error)
+			 self.showErrorModal(error: errorInfo)
 			 self.signModel?.returnURL = nil
 		  }
 	   }
 	   
-	   self.sendError(error: error)
+	   self.sendError(error: errorInfo)
     }
     
-    func sendError(error: Error) {
+    func sendError(error: ErrorInfo) {
 	   let reportErrorUseCase = ReportErrorUseCase()
 	   reportErrorUseCase.reportErrorAsync(
 		  urlServlet: signModel?.urlServlet,
 		  docId: signModel?.docId,
-		  error: ErrorHandlerUtils.getServerError(error: error as NSError)
-	   ) { result in
+            error: error.serverErrorMessage
+        ) { result in
 		  switch result {
 			 case .success(let errorFromServer):
 				if let response = String(data: errorFromServer, encoding: .utf8) {
@@ -382,10 +393,15 @@ class HomeViewModel: ObservableObject {
 	   }
     }
     
-    func showErrorModalStateFromError(error: Error) {
+    func showErrorModal(error: ErrorInfo) {
+        self.errorInfo = error
+        self.showErrorModal = true
+    }
+    
+    /*func showErrorModalStateFromError(error: Error) {
 	   self.errorModalState = ErrorHandlerUtils.chooseStateFromError(error: error)
 	   self.showErrorModal = true
-    }
+    }*/
     
     func signLocalPdf() {
 	   guard
@@ -397,7 +413,7 @@ class HomeViewModel: ObservableObject {
 		  let certificateRef = SwiftCertificateUtils.getCertificateRefFromIdentity(identity: identity),
 		  let certificateAlgorithm = SwiftCertificateUtils.getAlgorithmFromCertificate(certificate: certificateRef) else {
 		  print("Missing required data for signing")
-		  handleError(error: ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.generalSoftwareError))
+            handleError(error: ErrorCodes.InternalSoftwareErrorCodes.generalSoftwareError.info)
 		  isLoading = false
 		  return
 	   }
@@ -467,7 +483,7 @@ class HomeViewModel: ObservableObject {
     func handleNotAnyCoordinatesSelected() {
 	   self.areCertificatesSelectable = false
 	   self.viewMode = .home
-	   self.handleError(error: ErrorGenerator.generateError(from: FunctionalErrorCodes.userOperationCanceled))
+        self.handleError(error: ErrorCodes.FunctionalErrorCodes.userOperationCanceled.info)
     }
     
     func resetHomeViewModelVariables() {

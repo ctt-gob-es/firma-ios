@@ -112,17 +112,17 @@ struct DNIConnectionView: View {
 		  appStatus.showErrorModal = true
 		  
 		  if let userInfo = notification.userInfo,
-			let errorCode = userInfo["errorCode"] as? Int,
-			let errorMessage = userInfo["errorMessage"] as? String {
-			 if errorCode == Int(DNIeErrorCodes.badCan.rawValue) {
+			let error = userInfo["error"] as? ErrorInfo {
+                
+                if (error.code == ErrorCodes.DNIeErrorCodes.badCan.info.code) {
 				step = .canStep
-			 } else if errorCode == Int(DNIeErrorCodes.badPin.rawValue) {
+                } else if (error.code == ErrorCodes.DNIeErrorCodes.badPin.info.code) {
 				step = .pinStep
 			 } else {
 				step = .nfcStep
 				initModel()
 			 }
-			 nfcViewModel?.invalidateSession(errorMessage: selectInvalidationReason(error: errorCode))
+                nfcViewModel?.invalidateSession(errorMessage: error.errorModalType.title)
 		  } else {
 			 print("No user info available in the notification")
 		  }
@@ -157,34 +157,4 @@ struct DNIConnectionView: View {
 	   self.signModel.updateExtraParams(dict: ["ownerPassword": password])
     }
     
-    func selectInvalidationReason(error: Int) -> String {
-	   if let errorCode = DNIeErrorCodes(rawValue: String(error)) {
-		  switch errorCode {
-			 case .invalidCard:
-				appStatus.errorModalState = .dniReadingError
-			 case .burnedCard:
-				appStatus.errorModalState = .dniBroken
-			 case .connectionError:
-				appStatus.errorModalState = .dniReadingErrorLong
-			 case .notInitialized:
-				appStatus.errorModalState = .dniReadingError
-			 case .operationError:
-				appStatus.errorModalState = .dniReadingError
-			 case .badPin:
-				appStatus.errorModalState = .dniIncorrectPin
-			 case .lockedCard:
-				appStatus.errorModalState = .dniBlockedPin
-			 case .pinError:
-				appStatus.errorModalState = .dniIncorrectPin
-			 case .badCan:
-				appStatus.errorModalState = .dniIncorrectCan
-			 case .severeError:
-				appStatus.errorModalState = .dniReadingErrorLong
-			 case .noCertAvailable:
-				appStatus.errorModalState = .certificateNeeded
-		  }
-	   }
-	   
-	   return appStatus.errorModalState.title
-    }
 }

@@ -83,7 +83,7 @@ extension View {
     private func applyModalBindings(viewModel: HomeViewModel, appStatus: AppStatus) -> some View {
 	   self
 		  .onChange(of: viewModel.showPseudonymModal) { appStatus.showPseudonymModal = $0 ?? false }
-		  .onChange(of: viewModel.errorModalState) { appStatus.errorModalState = $0 ?? .globalError }
+            .onChange(of: viewModel.errorInfo) { appStatus.errorInfo = $0 ?? ErrorCodes.InternalSoftwareErrorCodes.generalSoftwareError.info }
 		  .onChange(of: viewModel.successModalState) { appStatus.successModalState = $0 ?? .successSign }
 		  .onChange(of: viewModel.showErrorModal) { appStatus.showErrorModal = $0 ?? false }
 		  .onChange(of: viewModel.showSuccessModal) { appStatus.showSuccessModal = $0 ?? false }
@@ -115,7 +115,7 @@ extension View {
 			 if $0 == true {
 				viewModel.viewMode = .home
 				viewModel.areCertificatesSelectable = false
-				viewModel.sendError(error: ErrorGenerator.generateError(from: FunctionalErrorCodes.userOperationCanceled))
+                    viewModel.sendError(error: ErrorCodes.FunctionalErrorCodes.userOperationCanceled.info)
 			 }
 		  }
 		  .onChange(of: viewModel.showTextfieldModal) { newValue in
@@ -136,7 +136,7 @@ extension View {
 		  }
 		  .onReceive(NotificationCenter.default.publisher(for: .ErrorModalCancelButtonAction)) { _ in
 			 viewModel.handleFinishSign()
-			 viewModel.sendError(error: ErrorGenerator.generateError(from: FunctionalErrorCodes.userOperationCanceled))
+                viewModel.sendError(error: ErrorCodes.FunctionalErrorCodes.userOperationCanceled.info)
 			 appStatus.isLoading = false
 		  }
     }

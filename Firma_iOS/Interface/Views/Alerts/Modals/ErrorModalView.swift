@@ -14,12 +14,12 @@ struct ErrorModalView: View {
     @Binding var description: String
     @Binding var shouldReloadParentView: Bool
     
-    var errorModalState: ErrorModalState
+    var errorInfo: ErrorInfo
     
     var body: some View {
 	   VStack(spacing: 10) {
 		  ZStack {
-			 if errorModalState.hasCloseButton {
+                if errorInfo.errorModalType.hasCloseButton {
 				HStack(alignment: .top) {
 				    Spacer()
 				    Button(action: {
@@ -32,7 +32,7 @@ struct ErrorModalView: View {
 			 }
 			 
 			 HStack {
-				if let imageName = errorModalState.imageName {
+                    if let imageName = errorInfo.errorModalType.imageName {
 				    Image(imageName)
 					   .resizable()
 					   .scaledToFit()
@@ -46,12 +46,12 @@ struct ErrorModalView: View {
 		  }
 		  
 		  VStack(alignment: .leading, spacing: 10) {
-			 AccessibleText(content: errorModalState.title)
+			 AccessibleText(content: errorInfo.errorModalType.title)
 				.titleStyleBlack(foregroundColor: ColorConstants.Text.primary)
 				.accessibilityAddTraits(.isHeader)
 				.padding(.bottom)
 			 
-			 AccessibleText(content: description == "" ? errorModalState.description : description)
+                AccessibleText(content: description == "" ? "\(errorInfo.code) - \(errorInfo.errorModalType.description)" : description)
 				.regularStyle(foregroundColor: ColorConstants.Text.secondary)
 		  }
 		  .frame(maxWidth: .infinity, alignment: .leading)
@@ -60,25 +60,25 @@ struct ErrorModalView: View {
 		  Spacer()
 		  
 		  VStack(spacing: 10) {
-			 if errorModalState == .globalError{
+			 if errorInfo.errorModalType == .globalError{
 				GlobalErrorButtons(
 				    viewMode: $viewMode,
 				    shouldReload: $shouldReloadParentView
 				)
-			 } else if errorModalState == .trackingError {
+			 } else if errorInfo.errorModalType == .trackingError {
 				TrackingErrorButtons(
 				    viewMode: $viewMode
 				)
-			 } else if errorModalState == .jailbreakError {
+			 } else if errorInfo.errorModalType == .jailbreakError {
 				JailbreakErrorButtons(
 				    viewMode: $viewMode
 				)
-			 } else if errorModalState == .updateError {
+			 } else if errorInfo.errorModalType == .updateError {
 				UpdateErrorButtons(
 				    viewMode: $viewMode
 				)
 			 }  else {
-				if errorModalState.hasCancelButton {
+				if errorInfo.errorModalType.hasCancelButton {
 				    Button(action: {
 					   self.viewMode = .home
 					   DispatchQueue.main.async {
@@ -87,7 +87,7 @@ struct ErrorModalView: View {
 					   self.presentationMode.wrappedValue.dismiss()
 				    }) {
 					   AccessibleText(content: NSLocalizedString("cancel_button_title", bundle: Bundle.main, comment: ""))
-						  .regularBoldStyle(foregroundColor: errorModalState == .certificateNeeded ? ColorConstants.Background.buttonEnabled : ColorConstants.Text.primary)
+						  .regularBoldStyle(foregroundColor: errorInfo.errorModalType == .certificateNeeded ? ColorConstants.Background.buttonEnabled : ColorConstants.Text.primary)
 						  .underline()
 				    }
 				}
@@ -95,7 +95,7 @@ struct ErrorModalView: View {
 				Button(action: {
 				    self.presentationMode.wrappedValue.dismiss()
 				}) {
-				    if let buttonTitle = errorModalState.bottomButtonTitle {
+				    if let buttonTitle = errorInfo.errorModalType.bottomButtonTitle {
 					   AccessibleText(content: buttonTitle)
 				    }
 				}

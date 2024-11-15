@@ -180,7 +180,7 @@ struct MainView: View {
 				    viewModel.certificateURL = url
 				    appStatus.navigateToAddCertificate.toggle()
 				} else {
-				    appStatus.errorModalState = .certificateNotImported
+                        appStatus.errorInfo = ErrorCodes.InternalSoftwareErrorCodes.certificateLoadingError.info
 				    appStatus.showErrorModal.toggle()
 				}
 			 }, onCancel: {
@@ -204,7 +204,7 @@ struct MainView: View {
 			 viewMode: $viewModel.viewMode,
 			 description: $appStatus.errorModalDescription,
 			 shouldReloadParentView: $appStatus.navigateToSelectCertificate,
-			 errorModalState: appStatus.errorModalState
+			 errorInfo: appStatus.errorInfo
 		  )
 		  .environmentObject(appStatus)
 		  .fixedSize(horizontal: false, vertical: true)
@@ -279,14 +279,14 @@ struct MainView: View {
     
     private func handleFileImportCancellation() {
 	   appStatus.showErrorModal = true
-	   appStatus.errorModalState = .dataNotImported
+        appStatus.errorInfo = ErrorCodes.InternalSoftwareErrorCodes.fileLoadingLocalFile.info
 	   appStatus.navigateToDNI = false
 	   appStatus.navigateToAddCertificate = false
     }
     
     func handleError(error: Error) {
 	   appStatus.showErrorModal = true
-	   appStatus.errorModalState = .globalError
+	   appStatus.errorInfo = ErrorCodes.InternalSoftwareErrorCodes.generalSoftwareError.info
 	   appStatus.errorModalDescription = error.localizedDescription
     }
 }

@@ -91,9 +91,6 @@ class GenericBatchSignUseCase: NSObject, BatchRestDelegate, ServletRestDelegate 
 	   delegate?.didSuccessBatch(response: response)
     }
     
-    func handleError(error: Error) {
-	   delegate?.didErrorBatch(error: error)
-    }
     
     func didSuccessBachPresign(_ responseDict: [AnyHashable : Any]) {
 	   let stServlet = parametersBatch!.stservlet
@@ -288,7 +285,7 @@ class GenericBatchSignUseCase: NSObject, BatchRestDelegate, ServletRestDelegate 
     }
     
     private func updateDataWithErrors(_ errors: [[String: Any]]) {
-	   guard var dataOperation = parseDataBase64toDictionary(parametersBatch?.data) else { return }
+	   guard let dataOperation = parseDataBase64toDictionary(parametersBatch?.data) else { return }
 	   guard let singleSigns = dataOperation["singlesigns"] as? [[String: Any]] else { return }
 	   
 	   for error in errors {

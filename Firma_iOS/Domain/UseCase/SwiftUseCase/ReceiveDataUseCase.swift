@@ -23,7 +23,7 @@ public class ReceiveDataUseCase: NSObject {
 	   completion: @escaping (Result<(AOEntity, NSMutableDictionary), Error>) -> Void
     ) {
 	   guard let urlParameters = CADESSignUtils.parseUrl(startURL) as? [String: Any] else {
-		  completion(.failure(ErrorGenerator.generateError(from: RequestErrorCodes.generalRequestError)))
+            completion(.failure(ErrorCodes.RequestErrorCodes.generalRequestError.info))
 		  return
 	   }
 	   self.opParameters = NSMutableDictionary(dictionary: urlParameters)
@@ -46,7 +46,7 @@ public class ReceiveDataUseCase: NSObject {
 	   if let opParameters = self.opParameters {
 		  completion(.success((aoEntity, opParameters)))
 	   } else {
-		  completion(.failure(ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.certificateManagementError)))
+            completion(.failure(ErrorCodes.InternalSoftwareErrorCodes.certificateManagementError.info))
 	   }
     }
     

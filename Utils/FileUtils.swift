@@ -60,12 +60,12 @@ class FileUtils {
     
     static func convertURLFileToData(urls: [URL], completion: @escaping (Result<Data, Error>) -> Void) {
 	   guard let url = urls.first else {
-		  completion(.failure(ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.generalSoftwareError)))
+            completion(.failure(ErrorCodes.InternalSoftwareErrorCodes.generalSoftwareError.info))
 		  return
 	   }
 	   
 	   guard url.startAccessingSecurityScopedResource() else {
-		  completion(.failure(ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.generalSoftwareError)))
+            completion(.failure(ErrorCodes.InternalSoftwareErrorCodes.generalSoftwareError.info))
 		  return
 	   }
 	   

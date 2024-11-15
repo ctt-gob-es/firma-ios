@@ -54,22 +54,27 @@ class NFCViewModel: NSObject, ObservableObject {
 	   self.dniSingleSignUseCase?.singleSign(completion: { result in
 		  switch result {
 			 case .success(let success):
-				self.dniBatchSignUseCase?.wrapper?.nfcSessionManager?.nfcSession?.alertMessage = NSLocalizedString("sign_success_description", bundle: Bundle.main, comment: "")
-				self.dniBatchSignUseCase?.wrapper?.nfcSessionManager?.nfcSession?.invalidate()
+				self.dniSingleSignUseCase?.wrapper?.nfcSessionManager?.nfcSession?.alertMessage = NSLocalizedString("sign_success_description", bundle: Bundle.main, comment: "")
+				self.dniSingleSignUseCase?.wrapper?.nfcSessionManager?.nfcSession?.invalidate()
 				DispatchQueue.main.async {
 				    NotificationCenter.default.post(name: .DNIeSuccess, object: "")
 				}
 				completion(.success(success))
 			 case .failure(let error):
+                    var errorInfo = ErrorCodes.InternalSoftwareErrorCodes.generalSoftwareError.info
+                    if let errorAux = error as? ErrorInfo {
+                        errorInfo = errorAux
+                    }
+                
 				let nsError = error as NSError
 				DispatchQueue.main.async {
 				    NotificationCenter.default.post(
 					   name: .DNIeError,
 					   object: nil,
-					   userInfo: ["errorCode": nsError.code, "errorMessage": nsError.userInfo["errorMessage"] as? String ?? nsError.localizedDescription]
+					   userInfo: ["errorInfo": errorInfo]
 				    )
 				}
-				self.handleError(error: error)
+				self.handleError(error: errorInfo)
 				completion(.failure(error))
 		  }
 	   })
@@ -109,6 +114,7 @@ class NFCViewModel: NSObject, ObservableObject {
     
     func invalidateSession(errorMessage: String) {
 	   self.dniSingleSignUseCase?.wrapper?.nfcSessionManager?.nfcSession?.invalidate(errorMessage: errorMessage)
+        self.dniBatchSignUseCase?.wrapper?.nfcSessionManager?.nfcSession?.invalidate(errorMessage: errorMessage)
     }
     
     private func handleError(error: Error) {
