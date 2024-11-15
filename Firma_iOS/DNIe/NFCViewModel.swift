@@ -10,7 +10,7 @@ import Foundation
 import CoreNFC
 import SwiftUI
 
-class NFCViewModel: NSObject, ObservableObject, BatchSignUseCaseDelegate {
+class NFCViewModel: NSObject, ObservableObject {
     @State var can: String
     @State var pin: String
     @State var dataToSign: Data? = nil
@@ -46,7 +46,6 @@ class NFCViewModel: NSObject, ObservableObject, BatchSignUseCaseDelegate {
 			 can: can,
 			 pin: pin
 		  )
-		  self.dniBatchSignUseCase?.delegate = self
 		  batchSignWithDNIe(completion: completion)
 	   }
     }
@@ -84,28 +83,24 @@ class NFCViewModel: NSObject, ObservableObject, BatchSignUseCaseDelegate {
 				swiftDictionary[keyString] = value
 			 }
 		  }
-		  self.dniBatchSignUseCase?.signBatch(dataOperation: swiftDictionary, completion: { result, error in
-			 switch result {
-				case true:
-				    self.dniBatchSignUseCase?.wrapper?.nfcSessionManager?.nfcSession?.alertMessage = NSLocalizedString("batch_signs_all_ok", bundle: Bundle.main, comment: "")
-				    self.dniBatchSignUseCase?.wrapper?.nfcSessionManager?.nfcSession?.invalidate()
-				    DispatchQueue.main.async {
-					   NotificationCenter.default.post(name: .DNIeSuccess, object: "")
-				    }
-				    completion(.success(result))
-				case false:
-				    if let error = error {
-					   let nsError = error as NSError
-					   DispatchQueue.main.async {
-						  NotificationCenter.default.post(
-							 name: .DNIeError,
-							 object: nil,
-							 userInfo: ["errorCode": nsError.code, "errorMessage": nsError.userInfo["errorMessage"] as? String ?? nsError.localizedDescription]
-						  )
-					   }
-					   completion(.failure(error))
-				    }
-			 }
+		  self.dniBatchSignUseCase?.signBatch(dataOperation: swiftDictionary, completion: { message, error in
+                if let nsError = error as NSError? {
+                    DispatchQueue.main.async {
+                       NotificationCenter.default.post(
+                          name: .DNIeError,
+                          object: nil,
+                          userInfo: ["errorCode": nsError.code, "errorMessage": nsError.userInfo["errorMessage"] as? String ?? nsError.localizedDescription]
+                       )
+                    }
+                    completion(.failure(nsError))
+                } else {
+                    self.dniBatchSignUseCase?.wrapper?.nfcSessionManager?.nfcSession?.alertMessage = NSLocalizedString("batch_signs_all_ok", bundle: Bundle.main, comment: "")
+                    self.dniBatchSignUseCase?.wrapper?.nfcSessionManager?.nfcSession?.invalidate()
+                    DispatchQueue.main.async {
+                       NotificationCenter.default.post(name: .DNIeSuccess, object: "")
+                    }
+                    completion(.success(true))
+                }
 			 
 		  })
 	   }
@@ -133,19 +128,5 @@ class NFCViewModel: NSObject, ObservableObject, BatchSignUseCaseDelegate {
 		  }
 	   }
     }
-    
-    func didSuccessBatch(response: String) {
-	   
-    }
-    
-    func didErrorBatch(error: any Error) {
-	   let nsError = error as NSError
-	   DispatchQueue.main.async {
-		  NotificationCenter.default.post(
-			 name: .DNIeError,
-			 object: nil,
-			 userInfo: ["errorCode": nsError.code, "errorMessage": nsError.userInfo["errorMessage"] as? String ?? nsError.localizedDescription]
-		  )
-	   }
-    }
+
 }

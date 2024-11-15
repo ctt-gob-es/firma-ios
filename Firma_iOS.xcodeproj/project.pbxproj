@@ -2510,7 +2510,6 @@
 		8393EED42C58FAD4009FDE6E /* HistoricalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EED32C58FAD4009FDE6E /* HistoricalRepository.swift */; };
 		8393EED62C58FBB9009FDE6E /* HistoricalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EED52C58FBB9009FDE6E /* HistoricalViewModel.swift */; };
 		8393EED82C58FBD3009FDE6E /* SwiftDate+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EED72C58FBD3009FDE6E /* SwiftDate+Utils.swift */; };
-		8393EEDB2C58FC66009FDE6E /* AOCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8393EED92C58FC66009FDE6E /* AOCoreDataModel.xcdatamodeld */; };
 		8393EEDD2C59037E009FDE6E /* SettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EEDC2C59037E009FDE6E /* SettingsRow.swift */; };
 		8393EEDF2C590387009FDE6E /* SettingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EEDE2C590387009FDE6E /* SettingsHeaderView.swift */; };
 		83A5EDBD2C5255DD00F93B6D /* BachRestIOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5EDBB2C5255DD00F93B6D /* BachRestIOS.m */; };
@@ -2716,6 +2715,7 @@
 		A073AA7C2893E7FC00FE30CE /* BatchSignUseCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A073AA7B2893E7FC00FE30CE /* BatchSignUseCase.m */; };
 		A073AA7F2893F71E00FE30CE /* InputParametersBatch.m in Sources */ = {isa = PBXBuildFile; fileRef = A073AA7E2893F71E00FE30CE /* InputParametersBatch.m */; };
 		A09BDEFD2B7B6D270016102B /* HeaderCertificateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A09BDEFC2B7B6D270016102B /* HeaderCertificateCell.m */; };
+		A0F395222CE7256800DD7AE3 /* AOCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0F395202CE7256800DD7AE3 /* AOCoreDataModel.xcdatamodeld */; };
 		B2406F2E20C5CACA008ED085 /* AORegisteredCertificatesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F2920C5CACA008ED085 /* AORegisteredCertificatesTVC.m */; };
 		B2406F2F20C5CACA008ED085 /* AOAvailableCertificatesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F2A20C5CACA008ED085 /* AOAvailableCertificatesTVC.m */; };
 		B2406F3320C5CB8E008ED085 /* AlertProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F3220C5CB8D008ED085 /* AlertProgressBar.m */; };
@@ -7748,7 +7748,6 @@
 		8393EED32C58FAD4009FDE6E /* HistoricalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalRepository.swift; sourceTree = "<group>"; };
 		8393EED52C58FBB9009FDE6E /* HistoricalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalViewModel.swift; sourceTree = "<group>"; };
 		8393EED72C58FBD3009FDE6E /* SwiftDate+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftDate+Utils.swift"; sourceTree = "<group>"; };
-		8393EEDA2C58FC66009FDE6E /* AOCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AOCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		8393EEDC2C59037E009FDE6E /* SettingsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRow.swift; sourceTree = "<group>"; };
 		8393EEDE2C590387009FDE6E /* SettingsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHeaderView.swift; sourceTree = "<group>"; };
 		83A5EDBA2C5255DD00F93B6D /* BachRestIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BachRestIOS.h; sourceTree = "<group>"; };
@@ -8072,6 +8071,7 @@
 		A073AA7E2893F71E00FE30CE /* InputParametersBatch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputParametersBatch.m; sourceTree = "<group>"; };
 		A09BDEFB2B7B6D270016102B /* HeaderCertificateCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderCertificateCell.h; sourceTree = "<group>"; };
 		A09BDEFC2B7B6D270016102B /* HeaderCertificateCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeaderCertificateCell.m; sourceTree = "<group>"; };
+		A0F395212CE7256800DD7AE3 /* AOCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AOCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		B2406F2720C5CACA008ED085 /* AOAvailableCertificatesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOAvailableCertificatesTVC.h; sourceTree = "<group>"; };
 		B2406F2920C5CACA008ED085 /* AORegisteredCertificatesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AORegisteredCertificatesTVC.m; sourceTree = "<group>"; };
 		B2406F2A20C5CACA008ED085 /* AOAvailableCertificatesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOAvailableCertificatesTVC.m; sourceTree = "<group>"; };
@@ -8217,6 +8217,7 @@
 		3C57FA141AC1BB7100FF7292 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A0F395202CE7256800DD7AE3 /* AOCoreDataModel.xcdatamodeld */,
 				835135A12C60BEF0005081EE /* ViewModel */,
 				838114C92C5146FE00CDEC97 /* SignModel.swift */,
 				3C57FA151AC1BB9D00FF7292 /* AOCertificateInfo.h */,
@@ -8224,7 +8225,6 @@
 				A073AA7D2893F71E00FE30CE /* InputParametersBatch.h */,
 				A073AA7E2893F71E00FE30CE /* InputParametersBatch.m */,
 				8393EEC62C58E2E0009FDE6E /* ParseURLParameters.swift */,
-				8393EED92C58FC66009FDE6E /* AOCoreDataModel.xcdatamodeld */,
 				832037652C661D4800755F7E /* HistoryModel.swift */,
 			);
 			name = Model;
@@ -17448,7 +17448,6 @@
 				833C28362CA2B89A00DFF6CD /* ASN1Sequence.m in Sources */,
 				833C2C242CA2B89C00DFF6CD /* PdfPRow.m in Sources */,
 				8325D3812CAADD17007224E9 /* SignDataApduCommand.m in Sources */,
-				8393EEDB2C58FC66009FDE6E /* AOCoreDataModel.xcdatamodeld in Sources */,
 				8325D5AE2CAADD18007224E9 /* SHA256Digest.m in Sources */,
 				8325D6DC2CAADD18007224E9 /* Nat128.m in Sources */,
 				833C2C772CA2B89C00DFF6CD /* Header.m in Sources */,
@@ -18647,6 +18646,7 @@
 				833C2B742CA2B89C00DFF6CD /* Font.m in Sources */,
 				833C28332CA2B89A00DFF6CD /* GNUObjectIdentifiers.m in Sources */,
 				833C293C2CA2B89A00DFF6CD /* ReasonsMask.m in Sources */,
+				A0F395222CE7256800DD7AE3 /* AOCoreDataModel.xcdatamodeld in Sources */,
 				83AFFFE82CA2C95D00A26C0F /* ber_tlv_length.c in Sources */,
 				8325D6A52CAADD18007224E9 /* SecT409K1Point.m in Sources */,
 				833C2AE02CA2B89B00DFF6CD /* SSLErrorProcessor.m in Sources */,
@@ -19661,14 +19661,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		8393EED92C58FC66009FDE6E /* AOCoreDataModel.xcdatamodeld */ = {
+		A0F395202CE7256800DD7AE3 /* AOCoreDataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				8393EEDA2C58FC66009FDE6E /* AOCoreDataModel.xcdatamodel */,
+				A0F395212CE7256800DD7AE3 /* AOCoreDataModel.xcdatamodel */,
 			);
-			currentVersion = 8393EEDA2C58FC66009FDE6E /* AOCoreDataModel.xcdatamodel */;
-			name = AOCoreDataModel.xcdatamodeld;
-			path = /Users/desarrolloabamobile/Documents/iOS/firmaiOS/AOCoreDataModel.xcdatamodeld;
+			currentVersion = A0F395212CE7256800DD7AE3 /* AOCoreDataModel.xcdatamodel */;
+			path = AOCoreDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

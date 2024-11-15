@@ -15,7 +15,7 @@ enum SignMode {
     case electronicCertificate
 }
 
-class HomeViewModel: ObservableObject, BatchSignUseCaseDelegate {
+class HomeViewModel: ObservableObject {
     @Published var buttonEnabled: Bool? = false
     @Published var urlReceived: URL? = nil
     @Published var isLoading: Bool? = false
@@ -318,7 +318,6 @@ class HomeViewModel: ObservableObject, BatchSignUseCaseDelegate {
 		  batchSignUseCase = CertificateBatchSignUseCase(certificate: certificateData, privateKey: privateKey)
 	   }
 	   
-	   batchSignUseCase?.delegate = self
 	   batchSignUseCase?.signBatch(dataOperation: parameters as! [String : Any]) { responseMessage, error in
 	    self.isLoading = false
 		  if let error = error as NSError? {
@@ -453,14 +452,6 @@ class HomeViewModel: ObservableObject, BatchSignUseCaseDelegate {
     
     func handleFinishSign() {
 	   self.resetHomeViewModelVariables()
-    }
-    
-    func didSuccessBatch(response: String) {
-	   
-    }
-    
-    func didErrorBatch(error: Error) {
-	   
     }
     
     func handleCoordinatesSelection(annotation: PDFAnnotation) {

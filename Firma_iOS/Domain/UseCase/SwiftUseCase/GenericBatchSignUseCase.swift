@@ -18,7 +18,9 @@ class GenericBatchSignUseCase: NSObject, BatchRestDelegate, ServletRestDelegate 
     // MARK: - Properties
     
     var parametersBatch: InputParametersBatch?
-    var completionHandler: ((Bool, Error?) -> Void)?
+    var completionHandler: ((String, Error?) -> Void)?
+    var responseMessage: String = ""
+    
     weak var delegate: BatchSignUseCaseDelegate?
     
     var bachRest: BachRest!
@@ -46,7 +48,7 @@ class GenericBatchSignUseCase: NSObject, BatchRestDelegate, ServletRestDelegate 
 	   presign()
     }
 
-    func signBatch(dataOperation: [String: Any], completion: @escaping (Bool, Error?) -> Void) {
+    func signBatch(dataOperation: [String: Any], completion: @escaping (String, Error?) -> Void) {
 	   self.completionHandler = completion
 	   self.parametersBatch = getDataOperation(dataOperation: dataOperation)
 	   
@@ -196,6 +198,24 @@ class GenericBatchSignUseCase: NSObject, BatchRestDelegate, ServletRestDelegate 
 		  cipherKey: self.parametersBatch?.cipherKey ?? "",
 		  docId: self.parametersBatch?.identifier ?? ""
 	   )
+    }
+    
+    func didSuccessStoreData(_ response: String) {
+        if (self.responseMessage == "batch_signs_generic_error") {
+            if let completionHandler = self.completionHandler {
+                completionHandler(responseMessage, ErrorGenerator.generateBatchError(from: ServerBatchErrorCodes.unknownServerError.rawValue))
+            }
+        } else {
+            if let completionHandler = self.completionHandler {
+                completionHandler(responseMessage, nil)
+            }
+        }
+    }
+    
+    func didErrorStoreData(_ errorMessage: String) {
+        if let completionHandler = self.completionHandler {
+            completionHandler(responseMessage, ErrorGenerator.generateBatchError(from: ServerBatchErrorCodes.invalidDataOnSave.rawValue))
+        }
     }
     
     // MARK: - Helper Functions
