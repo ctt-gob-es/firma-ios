@@ -144,6 +144,7 @@ struct MainView: View {
 			 .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
 			 .presentationDetents([.height(viewModel.sheetHeight)])
 			 .accessibility(addTraits: .isModal)
+			 .interactiveDismissDisabled(true)
 	   }
 	   .sheet(isPresented: $appStatus.showDeleteModal) {
 		  if let selectedCertificate = appStatus.selectedCertificate {
@@ -155,6 +156,7 @@ struct MainView: View {
 			 .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
 			 .presentationDetents([.height(viewModel.sheetHeight)])
 			 .accessibility(addTraits: .isModal)
+			 .interactiveDismissDisabled(true)
 		  }
 	   }
 	   .sheet(isPresented: $appStatus.showSignModal,
@@ -172,6 +174,7 @@ struct MainView: View {
 		  .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
 		  .presentationDetents([.height(viewModel.sheetHeight)])
 		  .accessibility(addTraits: .isModal)
+		  .interactiveDismissDisabled(true)
 	   }
 	   .sheet(isPresented: $appStatus.showDocumentPicker) {
 		  DocumentPicker(
@@ -187,6 +190,7 @@ struct MainView: View {
 				print("User cancelled the Document Interaction")
 			 }
 		  )
+		  .interactiveDismissDisabled(true)
 		  .accessibility(addTraits: .isModal)
 	   }
 	   .sheet(isPresented: $appStatus.showSuccessModal) {
@@ -198,6 +202,7 @@ struct MainView: View {
 		  .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
 		  .presentationDetents([.height(viewModel.sheetHeight)])
 		  .accessibility(addTraits: .isModal)
+		  .interactiveDismissDisabled(true)
 	   }
 	   .sheet(isPresented: $appStatus.showErrorModal) {
 		  ErrorModalView(
@@ -211,6 +216,7 @@ struct MainView: View {
 		  .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
 		  .presentationDetents([.height(viewModel.sheetHeight)])
 		  .accessibility(addTraits: .isModal)
+		  .interactiveDismissDisabled(true)
 	   }
 	   .sheet(isPresented: $appStatus.showRecoveryModal) {
 		  RecoveryModalView()
@@ -218,10 +224,12 @@ struct MainView: View {
 			 .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
 			 .presentationDetents([.height(viewModel.sheetHeight)])
 			 .accessibility(addTraits: .isModal)
+			 .interactiveDismissDisabled(true)
 	   }
 	   .sheet(isPresented: $appStatus.showDocumentErrorModal) {
 		  DocumentErrorModalView()
 			 .accessibility(addTraits: .isModal)
+			 .interactiveDismissDisabled(true)
 	   }
 	   .sheet(isPresented: $appStatus.showPseudonymModal) {
 		  PseudonymModalView(shouldSign: $viewModel.shouldSign)
@@ -229,6 +237,7 @@ struct MainView: View {
 			 .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
 			 .presentationDetents([.height(viewModel.sheetHeight)])
 			 .accessibility(addTraits: .isModal)
+			 .interactiveDismissDisabled(true)
 	   }
 	   .sheet(isPresented: $appStatus.showDocumentSavingPicker) {
 		  if let url = appStatus.downloadedData {
@@ -244,6 +253,7 @@ struct MainView: View {
 					   handleError(error: error)
 				}
 			 })
+			 .interactiveDismissDisabled(true)
 		  }
 	   }
     }

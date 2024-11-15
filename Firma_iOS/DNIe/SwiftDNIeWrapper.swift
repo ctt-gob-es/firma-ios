@@ -40,8 +40,7 @@ class SwiftDNIeWrapper : IOSNFCSessionDelegate{
 	   print("NFC session invalidated")
 	   if let nfcError = error as? NFCReaderError {
 		  switch nfcError.code {
-		  case .readerSessionInvalidationErrorSessionTimeout,
-			 .readerSessionInvalidationErrorUserCanceled:
+		  case .readerSessionInvalidationErrorSessionTimeout:
 			 dniResult?.getDNIeError(errorCode: 3, errorMessage: error.localizedDescription)
 		  default:
 			 print("With error: \(error.localizedDescription)")

@@ -48,6 +48,7 @@ struct HistoricalView: View {
 			 .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
 			 .presentationDetents([.height(viewModel.sheetHeight)])
 			 .accessibility(addTraits: .isModal)
+			 .interactiveDismissDisabled(true)
 	   }
     }
     

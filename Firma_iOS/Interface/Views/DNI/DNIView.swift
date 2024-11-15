@@ -41,6 +41,7 @@ struct DNIView: View {
 	   }
 	   .sheet(isPresented: $isShowingModal) {
 		  modalView
+			 .interactiveDismissDisabled(true)
 	   }
 	   .navigationBarBackButtonHidden(true)
 	   .toolbar {

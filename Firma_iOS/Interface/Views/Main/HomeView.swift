@@ -65,6 +65,7 @@ struct HomeView: View {
 			 .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
 			 .presentationDetents([.height(viewModel.sheetHeight)])
 			 .accessibility(addTraits: .isModal)
+			 .interactiveDismissDisabled(true)
 	   }
 	   .sheet(isPresented: $viewModel.showSelectSignMode,
 			onDismiss: {
@@ -100,6 +101,7 @@ struct HomeView: View {
 		  .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
 		  .presentationDetents([.height(viewModel.sheetHeight)])
 		  .accessibility(addTraits: .isModal)
+		  .interactiveDismissDisabled(true)
 	   }
 	   .sheet(isPresented: $viewModel.showSignCoordinatesModal, onDismiss: {
 		  if viewModel.annotations.isEmpty {
@@ -113,6 +115,7 @@ struct HomeView: View {
 				annotations: $viewModel.annotations,
 				password: $viewModel.password
 			 )
+			 .interactiveDismissDisabled(true)
 		  }
 	   }
 	   .navigationDestination(isPresented: $viewModel.selectDNIe) {

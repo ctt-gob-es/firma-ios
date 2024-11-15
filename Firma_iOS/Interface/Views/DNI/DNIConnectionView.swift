@@ -77,6 +77,7 @@ struct DNIConnectionView: View {
 			 .modifier(GetHeightModifier(height: $sheetHeight))
 			 .presentationDetents([.height(sheetHeight)])
 			 .accessibility(addTraits: .isModal)
+			 .interactiveDismissDisabled(true)
 			 .onAppear() {
 				DispatchQueue.main.asyncAfter(deadline: .now() + 2.1) {
 				    isSearching = false
@@ -97,6 +98,7 @@ struct DNIConnectionView: View {
 				annotations: $annotations,
 				password: $password
 			 )
+			 .interactiveDismissDisabled(true)
 		  }
 	   }
 	   .onChange(of: annotations) {
@@ -112,7 +114,7 @@ struct DNIConnectionView: View {
 		  appStatus.showErrorModal = true
 		  
 		  if let userInfo = notification.userInfo,
-			let error = userInfo["error"] as? ErrorInfo {
+			let error = userInfo["errorInfo"] as? ErrorInfo {
                 
                 if (error.code == ErrorCodes.DNIeErrorCodes.badCan.info.code) {
 				step = .canStep
@@ -122,6 +124,7 @@ struct DNIConnectionView: View {
 				step = .nfcStep
 				initModel()
 			 }
+			 appStatus.errorInfo = error
                 nfcViewModel?.invalidateSession(errorMessage: error.errorModalType.title)
 		  } else {
 			 print("No user info available in the notification")
