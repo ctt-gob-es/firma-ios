@@ -2712,6 +2712,11 @@
 		9A7019012AD03102000B11D6 /* AOAvailableCertificatesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7019002AD03102000B11D6 /* AOAvailableCertificatesCell.m */; };
 		9AB783512ACA9B98005C2B82 /* UIFont+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB783502ACA9B98005C2B82 /* UIFont+Utils.m */; };
 		9AD3D2B22B6CF23300F04B14 /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD3D2B12B6CEA1E00F04B14 /* UIImage+Utils.m */; };
+		A065483D2CE969BF00C9D8DE /* SSLBypassDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A065483C2CE969BF00C9D8DE /* SSLBypassDelegate.swift */; };
+		A065483F2CE969D500C9D8DE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A065483E2CE969D500C9D8DE /* NetworkManager.swift */; };
+		A06548422CE96F8A00C9D8DE /* NetworkUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06548412CE96F8A00C9D8DE /* NetworkUtility.swift */; };
+		A06548442CE9860400C9D8DE /* IntermediateServerRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06548432CE9860400C9D8DE /* IntermediateServerRest.swift */; };
+		A06548462CE98CBD00C9D8DE /* BatchSignRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06548452CE98CBD00C9D8DE /* BatchSignRest.swift */; };
 		A073AA7C2893E7FC00FE30CE /* BatchSignUseCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A073AA7B2893E7FC00FE30CE /* BatchSignUseCase.m */; };
 		A073AA7F2893F71E00FE30CE /* InputParametersBatch.m in Sources */ = {isa = PBXBuildFile; fileRef = A073AA7E2893F71E00FE30CE /* InputParametersBatch.m */; };
 		A09BDEFD2B7B6D270016102B /* HeaderCertificateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A09BDEFC2B7B6D270016102B /* HeaderCertificateCell.m */; };
@@ -8066,6 +8071,11 @@
 		9AB783502ACA9B98005C2B82 /* UIFont+Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Utils.m"; sourceTree = "<group>"; };
 		9AD3D2B02B6CEA0400F04B14 /* UIImage+Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Utils.h"; sourceTree = "<group>"; };
 		9AD3D2B12B6CEA1E00F04B14 /* UIImage+Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Utils.m"; sourceTree = "<group>"; };
+		A065483C2CE969BF00C9D8DE /* SSLBypassDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLBypassDelegate.swift; sourceTree = "<group>"; };
+		A065483E2CE969D500C9D8DE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		A06548412CE96F8A00C9D8DE /* NetworkUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtility.swift; sourceTree = "<group>"; };
+		A06548432CE9860400C9D8DE /* IntermediateServerRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntermediateServerRest.swift; sourceTree = "<group>"; };
+		A06548452CE98CBD00C9D8DE /* BatchSignRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchSignRest.swift; sourceTree = "<group>"; };
 		A073AA7A2893E7FC00FE30CE /* BatchSignUseCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BatchSignUseCase.h; sourceTree = "<group>"; };
 		A073AA7B2893E7FC00FE30CE /* BatchSignUseCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BatchSignUseCase.m; sourceTree = "<group>"; };
 		A073AA7D2893F71E00FE30CE /* InputParametersBatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputParametersBatch.h; sourceTree = "<group>"; };
@@ -8240,6 +8250,7 @@
 				838114C32C5131AA00CDEC97 /* PresignRest.swift */,
 				838114C72C5131C600CDEC97 /* ReportErrorRest.swift */,
 				83094A572C58DCCA006CEB12 /* ReceiveDataRest.swift */,
+				A065483C2CE969BF00C9D8DE /* SSLBypassDelegate.swift */,
 			);
 			path = SwiftRest;
 			sourceTree = "<group>";
@@ -15647,6 +15658,7 @@
 		83A5EDB92C52558700F93B6D /* Rest */ = {
 			isa = PBXGroup;
 			children = (
+				A06548402CE96F6B00C9D8DE /* Network */,
 				83094A562C58DC9B006CEB12 /* SwiftRest */,
 				83A5EDBC2C5255DD00F93B6D /* BachRest */,
 				83EBF99C289BAB1900E80A7E /* ParentRest */,
@@ -15660,6 +15672,7 @@
 			children = (
 				83A5EDBA2C5255DD00F93B6D /* BachRestIOS.h */,
 				83A5EDBB2C5255DD00F93B6D /* BachRestIOS.m */,
+				A06548452CE98CBD00C9D8DE /* BatchSignRest.swift */,
 			);
 			path = BachRest;
 			sourceTree = "<group>";
@@ -16110,6 +16123,7 @@
 			children = (
 				83EBF99A289BAA8600E80A7E /* ServletRest.h */,
 				83EBF99B289BAA9300E80A7E /* ServletRest.m */,
+				A06548432CE9860400C9D8DE /* IntermediateServerRest.swift */,
 			);
 			path = ServletRest;
 			sourceTree = "<group>";
@@ -16169,6 +16183,15 @@
 				9A64AD752AC6AFB40089A289 /* NSMutableAttributedString.m */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A06548402CE96F6B00C9D8DE /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A065483E2CE969D500C9D8DE /* NetworkManager.swift */,
+				A06548412CE96F8A00C9D8DE /* NetworkUtility.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		A073AA792893E7BB00FE30CE /* Domain */ = {
@@ -16948,6 +16971,7 @@
 				8325D3CB2CAADD17007224E9 /* Pkcs15Cdf.m in Sources */,
 				8325D60C2CAADD18007224E9 /* BCECPublicKey.m in Sources */,
 				833C2AAC2CA2B89B00DFF6CD /* ProfileDataException.m in Sources */,
+				A06548462CE98CBD00C9D8DE /* BatchSignRest.swift in Sources */,
 				8325D6472CAADD18007224E9 /* SM2P256V1Field.m in Sources */,
 				8325D5BC2CAADD18007224E9 /* RSAEngine.m in Sources */,
 				833C2A212CA2B89B00DFF6CD /* X509Util.m in Sources */,
@@ -17425,6 +17449,7 @@
 				8325D6782CAADD18007224E9 /* SecT113Field.m in Sources */,
 				8325D8532CAADD18007224E9 /* Encodable.m in Sources */,
 				833C29CC2CA2B89B00DFF6CD /* SecT409Field.m in Sources */,
+				A06548442CE9860400C9D8DE /* IntermediateServerRest.swift in Sources */,
 				8325D51D2CAADD17007224E9 /* ASN1RelativeOID.m in Sources */,
 				8325D37E2CAADD17007224E9 /* LoadDataApduCommand.m in Sources */,
 				8325D4C12CAADD17007224E9 /* X9ECPoint.m in Sources */,
@@ -17986,6 +18011,7 @@
 				833C29522CA2B89A00DFF6CD /* BCX509CertificateObject.m in Sources */,
 				8325D4912CAADD17007224E9 /* CMSObjectIdentifiers.m in Sources */,
 				8325D7FB2CAADD18007224E9 /* SPHINCSPlusKeyFactorySpi.m in Sources */,
+				A06548422CE96F8A00C9D8DE /* NetworkUtility.swift in Sources */,
 				8325D7562CAADD18007224E9 /* NHSecretKeyProcessor.m in Sources */,
 				833C2A1E2CA2B89B00DFF6CD /* StreamParsingException.m in Sources */,
 				833C2AB82CA2B89B00DFF6CD /* PathIterator.m in Sources */,
@@ -17997,6 +18023,7 @@
 				83AF002C2CA2C95D00A26C0F /* SigPolicyQualifierId.c in Sources */,
 				8325D4452CAADD17007224E9 /* AbstractIso7816FourCard.m in Sources */,
 				8325D6712CAADD18007224E9 /* SecP384R1Field.m in Sources */,
+				A065483F2CE969D500C9D8DE /* NetworkManager.swift in Sources */,
 				8325D5042CAADD17007224E9 /* ASN1Encodable.m in Sources */,
 				8325D6B12CAADD18007224E9 /* GLVEndomorphism.m in Sources */,
 				83AFFFE72CA2C95D00A26C0F /* ber_decoder.c in Sources */,
@@ -18858,6 +18885,7 @@
 				8325D6482CAADD18007224E9 /* SM2P256V1FieldElement.m in Sources */,
 				833C2B502CA2B89C00DFF6CD /* IncorrectPageException.m in Sources */,
 				833C28242CA2B89A00DFF6CD /* X9FieldID.m in Sources */,
+				A065483D2CE969BF00C9D8DE /* SSLBypassDelegate.swift in Sources */,
 				8325D4462CAADD17007224E9 /* FileNotFoundException.m in Sources */,
 				833C288D2CA2B89A00DFF6CD /* CMSObjectIdentifiers.m in Sources */,
 				8325D7EE2CAADD18007224E9 /* BCRainbowPublicKey.m in Sources */,

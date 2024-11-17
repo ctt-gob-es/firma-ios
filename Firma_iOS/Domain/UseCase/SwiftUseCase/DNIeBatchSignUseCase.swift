@@ -26,11 +26,10 @@ class DNIeBatchSignUseCase: GenericBatchSignUseCase, DNIeResult {
     // MARK: - Error Handling
     
     private func handleErrorDnieWrapper(errorCode: Int) {
-	   delegate?.didErrorBatch(
-		  error: ErrorGenerator.generateError(
-			 from: DNIeErrorCodes(rawValue: String(errorCode))!
-		  )
-	   )
+        if let completionHandler = self.completionHandler {
+            completionHandler(nil,
+                              ErrorCodes.getServerError(codigo: String(errorCode)).info)
+        }
     }
     
     // MARK: - Overridden Methods

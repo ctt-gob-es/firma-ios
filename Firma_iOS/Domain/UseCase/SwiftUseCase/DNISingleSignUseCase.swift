@@ -24,8 +24,7 @@ class DNISingleSignUseCase : GenericSignUseCase, DNIeResult {
     
     private func handleErrorDnieWrapper(errorCode: Int) {
 	   handleSignError(
-            error: ErrorCodes.getDNIError(codigo: String(errorCode)),
-		  completion: self.completionCallback!
+            error: ErrorCodes.getDNIError(codigo: String(errorCode))
 	   )
     }
     
@@ -60,6 +59,6 @@ class DNISingleSignUseCase : GenericSignUseCase, DNIeResult {
     }
     
     func getDNIeError(errorCode: Int, errorMessage: String) {
-	   handleSignError(error: ErrorCodes.getDNIError(codigo: String(errorCode)), completion: self.completionCallback!)
+	   handleSignError(error: ErrorCodes.getDNIError(codigo: String(errorCode)))
     }
 }

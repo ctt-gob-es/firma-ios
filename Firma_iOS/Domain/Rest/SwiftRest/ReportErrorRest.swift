@@ -14,41 +14,26 @@ class ReportErrorRest {
 		  completion(.failure(ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.generalSoftwareError)))
 		  return
 	   }
+        
+        let parameters = [
+            PARAMETER_NAME_OPERATION: OPERATION_PUT,
+            PARAMETER_NAME_VERSION: PARAMETER_NAME_VERSION_1_0,
+            PARAMETER_NAME_ID: docId,
+            PARAMETER_NAME_DAT: error
+        ]
 	   
-	   var post = ""
-	   post += "\(PARAMETER_NAME_OPERATION)=\(OPERATION_PUT)&"
-	   post += "\(PARAMETER_NAME_VERSION)=\(PARAMETER_NAME_VERSION_1_0)&"
-	   post += "\(PARAMETER_NAME_ID)=\(docId)&"
-	   post += "\(PARAMETER_NAME_DAT)=\(error)"
-	   
-	   guard let postData = post.data(using: .utf8, allowLossyConversion: true) else {
-		  completion(.failure(ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.generalSoftwareError)))
-		  return
-	   }
-	   
-	   let postLength = "\(postData.count)"
-	   
-	   guard let requestUrl = URL(string: urlServlet) else {
-		  completion(.failure(ErrorGenerator.generateError(from: CommunicationErrorCodes.generalCommunicationError)))
-		  return
-	   }
-	   
-	   var request = URLRequest(url: requestUrl, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 30.0)
-	   request.httpMethod = "POST"
-	   request.setValue(postLength, forHTTPHeaderField: "Content-Length")
-	   request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-	   request.setValue("Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)", forHTTPHeaderField: "User-Agent")
-	   request.setValue("text/plain,text/html,application/xhtml+xml,application/xml", forHTTPHeaderField: "Accept")
-	   request.httpBody = postData
-	   
-	   let task = URLSession.shared.dataTask(with: request) { data, response, error in
-		  if let error = error {
-			 completion(.failure(error))
-		  } else if let data = data {
-			 completion(.success(data))
-		  }
-	   }
-	   
-	   task.resume()
+        if let request = NetworkUtility.shared.createPostRequest(url: urlServlet, parameters: parameters) {
+            let session = NetworkManager.shared.getSession()
+            
+            let task = session.dataTask(with: request) { data, response, error in
+               if let error = error {
+                  completion(.failure(error))
+               } else if let data = data {
+                  completion(.success(data))
+               }
+            }
+            
+            task.resume()
+        }
     }
 }

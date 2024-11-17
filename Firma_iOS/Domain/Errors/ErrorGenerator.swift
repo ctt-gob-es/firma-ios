@@ -37,10 +37,10 @@ import Foundation
 	   }  else if let requestError = code as? ServerErrorCodes {
 		  errorMessage = ServerErrorCodes.getMessage(for: requestError)
 		  errorDomain = ErrorDomain.server
-	   } else if let batchError = code as? BatchErrorCode {
+	   } /*else if let batchError = code as? BatchErrorCode {
 		  errorMessage = BatchErrorGenerator.getMessageFor(batchError)
 		  errorDomain = ErrorDomain.batch
-	   }
+	   }*/
 
 	   let userInfo = [NSLocalizedDescriptionKey: errorMessage]
 	   return NSError(domain: errorDomain, code: Int(code.rawValue) ?? 0, userInfo: userInfo)
@@ -70,7 +70,7 @@ import Foundation
 	   return NSError(domain: ErrorDomain.server, code: Int(errorCode.rawValue) ?? 0, userInfo: userInfo)
     }
     
-    @objc static func generateBatchError(from code: String) -> NSError {
+   /* @objc static func generateBatchError(from code: String) -> NSError {
 	   guard let errorCode = BatchErrorCode(rawValue: Int(code) ?? 0) else {
 		  let errorMessage = "Unknown Batch Error"
 		  let userInfo = [NSLocalizedDescriptionKey: errorMessage]
@@ -80,5 +80,5 @@ import Foundation
 	   let userInfo = [NSLocalizedDescriptionKey: errorMessage]
 	  
 	   return NSError(domain: ErrorDomain.batch, code: errorCode.rawValue, userInfo: userInfo)
-    }
+    }*/
 }

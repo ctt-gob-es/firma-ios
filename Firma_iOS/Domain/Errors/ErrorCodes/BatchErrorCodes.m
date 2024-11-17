@@ -5,49 +5,43 @@
 //  Created by Desarrollo Abamobile on 14/11/24.
 //  Copyright © 2024 Solid GEAR. All rights reserved.
 //
-
-#import <Foundation/Foundation.h>
 #import "BatchErrorCodes.h"
 
-@implementation BatchErrorGenerator
 
-+ (NSString *)stringFromErrorCode:(BatchErrorCode)code {
-    return [NSString stringWithFormat:@"%ld", (long)code];
-}
+extern BatchErrorCodes const DownloadErrorHTTPResponse;
+extern BatchErrorCodes const DownloadErrorResponseFormat;
+extern BatchErrorCodes const DownloadErrorResponseFormatDictionary;
+extern BatchErrorCodes const UploadErrorHTTPResponse;
+extern BatchErrorCodes const UploadErrorResponseFormat;
+extern BatchErrorCodes const PresignErrorHTTPResponse;
+extern BatchErrorCodes const PresignErrorResponseFormat;
+extern BatchErrorCodes const PresignErrorResponseFormatDictionary;
+extern BatchErrorCodes const PostsignErrorHTTPResponse;
+extern BatchErrorCodes const PostsignErrorResponseFormat;
+extern BatchErrorCodes const PostsignErrorResponseFormatDictionary;
 
-+ (NSString *)getMessageForCode:(BatchErrorCode)code {
-    switch (code) {
-	   case BatchErrorCodeInvalidParamsPreSign:
-		  return @"Los parámetros enviados al servicio de prefirma no eran válidos.";
-	   case BatchErrorCodeInvalidParamsPostSign:
-		  return @"Los parámetros enviados al servicio de postfirma no eran válidos.";
-	   case BatchErrorCodeCommunicationError:
-		  return @"Error de comunicación con el servicio.";
-	   case BatchErrorCodePreSignatureError:
-		  return @"Los datos de prefirma recibidos son inválidos.";
-	   case BatchErrorCodePostSignatureError:
-		  return @"Los datos de postfirma recibidos son inválidos.";
-	   case BatchErrorCodeInvalidPresignUrl:
-		  return @"La URL del servicio de prefirma de lotes no es válida.";
-	   case BatchErrorCodeInvalidPostsignUrl:
-		  return @"La URL del servicio de postfirma de lotes no es válida.";
-	   case BatchErrorCodeInvalidDataOnSave:
-		  return @"Los datos recibidos al guardar en el servlet son inválidos.";
-	   case BatchErrorCodeInvalidSaveServletUrl:
-		  return @"La ruta del Servlet para guardar datos es inválida.";
-	   case BatchErrorCodeInvalidRetrieveServletUrl:
-		  return @"La ruta del Servlet para obtener datos es inválida.";
-	   case BatchErrorCodeUnknownServerError:
-		  return @"Error desconocido en el servidor.";
-	   case BatchErrorCodeInvalidCertificate:
-		  return @"Los datos del certificado proporcionado son inválidos.";
-	   case BatchErrorCodeMissingSignatureAlgorithm:
-		  return @"Falta el algoritmo de firma.";
-	   case BatchErrorCodeUnsupportedSignatureAlgorithm:
-		  return @"Algoritmo de firma no soportado.";
-	   default:
-		  return @"Error desconocido.";
-    }
-}
+extern BatchErrorCodes const DownloadErrorConnection;
+extern BatchErrorCodes const UploadErrorConnection;
+extern BatchErrorCodes const PresignErrorConnection;
+extern BatchErrorCodes const PostsignErrorConnection;
 
-@end
+
+// Errores de software de terceros
+BatchErrorCodes const DownloadErrorHTTPResponse = @"300201";
+BatchErrorCodes const DownloadErrorResponseFormat = @"300202";
+BatchErrorCodes const DownloadErrorResponseFormatDictionary = @"300203";
+BatchErrorCodes const UploadErrorHTTPResponse = @"300301";
+BatchErrorCodes const UploadErrorResponseFormat = @"300302";
+BatchErrorCodes const PresignErrorHTTPResponse = @"300401";
+BatchErrorCodes const PresignErrorResponseFormat = @"300402";
+BatchErrorCodes const PresignErrorResponseFormatDictionary = @"300403";
+BatchErrorCodes const PostsignErrorHTTPResponse = @"300404";
+BatchErrorCodes const PostsignErrorResponseFormat = @"300405";
+BatchErrorCodes const PostsignErrorResponseFormatDictionary = @"300406";
+
+
+// Errores de comunicacion
+BatchErrorCodes const DownloadErrorConnection = @"404101";
+BatchErrorCodes const UploadErrorConnection = @"404201";
+BatchErrorCodes const PresignErrorConnection = @"404301";
+BatchErrorCodes const PostsignErrorConnection = @"404302";

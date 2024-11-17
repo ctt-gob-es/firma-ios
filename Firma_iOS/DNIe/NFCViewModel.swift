@@ -33,24 +33,24 @@ class NFCViewModel: NSObject, ObservableObject {
 	   self.parameters = parameters
     }
     
-    func signWithDNIe(completion: @escaping (Result<Bool, Error>) -> Void) {
+    func signWithDNIe() {
 	   if signModel.operation == OPERATION_SIGN {
 		  self.dniSingleSignUseCase = DNISingleSignUseCase(
 			 can: can,
 			 pin: pin,
 			 signModel: signModel
 		  )
-		  singleSignWithDNIe(completion: completion)
+		  singleSignWithDNIe()
 	   } else if signModel.operation == OPERATION_BATCH {
 		  self.dniBatchSignUseCase = DNIeBatchSignUseCase(
 			 can: can,
 			 pin: pin
 		  )
-		  batchSignWithDNIe(completion: completion)
+		  batchSignWithDNIe()
 	   }
     }
     
-    func singleSignWithDNIe(completion: @escaping (Result<Bool, Error>) -> Void) {
+    private func singleSignWithDNIe() {
 	   self.dniSingleSignUseCase?.singleSign(completion: { result in
 		  switch result {
 			 case .success(let success):
@@ -59,7 +59,6 @@ class NFCViewModel: NSObject, ObservableObject {
 				DispatchQueue.main.async {
 				    NotificationCenter.default.post(name: .DNIeSuccess, object: "")
 				}
-				completion(.success(success))
 			 case .failure(let error):
                     var errorInfo = ErrorCodes.InternalSoftwareErrorCodes.generalSoftwareError.info
                     if let errorAux = error as? ErrorInfo {
@@ -75,12 +74,11 @@ class NFCViewModel: NSObject, ObservableObject {
 				    )
 				}
 				self.handleError(error: errorInfo)
-				completion(.failure(error))
 		  }
 	   })
     }
     
-    func batchSignWithDNIe(completion: @escaping (Result<Bool, Error>) -> Void) {
+    private func batchSignWithDNIe() {
 	   if let parameters = parameters {
 		  var swiftDictionary: [String: Any] = [:]
 		  for (key, value) in parameters {
@@ -88,28 +86,29 @@ class NFCViewModel: NSObject, ObservableObject {
 				swiftDictionary[keyString] = value
 			 }
 		  }
-		  self.dniBatchSignUseCase?.signBatch(dataOperation: swiftDictionary, completion: { message, error in
-                if let nsError = error as NSError? {
+		  self.dniBatchSignUseCase?.signBatch(dataOperation: swiftDictionary, completion: { responseMesage, errorInfo in
+                if let errorInfo = errorInfo {
+                    // Hubo error en el proceso de firma batch
                     DispatchQueue.main.async {
-                       NotificationCenter.default.post(
-                          name: .DNIeError,
-                          object: nil,
-                          userInfo: ["errorCode": nsError.code, "errorMessage": nsError.userInfo["errorMessage"] as? String ?? nsError.localizedDescription]
-                       )
+                        NotificationCenter.default.post(
+                           name: .DNIeError,
+                           object: nil,
+                           userInfo: ["errorInfo": errorInfo]
+                        )
                     }
-                    completion(.failure(nsError))
+                    self.handleError(error: errorInfo)
+                    
                 } else {
-                    self.dniBatchSignUseCase?.wrapper?.nfcSessionManager?.nfcSession?.alertMessage = NSLocalizedString("batch_signs_all_ok", bundle: Bundle.main, comment: "")
+                    // El proceso batch se ejecuto correctamente. Devolvemos el string correspondiente en fucnoin de si se firmaron correctamente todas las firmas, algunas o ninguna
+                    self.dniBatchSignUseCase?.wrapper?.nfcSessionManager?.nfcSession?.alertMessage = NSLocalizedString(responseMesage ?? "", bundle: Bundle.main, comment: "")
                     self.dniBatchSignUseCase?.wrapper?.nfcSessionManager?.nfcSession?.invalidate()
                     DispatchQueue.main.async {
-                       NotificationCenter.default.post(name: .DNIeSuccess, object: "")
+                       NotificationCenter.default.post(name: .DNIeSuccess, object: responseMesage)
                     }
-                    completion(.success(true))
                 }
 			 
 		  })
 	   }
-	   
     }
     
     func invalidateSession(errorMessage: String) {

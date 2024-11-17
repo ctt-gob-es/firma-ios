@@ -52,7 +52,10 @@ SecKeyRef privateKey;
     
     // Si los datos llegan a null y tenemos rtservlet y file id entonces llamamos al servidor para obtener los datos del servidor intermedio
     if (self.parametersBatch.data == NULL && self.parametersBatch.rtservlet != NULL && self.parametersBatch.fileId != NULL) {
-	   [self.servletRest loadDataFromRtservlet:dataOperation[PARAMETER_NAME_FILE_ID] rtServlet:dataOperation[PARAMETER_NAME_RTSERVLET] cipherKey:dataOperation[PARAMETER_NAME_CIPHER_KEY]];
+        
+        
+        
+	   [self.servletRest downloadDataFromRtservlet:dataOperation[PARAMETER_NAME_FILE_ID] rtServlet:dataOperation[PARAMETER_NAME_RTSERVLET] cipherKey:dataOperation[PARAMETER_NAME_CIPHER_KEY]];
     } else {
 	   [self presign];
     }
@@ -160,7 +163,7 @@ SecKeyRef privateKey;
     if (presignsOk) {
 	   for (NSDictionary *sign in presignsOk[@"signs"]) {
 		  NSDictionary *singInfoDict = [sign[@"signinfo"] firstObject];
-		  NSMutableDictionary *paramsDict = singInfoDict[@"params"];
+            NSMutableDictionary *paramsDict = singInfoDict[@"params"];		
 		  
 		  NSString *pre = paramsDict[PRE];
 		  BOOL pk1Decoded = [paramsDict[PK1_DECODED] boolValue];

@@ -57,14 +57,7 @@ struct FindDNIModalView: View {
 	   .cornerRadius(10)
 	   .onAppear {
 		  DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-			 model.signWithDNIe { result in
-				switch result {
-				case .success:
-				    print("Sign completed")
-				case .failure(let error):
-				    print("Sign failed due to : \(error.localizedDescription)")
-				}
-			 }
+			 model.signWithDNIe()
 		  }
 	   }
     }

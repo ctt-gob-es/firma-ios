@@ -8,30 +8,21 @@
 
 import Foundation
 
-protocol BatchSignUseCaseDelegate: AnyObject {
-    func didSuccessBatch(response: String)
-    func didErrorBatch(error: Error)
-}
-
-class GenericBatchSignUseCase: NSObject, BatchRestDelegate, ServletRestDelegate {
+class GenericBatchSignUseCase: NSObject {
+    
 
     // MARK: - Properties
     
-    var parametersBatch: InputParametersBatch?
-    var completionHandler: ((String, Error?) -> Void)?
-    var responseMessage: String = ""
-    
-    weak var delegate: BatchSignUseCaseDelegate?
-    
-    var bachRest: BachRest!
-    var servletRest: ServletRest!
+    var parametersBatch = InputParametersBatch()
+    var completionHandler: ((String?, ErrorInfo?) -> Void)?
 
+    var error : ErrorInfo?
+    var responseMessage: String?
+    
     // MARK: - Initialization
     
     override init() {
 	   super.init()
-	   self.bachRest = BachRest.init(delegate: self)
-	   self.servletRest = ServletRest.init(delegate: self)
     }
 
     // MARK: - Methods to override
@@ -48,15 +39,27 @@ class GenericBatchSignUseCase: NSObject, BatchRestDelegate, ServletRestDelegate 
 	   presign()
     }
 
-    func signBatch(dataOperation: [String: Any], completion: @escaping (String, Error?) -> Void) {
+    func signBatch(dataOperation: [String: Any], completion: @escaping (String?, ErrorInfo?) -> Void) {
+        self.error = nil
+        self.responseMessage = nil
 	   self.completionHandler = completion
 	   self.parametersBatch = getDataOperation(dataOperation: dataOperation)
 	   
-	   if parametersBatch?.data == nil,
-		 let rtServlet = parametersBatch?.rtservlet,
-		 let fileId = parametersBatch?.fileId,
-		 let cipherKey = dataOperation[PARAMETER_NAME_CIPHER_KEY] as? String {
-		  servletRest.loadData(fromRtservlet: fileId, rtServlet: rtServlet, cipherKey: cipherKey)
+	   if parametersBatch.data == "" {
+            
+            IntermediateServerRest().downloadDataFromRtservlet(rtServlet: parametersBatch.rtservlet, fileId: parametersBatch.fileId, completion: { responseDict, errorInfo in
+                
+                if let errorInfo = errorInfo {
+                    self.sendError(errorInfo: errorInfo)
+                } else {
+                    if let responseDict = responseDict {
+                        self.parametersBatch = self.getDataOperation(dataOperation: responseDict)
+                        self.preloadCertificateData()
+                    }
+                }
+            })
+            
+            /*servletRest.downloadData(fromRtservlet: parametersBatch.fileId, rtServlet: parametersBatch.rtservlet, cipherKey: parametersBatch.cipherKey)*/
 	   } else {
 		  preloadCertificateData()
 	   }
@@ -65,183 +68,220 @@ class GenericBatchSignUseCase: NSObject, BatchRestDelegate, ServletRestDelegate 
     // MARK: - Generic methods to Batch Sign
     
     func presign() {
-	   guard let batch = parametersBatch else {
-		  delegate?.didErrorBatch(error: ErrorGenerator.generateServerError(from: ServerErrorCodes.preSignatureError.rawValue))
-		  return
-	   }
-	   
-	   let validationError = validateDataOperation(parameterBatch: batch)
+	   let validationError = validateDataOperation()
 	   if let error = validationError {
-		  servletRest.storeDataError(error.localizedDescription, stServlet: batch.stservlet, cipherKey: batch.cipherKey, docId: batch.identifier)
-	   } else {
-		  bachRest.bachPresign(batch.batchpresignerUrl, withJsonData: batch.data, withCerts: getCertificateData())
-	   }
+            sendError(errorInfo: error)
+        } else {
+            BatchSignRest().bachPresign(urlPresign: parametersBatch.batchpresignerUrl, json: parametersBatch.data, certs: getCertificateData(), completion: { json, error in
+                
+                if let json = json {
+                    self.didSuccessBachPresign(json)
+                } else {
+                    if let error = error {
+                        self.sendError(errorInfo: error)
+                    }
+                }
+            })
+        }
     }
     
-    func postsign(triData: String) {
-	   guard let batch = parametersBatch else {
-		  delegate?.didErrorBatch(error: ErrorGenerator.generateServerError(from: ServerErrorCodes.postSignatureError.rawValue))
-		  return
-	   }
-	   
-	   bachRest.bachPostsign(batch.batchpostsignerUrl, withJsonData: batch.data, withCerts: getCertificateData(), withTriData: triData)
+    func postsign(jsonData: String, triData: String) {
+        BatchSignRest().bachPostsign(urlPostsign: parametersBatch.batchpostsignerUrl, json: jsonData, certs: getCertificateData(), tridata: triData, completion: { json, error in
+            if let json = json {
+                self.didSuccessBachPostsign(json)
+            } else {
+                if let error = error {
+                    self.sendError(errorInfo: error)
+                }
+            }
+        })
     }
-    
-    func handleSuccess(response: String) {
-	   delegate?.didSuccessBatch(response: response)
-    }
-    
     
     func didSuccessBachPresign(_ responseDict: [AnyHashable : Any]) {
-	   let stServlet = parametersBatch!.stservlet
-	   let cipherKey = parametersBatch!.cipherKey
-	   let identifier = parametersBatch!.identifier
-	   
-	   guard let presignsOk = responseDict["td"] as? [String: Any],
-		    var dataPostSignBase64 = parametersBatch?.data else {
-			 let error = ErrorGenerator.generateServerError(from: ServerErrorCodes.preSignatureError.rawValue)
-		  servletRest.storeDataError(error.localizedDescription, stServlet: stServlet, cipherKey: cipherKey, docId: identifier)
-		  return
-	   }
-	   
-	   if let signsArray = presignsOk["signs"] as? [[String: Any]] {
-		  for sign in signsArray {
-			 if let signInfo = sign["signinfo"] as? [[String: Any]],
-			    var params = signInfo.first?["params"] as? [String: Any] {
-				let pre = params[PRE] as? String ?? ""
-				let pk1Decoded = params[PK1_DECODED] as? Bool ?? false
-				
-				let pk1 = self.sign(pre: pre, algorithm: getAlgorithm(), pk1Decoded: pk1Decoded)
-				
-				if pk1.isEmpty {
-				    let error = ErrorGenerator.generateServerError(from: ServerErrorCodes.unsupportedSignatureFormat.rawValue)
-				    servletRest.storeDataError(error.localizedDescription, stServlet: stServlet, cipherKey: cipherKey, docId: identifier)
-				    return
-				}
-				
-				params["PK1"] = pk1
-				
-				if let needPre = params["NEED_PRE"] as? String, needPre == "false" {
-				    params.removeValue(forKey: "PRE")
-				    params.removeValue(forKey: "NEED_PRE")
-				}
-			 }
-		  }
-	   }
-	   
-	   if let resultsArray = responseDict["results"] as? [[String: Any]] {
-		  updateDataWithErrors(resultsArray)
-		  dataPostSignBase64 = encodeOperationToBase64()
-	   }
-	   
-	   let base64tridata = encodeResponseToBase64(presignsOk)
-	   postsign(triData: base64tridata)
+	   let stServlet = parametersBatch.stservlet
+	   let cipherKey = parametersBatch.cipherKey
+	   let identifier = parametersBatch.identifier
+        
+        var dataPostSignBase64 = parametersBatch.data
+        
+        if var presignsOk = responseDict["td"] as? [String: Any] {
+            // Procesamos las firmas correctas que llegan en la prefirma
+            if var signsArray = presignsOk["signs"] as? [[String: Any]] {
+                for (index, var sign) in signsArray.enumerated() {
+                    if var signInfo = sign["signinfo"] as? [[String: Any]],
+                       var params = signInfo.first?["params"] as? [String: Any] {
+                        let pre = params[PRE] as? String ?? ""
+                        let pk1Decoded = params[PK1_DECODED] as? Bool ?? false
+                        
+                        let pk1 = self.sign(pre: pre, algorithm: getAlgorithm(), pk1Decoded: pk1Decoded)
+                        
+                        if pk1.isEmpty {
+                            sendError(errorInfo: ErrorCodes.ServerErrorCodes.unsupportedSignatureFormat.info)
+                            return
+                        }
+                        
+                        params["PK1"] = pk1
+                        
+                        if (params["NEED_PRE"] == nil || (params["NEED_PRE"] as? String) == "false") {
+                            params.removeValue(forKey: "PRE")
+                            params.removeValue(forKey: "NEED_PRE")
+                        }
+                        
+                        signInfo[0]["params"] = params
+                        sign["signinfo"] = signInfo
+                        signsArray[index] = sign
+                    }
+                }
+                presignsOk["signs"] = signsArray
+            }
+            
+            // Modificamos de los datos de la operacion las prefirmas erroneas para indicarles el error
+            if let presignsError = responseDict["results"] as? [[String: Any]] {
+                if var dataOperation = parseDataBase64toDictionary(dataPostSignBase64) {
+                    for signError in presignsError {
+                        let signId = signError["id"] as? String
+                        let result = signError["result"] as? String
+                        let description = signError["description"] as? String
+                        
+                        if var singleSigns = dataOperation["singlesigns"] as? [[String: Any]] {
+                            
+                            for (index, var singleSign) in singleSigns.enumerated() {
+                            
+                                if let singleSignId = singleSign["id"] as? String, singleSignId == signId {
+                                    
+                                    singleSign.removeValue(forKey: "datareference")
+                                    singleSign.removeValue(forKey: "format")
+                                    singleSign.removeValue(forKey: "suboperation")
+                                    singleSign.removeValue(forKey: "extraparams")
+                                    
+                                    singleSign["result"] = result
+                                    singleSign["description"] = description
+                                }
+                                
+                                singleSigns[index] = singleSign
+                            }
+                            dataOperation["singlesigns"] = singleSigns
+                        }
+                    }
+                    
+                    if let dataOperationBase64 = encodeResponseToBase64(dataOperation) {
+                        dataPostSignBase64 = dataOperationBase64
+                    } else {
+                        return sendError(errorInfo: ErrorCodes.ServerErrorCodes.invalidOperationDataFormat.info)
+                    }
+                } else {
+                    // Error el data del parameters no es un Base64 valido
+                    return sendError(errorInfo: ErrorCodes.ServerErrorCodes.invalidOperationDataFormat.info)
+                }
+            }
+            
+            if let base64tridata = encodeResponseToBase64(presignsOk) {
+                postsign(jsonData: dataPostSignBase64, triData: base64tridata)
+            } else {
+                return sendError(errorInfo: ErrorCodes.ServerErrorCodes.invalidOperationDataFormat.info)
+            }
+        } else {
+            // No llego el td en la respuesta. Puede que todo hayan sido prefirmas erroneas
+            if let resultsArray = responseDict["results"] as? [[String: Any]] {
+                // Son todo prefirmas erroneas
+                self.responseMessage = "batch_signs_ok_with_all_signs_error"
+
+                var jsonErrorSigns: [String: Any] = [:]
+                jsonErrorSigns["signs"] = responseDict["results"]
+                
+                guard let jsonData = try? JSONSerialization.data(withJSONObject: jsonErrorSigns, options: .prettyPrinted) else {
+                    sendError(errorInfo: ErrorCodes.ServerErrorCodes.invalidOperationDataFormat.info)
+                    return
+                }
+                
+                storeData(data: jsonData)
+            } else {
+                sendError(errorInfo: ErrorCodes.ServerErrorCodes.invalidOperationDataFormat.info)
+                return
+            }
+        }
     }
     
     func didErrorBachPresign(_ errorMessage: String) {
-	   let error = ErrorGenerator.generateServerError(from: errorMessage)
-	   self.servletRest.storeDataError(
-		  error.localizedDescription,
-		  stServlet: self.parametersBatch?.stservlet ?? "",
-		  cipherKey: self.parametersBatch?.cipherKey ?? "",
-		  docId: self.parametersBatch?.identifier ?? ""
-	   )
+        let error = ErrorCodes.getThirdPartyOrCommunicationError(codigo: errorMessage)
+        sendError(errorInfo: error.info)
+    }
+    
+    private func sendError(errorInfo: ErrorInfo) {
+        self.error = errorInfo
+       
+        IntermediateServerRest().storeDataError(error: errorInfo.serverErrorMessage, stServlet: self.parametersBatch.stservlet, docId: self.parametersBatch.identifier, completion: { response, errorInfo in
+            
+            // Tanto si pudimos guardar en el servidor intermedio como no, devolvemos el error original
+            if let completionHandler = self.completionHandler {
+                completionHandler(nil, self.error)
+            }
+        })
+    }
+    
+    private func storeData(data: Data) {
+        IntermediateServerRest().storeData(data: data, certificateBase64: getCertificateData(), stServlet: self.parametersBatch.stservlet, cipherKey: self.parametersBatch.cipherKey, docId: self.parametersBatch.identifier, completion: { response, errorInfo in
+            
+            if let completionHandler = self.completionHandler {
+                if let error = errorInfo {
+                    self.sendError(errorInfo: error)
+                } else {
+                    completionHandler(self.responseMessage, nil)
+                }
+                
+            }
+        })
     }
     
     func didSuccessBachPostsign(_ responseDict: [AnyHashable : Any]) {
 	   do {
 		  let jsonData = try JSONSerialization.data(withJSONObject: responseDict, options: .prettyPrinted)
 		  
+            self.responseMessage = "batch_signs_all_ok";
 		  if let signs = responseDict["signs"] as? [[String: Any]] {
 			 for signDict in signs {
 				if let result = signDict["result"] as? String, result != "DONE_AND_SAVED" {
+                        responseMessage = "batch_signs_ok_with_signs_error";
 				    break
 				}
 			 }
 		  }
 
-		  self.servletRest.store(
-			 jsonData,
-			 certificateBase64: getCertificateData(),
-			 stServlet: self.parametersBatch?.stservlet ?? "",
-			 cipherKey: self.parametersBatch?.cipherKey ?? "",
-			 docId: self.parametersBatch?.identifier ?? ""
-		  )
-		  
+            storeData(data: jsonData)
 	   } catch {
-		  let error = ErrorGenerator.generateServerError(from: ServerErrorCodes.preSignatureError.rawValue)
-		  self.servletRest.storeDataError(error.localizedDescription, stServlet: self.parametersBatch?.stservlet ?? "", cipherKey: self.parametersBatch?.cipherKey ?? "", docId: self.parametersBatch?.identifier ?? "")
+            sendError(errorInfo: ErrorCodes.ServerErrorCodes.preSignatureError.info)
 	   }
     }
     
     func didErrorBachPostsign(_ errorMessage: String) {
-	   self.servletRest.storeDataError(
-		  errorMessage,
-		  stServlet: self.parametersBatch?.stservlet ?? "",
-		  cipherKey: self.parametersBatch?.cipherKey ?? "",
-		  docId: self.parametersBatch?.identifier ?? ""
-	   )
-    }
-    
-    private func didSuccessLoadDataFromServer(_ responseDict: [String: Any]) {
-	   self.parametersBatch = self.getDataOperation(dataOperation: responseDict)
-	   self.preloadCertificateData()
-    }
-    
-    func didErrorLoadData(fromServer errorMessage: String) {
-	   self.servletRest.storeDataError(
-		  errorMessage,
-		  stServlet: self.parametersBatch?.stservlet ?? "",
-		  cipherKey: self.parametersBatch?.cipherKey ?? "",
-		  docId: self.parametersBatch?.identifier ?? ""
-	   )
-    }
-    
-    func didSuccessStoreData(_ response: String) {
-        if (self.responseMessage == "batch_signs_generic_error") {
-            if let completionHandler = self.completionHandler {
-                completionHandler(responseMessage, ErrorGenerator.generateBatchError(from: ServerBatchErrorCodes.unknownServerError.rawValue))
-            }
-        } else {
-            if let completionHandler = self.completionHandler {
-                completionHandler(responseMessage, nil)
-            }
-        }
-    }
-    
-    func didErrorStoreData(_ errorMessage: String) {
-        if let completionHandler = self.completionHandler {
-            completionHandler(responseMessage, ErrorGenerator.generateBatchError(from: ServerBatchErrorCodes.invalidDataOnSave.rawValue))
-        }
+        let error = ErrorCodes.getThirdPartyOrCommunicationError(codigo: errorMessage)
+        sendError(errorInfo: error.info)
     }
     
     // MARK: - Helper Functions
 
-    func validateDataOperation(parameterBatch: InputParametersBatch?) -> NSError? {
-	   guard let batch = parameterBatch else {
-		  return ErrorGenerator.generateServerError(from: ServerErrorCodes.missingOperation.rawValue)
+    func validateDataOperation() -> ErrorInfo? {
+	   if parametersBatch.operation.isEmpty {
+            return ErrorCodes.ServerErrorCodes.missingOperation.info
 	   }
-	   if batch.operation.isEmpty {
-		  return ErrorGenerator.generateServerError(from: ServerErrorCodes.missingOperation.rawValue)
+	   if parametersBatch.data.isEmpty {
+            return ErrorCodes.ServerErrorCodes.invalidOperationDataFormat.info
 	   }
-	   if batch.data.isEmpty {
-		  return ErrorGenerator.generateServerError(from: ServerErrorCodes.invalidOperationDataFormat.rawValue)
+	   if parametersBatch.stservlet.isEmpty {
+            return ErrorCodes.ServerErrorCodes.documentRetrievalError.info
 	   }
-	   if batch.stservlet.isEmpty {
-		  return ErrorGenerator.generateServerError(from: ServerErrorCodes.documentRetrievalError.rawValue)
+	   if parametersBatch.batchpresignerUrl.isEmpty {
+            return ErrorCodes.ServerErrorCodes.preSignatureError.info
 	   }
-	   if batch.batchpresignerUrl.isEmpty {
-		  return ErrorGenerator.generateServerError(from: ServerErrorCodes.preSignatureError.rawValue)
-	   }
-	   if batch.batchpostsignerUrl.isEmpty {
-		  return ErrorGenerator.generateServerError(from: ServerErrorCodes.postSignatureError.rawValue)
+	   if parametersBatch.batchpostsignerUrl.isEmpty {
+            return ErrorCodes.ServerErrorCodes.postSignatureError.info
 	   }
 
-	   let dataDictionary = parseDataBase64toDictionary(batch.data)
+	   let dataDictionary = parseDataBase64toDictionary(parametersBatch.data)
 	   if dataDictionary == nil {
-		  return ErrorGenerator.generateServerError(from: ServerErrorCodes.invalidOperationDataFormat.rawValue)
+            return ErrorCodes.ServerErrorCodes.invalidOperationDataFormat.info
 	   } else if dataDictionary?["algorithm"] == nil {
-		  return ErrorGenerator.generateServerError(from: ServerErrorCodes.unsupportedSignatureAlgorithm.rawValue)
+            return ErrorCodes.ServerErrorCodes.unsupportedSignatureAlgorithm.info
 	   }
 
 	   return nil
@@ -262,8 +302,7 @@ class GenericBatchSignUseCase: NSObject, BatchRestDelegate, ServletRestDelegate 
     }
     
     func getAlgorithm() -> String {
-	   guard let data = parametersBatch?.data,
-		    let dict = parseDataBase64toDictionary(data) else {
+	   guard let dict = parseDataBase64toDictionary(parametersBatch.data) else {
 		  return ""
 	   }
 	   return dict[PARAMETER_NAME_ALGORITHM2] as? String ?? ""
@@ -276,49 +315,16 @@ class GenericBatchSignUseCase: NSObject, BatchRestDelegate, ServletRestDelegate 
 	   }
 	   
 	   do {
-		  let json = try JSONSerialization.jsonObject(with: decodedData, options: []) as? [String: Any]
-		  return json
+		  return try JSONSerialization.jsonObject(with: decodedData, options: []) as? [String: Any]
 	   } catch {
 		  print("Error parsing base64 data: \(error.localizedDescription)")
 		  return nil
 	   }
     }
     
-    private func updateDataWithErrors(_ errors: [[String: Any]]) {
-	   guard let dataOperation = parseDataBase64toDictionary(parametersBatch?.data) else { return }
-	   guard let singleSigns = dataOperation["singlesigns"] as? [[String: Any]] else { return }
-	   
-	   for error in errors {
-		  let signId = error["id"] as? String
-		  let result = error["result"] as? String
-		  let description = error["description"] as? String
-		  
-		  for var singleSign in singleSigns {
-			 if singleSign["id"] as? String == signId {
-				singleSign["result"] = result
-				singleSign["description"] = description
-				singleSign.removeValue(forKey: "datareference")
-				singleSign.removeValue(forKey: "format")
-				singleSign.removeValue(forKey: "suboperation")
-				singleSign.removeValue(forKey: "extraparams")
-			 }
-		  }
-	   }
-	   
-	   parametersBatch?.data = encodeOperationToBase64(dataOperation)
-    }
-    
-    private func encodeOperationToBase64(_ dataOperation: [String: Any]? = nil) -> String {
-	   let operationData = dataOperation ?? parseDataBase64toDictionary(parametersBatch?.data)
-	   guard let jsonData = try? JSONSerialization.data(withJSONObject: operationData ?? [:], options: .prettyPrinted) else {
-		  return ""
-	   }
-	   return Base64Utils.encode(jsonData, urlSafe: true)
-    }
-    
-    private func encodeResponseToBase64(_ response: [String: Any]) -> String {
+    private func encodeResponseToBase64(_ response: [String: Any]) -> String? {
 	   guard let jsonData = try? JSONSerialization.data(withJSONObject: response, options: .prettyPrinted) else {
-		  return ""
+		  return nil
 	   }
 	   return Base64Utils.encode(jsonData, urlSafe: true)
     }

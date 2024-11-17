@@ -10,76 +10,55 @@ import Foundation
 
 class StoreDataRest {
     func storeData(urlServlet: String, cipherKey: String, docId: String, base64UrlSafeCertificateData: String, dataSign: String, completion: @escaping (Result<Data, Error>) -> Void) {
-	   
-	   DispatchQueue.global(qos: .background).async {
-		  var post = ""
-		  post += "\(PARAMETER_NAME_OPERATION)=\(OPERATION_PUT)&"
-		  post += "\(PARAMETER_NAME_VERSION)=\(PARAMETER_NAME_VERSION_1_0)&"
-		  post += "\(PARAMETER_NAME_ID)=\(docId)&"
-		  
-		  // Encrypt signature
-		  guard let signdata = Base64Utils.decode(dataSign, urlSafe: true) else {
-			 completion(.failure(ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.jsonBatchOperationError)))
-			 return
-		  }
-		  let encryptedSignDataB64 = DesCypher.cypherData(signdata, sk: cipherKey.data(using: .utf8)!)
-		  
-		  // Encrypt certificate
-		  let certificateString = Base64Utils.urlSafeEncode(base64UrlSafeCertificateData)
-		  guard let dataCertificate = Base64Utils.decode(certificateString, urlSafe: true) else {
-			 completion(.failure(ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.jsonBatchOperationError)))
-			 return
-		  }
-		  let encryptedCertificateDataB64 = DesCypher.cypherData(dataCertificate, sk: cipherKey.data(using: .utf8)!)
-		  
-		  // Concatenate encrypted data
-		  let encryptedDataB64 = "\(encryptedCertificateDataB64 ?? "")|\(encryptedSignDataB64 ?? "")"
-		  post += "\(PARAMETER_NAME_DAT)=\(encryptedDataB64)"
-		  
-		  // Encode the post string
-		  guard let postData = post.data(using: .utf8, allowLossyConversion: true) else {
-			 completion(.failure(ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.jsonBatchOperationError)))
-			 return
-		  }
-		  
-		  let postLength = "\(postData.count)"
-		  
-		  // Create URL request
-		  guard let requestUrl = URL(string: urlServlet) else {
-			 completion(.failure(ErrorGenerator.generateError(from: RequestErrorCodes.generalRequestError)))
-			 return
-		  }
-		  var request = URLRequest(url: requestUrl, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 30.0)
-		  request.httpMethod = "POST"
-		  request.setValue(postLength, forHTTPHeaderField: "Content-Length")
-		  request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-		  request.setValue("Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)", forHTTPHeaderField: "User-Agent")
-		  request.setValue("text/plain,text/html,application/xhtml+xml,application/xml", forHTTPHeaderField: "Accept")
-		  request.httpBody = postData
-		  
-		  let session = URLSession.shared
-		  let task = session.dataTask(with: request) { data, response, error in
-			 DispatchQueue.main.async {
-				if let error = error {
-				    print("Error Storing data: \(error)")
-				    completion(.failure(error))
-				    return
-				}
-				
-				guard let data = data, let responseString = String(data: data, encoding: .utf8) else {
-                        completion(.failure(ErrorCodes.InternalSoftwareErrorCodes.dataSavingError.info))
-				    return
-				}
-				
-				if responseString.hasPrefix("OK") {
-				    completion(.success(data))
-				} else {
-				    print("Failed to send certificate: \(responseString)")
-                        completion(.failure(ErrorCodes.FunctionalErrorCodes.signatureOperationError.info))
-				}
-			 }
-		  }
-		  task.resume()
-	   }
+        
+        // Encrypt signature
+        guard let signdata = Base64Utils.decode(dataSign, urlSafe: true) else {
+            completion(.failure(ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.jsonBatchOperationError)))
+            return
+        }
+        let encryptedSignDataB64 = DesCypher.cypherData(signdata, sk: cipherKey.data(using: .utf8)!)
+        
+        // Encrypt certificate
+        let certificateString = Base64Utils.urlSafeEncode(base64UrlSafeCertificateData)
+        guard let dataCertificate = Base64Utils.decode(certificateString, urlSafe: true) else {
+            completion(.failure(ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.jsonBatchOperationError)))
+            return
+        }
+        
+        let encryptedCertificateDataB64 = DesCypher.cypherData(dataCertificate, sk: cipherKey.data(using: .utf8)!)
+        let encryptedDataB64 = "\(encryptedCertificateDataB64 ?? "")|\(encryptedSignDataB64 ?? "")"
+        
+        let parameters = [
+            PARAMETER_NAME_OPERATION: OPERATION_PUT,
+            PARAMETER_NAME_VERSION: PARAMETER_NAME_VERSION_1_0,
+            PARAMETER_NAME_ID: docId,
+            PARAMETER_NAME_DAT: encryptedDataB64
+        ]
+        
+        if let request = NetworkUtility.shared.createPostRequest(url: urlServlet, parameters: parameters) {
+            let session = NetworkManager.shared.getSession()
+            
+            let task = session.dataTask(with: request) { data, response, error in
+                if let error = error {
+                    print("Error Storing data: \(error)")
+                    completion(.failure(error))
+                    return
+                }
+                
+                guard let data = data, let responseString = String(data: data, encoding: .utf8) else {
+                    completion(.failure(ErrorCodes.InternalSoftwareErrorCodes.dataSavingError.info))
+                    return
+                }
+                
+                if responseString.hasPrefix("OK") {
+                    completion(.success(data))
+                } else {
+                    print("Failed to send certificate: \(responseString)")
+                    completion(.failure(ErrorCodes.FunctionalErrorCodes.signatureOperationError.info))
+                }
+            }
+            
+            task.resume()
+        }
     }
 }

@@ -63,6 +63,8 @@ enum ErrorCodes{
         case certificateSelectionError
         case dataSavingError
         case jsonBatchOperationError
+        case jsonBatchOperationCypherCertificate
+        case jsonBatchOperationCypherData
         case xmlBatchOperationError
         case fileLoadingError
         case appConfigurationError
@@ -85,6 +87,10 @@ enum ErrorCodes{
                 return ErrorInfo("200301", "Error en la operación de guardado de datos.")
             case .jsonBatchOperationError:
                 return ErrorInfo("200401", "Error en la operación de lotes JSON.")
+            case .jsonBatchOperationCypherCertificate:
+                return ErrorInfo("200402", "Error al cifrar el certificado")
+            case .jsonBatchOperationCypherData:
+                return ErrorInfo("200403", "Error al cifrar los datos a guardar")
             case .xmlBatchOperationError:
                 return ErrorInfo("200501", "Error en la operación de lotes XML.")
             case .fileLoadingError:
@@ -106,70 +112,99 @@ enum ErrorCodes{
             }
         }
     }
-
-    enum ThirdPartySoftwareErrorCodes: ErrorCodeProtocol {
-        case generalThirdPartyError
-        case jMulticardError
-        case intermediateServerDownloadError
-        case intermediateServerUploadError
-        case trifasicoServerError
-        case signatureLibraryError
+ 
+    enum ThirdPartySoftwareErrorCodes: String, ErrorCodeProtocol {
+        case generalThirdPartyError = "300001"
+        case jMulticardError = "300101"
+        case intermediateServerDownloadErrorHttpResponse = "300201"
+        case intermediateServerDownloadErrorResponseFormat = "300202"
+        case intermediateServerDownloadErrorResponseFormatDictionary = "300203"
+        case intermediateServerUploadErrorHttpResponse = "300301"
+        case intermediateServerUploadErrorResponseFormat = "300302"
+        case threePhaseServerPresignErrorHTTPResponse = "300401"
+        case threePhaseServerPresignErrorResponseFormat = "300402"
+        case threePhaseServerPresignErrorResponseFormatDictionary = "300403"
+        case threePhaseServerPostsignErrorHTTPResponse = "300404"
+        case threePhaseServerPostsignErrorResponseFormat = "300405"
+        case threePhaseServerPostsignErrorResponseFormatDictionary = "300406"
+        case signatureLibraryError = "300501"
         
         var info: ErrorInfo {
            switch self {
            case .generalThirdPartyError:
-               return ErrorInfo("300001", "Error general de software de terceros.")
+               return ErrorInfo(rawValue, "Error general de software de terceros.")
            case .jMulticardError:
-               return ErrorInfo("300101", "Error en JMulticard.")
-           case .intermediateServerDownloadError:
-               return ErrorInfo("300201", "Error en el servidor intermedio (descarga).")
-           case .intermediateServerUploadError:
-               return ErrorInfo("300301", "Error en el servidor intermedio (subida).")
-           case .trifasicoServerError:
-               return ErrorInfo("300401", "Error en el servidor trifásico.")
+               return ErrorInfo(rawValue, "Error en JMulticard.")
+           case .intermediateServerDownloadErrorHttpResponse:
+               return ErrorInfo(rawValue, "Error HTTP al descargar la información del servidor intermedio")
+           case .intermediateServerDownloadErrorResponseFormat:
+               return ErrorInfo(rawValue, "La respuesta del servidor intermedio al descargar la informaciòn no es una respuesta válida")
+           case .intermediateServerDownloadErrorResponseFormatDictionary:
+               return ErrorInfo(rawValue, "La respuesta del servidor intermedio al descargar la información no es un json válido")
+           case .intermediateServerUploadErrorHttpResponse:
+               return ErrorInfo(rawValue, "Error HTTP al subir la información del servidor intermedio")
+           case .intermediateServerUploadErrorResponseFormat:
+               return ErrorInfo(rawValue, "La respuesta del servidor intermedio al subir la informaciòn no es una respuesta válida")
+           case .threePhaseServerPresignErrorHTTPResponse:
+               return ErrorInfo(rawValue, "Error HTTP al realizar la operación de prefirma")
+           case .threePhaseServerPresignErrorResponseFormat:
+               return ErrorInfo(rawValue, "La respuesta del servidor trifasico al hacer la prefirma no es válida")
+           case .threePhaseServerPresignErrorResponseFormatDictionary:
+               return ErrorInfo(rawValue, "La respuesta del servidor trifasico al hacer la prefirma no es un JSON")
+           case .threePhaseServerPostsignErrorHTTPResponse:
+               return ErrorInfo(rawValue, "Error HTTP al realizar la operación de posfirma")
+           case .threePhaseServerPostsignErrorResponseFormat:
+               return ErrorInfo(rawValue, "La respuesta del servidor trifasico al hacer la posfirma no es válida")
+           case .threePhaseServerPostsignErrorResponseFormatDictionary:
+               return ErrorInfo(rawValue, "La respuesta del servidor trifasico al hacer la prefirma no es un JSON")
            case .signatureLibraryError:
-               return ErrorInfo("300501", "Error en la biblioteca de firma.")
+               return ErrorInfo(rawValue, "Error en la biblioteca de firma.")
            }
         }
     }
     
-    enum CommunicationErrorCodes: ErrorCodeProtocol {
-        case generalCommunicationError
-        case signatureDownloadError
-        case signatureUploadError
-        case threePhaseSignatureError
-        case certificateSelectionDownloadError
-        case certificateSelectionUploadError
-        case dataSavingDownloadError
-        case dataSavingUploadError
-        case jsonBatchDownloadError
-        case jsonBatchUploadError
-        case jsonBatchThreePhaseError
+    
+    // Errores de comunicacion
+    enum CommunicationErrorCodes: String, ErrorCodeProtocol {
+        case generalCommunicationError = "400001"
+        case signatureDownloadError = "401101"
+        case signatureUploadError = "401201"
+        case threePhaseSignatureError = "401301"
+        case certificateSelectionDownloadError = "402101"
+        case certificateSelectionUploadError = "402201"
+        case dataSavingDownloadError = "403101"
+        case dataSavingUploadError = "403201"
+        case jsonBatchDownloadErrorConnection = "404101"
+        case jsonBatchUploadErrorConnection = "404201"
+        case jsonBatchThreePhasePresignErrorConnection = "404301"
+        case jsonBatchThreePhasePostsignErrorConnection = "404302"
         
         var info: ErrorInfo {
             switch self {
             case .generalCommunicationError:
-                return ErrorInfo("400001", "Error general de comunicación.")
+                return ErrorInfo(rawValue, "Error general de comunicación.")
             case .signatureDownloadError:
-                return ErrorInfo("401101", "Error en la descarga de la firma.")
+                return ErrorInfo(rawValue, "Error en la descarga de la firma.")
             case .signatureUploadError:
-                return ErrorInfo("401201", "Error en la subida de la firma.")
+                return ErrorInfo(rawValue, "Error en la subida de la firma.")
             case .threePhaseSignatureError:
-                return ErrorInfo("401301", "Error en la firma trifásica.")
+                return ErrorInfo(rawValue, "Error en la firma trifásica.")
             case .certificateSelectionDownloadError:
-                return ErrorInfo("402101", "Error en la descarga de certificados.")
+                return ErrorInfo(rawValue, "Error en la descarga de certificados.")
             case .certificateSelectionUploadError:
-                return ErrorInfo("402201", "Error en la subida de certificados.")
+                return ErrorInfo(rawValue, "Error en la subida de certificados.")
             case .dataSavingDownloadError:
-                return ErrorInfo("403101", "Error en la descarga de datos guardados.")
+                return ErrorInfo(rawValue, "Error en la descarga de datos guardados.")
             case .dataSavingUploadError:
-                return ErrorInfo("403201", "Error en la subida de datos guardados.")
-            case .jsonBatchDownloadError:
-                return ErrorInfo("404101", "Error en la descarga del lote JSON.")
-            case .jsonBatchUploadError:
-                return ErrorInfo("404201", "Error en la subida del lote JSON.")
-            case .jsonBatchThreePhaseError:
-                return ErrorInfo("404301", "Error en la operación trifásica del lote JSON.")
+                return ErrorInfo(rawValue, "Error en la subida de datos guardados.")
+            case .jsonBatchDownloadErrorConnection:
+                return ErrorInfo(rawValue, "Error de conexión con el servidor intermedio al descargar la información")
+            case .jsonBatchUploadErrorConnection:
+                return ErrorInfo(rawValue, "Error de conexión con el servidor intermedio al subir la información")
+            case .jsonBatchThreePhasePresignErrorConnection:
+                return ErrorInfo(rawValue, "Error de conexion con el servidor trifasico al hacer la prefirma")
+            case .jsonBatchThreePhasePostsignErrorConnection:
+                return ErrorInfo(rawValue, "Error de conexion con el servidor trifasico al hacer la posfirma")
             }
         }
     }
@@ -232,6 +267,8 @@ enum ErrorCodes{
         }
 
     }
+    
+    
     
     enum ServerErrorCodes: String, ErrorCodeProtocol {
         case missingOperation = "ERR-1"
@@ -362,6 +399,16 @@ enum ErrorCodes{
         }
         
         // Si no se encuentra el código, retornar nil
+        return ErrorCodes.InternalSoftwareErrorCodes.generalSoftwareError
+    }
+    
+    static func getThirdPartyOrCommunicationError(codigo: String) -> ErrorCodeProtocol {
+        if let thirdPartyError = ThirdPartySoftwareErrorCodes(rawValue: codigo) {
+            return thirdPartyError
+        }
+        if let communicationError = CommunicationErrorCodes(rawValue: codigo) {
+            return communicationError
+        }
         return ErrorCodes.InternalSoftwareErrorCodes.generalSoftwareError
     }
 }

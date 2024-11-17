@@ -16,10 +16,6 @@
 
 @interface BachRest ()
 
-typedef enum {
-    preSign,
-    postSign,
-} BatchRequestType;
 
 @property (weak, nonatomic) id<BatchRestDelegate> delegate;
 
@@ -28,13 +24,6 @@ typedef enum {
 @implementation BachRest
 
 @synthesize delegate;
-
-NSMutableData *responseData = NULL;
-long statusCode;
-bool retrievingDataFromServletBatch = false;
-NSString *datosInUseBatch      = NULL;
-NSString *cipherKeyBatch       = NULL;
-BatchRequestType currentType;
 
 - (id)initWithDelegate:(id) delegate{
     if (self = [super init]) {
@@ -45,42 +34,7 @@ BatchRequestType currentType;
     }
 }
 
-/*-(void)bachPresign:(NSString*)urlPresign withJsonData:(NSString*)json withCerts:(NSString*)certs {
-    currentType = preSign;
-    //Creamos la cadena de envío al servidor POST
-    NSString *safeJson = [Base64Utils urlSafeEncode: json];
-    NSString *safeCerts = [Base64Utils urlSafeEncode: certs];
-    safeCerts = [safeCerts stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-    
-    NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
-    [dict setValue:safeJson forKey:@"json"];
-    [dict setValue:safeCerts forKey:@"certs"];
-    
-    NSString *post = [self getParametersFromDictionary:dict];
-    
-    //Codificamos la url de post
-    NSData *postData = [post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
-    NSString *postLength = [NSString stringWithFormat:@"%d", (int)[postData length]];
-    
-    NSURL* requestUrl = [[NSURL alloc] initWithString:urlPresign];
-    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval: 30.0];
-    [request setHTTPMethod:POST];
-    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    [self setHeaders:request];
-    [request setHTTPBody:postData];
-    
-    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            [connection start];
-        });
-    });
-}*/
-
-
 - (void)bachPresign:(NSString *)urlPresign withJsonData:(NSString *)json withCerts:(NSString *)certs {
-    currentType = preSign;
-    
     NSString *safeJson = [Base64Utils urlSafeEncode:json];
     NSString *safeCerts = [[Base64Utils urlSafeEncode:certs] stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     
@@ -99,85 +53,43 @@ BatchRequestType currentType;
     [request setHTTPBody:postData];
     
     NSURLSession *session = [NSURLSession sharedSession];
-    __block NSMutableData *receivedData = [NSMutableData data];
-    __block NSInteger statusCode = 0;
     
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request
 								    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
 	   if (error) {
-		  if ([self.delegate respondsToSelector:@selector(didErrorBachPresign:)]) {
-			 [self.delegate didErrorBachPresign:error.localizedDescription];
-		  }
+            [self.delegate didErrorBachPresign:PresignErrorConnection];
 		  return;
 	   }
 	   
 	   NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-	   statusCode = httpResponse.statusCode;
+	   NSInteger statusCode = httpResponse.statusCode;
 	   
-	   [receivedData appendData:data];
-	   
-	   NSError *jsonError;
-	   NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:receivedData options:NSJSONReadingMutableContainers error:&jsonError];
-	   
-	   if (jsonError || !responseDict) {
-		  NSString *errorToSend;
-		  if (statusCode == 400) {
-			 errorToSend = [BatchErrorGenerator stringFromErrorCode:BatchErrorCodeInvalidParamsPreSign];
-		  } else if (statusCode > 400 && statusCode < 500) {
-			 errorToSend = [BatchErrorGenerator stringFromErrorCode:BatchErrorCodeCommunicationError];
-		  } else {
-			 errorToSend = [BatchErrorGenerator stringFromErrorCode:BatchErrorCodeInvalidParamsPreSign];
-		  }
-		  
-		  if ([self.delegate respondsToSelector:@selector(didErrorBachPresign:)]) {
-			 [self.delegate didErrorBachPresign:errorToSend];
-		  }
-	   } else {
-		  if ([self.delegate respondsToSelector:@selector(didSuccessBachPresign:)]) {
-			 [self.delegate didSuccessBachPresign:responseDict];
-		  }
-	   }
+        if (statusCode >= 200 && statusCode < 300) {
+            NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            
+            if (!jsonString) {
+                [self.delegate didErrorBachPresign: PresignErrorResponseFormat];
+                return;
+            }
+                
+            NSError *jsonError;
+            NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonError];
+            
+            if (responseDict != nil) {
+               [self.delegate didSuccessBachPresign:responseDict];
+            } else {
+                [self.delegate didErrorBachPresign: PresignErrorResponseFormatDictionary];
+            }
+        } else {
+            [self.delegate didErrorBachPresign: PresignErrorHTTPResponse];
+        }
+            
     }];
     
     [task resume];
 }
 
-/*- (void)bachPostsign:(NSString *)urlPostsign withJsonData:(NSString *)json withCerts:(NSString *)certs withTriData:(NSString *)tridata{
-    currentType = postSign;
-    //Creamos la cadena de envío al servidor POST
-    NSString *safeJson = [Base64Utils urlSafeEncode: json];
-    NSString *safeCerts = [Base64Utils urlSafeEncode: certs];
-    safeCerts = [safeCerts stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-    NSString *safeTridata = [Base64Utils urlSafeEncode: tridata];
-    NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
-    [dict setValue:safeJson forKey:@"json"];
-    [dict setValue:safeCerts forKey:@"certs"];
-    [dict setValue:safeTridata forKey:@"tridata"];
-    
-    NSString *post = [self getParametersFromDictionary:dict];
-    
-    //Codificamos la url de post
-    NSData *postData = [post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
-    NSString *postLength = [NSString stringWithFormat:@"%d", (int)[postData length]];
-    
-    NSURL* requestUrl = [[NSURL alloc] initWithString:urlPostsign];
-    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval: 30.0];
-    [request setHTTPMethod:POST];
-    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    [self setHeaders:request];
-    [request setHTTPBody:postData];
-    
-    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            [connection start];
-        });
-    });
-}*/
-
 - (void)bachPostsign:(NSString *)urlPostsign withJsonData:(NSString *)json withCerts:(NSString *)certs withTriData:(NSString *)tridata {
-    currentType = postSign;
-    
     NSString *safeJson = [Base64Utils urlSafeEncode:json];
     NSString *safeCerts = [[Base64Utils urlSafeEncode:certs] stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     NSString *safeTridata = [Base64Utils urlSafeEncode:tridata];
@@ -198,146 +110,41 @@ BatchRequestType currentType;
     [request setHTTPBody:postData];
     
     NSURLSession *session = [NSURLSession sharedSession];
-    __block NSMutableData *receivedData = [NSMutableData data];
-    __block NSInteger statusCode = 0;
     
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request
 								    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
 	   if (error) {
-		  if ([self.delegate respondsToSelector:@selector(didErrorBachPostsign:)]) {
-			 [self.delegate didErrorBachPostsign:error.localizedDescription];
-		  }
-		  return;
+            [self.delegate didErrorBachPostsign:PostsignErrorConnection];
+            return;
 	   }
 	   
 	   NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-	   statusCode = httpResponse.statusCode;
+	   NSInteger statusCode = httpResponse.statusCode;
 	   
-	   [receivedData appendData:data];
 	   
-	   NSError *jsonError;
-	   NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:receivedData options:NSJSONReadingMutableContainers error:&jsonError];
-	   
-	   if (jsonError || !responseDict) {
-		  NSString *errorToSend;
-		  if (statusCode == 400) {
-			 errorToSend = [BatchErrorGenerator stringFromErrorCode:BatchErrorCodeInvalidParamsPreSign];
-		  } else if (statusCode > 400 && statusCode < 500) {
-			 errorToSend = [BatchErrorGenerator stringFromErrorCode:BatchErrorCodeCommunicationError];
-		  } else {
-			 errorToSend = [BatchErrorGenerator stringFromErrorCode:BatchErrorCodeInvalidParamsPostSign];
-		  }
-		  
-		  if ([self.delegate respondsToSelector:@selector(didErrorBachPostsign:)]) {
-			 [self.delegate didErrorBachPostsign:errorToSend];
-		  }
-	   } else {
-		  if ([self.delegate respondsToSelector:@selector(didSuccessBachPostsign:)]) {
-			 [self.delegate didSuccessBachPostsign:responseDict];
-		  }
-	   }
+        if (statusCode >= 200 && statusCode < 300) {
+            NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            
+            if (!jsonString) {
+                [self.delegate didErrorBachPostsign: PostsignErrorResponseFormat];
+                return;
+            }
+                
+            NSError *jsonError;
+            NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonError];
+            
+            if (responseDict != nil) {
+                [self.delegate didSuccessBachPostsign:responseDict];
+            } else {
+                [self.delegate didErrorBachPostsign: PostsignErrorResponseFormatDictionary];
+            }
+        } else {
+            [self.delegate didErrorBachPostsign: PostsignErrorHTTPResponse];
+        }
     }];
     
     [task resume];
 }
 
-/* METODOS DONDE SE RECIBE LA RESPUESTA DE LA CONEXION ASINCRONA */
-/**
- Método donde se recibe la respuesta de la petición asíncrona.
- 
- parámetros:
- -----------
- didReceiveData: Conexión establecida asíncrona.
- data:           Datos recibidos del servidor.
- */
-//los datos van llegando por "rafagas". Lo que hay que ir haciendo es ir juntandolos todos.
--(void)connection:(NSURLConnection *)connection didReceiveData: (NSData *)data
-{
-    // Append the new data to the receivedData.
-    [responseData appendData:data];
-}
-
-//Se confirma la respuesta. aprovechamos para inicializar los datos de respuesta
--(void)connection:(NSURLConnection *)connection didReceiveResponse:
-(NSURLResponse *)response
-{
-    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
-    statusCode = httpResponse.statusCode;
-    responseData = [[NSMutableData alloc] init];
-}
-
-//cuando se ha terminado de leer los datos recibidos, terminamos ya la conexion y se pasa a la prefirma.
--(void)connectionDidFinishLoading:(NSURLConnection *)connection
-{
-    NSError *jsonError;
-    
-    NSString *receivedString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-    
-    //Convert the response into a dictionary
-    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseData
-                                                         options:NSJSONReadingMutableContainers
-                                                           error:&jsonError];
-    
-    if (jsonError != nil || dict == nil) {
-        if (currentType == preSign) {
-		  NSString *errorToSend = [BatchErrorGenerator stringFromErrorCode:BatchErrorCodeInvalidPresignUrl];
-            if (statusCode == 400) {
-			 errorToSend = [BatchErrorGenerator stringFromErrorCode:BatchErrorCodeInvalidParamsPreSign];
-            } else if (statusCode > 400 && statusCode < 500) {
-			 errorToSend = [BatchErrorGenerator stringFromErrorCode:BatchErrorCodeCommunicationError];
-            }
-            [self.delegate didErrorBachPresign:errorToSend];
-        } else {
-		  NSString *errorToSend = [BatchErrorGenerator stringFromErrorCode:BatchErrorCodeInvalidParamsPostSign];
-            [self.delegate didErrorBachPostsign:errorToSend];
-        }
-    } else {
-        if (currentType == preSign) {
-            [self.delegate didSuccessBachPresign:dict];
-        } else if(currentType == postSign) {
-            [self.delegate didSuccessBachPostsign:dict];
-        }
-    }
-}
-
-/**************************/
-/**** PROTECCIONES SSL ****/
-/**************************/
-
-//para las protecciones ssl
-
-- (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace
-{
-    return [protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust];
-}
-
-//Acepta todas las conexiones ssl
--(void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
-{
-    [challenge.sender useCredential:[NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust] forAuthenticationChallenge:challenge];
-}
-
-/**
- Método donde se procesan los errores de conexión con el servidor.
- 
- parámetros:
- -----------
- connection:        Conexión establecida asíncrona.
- didFailWithError:  Error producido.
- */
-- (void)connection:(NSURLConnection *)connection
-  didFailWithError:(NSError *)error
-{
-    // Liberar la conexión
-    if (currentType == preSign){
-        //Notificamos del error al servidor
-	   NSString *errorToSend = [BatchErrorGenerator stringFromErrorCode:BatchErrorCodeInvalidPresignUrl];
-        [self.delegate didErrorBachPresign:errorToSend];
-    }else if(currentType == postSign){
-        //Notificamos del error al servidor
-	   NSString *errorToSend = [BatchErrorGenerator stringFromErrorCode:BatchErrorCodeInvalidPostsignUrl];
-        [self.delegate didErrorBachPostsign:errorToSend];
-    }
-}
 
 @end
