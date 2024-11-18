@@ -92,24 +92,26 @@ class FileUtils {
     
     static func fileType(from data: Data) -> String? {
 	   var bytes = [UInt8](repeating: 0, count: 12)
-	   data.copyBytes(to: &bytes, count: 12)
+        let byteCount = min(data.count, bytes.count)
+	   data.copyBytes(to: &bytes, count: byteCount)
 	   
-	   if bytes.starts(with: [0xFF, 0xD8, 0xFF]) {
-		  return "jpg"
-	   } else if bytes.starts(with: [0x89, 0x50, 0x4E, 0x47]) {
-		  return "png"
-	   } else if bytes.starts(with: [0x25, 0x50, 0x44, 0x46]) {
-		  return "pdf"
-	   } else if bytes.starts(with: [0x50, 0x4B, 0x03, 0x04]) {
-		  return "zip"
-	   } else if bytes.starts(with: [0x1F, 0x8B]) {
-		  return "gz"
-	   } else if bytes.starts(with: [0x49, 0x49, 0x2A, 0x00]) || bytes.starts(with: [0x4D, 0x4D, 0x00, 0x2A]) {
-		  return "tiff"
-	   } else if bytes.starts(with: [0x42, 0x4D]) {
-		  return "bmp"
-	   }
-	   
+        // Diccionario con firmas de archivos y extensiones
+        let fileSignatures: [([UInt8], String)] = [
+            ([0xFF, 0xD8, 0xFF], "jpg"),
+            ([0x89, 0x50, 0x4E, 0x47], "png"),
+            ([0x25, 0x50, 0x44, 0x46], "pdf"),
+            ([0x50, 0x4B, 0x03, 0x04], "zip"),
+            ([0x1F, 0x8B], "gz"),
+            ([0x49, 0x49, 0x2A, 0x00], "tiff"),
+            ([0x4D, 0x4D, 0x00, 0x2A], "tiff"),
+            ([0x42, 0x4D], "bmp")
+        ]
+    
+        for (signature, type) in fileSignatures {
+            if bytes.starts(with: signature) {
+                return type
+            }
+        }
 	   return nil
     }
     
