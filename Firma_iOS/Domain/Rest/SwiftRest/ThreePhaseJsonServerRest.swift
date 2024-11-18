@@ -1,5 +1,5 @@
 //
-//  BatchSignRest.swift
+//  ThreePhaseJsonServerRest.swift
 //  Autofirma
 //
 //  Created by Luis Nicieza on 17/11/24.
@@ -8,7 +8,8 @@
 
 import Foundation
 
-class BatchSignRest {
+/// Servidor trifásico JSON. Utilizado par el batch
+class ThreePhaseJsonServerRest {
     
     func bachPresign(
         urlPresign: String?,

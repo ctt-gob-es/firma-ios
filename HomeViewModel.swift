@@ -288,18 +288,6 @@ class HomeViewModel: ObservableObject {
                                 self.successModalState = .successSign
                                 self.showSuccessModal = true
                                 self.areCertificatesSelectable = false
-                                
-                                /*switch result {
-                                case .success():
-                                    self.viewMode = .home
-                                    self.successModalState = .successSign
-                                    self.showSuccessModal = true
-                                    self.areCertificatesSelectable = false
-                                case .failure(let error):
-                                    self.viewMode = .home
-                                    self.areCertificatesSelectable = false
-                                    self.showError(errorInfo: error)
-                                }*/
                             }
                         }
                         

@@ -11,7 +11,6 @@
 		3C57FA171AC1BB9D00FF7292 /* AOCertificateInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C57FA161AC1BB9D00FF7292 /* AOCertificateInfo.m */; };
 		83063D0E2C6B5B2E00E88046 /* PDFConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83063D0D2C6B5B2E00E88046 /* PDFConstants.swift */; };
 		8308DD082CB56C5A006C6032 /* DNIeSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308DD072CB56C5A006C6032 /* DNIeSigner.m */; };
-		83094A582C58DCCA006CEB12 /* ReceiveDataRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83094A572C58DCCA006CEB12 /* ReceiveDataRest.swift */; };
 		830CDEA32C6AAF5C00E2890D /* AOPadesUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 830CDEA22C6AAF5C00E2890D /* AOPadesUtils.m */; };
 		83144EA12C3FD97900CC38AB /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83144EA02C3FD97900CC38AB /* TextStyles.swift */; };
 		83144EA32C3FDAE400CC38AB /* Color+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83144EA22C3FDAE400CC38AB /* Color+Utils.swift */; };
@@ -2489,8 +2488,6 @@
 		8369D1142CD8B65F005B5129 /* PDFCoordinatesModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8369D1132CD8B65F005B5129 /* PDFCoordinatesModalView.swift */; };
 		8369D1162CD8FD87005B5129 /* PDFCoordinateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8369D1152CD8FD87005B5129 /* PDFCoordinateUtils.swift */; };
 		838114BB2C512E6700CDEC97 /* SingleSignUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114BA2C512E6700CDEC97 /* SingleSignUseCase.swift */; };
-		838114C42C5131AA00CDEC97 /* PresignRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114C32C5131AA00CDEC97 /* PresignRest.swift */; };
-		838114C62C5131B600CDEC97 /* PostSignRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114C52C5131B600CDEC97 /* PostSignRest.swift */; };
 		838114CA2C5146FE00CDEC97 /* SignModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114C92C5146FE00CDEC97 /* SignModel.swift */; };
 		83904CCE2CA43754005F345B /* IOSNFCSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83904CCD2CA43754005F345B /* IOSNFCSessionManager.swift */; };
 		83939A742C5CEA6A009FDE6E /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83939A732C5CEA6A009FDE6E /* MainViewModel.swift */; };
@@ -2713,12 +2710,13 @@
 		A065483F2CE969D500C9D8DE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A065483E2CE969D500C9D8DE /* NetworkManager.swift */; };
 		A06548422CE96F8A00C9D8DE /* NetworkUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06548412CE96F8A00C9D8DE /* NetworkUtility.swift */; };
 		A06548442CE9860400C9D8DE /* IntermediateServerRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06548432CE9860400C9D8DE /* IntermediateServerRest.swift */; };
-		A06548462CE98CBD00C9D8DE /* BatchSignRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06548452CE98CBD00C9D8DE /* BatchSignRest.swift */; };
+		A06548462CE98CBD00C9D8DE /* ThreePhaseJsonServerRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06548452CE98CBD00C9D8DE /* ThreePhaseJsonServerRest.swift */; };
 		A06548482CEA37D800C9D8DE /* SendCertificateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06548472CEA37D800C9D8DE /* SendCertificateUseCase.swift */; };
 		A065484B2CEA5E7800C9D8DE /* CipherUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A065484A2CEA5E7800C9D8DE /* CipherUtils.swift */; };
 		A065484F2CEB2B4B00C9D8DE /* LoadDataLocalFileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A065484E2CEB2B4B00C9D8DE /* LoadDataLocalFileUseCase.swift */; };
 		A073AA7C2893E7FC00FE30CE /* BatchSignUseCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A073AA7B2893E7FC00FE30CE /* BatchSignUseCase.m */; };
 		A073AA7F2893F71E00FE30CE /* InputParametersBatch.m in Sources */ = {isa = PBXBuildFile; fileRef = A073AA7E2893F71E00FE30CE /* InputParametersBatch.m */; };
+		A075F1FC2CEB67FA005E1EDA /* ThreePhaseServerRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A075F1FB2CEB67FA005E1EDA /* ThreePhaseServerRest.swift */; };
 		A09BDEFD2B7B6D270016102B /* HeaderCertificateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A09BDEFC2B7B6D270016102B /* HeaderCertificateCell.m */; };
 		A0F3951D2CE692CA00DD7AE3 /* AOCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0F3951B2CE692CA00DD7AE3 /* AOCoreDataModel.xcdatamodeld */; };
 		A0F3951F2CE69A0D00DD7AE3 /* ErrorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F3951E2CE69A0D00DD7AE3 /* ErrorCodes.swift */; };
@@ -2810,7 +2808,6 @@
 		83063D0D2C6B5B2E00E88046 /* PDFConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFConstants.swift; sourceTree = "<group>"; };
 		8308DD062CB56C4E006C6032 /* DNIeSigner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DNIeSigner.h; sourceTree = "<group>"; };
 		8308DD072CB56C5A006C6032 /* DNIeSigner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DNIeSigner.m; sourceTree = "<group>"; };
-		83094A572C58DCCA006CEB12 /* ReceiveDataRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveDataRest.swift; sourceTree = "<group>"; };
 		830CDEA22C6AAF5C00E2890D /* AOPadesUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AOPadesUtils.m; sourceTree = "<group>"; };
 		830CDEA42C6AAF6C00E2890D /* AOPadesUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOPadesUtils.h; sourceTree = "<group>"; };
 		83144EA02C3FD97900CC38AB /* TextStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
@@ -7733,8 +7730,6 @@
 		8369D1132CD8B65F005B5129 /* PDFCoordinatesModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFCoordinatesModalView.swift; sourceTree = "<group>"; };
 		8369D1152CD8FD87005B5129 /* PDFCoordinateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFCoordinateUtils.swift; sourceTree = "<group>"; };
 		838114BA2C512E6700CDEC97 /* SingleSignUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSignUseCase.swift; sourceTree = "<group>"; };
-		838114C32C5131AA00CDEC97 /* PresignRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresignRest.swift; sourceTree = "<group>"; };
-		838114C52C5131B600CDEC97 /* PostSignRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSignRest.swift; sourceTree = "<group>"; };
 		838114C92C5146FE00CDEC97 /* SignModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignModel.swift; sourceTree = "<group>"; };
 		83904CCD2CA43754005F345B /* IOSNFCSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSNFCSessionManager.swift; sourceTree = "<group>"; };
 		83939A732C5CEA6A009FDE6E /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -8072,7 +8067,7 @@
 		A065483E2CE969D500C9D8DE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A06548412CE96F8A00C9D8DE /* NetworkUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtility.swift; sourceTree = "<group>"; };
 		A06548432CE9860400C9D8DE /* IntermediateServerRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntermediateServerRest.swift; sourceTree = "<group>"; };
-		A06548452CE98CBD00C9D8DE /* BatchSignRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchSignRest.swift; sourceTree = "<group>"; };
+		A06548452CE98CBD00C9D8DE /* ThreePhaseJsonServerRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreePhaseJsonServerRest.swift; sourceTree = "<group>"; };
 		A06548472CEA37D800C9D8DE /* SendCertificateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCertificateUseCase.swift; sourceTree = "<group>"; };
 		A065484A2CEA5E7800C9D8DE /* CipherUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CipherUtils.swift; sourceTree = "<group>"; };
 		A065484E2CEB2B4B00C9D8DE /* LoadDataLocalFileUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadDataLocalFileUseCase.swift; sourceTree = "<group>"; };
@@ -8080,6 +8075,7 @@
 		A073AA7B2893E7FC00FE30CE /* BatchSignUseCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BatchSignUseCase.m; sourceTree = "<group>"; };
 		A073AA7D2893F71E00FE30CE /* InputParametersBatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputParametersBatch.h; sourceTree = "<group>"; };
 		A073AA7E2893F71E00FE30CE /* InputParametersBatch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputParametersBatch.m; sourceTree = "<group>"; };
+		A075F1FB2CEB67FA005E1EDA /* ThreePhaseServerRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreePhaseServerRest.swift; sourceTree = "<group>"; };
 		A09BDEFB2B7B6D270016102B /* HeaderCertificateCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderCertificateCell.h; sourceTree = "<group>"; };
 		A09BDEFC2B7B6D270016102B /* HeaderCertificateCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeaderCertificateCell.m; sourceTree = "<group>"; };
 		A0F3951C2CE692CA00DD7AE3 /* AOCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AOCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -8246,10 +8242,8 @@
 			isa = PBXGroup;
 			children = (
 				A06548432CE9860400C9D8DE /* IntermediateServerRest.swift */,
-				838114C52C5131B600CDEC97 /* PostSignRest.swift */,
-				838114C32C5131AA00CDEC97 /* PresignRest.swift */,
-				83094A572C58DCCA006CEB12 /* ReceiveDataRest.swift */,
-				A06548452CE98CBD00C9D8DE /* BatchSignRest.swift */,
+				A06548452CE98CBD00C9D8DE /* ThreePhaseJsonServerRest.swift */,
+				A075F1FB2CEB67FA005E1EDA /* ThreePhaseServerRest.swift */,
 			);
 			path = SwiftRest;
 			sourceTree = "<group>";
@@ -16987,7 +16981,7 @@
 				8325D3CB2CAADD17007224E9 /* Pkcs15Cdf.m in Sources */,
 				8325D60C2CAADD18007224E9 /* BCECPublicKey.m in Sources */,
 				833C2AAC2CA2B89B00DFF6CD /* ProfileDataException.m in Sources */,
-				A06548462CE98CBD00C9D8DE /* BatchSignRest.swift in Sources */,
+				A06548462CE98CBD00C9D8DE /* ThreePhaseJsonServerRest.swift in Sources */,
 				8325D6472CAADD18007224E9 /* SM2P256V1Field.m in Sources */,
 				8325D5BC2CAADD18007224E9 /* RSAEngine.m in Sources */,
 				833C2A212CA2B89B00DFF6CD /* X509Util.m in Sources */,
@@ -17263,6 +17257,7 @@
 				833C2B402CA2B89C00DFF6CD /* AOCAdESASiCSSigner.m in Sources */,
 				83904CCE2CA43754005F345B /* IOSNFCSessionManager.swift in Sources */,
 				833C2A5B2CA2B89B00DFF6CD /* PasswordRecipient.m in Sources */,
+				A075F1FC2CEB67FA005E1EDA /* ThreePhaseServerRest.swift in Sources */,
 				833C29372CA2B89A00DFF6CD /* PKIXCRLStore.m in Sources */,
 				833C2B2D2CA2B89B00DFF6CD /* PadesSignerWrapper.m in Sources */,
 				8325D5992CAADD18007224E9 /* DefaultServiceProperties.m in Sources */,
@@ -17496,7 +17491,6 @@
 				8325D6DC2CAADD18007224E9 /* Nat128.m in Sources */,
 				833C2C772CA2B89C00DFF6CD /* Header.m in Sources */,
 				833C2BD62CA2B89C00DFF6CD /* FontMapper.m in Sources */,
-				838114C42C5131AA00CDEC97 /* PresignRest.swift in Sources */,
 				833C2BEE2CA2B89C00DFF6CD /* PdfLine.m in Sources */,
 				8325D4F12CAADD17007224E9 /* TBSCertificateStructure.m in Sources */,
 				8325D3D82CAADD17007224E9 /* X509CertificateAttributesContextSpecific.m in Sources */,
@@ -18059,7 +18053,6 @@
 				8325D8132CAADD18007224E9 /* ByteUtils.m in Sources */,
 				83DF46842C494B00000C3F31 /* LoadingView.swift in Sources */,
 				833C2BC22CA2B89C00DFF6CD /* PdfPage.m in Sources */,
-				838114C62C5131B600CDEC97 /* PostSignRest.swift in Sources */,
 				8325D5C02CAADD18007224E9 /* MGF1BytesGenerator.m in Sources */,
 				8325D4A32CAADD17007224E9 /* ISOIECObjectIdentifiers.m in Sources */,
 				833C285D2CA2B89A00DFF6CD /* SubjectKeyIdentifier.m in Sources */,
@@ -18204,7 +18197,6 @@
 				8325D6342CAADD18007224E9 /* ECPublicKey.m in Sources */,
 				8325D4AA2CAADD17007224E9 /* NISTObjectIdentifiers.m in Sources */,
 				8325D7052CAADD18007224E9 /* XMSSKeyParams.m in Sources */,
-				83094A582C58DCCA006CEB12 /* ReceiveDataRest.swift in Sources */,
 				833C2BFF2CA2B89C00DFF6CD /* PdfPatternPainter.m in Sources */,
 				8325D62F2CAADD18007224E9 /* ProviderJcaJceHelper.m in Sources */,
 				8325D3A82CAADD17007224E9 /* CeresCertificateObject.m in Sources */,

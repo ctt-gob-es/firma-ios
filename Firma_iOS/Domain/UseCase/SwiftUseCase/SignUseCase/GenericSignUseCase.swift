@@ -9,8 +9,7 @@
 import Foundation
 
 class GenericSignUseCase {
-    private let presignRest: PresignRest = PresignRest()
-    let postSignRest: PostSignRest = PostSignRest()
+    private let threePhaseServerRest = ThreePhaseServerRest()
     
     var signModel: SignModel
     
@@ -78,24 +77,6 @@ class GenericSignUseCase {
 		  return false
 	   }
 	   
-	   //TODO: CHECK THE TARGET ERRORS
-	   /*if let encodedTarget = signModel.extraParams {
-		  if let decodedData = Base64Utils.decode(encodedTarget, urlSafe: true),
-			let target = String(data: decodedData, encoding: .utf8) {
-			 
-			 let validTargets = [PARAMETER_NAME_TARGET_TREE, PARAMETER_NAME_TARGET_LEAFS]
-			 if !validTargets.contains(target) {
-				let error = ErrorGenerator.generateError(from: ServerErrorCodes.invalidAdditionalParamsFormat)
-				sendError(error: error, completion: self.completionCallback!)
-				return false
-			 }
-		  } else {
-			 let error = ErrorGenerator.generateError(from: ServerErrorCodes.invalidAdditionalParamsFormat)
-			 sendError(error: error, completion: self.completionCallback!)
-			 return false
-		  }
-	   }*/
-	   
 	   return true
     }
     
@@ -158,50 +139,46 @@ class GenericSignUseCase {
 			 certificateData: certificateData,
 			 extraParams: signModel.extraParams,
 			 triphasicServerURL: signModel.triphasicServerURL,
-			 rtServlet: signModel.rtServlet,
-			 completion: { result in
-				self.handlePresingResult(result: result)
-			 })
+			 rtServlet: signModel.rtServlet)
 	   } else {
             sendError(error: ErrorCodes.InternalSoftwareErrorCodes.appConfigurationError)
 	   }
     }
     
-    private func handlePresingResult(result: Result<String, Error>) {
+    private func handlePresingResult(result: String) {
 	   guard let signFormat = signModel.signFormat,
 		    let signAlgoInUse = signModel.signAlgoInUse else {
             sendError(error: ErrorCodes.FunctionalErrorCodes.signatureOperationError)
 		  return
 	   }
 	   
-	   switch result {
-		  case .success(let serverResponse):
-			 if serverResponse.contains(ERR_PASSWORD_PROTECTED) || serverResponse.contains(ERR_BAD_PASSWORD) {
-				handleRetryWithPassword()
-			 } else {
-				if let range = serverResponse.range(of: ":") {
-                        let errorCodeServer = String(serverResponse[..<range.lowerBound])
-                        sendError(error: ErrorCodes.getServerError(codigo: errorCodeServer))
-                        return
-				}
-			 }
-			 
-			 guard let pkcs1 = generatePKCS1(
-				    dataReceivedb64: serverResponse,
-				    signAlgoInUse: signAlgoInUse,
-				    signFormat: signFormat
-				  )  else {
-				if self is SingleSignUseCase {
-                        sendError(error: ErrorCodes.InternalSoftwareErrorCodes.signingError)
-                        return
-				}
-				return
-			 }
-			 postsign(encodedData: pkcs1)
-			 
-		  case .failure(_):
-			 sendError(error: ErrorCodes.CommunicationErrorCodes.threePhaseSignatureError)
-	   }
+        if let range = result.range(of: ":") {
+            // Hubo error. Comprobamos si es por error de contraseña de PDF
+            if result.contains(ERR_PASSWORD_PROTECTED) || result.contains(ERR_BAD_PASSWORD) {
+                if let completionCallback = completionCallback {
+                    completionCallback(.success(true))
+                }
+            } else {
+                let errorCodeServer = String(result[..<range.lowerBound])
+                sendError(error: ErrorCodes.getServerError(codigo: errorCodeServer))
+            }
+            // En cualquier caso paramos ejecucion
+            return
+        }
+        
+        guard let pkcs1 = generatePKCS1(
+                dataReceivedb64: result,
+                signAlgoInUse: signAlgoInUse,
+                signFormat: signFormat
+              )  else {
+            if self is SingleSignUseCase {
+                sendError(error: ErrorCodes.InternalSoftwareErrorCodes.signingError)
+                return
+            }
+            return
+        }
+        
+        postsign(encodedData: pkcs1)
     }
     
     private func postsign(encodedData: Data) {
@@ -223,44 +200,28 @@ class GenericSignUseCase {
 		  extraParams: signModel.extraParams,
 		  encodedData: encodedData,
 		  triphasicServerURL: signModel.triphasicServerURL,
-		  rtServlet: signModel.rtServlet,
-		  completion: { result in
-			 self.handlePostSignResult(
-				result: result
-			 )
-		  })
+		  rtServlet: signModel.rtServlet)
     }
     
-    func handlePostSignResult(result: Result<Data, Error>) {
-	   switch result {
-		  case .success(let postSignResult):
-			 if let responseString = String(data: postSignResult, encoding: .utf8) {
-				if responseString.contains("OK") {
-				    if let range = responseString.range(of: "=") {
-					   let parte2 = String(responseString[range.upperBound...])
-					   storeData(dataSign: parte2)
-				    } else {
-                            sendError(error: ErrorCodes.FunctionalErrorCodes.signatureOperationError)
-                            return
-				    }
-				} else {
-                        if let range = responseString.range(of: ":") {
-                            let errorCodeServer = String(responseString[..<range.lowerBound])
-                            sendError(error: ErrorCodes.getServerError(codigo: errorCodeServer))
-                            return
-				    } else {
-                            sendError(error: ErrorCodes.FunctionalErrorCodes.signatureOperationError)
-                            return
-				    }
-				}
-			 } else {
-                    sendError(error: ErrorCodes.FunctionalErrorCodes.signatureOperationError)
-                    return
-			 }
-			 
-		  case .failure(_):
-                sendError(error: ErrorCodes.CommunicationErrorCodes.threePhaseSignatureError)
-	   }
+    func handlePostSignResult(responseString: String) {
+        if responseString.contains("OK") {
+            if let range = responseString.range(of: "=") {
+                let parte2 = String(responseString[range.upperBound...])
+                storeData(dataSign: parte2)
+            } else {
+                sendError(error: ErrorCodes.FunctionalErrorCodes.signatureOperationError)
+                return
+            }
+        } else {
+            if let range = responseString.range(of: ":") {
+                let errorCodeServer = String(responseString[..<range.lowerBound])
+                sendError(error: ErrorCodes.getServerError(codigo: errorCodeServer))
+                return
+            } else {
+                sendError(error: ErrorCodes.FunctionalErrorCodes.signatureOperationError)
+                return
+            }
+        }
     }
     
     func preSign(
@@ -271,10 +232,9 @@ class GenericSignUseCase {
 	   certificateData: String,
 	   extraParams: String?,
 	   triphasicServerURL: String?,
-	   rtServlet: String?,
-	   completion: @escaping (Result<String, Error>) -> Void
+	   rtServlet: String?
     ) {
-	   presignRest.performPresignRequest(
+        threePhaseServerRest.performPresignRequest(
 		  operation: operation,
 		  datosInUse: datosInUse,
 		  signFormat: signFormat,
@@ -286,9 +246,9 @@ class GenericSignUseCase {
 	   ) { result in
 		  switch result {
 			 case .success(let response):
-				completion(.success(response))
+                    self.handlePresingResult(result: response)
 			 case .failure(let error):
-				completion(.failure(error))
+                    self.sendError(error: error)
 		  }
 	   }
     }
@@ -371,10 +331,9 @@ class GenericSignUseCase {
 	   extraParams: String?,
 	   encodedData: Data,
 	   triphasicServerURL: String?,
-	   rtServlet: String?,
-	   completion: @escaping (Result<Data, Error>) -> Void
+	   rtServlet: String?
     ) {
-	   postSignRest.postSign(
+        threePhaseServerRest.postSign(
 		  operation: operation,
 		  dict: dict,
 		  datosInUse: datosInUse,
@@ -384,9 +343,14 @@ class GenericSignUseCase {
 		  extraParams: extraParams,
 		  encodedData: encodedData,
 		  triphasicServerURL: triphasicServerURL,
-		  rtServlet: rtServlet,
-		  completion: completion
-	   )
+            rtServlet: rtServlet) { result in
+                switch result {
+                case .success(let postSignResult):
+                    self.handlePostSignResult(responseString: postSignResult)
+                case .failure(_):
+                    self.sendError(error: ErrorCodes.CommunicationErrorCodes.threePhaseSignatureError)
+                }
+            }
     }
     
     
@@ -433,12 +397,6 @@ class GenericSignUseCase {
                 completionCallback(.failure(error))
             }
         })
-    }
-    
-    func handleRetryWithPassword() {
-        if let completionCallback = completionCallback {
-            completionCallback(.success(true))
-        }
     }
     
     private func storeData(dataSign: String) {

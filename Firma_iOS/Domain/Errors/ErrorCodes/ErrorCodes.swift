@@ -53,6 +53,8 @@ enum ErrorCodes{
         case generalHardwareError
         case nfcError
         case nfcCardError
+        case nfcCardResetError
+        case nfcCardSendCommandError
         case sdCardError
         
         var info: ErrorInfo {
@@ -63,6 +65,10 @@ enum ErrorCodes{
                 return ErrorInfo("101001", "Error relacionado con el dispositivo NFC.", .dniReadingError)
             case .nfcCardError:
                 return ErrorInfo("102001", "Error en la tarjeta NFC.", .dniReadingError)
+            case .nfcCardResetError:
+                return ErrorInfo("102003", "Error al resetear la tarjeta NFC.", .dniReadingError)
+            case .nfcCardSendCommandError:
+                return ErrorInfo("102003", "Error al ejecutar comando en la tarjeta NFC.", .dniReadingError)
             case .sdCardError:
                 return ErrorInfo("103001", "Error en la tarjeta NFC.", .globalError)
             }
@@ -286,6 +292,7 @@ enum ErrorCodes{
         case operationNotRtServlet
         case fileIdButNotCipherKey
         case signatureRequestError
+        case signThreePhaseUrlError
         case certificateSelectionRequestError
         case dataSavingRequestError
         case jsonBatchRequestError
@@ -308,6 +315,8 @@ enum ErrorCodes{
                 return ErrorInfo("600006", "Es necesario descargar la información del servidor intermedio y no ha llegado la clave de cifrado")
             case .signatureRequestError:
                 return ErrorInfo("600101", "Error en la petición de firma.")
+            case .signThreePhaseUrlError:
+                return ErrorInfo("600102", "No ha llegado la url del servlet trifasico para la firma")
             case .certificateSelectionRequestError:
                 return ErrorInfo("600201", "Error en la petición de selección de certificados.")
             case .dataSavingRequestError:

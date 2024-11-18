@@ -75,7 +75,7 @@ class GenericBatchSignUseCase: NSObject {
 	   if let error = validationError {
             sendError(errorInfo: error)
         } else {
-            BatchSignRest().bachPresign(urlPresign: parametersBatch.batchpresignerUrl, json: parametersBatch.data, certs: getCertificateData(), completion: { json, error in
+            ThreePhaseJsonServerRest().bachPresign(urlPresign: parametersBatch.batchpresignerUrl, json: parametersBatch.data, certs: getCertificateData(), completion: { json, error in
                 
                 if let json = json {
                     self.didSuccessBachPresign(json)
@@ -89,7 +89,7 @@ class GenericBatchSignUseCase: NSObject {
     }
     
     func postsign(jsonData: String, triData: String) {
-        BatchSignRest().bachPostsign(urlPostsign: parametersBatch.batchpostsignerUrl, json: jsonData, certs: getCertificateData(), tridata: triData, completion: { json, error in
+        ThreePhaseJsonServerRest().bachPostsign(urlPostsign: parametersBatch.batchpostsignerUrl, json: jsonData, certs: getCertificateData(), tridata: triData, completion: { json, error in
             if let json = json {
                 self.didSuccessBachPostsign(json)
             } else {
