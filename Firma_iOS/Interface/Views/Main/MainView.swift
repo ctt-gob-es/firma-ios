@@ -250,7 +250,7 @@ struct MainView: View {
 					   appStatus.successModalState = .successArhiveAdded
 				    case .failure(let error):
 					   print("Error while saving the data, : " + error.localizedDescription)
-					   handleError(error: error)
+					   handleErrorSavingData(error: error)
 				}
 			 })
 			 .interactiveDismissDisabled(true)
@@ -283,20 +283,30 @@ struct MainView: View {
 			 appStatus.importedDataURLS = urls
 		  case .failure(let error):
 			 print("File import failed with error: \(error.localizedDescription)")
-			 handleError(error: error)
+			 handleErrorImportingFile(error: error)
 	   }
     }
     
     private func handleFileImportCancellation() {
 	   appStatus.showErrorModal = true
-        appStatus.errorInfo = ErrorCodes.InternalSoftwareErrorCodes.fileLoadingLocalFile.info
+	   appStatus.errorInfo = ErrorCodes.FunctionalErrorCodes.userOperationCanceled.info
 	   appStatus.navigateToDNI = false
 	   appStatus.navigateToAddCertificate = false
     }
     
-    func handleError(error: Error) {
+    func handleErrorImportingFile(error: Error) {
 	   appStatus.showErrorModal = true
-	   appStatus.errorInfo = ErrorCodes.InternalSoftwareErrorCodes.generalSoftwareError.info
+	   appStatus.errorInfo = ErrorCodes.InternalSoftwareErrorCodes.fileLoadingLocalFile.info
 	   appStatus.errorModalDescription = error.localizedDescription
+	   appStatus.navigateToDNI = false
+	   appStatus.navigateToAddCertificate = false
+    }
+    
+    func handleErrorSavingData(error: Error) {
+	   appStatus.showErrorModal = true
+	   appStatus.errorInfo = ErrorCodes.InternalSoftwareErrorCodes.dataSavingFileSaveDisk.info
+	   appStatus.errorModalDescription = error.localizedDescription
+	   appStatus.navigateToDNI = false
+	   appStatus.navigateToAddCertificate = false
     }
 }
