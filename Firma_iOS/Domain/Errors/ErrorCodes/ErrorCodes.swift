@@ -21,17 +21,29 @@ extension ErrorCodeProtocol {
 struct ErrorInfo: Error, Equatable {
     let code: String
     let description: String
+    let showDescription: Bool
     let errorModalType: ErrorModalState
     
     // Inicializador personalizado sin etiquetas
-    init(_ code: String, _ description: String, _ errorModalType: ErrorModalState = .globalError) {
+    init(_ code: String, _ description: String, _ errorModalType: ErrorModalState = .globalError, _ showDescription: Bool = false) {
         self.code = code
         self.description = description
         self.errorModalType = errorModalType
+        self.showDescription = showDescription
     }
     
     var serverErrorMessage: String {
-        return "\(code): \(description)"
+        return "ERR-\(code):=\(description)"
+    }
+    
+    var screenErrorTitle: String {
+        return errorModalType.title
+    }
+    
+    var screenErrorMessage: String {
+        return (["\(code) -"] +
+                     (showDescription ? [description] : [errorModalType.description])
+                    ).joined(separator: " ")
     }
 }
 
@@ -59,10 +71,18 @@ enum ErrorCodes{
     
     enum InternalSoftwareErrorCodes : ErrorCodeProtocol {
         case generalSoftwareError
+        case saveHistorySign
         case signingError
+        case signingCipherSignError
+        case signingCipherCertificateError
         case certificateSelectionError
+        case certificateSelectionCipherCertificateError
         case dataSavingError
+        case dataSavingBase64Error
+        case dataSavingFileSaveDisk
         case jsonBatchOperationError
+        case jsonBatchCipherSignError
+        case jsonBatchCipherCertificateError
         case jsonBatchOperationCypherCertificate
         case jsonBatchOperationCypherData
         case xmlBatchOperationError
@@ -73,20 +93,35 @@ enum ErrorCodes{
         case fileLoadingLocalFile
         case certificateLoadingError
         case localSignatureError
-        case saveHistorySign
         
         var info: ErrorInfo {
             switch self {
             case .generalSoftwareError:
                 return ErrorInfo("200001", "Error general de software.")
+            case .saveHistorySign:
+                return ErrorInfo("200002", "La firma se ha realizado correctamente pero no se ha podido guardar la firma en el histórico de firmas", .globalError, true)
             case .signingError:
                 return ErrorInfo("200101", "Error en la operación de firma.")
+            case .signingCipherSignError:
+                return ErrorInfo("200102", "Error al cifrar la firma para enviarla al servidor intermedio")
+            case .signingCipherCertificateError:
+                return ErrorInfo("200103", "Error al cifrar el certificado para enviarlo al servidor intermedio")
             case .certificateSelectionError:
                 return ErrorInfo("200201", "Error en la selección de certificados.")
+            case .certificateSelectionCipherCertificateError:
+                return ErrorInfo("200202", "Error al cifrar el certificado para enviarlo al servidor intermedio")
             case .dataSavingError:
                 return ErrorInfo("200301", "Error en la operación de guardado de datos.")
+            case .dataSavingBase64Error:
+                return ErrorInfo("200302", "Los datos recibidos para el guardadod de datos no parecen estar en Base64")
+            case .dataSavingFileSaveDisk:
+                return ErrorInfo("200303", "No se ha podido guardar el fichero en disco")
             case .jsonBatchOperationError:
                 return ErrorInfo("200401", "Error en la operación de lotes JSON.")
+            case .jsonBatchCipherSignError:
+                return ErrorInfo("200102", "Error al cifrar la información de las firmas del lote para enviarla al servidor intermedio.")
+            case .jsonBatchCipherCertificateError:
+                return ErrorInfo("200103", "Error al cifrar el certificado para enviarlo al sevidor intermedio.")
             case .jsonBatchOperationCypherCertificate:
                 return ErrorInfo("200402", "Error al cifrar el certificado")
             case .jsonBatchOperationCypherData:
@@ -107,8 +142,7 @@ enum ErrorCodes{
                 return ErrorInfo("201101", "Error en la carga de certificado para importar", .certificateNotImported)
             case .localSignatureError:
                 return ErrorInfo("201201", "Error en la firma local.")
-            case .saveHistorySign:
-                return ErrorInfo("201201", "Error al guardar en el históricod de firmas")
+            
             }
         }
     }
@@ -118,7 +152,8 @@ enum ErrorCodes{
         case jMulticardError = "300101"
         case intermediateServerDownloadErrorHttpResponse = "300201"
         case intermediateServerDownloadErrorResponseFormat = "300202"
-        case intermediateServerDownloadErrorResponseFormatDictionary = "300203"
+        case intermediateServerDownloadErrorResponseFormatXML = "300203"
+        case intermediateServerDownloadDataCipher = "300204"
         case intermediateServerUploadErrorHttpResponse = "300301"
         case intermediateServerUploadErrorResponseFormat = "300302"
         case threePhaseServerPresignErrorHTTPResponse = "300401"
@@ -139,8 +174,10 @@ enum ErrorCodes{
                return ErrorInfo(rawValue, "Error HTTP al descargar la información del servidor intermedio")
            case .intermediateServerDownloadErrorResponseFormat:
                return ErrorInfo(rawValue, "La respuesta del servidor intermedio al descargar la informaciòn no es una respuesta válida")
-           case .intermediateServerDownloadErrorResponseFormatDictionary:
-               return ErrorInfo(rawValue, "La respuesta del servidor intermedio al descargar la información no es un json válido")
+           case .intermediateServerDownloadErrorResponseFormatXML:
+               return ErrorInfo(rawValue, "La respuesta del servidor intermedio al descargar la información no es un XML válido")
+           case .intermediateServerDownloadDataCipher:
+               return ErrorInfo(rawValue, "No se ha podido descifrar la respuesta del servidor intermedio")
            case .intermediateServerUploadErrorHttpResponse:
                return ErrorInfo(rawValue, "Error HTTP al subir la información del servidor intermedio")
            case .intermediateServerUploadErrorResponseFormat:
@@ -239,7 +276,12 @@ enum ErrorCodes{
     }
     
     enum RequestErrorCodes: ErrorCodeProtocol {
-        case generalRequestError
+        case invalidformatRequest
+        case operationRequestNotFound
+        case operationRequestNotValid
+        case operationDataNotFound
+        case operationNotRtServlet
+        case fileIdButNotCipherKey
         case signatureRequestError
         case certificateSelectionRequestError
         case dataSavingRequestError
@@ -249,8 +291,18 @@ enum ErrorCodes{
         
         var info: ErrorInfo {
             switch self {
-            case .generalRequestError:
-                return ErrorInfo("600001", "Error general de petición.")
+            case .invalidformatRequest:
+                return ErrorInfo("600001", "El formato de la petición es erroneo")
+            case .operationRequestNotFound:
+                return ErrorInfo("600002", "No hay llegado código de operación en la petición")
+            case .operationRequestNotValid:
+                return ErrorInfo("600003", "La operación no esta soportada")
+            case .operationDataNotFound:
+                return ErrorInfo("600004", "No han llegado los datos en la petición ni el id del fichero a descargar")
+            case .operationNotRtServlet:
+                return ErrorInfo("600005", "Es necesario descargar la información del servidor intermedio y no ha llegado la url del servidor de descarga")
+            case .fileIdButNotCipherKey:
+                return ErrorInfo("600006", "Es necesario descargar la información del servidor intermedio y no ha llegado la clave de cifrado")
             case .signatureRequestError:
                 return ErrorInfo("600101", "Error en la petición de firma.")
             case .certificateSelectionRequestError:

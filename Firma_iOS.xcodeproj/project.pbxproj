@@ -2488,9 +2488,7 @@
 		8369D1122CD8B5C6005B5129 /* PDFImageAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8369D10F2CD8B5C6005B5129 /* PDFImageAnnotation.m */; };
 		8369D1142CD8B65F005B5129 /* PDFCoordinatesModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8369D1132CD8B65F005B5129 /* PDFCoordinatesModalView.swift */; };
 		8369D1162CD8FD87005B5129 /* PDFCoordinateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8369D1152CD8FD87005B5129 /* PDFCoordinateUtils.swift */; };
-		838114B92C512E5B00CDEC97 /* StoreDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114B82C512E5B00CDEC97 /* StoreDataUseCase.swift */; };
 		838114BB2C512E6700CDEC97 /* SingleSignUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114BA2C512E6700CDEC97 /* SingleSignUseCase.swift */; };
-		838114BE2C512F9800CDEC97 /* StoreDataRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114BD2C512F9800CDEC97 /* StoreDataRest.swift */; };
 		838114C42C5131AA00CDEC97 /* PresignRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114C32C5131AA00CDEC97 /* PresignRest.swift */; };
 		838114C62C5131B600CDEC97 /* PostSignRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114C52C5131B600CDEC97 /* PostSignRest.swift */; };
 		838114C82C5131C600CDEC97 /* ReportErrorRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838114C72C5131C600CDEC97 /* ReportErrorRest.swift */; };
@@ -2674,7 +2672,7 @@
 		83DF46762C4876D6000C3F31 /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF46752C4876D6000C3F31 /* ViewUtils.swift */; };
 		83DF467B2C48F084000C3F31 /* AddCertificateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF467A2C48F084000C3F31 /* AddCertificateView.swift */; };
 		83DF467D2C490E2E000C3F31 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF467C2C490E2E000C3F31 /* FileUtils.swift */; };
-		83DF46822C493C56000C3F31 /* ReceiveDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF46812C493C56000C3F31 /* ReceiveDataUseCase.swift */; };
+		83DF46822C493C56000C3F31 /* ParseDataURLOperationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF46812C493C56000C3F31 /* ParseDataURLOperationUseCase.swift */; };
 		83DF46842C494B00000C3F31 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF46832C494B00000C3F31 /* LoadingView.swift */; };
 		83E419C62C4502F100C21811 /* SignModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E419C52C4502F100C21811 /* SignModalView.swift */; };
 		83E419CA2C45184000C21811 /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E419C92C45184000C21811 /* DocumentPicker.swift */; };
@@ -2717,6 +2715,8 @@
 		A06548422CE96F8A00C9D8DE /* NetworkUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06548412CE96F8A00C9D8DE /* NetworkUtility.swift */; };
 		A06548442CE9860400C9D8DE /* IntermediateServerRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06548432CE9860400C9D8DE /* IntermediateServerRest.swift */; };
 		A06548462CE98CBD00C9D8DE /* BatchSignRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06548452CE98CBD00C9D8DE /* BatchSignRest.swift */; };
+		A06548482CEA37D800C9D8DE /* SendCertificateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06548472CEA37D800C9D8DE /* SendCertificateUseCase.swift */; };
+		A065484B2CEA5E7800C9D8DE /* CipherUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A065484A2CEA5E7800C9D8DE /* CipherUtils.swift */; };
 		A073AA7C2893E7FC00FE30CE /* BatchSignUseCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A073AA7B2893E7FC00FE30CE /* BatchSignUseCase.m */; };
 		A073AA7F2893F71E00FE30CE /* InputParametersBatch.m in Sources */ = {isa = PBXBuildFile; fileRef = A073AA7E2893F71E00FE30CE /* InputParametersBatch.m */; };
 		A09BDEFD2B7B6D270016102B /* HeaderCertificateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A09BDEFC2B7B6D270016102B /* HeaderCertificateCell.m */; };
@@ -7732,9 +7732,7 @@
 		8369D1102CD8B5C6005B5129 /* PDFCustomTextAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFCustomTextAnnotation.h; sourceTree = "<group>"; };
 		8369D1132CD8B65F005B5129 /* PDFCoordinatesModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFCoordinatesModalView.swift; sourceTree = "<group>"; };
 		8369D1152CD8FD87005B5129 /* PDFCoordinateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFCoordinateUtils.swift; sourceTree = "<group>"; };
-		838114B82C512E5B00CDEC97 /* StoreDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDataUseCase.swift; sourceTree = "<group>"; };
 		838114BA2C512E6700CDEC97 /* SingleSignUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSignUseCase.swift; sourceTree = "<group>"; };
-		838114BD2C512F9800CDEC97 /* StoreDataRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDataRest.swift; sourceTree = "<group>"; };
 		838114C32C5131AA00CDEC97 /* PresignRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresignRest.swift; sourceTree = "<group>"; };
 		838114C52C5131B600CDEC97 /* PostSignRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSignRest.swift; sourceTree = "<group>"; };
 		838114C72C5131C600CDEC97 /* ReportErrorRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportErrorRest.swift; sourceTree = "<group>"; };
@@ -8021,7 +8019,7 @@
 		83DF46752C4876D6000C3F31 /* ViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtils.swift; sourceTree = "<group>"; };
 		83DF467A2C48F084000C3F31 /* AddCertificateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCertificateView.swift; sourceTree = "<group>"; };
 		83DF467C2C490E2E000C3F31 /* FileUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUtils.swift; sourceTree = "<group>"; };
-		83DF46812C493C56000C3F31 /* ReceiveDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveDataUseCase.swift; sourceTree = "<group>"; };
+		83DF46812C493C56000C3F31 /* ParseDataURLOperationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseDataURLOperationUseCase.swift; sourceTree = "<group>"; };
 		83DF46832C494B00000C3F31 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		83E419C52C4502F100C21811 /* SignModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignModalView.swift; sourceTree = "<group>"; };
 		83E419C92C45184000C21811 /* DocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPicker.swift; sourceTree = "<group>"; };
@@ -8076,6 +8074,8 @@
 		A06548412CE96F8A00C9D8DE /* NetworkUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtility.swift; sourceTree = "<group>"; };
 		A06548432CE9860400C9D8DE /* IntermediateServerRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntermediateServerRest.swift; sourceTree = "<group>"; };
 		A06548452CE98CBD00C9D8DE /* BatchSignRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchSignRest.swift; sourceTree = "<group>"; };
+		A06548472CEA37D800C9D8DE /* SendCertificateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCertificateUseCase.swift; sourceTree = "<group>"; };
+		A065484A2CEA5E7800C9D8DE /* CipherUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CipherUtils.swift; sourceTree = "<group>"; };
 		A073AA7A2893E7FC00FE30CE /* BatchSignUseCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BatchSignUseCase.h; sourceTree = "<group>"; };
 		A073AA7B2893E7FC00FE30CE /* BatchSignUseCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BatchSignUseCase.m; sourceTree = "<group>"; };
 		A073AA7D2893F71E00FE30CE /* InputParametersBatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputParametersBatch.h; sourceTree = "<group>"; };
@@ -8245,12 +8245,12 @@
 		83094A562C58DC9B006CEB12 /* SwiftRest */ = {
 			isa = PBXGroup;
 			children = (
-				838114BD2C512F9800CDEC97 /* StoreDataRest.swift */,
+				A06548432CE9860400C9D8DE /* IntermediateServerRest.swift */,
 				838114C52C5131B600CDEC97 /* PostSignRest.swift */,
 				838114C32C5131AA00CDEC97 /* PresignRest.swift */,
 				838114C72C5131C600CDEC97 /* ReportErrorRest.swift */,
 				83094A572C58DCCA006CEB12 /* ReceiveDataRest.swift */,
-				A065483C2CE969BF00C9D8DE /* SSLBypassDelegate.swift */,
+				A06548452CE98CBD00C9D8DE /* BatchSignRest.swift */,
 			);
 			path = SwiftRest;
 			sourceTree = "<group>";
@@ -15610,8 +15610,7 @@
 		838114C22C51317100CDEC97 /* SwiftUseCase */ = {
 			isa = PBXGroup;
 			children = (
-				83DF46812C493C56000C3F31 /* ReceiveDataUseCase.swift */,
-				838114B82C512E5B00CDEC97 /* StoreDataUseCase.swift */,
+				83DF46812C493C56000C3F31 /* ParseDataURLOperationUseCase.swift */,
 				838114BA2C512E6700CDEC97 /* SingleSignUseCase.swift */,
 				83A5EDC52C53E2F600F93B6D /* SaveDataUseCase.swift */,
 				8393EEC82C58F675009FDE6E /* ReportErrorUseCase.swift */,
@@ -15621,6 +15620,7 @@
 				833D30142CCA5D4B00F510F8 /* GenericBatchSignUseCase.swift */,
 				833D30322CCB805400F510F8 /* CertificateBatchSignUseCase.swift */,
 				833D30342CCB806400F510F8 /* DNIeBatchSignUseCase.swift */,
+				A06548472CEA37D800C9D8DE /* SendCertificateUseCase.swift */,
 			);
 			path = SwiftUseCase;
 			sourceTree = "<group>";
@@ -15658,23 +15658,23 @@
 		83A5EDB92C52558700F93B6D /* Rest */ = {
 			isa = PBXGroup;
 			children = (
+				A06548492CEA5E6400C9D8DE /* Utils */,
 				A06548402CE96F6B00C9D8DE /* Network */,
 				83094A562C58DC9B006CEB12 /* SwiftRest */,
-				83A5EDBC2C5255DD00F93B6D /* BachRest */,
+				83A5EDBC2C5255DD00F93B6D /* BatchRest */,
 				83EBF99C289BAB1900E80A7E /* ParentRest */,
 				83EBF999289BAA6F00E80A7E /* ServletRest */,
 			);
 			path = Rest;
 			sourceTree = "<group>";
 		};
-		83A5EDBC2C5255DD00F93B6D /* BachRest */ = {
+		83A5EDBC2C5255DD00F93B6D /* BatchRest */ = {
 			isa = PBXGroup;
 			children = (
 				83A5EDBA2C5255DD00F93B6D /* BachRestIOS.h */,
 				83A5EDBB2C5255DD00F93B6D /* BachRestIOS.m */,
-				A06548452CE98CBD00C9D8DE /* BatchSignRest.swift */,
 			);
-			path = BachRest;
+			path = BatchRest;
 			sourceTree = "<group>";
 		};
 		83A5EDBE2C5255F500F93B6D /* Certificates */ = {
@@ -16123,7 +16123,6 @@
 			children = (
 				83EBF99A289BAA8600E80A7E /* ServletRest.h */,
 				83EBF99B289BAA9300E80A7E /* ServletRest.m */,
-				A06548432CE9860400C9D8DE /* IntermediateServerRest.swift */,
 			);
 			path = ServletRest;
 			sourceTree = "<group>";
@@ -16190,8 +16189,17 @@
 			children = (
 				A065483E2CE969D500C9D8DE /* NetworkManager.swift */,
 				A06548412CE96F8A00C9D8DE /* NetworkUtility.swift */,
+				A065483C2CE969BF00C9D8DE /* SSLBypassDelegate.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		A06548492CEA5E6400C9D8DE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A065484A2CEA5E7800C9D8DE /* CipherUtils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		A073AA792893E7BB00FE30CE /* Domain */ = {
@@ -16996,7 +17004,7 @@
 				833C2C0E2CA2B89C00DFF6CD /* RandomAccessFileOrArray.m in Sources */,
 				833C29142CA2B89A00DFF6CD /* CryptoException.m in Sources */,
 				8325D7012CAADD18007224E9 /* PQCObjectIdentifiers.m in Sources */,
-				83DF46822C493C56000C3F31 /* ReceiveDataUseCase.swift in Sources */,
+				83DF46822C493C56000C3F31 /* ParseDataURLOperationUseCase.swift in Sources */,
 				8325D71D2CAADD18007224E9 /* HSS.m in Sources */,
 				833C2B182CA2B89B00DFF6CD /* AOSimpleSignInfo.m in Sources */,
 				83DB24872CBFD91700D1DD8C /* InternalSoftwareErrorCodes.swift in Sources */,
@@ -17431,6 +17439,7 @@
 				8325D5E32CAADD18007224E9 /* AsymmetricBlockCipher.m in Sources */,
 				833C2AB42CA2B89B00DFF6CD /* Dimension2D.m in Sources */,
 				8325D5952CAADD18007224E9 /* SignerInformationVerifier.m in Sources */,
+				A06548482CEA37D800C9D8DE /* SendCertificateUseCase.swift in Sources */,
 				8325D5812CAADD18007224E9 /* CMSException.m in Sources */,
 				833C2A5C2CA2B89B00DFF6CD /* CMSSignedDataGenerator.m in Sources */,
 				833C2C0D2CA2B89C00DFF6CD /* PdfPageEvent.m in Sources */,
@@ -17623,7 +17632,6 @@
 				833C28312CA2B89A00DFF6CD /* BERFactory.m in Sources */,
 				8325D6292CAADD18007224E9 /* AlgorithmParametersUtils.m in Sources */,
 				833C28302CA2B89A00DFF6CD /* NISTNamedCurves.m in Sources */,
-				838114B92C512E5B00CDEC97 /* StoreDataUseCase.swift in Sources */,
 				833C2BEC2CA2B89C00DFF6CD /* PdfStamperImp.m in Sources */,
 				83AF00112CA2C95D00A26C0F /* OCTET_STRING.c in Sources */,
 				833C2BF22CA2B89C00DFF6CD /* PdfPageEventHelper.m in Sources */,
@@ -18794,7 +18802,6 @@
 				83E419CC2C451EEC00C21811 /* PageControl.swift in Sources */,
 				8325D5E22CAADD18007224E9 /* DigestFactory.m in Sources */,
 				8325D68A2CAADD18007224E9 /* SecT163R2Curve.m in Sources */,
-				838114BE2C512F9800CDEC97 /* StoreDataRest.swift in Sources */,
 				8325D3D32CAADD17007224E9 /* PublicKeysContextSpecific.m in Sources */,
 				833C2BD72CA2B89C00DFF6CD /* PdfShading.m in Sources */,
 				833C2B4E2CA2B89C00DFF6CD /* PAdESTriPhaseSigner.m in Sources */,
@@ -18905,6 +18912,7 @@
 				833C28732CA2B89A00DFF6CD /* AbstractX500NameStyle.m in Sources */,
 				8325D5EE2CAADD18007224E9 /* CryptoServicesRegistrar.m in Sources */,
 				833C29192CA2B89A00DFF6CD /* JcaJceHelper.m in Sources */,
+				A065484B2CEA5E7800C9D8DE /* CipherUtils.swift in Sources */,
 				833C2B252CA2B89B00DFF6CD /* AOTriphaseException.m in Sources */,
 				8325D5CB2CAADD18007224E9 /* DESParameters.m in Sources */,
 				833C2C362CA2B89C00DFF6CD /* VerticalPositionMark.m in Sources */,

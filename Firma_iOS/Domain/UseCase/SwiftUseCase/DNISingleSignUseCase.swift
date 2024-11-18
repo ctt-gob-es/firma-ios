@@ -23,9 +23,9 @@ class DNISingleSignUseCase : GenericSignUseCase, DNIeResult {
     }
     
     private func handleErrorDnieWrapper(errorCode: Int) {
-	   handleSignError(
-            error: ErrorCodes.getDNIError(codigo: String(errorCode))
-	   )
+        if let completionCallback = completionCallback {
+            completionCallback(.failure(ErrorCodes.getServerError(codigo: String(errorCode)).info))
+        }
     }
     
     override func getCertificateData() -> String? {
@@ -59,6 +59,6 @@ class DNISingleSignUseCase : GenericSignUseCase, DNIeResult {
     }
     
     func getDNIeError(errorCode: Int, errorMessage: String) {
-	   handleSignError(error: ErrorCodes.getDNIError(codigo: String(errorCode)))
+        handleErrorDnieWrapper(errorCode: errorCode)
     }
 }

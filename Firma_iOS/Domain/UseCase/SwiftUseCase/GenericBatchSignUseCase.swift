@@ -47,7 +47,7 @@ class GenericBatchSignUseCase: NSObject {
 	   
 	   if parametersBatch.data == "" {
             
-            IntermediateServerRest().downloadDataFromRtservlet(rtServlet: parametersBatch.rtservlet, fileId: parametersBatch.fileId, completion: { responseDict, errorInfo in
+            IntermediateServerRest().downloadDataJSON(rtServlet: parametersBatch.rtservlet, fileId: parametersBatch.fileId, completion: { responseDict, errorInfo in
                 
                 if let errorInfo = errorInfo {
                     self.sendError(errorInfo: errorInfo)
@@ -182,7 +182,7 @@ class GenericBatchSignUseCase: NSObject {
             }
         } else {
             // No llego el td en la respuesta. Puede que todo hayan sido prefirmas erroneas
-            if let resultsArray = responseDict["results"] as? [[String: Any]] {
+            if let _ = responseDict["results"] as? [[String: Any]] {
                 // Son todo prefirmas erroneas
                 self.responseMessage = "batch_signs_ok_with_all_signs_error"
 
@@ -210,7 +210,7 @@ class GenericBatchSignUseCase: NSObject {
     private func sendError(errorInfo: ErrorInfo) {
         self.error = errorInfo
        
-        IntermediateServerRest().storeDataError(error: errorInfo.serverErrorMessage, stServlet: self.parametersBatch.stservlet, docId: self.parametersBatch.identifier, completion: { response, errorInfo in
+        IntermediateServerRest().storeDataError(error: errorInfo, stServlet: self.parametersBatch.stservlet, docId: self.parametersBatch.identifier, completion: { errorInfo in
             
             // Tanto si pudimos guardar en el servidor intermedio como no, devolvemos el error original
             if let completionHandler = self.completionHandler {
@@ -220,15 +220,28 @@ class GenericBatchSignUseCase: NSObject {
     }
     
     private func storeData(data: Data) {
-        IntermediateServerRest().storeData(data: data, certificateBase64: getCertificateData(), stServlet: self.parametersBatch.stservlet, cipherKey: self.parametersBatch.cipherKey, docId: self.parametersBatch.identifier, completion: { response, errorInfo in
+        
+        guard let cipherSign = DesCypher.cypherData(data, sk: self.parametersBatch.cipherKey.data(using: .utf8)!) else {
+            sendError(errorInfo: ErrorCodes.InternalSoftwareErrorCodes.jsonBatchCipherSignError.info)
+            return
+        }
+        
+        guard let cipherCertificate = CipherUtils.cipherCertificateSend(certificateData: getCertificateData(), cipherKey: self.parametersBatch.cipherKey) else {
+            sendError(errorInfo: ErrorCodes.InternalSoftwareErrorCodes.jsonBatchCipherCertificateError.info)
+            return
+        }
+        
+        let cipherData = "\(cipherSign)|\(cipherCertificate)"
+        
+        IntermediateServerRest().uploadData(dataUpload: cipherData, stServlet: self.parametersBatch.stservlet, docId: self.parametersBatch.identifier, completion: { result in
             
             if let completionHandler = self.completionHandler {
-                if let error = errorInfo {
-                    self.sendError(errorInfo: error)
-                } else {
+                switch result {
+                case .success():
                     completionHandler(self.responseMessage, nil)
+                case .failure(let errorInfo):
+                    self.sendError(errorInfo: errorInfo);
                 }
-                
             }
         })
     }

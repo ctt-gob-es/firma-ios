@@ -12,13 +12,14 @@ NSString *const OPERATION_SIGN = @"sign";
 NSString *const OPERATION_SELECT_CERTIFICATE = @"selectcert";
 NSString *const OPERATION_COSIGN = @"cosign";
 NSString *const OPERATION_COUNTERSIGN = @"countersign";
+NSString *const OPERATION_SAVE = @"save";
+NSString *const OPERATION_BATCH = @"batch";
+
 NSString *const OPERATION_PRESIGN = @"pre";
 NSString *const OPERATION_POSTSIGN = @"post";
 NSString *const OPERATION_PUT = @"put";
 NSString *const OPERATION_GET = @"get";
-NSString *const OPERATION_BATCH = @"batch";
-NSString *const OPERATION_SAVE = @"save";
-NSString *const OPERATION_SIGN_FROM_LOCAL = @"localsign";
+
 
 NSString *const PARAMETER_NAME_OPERATION = @"op";
 NSString *const PARAMETER_NAME_COPERATION = @"cop";

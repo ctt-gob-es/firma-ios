@@ -46,12 +46,12 @@ struct ErrorModalView: View {
 		  }
 		  
 		  VStack(alignment: .leading, spacing: 10) {
-			 AccessibleText(content: errorInfo.errorModalType.title)
+			 AccessibleText(content: errorInfo.screenErrorTitle)
 				.titleStyleBlack(foregroundColor: ColorConstants.Text.primary)
 				.accessibilityAddTraits(.isHeader)
 				.padding(.bottom)
 			 
-                AccessibleText(content: description == "" ? "\(errorInfo.code) - \(errorInfo.errorModalType.description)" : description)
+                AccessibleText(content: description == "" ? errorInfo.screenErrorMessage : description)
 				.regularStyle(foregroundColor: ColorConstants.Text.secondary)
 		  }
 		  .frame(maxWidth: .infinity, alignment: .leading)
@@ -113,6 +113,7 @@ struct ErrorModalView: View {
 struct GlobalErrorButtons: View {
     @Binding var viewMode: ViewModes
     @Binding var shouldReload: Bool
+    
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
 	   VStack(spacing: 8) {
@@ -126,7 +127,7 @@ struct GlobalErrorButtons: View {
 		  Button(action: {
 			 DispatchQueue.main.async {
 				viewMode = .home
-				shouldReload = false
+                    shouldReload = false
 			 }
 			 self.presentationMode.wrappedValue.dismiss()
 		  }) {

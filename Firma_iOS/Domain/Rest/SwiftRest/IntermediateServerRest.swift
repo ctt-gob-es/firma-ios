@@ -15,7 +15,8 @@ protocol IntermediateServletRestDelegate {
 
 class IntermediateServerRest {
     
-    func downloadDataFromRtservlet(
+    // Este metodo no se deberia ejecutar. No creo que exista en el servidor intermedio
+    func downloadDataJSON(
        rtServlet: String?,
        fileId: String?,
        completion: @escaping ([String:Any]?, ErrorInfo?) -> Void
@@ -52,7 +53,7 @@ class IntermediateServerRest {
                         completion(json, nil)
                     } else {
                         // Si no es un diccionario, lanzamos un error.
-                        completion(nil, ErrorCodes.ThirdPartySoftwareErrorCodes.intermediateServerDownloadErrorResponseFormatDictionary.info)
+                        completion(nil, ErrorCodes.ThirdPartySoftwareErrorCodes.intermediateServerDownloadErrorResponseFormat.info)
                         
                     }
                 } catch {
@@ -66,12 +67,60 @@ class IntermediateServerRest {
         
     }
     
+    func downloadDataXML(
+       rtServlet: String?,
+       fileId: String?,
+       completion: @escaping (Result<Data, ErrorInfo>) -> Void
+    ) {
+        let parameters = [
+            PARAMETER_NAME_OPERATION: OPERATION_GET,
+            PARAMETER_NAME_VERSION: PARAMETER_NAME_VERSION_1_0,
+            PARAMETER_NAME_ID: fileId ?? ""
+        ]
+        
+        if let request = NetworkUtility.shared.createPostRequest(url: rtServlet!, parameters: parameters) {
+            let session = NetworkManager.shared.getSession()
+            let task = session.dataTask(with: request) { data, response, error in
+              
+                if let _ = error {
+                    completion(.failure( ErrorCodes.CommunicationErrorCodes.jsonBatchDownloadErrorConnection.info))
+                    return
+                }
+                
+                if let httpResponse = response as? HTTPURLResponse, !(200...299).contains(httpResponse.statusCode) {
+                    completion(.failure( ErrorCodes.ThirdPartySoftwareErrorCodes.intermediateServerDownloadErrorHttpResponse.info))
+                    return
+                }
+                
+                guard let data = data else {
+                    completion(.failure( ErrorCodes.ThirdPartySoftwareErrorCodes.intermediateServerDownloadErrorResponseFormat.info))
+                    return
+                }
+                
+                completion(.success(data))
+                
+           }
+           task.resume()
+        }
+        
+    }
+    
+    /*func storeData(dataString: String, certificateBase64: String?, stServlet: String, cipherKey: String, docId: String, completion: @escaping (ErrorInfo?) -> Void) {
+        
+        guard let data = Base64Utils.decode(dataString, urlSafe: true) else {
+            completion(ErrorCodes.InternalSoftwareErrorCodes.generalSoftwareError.info)
+            return
+        }
+        
+        storeData(data: data, certificateBase64: certificateBase64, stServlet: stServlet, cipherKey: cipherKey, docId: docId, completion: completion)
+    }
+    
     func storeData(data: Data, certificateBase64: String?, stServlet: String,
-                   cipherKey: String, docId: String, completion: @escaping (String?, ErrorInfo?) -> Void) {
+                   cipherKey: String, docId: String, completion: @escaping (ErrorInfo?) -> Void) {
         
         // Cypher sign
         guard let encryptedSignDataB64 = DesCypher.cypherData(data, sk: cipherKey.data(using: .utf8)!) else {
-            completion(nil, ErrorCodes.InternalSoftwareErrorCodes.jsonBatchOperationCypherData.info)
+            completion(ErrorCodes.InternalSoftwareErrorCodes.jsonBatchOperationCypherData.info)
             return
         }
         
@@ -81,12 +130,12 @@ class IntermediateServerRest {
             // Cypher certificate
             let certificateString = Base64Utils.urlSafeEncode(certificateBase64)
             guard let dataCertificate = Base64Utils.decode(certificateString, urlSafe: true) else {
-                completion(nil, ErrorCodes.InternalSoftwareErrorCodes.jsonBatchOperationCypherCertificate.info)
+                completion(ErrorCodes.InternalSoftwareErrorCodes.jsonBatchOperationCypherCertificate.info)
                 return
             }
             
             guard let encryptedCertificateDataB64 = DesCypher.cypherData(dataCertificate, sk: cipherKey.data(using: .utf8)!) else {
-                completion(nil, ErrorCodes.InternalSoftwareErrorCodes.jsonBatchOperationCypherCertificate.info)
+                completion(ErrorCodes.InternalSoftwareErrorCodes.jsonBatchOperationCypherCertificate.info)
                 return
             }
             
@@ -94,14 +143,14 @@ class IntermediateServerRest {
         }
         
         uploadDataIntermediateServer(dataUpload: encryptedDataB64, stServlet: stServlet, docId: docId, completion: completion)
-    }
+    }*/
     
-    func storeDataError(error: String, stServlet: String, docId: String, completion: @escaping (String?, ErrorInfo?) -> Void) {
+    func storeDataError(error: ErrorInfo, stServlet: String, docId: String, completion: @escaping (Result<Void, ErrorInfo>) -> Void) {
         
-        uploadDataIntermediateServer(dataUpload: error, stServlet: stServlet, docId: docId, completion: completion)
+        uploadData(dataUpload: error.serverErrorMessage, stServlet: stServlet, docId: docId, completion: completion)
     }
     
-    private func uploadDataIntermediateServer(dataUpload: String, stServlet: String, docId: String, completion: @escaping (String?, ErrorInfo?) -> Void) {
+    func uploadData(dataUpload: String, stServlet: String, docId: String, completion: @escaping (Result<Void, ErrorInfo>) -> Void) {
         
          let parameters = [
              PARAMETER_NAME_OPERATION: OPERATION_PUT,
@@ -115,25 +164,22 @@ class IntermediateServerRest {
              let task = session.dataTask(with: request) { data, response, error in
                
                  if let _ = error {
-                     completion(nil,ErrorCodes.CommunicationErrorCodes.jsonBatchUploadErrorConnection.info)
+                     completion(.failure(ErrorCodes.CommunicationErrorCodes.jsonBatchUploadErrorConnection.info))
                      return
                  }
                  
                  if let httpResponse = response as? HTTPURLResponse, !(200...299).contains(httpResponse.statusCode) {
-                     completion(nil,ErrorCodes.ThirdPartySoftwareErrorCodes.intermediateServerDownloadErrorHttpResponse.info)
+                     completion(.failure(ErrorCodes.ThirdPartySoftwareErrorCodes.intermediateServerDownloadErrorHttpResponse.info))
                      return
                  }
                  
-                 guard let data = data else {
-                     completion(nil,ErrorCodes.ThirdPartySoftwareErrorCodes.intermediateServerDownloadErrorResponseFormat.info)
+                 guard let data = data,  let responseString = String(data: data, encoding: .utf8), responseString.hasPrefix("OK") else {
+                     completion(.failure(ErrorCodes.ThirdPartySoftwareErrorCodes.intermediateServerDownloadErrorResponseFormat.info))
                      return
                  }
                  
-                 if let response = String(data: data, encoding: .utf8) {
-                     completion(response, nil)
-                 } else {
-                     completion(nil,ErrorCodes.ThirdPartySoftwareErrorCodes.intermediateServerDownloadErrorResponseFormat.info)
-                 }
+                 completion(.success(()))
+                 
             }
             task.resume()
          }

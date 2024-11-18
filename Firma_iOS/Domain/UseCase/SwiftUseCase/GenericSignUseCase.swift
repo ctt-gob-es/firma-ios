@@ -14,7 +14,7 @@ class GenericSignUseCase {
     
     var signModel: SignModel
     
-    var completionCallback: ((Result<Bool, Error>) -> Void)?
+    var completionCallback: ((Result<Bool, ErrorInfo>) -> Void)?
     
     init(signModel: SignModel) {
 	   self.signModel = signModel
@@ -29,7 +29,7 @@ class GenericSignUseCase {
     }
     
     
-    func singleSign(completion: @escaping (Result<Bool, Error>) -> Void) {
+    func singleSign(completion: @escaping (Result<Bool, ErrorInfo>) -> Void) {
 	   self.completionCallback = completion
 	   if validateData() {
 		  configure()
@@ -51,22 +51,22 @@ class GenericSignUseCase {
 	   ]
 	   
 	   guard let signFormat = signModel.signFormat, supportedFormats.contains(signFormat) else {
-		  self.handleSignError(error: ErrorCodes.ServerErrorCodes.unsupportedSignatureFormat)
+            sendError(error: ErrorCodes.ServerErrorCodes.unsupportedSignatureFormat)
 		  return false
 	   }
 	   
 	   guard let urlServlet = signModel.urlServlet, !urlServlet.isEmpty else {
-		  self.handleSignError(error: ErrorCodes.ServerErrorCodes.unknownOperation)
+            sendError(error: ErrorCodes.ServerErrorCodes.unknownOperation)
 		  return false
 	   }
 	   
 	   guard let signAlgoInUse = signModel.signAlgoInUse, CADESSignUtils.isValidAlgorithm(signAlgoInUse) else {
-		  self.handleSignError(error: ErrorCodes.ServerErrorCodes.unsupportedSignatureAlgorithm)
+		  sendError(error: ErrorCodes.ServerErrorCodes.unsupportedSignatureAlgorithm)
 		  return false
 	   }
 	   
 	   guard let docId = signModel.docId, !docId.isEmpty else {
-		  self.handleSignError(error: ErrorCodes.ServerErrorCodes.missingDocumentID)
+		  sendError(error: ErrorCodes.ServerErrorCodes.missingDocumentID)
 		  return false
 	   }
 	   
@@ -74,7 +74,7 @@ class GenericSignUseCase {
 		    operation == OPERATION_SIGN ||
 		    operation == OPERATION_COSIGN ||
 		    operation == OPERATION_COUNTERSIGN else {
-            self.handleSignError(error: ErrorCodes.ServerErrorCodes.invalidSubOperation)
+            sendError(error: ErrorCodes.ServerErrorCodes.invalidSubOperation)
 		  return false
 	   }
 	   
@@ -86,12 +86,12 @@ class GenericSignUseCase {
 			 let validTargets = [PARAMETER_NAME_TARGET_TREE, PARAMETER_NAME_TARGET_LEAFS]
 			 if !validTargets.contains(target) {
 				let error = ErrorGenerator.generateError(from: ServerErrorCodes.invalidAdditionalParamsFormat)
-				self.handleSignError(error: error, completion: self.completionCallback!)
+				sendError(error: error, completion: self.completionCallback!)
 				return false
 			 }
 		  } else {
 			 let error = ErrorGenerator.generateError(from: ServerErrorCodes.invalidAdditionalParamsFormat)
-			 self.handleSignError(error: error, completion: self.completionCallback!)
+			 sendError(error: error, completion: self.completionCallback!)
 			 return false
 		  }
 	   }*/
@@ -120,19 +120,19 @@ class GenericSignUseCase {
 	   guard let datosInUse = signModel.datosInUse,
 		    let _ = signModel.signFormat,
 		    let signAlgoInUse = signModel.signAlgoInUse else {
-            handleSignError(error: ErrorCodes.InternalSoftwareErrorCodes.signingError)
+            sendError(error: ErrorCodes.InternalSoftwareErrorCodes.signingError)
 		  return
 	   }
 	   
 	   guard let decodedDatosInUse = Base64Utils.decode(datosInUse, urlSafe: true) else {
-            handleSignError(error: ErrorCodes.InternalSoftwareErrorCodes.signingError)
+            sendError(error: ErrorCodes.InternalSoftwareErrorCodes.signingError)
 		  return
 	   }
 	   
 	   guard let pkcs1 = getPKCS1Sign(dataToSign: decodedDatosInUse, algorithm: signAlgoInUse),
 		    let encodedPKCS1 = Base64Utils.encode(pkcs1, urlSafe: true)
 	   else {
-            handleSignError(error: ErrorCodes.InternalSoftwareErrorCodes.signingError)
+            sendError(error: ErrorCodes.InternalSoftwareErrorCodes.signingError)
 		  return
 	   }
 	   
@@ -145,7 +145,7 @@ class GenericSignUseCase {
 		    let signFormat = signModel.signFormat,
 		    let signAlgoInUse = signModel.signAlgoInUse,
 		    let certificateData = getCertificateData() else {
-            handleSignError(error: ErrorCodes.InternalSoftwareErrorCodes.signingError)
+            sendError(error: ErrorCodes.InternalSoftwareErrorCodes.signingError)
 		  return
 	   }
 	   
@@ -163,14 +163,14 @@ class GenericSignUseCase {
 				self.handlePresingResult(result: result)
 			 })
 	   } else {
-            handleSignError(error: ErrorCodes.InternalSoftwareErrorCodes.appConfigurationError)
+            sendError(error: ErrorCodes.InternalSoftwareErrorCodes.appConfigurationError)
 	   }
     }
     
     private func handlePresingResult(result: Result<String, Error>) {
 	   guard let signFormat = signModel.signFormat,
 		    let signAlgoInUse = signModel.signAlgoInUse else {
-            handleSignError(error: ErrorCodes.FunctionalErrorCodes.signatureOperationError)
+            sendError(error: ErrorCodes.FunctionalErrorCodes.signatureOperationError)
 		  return
 	   }
 	   
@@ -181,7 +181,8 @@ class GenericSignUseCase {
 			 } else {
 				if let range = serverResponse.range(of: ":") {
                         let errorCodeServer = String(serverResponse[..<range.lowerBound])
-                        handleSignError(error: ErrorCodes.getServerError(codigo: errorCodeServer))
+                        sendError(error: ErrorCodes.getServerError(codigo: errorCodeServer))
+                        return
 				}
 			 }
 			 
@@ -191,14 +192,15 @@ class GenericSignUseCase {
 				    signFormat: signFormat
 				  )  else {
 				if self is SingleSignUseCase {
-                        handleSignError(error: ErrorCodes.InternalSoftwareErrorCodes.signingError)
+                        sendError(error: ErrorCodes.InternalSoftwareErrorCodes.signingError)
+                        return
 				}
 				return
 			 }
 			 postsign(encodedData: pkcs1)
 			 
 		  case .failure(_):
-			 handleSignError(error: ErrorCodes.CommunicationErrorCodes.threePhaseSignatureError)
+			 sendError(error: ErrorCodes.CommunicationErrorCodes.threePhaseSignatureError)
 	   }
     }
     
@@ -208,7 +210,7 @@ class GenericSignUseCase {
 		    let signFormat = signModel.signFormat,
 		    let signAlgoInUse = signModel.signAlgoInUse,
 		    let certificateData = getCertificateData() else {
-            handleSignError(error: ErrorCodes.CommunicationErrorCodes.signatureUploadError)
+            sendError(error: ErrorCodes.CommunicationErrorCodes.signatureUploadError)
 		  return
 	   }
 	   postSign(
@@ -238,22 +240,26 @@ class GenericSignUseCase {
 					   let parte2 = String(responseString[range.upperBound...])
 					   storeData(dataSign: parte2)
 				    } else {
-                            handleSignError(error: ErrorCodes.FunctionalErrorCodes.signatureOperationError)
+                            sendError(error: ErrorCodes.FunctionalErrorCodes.signatureOperationError)
+                            return
 				    }
 				} else {
                         if let range = responseString.range(of: ":") {
                             let errorCodeServer = String(responseString[..<range.lowerBound])
-                            handleSignError(error: ErrorCodes.getServerError(codigo: errorCodeServer))
+                            sendError(error: ErrorCodes.getServerError(codigo: errorCodeServer))
+                            return
 				    } else {
-                            handleSignError(error: ErrorCodes.FunctionalErrorCodes.signatureOperationError)
+                            sendError(error: ErrorCodes.FunctionalErrorCodes.signatureOperationError)
+                            return
 				    }
 				}
 			 } else {
-                    handleSignError(error: ErrorCodes.FunctionalErrorCodes.signatureOperationError)
+                    sendError(error: ErrorCodes.FunctionalErrorCodes.signatureOperationError)
+                    return
 			 }
 			 
 		  case .failure(_):
-                handleSignError(error: ErrorCodes.CommunicationErrorCodes.threePhaseSignatureError)
+                sendError(error: ErrorCodes.CommunicationErrorCodes.threePhaseSignatureError)
 	   }
     }
     
@@ -411,11 +417,22 @@ class GenericSignUseCase {
 	   }
     }*/
     
-    func handleSignError(error: ErrorCodeProtocol) {
-	   print(error)
-        if let completionCallback = completionCallback {
-            completionCallback(.failure(error.info))
+    private func sendError(error: ErrorCodeProtocol) {
+        sendError(error: error.info)
+    }
+    
+    private func sendError(error: ErrorInfo) {
+        guard let urlServlet = signModel.urlServlet,
+             let docId = signModel.docId else {
+           return
         }
+        
+        IntermediateServerRest().storeDataError(error: error, stServlet: urlServlet, docId: docId, completion: { _ in
+            // Tanto si pudimos guardar en el servidor intermedio como no, devolvemos el error original
+            if let completionCallback = self.completionCallback {
+                completionCallback(.failure(error))
+            }
+        })
     }
     
     func handleRetryWithPassword() {
@@ -432,28 +449,27 @@ class GenericSignUseCase {
 		  return
 	   }
 	   
-	   let storeDataUseCase = StoreDataUseCase(
-		  urlServlet: urlServlet,
-		  cipherKey: cipherKey,
-		  docId: docId,
-		  base64UrlSafeCertificateData: certificateData
-	   )
-	   
-	   storeDataUseCase.storeData(dataSign: dataSign, completion: { result in
+        guard let cipherSign = CipherUtils.cipherDataSend(dataString: dataSign, cipherKey: cipherKey) else {
+            sendError(error: ErrorCodes.InternalSoftwareErrorCodes.signingCipherSignError)
+            return
+        }
+        
+        guard let cipherCertificate = CipherUtils.cipherCertificateSend(certificateData: certificateData, cipherKey: cipherKey) else {
+            sendError(error: ErrorCodes.InternalSoftwareErrorCodes.signingCipherCertificateError)
+            return
+        }
+        
+        let cipherData = "\(cipherCertificate)|\(cipherSign)"
+        
+        IntermediateServerRest().uploadData(dataUpload: cipherData, stServlet: urlServlet, docId: docId) { result in
 		  switch result {
-            case .success(let storeDataServerResponse):
-                if let response = String(data: storeDataServerResponse, encoding: .utf8) {
-                    if response == OK {
-                        if let completionCallback = self.completionCallback {
-                            completionCallback(.success(false))
-                        }
-                    } else {
-                        self.handleSignError(error: ErrorCodes.CommunicationErrorCodes.dataSavingUploadError)
-                    }
+            case .success():
+                if let completionCallback = self.completionCallback {
+                    completionCallback(.success(false))
                 }
-            case .failure(_):
-                self.handleSignError(error: ErrorCodes.CommunicationErrorCodes.dataSavingUploadError)
+            case .failure(let errorInfo):
+                self.sendError(error: errorInfo);
 		  }
-	   })
+	   }
     }
 }

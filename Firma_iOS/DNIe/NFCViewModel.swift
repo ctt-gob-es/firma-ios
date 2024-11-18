@@ -59,21 +59,14 @@ class NFCViewModel: NSObject, ObservableObject {
 				DispatchQueue.main.async {
 				    NotificationCenter.default.post(name: .DNIeSuccess, object: "")
 				}
-			 case .failure(let error):
-                    var errorInfo = ErrorCodes.InternalSoftwareErrorCodes.generalSoftwareError.info
-                    if let errorAux = error as? ErrorInfo {
-                        errorInfo = errorAux
-                    }
-                
-				let nsError = error as NSError
-				DispatchQueue.main.async {
+			 case .failure(let errorInfo):
+                    DispatchQueue.main.async {
 				    NotificationCenter.default.post(
 					   name: .DNIeError,
 					   object: nil,
 					   userInfo: ["errorInfo": errorInfo]
 				    )
 				}
-				self.handleError(error: errorInfo)
 		  }
 	   })
     }
@@ -96,7 +89,6 @@ class NFCViewModel: NSObject, ObservableObject {
                            userInfo: ["errorInfo": errorInfo]
                         )
                     }
-                    self.handleError(error: errorInfo)
                     
                 } else {
                     // El proceso batch se ejecuto correctamente. Devolvemos el string correspondiente en fucnoin de si se firmaron correctamente todas las firmas, algunas o ninguna
@@ -114,24 +106,6 @@ class NFCViewModel: NSObject, ObservableObject {
     func invalidateSession(errorMessage: String) {
 	   self.dniSingleSignUseCase?.wrapper?.nfcSessionManager?.nfcSession?.invalidate(errorMessage: errorMessage)
         self.dniBatchSignUseCase?.wrapper?.nfcSessionManager?.nfcSession?.invalidate(errorMessage: errorMessage)
-    }
-    
-    private func handleError(error: Error) {
-	   let reportErrorUseCase = ReportErrorUseCase()
-	   reportErrorUseCase.reportErrorAsync(
-		  urlServlet: signModel.urlServlet,
-		  docId: signModel.docId,
-		  error: ErrorHandlerUtils.getServerError(error: error as NSError)
-	   ) { result in
-		  switch result {
-			 case .success(let errorFromServer):
-				if let response = String(data: errorFromServer, encoding: .utf8) {
-				    print("Server response from reportError: " + response)
-				}
-			 case .failure(let error):
-				print("Server error from reportError: " + error.localizedDescription)
-		  }
-	   }
     }
 
 }
