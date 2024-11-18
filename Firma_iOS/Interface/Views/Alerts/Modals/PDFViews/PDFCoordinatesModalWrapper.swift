@@ -132,7 +132,9 @@ struct PDFCoordinatesModalWrapper: View {
 				    Image(systemName: "arrow.counterclockwise")
 				}
 				Button(action: {
-				    presentationMode.wrappedValue.dismiss()
+				    if !annotations.isEmpty {
+					   presentationMode.wrappedValue.dismiss()
+				    }
 				}) {
 				    Image(systemName: "checkmark")
 				}
