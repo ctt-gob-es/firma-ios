@@ -157,11 +157,17 @@ class HomeViewModel: ObservableObject {
         if nfcEnabled {
             showSelectSignMode = true
         } else {
-            areCertificatesSelectable = true
-            signMode = .electronicCertificate
-		  if let visibleSingature = self.signModel?.visibleSignature,
-		  visibleSingature {
-			 self.showSignCoordinatesModal = true
+		  if let certificates = certificates,
+			certificates.isEmpty {
+			 viewMode = .home
+			 showError(errorInfo: ErrorCodes.FunctionalErrorCodes.certificateNeeded.info)
+		  } else {
+			 areCertificatesSelectable = true
+			 signMode = .electronicCertificate
+			 if let visibleSingature = self.signModel?.visibleSignature,
+			 visibleSingature {
+				self.showSignCoordinatesModal = true
+			 }
 		  }
         }
     }
@@ -229,7 +235,13 @@ class HomeViewModel: ObservableObject {
             selectSignMode()
             return
         } else if signMode == .electronicCertificate {
-            handleOperationSignWithElectronicCertificate()
+		  if let certificates = certificates,
+			certificates.isEmpty {
+			 viewMode = .home
+			 showError(errorInfo: ErrorCodes.FunctionalErrorCodes.certificateNeeded.info)
+		  } else {
+			 handleOperationSignWithElectronicCertificate()
+		  }
         }
     }
     
