@@ -22,18 +22,18 @@ protocol DNIeResult {
 class SwiftDNIeWrapper : IOSNFCSessionDelegate{
     private var connection: EsGobJmulticardConnectionApduConnection?
     private var callbackHandler: IOSCallbackHandler
-    var nfcSessionManager: IOSNFCSessionManager?
+    var nfcSessionManager: IOSNFCSessionManager
     private var dniResult: DNIeResult?
     
     init(can: String, pin: String) {
 	   self.callbackHandler = IOSCallbackHandler(can: can, pin: pin)
 	   self.nfcSessionManager = IOSNFCSessionManager()
-	   nfcSessionManager?.delegate = self
+	   nfcSessionManager.delegate = self
     }
     
     func getDNIe(completion: DNIeResult ) {
 	   self.dniResult = completion
-	   nfcSessionManager?.beginSession()
+	   nfcSessionManager.beginSession()
     }
     
     func didInvalidateNFCSession(with error: any Error) {

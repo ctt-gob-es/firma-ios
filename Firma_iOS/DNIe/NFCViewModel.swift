@@ -55,8 +55,8 @@ class NFCViewModel: NSObject, ObservableObject {
 		  switch result {
 			 case .success(let success):
                     let modalState = SuccessModalState.successSign
-                    self.dniSingleSignUseCase?.wrapper?.nfcSessionManager?.nfcSession?.alertMessage = modalState.description
-				self.dniSingleSignUseCase?.wrapper?.nfcSessionManager?.nfcSession?.invalidate()
+                    self.dniSingleSignUseCase?.wrapper?.nfcSessionManager.nfcSession?.alertMessage = modalState.description
+				self.dniSingleSignUseCase?.wrapper?.nfcSessionManager.nfcSession?.invalidate()
 				DispatchQueue.main.async {
                         NotificationCenter.default.post(name: .DNIeSuccess, object: modalState)
 				}
@@ -86,8 +86,8 @@ class NFCViewModel: NSObject, ObservableObject {
                 case .success(let resultBatch):
                     let successModalState = self.getSuccessModal(resultBatch)
                     
-                    self.dniBatchSignUseCase?.wrapper?.nfcSessionManager?.nfcSession?.alertMessage = successModalState.description
-                    self.dniBatchSignUseCase?.wrapper?.nfcSessionManager?.nfcSession?.invalidate()
+                    self.dniBatchSignUseCase?.wrapper?.nfcSessionManager.nfcSession?.alertMessage = successModalState.description
+                    self.dniBatchSignUseCase?.wrapper?.nfcSessionManager.nfcSession?.invalidate()
                     DispatchQueue.main.async {
                        NotificationCenter.default.post(name: .DNIeSuccess, object: successModalState)
                     }
@@ -118,8 +118,8 @@ class NFCViewModel: NSObject, ObservableObject {
     }
     
     func invalidateSession(errorMessage: String) {
-	   self.dniSingleSignUseCase?.wrapper?.nfcSessionManager?.nfcSession?.invalidate(errorMessage: errorMessage)
-        self.dniBatchSignUseCase?.wrapper?.nfcSessionManager?.nfcSession?.invalidate(errorMessage: errorMessage)
+	   self.dniSingleSignUseCase?.wrapper?.nfcSessionManager.nfcSession?.invalidate(errorMessage: errorMessage)
+        self.dniBatchSignUseCase?.wrapper?.nfcSessionManager.nfcSession?.invalidate(errorMessage: errorMessage)
     }
 
 }

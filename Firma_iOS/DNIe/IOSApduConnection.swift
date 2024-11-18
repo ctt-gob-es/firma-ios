@@ -7,14 +7,14 @@ class StateAPDUCommand {
 }
 
 class IOSApduConnection: EsGobJmulticardConnectionAbstractApduConnectionIso7816 {
-    private var nfcTag: NFCISO7816Tag?
-    private var nfcSession: IOSNFCSessionManager?
+    private var nfcTag: NFCISO7816Tag
+    private var nfcSession: IOSNFCSessionManager
     private var semaphore = DispatchSemaphore(value: 0)
     private var firstReset = true
     
     // MARK: - Init with tag & reader session
-    init(tag: NFCISO7816Tag?,
-	    nfcSession: IOSNFCSessionManager?) {
+    init(tag: NFCISO7816Tag,
+	    nfcSession: IOSNFCSessionManager) {
 	   self.nfcTag = tag
 	   self.nfcSession = nfcSession
     }
@@ -24,7 +24,7 @@ class IOSApduConnection: EsGobJmulticardConnectionAbstractApduConnectionIso7816 
     
     // MARK: - Cerrar conexión JMulticard
     override func close() {
-	   nfcSession?.nfcSession?.invalidate()
+	   nfcSession.nfcSession?.invalidate()
     }
     
     // MARK: - Implementación de EsGobJmulticardConnectionApduConnection
@@ -105,20 +105,19 @@ class IOSApduConnection: EsGobJmulticardConnectionAbstractApduConnectionIso7816 
     
     private func getNFCTagData() -> IOSByteArray? {
 	   var byteArray: IOSByteArray?
-	   if nfcTag != nil {
-		  if let historicalBytes = IOSByteArray(nsData: nfcTag?.historicalBytes) {
-			 byteArray = historicalBytes
-			 if byteArray?.length() ?? 0 > 0 {
-				print("Historical Bytes: " + (byteArray?.description ?? ""))
-			 }
-		  }
-		  if let applicationData = IOSByteArray(nsData: nfcTag?.applicationData) {
-			 byteArray = applicationData
-			 if byteArray?.length() ?? 0 > 0 {
-				print("Application Data Bytes: " + (byteArray?.description ?? ""))
-			 }
-		  }
-	   }
+	   
+        if let historicalBytes = IOSByteArray(nsData: nfcTag.historicalBytes) {
+            byteArray = historicalBytes
+            if byteArray?.length() ?? 0 > 0 {
+                print("Historical Bytes: " + (byteArray?.description ?? ""))
+            }
+        }
+        if let applicationData = IOSByteArray(nsData: nfcTag.applicationData) {
+            byteArray = applicationData
+            if byteArray?.length() ?? 0 > 0 {
+                print("Application Data Bytes: " + (byteArray?.description ?? ""))
+            }
+        }
 	   
 	   return byteArray
     }
@@ -126,7 +125,7 @@ class IOSApduConnection: EsGobJmulticardConnectionAbstractApduConnectionIso7816 
     private func sendResetCardCommand() async throws -> IOSByteArray? {
 	   let apduData = Data([0x00, 0xA4, 0x00, 0x00])
 	   guard let apdu = NFCISO7816APDU(data: apduData) else {
-		  throw ErrorGenerator.generateError(from: HardwareErrorCodes.nfcCardError)
+            throw ErrorCodes.HardwareErrorCodes.nfcCardResetError.info
 	   }
 	   
 	   do {
@@ -164,16 +163,11 @@ class IOSApduConnection: EsGobJmulticardConnectionAbstractApduConnectionIso7816 
     //MARK: Send Native APDU and retrieve an IOSByteArray
     private func sendApdu(apdu: NFCISO7816APDU) async throws -> IOSByteArray? {
 	   return try await withCheckedThrowingContinuation { continuation in
-		  guard let nfcTag = nfcTag else {
-			 continuation.resume(throwing: ErrorGenerator.generateError(from: HardwareErrorCodes.nfcError))
-			 return
-		  }
-		  
 		  LogUtils.printNativeAPDUCommand(apduCommand: apdu)
 		  
 		  nfcTag.sendCommand(apdu: apdu) { (responseData, sw1, sw2, error) in
 			 if let _ = error as? NFCReaderError {
-				continuation.resume(throwing: ErrorGenerator.generateError(from: HardwareErrorCodes.nfcError))
+				continuation.resume(throwing: ErrorCodes.HardwareErrorCodes.nfcCardSendCommandError.info)
 				return
 			 }
 			 
