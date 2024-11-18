@@ -159,6 +159,10 @@ class HomeViewModel: ObservableObject {
         } else {
             areCertificatesSelectable = true
             signMode = .electronicCertificate
+		  if let visibleSingature = self.signModel?.visibleSignature,
+		  visibleSingature {
+			 self.showSignCoordinatesModal = true
+		  }
         }
     }
     
