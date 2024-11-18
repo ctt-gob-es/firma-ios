@@ -2492,7 +2492,6 @@
 		83904CCE2CA43754005F345B /* IOSNFCSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83904CCD2CA43754005F345B /* IOSNFCSessionManager.swift */; };
 		83939A742C5CEA6A009FDE6E /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83939A732C5CEA6A009FDE6E /* MainViewModel.swift */; };
 		83939A782C5D01A4009FDE6E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83939A772C5D01A4009FDE6E /* HomeViewModel.swift */; };
-		8393EDF32CDCEA1F00BA2051 /* ServerErrorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EDF22CDCEA1F00BA2051 /* ServerErrorCodes.swift */; };
 		8393EDF62CE2098200BA2051 /* PDFCoordinatesModalWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EDF52CE2098200BA2051 /* PDFCoordinatesModalWrapper.swift */; };
 		8393EDF82CE209D200BA2051 /* DisabledInteractionPDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EDF72CE209D200BA2051 /* DisabledInteractionPDF.swift */; };
 		8393EDFE2CE356EA00BA2051 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EDFD2CE356EA00BA2051 /* ToastView.swift */; };
@@ -2507,7 +2506,6 @@
 		8393EEDD2C59037E009FDE6E /* SettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EEDC2C59037E009FDE6E /* SettingsRow.swift */; };
 		8393EEDF2C590387009FDE6E /* SettingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EEDE2C590387009FDE6E /* SettingsHeaderView.swift */; };
 		83A5EDBD2C5255DD00F93B6D /* BachRestIOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5EDBB2C5255DD00F93B6D /* BachRestIOS.m */; };
-		83A5EDC02C527E6F00F93B6D /* ErrorHandlerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A5EDBF2C527E6F00F93B6D /* ErrorHandlerUtils.swift */; };
 		83A5EDC22C53B4BB00F93B6D /* SwiftCertificateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A5EDC12C53B4BB00F93B6D /* SwiftCertificateUtils.swift */; };
 		83A5EDC42C53C02100F93B6D /* PseudonymModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A5EDC32C53C02100F93B6D /* PseudonymModalView.swift */; };
 		83A5EDC62C53E2F600F93B6D /* SaveDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A5EDC52C53E2F600F93B6D /* SaveDataUseCase.swift */; };
@@ -2654,17 +2652,7 @@
 		83C471BC2CBD111B006CF7A7 /* GenericSignUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C471BB2CBD111B006CF7A7 /* GenericSignUseCase.swift */; };
 		83D3900A2CA544BA00D16BA6 /* LogUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D390092CA544BA00D16BA6 /* LogUtils.swift */; };
 		83D3900C2CA5455200D16BA6 /* ByteArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D3900B2CA5455200D16BA6 /* ByteArrayUtils.swift */; };
-		83DB247E2CBE727600D1DD8C /* DNIeErrorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DB247D2CBE727500D1DD8C /* DNIeErrorCodes.swift */; };
 		83DB24802CBFCD6900D1DD8C /* HomeViewBindings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DB247F2CBFCD6900D1DD8C /* HomeViewBindings.swift */; };
-		83DB24822CBFD11C00D1DD8C /* GenericErrorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DB24812CBFD11C00D1DD8C /* GenericErrorCodes.swift */; };
-		83DB24852CBFD90900D1DD8C /* HardwareErrorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DB24842CBFD90900D1DD8C /* HardwareErrorCodes.swift */; };
-		83DB24872CBFD91700D1DD8C /* InternalSoftwareErrorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DB24862CBFD91700D1DD8C /* InternalSoftwareErrorCodes.swift */; };
-		83DB24892CBFD92700D1DD8C /* ThirdPartyErrorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DB24882CBFD92700D1DD8C /* ThirdPartyErrorCodes.swift */; };
-		83DB248B2CBFD94300D1DD8C /* FunctionalErrorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DB248A2CBFD94300D1DD8C /* FunctionalErrorCodes.swift */; };
-		83DB248D2CBFD95000D1DD8C /* RequestErrorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DB248C2CBFD95000D1DD8C /* RequestErrorCodes.swift */; };
-		83DB248F2CBFD97800D1DD8C /* CommunicationErrorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DB248E2CBFD97800D1DD8C /* CommunicationErrorCodes.swift */; };
-		83DB24922CBFD9F500D1DD8C /* ErrorGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DB24912CBFD9F500D1DD8C /* ErrorGenerator.swift */; };
-		83DB24942CBFDB5E00D1DD8C /* ErrorDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DB24932CBFDB5E00D1DD8C /* ErrorDomain.swift */; };
 		83DF46762C4876D6000C3F31 /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF46752C4876D6000C3F31 /* ViewUtils.swift */; };
 		83DF467B2C48F084000C3F31 /* AddCertificateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF467A2C48F084000C3F31 /* AddCertificateView.swift */; };
 		83DF467D2C490E2E000C3F31 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF467C2C490E2E000C3F31 /* FileUtils.swift */; };
@@ -2688,8 +2676,6 @@
 		83EF14CF2C465EDF003EC42A /* ExitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EF14CE2C465EDF003EC42A /* ExitButton.swift */; };
 		83EF14D32C46722D003EC42A /* RecoveryModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EF14D22C46722D003EC42A /* RecoveryModalView.swift */; };
 		83EF14D52C467241003EC42A /* DocumentErrorModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EF14D42C467241003EC42A /* DocumentErrorModalView.swift */; };
-		83F2351F2CE5E4FA00A6AE3B /* BatchErrorCodes.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F2351E2CE5E4FA00A6AE3B /* BatchErrorCodes.m */; };
-		83F235212CE63DE500A6AE3B /* ServerBatchErrorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F235202CE63DE400A6AE3B /* ServerBatchErrorCodes.swift */; };
 		83FC0C402C47F84700BBB5A8 /* DNIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC0C3F2C47F84700BBB5A8 /* DNIView.swift */; };
 		83FC0C422C47F86B00BBB5A8 /* DNICompatibleModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC0C412C47F86B00BBB5A8 /* DNICompatibleModalView.swift */; };
 		83FC0C442C48010E00BBB5A8 /* DNIConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC0C432C48010E00BBB5A8 /* DNIConnectionView.swift */; };
@@ -7734,7 +7720,6 @@
 		83904CCD2CA43754005F345B /* IOSNFCSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSNFCSessionManager.swift; sourceTree = "<group>"; };
 		83939A732C5CEA6A009FDE6E /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		83939A772C5D01A4009FDE6E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		8393EDF22CDCEA1F00BA2051 /* ServerErrorCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerErrorCodes.swift; sourceTree = "<group>"; };
 		8393EDF52CE2098200BA2051 /* PDFCoordinatesModalWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFCoordinatesModalWrapper.swift; sourceTree = "<group>"; };
 		8393EDF72CE209D200BA2051 /* DisabledInteractionPDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisabledInteractionPDF.swift; sourceTree = "<group>"; };
 		8393EDFD2CE356EA00BA2051 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
@@ -7750,7 +7735,6 @@
 		8393EEDE2C590387009FDE6E /* SettingsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHeaderView.swift; sourceTree = "<group>"; };
 		83A5EDBA2C5255DD00F93B6D /* BachRestIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BachRestIOS.h; sourceTree = "<group>"; };
 		83A5EDBB2C5255DD00F93B6D /* BachRestIOS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BachRestIOS.m; sourceTree = "<group>"; };
-		83A5EDBF2C527E6F00F93B6D /* ErrorHandlerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandlerUtils.swift; sourceTree = "<group>"; };
 		83A5EDC12C53B4BB00F93B6D /* SwiftCertificateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCertificateUtils.swift; sourceTree = "<group>"; };
 		83A5EDC32C53C02100F93B6D /* PseudonymModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudonymModalView.swift; sourceTree = "<group>"; };
 		83A5EDC52C53E2F600F93B6D /* SaveDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveDataUseCase.swift; sourceTree = "<group>"; };
@@ -7999,17 +7983,7 @@
 		83C471BB2CBD111B006CF7A7 /* GenericSignUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSignUseCase.swift; sourceTree = "<group>"; };
 		83D390092CA544BA00D16BA6 /* LogUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogUtils.swift; sourceTree = "<group>"; };
 		83D3900B2CA5455200D16BA6 /* ByteArrayUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByteArrayUtils.swift; sourceTree = "<group>"; };
-		83DB247D2CBE727500D1DD8C /* DNIeErrorCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNIeErrorCodes.swift; sourceTree = "<group>"; };
 		83DB247F2CBFCD6900D1DD8C /* HomeViewBindings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewBindings.swift; sourceTree = "<group>"; };
-		83DB24812CBFD11C00D1DD8C /* GenericErrorCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericErrorCodes.swift; sourceTree = "<group>"; };
-		83DB24842CBFD90900D1DD8C /* HardwareErrorCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardwareErrorCodes.swift; sourceTree = "<group>"; };
-		83DB24862CBFD91700D1DD8C /* InternalSoftwareErrorCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalSoftwareErrorCodes.swift; sourceTree = "<group>"; };
-		83DB24882CBFD92700D1DD8C /* ThirdPartyErrorCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartyErrorCodes.swift; sourceTree = "<group>"; };
-		83DB248A2CBFD94300D1DD8C /* FunctionalErrorCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionalErrorCodes.swift; sourceTree = "<group>"; };
-		83DB248C2CBFD95000D1DD8C /* RequestErrorCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestErrorCodes.swift; sourceTree = "<group>"; };
-		83DB248E2CBFD97800D1DD8C /* CommunicationErrorCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationErrorCodes.swift; sourceTree = "<group>"; };
-		83DB24912CBFD9F500D1DD8C /* ErrorGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorGenerator.swift; sourceTree = "<group>"; };
-		83DB24932CBFDB5E00D1DD8C /* ErrorDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDomain.swift; sourceTree = "<group>"; };
 		83DF46752C4876D6000C3F31 /* ViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtils.swift; sourceTree = "<group>"; };
 		83DF467A2C48F084000C3F31 /* AddCertificateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCertificateView.swift; sourceTree = "<group>"; };
 		83DF467C2C490E2E000C3F31 /* FileUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUtils.swift; sourceTree = "<group>"; };
@@ -8035,9 +8009,6 @@
 		83EF14CE2C465EDF003EC42A /* ExitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitButton.swift; sourceTree = "<group>"; };
 		83EF14D22C46722D003EC42A /* RecoveryModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryModalView.swift; sourceTree = "<group>"; };
 		83EF14D42C467241003EC42A /* DocumentErrorModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentErrorModalView.swift; sourceTree = "<group>"; };
-		83F2351D2CE5E4C500A6AE3B /* BatchErrorCodes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BatchErrorCodes.h; sourceTree = "<group>"; };
-		83F2351E2CE5E4FA00A6AE3B /* BatchErrorCodes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BatchErrorCodes.m; sourceTree = "<group>"; };
-		83F235202CE63DE400A6AE3B /* ServerBatchErrorCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerBatchErrorCodes.swift; sourceTree = "<group>"; };
 		83FC0C3F2C47F84700BBB5A8 /* DNIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNIView.swift; sourceTree = "<group>"; };
 		83FC0C412C47F86B00BBB5A8 /* DNICompatibleModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNICompatibleModalView.swift; sourceTree = "<group>"; };
 		83FC0C432C48010E00BBB5A8 /* DNIConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNIConnectionView.swift; sourceTree = "<group>"; };
@@ -16072,8 +16043,6 @@
 			children = (
 				83DB24902CBFD9E000D1DD8C /* ErrorCodes */,
 				83AF00412CA2CB7700A26C0F /* NFCError.swift */,
-				83DB24912CBFD9F500D1DD8C /* ErrorGenerator.swift */,
-				83DB24932CBFDB5E00D1DD8C /* ErrorDomain.swift */,
 				83B60AEB2CC2565B0096BB3E /* ErrorModalState.swift */,
 			);
 			path = Errors;
@@ -16082,18 +16051,6 @@
 		83DB24902CBFD9E000D1DD8C /* ErrorCodes */ = {
 			isa = PBXGroup;
 			children = (
-				83DB24812CBFD11C00D1DD8C /* GenericErrorCodes.swift */,
-				83DB247D2CBE727500D1DD8C /* DNIeErrorCodes.swift */,
-				83DB24842CBFD90900D1DD8C /* HardwareErrorCodes.swift */,
-				83DB24862CBFD91700D1DD8C /* InternalSoftwareErrorCodes.swift */,
-				83DB24882CBFD92700D1DD8C /* ThirdPartyErrorCodes.swift */,
-				83DB248C2CBFD95000D1DD8C /* RequestErrorCodes.swift */,
-				83DB248E2CBFD97800D1DD8C /* CommunicationErrorCodes.swift */,
-				83DB248A2CBFD94300D1DD8C /* FunctionalErrorCodes.swift */,
-				8393EDF22CDCEA1F00BA2051 /* ServerErrorCodes.swift */,
-				83F2351D2CE5E4C500A6AE3B /* BatchErrorCodes.h */,
-				83F2351E2CE5E4FA00A6AE3B /* BatchErrorCodes.m */,
-				83F235202CE63DE400A6AE3B /* ServerBatchErrorCodes.swift */,
 				A0F3951E2CE69A0D00DD7AE3 /* ErrorCodes.swift */,
 			);
 			path = ErrorCodes;
@@ -16418,7 +16375,6 @@
 				83C0ECC42C4148AB00244071 /* AONSBundle+Language.h */,
 				83DF46752C4876D6000C3F31 /* ViewUtils.swift */,
 				83DF467C2C490E2E000C3F31 /* FileUtils.swift */,
-				83A5EDBF2C527E6F00F93B6D /* ErrorHandlerUtils.swift */,
 				83A5EDC12C53B4BB00F93B6D /* SwiftCertificateUtils.swift */,
 				8393EED72C58FBD3009FDE6E /* SwiftDate+Utils.swift */,
 				830CDEA22C6AAF5C00E2890D /* AOPadesUtils.m */,
@@ -16803,7 +16759,6 @@
 				833C285A2CA2B89A00DFF6CD /* TargetInformation.m in Sources */,
 				8325D5622CAADD17007224E9 /* DLExternal.m in Sources */,
 				83ACD2F92CB7B18D00A3EFA5 /* DNIConnectionSteps.swift in Sources */,
-				83DB24822CBFD11C00D1DD8C /* GenericErrorCodes.swift in Sources */,
 				83AFFFF22CA2C95D00A26C0F /* constr_SEQUENCE_OF.c in Sources */,
 				833C2A152CA2B89B00DFF6CD /* Nat224.m in Sources */,
 				833C29FE2CA2B89B00DFF6CD /* ECEndomorphism.m in Sources */,
@@ -16811,7 +16766,6 @@
 				8325D4792CAADD17007224E9 /* NoReadersFoundException.m in Sources */,
 				8325D3B02CAADD17007224E9 /* CeresScPrivateKeyObject.m in Sources */,
 				8325D6662CAADD18007224E9 /* SecP224R1FieldElement.m in Sources */,
-				83DB248B2CBFD94300D1DD8C /* FunctionalErrorCodes.swift in Sources */,
 				8325D6F42CAADD18007224E9 /* DigestCalculator.m in Sources */,
 				83AFFFE32CA2C95D00A26C0F /* AttributeIOS.c in Sources */,
 				8325D6032CAADD18007224E9 /* StatelessProcessing.m in Sources */,
@@ -16855,7 +16809,6 @@
 				8325D4112CAADD17007224E9 /* package-info.m in Sources */,
 				8325D5B12CAADD18007224E9 /* SHA512tDigest.m in Sources */,
 				833C2BCB2CA2B89C00DFF6CD /* PdfAnnotationsImp.m in Sources */,
-				83DB24892CBFD92700D1DD8C /* ThirdPartyErrorCodes.swift in Sources */,
 				833C28032CA2B89A00DFF6CD /* DERBitString.m in Sources */,
 				833C2BDA2CA2B89C00DFF6CD /* AcroFields.m in Sources */,
 				833C2A9E2CA2B89B00DFF6CD /* LUTColorConverter.m in Sources */,
@@ -16913,7 +16866,6 @@
 				8325D6A22CAADD18007224E9 /* SecT409Field.m in Sources */,
 				833C286B2CA2B89A00DFF6CD /* DLSequence.m in Sources */,
 				8325D7D32CAADD18007224E9 /* QTESLAKey.m in Sources */,
-				83DB248D2CBFD95000D1DD8C /* RequestErrorCodes.swift in Sources */,
 				833C2B832CA2B89C00DFF6CD /* PdfStructureTreeRoot.m in Sources */,
 				833C29112CA2B89A00DFF6CD /* KeccakDigest.m in Sources */,
 				833C2C262CA2B89C00DFF6CD /* PdfPCellEventForwarder.m in Sources */,
@@ -17009,7 +16961,6 @@
 				83DF46822C493C56000C3F31 /* ParseDataURLOperationUseCase.swift in Sources */,
 				8325D71D2CAADD18007224E9 /* HSS.m in Sources */,
 				833C2B182CA2B89B00DFF6CD /* AOSimpleSignInfo.m in Sources */,
-				83DB24872CBFD91700D1DD8C /* InternalSoftwareErrorCodes.swift in Sources */,
 				8325D6152CAADD18007224E9 /* ExtCRLException.m in Sources */,
 				833C2A932CA2B89B00DFF6CD /* OperatorException.m in Sources */,
 				8325D52A2CAADD17007224E9 /* ASN1UniversalType.m in Sources */,
@@ -17022,7 +16973,6 @@
 				833C28392CA2B89A00DFF6CD /* ObjectDigestInfo.m in Sources */,
 				8325D73C2CAADD18007224E9 /* McElieceCCA2KeyPairGenerator.m in Sources */,
 				83AF00522CA4284E00A26C0F /* PrivateConstants.swift in Sources */,
-				8393EDF32CDCEA1F00BA2051 /* ServerErrorCodes.swift in Sources */,
 				8393EED82C58FBD3009FDE6E /* SwiftDate+Utils.swift in Sources */,
 				8325D6642CAADD18007224E9 /* SecP224R1Curve.m in Sources */,
 				833C282A2CA2B89A00DFF6CD /* ASN1OctetStringParser.m in Sources */,
@@ -17121,7 +17071,6 @@
 				833C29942CA2B89A00DFF6CD /* SecT233K1Curve.m in Sources */,
 				8325D45C2CAADD17007224E9 /* PrivateKeyReference.m in Sources */,
 				8325D40D2CAADD17007224E9 /* package-info.m in Sources */,
-				83DB24922CBFD9F500D1DD8C /* ErrorGenerator.swift in Sources */,
 				8325D5D12CAADD18007224E9 /* ECKeyGenerationParameters.m in Sources */,
 				833C29BC2CA2B89B00DFF6CD /* SecP128R1Point.m in Sources */,
 				83E419D22C45295400C21811 /* AppStatus.swift in Sources */,
@@ -17228,7 +17177,6 @@
 				8325D7522CAADD18007224E9 /* NHKeyPairGenerator.m in Sources */,
 				8325D5F32CAADD18007224E9 /* DerivationParameters.m in Sources */,
 				83AF000E2CA2C95D00A26C0F /* NoticeReference.c in Sources */,
-				83DB24852CBFD90900D1DD8C /* HardwareErrorCodes.swift in Sources */,
 				8325D47E2CAADD17007224E9 /* package-info.m in Sources */,
 				8325D6AA2CAADD18007224E9 /* SecT571K1Curve.m in Sources */,
 				8325D3E72CAADD17007224E9 /* GeneralizedTime.m in Sources */,
@@ -17391,7 +17339,6 @@
 				8325D43D2CAADD17007224E9 /* Mrz.m in Sources */,
 				8325D8092CAADD18007224E9 /* LMSParameterSpec.m in Sources */,
 				833C2B5D2CA2B89C00DFF6CD /* P7ContentSignerParameters.m in Sources */,
-				83A5EDC02C527E6F00F93B6D /* ErrorHandlerUtils.swift in Sources */,
 				8325D3B72CAADD17007224E9 /* AlgorithmIdentifer.m in Sources */,
 				8325D7742CAADD18007224E9 /* SABERParameters.m in Sources */,
 				833C28422CA2B89A00DFF6CD /* AlgorithmIdentifier.m in Sources */,
@@ -17667,7 +17614,6 @@
 				8325D7472CAADD18007224E9 /* McElieceKobaraImaiCipher.m in Sources */,
 				83C0EC8F2C3FF37D00244071 /* MainViewController.swift in Sources */,
 				833C29C92CA2B89B00DFF6CD /* SecT113R1Curve.m in Sources */,
-				83DB247E2CBE727600D1DD8C /* DNIeErrorCodes.swift in Sources */,
 				8325D63D2CAADD18007224E9 /* ECPrivateKeySpec.m in Sources */,
 				8325D3F62CAADD17007224E9 /* IcaoUtils.m in Sources */,
 				B2406F2E20C5CACA008ED085 /* AORegisteredCertificatesTVC.m in Sources */,
@@ -17834,7 +17780,6 @@
 				833C2AC42CA2B89B00DFF6CD /* Color.m in Sources */,
 				8325D61C2CAADD18007224E9 /* X509CRLEntryObject.m in Sources */,
 				833C2BA92CA2B89C00DFF6CD /* PdfWriter.m in Sources */,
-				83F2351F2CE5E4FA00A6AE3B /* BatchErrorCodes.m in Sources */,
 				8325D42B2CAADD17007224E9 /* package-info.m in Sources */,
 				833C281D2CA2B89A00DFF6CD /* ASN1OctetString.m in Sources */,
 				833C2B842CA2B89C00DFF6CD /* PdfFunction.m in Sources */,
@@ -18251,7 +18196,6 @@
 				8325D4422CAADD17007224E9 /* WirelessInitializerPin.m in Sources */,
 				833C2AE32CA2B89B00DFF6CD /* UrlHttpMethod.m in Sources */,
 				8325D50B2CAADD17007224E9 /* ASN1GeneralizedTime.m in Sources */,
-				83DB24942CBFDB5E00D1DD8C /* ErrorDomain.swift in Sources */,
 				833C1E112CA2B6F600DFF6CD /* PadesUtilsSwift.swift in Sources */,
 				833C2A892CA2B89B00DFF6CD /* OutputEncryptor.m in Sources */,
 				833C2C142CA2B89C00DFF6CD /* PushbuttonField.m in Sources */,
@@ -18810,7 +18754,6 @@
 				8325D70B2CAADD18007224E9 /* BENES13.m in Sources */,
 				8325D6F62CAADD18007224E9 /* OperatorCreationException.m in Sources */,
 				8325D6B52CAADD18007224E9 /* AbstractECLookupTable.m in Sources */,
-				83DB248F2CBFD97800D1DD8C /* CommunicationErrorCodes.swift in Sources */,
 				8325D72C2CAADD18007224E9 /* LMSContextBasedVerifier.m in Sources */,
 				8325D5C52CAADD18007224E9 /* BlockCipherPadding.m in Sources */,
 				833C2A0C2CA2B89B00DFF6CD /* Nat128.m in Sources */,
@@ -18867,7 +18810,6 @@
 				8325D4212CAADD17007224E9 /* DnieCardException.m in Sources */,
 				83AF00382CA2C95D00A26C0F /* xer_support.c in Sources */,
 				8325D4D32CAADD17007224E9 /* AttCertIssuer.m in Sources */,
-				83F235212CE63DE500A6AE3B /* ServerBatchErrorCodes.swift in Sources */,
 				833C29E52CA2B89B00DFF6CD /* SecP224K1FieldElement.m in Sources */,
 				8325D5242CAADD17007224E9 /* ASN1T61String.m in Sources */,
 				833C2A762CA2B89B00DFF6CD /* BasicOCSPResp.m in Sources */,

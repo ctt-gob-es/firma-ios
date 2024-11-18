@@ -12,7 +12,6 @@
 #import "Base64Utils.h"
 #import "DesCypher.h"
 #import "CADESConstants.h"
-#import "BatchErrorCodes.h"
 
 @interface BachRest ()
 
@@ -57,7 +56,7 @@
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request
 								    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
 	   if (error) {
-            [self.delegate didErrorBachPresign:PresignErrorConnection];
+            [self.delegate didErrorBachPresign:error.description];
 		  return;
 	   }
 	   
@@ -68,7 +67,7 @@
             NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             
             if (!jsonString) {
-                [self.delegate didErrorBachPresign: PresignErrorResponseFormat];
+                [self.delegate didErrorBachPresign: @"PresignErrorResponseFormat"];
                 return;
             }
                 
@@ -78,10 +77,10 @@
             if (responseDict != nil) {
                [self.delegate didSuccessBachPresign:responseDict];
             } else {
-                [self.delegate didErrorBachPresign: PresignErrorResponseFormatDictionary];
+                [self.delegate didErrorBachPresign: @"PresignErrorResponseFormatDictionary"];
             }
         } else {
-            [self.delegate didErrorBachPresign: PresignErrorHTTPResponse];
+            [self.delegate didErrorBachPresign: @"PresignErrorHTTPResponse"];
         }
             
     }];
@@ -114,7 +113,7 @@
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request
 								    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
 	   if (error) {
-            [self.delegate didErrorBachPostsign:PostsignErrorConnection];
+            [self.delegate didErrorBachPostsign:@"PostsignErrorConnection"];
             return;
 	   }
 	   
@@ -126,7 +125,7 @@
             NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             
             if (!jsonString) {
-                [self.delegate didErrorBachPostsign: PostsignErrorResponseFormat];
+                [self.delegate didErrorBachPostsign: @"PostsignErrorResponseFormat"];
                 return;
             }
                 
@@ -136,10 +135,10 @@
             if (responseDict != nil) {
                 [self.delegate didSuccessBachPostsign:responseDict];
             } else {
-                [self.delegate didErrorBachPostsign: PostsignErrorResponseFormatDictionary];
+                [self.delegate didErrorBachPostsign: @"PostsignErrorResponseFormatDictionary"];
             }
         } else {
-            [self.delegate didErrorBachPostsign: PostsignErrorHTTPResponse];
+            [self.delegate didErrorBachPostsign: @"PostsignErrorHTTPResponse"];
         }
     }];
     

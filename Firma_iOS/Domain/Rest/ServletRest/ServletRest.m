@@ -12,7 +12,6 @@
 #import "Base64Utils.h"
 #import "DesCypher.h"
 #import "CADESConstants.h"
-#import "BatchErrorCodes.h"
 
 @interface ServletRest ()
 
@@ -68,7 +67,7 @@
                                         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
            if (error) {
               if ([self.delegate respondsToSelector:@selector(didErrorStoreData:)]) {
-                    [self.delegate didErrorDownloadDataFromServer:UploadErrorConnection];
+                    [self.delegate didErrorDownloadDataFromServer:error.description];
               }
               return;
            }
@@ -87,13 +86,13 @@
                     if (dict != nil) {
                         [self.delegate didSuccessDownloadDataFromServer:dict];
                     } else {
-                        [self.delegate didErrorDownloadDataFromServer:DownloadErrorResponseFormatDictionary];
+                        [self.delegate didErrorDownloadDataFromServer:@"DownloadErrorResponseFormatDictionary"];
                     }
                 } else {
-                    [self.delegate didErrorDownloadDataFromServer:DownloadErrorResponseFormat];
+                    [self.delegate didErrorDownloadDataFromServer:@"DownloadErrorResponseFormat"];
                 }
             } else {
-                [self.delegate didErrorDownloadDataFromServer: DownloadErrorHTTPResponse];
+                [self.delegate didErrorDownloadDataFromServer: @"DownloadErrorHTTPResponse"];
             }
         }];
         
@@ -163,7 +162,7 @@
 								    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
 	   if (error) {
 		  if ([self.delegate respondsToSelector:@selector(didErrorStoreData:)]) {
-                [self.delegate didErrorStoreData:UploadErrorConnection];
+                [self.delegate didErrorStoreData:@"UploadErrorConnection"];
 		  }
 		  return;
 	   }
@@ -175,12 +174,12 @@
             NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             
             if (jsonString == nil) {
-                [self.delegate didErrorStoreData:UploadErrorResponseFormat];
+                [self.delegate didErrorStoreData:@"UploadErrorResponseFormat"];
             } else {
                 [self.delegate didSuccessStoreData:jsonString];
             }
         } else {
-            [self.delegate didErrorStoreData:UploadErrorHTTPResponse];
+            [self.delegate didErrorStoreData:@"UploadErrorHTTPResponse"];
         }
     }];
     

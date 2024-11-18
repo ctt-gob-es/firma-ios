@@ -12,7 +12,7 @@ import UIKit
 
 struct DocumentSavingPicker: UIViewControllerRepresentable {
     var fileURL: URL
-    var onDismiss: (Result<URL, Error>) -> Void
+    var onDismiss: (Result<URL, ErrorInfo>) -> Void
 
     func makeUIViewController(context: Context) -> UIViewController {
 	   let viewController = UIViewController()
@@ -49,14 +49,14 @@ struct DocumentSavingPicker: UIViewControllerRepresentable {
 	   }
 
 	   func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
-		  parent.onDismiss(.failure(ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.generalSoftwareError)))
+            parent.onDismiss(.failure(ErrorCodes.InternalSoftwareErrorCodes.generalSoftwareError.info))
 	   }
 
 	   func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
 		  if let url = urls.first {
 			 parent.onDismiss(.success(url))
 		  } else {
-			 parent.onDismiss(.failure(ErrorGenerator.generateError(from: InternalSoftwareErrorCodes.generalSoftwareError)))
+                parent.onDismiss(.failure(ErrorCodes.InternalSoftwareErrorCodes.generalSoftwareError.info))
 		  }
 	   }
     }

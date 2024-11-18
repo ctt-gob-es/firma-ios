@@ -3,7 +3,6 @@
 //
 
 //OBJC CODE
-#import "AOSignViewController.h"
 #import "GlobalConstants.h"
 #import "AOCertificateInfo.h"
 #import "OpenSSLCertificateHelper.h"
@@ -16,7 +15,6 @@
 #import "GAITracker.h"
 #import "GAI.h"
 #import "GAIDictionaryBuilder.h"
-#import "BatchSignUseCase.h"
 #import "Base64Utils.h"
 #import "AOCounterSignXMLParser.h"
 #import "Pkcs1Utils.h"
@@ -31,10 +29,8 @@
 #import "IOSObjectArray.h"
 #import "DNIeSigner.h"
 #import "InputParametersBatch.h"
-#import "BachRestIOS.h"
 #import "PDFCustomTextAnnotation.h"
 #import "PDFImageAnnotation.h"
-#import "BatchErrorCodes.h"
 
 //JAVA CODE
 #include "java/util/Properties.h"
