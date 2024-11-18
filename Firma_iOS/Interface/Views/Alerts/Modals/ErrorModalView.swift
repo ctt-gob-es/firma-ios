@@ -118,13 +118,6 @@ struct GlobalErrorButtons: View {
     var body: some View {
 	   VStack(spacing: 8) {
 		  Button(action: {
-			 self.presentationMode.wrappedValue.dismiss()
-		  }) {
-			 AccessibleText(content: NSLocalizedString("retry_button_title", bundle: Bundle.main, comment: ""))
-		  }
-		  .buttonStyle(CustomButtonStyle(isEnabled: true))
-		  
-		  Button(action: {
 			 DispatchQueue.main.async {
 				viewMode = .home
                     shouldReload = false

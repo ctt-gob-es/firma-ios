@@ -139,6 +139,17 @@ struct DNIConnectionView: View {
 		  signModel: signModel,
 		  parameters: parameters
 	   )
+	   configureModel()
+    }
+    
+    func configureModel() {
+	   nfcViewModel?.dataType = .external
+	   
+	   if (signModel.operation == OPERATION_SIGN || signModel.operation == OPERATION_COSIGN || signModel.operation == OPERATION_COUNTERSIGN) {
+		  if signModel.datosInUse == nil && signModel.fileId == nil {
+			 nfcViewModel?.dataType = .local
+		  }
+	   }
     }
     
     func doStep() {
