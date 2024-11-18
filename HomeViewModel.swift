@@ -409,11 +409,17 @@ class HomeViewModel: ObservableObject {
 		  certificateRef: certificateRef,
 		  certificateAlgorithm: certificateAlgorithm,
 		  extraParams: extraParams
-	   ) { base64Signature  in
-		  print(base64Signature)
-		  self.viewMode = .home
-		  self.successModalState = .successSign
-		  self.showSuccessModal = true
+	   ) { result in
+            switch result {
+            case .success(_):
+                self.viewMode = .home
+                self.successModalState = .successSign
+                self.showSuccessModal = true
+            case.failure(let error):
+                // Al ser firma local no necesitamos enviar error al servidor
+                self.showError(errorInfo: error)
+            }
+		  
 	   }
     }
     
