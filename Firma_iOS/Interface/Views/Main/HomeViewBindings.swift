@@ -115,7 +115,7 @@ extension View {
 			 if $0 == true {
 				viewModel.viewMode = .home
 				viewModel.areCertificatesSelectable = false
-                    viewModel.sendError(error: ErrorCodes.FunctionalErrorCodes.userOperationCanceled.info)
+                    viewModel.cancelOperation()
 			 }
 		  }
 		  .onChange(of: viewModel.showTextfieldModal) { newValue in
@@ -136,7 +136,7 @@ extension View {
 		  }
 		  .onReceive(NotificationCenter.default.publisher(for: .ErrorModalCancelButtonAction)) { _ in
 			 viewModel.handleFinishSign()
-                viewModel.sendError(error: ErrorCodes.FunctionalErrorCodes.userOperationCanceled.info)
+                viewModel.cancelOperation()
 			 appStatus.isLoading = false
 		  }
     }

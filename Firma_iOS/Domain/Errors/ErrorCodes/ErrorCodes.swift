@@ -83,6 +83,7 @@ enum ErrorCodes{
         case jsonBatchOperationError
         case jsonBatchCipherSignError
         case jsonBatchCipherCertificateError
+        case signingLoadLocalFile
         case jsonBatchOperationCypherCertificate
         case jsonBatchOperationCypherData
         case xmlBatchOperationError
@@ -106,6 +107,8 @@ enum ErrorCodes{
                 return ErrorInfo("200102", "Error al cifrar la firma para enviarla al servidor intermedio")
             case .signingCipherCertificateError:
                 return ErrorInfo("200103", "Error al cifrar el certificado para enviarlo al servidor intermedio")
+            case .signingLoadLocalFile:
+                return ErrorInfo("200104", "Error al cargar el fichero local para realizar la firma")
             case .certificateSelectionError:
                 return ErrorInfo("200201", "Error en la selección de certificados.")
             case .certificateSelectionCipherCertificateError:
@@ -270,7 +273,7 @@ enum ErrorCodes{
             case .jsonBatchOperationError:
                 return ErrorInfo("504001", "Error en la operación de lotes JSON.")
             case .certificateNeeded:
-                return ErrorInfo("505001", "Error en la operación, no hay certificados")
+                return ErrorInfo("505001", "Error en la operación, no hay certificados", .certificateNeeded)
             }
         }
     }

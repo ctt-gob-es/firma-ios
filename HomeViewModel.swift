@@ -164,15 +164,14 @@ class HomeViewModel: ObservableObject {
     
     func handleImportedDataURLsChange(_ value: [URL]?) {
         self.isLoading = true
-        guard let url = value else { return }
-        FileUtils.convertURLFileToData(urls: url) { result in
+        LoadDataLocalFileUseCase().execute(urlFile: value, signModel: signModel) {result in
             switch result {
-            case .success(let data):
-                self.signModel?.datosInUse = Base64Utils.encode(data,urlSafe: true)
+            case .success(let stringData):
+                self.signModel?.datosInUse = stringData
                 self.isLoading = false
                 self.selectSignMode()
             case .failure(let error):
-                self.handleAndStoreError(error: error)
+                self.showError(errorInfo: error)
             }
         }
     }
@@ -350,55 +349,17 @@ class HomeViewModel: ObservableObject {
         }
     }
     
-    
     private func showError(errorInfo: ErrorInfo) {
         self.isLoading = false
         DispatchQueue.main.async {
            self.showErrorModal = false
            DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-              self.showErrorModal(error: errorInfo)
-              self.signModel?.returnURL = nil
+               self.errorInfo = errorInfo
+               self.showErrorModal = true
+               self.signModel?.returnURL = nil
            }
         }
     }
-    
-    private func handleAndStoreError(error: Error) {
-        var errorInfo = ErrorCodes.InternalSoftwareErrorCodes.generalSoftwareError.info
-        if let errorAux = error as? ErrorInfo {
-            errorInfo = errorAux
-        }
-        
-        showError(errorInfo: errorInfo)
-	   sendError(error: errorInfo)
-    }
-    
-    func sendError(error: ErrorInfo) {
-	   let reportErrorUseCase = ReportErrorUseCase()
-	   reportErrorUseCase.reportErrorAsync(
-		  urlServlet: signModel?.urlServlet,
-		  docId: signModel?.docId,
-            error: error.serverErrorMessage
-        ) { result in
-		  switch result {
-			 case .success(let errorFromServer):
-				if let response = String(data: errorFromServer, encoding: .utf8) {
-				    print("Server response from reportError: " + response)
-				}
-			 case .failure(let error):
-				print("Server error from reportError: " + error.localizedDescription)
-		  }
-	   }
-    }
-    
-    func showErrorModal(error: ErrorInfo) {
-        self.errorInfo = error
-        self.showErrorModal = true
-    }
-    
-    /*func showErrorModalStateFromError(error: Error) {
-	   self.errorModalState = ErrorHandlerUtils.chooseStateFromError(error: error)
-	   self.showErrorModal = true
-    }*/
     
     func signLocalPdf() {
 	   guard
@@ -476,10 +437,20 @@ class HomeViewModel: ObservableObject {
 	   self.signModel?.updateExtraParams(dict: ["ownerPassword": password])
     }
     
+    /// Envia el error en la operación al servidor intermedio, resetea la vista y muestra la pantalla de error
+    func sendErrorOperation(error: ErrorInfo) {
+        resetHomeViewModelVariables()
+        showError(errorInfo: error)
+        SendErrorOperationUseCase().execute(error: error, signModel: signModel)
+    }
+    
+    func cancelOperation() {
+        resetHomeViewModelVariables()
+        sendErrorOperation(error: ErrorCodes.FunctionalErrorCodes.userOperationCanceled.info)
+    }
+    
     func handleNotAnyCoordinatesSelected() {
-	   self.areCertificatesSelectable = false
-	   self.viewMode = .home
-        self.handleAndStoreError(error: ErrorCodes.FunctionalErrorCodes.userOperationCanceled.info)
+        cancelOperation()
     }
     
     func resetHomeViewModelVariables() {

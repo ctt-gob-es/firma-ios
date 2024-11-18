@@ -72,14 +72,12 @@ struct HomeView: View {
 		  if viewMode == .sign {
 			 if (appStatus.keepParentController == false && viewModel.selectDNIe == false) {
 				//User aborted sign
-                    viewModel.sendError(error: ErrorCodes.FunctionalErrorCodes.userOperationCanceled.info)
-				shouldCancelOperation = true
+                    viewModel.cancelOperation()
+                    shouldCancelOperation = true
 			 } else {
 				if appStatus.keepParentController && ( self.certificates?.count == 0 || self.certificates == nil)  {
 				    //There is no certificate in the app
-                        let errorCertificateNeeded = ErrorCodes.FunctionalErrorCodes.certificateNeeded.info
-                        viewModel.sendError(error: errorCertificateNeeded)
-				    viewModel.showErrorModal(error: errorCertificateNeeded)
+                        viewModel.sendErrorOperation(error: ErrorCodes.FunctionalErrorCodes.certificateNeeded.info)
 				}
 				if let visibleSignature = viewModel.signModel?.visibleSignature,
 				    visibleSignature {
