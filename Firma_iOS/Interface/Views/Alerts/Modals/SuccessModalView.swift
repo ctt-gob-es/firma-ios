@@ -58,6 +58,9 @@ enum SuccessModalState {
     case successCertificateSent
     case successCertificateDeleted
     case successSign
+    case successSignBatch
+    case successSignBatchWithError
+    case successSignBatchWithAllError
     case successArhiveAdded
     
     var title: String {
@@ -68,7 +71,7 @@ enum SuccessModalState {
 			 return NSLocalizedString("certificate_sent_success_title",bundle: Bundle.main, comment: "")
 		  case .successCertificateDeleted:
 			 return NSLocalizedString("certificate_delete_success_title",bundle: Bundle.main, comment: "")
-		  case .successSign:
+            case .successSign, .successSignBatch, .successSignBatchWithError, .successSignBatchWithAllError:
 			 return NSLocalizedString("sign_success_title",bundle: Bundle.main, comment: "")
 		  case .successArhiveAdded:
 			 return NSLocalizedString("save_success_title",bundle: Bundle.main, comment: "")
@@ -85,6 +88,12 @@ enum SuccessModalState {
 			 return NSLocalizedString("certificate_delete_success_description",bundle: Bundle.main, comment: "")
 		  case .successSign:
 			 return NSLocalizedString("sign_success_description",bundle: Bundle.main, comment: "")
+            case .successSignBatch:
+                return NSLocalizedString("batch_signs_all_ok",bundle: Bundle.main, comment: "")
+            case .successSignBatchWithError:
+                return NSLocalizedString("batch_signs_ok_with_signs_error",bundle: Bundle.main, comment: "")
+            case .successSignBatchWithAllError:
+                return NSLocalizedString("batch_signs_ok_with_all_signs_error",bundle: Bundle.main, comment: "")
 		  case .successArhiveAdded:
 			 return NSLocalizedString("save_success_description",bundle: Bundle.main, comment: "")
 	   }

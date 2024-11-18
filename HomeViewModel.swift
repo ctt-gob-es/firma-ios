@@ -318,16 +318,29 @@ class HomeViewModel: ObservableObject {
             batchSignUseCase = CertificateBatchSignUseCase(certificate: certificateData, privateKey: privateKey)
         }
         
-        batchSignUseCase?.signBatch(dataOperation: parameters as! [String : Any]) { responseMessage, error in
+        batchSignUseCase?.signBatch(dataOperation: parameters as! [String : Any]) { result in
             self.isLoading = false
-            if let error = error {
-                self.showError(errorInfo: error)
-            } else {
+            
+            switch result {
+            case .success(let resultBatch):
                 self.areCertificatesSelectable = false
                 self.viewMode = .home
-                self.successModalState = .successSign
+                self.successModalState = self.getSuccessModal(resultBatch)
                 self.showSuccessModal = true
+            case .failure(let error):
+                self.showError(errorInfo: error)
             }
+        }
+    }
+    
+    private func getSuccessModal(_ resultBatch: BatchResult) -> SuccessModalState {
+        switch resultBatch {
+        case .ok:
+            return .successSignBatch
+        case .signsWithError:
+            return .successSignBatchWithError
+        case .allSignWihtError:
+            return .successSignBatchWithAllError
         }
     }
     
@@ -446,7 +459,7 @@ class HomeViewModel: ObservableObject {
     
     func cancelOperation() {
         resetHomeViewModelVariables()
-        sendErrorOperation(error: ErrorCodes.FunctionalErrorCodes.userOperationCanceled.info)
+        SendErrorOperationUseCase().execute(error: ErrorCodes.FunctionalErrorCodes.userOperationCanceled.info, signModel: signModel)
     }
     
     func handleNotAnyCoordinatesSelected() {

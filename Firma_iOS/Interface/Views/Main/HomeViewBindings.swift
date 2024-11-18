@@ -128,7 +128,7 @@ extension View {
 		  .onChange(of: viewModel.shouldCancel) { newValue in
 			 viewModel.areCertificatesSelectable = false
 		  }
-		  .onReceive(NotificationCenter.default.publisher(for: .DNIeSuccess)) { _ in
+		  .onReceive(NotificationCenter.default.publisher(for: .DNIeSuccess)) { resultBatch in
 			 viewModel.handleFinishSign()
 			 appStatus.isLoading = false
 			 appStatus.showSuccessModal = true

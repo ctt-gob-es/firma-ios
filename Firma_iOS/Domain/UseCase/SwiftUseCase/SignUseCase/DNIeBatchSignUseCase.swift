@@ -27,8 +27,7 @@ class DNIeBatchSignUseCase: GenericBatchSignUseCase, DNIeResult {
     
     private func handleErrorDnieWrapper(errorCode: Int) {
         if let completionHandler = self.completionHandler {
-            completionHandler(nil,
-                              ErrorCodes.getServerError(codigo: String(errorCode)).info)
+            completionHandler(.failure(ErrorCodes.getServerError(codigo: String(errorCode)).info))
         }
     }
     

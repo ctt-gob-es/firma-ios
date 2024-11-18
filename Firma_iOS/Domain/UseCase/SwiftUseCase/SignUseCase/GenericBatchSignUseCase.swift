@@ -8,16 +8,22 @@
 
 import Foundation
 
+enum BatchResult {
+    case ok
+    case signsWithError
+    case allSignWihtError
+}
+
+
 class GenericBatchSignUseCase: NSObject {
     
 
     // MARK: - Properties
     
     var parametersBatch = InputParametersBatch()
-    var completionHandler: ((String?, ErrorInfo?) -> Void)?
+    var completionHandler: ((Result<BatchResult, ErrorInfo>) -> Void)?
 
-    var error : ErrorInfo?
-    var responseMessage: String?
+    var result : BatchResult?
     
     // MARK: - Initialization
     
@@ -39,9 +45,8 @@ class GenericBatchSignUseCase: NSObject {
 	   presign()
     }
 
-    func signBatch(dataOperation: [String: Any], completion: @escaping (String?, ErrorInfo?) -> Void) {
-        self.error = nil
-        self.responseMessage = nil
+    func signBatch(dataOperation: [String: Any], completion: @escaping (Result<BatchResult, ErrorInfo>) -> Void) {
+        self.result = nil
 	   self.completionHandler = completion
 	   self.parametersBatch = getDataOperation(dataOperation: dataOperation)
 	   
@@ -58,8 +63,6 @@ class GenericBatchSignUseCase: NSObject {
                     }
                 }
             })
-            
-            /*servletRest.downloadData(fromRtservlet: parametersBatch.fileId, rtServlet: parametersBatch.rtservlet, cipherKey: parametersBatch.cipherKey)*/
 	   } else {
 		  preloadCertificateData()
 	   }
@@ -98,10 +101,7 @@ class GenericBatchSignUseCase: NSObject {
     }
     
     func didSuccessBachPresign(_ responseDict: [AnyHashable : Any]) {
-	   let stServlet = parametersBatch.stservlet
-	   let cipherKey = parametersBatch.cipherKey
-	   let identifier = parametersBatch.identifier
-        
+
         var dataPostSignBase64 = parametersBatch.data
         
         if var presignsOk = responseDict["td"] as? [String: Any] {
@@ -184,7 +184,7 @@ class GenericBatchSignUseCase: NSObject {
             // No llego el td en la respuesta. Puede que todo hayan sido prefirmas erroneas
             if let _ = responseDict["results"] as? [[String: Any]] {
                 // Son todo prefirmas erroneas
-                self.responseMessage = "batch_signs_ok_with_all_signs_error"
+                self.result = .allSignWihtError
 
                 var jsonErrorSigns: [String: Any] = [:]
                 jsonErrorSigns["signs"] = responseDict["results"]
@@ -208,13 +208,11 @@ class GenericBatchSignUseCase: NSObject {
     }
     
     private func sendError(errorInfo: ErrorInfo) {
-        self.error = errorInfo
-       
-        IntermediateServerRest().storeDataError(error: errorInfo, stServlet: self.parametersBatch.stservlet, docId: self.parametersBatch.identifier, completion: { errorInfo in
+        IntermediateServerRest().storeDataError(error: errorInfo, stServlet: self.parametersBatch.stservlet, docId: self.parametersBatch.identifier, completion: { _ in
             
             // Tanto si pudimos guardar en el servidor intermedio como no, devolvemos el error original
             if let completionHandler = self.completionHandler {
-                completionHandler(nil, self.error)
+                completionHandler(.failure(errorInfo))
             }
         })
     }
@@ -238,7 +236,7 @@ class GenericBatchSignUseCase: NSObject {
             if let completionHandler = self.completionHandler {
                 switch result {
                 case .success():
-                    completionHandler(self.responseMessage, nil)
+                    completionHandler(.success(self.result ?? .ok))
                 case .failure(let errorInfo):
                     self.sendError(errorInfo: errorInfo);
                 }
@@ -250,14 +248,18 @@ class GenericBatchSignUseCase: NSObject {
 	   do {
 		  let jsonData = try JSONSerialization.data(withJSONObject: responseDict, options: .prettyPrinted)
 		  
-            self.responseMessage = "batch_signs_all_ok";
+            self.result = .ok
 		  if let signs = responseDict["signs"] as? [[String: Any]] {
+                let allSign = signs.count
+                var signWithError = 0
 			 for signDict in signs {
 				if let result = signDict["result"] as? String, result != "DONE_AND_SAVED" {
-                        responseMessage = "batch_signs_ok_with_signs_error";
-				    break
+                        signWithError += 1
 				}
 			 }
+                if signWithError > 0 {
+                    self.result = signWithError == allSign ? .allSignWihtError : .signsWithError
+                }
 		  }
 
             storeData(data: jsonData)

@@ -54,10 +54,11 @@ class NFCViewModel: NSObject, ObservableObject {
 	   self.dniSingleSignUseCase?.singleSign(completion: { result in
 		  switch result {
 			 case .success(let success):
-				self.dniSingleSignUseCase?.wrapper?.nfcSessionManager?.nfcSession?.alertMessage = NSLocalizedString("sign_success_description", bundle: Bundle.main, comment: "")
+                    let modalState = SuccessModalState.successSign
+                    self.dniSingleSignUseCase?.wrapper?.nfcSessionManager?.nfcSession?.alertMessage = modalState.description
 				self.dniSingleSignUseCase?.wrapper?.nfcSessionManager?.nfcSession?.invalidate()
 				DispatchQueue.main.async {
-				    NotificationCenter.default.post(name: .DNIeSuccess, object: "")
+                        NotificationCenter.default.post(name: .DNIeSuccess, object: modalState)
 				}
 			 case .failure(let errorInfo):
                     DispatchQueue.main.async {
@@ -79,28 +80,41 @@ class NFCViewModel: NSObject, ObservableObject {
 				swiftDictionary[keyString] = value
 			 }
 		  }
-		  self.dniBatchSignUseCase?.signBatch(dataOperation: swiftDictionary, completion: { responseMesage, errorInfo in
-                if let errorInfo = errorInfo {
+            
+		  self.dniBatchSignUseCase?.signBatch(dataOperation: swiftDictionary, completion: { result in
+                switch result {
+                case .success(let resultBatch):
+                    let successModalState = self.getSuccessModal(resultBatch)
+                    
+                    self.dniBatchSignUseCase?.wrapper?.nfcSessionManager?.nfcSession?.alertMessage = successModalState.description
+                    self.dniBatchSignUseCase?.wrapper?.nfcSessionManager?.nfcSession?.invalidate()
+                    DispatchQueue.main.async {
+                       NotificationCenter.default.post(name: .DNIeSuccess, object: successModalState)
+                    }
+                case .failure(let error):
                     // Hubo error en el proceso de firma batch
                     DispatchQueue.main.async {
                         NotificationCenter.default.post(
                            name: .DNIeError,
                            object: nil,
-                           userInfo: ["errorInfo": errorInfo]
+                           userInfo: ["errorInfo": error]
                         )
-                    }
-                    
-                } else {
-                    // El proceso batch se ejecuto correctamente. Devolvemos el string correspondiente en fucnoin de si se firmaron correctamente todas las firmas, algunas o ninguna
-                    self.dniBatchSignUseCase?.wrapper?.nfcSessionManager?.nfcSession?.alertMessage = NSLocalizedString(responseMesage ?? "", bundle: Bundle.main, comment: "")
-                    self.dniBatchSignUseCase?.wrapper?.nfcSessionManager?.nfcSession?.invalidate()
-                    DispatchQueue.main.async {
-                       NotificationCenter.default.post(name: .DNIeSuccess, object: responseMesage)
                     }
                 }
 			 
 		  })
 	   }
+    }
+    
+    private func getSuccessModal(_ resultBatch: BatchResult) -> SuccessModalState {
+        switch resultBatch {
+        case .ok:
+            return .successSignBatch
+        case .signsWithError:
+            return .successSignBatchWithError
+        case .allSignWihtError:
+            return .successSignBatchWithAllError
+        }
     }
     
     func invalidateSession(errorMessage: String) {
