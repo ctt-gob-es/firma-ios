@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct DNIConnectionView: View {
     @EnvironmentObject private var appStatus : AppStatus
@@ -25,6 +26,9 @@ struct DNIConnectionView: View {
     @State var showSignCoordinatesModal: Bool = false
     @State var annotations: [PDFAnnotation] = []
     @State var password: String = ""
+    @State var shouldCancelOperation: Bool = false
+    @State private var showTextfieldModal: Bool = false
+    @State private var nfcCancellable: AnyCancellable?
     
     var body: some View {
 	   VStack {
@@ -59,6 +63,7 @@ struct DNIConnectionView: View {
 	   }
 	   .onAppear() {
 		  onAppear()
+		  setupNFCObservation()
 	   }
 	   .dismissKeyboardOnTap()
 	   .navigationBarItems(trailing: HStack(spacing: 4) {
@@ -101,6 +106,17 @@ struct DNIConnectionView: View {
 			 .interactiveDismissDisabled(true)
 		  }
 	   }
+	   .sheet(isPresented: $showTextfieldModal) {
+		  TextfieldModalView(password: $password, shouldCancelOperation: $shouldCancelOperation)
+			 .fixedSize(horizontal: false, vertical: true)
+			 .modifier(GetHeightModifier(height: $sheetHeight))
+			 .presentationDetents([.height(sheetHeight)])
+			 .accessibility(addTraits: .isModal)
+			 .interactiveDismissDisabled(true)
+			 .onAppear() {
+				appStatus.isLoading = false
+			 }
+	   }
 	   .onChange(of: annotations) {
 		  if $0.count > 0 {
 			 handleCoordinatesSelection(annotation: $0[0])
@@ -139,6 +155,19 @@ struct DNIConnectionView: View {
 		  signModel: signModel,
 		  parameters: parameters
 	   )
+	   configureModel()
+	   
+	   setupNFCObservation()
+    }
+    
+    func configureModel() {
+	   nfcViewModel?.dataType = .external
+	   
+	   if (signModel.operation == OPERATION_SIGN || signModel.operation == OPERATION_COSIGN || signModel.operation == OPERATION_COUNTERSIGN) {
+		  if signModel.datosInUse == nil && signModel.fileId == nil {
+			 nfcViewModel?.dataType = .local
+		  }
+	   }
     }
     
     func doStep() {
@@ -160,4 +189,12 @@ struct DNIConnectionView: View {
 	   self.signModel.updateExtraParams(dict: ["ownerPassword": password])
     }
     
+    private func setupNFCObservation() {
+	   guard let nfcViewModel = nfcViewModel else { return }
+	   nfcCancellable = nfcViewModel.$showTextfieldModal
+		  .receive(on: RunLoop.main)
+		  .sink { newValue in
+			 showTextfieldModal = newValue
+		  }
+    }
 }

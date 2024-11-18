@@ -18,6 +18,9 @@ class NFCViewModel: NSObject, ObservableObject {
     @State var parameters: NSMutableDictionary?
     
     @Published var nfcError: NFCError?
+    @Published var signType: SignType? = nil
+    @Published var dataType: DataType? = nil
+    @Published var showTextfieldModal: Bool = false
     
     private var dniSingleSignUseCase: DNISingleSignUseCase?
     private var dniBatchSignUseCase: DNIeBatchSignUseCase?
@@ -53,12 +56,26 @@ class NFCViewModel: NSObject, ObservableObject {
     private func singleSignWithDNIe() {
 	   self.dniSingleSignUseCase?.singleSign(completion: { result in
 		  switch result {
-			 case .success(let success):
-                    let modalState = SuccessModalState.successSign
-                    self.dniSingleSignUseCase?.wrapper?.nfcSessionManager.nfcSession?.alertMessage = modalState.description
-				self.dniSingleSignUseCase?.wrapper?.nfcSessionManager.nfcSession?.invalidate()
-				DispatchQueue.main.async {
-                        NotificationCenter.default.post(name: .DNIeSuccess, object: modalState)
+			 case .success(let shouldRetry):
+				if shouldRetry {
+				    self.showTextfieldModal = true
+				    self.dniSingleSignUseCase?.wrapper?.nfcSessionManager.nfcSession?.invalidate(errorMessage: NSLocalizedString("textfield_modal_description",bundle: Bundle.main, comment: ""))
+				} else {
+				    let history = HistoryModel(
+					   date: Date(),
+					   signType: self.signType ?? .external,
+					   externalApp: self.signModel.appname,
+					   dataType: self.dataType ?? .external,
+					   filename: FileUtils.getArchiveNameFromParameters(parameters: self.parameters)
+				    )
+				    HistoricalUseCase().saveHistory(history: history) { result in
+					   let modalState = SuccessModalState.successSign
+					   self.dniSingleSignUseCase?.wrapper?.nfcSessionManager.nfcSession?.alertMessage = modalState.description
+					   self.dniSingleSignUseCase?.wrapper?.nfcSessionManager.nfcSession?.invalidate()
+					   DispatchQueue.main.async {
+						  NotificationCenter.default.post(name: .DNIeSuccess, object: modalState)
+					   }
+				    }
 				}
 			 case .failure(let errorInfo):
                     DispatchQueue.main.async {
@@ -121,5 +138,4 @@ class NFCViewModel: NSObject, ObservableObject {
 	   self.dniSingleSignUseCase?.wrapper?.nfcSessionManager.nfcSession?.invalidate(errorMessage: errorMessage)
         self.dniBatchSignUseCase?.wrapper?.nfcSessionManager.nfcSession?.invalidate(errorMessage: errorMessage)
     }
-
 }
