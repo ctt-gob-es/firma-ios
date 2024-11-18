@@ -150,24 +150,22 @@ enum ErrorModalState {
     
     var hasCancelButton: Bool {
 	   switch self {
-		  case .certificateGenericError, .certificateGenericErrorLong, .certificateExpired, .certificateRevoked, .certificateNearExpiry, .dniIncorrectPin, .globalError, .trackingError, .jailbreakError, .updateError, .dataNotImported, .userCancelled:
+		  case .certificateNeeded, .certificateGenericError, .certificateGenericErrorLong, .certificateExpired, .certificateRevoked, .certificateNearExpiry, .dniIncorrectPin, .globalError, .trackingError, .jailbreakError, .updateError, .userCancelled:
 			 return false
-		  case .certificateNeeded, .dniReadingError, .dniBroken, .dniReadingErrorLong, .dniBlockedPin,.dniIncorrectCan, .dniExpired, .certificateNotImported:
+		  case .dniReadingError, .dniBroken, .dniReadingErrorLong, .dniBlockedPin,.dniIncorrectCan, .dniExpired, .certificateNotImported, .dataNotImported:
 			 return true
 	   }
     }
     
     var bottomButtonTitle: String? {
 	   switch self {
-		  case .certificateNeeded:
-			 return NSLocalizedString("certificate_needed_button_title", bundle: Bundle.main, comment: "")
 		  case .certificateGenericError, .certificateGenericErrorLong, .dniIncorrectPin:
 			 return NSLocalizedString("generic_error_button_title", bundle: Bundle.main, comment: "")
-		  case .certificateExpired, .certificateRevoked, .certificateNearExpiry, .userCancelled:
+		  case .certificateExpired, .certificateRevoked, .certificateNearExpiry, .userCancelled, .certificateNeeded:
 			 return NSLocalizedString("accept_button_title", bundle: Bundle.main, comment: "")
-		  case .dniReadingError, .dniBroken, .dniReadingErrorLong, .dniBlockedPin,.dniIncorrectCan, .dniExpired, .certificateNotImported:
+		  case .dniReadingError, .dniBroken, .dniReadingErrorLong, .dniBlockedPin,.dniIncorrectCan, .dniExpired, .certificateNotImported, .dataNotImported:
 			 return NSLocalizedString("retry_button_title", bundle: Bundle.main, comment: "")
-		  case .globalError, .trackingError, .updateError, .jailbreakError, .dataNotImported:
+		  case .globalError, .trackingError, .updateError, .jailbreakError:
 			 return nil
 	   }
     }
