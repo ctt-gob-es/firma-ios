@@ -20,6 +20,7 @@ class NFCViewModel: NSObject, ObservableObject {
     @Published var nfcError: NFCError?
     @Published var signType: SignType? = nil
     @Published var dataType: DataType? = nil
+    @Published var showTextfieldModal: Bool = false
     
     private var dniSingleSignUseCase: DNISingleSignUseCase?
     private var dniBatchSignUseCase: DNIeBatchSignUseCase?
@@ -57,8 +58,8 @@ class NFCViewModel: NSObject, ObservableObject {
 		  switch result {
 			 case .success(let shouldRetry):
 				if shouldRetry {
-				    //TODO: Show textfieldModal
-				    
+				    self.showTextfieldModal = true
+				    self.dniSingleSignUseCase?.wrapper?.nfcSessionManager?.nfcSession?.invalidate(errorMessage: NSLocalizedString("textfield_modal_description",bundle: Bundle.main, comment: ""))
 				} else {
 				    let history = HistoryModel(
 					   date: Date(),
@@ -137,5 +138,4 @@ class NFCViewModel: NSObject, ObservableObject {
 	   self.dniSingleSignUseCase?.wrapper?.nfcSessionManager?.nfcSession?.invalidate(errorMessage: errorMessage)
         self.dniBatchSignUseCase?.wrapper?.nfcSessionManager?.nfcSession?.invalidate(errorMessage: errorMessage)
     }
-
 }
