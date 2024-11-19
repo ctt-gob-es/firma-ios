@@ -2703,9 +2703,10 @@
 		A073AA7C2893E7FC00FE30CE /* BatchSignUseCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A073AA7B2893E7FC00FE30CE /* BatchSignUseCase.m */; };
 		A073AA7F2893F71E00FE30CE /* InputParametersBatch.m in Sources */ = {isa = PBXBuildFile; fileRef = A073AA7E2893F71E00FE30CE /* InputParametersBatch.m */; };
 		A075F1FC2CEB67FA005E1EDA /* ThreePhaseServerRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A075F1FB2CEB67FA005E1EDA /* ThreePhaseServerRest.swift */; };
+		A075F1FE2CEBFEA8005E1EDA /* HandeThirdPartyErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A075F1FD2CEBFEA8005E1EDA /* HandeThirdPartyErrors.swift */; };
 		A09BDEFD2B7B6D270016102B /* HeaderCertificateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A09BDEFC2B7B6D270016102B /* HeaderCertificateCell.m */; };
 		A0F3951D2CE692CA00DD7AE3 /* AOCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0F3951B2CE692CA00DD7AE3 /* AOCoreDataModel.xcdatamodeld */; };
-		A0F3951F2CE69A0D00DD7AE3 /* ErrorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F3951E2CE69A0D00DD7AE3 /* ErrorCodes.swift */; };
+		A0F3951F2CE69A0D00DD7AE3 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F3951E2CE69A0D00DD7AE3 /* AppError.swift */; };
 		B2406F2E20C5CACA008ED085 /* AORegisteredCertificatesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F2920C5CACA008ED085 /* AORegisteredCertificatesTVC.m */; };
 		B2406F2F20C5CACA008ED085 /* AOAvailableCertificatesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F2A20C5CACA008ED085 /* AOAvailableCertificatesTVC.m */; };
 		B2406F3320C5CB8E008ED085 /* AlertProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F3220C5CB8D008ED085 /* AlertProgressBar.m */; };
@@ -8047,10 +8048,11 @@
 		A073AA7D2893F71E00FE30CE /* InputParametersBatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputParametersBatch.h; sourceTree = "<group>"; };
 		A073AA7E2893F71E00FE30CE /* InputParametersBatch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputParametersBatch.m; sourceTree = "<group>"; };
 		A075F1FB2CEB67FA005E1EDA /* ThreePhaseServerRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreePhaseServerRest.swift; sourceTree = "<group>"; };
+		A075F1FD2CEBFEA8005E1EDA /* HandeThirdPartyErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandeThirdPartyErrors.swift; sourceTree = "<group>"; };
 		A09BDEFB2B7B6D270016102B /* HeaderCertificateCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderCertificateCell.h; sourceTree = "<group>"; };
 		A09BDEFC2B7B6D270016102B /* HeaderCertificateCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeaderCertificateCell.m; sourceTree = "<group>"; };
 		A0F3951C2CE692CA00DD7AE3 /* AOCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AOCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
-		A0F3951E2CE69A0D00DD7AE3 /* ErrorCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCodes.swift; sourceTree = "<group>"; };
+		A0F3951E2CE69A0D00DD7AE3 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		B2406F2720C5CACA008ED085 /* AOAvailableCertificatesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOAvailableCertificatesTVC.h; sourceTree = "<group>"; };
 		B2406F2920C5CACA008ED085 /* AORegisteredCertificatesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AORegisteredCertificatesTVC.m; sourceTree = "<group>"; };
 		B2406F2A20C5CACA008ED085 /* AOAvailableCertificatesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOAvailableCertificatesTVC.m; sourceTree = "<group>"; };
@@ -16051,7 +16053,8 @@
 		83DB24902CBFD9E000D1DD8C /* ErrorCodes */ = {
 			isa = PBXGroup;
 			children = (
-				A0F3951E2CE69A0D00DD7AE3 /* ErrorCodes.swift */,
+				A0F3951E2CE69A0D00DD7AE3 /* AppError.swift */,
+				A075F1FD2CEBFEA8005E1EDA /* HandeThirdPartyErrors.swift */,
 			);
 			path = ErrorCodes;
 			sourceTree = "<group>";
@@ -18164,7 +18167,7 @@
 				8325D7482CAADD18007224E9 /* McElieceParameters.m in Sources */,
 				833C28862CA2B89A00DFF6CD /* Attribute.m in Sources */,
 				8325D6972CAADD18007224E9 /* SecT233R1Point.m in Sources */,
-				A0F3951F2CE69A0D00DD7AE3 /* ErrorCodes.swift in Sources */,
+				A0F3951F2CE69A0D00DD7AE3 /* AppError.swift in Sources */,
 				833C28D42CA2B89A00DFF6CD /* BERTaggedObject.m in Sources */,
 				8325D6262CAADD18007224E9 /* AsymmetricKeyInfoConverter.m in Sources */,
 				83AFFFFD2CA2C95D00A26C0F /* DigestAlgorithmIdentifiers.c in Sources */,
@@ -18842,6 +18845,7 @@
 				8325D53B2CAADD17007224E9 /* BERSequenceGenerator.m in Sources */,
 				833C2A9D2CA2B89B00DFF6CD /* ColorScaler.m in Sources */,
 				833C2A452CA2B89B00DFF6CD /* NullOutputStream.m in Sources */,
+				A075F1FE2CEBFEA8005E1EDA /* HandeThirdPartyErrors.swift in Sources */,
 				8325D71B2CAADD18007224E9 /* Composer.m in Sources */,
 				8325D3C42CAADD17007224E9 /* CommonPrivateKeyAttributesContextSpecific.m in Sources */,
 				833C2C652CA2B89C00DFF6CD /* XmpBasicSchema.m in Sources */,
