@@ -158,10 +158,10 @@ class HomeViewModel: ObservableObject {
             showSelectSignMode = true
         } else {
 		  if certificates == nil {
-			 self.showCertificateNeeded()
+			 sendErrorOperation(error: AppError.certificateNeeded)
 		  } else if let certificates = certificates,
 				  certificates.isEmpty {
-			 self.showCertificateNeeded()
+			 sendErrorOperation(error: AppError.certificateNeeded)
 			} else {
 			 areCertificatesSelectable = true
 			 signMode = .electronicCertificate
@@ -196,11 +196,11 @@ class HomeViewModel: ObservableObject {
 		  let nfcEnabled = UserDefaults.standard.object(forKey: "isNfcEnabled") == nil ? true : UserDefaults.standard.bool(forKey: "isNfcEnabled")
 		  if !nfcEnabled {
 			 if certificates == nil {
-				self.showCertificateNeeded()
+				sendErrorOperation(error: AppError.certificateNeeded)
 				return
 			 } else if let certificates = certificates,
 					 certificates.isEmpty {
-				self.showCertificateNeeded()
+				sendErrorOperation(error: AppError.certificateNeeded)
 				return
 			 }
 		  }
@@ -226,10 +226,10 @@ class HomeViewModel: ObservableObject {
 		  } else {
 			 // Ya que esta operación solo es para certificados, debemos comprobar si disponemos de ellos
 			 if certificates == nil {
-				self.showCertificateNeeded()
+				sendErrorOperation(error: AppError.certificateNeeded)
 			 } else if let certificates = certificates,
 					 certificates.isEmpty {
-				self.showCertificateNeeded()
+				sendErrorOperation(error: AppError.certificateNeeded)
 			 } else {
 				signMode = .electronicCertificate
 				areCertificatesSelectable = true
@@ -502,6 +502,7 @@ class HomeViewModel: ObservableObject {
     
     func handleNotAnyCoordinatesSelected() {
         cancelOperation()
+	   showError(appError: AppError.userOperationCanceled)
     }
     
     func resetHomeViewModelVariables() {
@@ -509,10 +510,5 @@ class HomeViewModel: ObservableObject {
 	   self.selectDNIe = false
 	   self.viewMode = .home
 	   self.areCertificatesSelectable = false
-    }
-    
-    func showCertificateNeeded() {
-	   viewMode = .home
-	   showError(appError: AppError.certificateNeeded)
     }
 }
