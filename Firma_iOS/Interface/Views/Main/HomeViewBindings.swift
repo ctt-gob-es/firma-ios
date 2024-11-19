@@ -109,6 +109,8 @@ extension View {
 			 if $0 == true {
 				viewModel.viewMode = .home
 				viewModel.areCertificatesSelectable = false
+				appStatus.showErrorModal = true
+				appStatus.appError = AppError.userOperationCanceled
 			 }
 		  }
 		  .onChange(of: shouldSendStopSign.wrappedValue) {
@@ -116,6 +118,8 @@ extension View {
 				viewModel.viewMode = .home
 				viewModel.areCertificatesSelectable = false
                     viewModel.cancelOperation()
+				appStatus.showErrorModal = true
+				appStatus.appError = AppError.userOperationCanceled
 			 }
 		  }
 		  .onChange(of: viewModel.showTextfieldModal) { newValue in

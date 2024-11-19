@@ -50,7 +50,11 @@ struct MainView: View {
 				NavigationBarButton(imageName: "info", action: { appStatus.showingInfoModal = true })
 				NavigationBarButtonLink(destination: SettingsView(), imageName: "settings")
 			 case .sign:
-				NavigationBarButton(imageName: "close", action: { viewModel.cancelSign() })
+				NavigationBarButton(imageName: "close", action: {
+				    viewModel.cancelSign()
+				    appStatus.showErrorModal = true
+				    appStatus.appError = AppError.userOperationCanceled
+				})
 		  }
 	   }
 	   .padding(.bottom, 4)
