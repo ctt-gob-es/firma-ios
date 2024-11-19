@@ -21,7 +21,7 @@ class GenericBatchSignUseCase: NSObject {
     // MARK: - Properties
     
     var parametersBatch = InputParametersBatch()
-    var completionHandler: ((Result<BatchResult, ErrorInfo>) -> Void)?
+    var completionHandler: ((Result<BatchResult, AppError>) -> Void)?
 
     var result : BatchResult?
     
@@ -36,7 +36,7 @@ class GenericBatchSignUseCase: NSObject {
 	   fatalError("This method should be overridden")
     }
     
-    func sign(pre: String, algorithm: String, pk1Decoded: Bool) -> String {
+    func sign(pre: String, algorithm: String, pk1Decoded: Bool) -> Result<String, AppError> {
 	   fatalError("Must override in subclass")
     }
     
@@ -45,27 +45,11 @@ class GenericBatchSignUseCase: NSObject {
 	   presign()
     }
 
-    func signBatch(dataOperation: [String: Any], completion: @escaping (Result<BatchResult, ErrorInfo>) -> Void) {
+    func signBatch(dataOperation: [String: Any], completion: @escaping (Result<BatchResult, AppError>) -> Void) {
         self.result = nil
 	   self.completionHandler = completion
 	   self.parametersBatch = getDataOperation(dataOperation: dataOperation)
-	   
-	   if parametersBatch.data == "" {
-            
-            IntermediateServerRest().downloadDataJSON(rtServlet: parametersBatch.rtservlet, fileId: parametersBatch.fileId, completion: { responseDict, errorInfo in
-                
-                if let errorInfo = errorInfo {
-                    self.sendError(errorInfo: errorInfo)
-                } else {
-                    if let responseDict = responseDict {
-                        self.parametersBatch = self.getDataOperation(dataOperation: responseDict)
-                        self.preloadCertificateData()
-                    }
-                }
-            })
-	   } else {
-		  preloadCertificateData()
-	   }
+        self.preloadCertificateData()
     }
     
     // MARK: - Generic methods to Batch Sign
@@ -73,7 +57,7 @@ class GenericBatchSignUseCase: NSObject {
     func presign() {
 	   let validationError = validateDataOperation()
 	   if let error = validationError {
-            sendError(errorInfo: error)
+            sendError(appError: error)
         } else {
             ThreePhaseJsonServerRest().bachPresign(urlPresign: parametersBatch.batchpresignerUrl, json: parametersBatch.data, certs: getCertificateData(), completion: { json, error in
                 
@@ -81,7 +65,7 @@ class GenericBatchSignUseCase: NSObject {
                     self.didSuccessBachPresign(json)
                 } else {
                     if let error = error {
-                        self.sendError(errorInfo: error)
+                        self.sendError(appError: error)
                     }
                 }
             })
@@ -94,7 +78,7 @@ class GenericBatchSignUseCase: NSObject {
                 self.didSuccessBachPostsign(json)
             } else {
                 if let error = error {
-                    self.sendError(errorInfo: error)
+                    self.sendError(appError: error)
                 }
             }
         })
@@ -113,10 +97,14 @@ class GenericBatchSignUseCase: NSObject {
                         let pre = params[PRE] as? String ?? ""
                         let pk1Decoded = params[PK1_DECODED] as? Bool ?? false
                         
-                        let pk1 = self.sign(pre: pre, algorithm: getAlgorithm(), pk1Decoded: pk1Decoded)
+                        let result = self.sign(pre: pre, algorithm: getAlgorithm(), pk1Decoded: pk1Decoded)
                         
-                        if pk1.isEmpty {
-                            sendError(errorInfo: ErrorCodes.ServerErrorCodes.unsupportedSignatureFormat.info)
+                        let pk1: String
+                        switch result {
+                        case .success(let pk1String):
+                            pk1 = pk1String
+                        case .failure(let appError):
+                            sendError(appError: appError)
                             return
                         }
                         
@@ -167,18 +155,18 @@ class GenericBatchSignUseCase: NSObject {
                     if let dataOperationBase64 = encodeResponseToBase64(dataOperation) {
                         dataPostSignBase64 = dataOperationBase64
                     } else {
-                        return sendError(errorInfo: ErrorCodes.ServerErrorCodes.invalidOperationDataFormat.info)
+                        return sendError(appError: AppError.jsonBatchDataBase64Possing)
                     }
                 } else {
                     // Error el data del parameters no es un Base64 valido
-                    return sendError(errorInfo: ErrorCodes.ServerErrorCodes.invalidOperationDataFormat.info)
+                    return sendError(appError: AppError.batchDataParameterRequestNotValid)
                 }
             }
             
             if let base64tridata = encodeResponseToBase64(presignsOk) {
                 postsign(jsonData: dataPostSignBase64, triData: base64tridata)
             } else {
-                return sendError(errorInfo: ErrorCodes.ServerErrorCodes.invalidOperationDataFormat.info)
+                return sendError(appError: AppError.jsonBatchSignsBase64Possing)
             }
         } else {
             // No llego el td en la respuesta. Puede que todo hayan sido prefirmas erroneas
@@ -190,29 +178,24 @@ class GenericBatchSignUseCase: NSObject {
                 jsonErrorSigns["signs"] = responseDict["results"]
                 
                 guard let jsonData = try? JSONSerialization.data(withJSONObject: jsonErrorSigns, options: .prettyPrinted) else {
-                    sendError(errorInfo: ErrorCodes.ServerErrorCodes.invalidOperationDataFormat.info)
+                    sendError(appError: AppError.jsonBatchDataErrorSignsBase64Possing)
                     return
                 }
                 
                 storeData(data: jsonData)
             } else {
-                sendError(errorInfo: ErrorCodes.ServerErrorCodes.invalidOperationDataFormat.info)
+                sendError(appError: AppError.threePhaseServerPresignErrorResponseFormatNoData)
                 return
             }
         }
     }
     
-    func didErrorBachPresign(_ errorMessage: String) {
-        let error = ErrorCodes.getThirdPartyOrCommunicationError(codigo: errorMessage)
-        sendError(errorInfo: error.info)
-    }
-    
-    private func sendError(errorInfo: ErrorInfo) {
-        IntermediateServerRest().storeDataError(error: errorInfo, stServlet: self.parametersBatch.stservlet, docId: self.parametersBatch.identifier, completion: { _ in
+    private func sendError(appError: AppError) {
+        IntermediateServerRest().storeDataError(error: appError, stServlet: self.parametersBatch.stservlet, docId: self.parametersBatch.identifier, completion: { _ in
             
             // Tanto si pudimos guardar en el servidor intermedio como no, devolvemos el error original
             if let completionHandler = self.completionHandler {
-                completionHandler(.failure(errorInfo))
+                completionHandler(.failure(appError))
             }
         })
     }
@@ -220,12 +203,12 @@ class GenericBatchSignUseCase: NSObject {
     private func storeData(data: Data) {
         
         guard let cipherSign = DesCypher.cypherData(data, sk: self.parametersBatch.cipherKey.data(using: .utf8)!) else {
-            sendError(errorInfo: ErrorCodes.InternalSoftwareErrorCodes.jsonBatchCipherSignError.info)
+            sendError(appError: AppError.jsonBatchCipherSignError)
             return
         }
         
         guard let cipherCertificate = CipherUtils.cipherCertificateSend(certificateData: getCertificateData(), cipherKey: self.parametersBatch.cipherKey) else {
-            sendError(errorInfo: ErrorCodes.InternalSoftwareErrorCodes.jsonBatchCipherCertificateError.info)
+            sendError(appError: AppError.jsonBatchCipherCertificateError)
             return
         }
         
@@ -237,8 +220,8 @@ class GenericBatchSignUseCase: NSObject {
                 switch result {
                 case .success():
                     completionHandler(.success(self.result ?? .ok))
-                case .failure(let errorInfo):
-                    self.sendError(errorInfo: errorInfo);
+                case .failure(let appError):
+                    self.sendError(appError: appError);
                 }
             }
         })
@@ -264,39 +247,30 @@ class GenericBatchSignUseCase: NSObject {
 
             storeData(data: jsonData)
 	   } catch {
-            sendError(errorInfo: ErrorCodes.ServerErrorCodes.preSignatureError.info)
+            sendError(appError: AppError.jsonBatchSerializeResponsePossign)
 	   }
-    }
-    
-    func didErrorBachPostsign(_ errorMessage: String) {
-        let error = ErrorCodes.getThirdPartyOrCommunicationError(codigo: errorMessage)
-        sendError(errorInfo: error.info)
     }
     
     // MARK: - Helper Functions
-
-    func validateDataOperation() -> ErrorInfo? {
-	   if parametersBatch.operation.isEmpty {
-            return ErrorCodes.ServerErrorCodes.missingOperation.info
-	   }
+    func validateDataOperation() -> AppError? {
 	   if parametersBatch.data.isEmpty {
-            return ErrorCodes.ServerErrorCodes.invalidOperationDataFormat.info
+            return AppError.batchDataErrorNotFound
 	   }
 	   if parametersBatch.stservlet.isEmpty {
-            return ErrorCodes.ServerErrorCodes.documentRetrievalError.info
+            return AppError.batchStservletErrorNotFound
 	   }
 	   if parametersBatch.batchpresignerUrl.isEmpty {
-            return ErrorCodes.ServerErrorCodes.preSignatureError.info
+            return AppError.batchpresignerUrlNotFound
 	   }
 	   if parametersBatch.batchpostsignerUrl.isEmpty {
-            return ErrorCodes.ServerErrorCodes.postSignatureError.info
+            return AppError.batchpostsignerUrlNotFound
 	   }
 
 	   let dataDictionary = parseDataBase64toDictionary(parametersBatch.data)
 	   if dataDictionary == nil {
-            return ErrorCodes.ServerErrorCodes.invalidOperationDataFormat.info
+            return AppError.batchDataParameterRequestNotValid
 	   } else if dataDictionary?["algorithm"] == nil {
-            return ErrorCodes.ServerErrorCodes.unsupportedSignatureAlgorithm.info
+            return AppError.batchalghorithmNotFound
 	   }
 
 	   return nil

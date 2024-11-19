@@ -77,7 +77,7 @@ struct HomeView: View {
 			 } else {
 				if appStatus.keepParentController && ( self.certificates?.count == 0 || self.certificates == nil)  {
 				    //There is no certificate in the app
-                        viewModel.sendErrorOperation(error: ErrorCodes.FunctionalErrorCodes.certificateNeeded.info)
+                        viewModel.sendErrorOperation(error: AppError.certificateNeeded)
 				}
 				if let visibleSignature = viewModel.signModel?.visibleSignature,
 				    visibleSignature {

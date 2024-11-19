@@ -26,8 +26,8 @@ class CertificateBatchSignUseCase: GenericBatchSignUseCase {
     
     // MARK: - Signing Method
     
-    override func sign(pre: String, algorithm: String, pk1Decoded: Bool) -> String {
-	   guard let data = Base64Utils.decode(pre, urlSafe: true) else { return "" }
+    override func sign(pre: String, algorithm: String, pk1Decoded: Bool) -> Result<String, AppError> {
+        guard let data = Base64Utils.decode(pre, urlSafe: true) else { return .failure(AppError.generatePK1BatchCertificate) }
 	   
 	   var signedData: Data
 	   
@@ -42,10 +42,10 @@ class CertificateBatchSignUseCase: GenericBatchSignUseCase {
 	   privateKeyPointer.deallocate()
 	   
 	   if pk1Decoded {
-		  return decodePK1Signature(signedData)
+            return .success(decodePK1Signature(signedData))
 	   }
 	   
-	   return Base64Utils.encode(signedData)
+        return .success(Base64Utils.encode(signedData))
     }
     
     override func getCertificateData() -> String {

@@ -14,20 +14,20 @@ public class ParseDataURLOperationUseCase: NSObject {
     private var numberRetries = 0;
     
     func execute(url: String,
-	   completion: @escaping (Result<NSMutableDictionary, ErrorInfo>) -> Void
+	   completion: @escaping (Result<NSMutableDictionary, AppError>) -> Void
     ) {
         self.url = url
         // Parseamos la url de la peticion
 	   guard let urlParameters = CADESSignUtils.parseUrl(url) as? [String: Any] else {
-            self.sendError(errorInfo: ErrorCodes.RequestErrorCodes.invalidformatRequest.info, completion: completion)
+            self.sendError(error: AppError.invalidformatRequest, completion: completion)
 		  return
 	   }
         
         self.opParameters = NSMutableDictionary(dictionary: urlParameters)
         
         // Validamos los datos generales de la peticion
-        if let errorInfo = validateDataOperation() {
-            self.sendError(errorInfo: errorInfo, completion: completion)
+        if let appError = validateDataOperation() {
+            self.sendError(error: appError, completion: completion)
             return
         }
         
@@ -41,42 +41,42 @@ public class ParseDataURLOperationUseCase: NSObject {
         }
     }
         
-    private func validateDataOperation() -> ErrorInfo? {
+    private func validateDataOperation() -> AppError? {
         // Verificamos que llega codigo de operacion
         guard let operation = self.opParameters[PARAMETER_NAME_OPERATION] as? String else {
-            return ErrorCodes.RequestErrorCodes.operationRequestNotFound.info;
+            return AppError.operationRequestNotFound;
         }
          
         // Verificamos que sea un código válido
         let validOperations = [OPERATION_SIGN, OPERATION_SELECT_CERTIFICATE, OPERATION_COSIGN, OPERATION_COUNTERSIGN, OPERATION_SAVE, OPERATION_BATCH]
         if !validOperations.contains(operation) {
-            return ErrorCodes.RequestErrorCodes.operationRequestNotFound.info;
+            return AppError.operationRequestNotFound;
         }
         
         // Si es una operacion de firma batch es necesario que lleguen los datos o el file id. En firma batch no se selecciona fichero
         if (operation == OPERATION_BATCH && self.opParameters[PARAMETER_NAME_DAT] == nil && self.opParameters[PARAMETER_NAME_FILE_ID] == nil) {
-            return ErrorCodes.RequestErrorCodes.operationDataNotFound.info;
+            return AppError.operationDataNotFound;
         }
         
         return nil;
     }
     
-    private func downloadData(completion: @escaping (Result<(NSMutableDictionary), ErrorInfo>) -> Void) {
+    private func downloadData(completion: @escaping (Result<(NSMutableDictionary), AppError>) -> Void) {
         // Verificamos que nos llegue el id del fichero
         guard let fileId = self.opParameters[PARAMETER_NAME_FILE_ID] as? String else {
-            self.sendError(errorInfo: ErrorCodes.RequestErrorCodes.operationDataNotFound.info, completion: completion)
+            self.sendError(error: AppError.operationDataNotFound, completion: completion)
             return;
         }
         
         // Verificamos que nos llegue el servlet de descarga
         guard let rtServlet = self.opParameters[PARAMETER_NAME_RTSERVLET] as? String else {
-            self.sendError(errorInfo: ErrorCodes.RequestErrorCodes.operationNotRtServlet.info, completion: completion)
+            self.sendError(error: AppError.operationNotRtServlet, completion: completion)
             return
         }
         
         // Verificamos que nos llegue la clave de cifrado
         guard let cipherKey = self.opParameters[PARAMETER_NAME_CIPHER_KEY] as? String else {
-            self.sendError(errorInfo: ErrorCodes.RequestErrorCodes.fileIdButNotCipherKey.info, completion: completion)
+            self.sendError(error: AppError.fileIdButNotCipherKey, completion: completion)
             return
         }
         
@@ -85,7 +85,7 @@ public class ParseDataURLOperationUseCase: NSObject {
                 case .success(let data):
                     self.handleDownloadData(data: data, cipherKey: cipherKey, completion: completion)
                 case .failure(let error):
-                    self.sendError(errorInfo: error, completion: completion)
+                    self.sendError(error: error, completion: completion)
             }
         }
     }
@@ -93,17 +93,17 @@ public class ParseDataURLOperationUseCase: NSObject {
     private func handleDownloadData(
 	   data: Data,
         cipherKey: String,
-	   completion: @escaping (Result<NSMutableDictionary, ErrorInfo>) -> Void
+	   completion: @escaping (Result<NSMutableDictionary, AppError>) -> Void
     ) {
 	   self.urlParameters.receivedDataCert = data
 	     
         guard let cipherKeyCertData = cipherKey.data(using: .utf8) else {
-            self.sendError(errorInfo: ErrorCodes.ThirdPartySoftwareErrorCodes.intermediateServerDownloadDataCipher.info, completion: completion)
+            self.sendError(error: AppError.intermediateServerDownloadDataCipher, completion: completion)
             return
         }
         
         guard let decoded = DesCypher.decypherData(String(data: data, encoding: .utf8) ?? "", sk: cipherKeyCertData) else {
-            self.sendError(errorInfo: ErrorCodes.ThirdPartySoftwareErrorCodes.intermediateServerDownloadDataCipher.info, completion: completion)
+            self.sendError(error: AppError.intermediateServerDownloadDataCipher, completion: completion)
             return
         }
         
@@ -120,13 +120,13 @@ public class ParseDataURLOperationUseCase: NSObject {
     
     private func loadDownloadData(
 	   _ decodedData: Data,
-	   completion: @escaping (Result<NSMutableDictionary, ErrorInfo>) -> Void
+	   completion: @escaping (Result<NSMutableDictionary, AppError>) -> Void
     ) {
         var datosInUse = String(data: decodedData, encoding: .utf8)
         datosInUse = datosInUse?.removingPercentEncoding
         
         guard let entidad = AOXMLReader().loadXML(by: datosInUse ?? "") else {
-            self.sendError(errorInfo: ErrorCodes.ThirdPartySoftwareErrorCodes.intermediateServerDownloadErrorResponseFormatXML.info, completion: completion)
+            self.sendError(error: AppError.intermediateServerDownloadErrorResponseFormatXML, completion: completion)
             return
         }
         
@@ -145,15 +145,15 @@ public class ParseDataURLOperationUseCase: NSObject {
         }
     }
     
-    private func sendError(errorInfo: ErrorInfo, completion: @escaping (Result<NSMutableDictionary, ErrorInfo>) -> Void) {
+    private func sendError(error: AppError, completion: @escaping (Result<NSMutableDictionary, AppError>) -> Void) {
         if let stServlet = opParameters[PARAMETER_NAME_STSERVLET] as? String, let docId = opParameters[PARAMETER_NAME_ID] as? String {
-            IntermediateServerRest().storeDataError(error: errorInfo, stServlet: stServlet, docId: docId, completion: { _ in
+            IntermediateServerRest().storeDataError(error: error, stServlet: stServlet, docId: docId, completion: { _ in
                 // Tanto si pudimos guardar en el servidor intermedio como no, devolvemos el error original
-                completion(.failure(errorInfo))
+                completion(.failure(error))
             })
         } else {
             // Si no tenemos datos del servidor intermedio para guardar error, no guardamos los datos
-            completion(.failure(errorInfo))
+            completion(.failure(error))
         }
     }
 }

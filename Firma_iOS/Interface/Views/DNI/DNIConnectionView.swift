@@ -130,18 +130,18 @@ struct DNIConnectionView: View {
 		  appStatus.showErrorModal = true
 		  
 		  if let userInfo = notification.userInfo,
-			let error = userInfo["errorInfo"] as? ErrorInfo {
+			let error = userInfo["error"] as? AppError {
                 
-                if (error.code == ErrorCodes.DNIeErrorCodes.badCan.info.code) {
+                if (error == AppError.badCan) {
 				step = .canStep
-                } else if (error.code == ErrorCodes.DNIeErrorCodes.badPin.info.code) {
+                } else if (error == AppError.badPin) {
 				step = .pinStep
 			 } else {
 				step = .nfcStep
 				initModel()
 			 }
-			 appStatus.errorInfo = error
-                nfcViewModel?.invalidateSession(errorMessage: error.errorModalType.title)
+			 appStatus.appError = error
+                nfcViewModel?.invalidateSession(errorMessage: error.screenType.title)
 		  } else {
 			 print("No user info available in the notification")
 		  }

@@ -30,7 +30,7 @@ class HomeViewModel: ObservableObject {
     @Published var viewMode : ViewModes? = .sign
     @Published var downloadedData : URL? = nil
     @Published var showPseudonymModal: Bool? = false
-    @Published var errorInfo: ErrorInfo? = nil
+    @Published var appError: AppError? = nil
     @Published var successModalState: SuccessModalState? = nil
     @Published var showErrorModal: Bool? = false
     @Published var showSuccessModal: Bool? = false
@@ -108,7 +108,7 @@ class HomeViewModel: ObservableObject {
                         guard let signModel = self.signModel else { return }
                         self.configureMode(signModel: signModel)
                     case .failure(let error):
-                        self.showError(errorInfo: error)
+                        self.showError(appError: error)
                     }
                 }
             } else {
@@ -160,7 +160,7 @@ class HomeViewModel: ObservableObject {
 		  if let certificates = certificates,
 			certificates.isEmpty {
 			 viewMode = .home
-			 showError(errorInfo: ErrorCodes.FunctionalErrorCodes.certificateNeeded.info)
+			 showError(appError: AppError.certificateNeeded)
 		  } else {
 			 areCertificatesSelectable = true
 			 signMode = .electronicCertificate
@@ -181,7 +181,7 @@ class HomeViewModel: ObservableObject {
                 self.isLoading = false
                 self.selectSignMode()
             case .failure(let error):
-                self.showError(errorInfo: error)
+                self.showError(appError: error)
             }
         }
     }
@@ -238,7 +238,7 @@ class HomeViewModel: ObservableObject {
 		  if let certificates = certificates,
 			certificates.isEmpty {
 			 viewMode = .home
-			 showError(errorInfo: ErrorCodes.FunctionalErrorCodes.certificateNeeded.info)
+			 showError(appError: AppError.certificateNeeded)
 		  } else {
 			 handleOperationSignWithElectronicCertificate()
 		  }
@@ -261,10 +261,10 @@ class HomeViewModel: ObservableObject {
             return
         }
         
-        SendCertificateUseCase().execute(base64Certificate: certificateData, signModel: signModel) { errorInfo in
+        SendCertificateUseCase().execute(base64Certificate: certificateData, signModel: signModel) { appError in
             self.isLoading = false
-            if let errorInfo = errorInfo {
-                self.showError(errorInfo: errorInfo)
+            if let appError = appError {
+                self.showError(appError: appError)
             } else {
                 self.viewMode = .home
                 self.successModalState = .successCertificateSent
@@ -306,7 +306,7 @@ class HomeViewModel: ObservableObject {
                     case .failure(let error):
                         self.viewMode = .home
                         self.areCertificatesSelectable = false
-                        self.showError(errorInfo: error)
+                        self.showError(appError: error)
                     }
                 }
             }
@@ -332,7 +332,7 @@ class HomeViewModel: ObservableObject {
                 self.successModalState = self.getSuccessModal(resultBatch)
                 self.showSuccessModal = true
             case .failure(let error):
-                self.showError(errorInfo: error)
+                self.showError(appError: error)
             }
         }
     }
@@ -360,18 +360,18 @@ class HomeViewModel: ObservableObject {
                     self.downloadedData = url
                     self.showDocumentSavingPicker = true
                 case .failure(let error):
-                    self.showError(errorInfo: error)
+                    self.showError(appError: error)
                 }
             }
         }
     }
     
-    private func showError(errorInfo: ErrorInfo) {
+    private func showError(appError: AppError) {
         self.isLoading = false
         DispatchQueue.main.async {
            self.showErrorModal = false
            DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-               self.errorInfo = errorInfo
+               self.appError = appError
                self.showErrorModal = true
                self.signModel?.returnURL = nil
            }
@@ -388,7 +388,7 @@ class HomeViewModel: ObservableObject {
 		  let certificateRef = SwiftCertificateUtils.getCertificateRefFromIdentity(identity: identity),
 		  let certificateAlgorithm = SwiftCertificateUtils.getAlgorithmFromCertificate(certificate: certificateRef) else {
 		  print("Missing required data for signing")
-            showError(errorInfo: ErrorCodes.InternalSoftwareErrorCodes.generalSoftwareError.info)
+            showError(appError: AppError.generalSoftwareError)
 		  isLoading = false
 		  return
 	   }
@@ -417,7 +417,7 @@ class HomeViewModel: ObservableObject {
                 self.showSuccessModal = true
             case.failure(let error):
                 // Al ser firma local no necesitamos enviar error al servidor
-                self.showError(errorInfo: error)
+                self.showError(appError: error)
             }
 		  
 	   }
@@ -461,15 +461,15 @@ class HomeViewModel: ObservableObject {
     }
     
     /// Envia el error en la operación al servidor intermedio, resetea la vista y muestra la pantalla de error
-    func sendErrorOperation(error: ErrorInfo) {
+    func sendErrorOperation(error: AppError) {
         resetHomeViewModelVariables()
-        showError(errorInfo: error)
+        showError(appError: error)
         SendErrorOperationUseCase().execute(error: error, signModel: signModel)
     }
     
     func cancelOperation() {
         resetHomeViewModelVariables()
-        SendErrorOperationUseCase().execute(error: ErrorCodes.FunctionalErrorCodes.userOperationCanceled.info, signModel: signModel)
+        SendErrorOperationUseCase().execute(error: AppError.userOperationCanceled, signModel: signModel)
     }
     
     func handleNotAnyCoordinatesSelected() {

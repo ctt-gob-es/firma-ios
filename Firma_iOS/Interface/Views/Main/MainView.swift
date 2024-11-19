@@ -183,7 +183,7 @@ struct MainView: View {
 				    viewModel.certificateURL = url
 				    appStatus.navigateToAddCertificate.toggle()
 				} else {
-                        appStatus.errorInfo = ErrorCodes.InternalSoftwareErrorCodes.certificateLoadingError.info
+                        appStatus.appError = AppError.certificateLoadingError
 				    appStatus.showErrorModal.toggle()
 				}
 			 }, onCancel: {
@@ -209,7 +209,7 @@ struct MainView: View {
 			 viewMode: $viewModel.viewMode,
 			 description: $appStatus.errorModalDescription,
 			 shouldReloadParentView: $appStatus.navigateToSelectCertificate,
-			 errorInfo: appStatus.errorInfo
+                appError: appStatus.appError ?? AppError.generalSoftwareError
 		  )
 		  .environmentObject(appStatus)
 		  .fixedSize(horizontal: false, vertical: true)
@@ -289,14 +289,14 @@ struct MainView: View {
     
     private func handleFileImportCancellation() {
 	   appStatus.showErrorModal = true
-	   appStatus.errorInfo = ErrorCodes.FunctionalErrorCodes.userOperationCanceled.info
+	   appStatus.appError = AppError.userOperationCanceled
 	   appStatus.navigateToDNI = false
 	   appStatus.navigateToAddCertificate = false
     }
     
     func handleErrorImportingFile(error: Error) {
 	   appStatus.showErrorModal = true
-	   appStatus.errorInfo = ErrorCodes.InternalSoftwareErrorCodes.fileLoadingLocalFile.info
+	   appStatus.appError = AppError.fileLoadingLocalFile
 	   appStatus.errorModalDescription = error.localizedDescription
 	   appStatus.navigateToDNI = false
 	   appStatus.navigateToAddCertificate = false
@@ -304,7 +304,7 @@ struct MainView: View {
     
     func handleErrorSavingData(error: Error) {
 	   appStatus.showErrorModal = true
-	   appStatus.errorInfo = ErrorCodes.InternalSoftwareErrorCodes.dataSavingFileSaveDisk.info
+	   appStatus.appError = AppError.dataSavingFileSaveDisk
 	   appStatus.errorModalDescription = error.localizedDescription
 	   appStatus.navigateToDNI = false
 	   appStatus.navigateToAddCertificate = false

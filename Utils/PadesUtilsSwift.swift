@@ -17,7 +17,7 @@ class PadesUtilsSwift {
 	   certificateRef: SecCertificate,
 	   certificateAlgorithm: String?,
 	   extraParams: [String: String]?,
-	   completion: @escaping (Result<String, ErrorInfo>) -> Void
+	   completion: @escaping (Result<String, AppError>) -> Void
     ) {
 	   DispatchQueue.global(qos: .userInitiated).async {
 		  let utils = AOPadesUtils()
@@ -32,11 +32,11 @@ class PadesUtilsSwift {
 		  ) { result, error in
 			 DispatchQueue.main.async {
 				if let error = error {
-				    completion(.failure(ErrorCodes.InternalSoftwareErrorCodes.generalSoftwareError.info))
+				    completion(.failure(AppError.generalSoftwareError))
 				} else if let result = result {
 				    completion(.success(result))
 				} else {
-                        let unknownError = ErrorCodes.InternalSoftwareErrorCodes.generalSoftwareError.info
+                        let unknownError = AppError.generalSoftwareError
 				    completion(.failure(unknownError))
 				}
 			 }

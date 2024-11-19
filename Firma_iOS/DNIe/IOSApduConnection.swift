@@ -125,7 +125,7 @@ class IOSApduConnection: EsGobJmulticardConnectionAbstractApduConnectionIso7816 
     private func sendResetCardCommand() async throws -> IOSByteArray? {
 	   let apduData = Data([0x00, 0xA4, 0x00, 0x00])
 	   guard let apdu = NFCISO7816APDU(data: apduData) else {
-            throw ErrorCodes.HardwareErrorCodes.nfcCardResetError.info
+            throw AppError.nfcCardResetError
 	   }
 	   
 	   do {
@@ -167,7 +167,7 @@ class IOSApduConnection: EsGobJmulticardConnectionAbstractApduConnectionIso7816 
 		  
 		  nfcTag.sendCommand(apdu: apdu) { (responseData, sw1, sw2, error) in
 			 if let _ = error as? NFCReaderError {
-				continuation.resume(throwing: ErrorCodes.HardwareErrorCodes.nfcCardSendCommandError.info)
+				continuation.resume(throwing: AppError.nfcCardSendCommandError)
 				return
 			 }
 			 

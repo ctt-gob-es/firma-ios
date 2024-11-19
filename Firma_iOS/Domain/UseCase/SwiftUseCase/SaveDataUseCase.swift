@@ -10,10 +10,10 @@ import Foundation
 import MobileCoreServices
 
 class SaveDataUseCase {
-    func saveFileFromBase64Data(archiveName: String, base64Data: String, completion: @escaping (Result<URL, ErrorInfo>) -> Void) {
+    func saveFileFromBase64Data(archiveName: String, base64Data: String, completion: @escaping (Result<URL, AppError>) -> Void) {
         
 	   guard let data = Base64Utils.decode(base64Data, urlSafe: true) else {
-            completion(.failure(ErrorCodes.InternalSoftwareErrorCodes.dataSavingBase64Error.info))
+            completion(.failure(AppError.dataSavingBase64Error))
 		  return
 	   }
 	   
@@ -33,7 +33,7 @@ class SaveDataUseCase {
 		  let escapedURL = fileURL.absoluteString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? fileURL.absoluteString
 		  completion(.success(URL(string: escapedURL)!))
 	   } catch {
-            completion(.failure(ErrorCodes.InternalSoftwareErrorCodes.dataSavingFileSaveDisk.info))
+            completion(.failure(AppError.dataSavingFileSaveDisk))
 	   }
     }
 }

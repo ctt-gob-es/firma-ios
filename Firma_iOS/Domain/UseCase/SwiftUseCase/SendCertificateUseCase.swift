@@ -23,10 +23,10 @@ class SendCertificateUseCase {
     func execute (
        base64Certificate: String,
        signModel: SignModel,
-       completion: @escaping (ErrorInfo?) -> Void) {
+       completion: @escaping (AppError?) -> Void) {
         
            guard let cipherCertificate = CipherUtils.cipherCertificateSend(certificateData: base64Certificate, cipherKey: signModel.cipherKey!) else {
-               sendError(signModel: signModel, errorInfo: ErrorCodes.InternalSoftwareErrorCodes.signingCipherCertificateError.info, completion: completion)
+               sendError(signModel: signModel, error: AppError.signingCipherCertificateError, completion: completion)
                return
            }
            
@@ -34,16 +34,16 @@ class SendCertificateUseCase {
                switch result {
                case .success():
                    completion(nil)
-               case .failure(let errorInfo):
-                   self.sendError(signModel: signModel, errorInfo: errorInfo, completion: completion)
+               case .failure(let appError):
+                   self.sendError(signModel: signModel, error: appError, completion: completion)
                }
            }
     }
            
-    private func sendError(signModel: SignModel, errorInfo: ErrorInfo, completion: @escaping (ErrorInfo?) -> Void) {
-        IntermediateServerRest().storeDataError(error: errorInfo, stServlet: signModel.urlServlet!, docId: signModel.docId!, completion: { _ in
+    private func sendError(signModel: SignModel, error: AppError, completion: @escaping (AppError?) -> Void) {
+        IntermediateServerRest().storeDataError(error: error, stServlet: signModel.urlServlet!, docId: signModel.docId!, completion: { _ in
             // Tanto si pudimos guardar en el servidor intermedio como no, devolvemos el error original
-            completion(errorInfo)
+            completion(error)
         })
     }
 }

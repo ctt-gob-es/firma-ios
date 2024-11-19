@@ -10,10 +10,10 @@ import Foundation
 
 class LoadDataLocalFileUseCase {
     
-    func execute(urlFile: [URL]?, signModel: SignModel?, completion: @escaping (Result<String, ErrorInfo>) -> Void) {
+    func execute(urlFile: [URL]?, signModel: SignModel?, completion: @escaping (Result<String, AppError>) -> Void) {
         guard let urlFile = urlFile else {
             // Error la url no es válida
-            sendError(error: ErrorCodes.InternalSoftwareErrorCodes.signingLoadLocalFile.info, signModel: signModel, completion: completion)
+            sendError(error: AppError.signingLoadLocalFile, signModel: signModel, completion: completion)
             return
         }
         
@@ -25,12 +25,12 @@ class LoadDataLocalFileUseCase {
                     completion(.success(dataFile))
                 }
             case .failure(_):
-                self.sendError(error: ErrorCodes.InternalSoftwareErrorCodes.signingLoadLocalFile.info, signModel: signModel, completion: completion)
+                self.sendError(error: AppError.signingLoadLocalFile, signModel: signModel, completion: completion)
             }
         }
     }
     
-    private func sendError(error: ErrorInfo, signModel: SignModel?, completion: @escaping (Result<String, ErrorInfo>) -> Void) {
+    private func sendError(error: AppError, signModel: SignModel?, completion: @escaping (Result<String, AppError>) -> Void) {
         guard let urlServlet = signModel?.urlServlet,
              let docId = signModel?.docId else {
             completion(.failure(error))

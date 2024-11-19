@@ -15,7 +15,7 @@ class ThreePhaseJsonServerRest {
         urlPresign: String?,
         json: String?,
         certs: String?,
-        completion: @escaping ([String : Any]?, ErrorInfo?) -> Void
+        completion: @escaping ([String : Any]?, AppError?) -> Void
     ) {
         
         let safeJson = Base64Utils.urlSafeEncode(json)
@@ -31,17 +31,17 @@ class ThreePhaseJsonServerRest {
             let task = session.dataTask(with: request) { data, response, error in
                 
                 if let _ = error {
-                    completion(nil, ErrorCodes.CommunicationErrorCodes.jsonBatchThreePhasePresignErrorConnection.info)
+                    completion(nil, AppError.threePhaseServerPreSignCommunicationError)
                     return
                 }
                 
                 if let httpResponse = response as? HTTPURLResponse, !(200...299).contains(httpResponse.statusCode) {
-                    completion(nil, ErrorCodes.ThirdPartySoftwareErrorCodes.threePhaseServerPresignErrorHTTPResponse.info);
+                    completion(nil, AppError.threePhaseServerPresignErrorHTTPResponse);
                     return
                 }
                 
                 guard let data = data else {
-                    completion(nil, ErrorCodes.ThirdPartySoftwareErrorCodes.threePhaseServerPresignErrorResponseFormat.info);
+                    completion(nil, AppError.threePhaseServerPresignErrorResponseFormat);
                     return
                 }
                 
@@ -52,12 +52,12 @@ class ThreePhaseJsonServerRest {
                         completion(json, nil)
                     } else {
                         // Si no es un diccionario, lanzamos un error.
-                        completion(nil, ErrorCodes.ThirdPartySoftwareErrorCodes.threePhaseServerPresignErrorResponseFormatDictionary.info);
+                        completion(nil, AppError.threePhaseServerPresignErrorResponseFormatDictionary);
                         
                     }
                 } catch {
                     // Si hubo un error al intentar convertir el `data` a un JSON.
-                    completion(nil, ErrorCodes.ThirdPartySoftwareErrorCodes.threePhaseServerPresignErrorResponseFormat.info);
+                    completion(nil, AppError.threePhaseServerPresignErrorResponseFormat);
                 }
             }
             task.resume()
@@ -70,7 +70,7 @@ class ThreePhaseJsonServerRest {
         json: String?,
         certs: String?,
         tridata: String?,
-        completion: @escaping ([String : Any]?, ErrorInfo?) -> Void
+        completion: @escaping ([String : Any]?, AppError?) -> Void
     ) {
         
         let safeJson = Base64Utils.urlSafeEncode(json)
@@ -88,17 +88,17 @@ class ThreePhaseJsonServerRest {
             let task = session.dataTask(with: request) { data, response, error in
                 
                 if let _ = error {
-                    completion(nil, ErrorCodes.CommunicationErrorCodes.jsonBatchThreePhasePostsignErrorConnection.info)
+                    completion(nil, AppError.threePhaseServerPosSignCommunicationError)
                     return
                 }
                 
                 if let httpResponse = response as? HTTPURLResponse, !(200...299).contains(httpResponse.statusCode) {
-                    completion(nil, ErrorCodes.ThirdPartySoftwareErrorCodes.threePhaseServerPostsignErrorHTTPResponse.info);
+                    completion(nil, AppError.threePhaseServerPostsignErrorHTTPResponse);
                     return
                 }
                 
                 guard let data = data else {
-                    completion(nil, ErrorCodes.ThirdPartySoftwareErrorCodes.threePhaseServerPostsignErrorResponseFormat.info);
+                    completion(nil, AppError.threePhaseServerPostsignErrorResponseFormat);
                     return
                 }
                 
@@ -109,12 +109,12 @@ class ThreePhaseJsonServerRest {
                         completion(json, nil)
                     } else {
                         // Si no es un diccionario, lanzamos un error.
-                        completion(nil, ErrorCodes.ThirdPartySoftwareErrorCodes.threePhaseServerPostsignErrorResponseFormatDictionary.info);
+                        completion(nil, AppError.threePhaseServerPostsignErrorResponseFormatDictionary);
                         
                     }
                 } catch {
                     // Si hubo un error al intentar convertir el `data` a un JSON.
-                    completion(nil, ErrorCodes.ThirdPartySoftwareErrorCodes.threePhaseServerPostsignErrorResponseFormat.info);
+                    completion(nil, AppError.threePhaseServerPostsignErrorResponseFormat);
                 }
             }
             task.resume()

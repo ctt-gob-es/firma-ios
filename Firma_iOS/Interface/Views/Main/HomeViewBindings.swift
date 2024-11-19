@@ -83,7 +83,7 @@ extension View {
     private func applyModalBindings(viewModel: HomeViewModel, appStatus: AppStatus) -> some View {
 	   self
 		  .onChange(of: viewModel.showPseudonymModal) { appStatus.showPseudonymModal = $0 ?? false }
-            .onChange(of: viewModel.errorInfo) { appStatus.errorInfo = $0 ?? ErrorCodes.InternalSoftwareErrorCodes.generalSoftwareError.info }
+            .onChange(of: viewModel.appError) { appStatus.appError = $0 ?? AppError.generalSoftwareError }
 		  .onChange(of: viewModel.successModalState) { appStatus.successModalState = $0 ?? .successSign }
 		  .onChange(of: viewModel.showErrorModal) { appStatus.showErrorModal = $0 ?? false }
 		  .onChange(of: viewModel.showSuccessModal) { appStatus.showSuccessModal = $0 ?? false }

@@ -19,7 +19,7 @@ class ThreePhaseServerRest {
        extraParams: String?,
        triphasicServerURL: String?,
        rtServlet: String?,
-       completion: @escaping (Result<String, ErrorInfo>) -> Void) {
+       completion: @escaping (Result<String, AppError>) -> Void) {
             
         let encodedCertificate = Base64Utils.urlSafeEncode(certificateData).replacingOccurrences(of: "\n", with: "")
         var parameters = [
@@ -36,7 +36,7 @@ class ThreePhaseServerRest {
         }
             
         guard let requestUrl = getDefaultTriphaseServer(triphasicServerURL: triphasicServerURL, rtServlet: rtServlet) else {
-            completion(.failure(ErrorCodes.RequestErrorCodes.signThreePhaseUrlError.info))
+            completion(.failure(AppError.signThreePhaseUrlError))
            return
         }
             
@@ -44,17 +44,17 @@ class ThreePhaseServerRest {
             let session = NetworkManager.shared.getSession()
             let task = session.dataTask(with: request) { data, response, error in
                 if let _ = error {
-                    completion(.failure(ErrorCodes.CommunicationErrorCodes.threePhaseSignatureError.info))
+                    completion(.failure(AppError.threePhaseServerPreSignCommunicationError))
                     return
                 }
                 
                 if let httpResponse = response as? HTTPURLResponse, !(200...299).contains(httpResponse.statusCode) {
-                    completion(.failure(ErrorCodes.ThirdPartySoftwareErrorCodes.threePhaseServerPresignErrorHTTPResponse.info))
+                    completion(.failure(AppError.threePhaseServerPresignErrorHTTPResponse))
                     return
                 }
                 
                 guard let data = data, let responseString = String(data: data, encoding: .utf8) else {
-                    completion(.failure(ErrorCodes.ThirdPartySoftwareErrorCodes.threePhaseServerPresignErrorResponseFormat.info))
+                    completion(.failure(AppError.threePhaseServerPresignErrorResponseFormat))
                     return
                 }
                 
@@ -65,7 +65,7 @@ class ThreePhaseServerRest {
         }
     }
     
-    func postSign(operation: String, dict: [String: String], datosInUse: String, signFormat: String, signAlgoInUse: String, base64UrlSafeCertificateData: String, extraParams: String?, encodedData: Data, triphasicServerURL: String?, rtServlet: String?, completion: @escaping (Result<String, Error>) -> Void) {
+    func postSign(operation: String, dict: [String: String], datosInUse: String, signFormat: String, signAlgoInUse: String, base64UrlSafeCertificateData: String, extraParams: String?, encodedData: Data, triphasicServerURL: String?, rtServlet: String?, completion: @escaping (Result<String, AppError>) -> Void) {
         
         var parameters = [
             PARAMETER_NAME_OPERATION: OPERATION_POSTSIGN,
@@ -85,7 +85,7 @@ class ThreePhaseServerRest {
         }
         
         guard let requestUrl = getDefaultTriphaseServer(triphasicServerURL: triphasicServerURL, rtServlet: rtServlet) else {
-            completion(.failure(ErrorCodes.RequestErrorCodes.signThreePhaseUrlError.info))
+            completion(.failure(AppError.signThreePhaseUrlError))
            return
         }
         
@@ -94,17 +94,17 @@ class ThreePhaseServerRest {
             let task = session.dataTask(with: request) { data, response, error in
                 
                 if let _ = error {
-                    completion(.failure(ErrorCodes.CommunicationErrorCodes.threePhaseSignatureError.info))
+                    completion(.failure(AppError.threePhaseServerPosSignCommunicationError))
                     return
                 }
                 
                 if let httpResponse = response as? HTTPURLResponse, !(200...299).contains(httpResponse.statusCode) {
-                    completion(.failure(ErrorCodes.ThirdPartySoftwareErrorCodes.threePhaseServerPostsignErrorHTTPResponse.info))
+                    completion(.failure(AppError.threePhaseServerPostsignErrorHTTPResponse))
                     return
                 }
                 
                 guard let data = data, let responseString = String(data: data, encoding: .utf8) else {
-                    completion(.failure(ErrorCodes.ThirdPartySoftwareErrorCodes.threePhaseServerPostsignErrorResponseFormat.info))
+                    completion(.failure(AppError.threePhaseServerPostsignErrorResponseFormat))
                     return
                 }
                 

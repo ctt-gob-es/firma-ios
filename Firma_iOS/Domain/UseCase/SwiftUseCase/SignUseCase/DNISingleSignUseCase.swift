@@ -24,7 +24,7 @@ class DNISingleSignUseCase : GenericSignUseCase, DNIeResult {
     
     private func handleErrorDnieWrapper(errorCode: Int) {
         if let completionCallback = completionCallback {
-            completionCallback(.failure(ErrorCodes.getServerError(codigo: String(errorCode)).info))
+            completionCallback(.failure(HandeThirdPartyErrors.getDNIEError(codigo: errorCode)))
         }
     }
     

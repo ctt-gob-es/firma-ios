@@ -10,7 +10,7 @@ import Foundation
 
 class SendErrorOperationUseCase {
     
-    func execute (error: ErrorInfo, signModel: SignModel?) {
+    func execute (error: AppError, signModel: SignModel?) {
         if let signModel = signModel {
             IntermediateServerRest().storeDataError(error: error, stServlet: signModel.urlServlet!, docId: signModel.docId!) { result in
                 // Da igual si se ha podido guardar o no el error. No se gestiona el error porque es asincrono y transparente al usuario

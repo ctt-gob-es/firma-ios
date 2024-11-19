@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 protocol HistoricalRepositoryProtocol {
-    func saveHistory(history: HistoryModel, completion: @escaping (Result<Void, ErrorInfo>) -> Void)
+    func saveHistory(history: HistoryModel, completion: @escaping (Result<Void, AppError>) -> Void)
     func fetchHistory(completion: @escaping (Result<[History], Error>) -> Void)
     func deleteHistory(history: History, completion: @escaping (Result<Void, Error>) -> Void)
     func deleteAllHistory(completion: @escaping (Result<Void, Error>) -> Void)
@@ -23,7 +23,7 @@ class HistoricalRepository: HistoricalRepositoryProtocol {
 	   self.context = context
     }
 
-    func saveHistory(history: HistoryModel, completion: @escaping (Result<Void, ErrorInfo>) -> Void) {
+    func saveHistory(history: HistoryModel, completion: @escaping (Result<Void, AppError>) -> Void) {
 	   let historyCoreData = History(context: context)
 	   historyCoreData.date = history.date
 	   historyCoreData.signType = history.signType.rawValue
@@ -34,9 +34,9 @@ class HistoricalRepository: HistoricalRepositoryProtocol {
 	   do {
 		  try context.save()
 		  //completion(.success(()))
-            completion(.failure(ErrorCodes.InternalSoftwareErrorCodes.saveHistorySign.info))
+            completion(.failure(AppError.saveHistorySign))
 	   } catch {
-            completion(.failure(ErrorCodes.InternalSoftwareErrorCodes.saveHistorySign.info))
+            completion(.failure(AppError.saveHistorySign))
 	   }
     }
 

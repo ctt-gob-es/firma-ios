@@ -77,12 +77,12 @@ class NFCViewModel: NSObject, ObservableObject {
 					   }
 				    }
 				}
-			 case .failure(let errorInfo):
+			 case .failure(let appError):
                     DispatchQueue.main.async {
 				    NotificationCenter.default.post(
 					   name: .DNIeError,
 					   object: nil,
-					   userInfo: ["errorInfo": errorInfo]
+					   userInfo: ["error": appError]
 				    )
 				}
 		  }
@@ -108,13 +108,13 @@ class NFCViewModel: NSObject, ObservableObject {
                     DispatchQueue.main.async {
                        NotificationCenter.default.post(name: .DNIeSuccess, object: successModalState)
                     }
-                case .failure(let error):
+                case .failure(let appError):
                     // Hubo error en el proceso de firma batch
                     DispatchQueue.main.async {
                         NotificationCenter.default.post(
                            name: .DNIeError,
                            object: nil,
-                           userInfo: ["errorInfo": error]
+                           userInfo: ["error": appError]
                         )
                     }
                 }

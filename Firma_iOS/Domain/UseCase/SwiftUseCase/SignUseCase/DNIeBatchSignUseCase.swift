@@ -27,7 +27,7 @@ class DNIeBatchSignUseCase: GenericBatchSignUseCase, DNIeResult {
     
     private func handleErrorDnieWrapper(errorCode: Int) {
         if let completionHandler = self.completionHandler {
-            completionHandler(.failure(ErrorCodes.getServerError(codigo: String(errorCode)).info))
+            completionHandler(.failure(HandeThirdPartyErrors.getDNIEError(codigo: errorCode)))
         }
     }
     
@@ -58,22 +58,22 @@ class DNIeBatchSignUseCase: GenericBatchSignUseCase, DNIeResult {
     
     // MARK: - Signing Method
     
-    override func sign(pre: String, algorithm: String, pk1Decoded: Bool) -> String {
+    override func sign(pre: String, algorithm: String, pk1Decoded: Bool) -> Result<String, AppError> {
 	   guard let dataToSign = Base64Utils.decode(pre, urlSafe: true) else {
-		  return ""
+            return .failure(AppError.generatePK1BatchDNIe)
 	   }
 	   
 	   guard let privateKeyReference = dnieWrapper?.getPrivateKey(with: PrivateConstants.certFromDNIe),
 		    let dataSigned = dnieWrapper?.sign(with: IOSByteArray(nsData: dataToSign), with: algorithm, with: privateKeyReference) else {
 		  handleErrorDnieWrapper(errorCode: Int(dnieWrapper?.getErrorCode() ?? 10))
-		  return ""
+            return .failure(AppError.generatePK1BatchDNIe)
 	   }
 	   
 	   if pk1Decoded {
-		  return decodePK1Signature(dataSigned.toNSData())
+            return .success(decodePK1Signature(dataSigned.toNSData()))
 	   }
 	   
-	   return Base64Utils.encode(dataSigned.toNSData())
+        return .success(Base64Utils.encode(dataSigned.toNSData()))
     }
     
     override func getCertificateData() -> String {

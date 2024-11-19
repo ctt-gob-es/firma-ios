@@ -11,9 +11,22 @@ import Foundation
 class GenericSignUseCase {
     private let threePhaseServerRest = ThreePhaseServerRest()
     
+    let supportedFormats: [String] = [
+        CADES_FORMAT,
+        CADES_TRI_FORMAT,
+        PADES_FORMAT,
+        PADES_TRI_FORMAT,
+        XADES_FORMAT,
+        XADES_TRI_FORMAT,
+        NONE_TRI_FORMAT,
+        NONE_FORMAT,
+        FACTURAE_FORMAT,
+        FACTURAE_TRI_FORMAT
+     ]
+    
     var signModel: SignModel
     
-    var completionCallback: ((Result<Bool, ErrorInfo>) -> Void)?
+    var completionCallback: ((Result<Bool, AppError>) -> Void)?
     
     init(signModel: SignModel) {
 	   self.signModel = signModel
@@ -28,7 +41,7 @@ class GenericSignUseCase {
     }
     
     
-    func singleSign(completion: @escaping (Result<Bool, ErrorInfo>) -> Void) {
+    func singleSign(completion: @escaping (Result<Bool, AppError>) -> Void) {
 	   self.completionCallback = completion
 	   if validateData() {
 		  configure()
@@ -36,47 +49,41 @@ class GenericSignUseCase {
     }
     
     private func validateData() -> Bool {
-	   let supportedFormats: [String] = [
-		  CADES_FORMAT,
-		  CADES_TRI_FORMAT,
-		  PADES_FORMAT,
-		  PADES_TRI_FORMAT,
-		  XADES_FORMAT,
-		  XADES_TRI_FORMAT,
-		  NONE_TRI_FORMAT,
-		  NONE_FORMAT,
-		  FACTURAE_FORMAT,
-		  FACTURAE_TRI_FORMAT
-	   ]
 	   
-	   guard let signFormat = signModel.signFormat, supportedFormats.contains(signFormat) else {
-            sendError(error: ErrorCodes.ServerErrorCodes.unsupportedSignatureFormat)
+        guard let signFormat = signModel.signFormat else {
+            sendError(error: AppError.signFormatNotFound)
 		  return false
 	   }
+        
+        if !supportedFormats.contains(signFormat)  {
+            sendError(error: AppError.signFormatNotValid)
+          return false
+        }
 	   
 	   guard let urlServlet = signModel.urlServlet, !urlServlet.isEmpty else {
-            sendError(error: ErrorCodes.ServerErrorCodes.unknownOperation)
+            sendError(error: AppError.signUrlServletNotFound)
 		  return false
 	   }
 	   
-	   guard let signAlgoInUse = signModel.signAlgoInUse, CADESSignUtils.isValidAlgorithm(signAlgoInUse) else {
-		  sendError(error: ErrorCodes.ServerErrorCodes.unsupportedSignatureAlgorithm)
+        guard let signAlgoInUse = signModel.signAlgoInUse else {
+		  sendError(error: AppError.signAlgoNotFound)
 		  return false
 	   }
+        
+        if (!CADESSignUtils.isValidAlgorithm(signAlgoInUse)) {
+            sendError(error: AppError.signAlgoNotValid)
+        }
 	   
 	   guard let docId = signModel.docId, !docId.isEmpty else {
-		  sendError(error: ErrorCodes.ServerErrorCodes.missingDocumentID)
+		  sendError(error: AppError.signDocIdNotFound)
 		  return false
 	   }
 	   
-	   guard let operation = signModel.operation,
-		    operation == OPERATION_SIGN ||
-		    operation == OPERATION_COSIGN ||
-		    operation == OPERATION_COUNTERSIGN else {
-            sendError(error: ErrorCodes.ServerErrorCodes.invalidSubOperation)
-		  return false
-	   }
-	   
+        guard let datosInUse = signModel.datosInUse else {
+            sendError(error: AppError.operationDataNotFound)
+            return false
+        }
+        
 	   return true
     }
     
@@ -98,22 +105,23 @@ class GenericSignUseCase {
 
     
     func singleSignMonophasic() {
-	   guard let datosInUse = signModel.datosInUse,
-		    let _ = signModel.signFormat,
-		    let signAlgoInUse = signModel.signAlgoInUse else {
-            sendError(error: ErrorCodes.InternalSoftwareErrorCodes.signingError)
-		  return
-	   }
-	   
-	   guard let decodedDatosInUse = Base64Utils.decode(datosInUse, urlSafe: true) else {
-            sendError(error: ErrorCodes.InternalSoftwareErrorCodes.signingError)
+        guard let datosInUse = signModel.datosInUse,
+             let signFormat = signModel.signFormat,
+             let signAlgoInUse = signModel.signAlgoInUse else {
+                // Devolvemos erro general porque se validan estos campos previamente. Nunca deberia llegar aqui
+                sendError(error: AppError.generalSoftwareError)
+           return
+        }
+        
+        guard let decodedDatosInUse = Base64Utils.decode(datosInUse, urlSafe: true) else {
+            sendError(error: AppError.datosInUseDecodeNotValid)
 		  return
 	   }
 	   
 	   guard let pkcs1 = getPKCS1Sign(dataToSign: decodedDatosInUse, algorithm: signAlgoInUse),
 		    let encodedPKCS1 = Base64Utils.encode(pkcs1, urlSafe: true)
 	   else {
-            sendError(error: ErrorCodes.InternalSoftwareErrorCodes.signingError)
+            //sendError(error: AppError.signingError)
 		  return
 	   }
 	   
@@ -126,29 +134,27 @@ class GenericSignUseCase {
 		    let signFormat = signModel.signFormat,
 		    let signAlgoInUse = signModel.signAlgoInUse,
 		    let certificateData = getCertificateData() else {
-            sendError(error: ErrorCodes.InternalSoftwareErrorCodes.signingError)
+            // Devolvemos erro general porque se validan estos campos previamente. Nunca deberia llegar aqui
+            sendError(error: AppError.generalSoftwareError)
 		  return
 	   }
 	   
-	   if CADESSignUtils.isValidAlgorithm(signAlgoInUse) {
-		  preSign(
-			 operation: operation,
-			 datosInUse: datosInUse,
-			 signFormat: signFormat,
-			 signAlgoInUse: signAlgoInUse,
-			 certificateData: certificateData,
-			 extraParams: signModel.extraParams,
-			 triphasicServerURL: signModel.triphasicServerURL,
-			 rtServlet: signModel.rtServlet)
-	   } else {
-            sendError(error: ErrorCodes.InternalSoftwareErrorCodes.appConfigurationError)
-	   }
+        preSign(
+            operation: operation,
+            datosInUse: datosInUse,
+            signFormat: signFormat,
+            signAlgoInUse: signAlgoInUse,
+            certificateData: certificateData,
+            extraParams: signModel.extraParams,
+            triphasicServerURL: signModel.triphasicServerURL,
+            rtServlet: signModel.rtServlet)
     }
     
     private func handlePresingResult(result: String) {
 	   guard let signFormat = signModel.signFormat,
 		    let signAlgoInUse = signModel.signAlgoInUse else {
-            sendError(error: ErrorCodes.FunctionalErrorCodes.signatureOperationError)
+            // Devolvemos erro general porque se validan estos campos previamente. Nunca deberia llegar aqui
+            sendError(error: AppError.generalSoftwareError)
 		  return
 	   }
 	   
@@ -160,7 +166,7 @@ class GenericSignUseCase {
                 }
             } else {
                 let errorCodeServer = String(result[..<range.lowerBound])
-                sendError(error: ErrorCodes.getServerError(codigo: errorCodeServer))
+                sendError(error: HandeThirdPartyErrors.getServerError(codigo: errorCodeServer))
             }
             // En cualquier caso paramos ejecucion
             return
@@ -172,7 +178,7 @@ class GenericSignUseCase {
                 signFormat: signFormat
               )  else {
             if self is SingleSignUseCase {
-                sendError(error: ErrorCodes.InternalSoftwareErrorCodes.signingError)
+               // sendError(error: AppError.signingError)
                 return
             }
             return
@@ -187,7 +193,8 @@ class GenericSignUseCase {
 		    let signFormat = signModel.signFormat,
 		    let signAlgoInUse = signModel.signAlgoInUse,
 		    let certificateData = getCertificateData() else {
-            sendError(error: ErrorCodes.CommunicationErrorCodes.signatureUploadError)
+            // Devolvemos erro general porque se validan estos campos previamente. Nunca deberia llegar aqui
+            sendError(error: AppError.generalSoftwareError)
 		  return
 	   }
 	   postSign(
@@ -209,16 +216,16 @@ class GenericSignUseCase {
                 let parte2 = String(responseString[range.upperBound...])
                 storeData(dataSign: parte2)
             } else {
-                sendError(error: ErrorCodes.FunctionalErrorCodes.signatureOperationError)
+                sendError(error: AppError.threePhaseServerPostsignErrorResponseOkFormat)
                 return
             }
         } else {
             if let range = responseString.range(of: ":") {
                 let errorCodeServer = String(responseString[..<range.lowerBound])
-                sendError(error: ErrorCodes.getServerError(codigo: errorCodeServer))
+                sendError(error: HandeThirdPartyErrors.getServerError(codigo: errorCodeServer))
                 return
             } else {
-                sendError(error: ErrorCodes.FunctionalErrorCodes.signatureOperationError)
+                sendError(error: AppError.threePhaseServerPostsignErrorResponseData)
                 return
             }
         }
@@ -347,8 +354,8 @@ class GenericSignUseCase {
                 switch result {
                 case .success(let postSignResult):
                     self.handlePostSignResult(responseString: postSignResult)
-                case .failure(_):
-                    self.sendError(error: ErrorCodes.CommunicationErrorCodes.threePhaseSignatureError)
+                case .failure(let error):
+                    self.sendError(error: error)
                 }
             }
     }
@@ -381,11 +388,7 @@ class GenericSignUseCase {
 	   }
     }*/
     
-    private func sendError(error: ErrorCodeProtocol) {
-        sendError(error: error.info)
-    }
-    
-    private func sendError(error: ErrorInfo) {
+    private func sendError(error: AppError) {
         guard let urlServlet = signModel.urlServlet,
              let docId = signModel.docId else {
            return
@@ -408,12 +411,12 @@ class GenericSignUseCase {
 	   }
 	   
         guard let cipherSign = CipherUtils.cipherDataSend(dataString: dataSign, cipherKey: cipherKey) else {
-            sendError(error: ErrorCodes.InternalSoftwareErrorCodes.signingCipherSignError)
+            sendError(error: AppError.signingCipherSignError)
             return
         }
         
         guard let cipherCertificate = CipherUtils.cipherCertificateSend(certificateData: certificateData, cipherKey: cipherKey) else {
-            sendError(error: ErrorCodes.InternalSoftwareErrorCodes.signingCipherCertificateError)
+            sendError(error: AppError.signingCipherCertificateError)
             return
         }
         
@@ -425,8 +428,8 @@ class GenericSignUseCase {
                 if let completionCallback = self.completionCallback {
                     completionCallback(.success(false))
                 }
-            case .failure(let errorInfo):
-                self.sendError(error: errorInfo);
+            case .failure(let appError):
+                self.sendError(error: appError);
 		  }
 	   }
     }
