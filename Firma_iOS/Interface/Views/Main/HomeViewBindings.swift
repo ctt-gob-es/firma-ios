@@ -138,6 +138,7 @@ extension View {
 			 viewModel.handleFinishSign()
                 viewModel.cancelOperation()
 			 appStatus.isLoading = false
+			 viewModel.showError(appError: AppError.userOperationCanceled)
 		  }
     }
 }

@@ -368,7 +368,7 @@ class HomeViewModel: ObservableObject {
         }
     }
     
-    private func showError(appError: AppError) {
+    func showError(appError: AppError) {
         self.isLoading = false
         DispatchQueue.main.async {
            self.showErrorModal = false
