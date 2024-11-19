@@ -263,10 +263,10 @@ class HomeViewModel: ObservableObject {
             return
         } else if signMode == .electronicCertificate {
 		  if certificates == nil {
-			 self.showCertificateNeeded()
+			 sendErrorOperation(error: AppError.certificateNeeded)
 		  } else if let certificates = certificates,
 				  certificates.isEmpty {
-			 self.showCertificateNeeded()
+			 sendErrorOperation(error: AppError.certificateNeeded)
 		  } else {
 			 handleOperationSignWithElectronicCertificate()
 		  }
