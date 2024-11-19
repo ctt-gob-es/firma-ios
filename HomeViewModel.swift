@@ -217,22 +217,25 @@ class HomeViewModel: ObservableObject {
             if(!(showDocumentImportingPicker ?? false)) {
                 selectSignMode()
             }
-        } else {
-		  // Ya que esta operación solo es para certificados, debemos comprobar si disponemos de ellos
-		  if certificates == nil {
-			 self.showCertificateNeeded()
-		  } else if let certificates = certificates,
-				  certificates.isEmpty {
-			 self.showCertificateNeeded()
-		  } else if (signModel.operation != OPERATION_SAVE) {
-                signMode = .electronicCertificate
-                areCertificatesSelectable = true
-            } else {
-                areCertificatesSelectable = false
-                viewMode = .home
-                handleOperationSaveData()
-            }
-        }
+	   } else {
+		  // La operación de guardado no necesita certificados
+		  if signModel.operation == OPERATION_SAVE {
+			 areCertificatesSelectable = false
+			 viewMode = .home
+			 handleOperationSaveData()
+		  } else {
+			 // Ya que esta operación solo es para certificados, debemos comprobar si disponemos de ellos
+			 if certificates == nil {
+				self.showCertificateNeeded()
+			 } else if let certificates = certificates,
+					 certificates.isEmpty {
+				self.showCertificateNeeded()
+			 } else {
+				signMode = .electronicCertificate
+				areCertificatesSelectable = true
+			 }
+		  }
+	   }
 	   
 	   // Establecemos el nombre del boton
 	   chooseButtonTitle()
