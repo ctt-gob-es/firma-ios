@@ -157,11 +157,12 @@ class HomeViewModel: ObservableObject {
         if nfcEnabled {
             showSelectSignMode = true
         } else {
-		  if let certificates = certificates,
-			certificates.isEmpty {
-			 viewMode = .home
-			 showError(appError: AppError.certificateNeeded)
-		  } else {
+		  if certificates == nil {
+			 self.showCertificateNeeded()
+		  } else if let certificates = certificates,
+				  certificates.isEmpty {
+			 self.showCertificateNeeded()
+			} else {
 			 areCertificatesSelectable = true
 			 signMode = .electronicCertificate
 			 if let visibleSingature = self.signModel?.visibleSignature,
@@ -235,10 +236,11 @@ class HomeViewModel: ObservableObject {
             selectSignMode()
             return
         } else if signMode == .electronicCertificate {
-		  if let certificates = certificates,
-			certificates.isEmpty {
-			 viewMode = .home
-			 showError(appError: AppError.certificateNeeded)
+		  if certificates == nil {
+			 self.showCertificateNeeded()
+		  } else if let certificates = certificates,
+				  certificates.isEmpty {
+			 self.showCertificateNeeded()
 		  } else {
 			 handleOperationSignWithElectronicCertificate()
 		  }
@@ -481,5 +483,10 @@ class HomeViewModel: ObservableObject {
 	   self.selectDNIe = false
 	   self.viewMode = .home
 	   self.areCertificatesSelectable = false
+    }
+    
+    func showCertificateNeeded() {
+	   viewMode = .home
+	   showError(appError: AppError.certificateNeeded)
     }
 }
