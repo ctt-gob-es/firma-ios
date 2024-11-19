@@ -192,6 +192,19 @@ class HomeViewModel: ObservableObject {
         dataType = .external
         
         if (signModel.operation == OPERATION_SIGN || signModel.operation == OPERATION_COSIGN || signModel.operation == OPERATION_COUNTERSIGN) {
+		  // Si el NFC está deshabilitado, deberemos comprobar si hay certificados antes de escoger archivo, sólo podremos comprobarlo si está deshabilitado, ya que si no podría escoger firmar con DNI
+		  let nfcEnabled = UserDefaults.standard.object(forKey: "isNfcEnabled") == nil ? true : UserDefaults.standard.bool(forKey: "isNfcEnabled")
+		  if !nfcEnabled {
+			 if certificates == nil {
+				self.showCertificateNeeded()
+				return
+			 } else if let certificates = certificates,
+					 certificates.isEmpty {
+				self.showCertificateNeeded()
+				return
+			 }
+		  }
+		  
             if signModel.datosInUse == nil && signModel.fileId == nil {
                 // No tenemos datos para firmar. Es una firma seleccionando fichero local. Mostramos el picker y establecemos el dataType a .local
                 showDocumentImportingPicker = true
@@ -205,7 +218,13 @@ class HomeViewModel: ObservableObject {
                 selectSignMode()
             }
         } else {
-            if (signModel.operation != OPERATION_SAVE) {
+		  // Ya que esta operación solo es para certificados, debemos comprobar si disponemos de ellos
+		  if certificates == nil {
+			 self.showCertificateNeeded()
+		  } else if let certificates = certificates,
+				  certificates.isEmpty {
+			 self.showCertificateNeeded()
+		  } else if (signModel.operation != OPERATION_SAVE) {
                 signMode = .electronicCertificate
                 areCertificatesSelectable = true
             } else {
@@ -214,21 +233,25 @@ class HomeViewModel: ObservableObject {
                 handleOperationSaveData()
             }
         }
-        
-        // Establecemos el nombre del boton
-        switch signModel.operation {
-        case OPERATION_SELECT_CERTIFICATE:
-            buttonTitle = NSLocalizedString("send", bundle: Bundle.main, comment: "")
-        case OPERATION_SIGN,
-            OPERATION_BATCH,
-            OPERATION_COSIGN,
-            OPERATION_COUNTERSIGN:
-            buttonTitle = NSLocalizedString("home_certificates_sign_button_title", bundle: Bundle.main, comment: "")
-        case OPERATION_SAVE:
-            buttonTitle = nil
-        default:
-            break
-        }
+	   
+	   // Establecemos el nombre del boton
+	   chooseButtonTitle()
+    }
+    
+    private func chooseButtonTitle() {
+	   switch signModel?.operation {
+	   case OPERATION_SELECT_CERTIFICATE:
+		  buttonTitle = NSLocalizedString("send", bundle: Bundle.main, comment: "")
+	   case OPERATION_SIGN,
+		  OPERATION_BATCH,
+		  OPERATION_COSIGN,
+		  OPERATION_COUNTERSIGN:
+		  buttonTitle = NSLocalizedString("home_certificates_sign_button_title", bundle: Bundle.main, comment: "")
+	   case OPERATION_SAVE:
+		  buttonTitle = nil
+	   default:
+		  break
+	   }
     }
     
     func handleButtonAction() {
