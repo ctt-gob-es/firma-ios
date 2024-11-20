@@ -176,7 +176,7 @@ trámite funciona en otros dispositivos. ¿Por qué?\n\n";
 "settings_historical_row" = "Histórico de archivos firmados";
 
 //Version
-"version_text" = "“Cliente @firma para Apple iOS” v.1.8 2023 Gobierno de España\n\nEl cliente @firma para Apple iOS es Software Libre; puedes redistribuirlo y/o modificarlo bajo los términos de la siguiente licencia: “European Software License 1.1”, cuyo texto completo puede consultarse en la siguiente página Web: http://ec.europa.eu/idabc/eupl.html\n\nEl código fuente de este programa, así como del resto de los componentes del proyecto se pueden descargar libremente desde: http://forja-ctt.administracionelectronica.gob.es\n\nEl proyecto Cliente @firma es un proyecto colaborativo, si desea participar en él, no dude en unirse a la comunidad, accesible desde la siguiente página Web: https://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc";
+"version_text" = "“Cliente @firma para Apple iOS” v.1.8 2023 Gobierno de España\n\nEl cliente @firma para Apple iOS es Software Libre; puedes redistribuirlo y/o modificarlo bajo los términos de la siguiente licencia: “European Software License 1.1”, cuyo texto completo puede consultarse en la siguiente página Web: http://ec.europa.eu/idabc/eupl.html\n\nEl código fuente de este programa, así como del resto de los componentes del proyecto se pueden descargar libremente desde: http://forja-ctt.administracionelectronica.gob.es\n\nEl proyecto Cliente @firma es un proyecto colaborativo, si desea participar en él, no dude en unirse a la comunidad, accesible desde la siguiente página Web: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc";
 "version_title" = "Versión v1.0";
 
 //Language
