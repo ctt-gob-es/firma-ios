@@ -138,4 +138,8 @@ class NFCViewModel: NSObject, ObservableObject {
 	   self.dniSingleSignUseCase?.wrapper?.nfcSessionManager.nfcSession?.invalidate(errorMessage: errorMessage)
         self.dniBatchSignUseCase?.wrapper?.nfcSessionManager.nfcSession?.invalidate(errorMessage: errorMessage)
     }
+    
+    func sendError(error: AppError) {
+	   SendErrorOperationUseCase().execute(error: error, signModel: signModel)
+    }
 }

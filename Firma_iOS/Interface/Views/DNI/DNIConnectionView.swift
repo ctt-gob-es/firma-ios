@@ -125,6 +125,14 @@ struct DNIConnectionView: View {
 	   .onChange(of: password) {
 		  handlePasswordEncryption(password: password)
 	   }
+	   .onChange(of: shouldCancelOperation) {
+		  if $0 {
+			 DispatchQueue.main.async {
+ 				NotificationCenter.default.post(name: .ErrorModalCancelButtonAction, object: nil, userInfo: nil)
+				nfcViewModel?.sendError(error: AppError.userOperationCanceled)
+			 }
+		  }
+	   }
 	   .onReceive(NotificationCenter.default.publisher(for: .DNIeError)) { notification in
 		  appStatus.isLoading = false
 		  appStatus.showErrorModal = true
