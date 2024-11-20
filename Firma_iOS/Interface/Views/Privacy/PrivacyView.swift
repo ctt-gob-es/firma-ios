@@ -41,7 +41,7 @@ struct PrivacyView: View {
 		  
 		  Spacer()
 		  
-		  NavigationLink(destination: MainView()) {
+            NavigationLink(destination: ParentView(viewMode: ViewModes.home, urlReceived: nil)) {
 			 AccessibleText(content: NSLocalizedString("accept_button_title", bundle: Bundle.main, comment: ""))
 		  }
 		  .buttonStyle(CustomButtonStyle(isEnabled: (isPrivacyPolicyAccepted && isTermsAccepted)))

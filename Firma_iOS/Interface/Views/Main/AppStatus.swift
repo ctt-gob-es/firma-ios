@@ -36,7 +36,6 @@ class AppStatus: ObservableObject {
     @Published var connectionError: Bool = false
     @Published var navigateToDNI: Bool = false
     @Published var navigateToSelectCertificate = false
-    @Published var navigateToAddCertificate: Bool = false
     @Published var keepParentController = false
     @Published var isLoading: Bool = false
     

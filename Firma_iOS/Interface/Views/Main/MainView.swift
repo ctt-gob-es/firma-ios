@@ -7,11 +7,35 @@
 //
 import SwiftUI
 
-struct MainView: View {
+// Vista padre que inicializa el Environment Object de AppStatus. La necesitamos para poder ararncar desde el AppDelegate en objetive-c al recibir la url
+struct ParentView: View {
+    
     @StateObject var appStatus = AppStatus()
-    @StateObject var viewModel = MainViewModel()
+    let viewMode: ViewModes?
+    let urlReceived: URL?
+    
+    init(viewMode: ViewModes?, urlReceived: URL?) {
+        self.viewMode = viewMode
+        self.urlReceived = urlReceived
+    }
+    
+    var body: some View {
+        VStack {
+            MainView(viewModel: MainViewModel(viewMode: viewMode ?? .home, urlReceived: urlReceived, appStatus: appStatus)).environmentObject(appStatus)
+        }
+    }
+    
+}
+
+struct MainView: View {
+    @EnvironmentObject var appStatus : AppStatus
+    @StateObject var viewModel : MainViewModel
     
     let persistenceController = CoreDataStack.shared
+    
+    init(viewModel: MainViewModel) {
+        self._viewModel = StateObject(wrappedValue: viewModel)
+    }
     
     private var contentView: some View {
 	   VStack {
@@ -19,15 +43,12 @@ struct MainView: View {
 			 urlReceived: viewModel.urlReceived,
 			 areCertificatesSelectable: viewModel.viewMode == .home ? false : true,
 			 viewMode: viewModel.viewMode,
-			 certificates: viewModel.certificates
+                appStatus: appStatus
 		  )
 		  
 		  HomeView(
-			 certificates: $viewModel.certificates,
 			 viewMode: $viewModel.viewMode,
 			 shouldSign: $viewModel.shouldSign,
-			 showDocumentSavingPicker: $appStatus.showDocumentSavingPicker,
-			 downloadedData: $appStatus.downloadedData,
 			 viewModel: homeViewModel,
 			 shouldCancel: $viewModel.shouldCancel
 		  )
@@ -94,12 +115,9 @@ struct MainView: View {
 			 }
 			 .navigationDestination(isPresented: $appStatus.navigateToSelectCertificate) {
 				HomeView(
-				    certificates: $viewModel.certificates,
 				    viewMode: $viewModel.viewMode,
 				    shouldSign: $viewModel.shouldSign,
-				    showDocumentSavingPicker: $appStatus.showDocumentSavingPicker,
-				    downloadedData: $appStatus.downloadedData,
-				    viewModel: HomeViewModel(areCertificatesSelectable: true),
+				    viewModel: HomeViewModel(areCertificatesSelectable: true, appStatus: appStatus),
 				    shouldCancel: $viewModel.shouldCancel
 				)
 				.onChange(of: viewModel.viewMode, perform: { mode in
@@ -116,23 +134,14 @@ struct MainView: View {
 				    appStatus.selectedCertificate = nil
 				}
 			 }
-			 .navigationDestination(isPresented: $appStatus.navigateToAddCertificate) {
-				AddCertificateView(
-				    viewModel: AddCertificateViewModel(certificateURL: viewModel.certificateURL),
-				    shouldReload: $viewModel.shouldReload
-				)
-			 }
-		  }
+            }
 		  loadingView
 	   }
 	   .frame(maxWidth: .infinity, maxHeight: .infinity)
 	   .navigationBarBackButtonHidden(true)
 	   .navigationBarColor(UIColor(ColorConstants.Background.main), titleColor: .black)
-	   .environmentObject(appStatus)
 	   .environment(\.managedObjectContext, persistenceController.context)
-	   .onAppear(perform: onAppear)
 	   .onDisappear(perform: onDisappear)
-	   .onChange(of: viewModel.shouldReload, perform: handleReload)
 	   .onChange(of: appStatus.showDocumentSavingPicker, perform: handleDocumentSavingPicker)
 	   //TODO: USE UIKIT SELECTOR for iOS 16
 	   .fileImporter(
@@ -150,19 +159,6 @@ struct MainView: View {
 			 .accessibility(addTraits: .isModal)
 			 .interactiveDismissDisabled(true)
 	   }
-	   .sheet(isPresented: $appStatus.showDeleteModal) {
-		  if let selectedCertificate = appStatus.selectedCertificate {
-			 DeleteCertificateModalView(
-				shouldReload: $viewModel.shouldReload,
-				certificate: selectedCertificate
-			 )
-			 .fixedSize(horizontal: false, vertical: true)
-			 .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
-			 .presentationDetents([.height(viewModel.sheetHeight)])
-			 .accessibility(addTraits: .isModal)
-			 .interactiveDismissDisabled(true)
-		  }
-	   }
 	   .sheet(isPresented: $appStatus.showSignModal,
 			onDismiss: {
 		  if appStatus.navigateToSelectCertificate == false
@@ -179,23 +175,6 @@ struct MainView: View {
 		  .presentationDetents([.height(viewModel.sheetHeight)])
 		  .accessibility(addTraits: .isModal)
 		  .interactiveDismissDisabled(true)
-	   }
-	   .sheet(isPresented: $appStatus.showDocumentPicker) {
-		  DocumentPicker(
-			 onDocumentsPicked: { url in
-				if FileUtils().handleFile(at: url) {
-				    viewModel.certificateURL = url
-				    appStatus.navigateToAddCertificate.toggle()
-				} else {
-                        appStatus.appError = AppError.certificateLoadingError
-				    appStatus.showErrorModal.toggle()
-				}
-			 }, onCancel: {
-				print("User cancelled the Document Interaction")
-			 }
-		  )
-		  .interactiveDismissDisabled(true)
-		  .accessibility(addTraits: .isModal)
 	   }
 	   .sheet(isPresented: $appStatus.showSuccessModal) {
 		  SuccessModalView(
@@ -259,21 +238,10 @@ struct MainView: View {
 			 })
 			 .interactiveDismissDisabled(true)
 		  }
-	   }
-    }
-    
-    private func onAppear() {
-	   viewModel.updateCertificates(viewModel.getCertificates())
+        }
     }
     
     private func onDisappear() {}
-    
-    private func handleReload(_ value: Bool) {
-	   if value {
-		  viewModel.updateCertificates(viewModel.getCertificates())
-		  viewModel.shouldReload = false
-	   }
-    }
     
     private func handleDocumentSavingPicker(_ value: Bool) {
 	   if !value {
@@ -295,7 +263,6 @@ struct MainView: View {
 	   appStatus.showErrorModal = true
 	   appStatus.appError = AppError.userOperationCanceled
 	   appStatus.navigateToDNI = false
-	   appStatus.navigateToAddCertificate = false
     }
     
     func handleErrorImportingFile(error: Error) {
@@ -303,7 +270,6 @@ struct MainView: View {
 	   appStatus.appError = AppError.fileLoadingLocalFile
 	   appStatus.errorModalDescription = error.localizedDescription
 	   appStatus.navigateToDNI = false
-	   appStatus.navigateToAddCertificate = false
     }
     
     func handleErrorSavingData(error: Error) {
@@ -311,6 +277,5 @@ struct MainView: View {
 	   appStatus.appError = AppError.dataSavingFileSaveDisk
 	   appStatus.errorModalDescription = error.localizedDescription
 	   appStatus.navigateToDNI = false
-	   appStatus.navigateToAddCertificate = false
     }
 }

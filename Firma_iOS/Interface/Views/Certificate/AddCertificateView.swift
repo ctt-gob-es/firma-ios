@@ -11,6 +11,7 @@ import SwiftUI
 struct AddCertificateView: View {
     @EnvironmentObject private var appStatus : AppStatus
     @StateObject var viewModel: AddCertificateViewModel
+    @Binding var isPresented: Bool
     @Binding var shouldReload: Bool
     
     var body: some View {
@@ -78,13 +79,14 @@ struct AddCertificateView: View {
     func validateStatus(status: OSStatus?) {
 	   if let status = status {
 		  if status == noErr {
-			 appStatus.navigateToAddCertificate = false
-			 let delayDuration: TimeInterval = 0.1
+                isPresented = false
+                shouldReload = true
 			 
+                let delayDuration: TimeInterval = 0.1
 			 DispatchQueue.main.asyncAfter(deadline: .now() + delayDuration) {
 				appStatus.showSuccessModal = true
 				appStatus.successModalState = .successCertificateAdded
-				shouldReload = true
+			
 			 }
 		  } else {
 			 switch (status) {

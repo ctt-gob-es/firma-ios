@@ -13,7 +13,6 @@ extension View {
     func applyHomeViewBindings(
 	   viewModel: HomeViewModel,
 	   appStatus: AppStatus,
-	   certificates: Binding<[AOCertificateInfo]?>,
 	   shouldSign: Binding<Bool>,
 	   shouldCancelOperation: Binding<Bool>,
 	   shouldSendStopSign: Binding<Bool>,
@@ -67,7 +66,6 @@ extension View {
 				viewModel.areCertificatesSelectable = true
 			 }
 		  }
-		  .onChange(of: viewModel.downloadedData) { appStatus.downloadedData = $0 }
 		  .onChange(of: viewModel.annotations) {
 			 if $0.count > 0 {
 				viewModel.handleCoordinatesSelection(annotation: $0[0])
@@ -88,7 +86,6 @@ extension View {
 		  .onChange(of: viewModel.showErrorModal) { appStatus.showErrorModal = $0 ?? false }
 		  .onChange(of: viewModel.showSuccessModal) { appStatus.showSuccessModal = $0 ?? false }
 		  .onChange(of: viewModel.showDocumentImportingPicker) { appStatus.showDocumentImportingPicker = $0 ?? false }
-		  .onChange(of: viewModel.showDocumentSavingPicker) { appStatus.showDocumentSavingPicker = $0 ?? false }
 		  .onChange(of: viewModel.showSignModal) { appStatus.showSignModal = $0 ?? false }
 		  .onChange(of: viewModel.showSignCoordinatesModal) { appStatus.showSignCoordinatesModal = $0 ?? false }
     }
@@ -104,6 +101,7 @@ extension View {
 	   password: Binding<String>
     ) -> some View {
 	   self
+            .onChange(of: viewModel.shouldReloadCertificates, perform: viewModel.getCertificates)
 		  .onChange(of: shouldSign.wrappedValue, perform: viewModel.handleShouldSignChange)
 		  .onChange(of: shouldCancelOperation.wrappedValue) {
 			 if $0 == true {

@@ -28,14 +28,12 @@ class HomeViewModel: ObservableObject {
     @Published var areCertificatesSelectable: Bool? = false
     @Published var shouldSign: Bool? = false
     @Published var viewMode : ViewModes? = .sign
-    @Published var downloadedData : URL? = nil
     @Published var showPseudonymModal: Bool? = false
     @Published var appError: AppError? = nil
     @Published var successModalState: SuccessModalState? = nil
     @Published var showErrorModal: Bool? = false
     @Published var showSuccessModal: Bool? = false
     @Published var showDocumentImportingPicker: Bool? = false
-    @Published var showDocumentSavingPicker: Bool? = false
     @Published var errorModalDescription: String? = ""
     @Published var showSignModal: Bool? = false
     @Published var showSignCoordinatesModal: Bool = false
@@ -48,9 +46,14 @@ class HomeViewModel: ObservableObject {
     @Published var selectElectronicCertificate: Bool = false
     @Published var signMode: SignMode?
     @Published var shouldCancel: Bool? = false
-    @Published var certificates: [AOCertificateInfo]?
     @Published var annotations: [PDFAnnotation] = []
     @Published var password: String = ""
+    @Published var certificates: [AOCertificateInfo] = []
+    @Published var shouldReloadCertificates: Bool = false
+    @Published var certificateURL: URL?
+    @Published var navigateToAddCertificate: Bool = false
+    
+    var appStatus: AppStatus
     
     var isLocalSign: Bool = false
     var localSignData: Data?
@@ -67,9 +70,8 @@ class HomeViewModel: ObservableObject {
          areCertificatesSelectable: Bool? = false,
          shouldSign: Bool? = nil,
          viewMode: ViewModes? = .sign,
-         downloadedData: URL? = nil,
-         certificates: [AOCertificateInfo]? = [],
-         shouldCancel: Bool? = nil
+         shouldCancel: Bool? = nil,
+         appStatus: AppStatus
     ) {
         self.buttonEnabled = buttonEnabled
         self.urlReceived = urlReceived
@@ -83,12 +85,23 @@ class HomeViewModel: ObservableObject {
         self.areCertificatesSelectable = areCertificatesSelectable
         self.shouldSign = shouldSign
         self.viewMode = viewMode
-        self.downloadedData = downloadedData
-        self.certificates = certificates
         self.shouldCancel = shouldCancel
+        self.appStatus = appStatus
+    }
+    
+    func getCertificates(_ value: Bool) {
+        if value {
+            if let certificates = OpenSSLCertificateHelper.getAddedCertificatesInfo() as? [AOCertificateInfo] {
+                self.certificates = certificates
+            } else {
+                self.certificates = []
+            }
+            self.shouldReloadCertificates = false
+        }
     }
     
     func onAppear() {
+        getCertificates(true)
         loadData()
     }
     
@@ -157,19 +170,15 @@ class HomeViewModel: ObservableObject {
         if nfcEnabled {
             showSelectSignMode = true
         } else {
-		  if certificates == nil {
+            if certificates.isEmpty {
 			 sendErrorOperation(error: AppError.certificateNeeded)
-		  } else if let certificates = certificates,
-				  certificates.isEmpty {
-			 sendErrorOperation(error: AppError.certificateNeeded)
-			} else {
-			 areCertificatesSelectable = true
-			 signMode = .electronicCertificate
-			 if let visibleSingature = self.signModel?.visibleSignature,
-			 visibleSingature {
-				self.showSignCoordinatesModal = true
-			 }
-		  }
+            } else {
+                areCertificatesSelectable = true
+                signMode = .electronicCertificate
+                if let visibleSingature = self.signModel?.visibleSignature, visibleSingature {
+                    self.showSignCoordinatesModal = true
+                }
+            }
         }
     }
     
@@ -195,11 +204,7 @@ class HomeViewModel: ObservableObject {
 		  // Si el NFC está deshabilitado, deberemos comprobar si hay certificados antes de escoger archivo, sólo podremos comprobarlo si está deshabilitado, ya que si no podría escoger firmar con DNI
 		  let nfcEnabled = UserDefaults.standard.object(forKey: "isNfcEnabled") == nil ? true : UserDefaults.standard.bool(forKey: "isNfcEnabled")
 		  if !nfcEnabled {
-			 if certificates == nil {
-				sendErrorOperation(error: AppError.certificateNeeded)
-				return
-			 } else if let certificates = certificates,
-					 certificates.isEmpty {
+                if certificates.isEmpty {
 				sendErrorOperation(error: AppError.certificateNeeded)
 				return
 			 }
@@ -225,10 +230,7 @@ class HomeViewModel: ObservableObject {
 			 handleOperationSaveData()
 		  } else {
 			 // Ya que esta operación solo es para certificados, debemos comprobar si disponemos de ellos
-			 if certificates == nil {
-				sendErrorOperation(error: AppError.certificateNeeded)
-			 } else if let certificates = certificates,
-					 certificates.isEmpty {
+                if certificates.isEmpty {
 				sendErrorOperation(error: AppError.certificateNeeded)
 			 } else {
 				signMode = .electronicCertificate
@@ -262,10 +264,7 @@ class HomeViewModel: ObservableObject {
             selectSignMode()
             return
         } else if signMode == .electronicCertificate {
-		  if certificates == nil {
-			 sendErrorOperation(error: AppError.certificateNeeded)
-		  } else if let certificates = certificates,
-				  certificates.isEmpty {
+            if certificates.isEmpty {
 			 sendErrorOperation(error: AppError.certificateNeeded)
 		  } else {
 			 handleOperationSignWithElectronicCertificate()
@@ -385,8 +384,8 @@ class HomeViewModel: ObservableObject {
                 self.isLoading = false
                 switch result {
                 case .success(let url):
-                    self.downloadedData = url
-                    self.showDocumentSavingPicker = true
+                    self.appStatus.downloadedData = url
+                    self.appStatus.showDocumentSavingPicker = true
                 case .failure(let error):
                     self.showError(appError: error)
                 }

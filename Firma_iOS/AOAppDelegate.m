@@ -81,10 +81,8 @@ NSString *URLString, *state = @"Inactive";
     BOOL privacyAccepted = [defaults boolForKey:@"user_privacy_accepted"];
     
     UIViewController *rootViewController;
-    MainViewModel *viewModel =  [[MainViewModel alloc] init];
-    
     if ([defaults objectForKey:@"user_privacy_accepted"] != nil && privacyAccepted) {
-	   rootViewController = [[MainViewController alloc] initWithModel:viewModel];
+        rootViewController = [[MainViewController alloc] initWithUrlReceived:nil];
     } else {
 	   rootViewController = [[OnboardingViewController alloc] init];
     }
@@ -124,10 +122,7 @@ void setAppLanguage(NSString *language) {
 }
 
 - (void)updateOrCreateMainViewControllerWithMode:(ViewModes)mode :(NSURL*)url{
-    MainViewModel *viewModel =  [[MainViewModel alloc] init];
-    viewModel.viewMode = mode;
-    viewModel.urlReceived = url;
-    MainViewController *rootViewController = [[MainViewController alloc] initWithModel:viewModel];
+    MainViewController *rootViewController = [[MainViewController alloc] initWithUrlReceived:url];
     self.window.rootViewController =  rootViewController;
     [self.window makeKeyAndVisible];
 }

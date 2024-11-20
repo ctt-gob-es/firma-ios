@@ -9,23 +9,26 @@
 import Foundation
 
 @objc class MainViewModel: NSObject, ObservableObject {
-    @Published var certificates: [AOCertificateInfo]?
     @Published var sheetHeight: CGFloat = .zero
     @Published var navigationTitle = "Autofirma"
-    @Published var certificateURL: URL?
     @objc @Published var viewMode: ViewModes = .home
     @objc @Published var urlReceived: URL?
     @Published var shouldSign: Bool = false
-    @Published var shouldReload: Bool = false
+    
+    
     @Published var isNavigationDisabled: Bool = false
     @Published var shouldCancel: Bool = false
     
-    func updateCertificates(_ newCertificates: [AOCertificateInfo]) {
-	   self.certificates = newCertificates
+    var appStatus: AppStatus
+
+    init(viewMode: ViewModes, urlReceived: URL?, appStatus: AppStatus) {
+        self.viewMode = viewMode
+        self.urlReceived = urlReceived
+        self.appStatus = appStatus
     }
     
-    func reset() {
-	   self.certificates = nil
+    /*func reset() {
+        self.appStatus.certificates = []
 	   self.sheetHeight = .zero
 	   self.navigationTitle = ""
 	   self.certificateURL = nil
@@ -33,23 +36,13 @@ import Foundation
 	   self.urlReceived = nil
 	   self.shouldSign = false
 	   self.shouldReload = false
-    }
-    
-    
-    func getCertificates() -> [AOCertificateInfo] {
-	   if let certificates = OpenSSLCertificateHelper.getAddedCertificatesInfo() as? [AOCertificateInfo] {
-		  return certificates
-	   } else {
-		  return []
-	   }
-    }
+    }*/
     
     func cancelSign() {
 	   self.viewMode = .home
 	   self.shouldSign = false
 	   self.urlReceived = nil
 	   self.shouldCancel = true
-	   self.shouldReload = true
     }
 }
 

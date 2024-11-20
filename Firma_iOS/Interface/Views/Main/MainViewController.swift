@@ -10,10 +10,17 @@ import Foundation
 import SwiftUI
 
 @objc class MainViewController: UIViewController {
-    var model: MainViewModel
+    var viewMode: ViewModes?
+    var urlReceived: URL?
     
-    @objc init(model: MainViewModel) {
-	   self.model = model
+    @objc init(urlReceived: URL?) {
+        if let urlReceived = urlReceived {
+            self.viewMode = ViewModes.sign
+            self.urlReceived = urlReceived
+        } else {
+            self.viewMode = ViewModes.home
+        }
+        
 	   super.init(nibName: nil, bundle: nil)
     }
     
@@ -24,15 +31,11 @@ import SwiftUI
     override func viewDidLoad() {
 	   super.viewDidLoad()
 	   
-	   let contentView = MainView(viewModel: self.model)
+	   let contentView = ParentView(viewMode: viewMode, urlReceived: urlReceived)
 	   let hostingController = UIHostingController(rootView: contentView)
 	   addChild(hostingController)
 	   hostingController.view.frame = self.view.bounds
 	   view.addSubview(hostingController.view)
 	   hostingController.didMove(toParent: self)
-    }
-    
-    @objc public func updateMode(mode: ViewModes) {
-	   self.model.viewMode = mode
     }
 }

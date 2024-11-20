@@ -13,28 +13,19 @@ struct HomeView: View {
     @EnvironmentObject private var appStatus: AppStatus
     @StateObject private var viewModel: HomeViewModel
     
-    @Binding var certificates: [AOCertificateInfo]?
     @Binding var shouldSign: Bool
-    @Binding var showDocumentSavingPicker: Bool
-    @Binding var downloadedData: URL?
     @Binding var viewMode: ViewModes
     
     @State var password: String = ""
     @Binding var shouldCancelOperation: Bool
     @State var shouldSendStopSign: Bool = false
     
-    init(certificates: Binding<[AOCertificateInfo]?>,
-	    viewMode: Binding<ViewModes>,
+    init(viewMode: Binding<ViewModes>,
 	    shouldSign: Binding<Bool>,
-	    showDocumentSavingPicker: Binding<Bool>,
-	    downloadedData: Binding<URL?>,
 	    viewModel: HomeViewModel,
 	    shouldCancel: Binding<Bool>) {
 	   self._viewModel = StateObject(wrappedValue: viewModel)
-	   self._certificates = certificates
 	   self._shouldSign = shouldSign
-	   self._showDocumentSavingPicker = showDocumentSavingPicker
-	   self._downloadedData = downloadedData
 	   self._viewMode = viewMode
 	   self._shouldCancelOperation = shouldCancel
     }
@@ -52,13 +43,42 @@ struct HomeView: View {
 	   .applyHomeViewBindings(
 		  viewModel: viewModel,
 		  appStatus: appStatus,
-		  certificates: $certificates,
 		  shouldSign: $shouldSign,
 		  shouldCancelOperation: $shouldCancelOperation,
 		  shouldSendStopSign: $shouldSendStopSign,
 		  viewMode: $viewMode,
 		  password: $password
 	   )
+        .sheet(isPresented: $appStatus.showDocumentPicker) {
+           DocumentPicker(
+              onDocumentsPicked: { url in
+                 if FileUtils().handleFile(at: url) {
+                     viewModel.certificateURL = url
+                     viewModel.navigateToAddCertificate.toggle()
+                 } else {
+                         appStatus.appError = AppError.certificateLoadingError
+                     appStatus.showErrorModal.toggle()
+                 }
+              }, onCancel: {
+                 print("User cancelled the Document Interaction")
+              }
+           )
+           .interactiveDismissDisabled(true)
+           .accessibility(addTraits: .isModal)
+        }
+        .sheet(isPresented: $appStatus.showDeleteModal) {
+           if let selectedCertificate = appStatus.selectedCertificate {
+              DeleteCertificateModalView(
+                 shouldReload: $viewModel.shouldReloadCertificates,
+                 certificate: selectedCertificate
+              )
+              .fixedSize(horizontal: false, vertical: true)
+              .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
+              .presentationDetents([.height(viewModel.sheetHeight)])
+              .accessibility(addTraits: .isModal)
+              .interactiveDismissDisabled(true)
+           }
+        }
 	   .sheet(isPresented: $viewModel.showTextfieldModal) {
 		  TextfieldModalView(password: $password, shouldCancelOperation: $shouldCancelOperation)
 			 .fixedSize(horizontal: false, vertical: true)
@@ -75,7 +95,7 @@ struct HomeView: View {
                     viewModel.cancelOperation()
                     shouldCancelOperation = true
 			 } else {
-				if appStatus.keepParentController && ( self.certificates?.count == 0 || self.certificates == nil)  {
+                    if appStatus.keepParentController && self.viewModel.certificates.isEmpty {
 				    //There is no certificate in the app
                         viewModel.sendErrorOperation(error: AppError.certificateNeeded)
 				}
@@ -116,13 +136,20 @@ struct HomeView: View {
 			 .interactiveDismissDisabled(true)
 		  }
 	   }
+        .navigationDestination(isPresented: $viewModel.navigateToAddCertificate) {
+            AddCertificateView(
+                viewModel: AddCertificateViewModel(certificateURL: viewModel.certificateURL),
+                isPresented: $viewModel.navigateToAddCertificate,
+                shouldReload: $viewModel.shouldReloadCertificates
+           )
+        }
 	   .navigationDestination(isPresented: $viewModel.selectDNIe) {
 		  DNIView(
 			 signModel: viewModel.signModel,
 			 parameters: viewModel.parameters,
 			 hasDismissed: $shouldSendStopSign
 		  )
-	   }
+        }
     }
     
     private var mainContent: some View {
@@ -147,8 +174,8 @@ struct HomeView: View {
     
     private var certificateListOrNoDataView: some View {
 	   Group {
-		  if let certificates = certificates {
-			 List(certificates, id: \.certificateRef) { certificate in
+            if !viewModel.certificates.isEmpty {
+                List(viewModel.certificates, id: \.certificateRef) { certificate in
 				CertificateCellView(
 				    certificateInfo: certificate,
 				    isSelectable: $viewModel.areCertificatesSelectable,
