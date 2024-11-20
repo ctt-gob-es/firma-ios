@@ -131,6 +131,7 @@ extension View {
 			 viewModel.areCertificatesSelectable = false
 		  }
 		  .onReceive(NotificationCenter.default.publisher(for: .DNIeSuccess)) { resultBatch in
+			 viewModel.handleOpenReturnURL()
 			 viewModel.handleFinishSign()
 			 appStatus.isLoading = false
 			 appStatus.showSuccessModal = true
