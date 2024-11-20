@@ -14,30 +14,18 @@ struct PrivacyView: View {
     
     var body: some View {
 	   VStack(alignment: .leading, spacing: 20) {
-		  AccessibleText(content: NSLocalizedString("privacy_title", bundle: Bundle.main, comment: ""))
-			 .titleStyleBlack(foregroundColor: ColorConstants.Text.primary)
-		  
-		  AccessibleText(content: NSLocalizedString("privacy_subtitle", bundle: Bundle.main, comment: ""))
-			 .subtitleStyle(foregroundColor: ColorConstants.Text.primary)
-		  
-		  ScrollView {
+		  PrivacyPolicyHTMLWeb(htmlFileName: "privacy_policy")
+			 
 			 VStack(alignment: .leading, spacing: 10) {
-				AccessibleText(content: """
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    """)
-				.regularStyle(foregroundColor: ColorConstants.Text.primary)
-				
 				CheckBoxView(
 				    isChecked: $isPrivacyPolicyAccepted,
 				    title: NSLocalizedString("privacy_policy_checkbox_description", bundle: Bundle.main, comment: "")
 				)
-				
 				CheckBoxView(
 				    isChecked: $isTermsAccepted,
 				    title: NSLocalizedString("privacy_tou_checkbox_description", bundle: Bundle.main, comment: "")
 				)
 			 }
-		  }
 		  
 		  Spacer()
 		  
