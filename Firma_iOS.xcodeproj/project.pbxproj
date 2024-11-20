@@ -2676,6 +2676,8 @@
 		83EF14CF2C465EDF003EC42A /* ExitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EF14CE2C465EDF003EC42A /* ExitButton.swift */; };
 		83EF14D32C46722D003EC42A /* RecoveryModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EF14D22C46722D003EC42A /* RecoveryModalView.swift */; };
 		83EF14D52C467241003EC42A /* DocumentErrorModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EF14D42C467241003EC42A /* DocumentErrorModalView.swift */; };
+		83F235242CEDCEFD00A6AE3B /* privacy_policy_es.html in Resources */ = {isa = PBXBuildFile; fileRef = 83F235232CEDCEFD00A6AE3B /* privacy_policy_es.html */; };
+		83F235262CEDCF7900A6AE3B /* PrivacyPolicyHTMLWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F235252CEDCF7900A6AE3B /* PrivacyPolicyHTMLWeb.swift */; };
 		83FC0C402C47F84700BBB5A8 /* DNIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC0C3F2C47F84700BBB5A8 /* DNIView.swift */; };
 		83FC0C422C47F86B00BBB5A8 /* DNICompatibleModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC0C412C47F86B00BBB5A8 /* DNICompatibleModalView.swift */; };
 		83FC0C442C48010E00BBB5A8 /* DNIConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC0C432C48010E00BBB5A8 /* DNIConnectionView.swift */; };
@@ -8010,6 +8012,8 @@
 		83EF14CE2C465EDF003EC42A /* ExitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitButton.swift; sourceTree = "<group>"; };
 		83EF14D22C46722D003EC42A /* RecoveryModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryModalView.swift; sourceTree = "<group>"; };
 		83EF14D42C467241003EC42A /* DocumentErrorModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentErrorModalView.swift; sourceTree = "<group>"; };
+		83F235232CEDCEFD00A6AE3B /* privacy_policy_es.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = privacy_policy_es.html; sourceTree = "<group>"; };
+		83F235252CEDCF7900A6AE3B /* PrivacyPolicyHTMLWeb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyHTMLWeb.swift; sourceTree = "<group>"; };
 		83FC0C3F2C47F84700BBB5A8 /* DNIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNIView.swift; sourceTree = "<group>"; };
 		83FC0C412C47F86B00BBB5A8 /* DNICompatibleModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNICompatibleModalView.swift; sourceTree = "<group>"; };
 		83FC0C432C48010E00BBB5A8 /* DNIConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNIConnectionView.swift; sourceTree = "<group>"; };
@@ -15953,6 +15957,7 @@
 			isa = PBXGroup;
 			children = (
 				83C0EC842C3FE6B300244071 /* PrivacyView.swift */,
+				83F235252CEDCF7900A6AE3B /* PrivacyPolicyHTMLWeb.swift */,
 			);
 			path = Privacy;
 			sourceTree = "<group>";
@@ -16083,6 +16088,14 @@
 				83EBF99F289BAB3800E80A7E /* ParentRest.h */,
 			);
 			path = ParentRest;
+			sourceTree = "<group>";
+		};
+		83F235222CEDCED900A6AE3B /* res */ = {
+			isa = PBXGroup;
+			children = (
+				83F235232CEDCEFD00A6AE3B /* privacy_policy_es.html */,
+			);
+			path = res;
 			sourceTree = "<group>";
 		};
 		83FC0C3E2C47F83A00BBB5A8 /* DNI */ = {
@@ -16443,6 +16456,7 @@
 		C30B3231163804620072A515 /* Firma_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				83F235222CEDCED900A6AE3B /* res */,
 				83AF00402CA2CB5A00A26C0F /* DNIe */,
 				83A5EDBE2C5255F500F93B6D /* Certificates */,
 				A073AA792893E7BB00FE30CE /* Domain */,
@@ -16588,6 +16602,7 @@
 				B27395DB20A43AF800A7D05A /* help2.png in Resources */,
 				B273961620A441FF00A7D05A /* Images.xcassets in Resources */,
 				C389C78D16DE70CC000382C0 /* Settings.bundle in Resources */,
+				83F235242CEDCEFD00A6AE3B /* privacy_policy_es.html in Resources */,
 				833C2C922CA2B89D00DFF6CD /* Helvetica-Oblique.afm in Resources */,
 				83C0ECB52C41331200244071 /* Merriweather-LightItalic.ttf in Resources */,
 				B240772F20A5B87B00A8EE1C /* Localizable.strings in Resources */,
@@ -17641,6 +17656,7 @@
 				8325D5F62CAADD18007224E9 /* EncapsulatedSecretGenerator.m in Sources */,
 				833C28FF2CA2B89A00DFF6CD /* MD5Digest.m in Sources */,
 				8325D84E2CAADD18007224E9 /* TeeInputStream.m in Sources */,
+				83F235262CEDCF7900A6AE3B /* PrivacyPolicyHTMLWeb.swift in Sources */,
 				833C2BE92CA2B89C00DFF6CD /* PdfPublicKeyRecipient.m in Sources */,
 				833C2A782CA2B89B00DFF6CD /* CertIOException.m in Sources */,
 				8325D6002CAADD18007224E9 /* SecureRandomProvider.m in Sources */,
