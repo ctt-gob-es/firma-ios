@@ -9,7 +9,7 @@
 import Foundation
 
 class PrivateConstants {
-    static let can = "742656"
-    static let pin = "ubBqdvHmm+Tp"
+    static let can = ""
+    static let pin = ""
     static let certFromDNIe = "CertFirmaDigital"
 }
