@@ -79,6 +79,14 @@ struct HomeView: View {
               .interactiveDismissDisabled(true)
            }
         }
+        .sheet(isPresented: $viewModel.showCertificateInfoModal) {
+            CertificateInfoModalView(title: viewModel.titleCertificateInfoModal, message: viewModel.messageCertificateInfoModal, onContinue: { viewModel.handleOperationSignWithElectronicCertificate()})
+                .fixedSize(horizontal: false, vertical: true)
+                .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
+                .presentationDetents([.height(viewModel.sheetHeight)])
+                .accessibility(addTraits: .isModal)
+                .interactiveDismissDisabled(true)
+        }
 	   .sheet(isPresented: $viewModel.showTextfieldModal) {
 		  TextfieldModalView(password: $password, shouldCancelOperation: $shouldCancelOperation)
 			 .fixedSize(horizontal: false, vertical: true)

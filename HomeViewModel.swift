@@ -53,6 +53,11 @@ class HomeViewModel: ObservableObject {
     @Published var certificateURL: URL?
     @Published var navigateToAddCertificate: Bool = false
     
+    // Variables para el modal de certificado (Expirado o a punto de expirar)
+    @Published var showCertificateInfoModal: Bool = false
+    @Published var titleCertificateInfoModal: String = ""
+    @Published var messageCertificateInfoModal: String = ""
+    
     var appStatus: AppStatus
     
     var isLocalSign: Bool = false
@@ -267,7 +272,9 @@ class HomeViewModel: ObservableObject {
             if certificates.isEmpty {
 			 sendErrorOperation(error: AppError.certificateNeeded)
 		  } else {
-			 handleOperationSignWithElectronicCertificate()
+                if (checkCertificateStatus()) {
+                    handleOperationSignWithElectronicCertificate()
+                }
 		  }
         }
     }
@@ -324,6 +331,8 @@ class HomeViewModel: ObservableObject {
         if isLocalSign {
             signLocalPdf()
         } else {
+            guard let signModel = self.signModel else { return }
+            self.signUseCase = SingleSignUseCase(signModel: signModel, certificateUtils: certificateUtils)
             self.signUseCase?.singleSign { result in
                 DispatchQueue.main.async {
                     self.isLoading = false
@@ -476,12 +485,38 @@ class HomeViewModel: ObservableObject {
 	   }
     }
     
+    private func showCertificateInfoModal(title: String, message: String) {
+        titleCertificateInfoModal = title
+        messageCertificateInfoModal = message
+        showCertificateInfoModal = true
+    }
+
+    
+    private func checkCertificateStatus() -> Bool {
+        guard let signModel = self.signModel else { return true}
+        guard let operation = signModel.operation else { return true}
+        
+        // La operacion de guardado no necesita comprobar certificado porque no tiene certificado
+        if (operation != OPERATION_SAVE) {
+            if let selectedCertificate = appStatus.selectedCertificate {
+                let certExpiration = SwiftCertificateUtils.getCertificateOption(certificate: selectedCertificate)
+                if (certExpiration == .expired) {
+                    showCertificateInfoModal(title: "certificate_expired_title", message: "certificate_expired_description")
+                    return false
+                } else if (certExpiration == .almostExpired) {
+                    showCertificateInfoModal(title: "certificate_near_expiry_title", message: "certificate_near_expiry_description")
+                    return false
+                }
+            }
+        }
+        return true
+    }
+    
     func handleOperationSignWithElectronicCertificate() {
-	   guard let signModel = self.signModel else { return }
-	   self.signUseCase = SingleSignUseCase(signModel: signModel, certificateUtils: certificateUtils)
-	   
-	   isLoading = true
-	   guard let operation = signModel.operation else { return }
+        guard let signModel = self.signModel else { return }
+        guard let operation = signModel.operation else { return }
+        
+        isLoading = true
 	   switch operation {
 		  case OPERATION_SELECT_CERTIFICATE:
                 handleOperationSelectCertificate()

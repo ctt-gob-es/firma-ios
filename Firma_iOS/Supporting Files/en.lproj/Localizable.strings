@@ -320,6 +320,7 @@ To work correctly you must install an electronic certificate. Consult the docume
 
 // Cancel Button Title
 "cancel_button_title" = "Cancel";
+"continue_button_title" = "Continue";
 
 //DNI
 "dni_view_title" = "Identification with DNIe";

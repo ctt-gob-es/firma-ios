@@ -37,11 +37,17 @@ struct CertificateCellView: View {
 		  
 		  HStack {
 			 VStack {
-				AccessibleText(content: certificateInfo.subject)
-				    .titleStyleBold(foregroundColor: ColorConstants.Text.primary)
-				    .accessibilityAddTraits(.isHeader)
-				AccessibleText(content: "\(NSLocalizedString("certificate_issuer", bundle: Bundle.main, comment: "")) : \(certificateInfo.issuer ?? "")")
-				    .regularStyle(foregroundColor: ColorConstants.Text.secondary)
+                    HStack {
+                        AccessibleText(content: certificateInfo.subject)
+                            .titleStyleBold(foregroundColor: ColorConstants.Text.primary)
+                            .accessibilityAddTraits(.isHeader)
+                        Spacer()
+                    }
+                    HStack {
+                        AccessibleText(content: "\(NSLocalizedString("certificate_issuer", bundle: Bundle.main, comment: "")) : \(certificateInfo.issuer ?? "")")
+                            .regularStyle(foregroundColor: ColorConstants.Text.secondary)
+                        Spacer()
+                    }
 			 }
 			 Spacer()
 			 

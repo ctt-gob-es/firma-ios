@@ -321,6 +321,7 @@ Para funcionar correctamente debes instalar un certificado electrónico. Consult
 
 // Cancel Button Title
 "cancel_button_title" = "Cancelar";
+"continue_button_title" = "Continuar";
 
 //DNI
 "dni_view_title" = "Identificación con DNIe";

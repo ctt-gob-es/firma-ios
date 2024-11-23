@@ -38,7 +38,7 @@ NSString *const WITH = @"with";
 NSString *const P12EXTENSION = @"p12";
 NSString *const PFXEXTENSION = @"pfx";
 NSString *const PATH_DEFAULT_TRIPHASE_SIGN = @"/afirma-server-triphase-signer/SignatureService";
-NSInteger const DAYS_TO_EXPIRE = 60;
+NSInteger const DAYS_TO_EXPIRE = 7;
 NSString *const ERR_PASSWORD_PROTECTED = @"ERR-21:pdfpasswordprotected";
 NSString *const ERR_BAD_PASSWORD = @"ERR-21:pdfbadpassword";
 @end
