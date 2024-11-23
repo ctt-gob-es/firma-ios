@@ -99,15 +99,11 @@ public class ParseDataURLOperationUseCase: NSObject {
             return AppError.generalSoftwareError
         }
         
-        // Verificamos que nos llegue la clave de cifrado
-        guard let cipherKey = self.opParameters[PARAMETER_NAME_CIPHER_KEY] as? String else {
-            return AppError.fileIdButNotCipherKey
-        }
         
         IntermediateServerRest().downloadDataXML(rtServlet: rtServlet, fileId: fileId) { result in
             switch result {
                 case .success(let data):
-                    self.handleDownloadData(data: data, cipherKey: cipherKey, completion: completion)
+                    self.handleDownloadData(data: data, completion: completion)
                 case .failure(let error):
                     self.sendError(error: error, completion: completion)
             }
@@ -117,30 +113,41 @@ public class ParseDataURLOperationUseCase: NSObject {
     
     private func handleDownloadData(
 	   data: Data,
-        cipherKey: String,
 	   completion: @escaping (Result<NSMutableDictionary, AppError>) -> Void
     ) {
 	   self.urlParameters.receivedDataCert = data
-	     
-        guard let cipherKeyCertData = cipherKey.data(using: .utf8) else {
-            self.sendError(error: AppError.intermediateServerDownloadDataCipher, completion: completion)
-            return
-        }
-        
-        guard let decoded = DesCypher.decypherData(String(data: data, encoding: .utf8) ?? "", sk: cipherKeyCertData) else {
-            self.sendError(error: AppError.intermediateServerDownloadDataCipher, completion: completion)
-            return
-        }
-        
-        if String(data: data, encoding: .utf8)?.hasPrefix("ERR-06") == true && numberRetries < 3 {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-                self.execute(url: self.url, completion: completion)
-                self.numberRetries += 1
+	   
+        if String(data: data, encoding: .utf8)?.hasPrefix("ERR") == true{
+            // Si llega ERR-06 se reintenta la peticion hasta un maximo de 3 veces
+            if String(data: data, encoding: .utf8)?.hasPrefix("ERR-06") == true && numberRetries < 3 {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+                    self.execute(url: self.url, completion: completion)
+                    self.numberRetries += 1
+                }
+            } else {
+                // Devolvemos error
+                sendError(error: AppError.intermediateServerDownloadErrorResponse, completion: completion)
             }
         } else {
-            loadDownloadData(decoded, completion: completion)
+            var dataResponse = data
+            
+            // Si llega la clave de cifrado es necesario descifrar los datos. En caso contrario no hace falta
+            if let cipherKey = self.opParameters[PARAMETER_NAME_CIPHER_KEY] as? String {
+                guard let cipherKeyCertData = cipherKey.data(using: .utf8) else {
+                    self.sendError(error: AppError.intermediateServerDownloadDataCipher, completion: completion)
+                    return
+                }
+                
+                guard let decoded = DesCypher.decypherData(String(data: data, encoding: .utf8) ?? "", sk: cipherKeyCertData) else {
+                    self.sendError(error: AppError.intermediateServerDownloadDataCipher, completion: completion)
+                    return
+                }
+             
+                dataResponse = decoded
+            }
+            
+            loadDownloadData(dataResponse, completion: completion)
         }
-
     }
     
     private func loadDownloadData(

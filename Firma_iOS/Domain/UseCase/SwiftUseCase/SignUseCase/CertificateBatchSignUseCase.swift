@@ -34,7 +34,7 @@ class CertificateBatchSignUseCase: GenericBatchSignUseCase {
 	   let signUtils = CADESSignUtils()
 	   
 	   let unmanagedPrivateKey = Unmanaged.passUnretained(privateKey)
-	   var privateKeyPointer: UnsafeMutablePointer<Unmanaged<SecKey>?> = .allocate(capacity: 1)
+	   let privateKeyPointer: UnsafeMutablePointer<Unmanaged<SecKey>?> = .allocate(capacity: 1)
 	   privateKeyPointer.initialize(to: unmanagedPrivateKey)
 	   signedData = signUtils.signData(withPrivateKey: privateKeyPointer, data: data, algorithm: algorithm)
 	   

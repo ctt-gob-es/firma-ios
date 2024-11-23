@@ -404,33 +404,47 @@ class GenericSignUseCase {
     
     private func storeData(dataSign: String) {
 	   guard let urlServlet = signModel.urlServlet,
-		    let cipherKey = signModel.cipherKey,
-		    let docId = signModel.docId,
-		    let certificateData = getCertificateData() else {
+              let docId = signModel.docId else {
 		  return
 	   }
-	   
-        guard let cipherSign = CipherUtils.cipherDataSend(dataString: dataSign, cipherKey: cipherKey) else {
-            sendError(error: AppError.signingCipherSignError)
-            return
-        }
         
-        guard let cipherCertificate = CipherUtils.cipherCertificateSend(certificateData: certificateData, cipherKey: cipherKey) else {
-            sendError(error: AppError.signingCipherCertificateError)
-            return
-        }
-        
-        let cipherData = "\(cipherCertificate)|\(cipherSign)"
-        
-        IntermediateServerRest().uploadData(dataUpload: cipherData, stServlet: urlServlet, docId: docId) { result in
-		  switch result {
-            case .success():
-                if let completionCallback = self.completionCallback {
-                    completionCallback(.success(false))
+        if let dataUpload = getDataUpload(dataSign: dataSign) {
+            IntermediateServerRest().uploadData(dataUpload: dataUpload, stServlet: urlServlet, docId: docId) { result in
+                switch result {
+                case .success():
+                    if let completionCallback = self.completionCallback {
+                        completionCallback(.success(false))
+                    }
+                case .failure(let appError):
+                    self.sendError(error: appError);
                 }
-            case .failure(let appError):
-                self.sendError(error: appError);
-		  }
-	   }
+            }
+        }
+    }
+    
+    /// Obtiene el string a guardar en el serivodr intermedio con los daos de la firma
+    /// Si llega el cipherKey los datos se cifran con esa clave, en caso contrario se guardan en claro
+    private func getDataUpload(dataSign: String) -> String? {
+        guard let certificateData = getCertificateData() else {
+            return nil
+        }
+        
+        // Si llega la clave de cifrado, ciframos los datos. En caso contrario no es necesario
+        if let cipherKey = signModel.cipherKey {
+            guard let cipherSign = CipherUtils.cipherDataSend(dataString: dataSign, cipherKey: cipherKey) else {
+                sendError(error: AppError.signingCipherSignError)
+                return nil
+            }
+            
+            guard let cipherCertificate = CipherUtils.cipherCertificateSend(certificateData: certificateData, cipherKey: cipherKey) else {
+                sendError(error: AppError.signingCipherCertificateError)
+                return nil
+            }
+            
+            return "\(cipherCertificate)|\(cipherSign)"
+        } else {
+            return "\(certificateData)|\(dataSign)"
+        }
+        
     }
 }

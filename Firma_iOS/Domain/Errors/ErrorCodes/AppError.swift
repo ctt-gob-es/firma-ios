@@ -192,6 +192,7 @@ extension AppError {
     static let intermediateServerDownloadErrorResponseFormat = AppError.thirdPartySoftwareError(300201, "La respuesta del servidor intermedio al descargar la información no es una respuesta válida")
     static let intermediateServerDownloadErrorResponseFormatXML = AppError.thirdPartySoftwareError(300202, "La respuesta del servidor intermedio al descargar la información no es un XML válido")
     static let intermediateServerDownloadDataCipher = AppError.thirdPartySoftwareError(300203, "No se ha podido descifrar la respuesta del servidor intermedio")
+    static let intermediateServerDownloadErrorResponse = AppError.thirdPartySoftwareError(300204, "El servidor intermedio ha devuelto una respuesta de error al intentar descargar la información de la operación")
     
     // 3003XX: Servidor intermedio (subida)
     static let intermediateServerUploadErrorHttpResponse = AppError.thirdPartySoftwareError(300300, "Error HTTP al subir la información del servidor intermedio")

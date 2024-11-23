@@ -182,7 +182,7 @@ class GenericBatchSignUseCase: NSObject {
                     return
                 }
                 
-                storeData(data: jsonData)
+                storeData(dataPostSign: jsonData)
             } else {
                 sendError(appError: AppError.threePhaseServerPresignErrorResponseFormatNoData)
                 return
@@ -200,31 +200,48 @@ class GenericBatchSignUseCase: NSObject {
         })
     }
     
-    private func storeData(data: Data) {
-        
-        guard let cipherSign = DesCypher.cypherData(data, sk: self.parametersBatch.cipherKey.data(using: .utf8)!) else {
-            sendError(appError: AppError.jsonBatchCipherSignError)
-            return
-        }
-        
-        guard let cipherCertificate = CipherUtils.cipherCertificateSend(certificateData: getCertificateData(), cipherKey: self.parametersBatch.cipherKey) else {
-            sendError(appError: AppError.jsonBatchCipherCertificateError)
-            return
-        }
-        
-        let cipherData = "\(cipherSign)|\(cipherCertificate)"
-        
-        IntermediateServerRest().uploadData(dataUpload: cipherData, stServlet: self.parametersBatch.stservlet, docId: self.parametersBatch.identifier, completion: { result in
-            
-            if let completionHandler = self.completionHandler {
-                switch result {
-                case .success():
-                    completionHandler(.success(self.result ?? .ok))
-                case .failure(let appError):
-                    self.sendError(appError: appError);
+    private func storeData(dataPostSign: Data) {
+        if let dataUpload = getDataUpload(dataPostSign: dataPostSign) {
+            IntermediateServerRest().uploadData(dataUpload: dataUpload, stServlet: self.parametersBatch.stservlet, docId: self.parametersBatch.identifier, completion: { result in
+                
+                if let completionHandler = self.completionHandler {
+                    switch result {
+                    case .success():
+                        completionHandler(.success(self.result ?? .ok))
+                    case .failure(let appError):
+                        self.sendError(appError: appError);
+                    }
                 }
+            })
+        }
+    }
+    
+    /// Obtiene el string a guardar en el serivodr intermedio con los daos de la firma
+    /// Si llega el cipherKey los datos se cifran con esa clave, en caso contrario se guardan en claro
+    private func getDataUpload(dataPostSign: Data) -> String? {
+        let certificateData = getCertificateData()
+        
+        let cipherKey = self.parametersBatch.cipherKey
+        // Si llega la clave de cifrado, ciframos los datos. En caso contrario no es necesario
+        if true {
+            guard let cipherSign = DesCypher.cypherData(dataPostSign, sk: self.parametersBatch.cipherKey.data(using: .utf8)!) else {
+                sendError(appError: AppError.jsonBatchCipherSignError)
+                return nil
             }
-        })
+            
+            guard let cipherCertificate = CipherUtils.cipherCertificateSend(certificateData: certificateData, cipherKey: self.parametersBatch.cipherKey) else {
+                sendError(appError: AppError.jsonBatchCipherCertificateError)
+                return nil
+            }
+            
+            return "\(cipherSign)|\(cipherCertificate)"
+        }
+        
+        // Si no llega clave de cifrado enviamos el json e base64 y el certificado, ambos sin cifrar
+        guard let base64DataPostSign = Base64Utils.encode(dataPostSign, urlSafe: true) else {
+            sendError(appError: AppError.jsonBatchCipherSignError)
+        }
+        return "\(base64DataPostSign)|\(certificateData)"
     }
     
     func didSuccessBachPostsign(_ responseDict: [AnyHashable : Any]) {
@@ -245,7 +262,7 @@ class GenericBatchSignUseCase: NSObject {
                 }
 		  }
 
-            storeData(data: jsonData)
+            storeData(dataPostSign: jsonData)
 	   } catch {
             sendError(appError: AppError.jsonBatchSerializeResponsePossign)
 	   }
