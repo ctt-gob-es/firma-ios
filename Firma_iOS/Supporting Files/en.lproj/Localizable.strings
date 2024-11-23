@@ -115,6 +115,7 @@ procedure works on other devices. Why?\n\n";
 "batch_signs_all_ok" = "All of the petitions were signed correctly";
 "batch_signs_generic_error" = "Failed to complete batch signing";
 "batch_signs_ok_with_signs_error" = "Batch signing ended with errors";
+"batch_signs_ok_with_all_signs_error" = "Batch signing ended with all wrong signatures";
 "error_server_triphase" = "The web procedure has not defined a signature service with which to complete the operation";
 "logo" = ""; //"Client Signature Logo";
 "issuer_label" = "Issuer:";
