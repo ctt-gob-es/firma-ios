@@ -69,7 +69,7 @@ class SignModel {
 		  }
 	   }
 	   
-	   if let appNameString = dictionary[PARAMETER_NAME_VISIBLE_SIGNATURE] as? String {
+	   if let appNameString = dictionary[PARAMETER_NAME_APP_NAME] as? String {
 		  self.appname = appNameString
 	   }
     }

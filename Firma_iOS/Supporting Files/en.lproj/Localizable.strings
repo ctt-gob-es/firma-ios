@@ -175,7 +175,7 @@ procedure works on other devices. Why?\n\n";
 "settings_historical_row" = "Historical archives signed";
 
 //Version
-"version_text" = "“@firma Client for Apple iOS” v.1.8 2023 Government of Spain\n\nThe @firma client for Apple iOS is Free Software; you can redistribute and/or modify it under the terms of the following license: “European Software License 1.1”, the full text of which can be consulted on the following website: http://ec.europa.eu/idabc/eupl.html\n\nThe source code for this program, as well as the rest of the project components, can be freely downloaded from: http://forja-ctt.administracionelectronica.gob.es\n\nThe @firma Client project is a collaborative project. If you wish to participate in it, do not hesitate to join the community, accessible from the following website: https://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc";
+"version_text" = "“@firma Client for Apple iOS” v.1.8 2023 Government of Spain\n\nThe @firma client for Apple iOS is Free Software; you can redistribute and/or modify it under the terms of the following license: “European Software License 1.1”, the full text of which can be consulted on the following website: http://ec.europa.eu/idabc/eupl.html\n\nThe source code for this program, as well as the rest of the project components, can be freely downloaded from: http://forja-ctt.administracionelectronica.gob.es\n\nThe @firma Client project is a collaborative project. If you wish to participate in it, do not hesitate to join the community, accessible from the following website: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc";
 "version_title" = "Version v1.0";
 
 //Language

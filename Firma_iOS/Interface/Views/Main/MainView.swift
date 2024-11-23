@@ -263,6 +263,7 @@ struct MainView: View {
 	   appStatus.showErrorModal = true
 	   appStatus.appError = AppError.userOperationCanceled
 	   appStatus.navigateToDNI = false
+	   viewModel.cancelSign()
     }
     
     func handleErrorImportingFile(error: Error) {

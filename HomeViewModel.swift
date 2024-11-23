@@ -272,14 +272,33 @@ class HomeViewModel: ObservableObject {
         }
     }
     
-    func handleOpenReturnURL() {
-        if let url = signModel?.returnURL {
-            if let urlFromModel = URL(string: url) {
-                UIApplication.shared.open(urlFromModel) { success in
-                    print("Open \(success)")
-                }
-            }
-        }
+    func handleOpenReturnURL(success: Bool) {
+	   guard let baseURL = signModel?.returnURL,
+		    let stservlet = signModel?.rtServlet,
+		    let docId = signModel?.docId else {
+		  return
+	   }
+	   
+	   var urlComponents: URLComponents
+	   
+	   if success {
+		  urlComponents = URLComponents(string: baseURL + "/success")!
+		  urlComponents.queryItems = [
+			 URLQueryItem(name: "stservlet", value: stservlet),
+			 URLQueryItem(name: "docId", value: docId)
+		  ]
+	   } else {
+		  urlComponents = URLComponents(string: baseURL + "/failure")!
+		  urlComponents.queryItems = [
+			 URLQueryItem(name: "code", value: String(appStatus.appError?.code ?? AppError.generalSoftwareError.code))
+		  ]
+	   }
+	   
+	   if let finalURL = urlComponents.url {
+		  UIApplication.shared.open(finalURL) { success in
+			 print("Open \(success) with URL: \(finalURL)")
+		  }
+	   }
     }
     
     private func handleOperationSelectCertificate() {
@@ -327,6 +346,9 @@ class HomeViewModel: ObservableObject {
                                 self.successModalState = .successSign
                                 self.showSuccessModal = true
                                 self.areCertificatesSelectable = false
+						  
+						  // Si realizaron la llamada desde una APP, navegaremos a ella de vuelta.
+						  self.handleOpenReturnURL(success: true)
                             }
                         }
                         
@@ -334,6 +356,7 @@ class HomeViewModel: ObservableObject {
                         self.viewMode = .home
                         self.areCertificatesSelectable = false
                         self.showError(appError: error)
+				    self.handleOpenReturnURL(success: false)
                     }
                 }
             }
@@ -358,8 +381,11 @@ class HomeViewModel: ObservableObject {
                 self.viewMode = .home
                 self.successModalState = self.getSuccessModal(resultBatch)
                 self.showSuccessModal = true
+			 // Si realizaron la llamada desde una APP, navegaremos a ella de vuelta.
+			 self.handleOpenReturnURL(success: true)
             case .failure(let error):
                 self.showError(appError: error)
+			 self.handleOpenReturnURL(success: false)
             }
         }
     }
