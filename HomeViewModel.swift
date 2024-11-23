@@ -362,8 +362,6 @@ class HomeViewModel: ObservableObject {
                         }
                         
                     case .failure(let error):
-                        self.viewMode = .home
-                        self.areCertificatesSelectable = false
                         self.showError(appError: error)
 				    self.handleOpenReturnURL(success: false)
                     }
@@ -429,6 +427,7 @@ class HomeViewModel: ObservableObject {
     }
     
     func showError(appError: AppError) {
+        resetHomeViewModelVariables()
         self.isLoading = false
         DispatchQueue.main.async {
            self.showErrorModal = false
@@ -550,7 +549,6 @@ class HomeViewModel: ObservableObject {
     
     /// Envia el error en la operación al servidor intermedio, resetea la vista y muestra la pantalla de error
     func sendErrorOperation(error: AppError) {
-        resetHomeViewModelVariables()
         showError(appError: error)
         SendErrorOperationUseCase().execute(error: error, signModel: signModel)
     }
