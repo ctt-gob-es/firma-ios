@@ -159,7 +159,7 @@ class GenericBatchSignUseCase: NSObject {
                     }
                 } else {
                     // Error el data del parameters no es un Base64 valido
-                    return sendError(appError: AppError.batchDataParameterRequestNotValid)
+                    return sendError(appError: AppError.batchsignDataParameterRequestNotValid)
                 }
             }
             
@@ -254,21 +254,21 @@ class GenericBatchSignUseCase: NSObject {
     // MARK: - Helper Functions
     func validateDataOperation() -> AppError? {
 	   if parametersBatch.data.isEmpty {
-            return AppError.batchDataErrorNotFound
+            return AppError.batchsignDataErrorNotFound
 	   }
 	   if parametersBatch.stservlet.isEmpty {
-            return AppError.batchStservletErrorNotFound
+            return AppError.batchsignStServletNotFound
 	   }
 	   if parametersBatch.batchpresignerUrl.isEmpty {
-            return AppError.batchpresignerUrlNotFound
+            return AppError.batchsignPresignerUrlNotFound
 	   }
 	   if parametersBatch.batchpostsignerUrl.isEmpty {
-            return AppError.batchpostsignerUrlNotFound
+            return AppError.batchsignPostsignerUrlNotFound
 	   }
 
 	   let dataDictionary = parseDataBase64toDictionary(parametersBatch.data)
 	   if dataDictionary == nil {
-            return AppError.batchDataParameterRequestNotValid
+            return AppError.batchsignDataParameterRequestNotValid
 	   } else if dataDictionary?["algorithm"] == nil {
             return AppError.batchalghorithmNotFound
 	   }

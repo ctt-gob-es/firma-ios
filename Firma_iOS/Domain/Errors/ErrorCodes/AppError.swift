@@ -104,7 +104,6 @@ extension AppError: Equatable {
     }
 }
 
-
 /// Hardware Errors 1XXXXX problemas hardware: Problemas relacionados con el funcionamiento o ausencia de dispositivos hardware.
 extension AppError {
     // 100XXX: Error general
@@ -118,9 +117,6 @@ extension AppError {
     // 103XXX: Error tarjetas SD criptográficas
 }
 
-
-
-
 /// Internal Software Error 2XXXXX problemas software internos: Errores en el funcionamiento interno de la aplicación.
 extension AppError {
     // 2000XXL: Errores general
@@ -131,8 +127,8 @@ extension AppError {
     static let signingCipherSignError = AppError.internalSoftware(200100, "Error al cifrar la firma para enviarla al servidor intermedio")
     static let signingCipherCertificateError = AppError.internalSoftware(200101, "Error al cifrar el certificado para enviarlo al servidor intermedio")
     static let signingLoadLocalFile = AppError.internalSoftware(200102, "Error al cargar el fichero local para realizar la firma")
-    static let generatePK1Certificate = AppError.internalSoftware(200102, "Error realizando la firma del fichero con certificado")
-    static let generatePK1DNIe = AppError.internalSoftware(200102, "Error realizando la firma del fichero con DNIe")
+    static let generatePK1Certificate = AppError.internalSoftware(200103, "Error realizando la firma del fichero con certificado")
+    static let generatePK1DNIe = AppError.internalSoftware(200104, "Error realizando la firma del fichero con DNIe")
 
     
     // 2002XX: Operación de selección de certificados
@@ -152,7 +148,7 @@ extension AppError {
     static let jsonBatchDataBase64Possing = AppError.internalSoftware(200406, "Error al convertir a base64 los datos para enviarlos a la posfirma (con alguna firma erronéa)")
     static let jsonBatchSignsBase64Possing = AppError.internalSoftware(200407, "Error al convertir a base64 las los datos de la firma para enviarlos a la posfirma")
     static let jsonBatchDataErrorSignsBase64Possing = AppError.internalSoftware(200408, "Error al convertir a base64 los datos para enviarlos a la posfirma (todos las firmas erronéas)")
-    static let jsonBatchSerializeResponsePossign = AppError.internalSoftware(200408, "Error al serializar la respuesta JSON de la posfirma para poder enviarla al servidor intermedio")
+    static let jsonBatchSerializeResponsePossign = AppError.internalSoftware(200409, "Error al serializar la respuesta JSON de la posfirma para poder enviarla al servidor intermedio")
     
     //2005XX: Operación de lotes XML (no disponible en móviles)
     //2006XX: Operación de carga de ficheros (no disponible en móviles)
@@ -167,7 +163,7 @@ extension AppError {
     static let fileLoadingLocalFile = AppError.internalSoftware(201000, "Error en la carga de fichero local para firmar")
     
     //2011XX: Carga/listado de certificados (en esta categoría se agregarán todos los errores de carga de certificado, independientemente de que se cargue para firmar un documento o para seleccionar el certificado.)
-    static let certificateLoadingError = AppError.internalSoftware(201101, "Error en la carga de certificado para importar", .certificateNotImported)
+    static let certificateLoadingError = AppError.internalSoftware(201100, "Error en la carga de certificado para importar", .certificateNotImported)
     
     //2012XX: Operación de firma local (errores que sólo pueden producirse en la firma local y no en la web)
 
@@ -179,17 +175,17 @@ extension AppError {
     // 3000XX: Error general
     
     // 3001XX: JMulticard
-    static let invalidCard = AppError.requestError(300101, "La tarjeta identificada en el lector es desconocida o no está soportada", .dniReadingError)
-    static let burnedCard = AppError.requestError(300102, "La tarjeta está corrompida, posiblemente se autodestruyó", .dniBroken)
-    static let connectionError = AppError.requestError(300103, "No se ha podido conectar con la tarjeta", .globalError)
-    static let notInitialized = AppError.requestError(300104, "La conexión con la tarjeta no está inicializada", .dniReadingErrorLong)
-    static let operationError = AppError.requestError(300105, "Ocurrió un error inesperado durante la operación", .dniReadingErrorLong)
-    static let badPin = AppError.requestError(300106, "PIN incorrecto", .dniIncorrectPin)
-    static let lockedCard = AppError.requestError(300107, "Tarjeta bloqueada", .dniBlockedPin)
-    static let pinError = AppError.requestError(300108, "Error durante la validación del PIN", .dniIncorrectPin)
-    static let badCan = AppError.requestError(300109, "Error durante la validación del CAN", .dniIncorrectCan)
-    static let severeError = AppError.requestError(300110, "Error genérico durante la comunicación con el DNIe", .dniReadingErrorLong)
-    static let noCertAvailable = AppError.requestError(300111, "No se dispone de certificado de firma digital", .dniExpired)
+    static let invalidCard = AppError.requestError(300100, "La tarjeta identificada en el lector es desconocida o no está soportada", .dniReadingError)
+    static let burnedCard = AppError.requestError(300101, "La tarjeta está corrompida, posiblemente se autodestruyó", .dniBroken)
+    static let connectionError = AppError.requestError(300102, "No se ha podido conectar con la tarjeta", .globalError)
+    static let notInitialized = AppError.requestError(300103, "La conexión con la tarjeta no está inicializada", .dniReadingErrorLong)
+    static let operationError = AppError.requestError(300104, "Ocurrió un error inesperado durante la operación", .dniReadingErrorLong)
+    static let badPin = AppError.requestError(300105, "PIN incorrecto", .dniIncorrectPin)
+    static let lockedCard = AppError.requestError(300106, "Tarjeta bloqueada", .dniBlockedPin)
+    static let pinError = AppError.requestError(300107, "Error durante la validación del PIN", .dniIncorrectPin)
+    static let badCan = AppError.requestError(300108, "Error durante la validación del CAN", .dniIncorrectCan)
+    static let severeError = AppError.requestError(300109, "Error genérico durante la comunicación con el DNIe", .dniReadingErrorLong)
+    static let noCertAvailable = AppError.requestError(300110, "No se dispone de certificado de firma digital", .dniExpired)
     
     // 3002XX: Servidor intermedio (descarga)
     static let intermediateServerDownloadErrorHttpResponse = AppError.thirdPartySoftwareError(300200, "Error HTTP al descargar la información del servidor intermedio")
@@ -204,13 +200,59 @@ extension AppError {
     // 3004XX: Servidor trifásico
     static let threePhaseServerPresignErrorHTTPResponse = AppError.thirdPartySoftwareError(300400, "Error HTTP al realizar la operación de prefirma")
     static let threePhaseServerPresignErrorResponseFormat = AppError.thirdPartySoftwareError(300401, "La respuesta del servidor trifasico al hacer la prefirma no es válida")
-    static let threePhaseServerPresignErrorResponseFormatNoData = AppError.thirdPartySoftwareError(300401, "La respuesta del servidor trifasico al hacer la prefirma no es válida (No llega ni las firmas correctas, ni erroneas)")
-    static let threePhaseServerPresignErrorResponseFormatDictionary = AppError.thirdPartySoftwareError(300402, "La respuesta del servidor trifasico al hacer la prefirma no es un JSON")
-    static let threePhaseServerPostsignErrorHTTPResponse = AppError.thirdPartySoftwareError(300403, "Error HTTP al realizar la operación de posfirma")
-    static let threePhaseServerPostsignErrorResponseFormat = AppError.thirdPartySoftwareError(300404, "La respuesta del servidor trifasico al hacer la posfirma no es válida")
-    static let threePhaseServerPostsignErrorResponseFormatDictionary = AppError.thirdPartySoftwareError(300405, "La respuesta del servidor trifasico al hacer la prefirma no es un JSON")
-    static let threePhaseServerPostsignErrorResponseOkFormat = AppError.thirdPartySoftwareError(300406, "El servidor trifasico devolvio una resuesta con texto OK pero no llega el formato correcto para obtener la información a enviar al servidor intermedio")
-    static let threePhaseServerPostsignErrorResponseData = AppError.thirdPartySoftwareError(300407, "El servidor trifasico devolvio una resuesta correcta que no sabemos procesar. No llega ni OK ni ERR-")
+    static let threePhaseServerPresignErrorResponseFormatNoData = AppError.thirdPartySoftwareError(300402, "La respuesta del servidor trifasico al hacer la prefirma no es válida (No llega ni las firmas correctas, ni erroneas)")
+    static let threePhaseServerPresignErrorResponseFormatDictionary = AppError.thirdPartySoftwareError(300403, "La respuesta del servidor trifasico al hacer la prefirma no es un JSON")
+    static let threePhaseServerPostsignErrorHTTPResponse = AppError.thirdPartySoftwareError(300404, "Error HTTP al realizar la operación de posfirma")
+    static let threePhaseServerPostsignErrorResponseFormat = AppError.thirdPartySoftwareError(300405, "La respuesta del servidor trifasico al hacer la posfirma no es válida")
+    static let threePhaseServerPostsignErrorResponseFormatDictionary = AppError.thirdPartySoftwareError(300406, "La respuesta del servidor trifasico al hacer la prefirma no es un JSON")
+    static let threePhaseServerPostsignErrorResponseOkFormat = AppError.thirdPartySoftwareError(300407, "El servidor trifasico devolvio una resuesta con texto OK pero no llega el formato correcto para obtener la información a enviar al servidor intermedio")
+    static let threePhaseServerPostsignErrorResponseData = AppError.thirdPartySoftwareError(300408, "El servidor trifasico devolvio una resuesta correcta que no sabemos procesar. No llega ni OK ni ERR-")
+    
+    static let threePhaseServerPresignErr1 = AppError.thirdPartySoftwareError(300409, "El servidor trifasico devolvio una resuesta de error ERR-1 al realizar la prefirma. No se ha indicado la operacion a realizar")
+    static let threePhaseServerPresignErr2 = AppError.thirdPartySoftwareError(300410, "El servidor trifasico devolvio una resuesta de error ERR-2 al realizar la prefirma: No se ha indicado el identificador del documento")
+    static let threePhaseServerPresignErr3 = AppError.thirdPartySoftwareError(300411, "El servidor trifasico devolvio una resuesta de error ERR-3 al realizar la prefirma: No se ha indicado el algoritmo de firma")
+    static let threePhaseServerPresignErr4 = AppError.thirdPartySoftwareError(300412, "El servidor trifasico devolvio una resuesta de error ERR-4 al realizar la prefirma: No se ha indicado el formato de firma")
+    static let threePhaseServerPresignErr5 = AppError.thirdPartySoftwareError(300413, "El servidor trifasico devolvio una resuesta de error ERR-5 al realizar la prefirma: No se ha indicado el certificado de usuario")
+    static let threePhaseServerPresignErr6 = AppError.thirdPartySoftwareError(300414, "El servidor trifasico devolvio una resuesta de error ERR-6 al realizar la prefirma: El formato de los parametros adicionales suministrados es erroneo")
+    static let threePhaseServerPresignErr7 = AppError.thirdPartySoftwareError(300415, "El servidor trifasico devolvio una resuesta de error ERR-7 al realizar la prefirma: El certificado de usuario no esta en formato X.509")
+    static let threePhaseServerPresignErr8 = AppError.thirdPartySoftwareError(300416, "El servidor trifasico devolvio una resuesta de error ERR-8 al realizar la prefirma: Formato de firma no soportado")
+    static let threePhaseServerPresignErr9 = AppError.thirdPartySoftwareError(300417, "El servidor trifasico devolvio una resuesta de error ERR-9 al realizar la prefirma: Error realizando la prefirma")
+    static let threePhaseServerPresignErr10 = AppError.thirdPartySoftwareError(300418, "El servidor trifasico devolvio una resuesta de error ERR-10 al realizar la prefirma: Error al almacenar el documento")
+    static let threePhaseServerPresignErr11 = AppError.thirdPartySoftwareError(300419, "El servidor trifasico devolvio una resuesta de error ERR-11 al realizar la prefirma: Operacion desconocida")
+    static let threePhaseServerPresignErr12 = AppError.thirdPartySoftwareError(300420, "El servidor trifasico devolvio una resuesta de error ERR-12 al realizar la prefirma: Error realizando la postfirma")
+    static let threePhaseServerPresignErr13 = AppError.thirdPartySoftwareError(300421, "El servidor trifasico devolvio una resuesta de error ERR-13 al realizar la prefirma: No se indicado una sub-operacion valida a realizar (firma, cofirma,...)")
+    static let threePhaseServerPresignErr14 = AppError.thirdPartySoftwareError(300422, "El servidor trifasico devolvio una resuesta de error ERR-14 al realizar la prefirma: Error al recuperar el documento")
+    static let threePhaseServerPresignErr15 = AppError.thirdPartySoftwareError(300423, "El servidor trifasico devolvio una resuesta de error ERR-15 al realizar la prefirma: El formato de los datos de sesion suministrados es erroneo")
+    static let threePhaseServerPresignErr16 = AppError.thirdPartySoftwareError(300424, "El servidor trifasico devolvio una resuesta de error ERR-16 al realizar la prefirma: Error al generar el codigo de verificacion de las firmas")
+    static let threePhaseServerPresignErr17 = AppError.thirdPartySoftwareError(300425, "El servidor trifasico devolvio una resuesta de error ERR-17 al realizar la prefirma: Error al comprobar el codigo de verificacion de las firmas")
+    static let threePhaseServerPresignErr18 = AppError.thirdPartySoftwareError(300426, "El servidor trifasico devolvio una resuesta de error ERR-18 al realizar la prefirma: Error de integridad en la firma")
+    static let threePhaseServerPresignErr19 = AppError.thirdPartySoftwareError(300427, "El servidor trifasico devolvio una resuesta de error ERR-19 al realizar la prefirma: El formato de los datos de operacion suministrados es erroneo")
+    static let threePhaseServerPresignErr20 = AppError.thirdPartySoftwareError(300428, "El servidor trifasico devolvio una resuesta de error ERR-20 al realizar la prefirma: Algoritmo de firma no soportado")
+    static let threePhaseServerPresignErr21 = AppError.thirdPartySoftwareError(300429, "El servidor trifasico devolvio una resuesta de error ERR-21 al realizar la prefirma: Se requiere intervencion del usuario")
+    
+    static let threePhaseServerPostsignErr1 = AppError.thirdPartySoftwareError(300430, "El servidor trifasico devolvio una resuesta de error ERR-1 al realizar la postfirma. No se ha indicado la operacion a realizar")
+    static let threePhaseServerPostsignErr2 = AppError.thirdPartySoftwareError(300431, "El servidor trifasico devolvio una resuesta de error ERR-2 al realizar la postfirma: No se ha indicado el identificador del documento")
+    static let threePhaseServerPostsignErr3 = AppError.thirdPartySoftwareError(300432, "El servidor trifasico devolvio una resuesta de error ERR-3 al realizar la postfirma: No se ha indicado el algoritmo de firma")
+    static let threePhaseServerPostsignErr4 = AppError.thirdPartySoftwareError(300433, "El servidor trifasico devolvio una resuesta de error ERR-4 al realizar la postfirma: No se ha indicado el formato de firma")
+    static let threePhaseServerPostsignErr5 = AppError.thirdPartySoftwareError(300434, "El servidor trifasico devolvio una resuesta de error ERR-5 al realizar la postfirma: No se ha indicado el certificado de usuario")
+    static let threePhaseServerPostsignErr6 = AppError.thirdPartySoftwareError(300435, "El servidor trifasico devolvio una resuesta de error ERR-6 al realizar la postfirma: El formato de los parametros adicionales suministrados es erroneo")
+    static let threePhaseServerPostsignErr7 = AppError.thirdPartySoftwareError(300436, "El servidor trifasico devolvio una resuesta de error ERR-7 al realizar la postfirma: El certificado de usuario no esta en formato X.509")
+    static let threePhaseServerPostsignErr8 = AppError.thirdPartySoftwareError(300437, "El servidor trifasico devolvio una resuesta de error ERR-8 al realizar la postfirma: Formato de firma no soportado")
+    static let threePhaseServerPostsignErr9 = AppError.thirdPartySoftwareError(300438, "El servidor trifasico devolvio una resuesta de error ERR-9 al realizar la postfirma: Error realizando la prefirma")
+    static let threePhaseServerPostsignErr10 = AppError.thirdPartySoftwareError(300439, "El servidor trifasico devolvio una resuesta de error ERR-10 al realizar la postfirma: Error al almacenar el documento")
+    static let threePhaseServerPostsignErr11 = AppError.thirdPartySoftwareError(300440, "El servidor trifasico devolvio una resuesta de error ERR-11 al realizar la postfirma: Operacion desconocida")
+    static let threePhaseServerPostsignErr12 = AppError.thirdPartySoftwareError(300441, "El servidor trifasico devolvio una resuesta de error ERR-12 al realizar la postfirma: Error realizando la postfirma")
+    static let threePhaseServerPostsignErr13 = AppError.thirdPartySoftwareError(300442, "El servidor trifasico devolvio una resuesta de error ERR-13 al realizar la postfirma: No se indicado una sub-operacion valida a realizar (firma, cofirma,...)")
+    static let threePhaseServerPostsignErr14 = AppError.thirdPartySoftwareError(300443, "El servidor trifasico devolvio una resuesta de error ERR-14 al realizar la postfirma: Error al recuperar el documento")
+    static let threePhaseServerPostsignErr15 = AppError.thirdPartySoftwareError(300444, "El servidor trifasico devolvio una resuesta de error ERR-15 al realizar la postfirma: El formato de los datos de sesion suministrados es erroneo")
+    static let threePhaseServerPostsignErr16 = AppError.thirdPartySoftwareError(300445, "El servidor trifasico devolvio una resuesta de error ERR-16 al realizar la postfirma: Error al generar el codigo de verificacion de las firmas")
+    static let threePhaseServerPostsignErr17 = AppError.thirdPartySoftwareError(300446, "El servidor trifasico devolvio una resuesta de error ERR-17 al realizar la postfirma: Error al comprobar el codigo de verificacion de las firmas")
+    static let threePhaseServerPostsignErr18 = AppError.thirdPartySoftwareError(300447, "El servidor trifasico devolvio una resuesta de error ERR-18 al realizar la postfirma: Error de integridad en la firma")
+    static let threePhaseServerPostsignErr19 = AppError.thirdPartySoftwareError(300448, "El servidor trifasico devolvio una resuesta de error ERR-19 al realizar la postfirma: El formato de los datos de operacion suministrados es erroneo")
+    static let threePhaseServerPostsignErr20 = AppError.thirdPartySoftwareError(300449, "El servidor trifasico devolvio una resuesta de error ERR-20 al realizar la postfirma: Algoritmo de firma no soportado")
+    static let threePhaseServerPostsignErr21 = AppError.thirdPartySoftwareError(300450, "El servidor trifasico devolvio una resuesta de error ERR-21 al realizar la postfirma: Se requiere intervencion del usuario")
+    
+    
     // 3005XX: Biblioteca firma (código convertido en iOS)
     
 }
@@ -259,165 +301,37 @@ extension AppError {
 extension AppError {
     // 6001XX: Error general
     static let invalidformatRequest = AppError.requestError(600000, "El formato de la petición es erroneo")
-    static let operationRequestNotFound = AppError.requestError(600001, "No hay llegado código de operación en la petición")
+    static let operationRequestNotFound = AppError.requestError(600001, "No ha llegado código de operación en la petición")
     static let operationRequestNotValid = AppError.requestError(600002, "La operación no esta soportada")
-    static let operationDataNotFound = AppError.requestError(600003, "No han llegado los datos en la petición ni el id del fichero a descargar")
-    static let operationNotRtServlet = AppError.requestError(600004, "Es necesario descargar la información del servidor intermedio y no ha llegado la url del servidor de descarga")
     static let fileIdButNotCipherKey = AppError.requestError(600005, "Es necesario descargar la información del servidor intermedio y no ha llegado la clave de cifrado")
 
     // 6001XX: Petición de firma
-    static let signThreePhaseUrlError = AppError.requestError(600100, "No ha llegado la url del servlet trifasico para la firma")
-    static let signFormatNotFound = AppError.requestError(600101, "No se ha recibido el formato de firma para la firma")
-    static let signFormatNotValid = AppError.requestError(600102, "El formato de firma no es válido")
-    static let signUrlServletNotFound = AppError.requestError(600103, "No se ha recibido el stservlet para la firma")
-    static let signAlgoNotFound = AppError.requestError(600104, "No se ha recibido el algoritmo de firma para la firma")
-    static let signAlgoNotValid = AppError.requestError(600105, "El algoritmo de firma no es válido")
-    static let signDocIdNotFound = AppError.requestError(600106, "No ha llegado el docid para el guardado de datos en la firma")
-    static let datosInUseDecodeNotValid = AppError.requestError(600107, "Los datos de la operación no se han podido decodificar para la firma")
+    static let signThreePhaseDataNotFound = AppError.requestError(600100, "No se ha recibido los datos en la petición ni el id del fichero a descargar para la operación de firma")
+    static let signThreePhaseNotRtServletNotFound = AppError.requestError(600101, "Es necesario descargar la información del servidor intermedio, ha llegado el id de fichero pero no ha llegado la url del servidor de descarga para la operación de firma")
+    static let signThreePhaseStServletNotFound = AppError.requestError(600102, "No se ha recibido la url del servlet para guardar la firma en la operación de firma")
+    static let signThreePhaseIdNotFound = AppError.requestError(600103, "No se ha recibido el id del fichero a guardar para la operación de firma")
+    static let signFormatNotFound = AppError.requestError(600104, "No se ha recibido el formato de firma para la firma")
+    static let signFormatNotValid = AppError.requestError(600105, "El formato de firma no es válido")
+    static let signAlgoNotFound = AppError.requestError(600106, "No se ha recibido el algoritmo de firma para la firma")
+    static let signAlgoNotValid = AppError.requestError(600107, "El algoritmo de firma no es válido")
+    static let datosInUseDecodeNotValid = AppError.requestError(600108, "Los datos de la operación no se han podido decodificar para la firma")
     
     // 6002XX: Petición de selección de certificados
-
+    static let sendCertificateStServletNotFound = AppError.requestError(600200, "No se ha recibido la url del servlet para guardar el certificado en la operación de enviar certificado")
+    static let sendCertificateIdNotFound = AppError.requestError(600201, "No se ha recibido el id del fichero a guardar para la operación de enviar certificado")
+    
     // 6003XX: Petición de guardado de datos
-
+    static let saveDataNotFound = AppError.requestError(600300, "No se ha recibido los datos en la petición ni el id del fichero a descargar para la operación de guardado")
+    static let saveNotRtServletNotFound = AppError.requestError(600301, "Es necesario descargar la información del servidor intermedio, ha llegado el id de fichero pero no ha llegado la url del servidor de descarga para la operación de guardado")
+    
     // 6004XX: Petición de lotes JSON
-    static let batchDataParameterRequestNotValid = AppError.requestError(600400, "El data de la operación de firma batch no es un JSON válido")
-    static let batchStservletErrorNotFound = AppError.requestError(600401, "No se ha recibido el stservlet en la firma batch")
-    static let batchpresignerUrlNotFound = AppError.requestError(600402, "No se ha recibido el batchpresignerurl en la firma batch")
-    static let batchpostsignerUrlNotFound = AppError.requestError(600403, "No se ha recibido el batchpostsignerurl en la firma batch")
-    static let batchalghorithmNotFound = AppError.requestError(600400, "No se ha recibido el algoritmo de firma en la firma batch")
-    static let batchDataErrorNotFound = AppError.requestError(600400, "No se ha recibido el dat para en la firma batch")
+    static let batchsignDataNotFound = AppError.requestError(600400, "No se ha recibido los datos en la petición ni el id del fichero a descargar para la operación de firma de lotes")
+    static let batchsignNotRtServletNotFound = AppError.requestError(600401, "Es necesario descargar la información del servidor intermedio, ha llegado el id de fichero pero no ha llegado la url del servidor de descarga para la operación de firma de lotes")
+    static let batchsignStServletNotFound = AppError.requestError(600402, "No se ha recibido la url del servlet para guardar la firma en la operación de firma de lotes")
+    static let batchsignIdNotFound = AppError.requestError(600403, "No se ha recibido el id del fichero a guardar para la operación de firma de lotes")
+    static let batchsignDataErrorNotFound = AppError.requestError(600404, "No se ha recibido el dat para en la firma batch")
+    static let batchsignPresignerUrlNotFound = AppError.requestError(600405, "No se ha recibido el batchpresignerurl en la firma batch")
+    static let batchsignPostsignerUrlNotFound = AppError.requestError(600406, "No se ha recibido el batchpostsignerurl en la firma batch")
+    static let batchsignDataParameterRequestNotValid = AppError.requestError(600407, "El data de la operación de firma batch no es un JSON válido")
+    static let batchalghorithmNotFound = AppError.requestError(600408, "No se ha recibido el algoritmo de firma en la firma batch")
 }
-    
-    /*enum ServerErrorCodes: String, ErrorCodeProtocol {
-        case missingOperation = "ERR-1"
-        case missingDocumentID = "ERR-2"
-        case missingSignatureAlgorithm = "ERR-3"
-        case missingSignatureFormat = "ERR-4"
-        case missingUserCertificate = "ERR-5"
-        case invalidAdditionalParamsFormat = "ERR-6"
-        case userCertificateNotX509 = "ERR-7"
-        case unsupportedSignatureFormat = "ERR-8"
-        case preSignatureError = "ERR-9"
-        case documentStorageError = "ERR-10"
-        case unknownOperation = "ERR-11"
-        case postSignatureError = "ERR-12"
-        case invalidSubOperation = "ERR-13"
-        case documentRetrievalError = "ERR-14"
-        case invalidSessionDataFormat = "ERR-15"
-        case verificationCodeGenerationError = "ERR-16"
-        case verificationCodeCheckError = "ERR-17"
-        case signatureIntegrityError = "ERR-18"
-        case invalidOperationDataFormat = "ERR-19"
-        case unsupportedSignatureAlgorithm = "ERR-20"
-        case userInterventionRequired = "ERR-21"
-        
-        var info: ErrorInfo {
-            switch self {
-            case .missingOperation:
-                return ErrorInfo("ERR-1", "No se ha indicado la operación a realizar.")
-           case .missingDocumentID:
-                return ErrorInfo("ERR-2", "No se ha indicado el identificador del documento.")
-           case .missingSignatureAlgorithm:
-                return ErrorInfo("ERR-3", "No se ha indicado el algoritmo de firma.")
-           case .missingSignatureFormat:
-                return ErrorInfo("ERR-4", "No se ha indicado el formato de firma.")
-           case .missingUserCertificate:
-                return ErrorInfo("ERR-5", "No se ha indicado el certificado de usuario.")
-           case .invalidAdditionalParamsFormat:
-                return ErrorInfo("ERR-6", "El formato de los parámetros adicionales suministrados es erróneo.")
-           case .userCertificateNotX509:
-                return ErrorInfo("ERR-7", "El certificado de usuario no está en formato X.509.")
-           case .unsupportedSignatureFormat:
-                return ErrorInfo("ERR-8", "Formato de firma no soportado.")
-           case .preSignatureError:
-                return ErrorInfo("ERR-9", "Error realizando la prefirma.")
-           case .documentStorageError:
-                return ErrorInfo("ERR-10", "Error al almacenar el documento.")
-           case .unknownOperation:
-                return ErrorInfo("ERR-11", "Operación desconocida.")
-           case .postSignatureError:
-                return ErrorInfo("ERR-12", "Error realizando la postfirma.")
-           case .invalidSubOperation:
-                return ErrorInfo("ERR-13", "No se indicó una sub-operación válida a realizar (firma, cofirma, etc.).")
-           case .documentRetrievalError:
-                return ErrorInfo("ERR-14", "Error al recuperar el documento.")
-           case .invalidSessionDataFormat:
-                return ErrorInfo("ERR-15", "El formato de los datos de sesión suministrados es erróneo.")
-           case .verificationCodeGenerationError:
-                return ErrorInfo("ERR-16", "Error al generar el código de verificación de las firmas.")
-           case .verificationCodeCheckError:
-                return ErrorInfo("ERR-17", "Error al comprobar el código de verificación de las firmas.")
-           case .signatureIntegrityError:
-                return ErrorInfo("ERR-18", "Error de integridad en la firma.")
-           case .invalidOperationDataFormat:
-                return ErrorInfo("ERR-19", "El formato de los datos de operación suministrados es erróneo.")
-           case .unsupportedSignatureAlgorithm:
-                return ErrorInfo("ERR-20", "Algoritmo de firma no soportado.")
-           case .userInterventionRequired:
-                return ErrorInfo("ERR-21", "Se requiere intervención del usuario.")
-            }
-        }
-    }
-
-struct ErroCodes {
-    
-    enum DNIeErrorCodes: String, ErrorCodeProtocol {
-        case invalidCard = "1"          // La tarjeta identificada en el lector es desconocida o no está soportada.
-        case burnedCard = "2"           // La tarjeta está corrompida, pudo haber ocurrido por un ataque o problemas de tensión.
-        case connectionError = "3"      // No se ha podido conectar con la tarjeta.
-        case notInitialized = "4"       // La conexión con la tarjeta no está inicializada.
-        case operationError = "5"       // Ocurrió un error inesperado durante la operación.
-        case badPin = "6"               // PIN incorrecto.
-        case lockedCard = "7"           // Tarjeta bloqueada.
-        case pinError = "8"             // Error durante la validación del PIN.
-        case badCan = "9"               // Error durante la validación del CAN.
-        case severeError = "10"         // Error genérico.
-        case noCertAvailable = "11"     // Error, no se dispone de certificado de firma digital
-        
-        var info: ErrorInfo {
-            switch self {
-            case .invalidCard:
-                return ErrorInfo("300101", "La tarjeta identificada en el lector es desconocida o no está soportada.", .dniReadingError)
-            case .burnedCard:
-                return ErrorInfo("300202", "La tarjeta está corrompida, posiblemente se autodestruyó.", .dniBroken)
-            case .connectionError:
-                return ErrorInfo("300303", "No se ha podido conectar con la tarjeta.", .globalError)
-            case .notInitialized:
-                return ErrorInfo("300304", "La conexión con la tarjeta no está inicializada.", .dniReadingErrorLong)
-            case .operationError:
-                return ErrorInfo("300305", "Ocurrió un error inesperado durante la operación.", .dniReadingErrorLong)
-            case .badPin:
-                return ErrorInfo("300306", "PIN incorrecto.", .dniIncorrectPin)
-            case .lockedCard:
-                return ErrorInfo("300307", "Tarjeta bloqueada.", .dniBlockedPin)
-            case .pinError:
-                return ErrorInfo("300308", "Error durante la validación del PIN.", .dniIncorrectPin)
-            case .badCan:
-                return ErrorInfo("300309", "Error durante la validación del CAN.", .dniIncorrectCan)
-            case .severeError:
-                return ErrorInfo("300310", "Error genérico durante la comunicación con el DNIe", .dniReadingErrorLong)
-            case .noCertAvailable:
-                return ErrorInfo("300311", "No se dispone de certificado de firma digital", .dniExpired)
-            }
-        }
-    }
-    static func getServerError(codigo: String) -> ErrorCodeProtocol {
-        // Buscar en HardwareErrorCodes
-        if let serverError = ServerErrorCodes(rawValue: codigo) {
-            return serverError
-        }
-        
-        // Si no se encuentra el código, retornar nil
-        return ErrorCodes.InternalSoftwareErrorCodes.generalSoftwareError
-    }
-    
-    static func getDNIError(codigo: String) -> ErrorCodeProtocol {
-        // Buscar en HardwareErrorCodes
-        if let dniError = DNIeErrorCodes(rawValue: codigo) {
-            return dniError
-        }
-        
-        // Si no se encuentra el código, retornar nil
-        return ErrorCodes.InternalSoftwareErrorCodes.generalSoftwareError
-    }
-}*/

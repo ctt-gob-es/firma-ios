@@ -33,7 +33,10 @@ public class ParseDataURLOperationUseCase: NSObject {
         
         // Si nos llega datos a nil y nos llega fileId es necesario descargar informacion del servidor intermedio
         if (self.opParameters[PARAMETER_NAME_DAT] == nil && self.opParameters[PARAMETER_NAME_FILE_ID] != nil) {
-            downloadData(completion: completion)
+            if let appError = downloadData(completion: completion) {
+                self.sendError(error: appError, completion: completion)
+                return
+            }
         } else {
             DispatchQueue.main.async {
                 completion(.success(self.opParameters))
@@ -50,34 +53,55 @@ public class ParseDataURLOperationUseCase: NSObject {
         // Verificamos que sea un código válido
         let validOperations = [OPERATION_SIGN, OPERATION_SELECT_CERTIFICATE, OPERATION_COSIGN, OPERATION_COUNTERSIGN, OPERATION_SAVE, OPERATION_BATCH]
         if !validOperations.contains(operation) {
-            return AppError.operationRequestNotFound;
+            return AppError.operationRequestNotValid;
         }
         
         // Si es una operacion de firma batch es necesario que lleguen los datos o el file id. En firma batch no se selecciona fichero
         if (operation == OPERATION_BATCH && self.opParameters[PARAMETER_NAME_DAT] == nil && self.opParameters[PARAMETER_NAME_FILE_ID] == nil) {
-            return AppError.operationDataNotFound;
+            return AppError.batchsignDataNotFound;
         }
         
         return nil;
     }
     
-    private func downloadData(completion: @escaping (Result<(NSMutableDictionary), AppError>) -> Void) {
+    private func downloadData(completion: @escaping (Result<(NSMutableDictionary), AppError>) -> Void) -> AppError? {
+        
+        guard let operation = self.opParameters[PARAMETER_NAME_OPERATION] as? String else {
+            return AppError.operationRequestNotFound;
+        }
+        
         // Verificamos que nos llegue el id del fichero
         guard let fileId = self.opParameters[PARAMETER_NAME_FILE_ID] as? String else {
-            self.sendError(error: AppError.operationDataNotFound, completion: completion)
-            return;
+            if (operation == OPERATION_SIGN) {
+                return AppError.signThreePhaseDataNotFound
+                
+            } else if (operation == OPERATION_SAVE) {
+                return AppError.saveDataNotFound
+                
+            } else if (operation == OPERATION_BATCH) {
+                return AppError.batchsignDataNotFound
+            }
+            return AppError.generalSoftwareError
         }
         
         // Verificamos que nos llegue el servlet de descarga
         guard let rtServlet = self.opParameters[PARAMETER_NAME_RTSERVLET] as? String else {
-            self.sendError(error: AppError.operationNotRtServlet, completion: completion)
-            return
+            if (operation == OPERATION_SIGN) {
+                return AppError.signThreePhaseNotRtServletNotFound
+                
+            } else if (operation == OPERATION_SAVE) {
+                return AppError.saveNotRtServletNotFound
+                
+            } else if (operation == OPERATION_BATCH) {
+                return AppError.batchsignNotRtServletNotFound
+            }
+            
+            return AppError.generalSoftwareError
         }
         
         // Verificamos que nos llegue la clave de cifrado
         guard let cipherKey = self.opParameters[PARAMETER_NAME_CIPHER_KEY] as? String else {
-            self.sendError(error: AppError.fileIdButNotCipherKey, completion: completion)
-            return
+            return AppError.fileIdButNotCipherKey
         }
         
         IntermediateServerRest().downloadDataXML(rtServlet: rtServlet, fileId: fileId) { result in
@@ -88,6 +112,7 @@ public class ParseDataURLOperationUseCase: NSObject {
                     self.sendError(error: error, completion: completion)
             }
         }
+        return nil
     }
     
     private func handleDownloadData(

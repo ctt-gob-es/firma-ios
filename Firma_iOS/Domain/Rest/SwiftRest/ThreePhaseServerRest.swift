@@ -36,7 +36,7 @@ class ThreePhaseServerRest {
         }
             
         guard let requestUrl = getDefaultTriphaseServer(triphasicServerURL: triphasicServerURL, rtServlet: rtServlet) else {
-            completion(.failure(AppError.signThreePhaseUrlError))
+            completion(.failure(AppError.signThreePhaseNotRtServletNotFound))
            return
         }
             
@@ -85,7 +85,7 @@ class ThreePhaseServerRest {
         }
         
         guard let requestUrl = getDefaultTriphaseServer(triphasicServerURL: triphasicServerURL, rtServlet: rtServlet) else {
-            completion(.failure(AppError.signThreePhaseUrlError))
+            completion(.failure(AppError.signThreePhaseNotRtServletNotFound))
            return
         }
         

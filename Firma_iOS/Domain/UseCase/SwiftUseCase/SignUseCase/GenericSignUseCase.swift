@@ -61,7 +61,7 @@ class GenericSignUseCase {
         }
 	   
 	   guard let urlServlet = signModel.urlServlet, !urlServlet.isEmpty else {
-            sendError(error: AppError.signUrlServletNotFound)
+            sendError(error: AppError.signThreePhaseStServletNotFound)
 		  return false
 	   }
 	   
@@ -75,12 +75,12 @@ class GenericSignUseCase {
         }
 	   
 	   guard let docId = signModel.docId, !docId.isEmpty else {
-		  sendError(error: AppError.signDocIdNotFound)
+		  sendError(error: AppError.signThreePhaseIdNotFound)
 		  return false
 	   }
 	   
         guard let datosInUse = signModel.datosInUse else {
-            sendError(error: AppError.operationDataNotFound)
+            sendError(error: AppError.signThreePhaseDataNotFound)
             return false
         }
         
