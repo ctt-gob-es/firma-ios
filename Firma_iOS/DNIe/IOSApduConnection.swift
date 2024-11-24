@@ -24,7 +24,7 @@ class IOSApduConnection: EsGobJmulticardConnectionAbstractApduConnectionIso7816 
     
     // MARK: - Cerrar conexión JMulticard
     override func close() {
-	   nfcSession.nfcSession?.invalidate()
+        nfcSession.invalidateSessionManually()
     }
     
     // MARK: - Implementación de EsGobJmulticardConnectionApduConnection

@@ -11,7 +11,7 @@ import Foundation
 class DNISingleSignUseCase : GenericSignUseCase, DNIeResult {
     var pkcs1: Data? = nil
     private var certificateData: String? = nil
-    var wrapper: SwiftDNIeWrapper?
+    private var wrapper: SwiftDNIeWrapper?
     private var dnieWrapper: EsGobJmulticardIosDnieWrapper?
     
     init(can: String,
@@ -60,5 +60,13 @@ class DNISingleSignUseCase : GenericSignUseCase, DNIeResult {
     
     func getDNIeError(errorCode: Int, errorMessage: String) {
         handleErrorDnieWrapper(errorCode: errorCode)
+    }
+    
+    func invalidateSessionManually(withErrorMessage: String) {
+        self.wrapper?.nfcSessionManager.invalidateSessionManually(withErrorMessage: withErrorMessage)
+    }
+    
+    func invalidateSessionManually(withAlertMessage: String) {
+        self.wrapper?.nfcSessionManager.invalidateSessionManually(withAlertMessage: withAlertMessage)
     }
 }

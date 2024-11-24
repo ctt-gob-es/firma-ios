@@ -1,5 +1,5 @@
 //
-//  ErrorModalView.swift
+//  CertificateInfoModalView.swift
 //  Cliente @firma
 //
 //  Created by Desarrollo Abamobile on 16/7/24.

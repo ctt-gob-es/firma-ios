@@ -17,10 +17,12 @@ protocol IOSNFCSessionDelegate: AnyObject {
 
 class IOSNFCSessionManager: NSObject, NFCTagReaderSessionDelegate {
 
-    internal var nfcSession: NFCTagReaderSession?
+    private var nfcSession: NFCTagReaderSession?
     var delegate: IOSNFCSessionDelegate?
     var nfcTag: NFCISO7816Tag?
-
+    private var wasManuallyInvalidated = false
+    
+    
     // MARK: - Iniciar la sesión NFC
     func beginSession() {
 	   guard NFCTagReaderSession.readingAvailable else {
@@ -39,7 +41,7 @@ class IOSNFCSessionManager: NSObject, NFCTagReaderSessionDelegate {
 
     // MARK: - Cerrar la sesión NFC
     func closeSession() {
-	   nfcSession?.invalidate()
+        invalidateSessionManually()
     }
 
     // MARK: - NFCTagReaderSessionDelegate - Detectar etiquetas NFC
@@ -82,9 +84,30 @@ class IOSNFCSessionManager: NSObject, NFCTagReaderSessionDelegate {
     }
 
     func tagReaderSession(_ session: NFCTagReaderSession, didInvalidateWithError error: Error) {
-	   delegate?.didInvalidateNFCSession(with: error)
+        // Si se invalido manualmente desde codigo no lanzamos error porque ya lo tratamos previamente
+        if wasManuallyInvalidated {
+            wasManuallyInvalidated = false;
+        } else {
+            delegate?.didInvalidateNFCSession(with: error)
+        }
     }
 
+    func invalidateSessionManually() {
+        wasManuallyInvalidated = true
+        nfcSession?.invalidate()
+    }
+    
+    func invalidateSessionManually(withAlertMessage: String) {
+        nfcSession?.alertMessage = withAlertMessage
+        invalidateSessionManually()
+    }
+    
+    func invalidateSessionManually(withErrorMessage: String) {
+        wasManuallyInvalidated = true
+        nfcSession?.invalidate(errorMessage: withErrorMessage)
+    }
+
+    
     func isOpen() -> Bool {
 	   return nfcSession?.isReady ?? false
     }

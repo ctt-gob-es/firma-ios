@@ -80,7 +80,6 @@ struct ErrorModalView: View {
 			 }  else {
 				if appError.screenType.hasCancelButton {
 				    Button(action: {
-					   self.viewMode = .home
 					   DispatchQueue.main.async {
 						  NotificationCenter.default.post(name: .ErrorModalCancelButtonAction, object: nil, userInfo: nil)
 					   }
@@ -119,7 +118,8 @@ struct GlobalErrorButtons: View {
 	   VStack(spacing: 8) {
 		  Button(action: {
 			 DispatchQueue.main.async {
-				viewMode = .home
+                    NotificationCenter.default.post(name: .CloseSignMode, object: nil, userInfo: nil)
+                    self.presentationMode.wrappedValue.dismiss()
                     shouldReload = false
 			 }
 			 self.presentationMode.wrappedValue.dismiss()
@@ -192,4 +192,5 @@ struct UpdateErrorButtons: View {
 
 extension Notification.Name {
     static let ErrorModalCancelButtonAction = Notification.Name("CancelButtonAction")
+    static let CloseSignMode = Notification.Name("CloseSignMode")
 }

@@ -110,9 +110,6 @@ struct MainView: View {
 				    .navigationBarHidden(true)
 			 }
 			 .frame(maxWidth: .infinity, maxHeight: .infinity)
-			 .navigationDestination(isPresented: $appStatus.navigateToDNI) {
-				DNIView(hasDismissed: $viewModel.shouldCancel)
-			 }
 			 .navigationDestination(isPresented: $appStatus.navigateToSelectCertificate) {
 				HomeView(
 				    viewMode: $viewModel.viewMode,
@@ -159,24 +156,7 @@ struct MainView: View {
 			 .accessibility(addTraits: .isModal)
 			 .interactiveDismissDisabled(true)
 	   }
-	   .sheet(isPresented: $appStatus.showSignModal,
-			onDismiss: {
-		  if appStatus.navigateToSelectCertificate == false
-			 && appStatus.navigateToDNI == false {
-			 appStatus.showSignModal = true
-		  }
-	   }) {
-		  SignModalView(
-			 certificateSignAction: $appStatus.navigateToSelectCertificate,
-			 dniSignAction: $appStatus.navigateToDNI
-		  )
-		  .fixedSize(horizontal: false, vertical: true)
-		  .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
-		  .presentationDetents([.height(viewModel.sheetHeight)])
-		  .accessibility(addTraits: .isModal)
-		  .interactiveDismissDisabled(true)
-	   }
-	   .sheet(isPresented: $appStatus.showSuccessModal) {
+       .sheet(isPresented: $appStatus.showSuccessModal) {
 		  SuccessModalView(
 			 title: appStatus.successModalState.title,
 			 description: appStatus.successModalState.description
@@ -262,7 +242,6 @@ struct MainView: View {
     private func handleFileImportCancellation() {
 	   appStatus.showErrorModal = true
 	   appStatus.appError = AppError.userOperationCanceled
-	   appStatus.navigateToDNI = false
 	   viewModel.cancelSign()
     }
     
@@ -270,13 +249,11 @@ struct MainView: View {
 	   appStatus.showErrorModal = true
 	   appStatus.appError = AppError.fileLoadingLocalFile
 	   appStatus.errorModalDescription = error.localizedDescription
-	   appStatus.navigateToDNI = false
     }
     
     func handleErrorSavingData(error: Error) {
 	   appStatus.showErrorModal = true
 	   appStatus.appError = AppError.dataSavingFileSaveDisk
 	   appStatus.errorModalDescription = error.localizedDescription
-	   appStatus.navigateToDNI = false
     }
 }

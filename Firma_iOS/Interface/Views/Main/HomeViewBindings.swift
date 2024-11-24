@@ -86,7 +86,6 @@ extension View {
 		  .onChange(of: viewModel.showErrorModal) { appStatus.showErrorModal = $0 ?? false }
 		  .onChange(of: viewModel.showSuccessModal) { appStatus.showSuccessModal = $0 ?? false }
 		  .onChange(of: viewModel.showDocumentImportingPicker) { appStatus.showDocumentImportingPicker = $0 ?? false }
-		  .onChange(of: viewModel.showSignModal) { appStatus.showSignModal = $0 ?? false }
 		  .onChange(of: viewModel.showSignCoordinatesModal) { appStatus.showSignCoordinatesModal = $0 ?? false }
     }
     
@@ -113,11 +112,7 @@ extension View {
 		  }
 		  .onChange(of: shouldSendStopSign.wrappedValue) {
 			 if $0 == true {
-				viewModel.viewMode = .home
-				viewModel.areCertificatesSelectable = false
-                    viewModel.cancelOperation()
-				appStatus.showErrorModal = true
-				appStatus.appError = AppError.userOperationCanceled
+				viewModel.cancelOperation()
 			 }
 		  }
 		  .onChange(of: viewModel.showTextfieldModal) { newValue in
@@ -138,10 +133,13 @@ extension View {
 			 appStatus.successModalState = .successSign
 		  }
 		  .onReceive(NotificationCenter.default.publisher(for: .ErrorModalCancelButtonAction)) { _ in
-			 viewModel.handleFinishSign()
-                viewModel.cancelOperation()
+			 viewModel.cancelOperation()
 			 appStatus.isLoading = false
 			 viewModel.showError(appError: AppError.userOperationCanceled)
 		  }
+            .onReceive(NotificationCenter.default.publisher(for: .CloseSignMode)) { _ in
+               viewModel.resetHomeViewModelVariables()
+               appStatus.isLoading = false
+            }
     }
 }

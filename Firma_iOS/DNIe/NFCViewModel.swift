@@ -59,7 +59,7 @@ class NFCViewModel: NSObject, ObservableObject {
 			 case .success(let shouldRetry):
 				if shouldRetry {
 				    self.showTextfieldModal = true
-				    self.dniSingleSignUseCase?.wrapper?.nfcSessionManager.nfcSession?.invalidate(errorMessage: NSLocalizedString("textfield_modal_description",bundle: Bundle.main, comment: ""))
+                        self.dniSingleSignUseCase?.invalidateSessionManually(withErrorMessage: NSLocalizedString("textfield_modal_description",bundle: Bundle.main, comment: ""))
 				} else {
 				    let history = HistoryModel(
 					   date: Date(),
@@ -70,14 +70,15 @@ class NFCViewModel: NSObject, ObservableObject {
 				    )
 				    HistoricalUseCase().saveHistory(history: history) { result in
 					   let modalState = SuccessModalState.successSign
-					   self.dniSingleSignUseCase?.wrapper?.nfcSessionManager.nfcSession?.alertMessage = modalState.description
-					   self.dniSingleSignUseCase?.wrapper?.nfcSessionManager.nfcSession?.invalidate()
-					   DispatchQueue.main.async {
+                            self.dniSingleSignUseCase?.invalidateSessionManually(withAlertMessage: modalState.description)
+                            DispatchQueue.main.async {
 						  NotificationCenter.default.post(name: .DNIeSuccess, object: modalState)
 					   }
 				    }
 				}
 			 case .failure(let appError):
+                    self.dniSingleSignUseCase?.invalidateSessionManually(withErrorMessage: appError.screenType.title)
+
                     DispatchQueue.main.async {
 				    NotificationCenter.default.post(
 					   name: .DNIeError,
@@ -102,13 +103,13 @@ class NFCViewModel: NSObject, ObservableObject {
                 switch result {
                 case .success(let resultBatch):
                     let successModalState = self.getSuccessModal(resultBatch)
-                    
-                    self.dniBatchSignUseCase?.wrapper?.nfcSessionManager.nfcSession?.alertMessage = successModalState.description
-                    self.dniBatchSignUseCase?.wrapper?.nfcSessionManager.nfcSession?.invalidate()
+                    self.dniBatchSignUseCase?.invalidateSessionManually(withAlertMessage: successModalState.description)
                     DispatchQueue.main.async {
                        NotificationCenter.default.post(name: .DNIeSuccess, object: successModalState)
                     }
                 case .failure(let appError):
+                    self.dniBatchSignUseCase?.invalidateSessionManually(withAlertMessage: appError.screenType.title)
+                    
                     // Hubo error en el proceso de firma batch
                     DispatchQueue.main.async {
                         NotificationCenter.default.post(
@@ -132,11 +133,6 @@ class NFCViewModel: NSObject, ObservableObject {
         case .allSignWihtError:
             return .successSignBatchWithAllError
         }
-    }
-    
-    func invalidateSession(errorMessage: String) {
-	   self.dniSingleSignUseCase?.wrapper?.nfcSessionManager.nfcSession?.invalidate(errorMessage: errorMessage)
-        self.dniBatchSignUseCase?.wrapper?.nfcSessionManager.nfcSession?.invalidate(errorMessage: errorMessage)
     }
     
     func sendError(error: AppError) {

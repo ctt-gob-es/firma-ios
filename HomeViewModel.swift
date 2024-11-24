@@ -35,7 +35,6 @@ class HomeViewModel: ObservableObject {
     @Published var showSuccessModal: Bool? = false
     @Published var showDocumentImportingPicker: Bool? = false
     @Published var errorModalDescription: String? = ""
-    @Published var showSignModal: Bool? = false
     @Published var showSignCoordinatesModal: Bool = false
     @Published var signType: SignType? = nil
     @Published var dataType: DataType? = nil
@@ -281,7 +280,7 @@ class HomeViewModel: ObservableObject {
     
     func handleOpenReturnURL(success: Bool) {
 	   guard let baseURL = signModel?.returnURL,
-		    let stservlet = signModel?.rtServlet,
+		    let stservlet = signModel?.urlServlet,
 		    let docId = signModel?.docId else {
 		  return
 	   }
@@ -555,12 +554,12 @@ class HomeViewModel: ObservableObject {
     
     func cancelOperation() {
         resetHomeViewModelVariables()
+        showError(appError: AppError.userOperationCanceled)
         SendErrorOperationUseCase().execute(error: AppError.userOperationCanceled, signModel: signModel)
     }
     
     func handleNotAnyCoordinatesSelected() {
         cancelOperation()
-	   showError(appError: AppError.userOperationCanceled)
     }
     
     func resetHomeViewModelVariables() {

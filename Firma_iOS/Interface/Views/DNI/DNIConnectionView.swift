@@ -68,7 +68,10 @@ struct DNIConnectionView: View {
 	   .dismissKeyboardOnTap()
 	   .navigationBarItems(trailing: HStack(spacing: 4) {
 		  NavigationBarButton(imageName: "cross_gray", action: {
-			 isPresented.toggle()
+			 DispatchQueue.main.async {
+                    NotificationCenter.default.post(name: .ErrorModalCancelButtonAction, object: nil, userInfo: nil)
+                    nfcViewModel?.sendError(error: AppError.userOperationCanceled)
+                }
 		  })
 	   }
 		  .padding(.bottom, 4)
@@ -149,7 +152,6 @@ struct DNIConnectionView: View {
 				initModel()
 			 }
 			 appStatus.appError = error
-                nfcViewModel?.invalidateSession(errorMessage: error.screenType.title)
 		  } else {
 			 print("No user info available in the notification")
 		  }

@@ -12,7 +12,7 @@ class DNIeBatchSignUseCase: GenericBatchSignUseCase, DNIeResult {
     
     // MARK: - Properties
     
-    var wrapper: SwiftDNIeWrapper?
+    private var wrapper: SwiftDNIeWrapper?
     private var dnieWrapper: EsGobJmulticardIosDnieWrapper?
     private var certificateData: String?
     
@@ -78,5 +78,13 @@ class DNIeBatchSignUseCase: GenericBatchSignUseCase, DNIeResult {
     
     override func getCertificateData() -> String {
 		  self.certificateData ?? "error_no_certificate_data"
+    }
+    
+    func invalidateSessionManually(withErrorMessage: String) {
+        self.wrapper?.nfcSessionManager.invalidateSessionManually(withErrorMessage: withErrorMessage)
+    }
+    
+    func invalidateSessionManually(withAlertMessage: String) {
+        self.wrapper?.nfcSessionManager.invalidateSessionManually(withAlertMessage: withAlertMessage)
     }
 }
