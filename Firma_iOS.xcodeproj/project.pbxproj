@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3BC03D5D19D9988300FC1804 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AF7F6E17FD60C80084D916 /* libGoogleAnalyticsServices.a */; };
 		3C57FA171AC1BB9D00FF7292 /* AOCertificateInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C57FA161AC1BB9D00FF7292 /* AOCertificateInfo.m */; };
 		83063D0E2C6B5B2E00E88046 /* PDFConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83063D0D2C6B5B2E00E88046 /* PDFConstants.swift */; };
 		8308DD082CB56C5A006C6032 /* DNIeSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308DD072CB56C5A006C6032 /* DNIeSigner.m */; };
@@ -2706,6 +2705,12 @@
 		A073AA7F2893F71E00FE30CE /* InputParametersBatch.m in Sources */ = {isa = PBXBuildFile; fileRef = A073AA7E2893F71E00FE30CE /* InputParametersBatch.m */; };
 		A075F1FC2CEB67FA005E1EDA /* ThreePhaseServerRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A075F1FB2CEB67FA005E1EDA /* ThreePhaseServerRest.swift */; };
 		A075F1FE2CEBFEA8005E1EDA /* HandeThirdPartyErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A075F1FD2CEBFEA8005E1EDA /* HandeThirdPartyErrors.swift */; };
+		A08F81862CF355B30067266C /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F81822CF355B20067266C /* libcrypto.a */; };
+		A08F81872CF355B30067266C /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F81832CF355B20067266C /* libGoogleAnalyticsServices.a */; };
+		A08F81882CF355B30067266C /* libAdIdAccess.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F81842CF355B20067266C /* libAdIdAccess.a */; };
+		A08F81892CF355B30067266C /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F81852CF355B20067266C /* libssl.a */; };
+		A08F818D2CF356EF0067266C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F818C2CF356EF0067266C /* libsqlite3.tbd */; };
+		A08F818E2CF356EF0067266C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F818B2CF356EF0067266C /* libz.tbd */; };
 		A09BDEFD2B7B6D270016102B /* HeaderCertificateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A09BDEFC2B7B6D270016102B /* HeaderCertificateCell.m */; };
 		A0DACD4F2CF2092F00D645CB /* CertificateInfoModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DACD4E2CF2092F00D645CB /* CertificateInfoModalView.swift */; };
 		A0F3951D2CE692CA00DD7AE3 /* AOCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0F3951B2CE692CA00DD7AE3 /* AOCoreDataModel.xcdatamodeld */; };
@@ -2766,13 +2771,9 @@
 		C30B322E163804620072A515 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30B322D163804620072A515 /* Foundation.framework */; };
 		C30B3230163804620072A515 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30B322F163804620072A515 /* CoreGraphics.framework */; };
 		C31649D8175F2A45009F3B67 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C31649D6175F2A3C009F3B67 /* QuartzCore.framework */; };
-		C322443F1BCE7B3100039FAF /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C322443E1BCE7B3100039FAF /* libz.tbd */; };
-		C32244411BCE7B4300039FAF /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C32244401BCE7B4300039FAF /* libsqlite3.tbd */; };
 		C33B9519163AACB8003D317A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C33B9518163AACB8003D317A /* Security.framework */; };
 		C3461CA81696F98C007237D1 /* logo_cliente.png in Resources */ = {isa = PBXBuildFile; fileRef = C3461CA71696F98C007237D1 /* logo_cliente.png */; };
 		C389C78D16DE70CC000382C0 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C389C78C16DE70CC000382C0 /* Settings.bundle */; };
-		C39E592016F9EB5100248B0A /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C39E591E16F9EB5100248B0A /* libcrypto.a */; };
-		C39E592216F9EB5100248B0A /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C39E591F16F9EB5100248B0A /* libssl.a */; };
 		C3AF7F7217FD61EF0084D916 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AF7F7017FD61CE0084D916 /* CoreData.framework */; };
 		C3AF7F7517FD62180084D916 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AF7F7317FD62090084D916 /* SystemConfiguration.framework */; };
 		C3B3E38F17253C8900F3D458 /* AOXMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B3E38E17253C8900F3D458 /* AOXMLReader.m */; };
@@ -8054,6 +8055,12 @@
 		A073AA7E2893F71E00FE30CE /* InputParametersBatch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputParametersBatch.m; sourceTree = "<group>"; };
 		A075F1FB2CEB67FA005E1EDA /* ThreePhaseServerRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreePhaseServerRest.swift; sourceTree = "<group>"; };
 		A075F1FD2CEBFEA8005E1EDA /* HandeThirdPartyErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandeThirdPartyErrors.swift; sourceTree = "<group>"; };
+		A08F81822CF355B20067266C /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
+		A08F81832CF355B20067266C /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
+		A08F81842CF355B20067266C /* libAdIdAccess.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAdIdAccess.a; sourceTree = "<group>"; };
+		A08F81852CF355B20067266C /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
+		A08F818B2CF356EF0067266C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		A08F818C2CF356EF0067266C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		A09BDEFB2B7B6D270016102B /* HeaderCertificateCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderCertificateCell.h; sourceTree = "<group>"; };
 		A09BDEFC2B7B6D270016102B /* HeaderCertificateCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeaderCertificateCell.m; sourceTree = "<group>"; };
 		A0DACD4E2CF2092F00D645CB /* CertificateInfoModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateInfoModalView.swift; sourceTree = "<group>"; };
@@ -8160,15 +8167,10 @@
 		C30B322D163804620072A515 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C30B322F163804620072A515 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C31649D6175F2A3C009F3B67 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		C322443E1BCE7B3100039FAF /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		C32244401BCE7B4300039FAF /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		C33B9518163AACB8003D317A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		C3461CA71696F98C007237D1 /* logo_cliente.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_cliente.png; sourceTree = "<group>"; };
 		C389C78C16DE70CC000382C0 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		C39E591E16F9EB5100248B0A /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = lib/libcrypto.a; sourceTree = "<group>"; };
-		C39E591F16F9EB5100248B0A /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = lib/libssl.a; sourceTree = "<group>"; };
 		C3A91DF816F8CD8D009D07AD /* Cliente @firma.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Cliente @firma.entitlements"; sourceTree = "<group>"; };
-		C3AF7F6E17FD60C80084D916 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalyticsServices.a; path = lib/libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
 		C3AF7F7017FD61CE0084D916 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		C3AF7F7317FD62090084D916 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C3B3E38D17253C8900F3D458 /* AOXMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AOXMLReader.h; path = XML/AOXMLReader.h; sourceTree = "<group>"; };
@@ -8183,18 +8185,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C32244411BCE7B4300039FAF /* libsqlite3.tbd in Frameworks */,
-				C322443F1BCE7B3100039FAF /* libz.tbd in Frameworks */,
-				3BC03D5D19D9988300FC1804 /* libGoogleAnalyticsServices.a in Frameworks */,
+				A08F818D2CF356EF0067266C /* libsqlite3.tbd in Frameworks */,
 				C3AF7F7517FD62180084D916 /* SystemConfiguration.framework in Frameworks */,
+				A08F818E2CF356EF0067266C /* libz.tbd in Frameworks */,
+				A08F81882CF355B30067266C /* libAdIdAccess.a in Frameworks */,
 				C3AF7F7217FD61EF0084D916 /* CoreData.framework in Frameworks */,
+				A08F81862CF355B30067266C /* libcrypto.a in Frameworks */,
+				A08F81872CF355B30067266C /* libGoogleAnalyticsServices.a in Frameworks */,
+				A08F81892CF355B30067266C /* libssl.a in Frameworks */,
 				C33B9519163AACB8003D317A /* Security.framework in Frameworks */,
 				C30B322C163804620072A515 /* UIKit.framework in Frameworks */,
 				C30B322E163804620072A515 /* Foundation.framework in Frameworks */,
 				C30B3230163804620072A515 /* CoreGraphics.framework in Frameworks */,
-				C39E592016F9EB5100248B0A /* libcrypto.a in Frameworks */,
 				C31649D8175F2A45009F3B67 /* QuartzCore.framework in Frameworks */,
-				C39E592216F9EB5100248B0A /* libssl.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -16191,6 +16194,19 @@
 			path = SignUseCase;
 			sourceTree = "<group>";
 		};
+		A08F81812CF355B20067266C /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				A08F818C2CF356EF0067266C /* libsqlite3.tbd */,
+				A08F818B2CF356EF0067266C /* libz.tbd */,
+				A08F81822CF355B20067266C /* libcrypto.a */,
+				A08F81832CF355B20067266C /* libGoogleAnalyticsServices.a */,
+				A08F81842CF355B20067266C /* libAdIdAccess.a */,
+				A08F81852CF355B20067266C /* libssl.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
 		B2406EED20C5C0A9008ED085 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -16415,6 +16431,7 @@
 				9226967023C6508600F099F0 /* Extensions */,
 				C3A91DF816F8CD8D009D07AD /* Cliente @firma.entitlements */,
 				B27395CA20A4384300A7D05A /* Constants */,
+				A08F81812CF355B20067266C /* lib */,
 				C30B322A163804620072A515 /* Frameworks */,
 				C3AF7F6717FD5FFA0084D916 /* Google Analytics library */,
 				B27395CE20A43AF800A7D05A /* Images */,
@@ -16440,14 +16457,9 @@
 		C30B322A163804620072A515 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C32244401BCE7B4300039FAF /* libsqlite3.tbd */,
-				C322443E1BCE7B3100039FAF /* libz.tbd */,
 				C3AF7F7317FD62090084D916 /* SystemConfiguration.framework */,
 				C3AF7F7017FD61CE0084D916 /* CoreData.framework */,
-				C3AF7F6E17FD60C80084D916 /* libGoogleAnalyticsServices.a */,
 				C31649D6175F2A3C009F3B67 /* QuartzCore.framework */,
-				C39E591E16F9EB5100248B0A /* libcrypto.a */,
-				C39E591F16F9EB5100248B0A /* libssl.a */,
 				C33B9518163AACB8003D317A /* Security.framework */,
 				C30B322B163804620072A515 /* UIKit.framework */,
 				C30B322D163804620072A515 /* Foundation.framework */,
@@ -19436,10 +19448,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = (
-					"include/**",
-					"./lib/**",
-				);
+				HEADER_SEARCH_PATHS = "include/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				J2OBJC_HOME = "/Users/desarrolloabamobile/Downloads/j2objc-2.8";
 				LIBRARY_SEARCH_PATHS = "${J2OBJC_HOME}/lib";
@@ -19469,7 +19478,7 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "c08ed7da-989b-4719-b284-d895789fd7db";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "${J2OBJC_HOME}/include";
+				USER_HEADER_SEARCH_PATHS = "${J2OBJC_HOME}/include $(SRCROOT)/J2OBJC/**";
 			};
 			name = Debug;
 		};
@@ -19512,10 +19521,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = (
-					"include/**",
-					"./lib/**",
-				);
+				HEADER_SEARCH_PATHS = "include/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				J2OBJC_HOME = "/Users/desarrolloabamobile/Downloads/j2objc-2.8";
 				LIBRARY_SEARCH_PATHS = "${J2OBJC_HOME}/lib";
@@ -19525,7 +19531,7 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "c08ed7da-989b-4719-b284-d895789fd7db";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "${J2OBJC_HOME}/include";
+				USER_HEADER_SEARCH_PATHS = "${J2OBJC_HOME}/include $(SRCROOT)/J2OBJC/**";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -19545,19 +19551,17 @@
 				DEVELOPMENT_TEAM = LCLHA32ZLW;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)",
+					"$(SRCROOT)/Frameworks",
 				);
 				GCC_NO_COMMON_BLOCKS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Firma_iOS/Firma_iOS-Prefix.pch";
-				HEADER_SEARCH_PATHS = "include/**";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Firma_iOS/Supporting Files/Firma_iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					lib,
 					"$(PROJECT_DIR)/lib",
-					"$(PROJECT_DIR)",
 				);
 				MARKETING_VERSION = 1.8.3;
 				ONLY_ACTIVE_ARCH = YES;
@@ -19591,7 +19595,7 @@
 				SWIFT_VERSION = 5.0;
 				SYSTEM_HEADER_SEARCH_PATHS = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "${J2OBJC_HOME}/include $(SRCROOT)/J2OBJC/**";
+				USER_HEADER_SEARCH_PATHS = "$(inherited)";
 				USE_HEADERMAP = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -19612,19 +19616,17 @@
 				DEVELOPMENT_TEAM = LCLHA32ZLW;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)",
+					"$(SRCROOT)/Frameworks",
 				);
 				GCC_NO_COMMON_BLOCKS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Firma_iOS/Firma_iOS-Prefix.pch";
-				HEADER_SEARCH_PATHS = "include/**";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Firma_iOS/Supporting Files/Firma_iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					lib,
 					"$(PROJECT_DIR)/lib",
-					"$(PROJECT_DIR)",
 				);
 				MARKETING_VERSION = 1.8.3;
 				ONLY_ACTIVE_ARCH = NO;
@@ -19656,7 +19658,7 @@
 				SWIFT_VERSION = 5.0;
 				SYSTEM_HEADER_SEARCH_PATHS = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "${J2OBJC_HOME}/include $(SRCROOT)/J2OBJC/**";
+				USER_HEADER_SEARCH_PATHS = "$(inherited)";
 				USE_HEADERMAP = YES;
 				WRAPPER_EXTENSION = app;
 			};
