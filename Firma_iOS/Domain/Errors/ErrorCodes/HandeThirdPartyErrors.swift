@@ -10,8 +10,102 @@ import Foundation
 
 struct HandeThirdPartyErrors {
     
-    static func getServerError(codigo: String) -> AppError {
-        return AppError.generalSoftwareError
+    static func getServerPresignError(codigo: String) -> AppError {
+        switch codigo {
+        case "ERR-1":
+            return AppError.threePhaseServerPresignErr1
+        case "ERR-2":
+            return AppError.threePhaseServerPresignErr2
+        case "ERR-3":
+            return AppError.threePhaseServerPresignErr3
+        case "ERR-4":
+            return AppError.threePhaseServerPresignErr4
+        case "ERR-5":
+            return AppError.threePhaseServerPresignErr5
+        case "ERR-6":
+            return AppError.threePhaseServerPresignErr6
+        case "ERR-7":
+            return AppError.threePhaseServerPresignErr7
+        case "ERR-8":
+            return AppError.threePhaseServerPresignErr8
+        case "ERR-9":
+            return AppError.threePhaseServerPresignErr9
+        case "ERR-10":
+            return AppError.threePhaseServerPresignErr10
+        case "ERR-11":
+            return AppError.threePhaseServerPresignErr11
+        case "ERR-12":
+            return AppError.threePhaseServerPresignErr12
+        case "ERR-13":
+            return AppError.threePhaseServerPresignErr13
+        case "ERR-14":
+            return AppError.threePhaseServerPresignErr14
+        case "ERR-15":
+            return AppError.threePhaseServerPresignErr15
+        case "ERR-16":
+            return AppError.threePhaseServerPresignErr16
+        case "ERR-17":
+            return AppError.threePhaseServerPresignErr17
+        case "ERR-18":
+            return AppError.threePhaseServerPresignErr18
+        case "ERR-19":
+            return AppError.threePhaseServerPresignErr19
+        case "ERR-20":
+            return AppError.threePhaseServerPresignErr20
+        case "ERR-21":
+            return AppError.threePhaseServerPresignErr21
+        default:
+            return AppError.generalSoftwareError
+        }
+    }
+    
+    static func getServerPostSignError(codigo: String) -> AppError {
+        switch codigo {
+        case "ERR-1":
+            return AppError.threePhaseServerPostsignErr1
+        case "ERR-2":
+            return AppError.threePhaseServerPostsignErr2
+        case "ERR-3":
+            return AppError.threePhaseServerPostsignErr3
+        case "ERR-4":
+            return AppError.threePhaseServerPostsignErr4
+        case "ERR-5":
+            return AppError.threePhaseServerPostsignErr5
+        case "ERR-6":
+            return AppError.threePhaseServerPostsignErr6
+        case "ERR-7":
+            return AppError.threePhaseServerPostsignErr7
+        case "ERR-8":
+            return AppError.threePhaseServerPostsignErr8
+        case "ERR-9":
+            return AppError.threePhaseServerPostsignErr9
+        case "ERR-10":
+            return AppError.threePhaseServerPostsignErr10
+        case "ERR-11":
+            return AppError.threePhaseServerPostsignErr11
+        case "ERR-12":
+            return AppError.threePhaseServerPostsignErr12
+        case "ERR-13":
+            return AppError.threePhaseServerPostsignErr13
+        case "ERR-14":
+            return AppError.threePhaseServerPostsignErr14
+        case "ERR-15":
+            return AppError.threePhaseServerPostsignErr15
+        case "ERR-16":
+            return AppError.threePhaseServerPostsignErr16
+        case "ERR-17":
+            return AppError.threePhaseServerPostsignErr17
+        case "ERR-18":
+            return AppError.threePhaseServerPostsignErr18
+        case "ERR-19":
+            return AppError.threePhaseServerPostsignErr19
+        case "ERR-20":
+            return AppError.threePhaseServerPostsignErr20
+        case "ERR-21":
+            return AppError.threePhaseServerPostsignErr21
+        default:
+            return AppError.generalSoftwareError
+        }
     }
     
     static func getDNIEError(codigo: Int) -> AppError {

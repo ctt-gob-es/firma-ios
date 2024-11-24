@@ -166,7 +166,7 @@ class GenericSignUseCase {
                 }
             } else {
                 let errorCodeServer = String(result[..<range.lowerBound])
-                sendError(error: HandeThirdPartyErrors.getServerError(codigo: errorCodeServer))
+                sendError(error: HandeThirdPartyErrors.getServerPresignError(codigo: errorCodeServer))
             }
             // En cualquier caso paramos ejecucion
             return
@@ -222,7 +222,7 @@ class GenericSignUseCase {
         } else {
             if let range = responseString.range(of: ":") {
                 let errorCodeServer = String(responseString[..<range.lowerBound])
-                sendError(error: HandeThirdPartyErrors.getServerError(codigo: errorCodeServer))
+                sendError(error: HandeThirdPartyErrors.getServerPostSignError(codigo: errorCodeServer))
                 return
             } else {
                 sendError(error: AppError.threePhaseServerPostsignErrorResponseData)
