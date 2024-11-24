@@ -19613,7 +19613,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
-					"$(PROJECT_DIR)",
 				);
 				GCC_NO_COMMON_BLOCKS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -19629,6 +19628,26 @@
 				);
 				MARKETING_VERSION = 1.8.3;
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"-l",
+					jre_emul,
+					"-l",
+					jre_zip,
+					"-l",
+					z,
+					"-l",
+					iconv,
+					"-l",
+					jre_net,
+					"-l",
+					jre_security,
+					"-l",
+					jre_ssl,
+					"-l",
+					jre_xml,
+					"-l",
+					protobuf,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "es.abamobile.gob.afirma.Cliente--firma";
 				PRODUCT_NAME = "Cliente @firma";
 				PROVISIONING_PROFILE = "c08ed7da-989b-4719-b284-d895789fd7db";
@@ -19637,7 +19656,7 @@
 				SWIFT_VERSION = 5.0;
 				SYSTEM_HEADER_SEARCH_PATHS = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "${J2OBJC_HOME}/include $(SRCROOT)/J2OBJC/src/**/**";
+				USER_HEADER_SEARCH_PATHS = "${J2OBJC_HOME}/include $(SRCROOT)/J2OBJC/**";
 				USE_HEADERMAP = YES;
 				WRAPPER_EXTENSION = app;
 			};
