@@ -293,6 +293,7 @@ To work correctly you must install an electronic certificate. Consult the docume
 "certificate_revoked_description" = "This certificate is not valid, since it has been revoked.";
 "certificate_near_expiry_description" = "This certificate is about to expire.";
 "dni_reading_error_description" = "The card you have provided does not appear to be a DNIe. Please try again.";
+"dni_canceled_session_description" = "You have canceled the session to connect with the DNIe. Please try again. Remember to keep it on a smooth surface and keep your mobile phone fixed on the card for a few seconds for correct reading";
 "dni_broken_description" = "The e-ID you have provided appears to be damaged. You need to go to your National Police station to request a new one.";
 "dni_reading_error_long_description" = "An error has occurred when trying to read your e-ID. Please try again. Remember to keep it on a flat surface and hold your mobile phone fixed on the card for a few seconds for it to be read correctly.";
 "dni_blocked_pin_description" = "The e-ID has a blocked PIN. You can go to a National Police station to a DNIe Update Point (PAD) to unblock it.";
@@ -362,7 +363,6 @@ To work correctly you must install an electronic certificate. Consult the docume
 "dni_connection_nfc_description_3" = "on it until it detects the chip.";
 "find_dni_view_title" = "Searching for e-ID";
 "find_dni_view_description" = "Place your mobile phone on the e-ID as close as possible to the NFC reader.";
-"find_dni_button_title" = "Cancel";
 
 //Pseudonym
 "pseudonym_modal_title" = "Notice";

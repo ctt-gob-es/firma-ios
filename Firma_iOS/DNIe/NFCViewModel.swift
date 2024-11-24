@@ -37,7 +37,7 @@ class NFCViewModel: NSObject, ObservableObject {
     }
     
     func signWithDNIe() {
-	   if signModel.operation == OPERATION_SIGN {
+        if signModel.operation == OPERATION_SIGN || signModel.operation == OPERATION_COSIGN || signModel.operation == OPERATION_COUNTERSIGN {
 		  self.dniSingleSignUseCase = DNISingleSignUseCase(
 			 can: can,
 			 pin: pin,

@@ -114,6 +114,30 @@ extension AppError {
     static let nfcCardResetError = AppError.hardwareError(102000, "Error al resetear la tarjeta NFC")
     static let nfcCardSendCommandError = AppError.hardwareError(102001, "Error al ejecutar comando en la tarjeta NFC")
     
+    static let nfcReaderErrorUnsupportedFeature = AppError.hardwareError(102002, "Función no soportada por el hardware del dispositivo")
+    static let nfcReaderErrorSecurityViolation = AppError.hardwareError(102003, "Restricción de seguridad")
+    static let nfcReaderErrorInvalidParameter = AppError.hardwareError(102004, "Parámetro inválido en la conexion NFC", .dniReadingErrorLong)
+    static let nfcReaderErrorInvalidParameterLength = AppError.hardwareError(102005, " Longitud de parámetro no válida en la conexión NFC")
+    static let nfcReaderErrorParameterOutOfBound = AppError.hardwareError(102006, "Parámetro fuera de los límites aceptables")
+    static let nfcReaderErrorRadioDisabled = AppError.hardwareError(102007, "La radio NFC está deshabilitada", .dniReadingErrorLong)
+    static let nfcReaderTransceiveErrorTagConnectionLost = AppError.hardwareError(102008, "La conexión con la etiqueta NFC se perdió", .dniReadingErrorLong)
+    static let nfcReaderTransceiveErrorRetryExceeded = AppError.hardwareError(102009, "Se alcanzó el límite de intentos para transmitir datos", .dniReadingErrorLong)
+    static let nfcReaderTransceiveErrorTagResponseError = AppError.hardwareError(102010, "Respuesta inválida desde la etiqueta NFC")
+    static let nfcReaderTransceiveErrorSessionInvalidated = AppError.hardwareError(102011, "Transmisión en sesión invalidada")
+    static let nfcReaderTransceiveErrorTagNotConnected = AppError.hardwareError(102012, "La etiqueta NFC no está conectada", .dniReadingErrorLong)
+    static let nfcReaderTransceiveErrorPacketTooLong = AppError.hardwareError(102013, " Paquete demasiado largo para la etiqueta NFC")
+    static let nfcReaderSessionInvalidationErrorUserCanceled = AppError.hardwareError(102014, "El usuario canceló manualmente la sesión", .dniCanceledSession)
+    static let nfcReaderSessionInvalidationErrorSessionTimeout = AppError.hardwareError(102015, "La sesión NFC expiró debido a inactividad", .dniReadingErrorLong)
+    static let nfcReaderSessionInvalidationErrorSessionTerminatedUnexpectedly = AppError.hardwareError(102016, "La sesión NFC se cerró inesperadamente", .dniReadingErrorLong)
+    static let nfcReaderSessionInvalidationErrorSystemIsBusy = AppError.hardwareError(102017, "El sistema está ocupado", .dniReadingErrorLong)
+    static let nfcReaderSessionInvalidationErrorFirstNDEFTagRead = AppError.hardwareError(102018, "Sesión cerrada tras leer la primera etiqueta (según configuración)", .dniReadingErrorLong)
+    static let nfcTagCommandConfigurationErrorInvalidParameters = AppError.hardwareError(102019, "Configuración inválida en los comandos enviados a la etiqueta")
+    static let nfcNdefReaderSessionErrorTagNotWritable = AppError.hardwareError(102020, "La etiqueta NFC no es escribible")
+    static let nfcNdefReaderSessionErrorTagUpdateFailure = AppError.hardwareError(102021, "Fallo al intentar actualizar la etiqueta")
+    static let nfcNdefReaderSessionErrorTagSizeTooSmall = AppError.hardwareError(102022, "Espacio insuficiente en la etiqueta NFC")
+    static let nfcNdefReaderSessionErrorZeroLengthMessage = AppError.hardwareError(102023, "El mensaje NDEF tiene longitud cero", .dniReadingErrorLong)
+    static let nfcUnknowError = AppError.hardwareError(102024, "Error desconocido al conectar con la tarjeta NFC")
+    
     // 103XXX: Error tarjetas SD criptográficas
 }
 

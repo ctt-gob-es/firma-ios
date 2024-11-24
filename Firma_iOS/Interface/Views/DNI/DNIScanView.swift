@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct DNIScanView: View {
-    @Binding var isSearching: Bool
     var body: some View {
 	   VStack {
 		  ScrollView {

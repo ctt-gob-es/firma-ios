@@ -56,6 +56,12 @@ class DNIeBatchSignUseCase: GenericBatchSignUseCase, DNIeResult {
 	   handleErrorDnieWrapper(errorCode: errorCode)
     }
     
+    func getNFCError(appError: AppError) {
+        if let completionHandler = self.completionHandler {
+            completionHandler(.failure(appError))
+        }
+    }
+    
     // MARK: - Signing Method
     
     override func sign(pre: String, algorithm: String, pk1Decoded: Bool) -> Result<String, AppError> {

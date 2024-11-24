@@ -17,6 +17,7 @@ extension Notification.Name {
 protocol DNIeResult {
     func getDNIeNFCSuccess(wrapper: EsGobJmulticardIosDnieWrapper)
     func getDNIeError(errorCode: Int, errorMessage: String)
+    func getNFCError(appError: AppError)
 }
 
 class SwiftDNIeWrapper : IOSNFCSessionDelegate{
@@ -39,13 +40,8 @@ class SwiftDNIeWrapper : IOSNFCSessionDelegate{
     func didInvalidateNFCSession(with error: any Error) {
 	   print("NFC session invalidated")
 	   if let nfcError = error as? NFCReaderError {
-		  switch nfcError.code {
-		  case .readerSessionInvalidationErrorSessionTimeout:
-			 dniResult?.getDNIeError(errorCode: 10, errorMessage: error.localizedDescription)
-		  default:
-                dniResult?.getDNIeError(errorCode: 10, errorMessage: error.localizedDescription)
-			 print("With error: \(error.localizedDescription)")
-		  }
+            let appError = HandleNFCErrors.getNFCError(nfcReaderError: nfcError)
+            dniResult?.getNFCError(appError: appError)
 	   }
     }
     

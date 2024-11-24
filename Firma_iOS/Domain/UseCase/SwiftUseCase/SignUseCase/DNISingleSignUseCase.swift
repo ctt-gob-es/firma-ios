@@ -62,6 +62,12 @@ class DNISingleSignUseCase : GenericSignUseCase, DNIeResult {
         handleErrorDnieWrapper(errorCode: errorCode)
     }
     
+    func getNFCError(appError: AppError) {
+        if let completionCallback = self.completionCallback {
+            completionCallback(.failure(appError))
+        }
+    }
+    
     func invalidateSessionManually(withErrorMessage: String) {
         self.wrapper?.nfcSessionManager.invalidateSessionManually(withErrorMessage: withErrorMessage)
     }

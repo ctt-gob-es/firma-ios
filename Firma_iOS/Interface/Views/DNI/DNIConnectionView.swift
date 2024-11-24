@@ -45,9 +45,7 @@ struct DNIConnectionView: View {
 				pin: $pin
 			 )
 		  } else if step == .nfcStep {
-			 DNIScanView(
-				isSearching: $isSearching
-			 )
+			 DNIScanView()
 		  }
 		  
 		  Spacer()
@@ -87,7 +85,7 @@ struct DNIConnectionView: View {
 			 .accessibility(addTraits: .isModal)
 			 .interactiveDismissDisabled(true)
 			 .onAppear() {
-				DispatchQueue.main.asyncAfter(deadline: .now() + 2.1) {
+				DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) {
 				    isSearching = false
 				    appStatus.isLoading = true
 				}
@@ -187,7 +185,9 @@ struct DNIConnectionView: View {
 		  step = .nfcStep
 		  initModel()
 	   } else if step == .nfcStep {
-		  isSearching = true
+            appStatus.isLoading = true
+            nfcViewModel?.signWithDNIe()
+		  //isSearching = true
 	   }
     }
     

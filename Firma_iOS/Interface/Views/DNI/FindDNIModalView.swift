@@ -42,21 +42,21 @@ struct FindDNIModalView: View {
 		  }
 		  .padding(.vertical)
 		  
-		  VStack(spacing: 10) {
+		  /*VStack(spacing: 10) {
 			 Button(action: {
 				self.presentationMode.wrappedValue.dismiss()
 			 }) {
-				AccessibleText(content: NSLocalizedString("find_dni_button_title", bundle: Bundle.main, comment: ""))
+				AccessibleText(content: NSLocalizedString("cancel_button_title", bundle: Bundle.main, comment: ""))
 			 }
 			 .buttonStyle(CustomButtonStyle(isEnabled: true))
 		  }
-		  .frame(maxWidth: .infinity, alignment: .center)
+		  .frame(maxWidth: .infinity, alignment: .center)*/
 	   }
 	   .padding()
 	   .background(Color.white)
 	   .cornerRadius(10)
 	   .onAppear {
-		  DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+		  DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
 			 model.signWithDNIe()
 		  }
 	   }
