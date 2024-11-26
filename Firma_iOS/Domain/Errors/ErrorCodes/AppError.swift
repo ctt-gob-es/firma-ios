@@ -165,8 +165,6 @@ extension AppError {
     // 2004XX: Operación de lotes JSON
     static let jsonBatchCipherSignError = AppError.internalSoftware(200400, "Error al cifrar la información de las firmas del lote para enviarla al servidor intermedio")
     static let jsonBatchCipherCertificateError = AppError.internalSoftware(200401, "Error al cifrar el certificado para enviarlo al sevidor intermedio")
-    static let jsonBatchOperationCypherCertificate = AppError.internalSoftware(200402, "Error al cifrar el certificado")
-    static let jsonBatchOperationCypherData = AppError.internalSoftware(200403, "Error al cifrar el certificado")
     static let generatePK1BatchCertificate = AppError.internalSoftware(200404, "Error realizando la firma batch con certificado")
     static let generatePK1BatchDNIe = AppError.internalSoftware(200405, "Error realizando la firma batch con DNIe")
     static let jsonBatchDataBase64Possing = AppError.internalSoftware(200406, "Error al convertir a base64 los datos para enviarlos a la posfirma (con alguna firma erronéa)")
