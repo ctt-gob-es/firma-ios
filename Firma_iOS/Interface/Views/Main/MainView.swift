@@ -150,9 +150,9 @@ struct MainView: View {
 	   )
 	   .sheet(isPresented: $appStatus.showingInfoModal) {
 		  InfoModalView()
-			 .fixedSize(horizontal: false, vertical: true)
+			 //.fixedSize(horizontal: false, vertical: true)
 			 .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
-			 .presentationDetents([.height(viewModel.sheetHeight)])
+			 .presentationDetents([.height(UIScreen.main.bounds.height * 0.75)])
 			 .accessibility(addTraits: .isModal)
 			 .interactiveDismissDisabled(true)
 	   }
