@@ -120,7 +120,7 @@ struct PDFCoordinatesModalWrapper: View {
 			 }
 			 
 			 ToolbarItem(placement: .principal) {
-				AccessibleText(content: NSLocalizedString("pdf_coordinates_title", bundle: Bundle.main, comment: ""))
+                    AccessibleText(content: NSLocalizedString("pdf_coordinates_title", bundle: Bundle.main, comment: ""), minimumScaleFactor: 0.5)
 				    .mediumBoldStyle(
 					   foregroundColor: ColorConstants.Text.primary,
 					   alignment: .leading
