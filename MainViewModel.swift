@@ -39,10 +39,9 @@ import Foundation
     }*/
     
     func cancelSign() {
-	   self.viewMode = .home
-	   self.shouldSign = false
-	   self.urlReceived = nil
-	   self.shouldCancel = true
+        DispatchQueue.main.async {
+           NotificationCenter.default.post(name: .ErrorModalCancelButtonAction, object: nil, userInfo: nil)
+        }
     }
 }
 

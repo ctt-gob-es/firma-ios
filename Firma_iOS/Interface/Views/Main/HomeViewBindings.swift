@@ -134,7 +134,6 @@ extension View {
 		  .onReceive(NotificationCenter.default.publisher(for: .ErrorModalCancelButtonAction)) { _ in
 			 viewModel.cancelOperation()
 			 appStatus.isLoading = false
-			 viewModel.showError(appError: AppError.userOperationCanceled)
 		  }
             .onReceive(NotificationCenter.default.publisher(for: .CloseSignMode)) { _ in
                viewModel.resetHomeViewModelVariables()

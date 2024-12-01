@@ -13,6 +13,7 @@ struct ErrorModalView: View {
     @Binding var viewMode: ViewModes
     @Binding var description: String
     @Binding var shouldReloadParentView: Bool
+    @EnvironmentObject var appStatus : AppStatus
     
     var appError: AppError
     
@@ -92,7 +93,10 @@ struct ErrorModalView: View {
 				}
 				
 				Button(action: {
-				    self.presentationMode.wrappedValue.dismiss()
+                        if (appError == AppError.certificateLoadingError) {
+                            appStatus.showDocumentPicker = true
+                        }
+                        self.presentationMode.wrappedValue.dismiss()
 				}) {
 				    if let buttonTitle = appError.screenType.bottomButtonTitle {
 					   AccessibleText(content: buttonTitle)

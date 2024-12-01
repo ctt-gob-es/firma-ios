@@ -587,9 +587,12 @@ class HomeViewModel: ObservableObject {
     }
     
     func cancelOperation() {
+        if (self.viewMode == .sign) {
+            // Si estamos en operacion de firma, mostramos el aviso de operacion cancelada y enviamos al servidor
+            showError(appError: AppError.userOperationCanceled)
+            SendErrorOperationUseCase().execute(error: AppError.userOperationCanceled, signModel: signModel)
+        }
         resetHomeViewModelVariables()
-        showError(appError: AppError.userOperationCanceled)
-        SendErrorOperationUseCase().execute(error: AppError.userOperationCanceled, signModel: signModel)
     }
     
     func handleNotAnyCoordinatesSelected() {

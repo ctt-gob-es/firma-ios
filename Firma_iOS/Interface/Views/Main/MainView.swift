@@ -73,8 +73,6 @@ struct MainView: View {
 			 case .sign:
 				NavigationBarButton(imageName: "close", action: {
 				    viewModel.cancelSign()
-				    appStatus.showErrorModal = true
-				    appStatus.appError = AppError.userOperationCanceled
 				})
 		  }
 	   }
