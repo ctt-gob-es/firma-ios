@@ -19477,7 +19477,7 @@
 					"-l",
 					protobuf,
 				);
-				PRODUCT_NAME = "Cliente @firma Móvil";
+				PRODUCT_NAME = "Autofirma App";
 				PROVISIONING_PROFILE = "c08ed7da-989b-4719-b284-d895789fd7db";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "c08ed7da-989b-4719-b284-d895789fd7db";
 				SDKROOT = iphoneos;
@@ -19530,7 +19530,7 @@
 				J2OBJC_HOME = "/Users/desarrolloabamobile/Downloads/j2objc-2.8";
 				LIBRARY_SEARCH_PATHS = "${J2OBJC_HOME}/lib";
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PRODUCT_NAME = "Cliente @firma Móvil";
+				PRODUCT_NAME = "Autofirma App";
 				PROVISIONING_PROFILE = "c08ed7da-989b-4719-b284-d895789fd7db";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "c08ed7da-989b-4719-b284-d895789fd7db";
 				SDKROOT = iphoneos;
