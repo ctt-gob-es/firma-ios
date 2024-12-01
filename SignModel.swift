@@ -8,6 +8,11 @@
 
 import Foundation
 
+enum VisibleSignatureType: String {
+    case want = "want"
+    case optional = "optional"
+}
+
 class SignModel {
     var operation: String?
     var datosInUse: String?
@@ -23,7 +28,10 @@ class SignModel {
     var rtServlet: String?
     var cloudName: String?
     var returnURL: String?
-    var visibleSignature: Bool = false
+    /// Indica si hay hacer la firma visible. Puede tener dos valores:
+    ///  - "want" la firma es obligatoria y debe introducir las coordenadas de firma visible. Si cancela, se cancela la operación
+    ///  - "optional" la firma es opcional, si cancela se continua con la operacion igualmente pero sin firma visible
+    var visibleSignature: VisibleSignatureType?
     var appname: String?
     
     init(dictionary: NSMutableDictionary) {
@@ -51,8 +59,11 @@ class SignModel {
 			 }
 			 
 			 if let visibleSignatureString = dict[PARAMETER_NAME_VISIBLE_SIGNATURE] as? String {
-				self.visibleSignature = (visibleSignatureString.lowercased() == "true")
+                    if let visibleSignature = VisibleSignatureType(rawValue: visibleSignatureString) {
+                        self.visibleSignature = visibleSignature
+                    }
 			 }
+                self.visibleSignature = VisibleSignatureType.optional
 		  }
 	   }
 

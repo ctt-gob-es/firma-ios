@@ -116,8 +116,7 @@ struct HomeView: View {
 				    //There is no certificate in the app
                         viewModel.sendErrorOperation(error: AppError.certificateNeeded)
 				}
-				if let visibleSignature = viewModel.signModel?.visibleSignature,
-				    visibleSignature {
+				if let visibleSignature = viewModel.signModel?.visibleSignature {
 				    //We need to select the coordinates of the sign
 				    viewModel.showSignCoordinatesModal = true
 				}

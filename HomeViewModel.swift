@@ -172,7 +172,7 @@ class HomeViewModel: ObservableObject {
             } else {
                 areCertificatesSelectable = true
                 signMode = .electronicCertificate
-                if let visibleSingature = self.signModel?.visibleSignature, visibleSingature {
+                if let visibleSignature = self.signModel?.visibleSignature {
                     self.showSignCoordinatesModal = true
                 }
             }
@@ -596,7 +596,10 @@ class HomeViewModel: ObservableObject {
     }
     
     func handleNotAnyCoordinatesSelected() {
-        cancelOperation()
+        // Si no se meten coordenadas y es obligatoria la firma se cancela la operacion
+        if let visibleSignature = signModel?.visibleSignature, visibleSignature == .want {
+            cancelOperation()
+        }
     }
     
     func resetHomeViewModelVariables() {
