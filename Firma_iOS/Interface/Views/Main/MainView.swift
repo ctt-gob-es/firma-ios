@@ -194,14 +194,6 @@ struct MainView: View {
 			 .accessibility(addTraits: .isModal)
 			 .interactiveDismissDisabled(true)
 	   }
-	   .sheet(isPresented: $appStatus.showPseudonymModal) {
-		  PseudonymModalView(shouldSign: $viewModel.shouldSign)
-			 .fixedSize(horizontal: false, vertical: true)
-			 .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
-			 .presentationDetents([.height(viewModel.sheetHeight)])
-			 .accessibility(addTraits: .isModal)
-			 .interactiveDismissDisabled(true)
-	   }
 	   .sheet(isPresented: $appStatus.showDocumentSavingPicker) {
 		  if let url = appStatus.downloadedData {
 			 DocumentSavingPicker(fileURL: url, onDismiss: { result in

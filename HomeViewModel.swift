@@ -28,7 +28,7 @@ class HomeViewModel: ObservableObject {
     @Published var areCertificatesSelectable: Bool? = false
     @Published var shouldSign: Bool? = false
     @Published var viewMode : ViewModes? = .sign
-    @Published var showPseudonymModal: Bool? = false
+    @Published var showPseudonymModal: Bool = false
     @Published var appError: AppError? = nil
     @Published var successModalState: SuccessModalState? = nil
     @Published var showErrorModal: Bool? = false
@@ -144,16 +144,9 @@ class HomeViewModel: ObservableObject {
         DispatchQueue.global(qos: .userInitiated).async {
             let isButtonEnabled = SwiftCertificateUtils.updateSelectedCertificate(certificateUtils: self.certificateUtils, value.subject)
             
-            guard let certificateUtils = self.certificateUtils,
-                  let selectedCertificateName = certificateUtils.selectedCertificateName else {
-                return
-            }
-            
-            let shouldShowPseudonymModal = certificateUtils.isPseudonymCertificate(SwiftCertificateUtils.getIdentityFromKeychain(certName: selectedCertificateName))
-            
             DispatchQueue.main.async {
                 self.buttonEnabled = isButtonEnabled
-                self.showPseudonymModal = shouldShowPseudonymModal
+             
             }
         }
     }
@@ -271,8 +264,12 @@ class HomeViewModel: ObservableObject {
             if certificates.isEmpty {
 			 sendErrorOperation(error: AppError.certificateNeeded)
 		  } else {
-                if (checkCertificateStatus()) {
+                // La operacion de guardado no necesita comprobar certificado porque no tiene certificado
+                if let signModel = signModel, let operation = signModel.operation, operation == OPERATION_SAVE {
                     handleOperationSignWithElectronicCertificate()
+                } else {
+                    // Compronbamos el certificado seleccionado por si hay que mostrar avisos y continua la operacion
+                    checkCertificateSelected()
                 }
 		  }
         }
@@ -490,27 +487,64 @@ class HomeViewModel: ObservableObject {
     }
 
     
-    private func checkCertificateStatus() -> Bool {
-        guard let signModel = self.signModel else { return true}
-        guard let operation = signModel.operation else { return true}
-        
-        // La operacion de guardado no necesita comprobar certificado porque no tiene certificado
-        if (operation != OPERATION_SAVE) {
-            if let selectedCertificate = appStatus.selectedCertificate {
-                let certExpiration = SwiftCertificateUtils.getCertificateOption(certificate: selectedCertificate)
-                if (certExpiration == .expired) {
-                    showCertificateInfoModal(title: "certificate_expired_title", message: "certificate_expired_description")
-                    return false
-                } else if (certExpiration == .almostExpired) {
-                    showCertificateInfoModal(title: "certificate_near_expiry_title", message: "certificate_near_expiry_description")
-                    return false
-                }
-            }
-        }
-        return true
+    enum CheckCertificateStep {
+        case initial
+        case pseudonymPass
+        case expiredNearPass
     }
     
-    func handleOperationSignWithElectronicCertificate() {
+    /// Comprubea el certificado seleccionado par verificar si es de psuedomimo, a punto de caducar o caducado y mostrsar los avisos correspondientes.
+    /// En caso de que se realizen todas la compronbaciones se lanza la operacion
+    func checkCertificateSelected(step: CheckCertificateStep = .initial) {
+        switch step {
+        case .initial:
+            // Compronbamos si es de pseudonimo
+            if (!checkCertificatePseudonym()) {
+                checkCertificateSelected(step: .pseudonymPass)
+            }
+        case .pseudonymPass:
+            if (!checkCertificateExpiredOrNear()) {
+                checkCertificateSelected(step: .expiredNearPass)
+            }
+        case .expiredNearPass:
+            handleOperationSignWithElectronicCertificate()
+        }
+    }
+    
+    /// Comprueba si el certificado es de pseudonimo.
+    /// En caso de ser pesudonimo muestra aviso y devuelve true
+    private func checkCertificatePseudonym() -> Bool {
+        guard let certificateUtils = self.certificateUtils,
+              let selectedCertificateName = certificateUtils.selectedCertificateName else {
+            return false
+        }
+        
+        if (certificateUtils.isPseudonymCertificate(SwiftCertificateUtils.getIdentityFromKeychain(certName: selectedCertificateName))) {
+            self.showPseudonymModal = true
+            return true
+        }
+
+        return false
+    }
+    
+    /// Comprueba si el certificado esta  caducado o a punto de caducar.
+    /// En ese caso muestra aviso y devuelve true
+    private func checkCertificateExpiredOrNear() -> Bool {
+        // Comprobamos si esta caducado o a punto de caducar para mostrar aviso
+        if let selectedCertificate = appStatus.selectedCertificate {
+            let certExpiration = SwiftCertificateUtils.getCertificateOption(certificate: selectedCertificate)
+            if (certExpiration == .expired) {
+                showCertificateInfoModal(title: "certificate_expired_title", message: "certificate_expired_description")
+                return true
+            } else if (certExpiration == .almostExpired) {
+                showCertificateInfoModal(title: "certificate_near_expiry_title", message: "certificate_near_expiry_description")
+                return true
+            }
+        }
+        return false
+    }
+    
+    private func handleOperationSignWithElectronicCertificate() {
         guard let signModel = self.signModel else { return }
         guard let operation = signModel.operation else { return }
         

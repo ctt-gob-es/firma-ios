@@ -2506,7 +2506,6 @@
 		8393EEDF2C590387009FDE6E /* SettingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EEDE2C590387009FDE6E /* SettingsHeaderView.swift */; };
 		83A5EDBD2C5255DD00F93B6D /* BachRestIOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5EDBB2C5255DD00F93B6D /* BachRestIOS.m */; };
 		83A5EDC22C53B4BB00F93B6D /* SwiftCertificateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A5EDC12C53B4BB00F93B6D /* SwiftCertificateUtils.swift */; };
-		83A5EDC42C53C02100F93B6D /* PseudonymModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A5EDC32C53C02100F93B6D /* PseudonymModalView.swift */; };
 		83A5EDC62C53E2F600F93B6D /* SaveDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A5EDC52C53E2F600F93B6D /* SaveDataUseCase.swift */; };
 		83A5EDCB2C53E53100F93B6D /* DocumentSavingPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A5EDCA2C53E53100F93B6D /* DocumentSavingPicker.swift */; };
 		83ACD2F92CB7B18D00A3EFA5 /* DNIConnectionSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ACD2F82CB7B18D00A3EFA5 /* DNIConnectionSteps.swift */; };
@@ -7742,7 +7741,6 @@
 		83A5EDBA2C5255DD00F93B6D /* BachRestIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BachRestIOS.h; sourceTree = "<group>"; };
 		83A5EDBB2C5255DD00F93B6D /* BachRestIOS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BachRestIOS.m; sourceTree = "<group>"; };
 		83A5EDC12C53B4BB00F93B6D /* SwiftCertificateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCertificateUtils.swift; sourceTree = "<group>"; };
-		83A5EDC32C53C02100F93B6D /* PseudonymModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudonymModalView.swift; sourceTree = "<group>"; };
 		83A5EDC52C53E2F600F93B6D /* SaveDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveDataUseCase.swift; sourceTree = "<group>"; };
 		83A5EDCA2C53E53100F93B6D /* DocumentSavingPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentSavingPicker.swift; sourceTree = "<group>"; };
 		83ACD2F82CB7B18D00A3EFA5 /* DNIConnectionSteps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNIConnectionSteps.swift; sourceTree = "<group>"; };
@@ -16045,7 +16043,6 @@
 				83EF14CC2C464DE5003EC42A /* ErrorModalView.swift */,
 				83EF14D22C46722D003EC42A /* RecoveryModalView.swift */,
 				83EF14D42C467241003EC42A /* DocumentErrorModalView.swift */,
-				83A5EDC32C53C02100F93B6D /* PseudonymModalView.swift */,
 				832037672C661FA700755F7E /* DeleteHistoricalModalView.swift */,
 				832037692C6645F900755F7E /* TextfieldModalView.swift */,
 				A0DACD4E2CF2092F00D645CB /* CertificateInfoModalView.swift */,
@@ -17545,7 +17542,6 @@
 				8325D5232CAADD17007224E9 /* ASN1String.m in Sources */,
 				833C2A572CA2B89B00DFF6CD /* PKCS7ProcessableObject.m in Sources */,
 				8325D74E2CAADD18007224E9 /* ErrorCorrection.m in Sources */,
-				83A5EDC42C53C02100F93B6D /* PseudonymModalView.swift in Sources */,
 				833C2A992CA2B89B00DFF6CD /* IntersectPoint.m in Sources */,
 				833C29DB2CA2B89B00DFF6CD /* SecT131R1Curve.m in Sources */,
 				8325D6232CAADD18007224E9 /* ProviderConfigurationPermission.m in Sources */,

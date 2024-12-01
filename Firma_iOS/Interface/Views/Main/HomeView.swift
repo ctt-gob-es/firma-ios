@@ -79,8 +79,17 @@ struct HomeView: View {
               .interactiveDismissDisabled(true)
            }
         }
+        .sheet(isPresented: $viewModel.showPseudonymModal) {
+            CertificateInfoModalView(title: "pseudonym_modal_title", message: "pseudonym_modal_description", onContinue: {
+                viewModel.checkCertificateSelected(step: .pseudonymPass)})
+                .fixedSize(horizontal: false, vertical: true)
+                .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
+                .presentationDetents([.height(viewModel.sheetHeight)])
+                .accessibility(addTraits: .isModal)
+                .interactiveDismissDisabled(true)
+        }
         .sheet(isPresented: $viewModel.showCertificateInfoModal) {
-            CertificateInfoModalView(title: viewModel.titleCertificateInfoModal, message: viewModel.messageCertificateInfoModal, onContinue: { viewModel.handleOperationSignWithElectronicCertificate()})
+            CertificateInfoModalView(title: viewModel.titleCertificateInfoModal, message: viewModel.messageCertificateInfoModal, onContinue: { viewModel.checkCertificateSelected(step: .expiredNearPass)})
                 .fixedSize(horizontal: false, vertical: true)
                 .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
                 .presentationDetents([.height(viewModel.sheetHeight)])

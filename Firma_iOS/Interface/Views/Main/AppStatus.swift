@@ -16,7 +16,6 @@ class AppStatus: ObservableObject {
     @Published var showErrorModal: Bool = false
     @Published var showRecoveryModal: Bool = false
     @Published var showDocumentErrorModal: Bool = false
-    @Published var showPseudonymModal: Bool = false
     @Published var showDocumentPicker: Bool = false
     @Published var showDocumentSavingPicker: Bool = false
     @Published var showDocumentImportingPicker: Bool = false
