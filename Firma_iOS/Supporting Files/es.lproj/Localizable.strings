@@ -29,8 +29,8 @@
 "preg_borrar_almacen" = "¿Desea borrar el almacén ";
 "borrar" = "Borrar";
 "seleccion_almacen_borrar" = "Por favor, seleccione el almacen de claves y certificados que desea eliminar";
-"bienvenida" = "¡Bienvenido al Cliente @firma!";
-"bienvenida_msg" = "Para empezar a usar el Cliente @firma debe instalar un almacén de claves y certificados. Puede importar un almacén desde una la configuración de la aplicación de iTunes.";
+"bienvenida" = "¡Bienvenido a Autofirma App";
+"bienvenida_msg" = "Para empezar a usar Autofirma App debe instalar un almacén de claves y certificados. Puede importar un almacén desde una la configuración de la aplicación de iTunes.";
 "error_borrar_almacen" = "No se ha podido borrar el almacén seleccionado.";
 "introducir_contrasenia" = "Por favor, introduzca la contraseña del almacén de claves ";
 "error_contrasenia" = "La contraseña del almacén de claves es incorrecta";
@@ -64,7 +64,7 @@
 "valid_from_to" = "Válido desde %@ hasta %@";
 "certificate_instructions" = "La aplicación esta solicitando acceso a su almacen de certificados y no dispone de ninguno registrado.\n\n  Para instalar su certificado :\n 1. Conecte su dispositivo a su PC o Mac.\n 2. Localice el certificado que desea instalar ....(debe conocer el pin del certificado)\n3. En iTunes seleccione su certificado y arrástrelo a la ventana de documentos...\n4. Vuelva a esta pantalla y registrelo en el almacen del dispositivo.\n";
 "certificate_description_label" = "Desde esta pantalla puede añadir nuevos certificados con los que procesar sus firmas, o eliminar los certificados instalados en el dispositivo deslizando la fila hacia la izquierda.";
-"home_description_label" = "Bienvenido a \"Cliente @firma iOS\" %@\nEsta aplicación permite realizar firmas electrónicas en las páginas de los proveedores de servicios que lo soporten.\nPara funcionar correctamente debe instalar un certificado electrónico y su clave privada desde el apartado Gestión de certificados. Consulte la documentación de su sistema iOS y con su proveedor de servicios de certificación.";
+"home_description_label" = "Bienvenido a \"Autofirma App\" %@\nEsta aplicación permite realizar firmas electrónicas en las páginas de los proveedores de servicios que lo soporten.\nPara funcionar correctamente debe instalar un certificado electrónico y su clave privada desde el apartado Gestión de certificados. Consulte la documentación de su sistema iOS y con su proveedor de servicios de certificación.";
 "available_certificates_description_label" = "Certificados disponibles en tu dispositivo. Por favor selecciona el certificado que quieres registrar.";
 "register_certificate_description_label" = "Introduce la contraseña para registrar el certificado seleccionado.";
 "register_cretificate_register_button_title" = "Registrar";
@@ -78,10 +78,10 @@
 "help_menu_description_label" = "Los contenidos de esta sección son específicos de la versión móvil del servicio. Si desea consultar información general sobre el mismo, puede visitar el <a href='http://administracionelectronica.gob.es/'>Portal web de la Administración Electrónica</a>";
 "help_menu_title" = "Ayuda";
 "about_title_label" = "Acerca de...";
-"about_description_label_1" = "\"Cliente @firma para Apple iOS\" v%@<br/>2023 Gobierno de España<br/><br/>";
-"about_description_label_2" = "El Cliente @firma para Apple iOS es Software Libre; puedes redistribuirlo y/o modificarlo bajo los términos de la siguiente licencia: \"European Software License 1.1\", cuyo texto completo puede consultarse en la página web del <a href='https://joinup.ec.europa.eu/licence/european-union-public-licence-version-11-or-later-eupl'>IDABC de la Comisión Europea</a>";
+"about_description_label_1" = "\"Autofirma App para Apple iOS\" v%@<br/>2023 Gobierno de España<br/><br/>";
+"about_description_label_2" = "Autofirma App para Apple iOS es Software Libre; puedes redistribuirlo y/o modificarlo bajo los términos de la siguiente licencia: \"European Software License 1.1\", cuyo texto completo puede consultarse en la página web del <a href='https://joinup.ec.europa.eu/licence/european-union-public-licence-version-11-or-later-eupl'>IDABC de la Comisión Europea</a>";
 "about_description_label_3" = "<br/><br/>El código fuente de este programa, así como del resto de los componentes del proyecto se pueden descargar libremente desde el <a href='http://forja-ctt.administracionelectronica.gob.es'>Portal web de la Administración Electrónica</a>";
-"about_description_label_4" = "<br/><br/>El proyecto Cliente @firma es un proyecto colaborativo, si desea participar en él, no dude en unirse a la comunidad, accesible desde el <a href='https://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0l7mhc'>Portal web de la Administración Electrónica</a>";
+"about_description_label_4" = "<br/><br/>El proyecto Autofirma App es un proyecto colaborativo, si desea participar en él, no dude en unirse a la comunidad, accesible desde el <a href='https://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0l7mhc'>Portal web de la Administración Electrónica</a>";
 
 "how_to_install_certificates_title" = "Cómo instalar certificados";
 "iTunes_instructions_label" = "Cargue su certificado en su dispositivo o iCloud e impórtelo a través de la opción \"Gestión de certificados\" de la aplicación";
@@ -89,15 +89,15 @@
 "more_info_button" = "  Más información";
 "frequently_asked_questions_title_label" = "Preguntas más comunes";
 "frequently_asked_questions_description_label_1" = "¿Cómo puedo realizar firmas electrónicas con este programa?\n\n";
-"frequently_asked_questions_description_label_2" = "El Cliente @firma iOS permite firmar con su certificado trámites web compatibles con la aplicación.\nPara firmar un trámite, complételo normalmente a través de su navegador web. Si el trámite está preparado para la firma con el Cliente @firma móvil, este se ejecutará en el momento de la firma para que el usuario seleccione su certificado y ejecute la operación.\nRecuerde que antes de iniciar el trámite debe haber importado su certificado de firma en el Cliente @firma iOS.\n\n";
+"frequently_asked_questions_description_label_2" = "Autofirma App iOS permite firmar con su certificado trámites web compatibles con la aplicación.\nPara firmar un trámite, complételo normalmente a través de su navegador web. Si el trámite está preparado para la firma con Autofirma App, este se ejecutará en el momento de la firma para que el usuario seleccione su certificado y ejecute la operación.\nRecuerde que antes de iniciar el trámite debe haber importado su certificado de firma en Autofirma App iOS.\n\n";
 "frequently_asked_questions_description_label_3" = "La firma de algunos trámites web fallán, mientras que ese mismo
 trámite funciona en otros dispositivos. ¿Por qué?\n\n";
-"frequently_asked_questions_description_label_4" = "El Cliente @firma para Apple iOS carece aún de ciertas funcionalidades que sí están presentes en versiones para otros sistemas operativos. Futuras actualizaciones del producto solventarán estas carencias. Mientras tanto, utilice otro sistema y notifique si lo considera preciso al responsable del trámite web.\n\n";
+"frequently_asked_questions_description_label_4" = "Autofirma App para Apple iOS carece aún de ciertas funcionalidades que sí están presentes en versiones para otros sistemas operativos. Futuras actualizaciones del producto solventarán estas carencias. Mientras tanto, utilice otro sistema y notifique si lo considera preciso al responsable del trámite web.\n\n";
 "frequently_asked_questions_description_label_5" = "¿Corren peligro mis certificados si pierdo el dispositivo?\n\n";
 "frequently_asked_questions_description_label_6" = "Los certificados se almacenan en su dispositivo con un potente cifrado protegido con contraseña, pero como cualquier sistema criptográfico, en el momento que este está fuera del control de propietario corre el riesgo de ser comprometido. Si pierde el dispositivo debe contactar lo antes posible con su proveedor de servicios de certificación para revocar de inmediato los certificados que este contenía.\n\n";
-"frequently_asked_questions_description_label_7" = "He importado los certificados correctamente en el Cliente @firma para Apple iOS, pero aun así no consigo identificarme con ellos en las sedes electrónicas y demás páginas Web que lo requieren ¿Por qué?\n\n";
-"frequently_asked_questions_description_label_8" = "Los certificados importados en el Cliente @firma para Apple iOS son de uso exclusivo para firma electrónica en páginas Web diseñadas a tal efecto. Para usar un certificado digital en una autenticación Web segura debe seguir las instrucciones de su navegador Web y de Apple respecto al proceso de instalación de los certificados y sus claves en el sistema operativo iOS y en el propio navegador Web si fuese preciso.";
-"home_footer_label" = "Cliente @firma para Apple iOS %@ \n© Derecho de autor: Gobierno de España, 2023";
+"frequently_asked_questions_description_label_7" = "He importado los certificados correctamente en Autofirma App para Apple iOS, pero aun así no consigo identificarme con ellos en las sedes electrónicas y demás páginas Web que lo requieren ¿Por qué?\n\n";
+"frequently_asked_questions_description_label_8" = "Los certificados importados en Autofirma App para Apple iOS son de uso exclusivo para firma electrónica en páginas Web diseñadas a tal efecto. Para usar un certificado digital en una autenticación Web segura debe seguir las instrucciones de su navegador Web y de Apple respecto al proceso de instalación de los certificados y sus claves en el sistema operativo iOS y en el propio navegador Web si fuese preciso.";
+"home_footer_label" = "Autofirma App para Apple iOS %@ \n© Derecho de autor: Gobierno de España, 2023";
 "home_title" = "Inicio";
 "registered_certificates" = "Certificados Registrados";
 "sign" = "Firma electrónica";
@@ -177,7 +177,7 @@ trámite funciona en otros dispositivos. ¿Por qué?\n\n";
 "settings_historical_row" = "Histórico de archivos firmados";
 
 //Version
-"version_text" = "“Cliente @firma para Apple iOS” v.1.8 2023 Gobierno de España\n\nEl cliente @firma para Apple iOS es Software Libre; puedes redistribuirlo y/o modificarlo bajo los términos de la siguiente licencia: “European Software License 1.1”, cuyo texto completo puede consultarse en la siguiente página Web: http://ec.europa.eu/idabc/eupl.html\n\nEl código fuente de este programa, así como del resto de los componentes del proyecto se pueden descargar libremente desde: http://forja-ctt.administracionelectronica.gob.es\n\nEl proyecto Cliente @firma es un proyecto colaborativo, si desea participar en él, no dude en unirse a la comunidad, accesible desde la siguiente página Web: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc";
+"version_text" = "“Autofirma App para Apple iOS” v.1.8 2023 Gobierno de España\n\nAutofirma App para Apple iOS es Software Libre; puedes redistribuirlo y/o modificarlo bajo los términos de la siguiente licencia: “European Software License 1.1”, cuyo texto completo puede consultarse en la siguiente página Web: http://ec.europa.eu/idabc/eupl.html\n\nEl código fuente de este programa, así como del resto de los componentes del proyecto se pueden descargar libremente desde: http://forja-ctt.administracionelectronica.gob.es\n\nEl proyecto Autofirma App es un proyecto colaborativo, si desea participar en él, no dude en unirse a la comunidad, accesible desde la siguiente página Web: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc";
 "version_title" = "Versión v1.0";
 
 //Language
@@ -186,13 +186,13 @@ trámite funciona en otros dispositivos. ¿Por qué?\n\n";
 //FAQ
 "faq_title" = "Preguntas frecuentes";
 "faq_question_one" = "¿Cómo puedo realizar firmas electrónicas con este programa?";
-"faq_answer_one" = "El Cliente @firma iOS permite firmar con su certificado trámites web compatibles con la aplicación. Para firmar un trámite, complételo normalmente a través de su navegador web. Si el trámite está preparado para la firma con el Cliente @firma móvil, este se ejecutará en el momento de la firma para que el usuario seleccione su certificado y ejecute la operación. Recuerde que antes de iniciar el trámite debe haber importado su certificado de firma en el Cliente @firma iOS.";
+"faq_answer_one" = "Autofirma App iOS permite firmar con su certificado trámites web compatibles con la aplicación. Para firmar un trámite, complételo normalmente a través de su navegador web. Si el trámite está preparado para la firma con Autofirma App móvil, este se ejecutará en el momento de la firma para que el usuario seleccione su certificado y ejecute la operación. Recuerde que antes de iniciar el trámite debe haber importado su certificado de firma en Autofirma App iOS.";
 "faq_question_two" = "La firma de algunos trámites web fallan, mientras que ese mismo trámite funciona en otros dispositivos. ¿Por qué?";
-"faq_answer_two" = "El Cliente @firma para Apple iOS carece aún de ciertas funcionalidades que sí están presentes en versiones para otros sistemas operativos. Futuras actualizaciones del producto solventarán estas carencias. Mientras tanto, utilice otro sistema y notifique si lo considera preciso al responsable del trámite web.";
+"faq_answer_two" = "Autofirma App para Apple iOS carece aún de ciertas funcionalidades que sí están presentes en versiones para otros sistemas operativos. Futuras actualizaciones del producto solventarán estas carencias. Mientras tanto, utilice otro sistema y notifique si lo considera preciso al responsable del trámite web.";
 "faq_question_three" = "¿Corren peligro mis certificados si pierdo el dispositivo?";
 "faq_answer_three" = "Los certificados se almacenan en su dispositivo con un potente cifrado protegido con contraseña, pero como cualquier sistema cifrado, el momento que este esté fuera del control de propietario corre el riesgo de ser comprometido. Si pierde el dispositivo debe contactar lo antes posible con su proveedor de servicios de certificación para revocar de inmediato los certificados que este contenía.";
-"faq_question_four" = "He importado los certificados correctamente en el Cliente @firma para Apple iOS, pero aun así no consigo identificarme con ellos en las sedes electrónicas y demás páginas Web que lo requieren ¿Por qué?";
-"faq_answer_four" = "Los certificados importados en el Cliente @firma para Apple iOS son de uso exclusivo para firma electrónica en páginas Web diseñadas a tal efecto. Para usar un certificado digital para identificación en páginas Web deberá seguir las instrucciones de su navegador Web y de Apple respecto al proceso de instalación de los certificados y sus claves en el sistema operativo iOS y en el propio navegador Web si fuese preciso.";
+"faq_question_four" = "He importado los certificados correctamente en Autofirma App para Apple iOS, pero aun así no consigo identificarme con ellos en las sedes electrónicas y demás páginas Web que lo requieren ¿Por qué?";
+"faq_answer_four" = "Los certificados importados en Autofirma App para Apple iOS son de uso exclusivo para firma electrónica en páginas Web diseñadas a tal efecto. Para usar un certificado digital para identificación en páginas Web deberá seguir las instrucciones de su navegador Web y de Apple respecto al proceso de instalación de los certificados y sus claves en el sistema operativo iOS y en el propio navegador Web si fuese preciso.";
 
 //Install Certificate
 "install_certificate_title" = "Instalar certificado";
