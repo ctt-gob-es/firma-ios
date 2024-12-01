@@ -43,6 +43,10 @@ class HistoricalRepository: HistoricalRepositoryProtocol {
     func fetchHistory(completion: @escaping (Result<[History], Error>) -> Void) {
 	   let fetchRequest: NSFetchRequest<History> = History.fetchRequest()
 
+        // Agregar un NSSortDescriptor para ordenar por el campo "date" en orden descendente
+        let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+
 	   do {
 		  let historyList = try context.fetch(fetchRequest)
 		  completion(.success(historyList))
