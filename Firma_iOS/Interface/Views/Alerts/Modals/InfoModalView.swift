@@ -46,7 +46,7 @@ struct InfoModalView: View {
                     
                     Spacer()
                     
-                    Button(action: {
+                    /*Button(action: {
                         if let url = URL(string: "https://www.fondoseuropeos.hacienda.gob.es/sitios/dgpmrr/es-es/Paginas/Inicio.aspx") {
                             UIApplication.shared.open(url)
                         }
@@ -56,7 +56,7 @@ struct InfoModalView: View {
                             .foregroundColor(ColorConstants.Background.buttonEnabled)
                             .underline()
                             .frame(maxWidth: .infinity, alignment: .center)
-                    }
+                    }*/
                     
                     Button(action: {
                         self.presentationMode.wrappedValue.dismiss()
