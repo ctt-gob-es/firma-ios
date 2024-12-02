@@ -63,7 +63,6 @@ class SignModel {
                         self.visibleSignature = visibleSignature
                     }
 			 }
-                self.visibleSignature = VisibleSignatureType.optional
 		  }
 	   }
 
