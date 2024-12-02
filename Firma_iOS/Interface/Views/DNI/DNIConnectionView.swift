@@ -92,7 +92,7 @@ struct DNIConnectionView: View {
 			 }
 		  }
 	   }
-	   .sheet(isPresented: $showSignCoordinatesModal, onDismiss: {
+	   .fullScreenCover(isPresented: $showSignCoordinatesModal, onDismiss: {
 		  if self.annotations.isEmpty {
 			 
 		  }

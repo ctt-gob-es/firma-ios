@@ -137,7 +137,7 @@ struct HomeView: View {
 		  .accessibility(addTraits: .isModal)
 		  .interactiveDismissDisabled(true)
 	   }
-	   .sheet(isPresented: $viewModel.showSignCoordinatesModal, onDismiss: {
+	   .fullScreenCover(isPresented: $viewModel.showSignCoordinatesModal, onDismiss: {
 		  if viewModel.annotations.isEmpty {
 			 viewModel.handleNotAnyCoordinatesSelected()
 		  }
