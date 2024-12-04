@@ -10,6 +10,8 @@
 		3C57FA171AC1BB9D00FF7292 /* AOCertificateInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C57FA161AC1BB9D00FF7292 /* AOCertificateInfo.m */; };
 		83063D0E2C6B5B2E00E88046 /* PDFConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83063D0D2C6B5B2E00E88046 /* PDFConstants.swift */; };
 		8308DD082CB56C5A006C6032 /* DNIeSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308DD072CB56C5A006C6032 /* DNIeSigner.m */; };
+		8309F69F2D009CB900F15CD9 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 8309F69E2D009CB900F15CD9 /* InfoPlist.xcstrings */; };
+		8309F6A12D009CB900F15CD9 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 8309F6A02D009CB900F15CD9 /* Localizable.xcstrings */; };
 		830CDEA32C6AAF5C00E2890D /* AOPadesUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 830CDEA22C6AAF5C00E2890D /* AOPadesUtils.m */; };
 		83144EA12C3FD97900CC38AB /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83144EA02C3FD97900CC38AB /* TextStyles.swift */; };
 		83144EA32C3FDAE400CC38AB /* Color+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83144EA22C3FDAE400CC38AB /* Color+Utils.swift */; };
@@ -2711,10 +2713,6 @@
 		A0F3951D2CE692CA00DD7AE3 /* AOCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0F3951B2CE692CA00DD7AE3 /* AOCoreDataModel.xcdatamodeld */; };
 		A0F3951F2CE69A0D00DD7AE3 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F3951E2CE69A0D00DD7AE3 /* AppError.swift */; };
 		B240772D20A5B87B00A8EE1C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B240772020A5B87B00A8EE1C /* main.m */; };
-		B240772E20A5B87B00A8EE1C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B240772220A5B87B00A8EE1C /* InfoPlist.strings */; };
-		B240772F20A5B87B00A8EE1C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B240772420A5B87B00A8EE1C /* Localizable.strings */; };
-		B240773020A5B87B00A8EE1C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B240772720A5B87B00A8EE1C /* InfoPlist.strings */; };
-		B240773120A5B87B00A8EE1C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B240772920A5B87B00A8EE1C /* Localizable.strings */; };
 		B243848120C539DA0087BAE0 /* iPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B243847D20C539DA0087BAE0 /* iPhoneStoryboard.storyboard */; };
 		B243848220C539DA0087BAE0 /* iPadStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B243847E20C539DA0087BAE0 /* iPadStoryboard.storyboard */; };
 		B27395CD20A4384300A7D05A /* CADESConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395CC20A4384300A7D05A /* CADESConstants.m */; };
@@ -2782,6 +2780,8 @@
 		83063D0D2C6B5B2E00E88046 /* PDFConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFConstants.swift; sourceTree = "<group>"; };
 		8308DD062CB56C4E006C6032 /* DNIeSigner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DNIeSigner.h; sourceTree = "<group>"; };
 		8308DD072CB56C5A006C6032 /* DNIeSigner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DNIeSigner.m; sourceTree = "<group>"; };
+		8309F69E2D009CB900F15CD9 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = InfoPlist.xcstrings; path = "Supporting Files/InfoPlist.xcstrings"; sourceTree = "<group>"; };
+		8309F6A02D009CB900F15CD9 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = Localizable.xcstrings; path = "Supporting Files/Localizable.xcstrings"; sourceTree = "<group>"; };
 		830CDEA22C6AAF5C00E2890D /* AOPadesUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AOPadesUtils.m; sourceTree = "<group>"; };
 		830CDEA42C6AAF6C00E2890D /* AOPadesUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOPadesUtils.h; sourceTree = "<group>"; };
 		83144EA02C3FD97900CC38AB /* TextStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
@@ -8040,10 +8040,6 @@
 		A0F3951C2CE692CA00DD7AE3 /* AOCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AOCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		A0F3951E2CE69A0D00DD7AE3 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		B240772020A5B87B00A8EE1C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = "<group>"; };
-		B240772320A5B87B00A8EE1C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
-		B240772520A5B87B00A8EE1C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
-		B240772820A5B87B00A8EE1C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = InfoPlist.strings; sourceTree = "<group>"; };
-		B240772A20A5B87B00A8EE1C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localizable.strings; sourceTree = "<group>"; };
 		B240772B20A5B87B00A8EE1C /* Firma_iOS-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Firma_iOS-Info.plist"; path = "Supporting Files/Firma_iOS-Info.plist"; sourceTree = "<group>"; };
 		B240773A20A5C3D600A8EE1C /* Firma_iOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Firma_iOS-Prefix.pch"; sourceTree = "<group>"; };
 		B240773B20A5CA5F00A8EE1C /* ANF_PF_Activo.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; name = ANF_PF_Activo.p12; path = "Supporting Files/ANF_PF_Activo.p12"; sourceTree = "<group>"; };
@@ -16179,26 +16175,6 @@
 			path = Alerts;
 			sourceTree = "<group>";
 		};
-		B240772120A5B87B00A8EE1C /* en.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				B240772220A5B87B00A8EE1C /* InfoPlist.strings */,
-				B240772420A5B87B00A8EE1C /* Localizable.strings */,
-			);
-			name = en.lproj;
-			path = "Supporting Files/en.lproj";
-			sourceTree = "<group>";
-		};
-		B240772620A5B87B00A8EE1C /* es.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				B240772720A5B87B00A8EE1C /* InfoPlist.strings */,
-				B240772920A5B87B00A8EE1C /* Localizable.strings */,
-			);
-			name = es.lproj;
-			path = "Supporting Files/es.lproj";
-			sourceTree = "<group>";
-		};
 		B243847B20C539DA0087BAE0 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
@@ -16380,8 +16356,8 @@
 			isa = PBXGroup;
 			children = (
 				B240773B20A5CA5F00A8EE1C /* ANF_PF_Activo.p12 */,
-				B240772120A5B87B00A8EE1C /* en.lproj */,
-				B240772620A5B87B00A8EE1C /* es.lproj */,
+				8309F6A02D009CB900F15CD9 /* Localizable.xcstrings */,
+				8309F69E2D009CB900F15CD9 /* InfoPlist.xcstrings */,
 				B240772020A5B87B00A8EE1C /* main.m */,
 				B240772B20A5B87B00A8EE1C /* Firma_iOS-Info.plist */,
 			);
@@ -16488,12 +16464,11 @@
 				83C0ECB92C41331200244071 /* Merriweather-Regular.ttf in Resources */,
 				833C2C892CA2B89D00DFF6CD /* glyphlist.txt in Resources */,
 				B27395D820A43AF800A7D05A /* cert_menu.png in Resources */,
-				B240773120A5B87B00A8EE1C /* Localizable.strings in Resources */,
-				B240772E20A5B87B00A8EE1C /* InfoPlist.strings in Resources */,
 				B27395D920A43AF800A7D05A /* flecha.png in Resources */,
 				B27395DE20A43AF800A7D05A /* itunes.png in Resources */,
 				B2B0369C21369663009E57BB /* LaunchScreen.storyboard in Resources */,
 				C3461CA81696F98C007237D1 /* logo_cliente.png in Resources */,
+				8309F69F2D009CB900F15CD9 /* InfoPlist.xcstrings in Resources */,
 				833C2C932CA2B89D00DFF6CD /* Helvetica-BoldOblique.afm in Resources */,
 				B27395E020A43AF800A7D05A /* warning_mini.png in Resources */,
 				833C2C8D2CA2B89D00DFF6CD /* Times-Italic.afm in Resources */,
@@ -16501,17 +16476,16 @@
 				83C0ECBB2C41331200244071 /* Merriweather-Bold.ttf in Resources */,
 				833C2C902CA2B89D00DFF6CD /* Symbol.afm in Resources */,
 				833C2C8F2CA2B89D00DFF6CD /* Helvetica.afm in Resources */,
-				B240773020A5B87B00A8EE1C /* InfoPlist.strings in Resources */,
 				83AF00222CA2C95D00A26C0F /* SIGNEDDATA.asn1 in Resources */,
 				B243848120C539DA0087BAE0 /* iPhoneStoryboard.storyboard in Resources */,
 				833C2C912CA2B89D00DFF6CD /* Times-Bold.afm in Resources */,
+				8309F6A12D009CB900F15CD9 /* Localizable.xcstrings in Resources */,
 				B27395DB20A43AF800A7D05A /* help2.png in Resources */,
 				B273961620A441FF00A7D05A /* Images.xcassets in Resources */,
 				C389C78D16DE70CC000382C0 /* Settings.bundle in Resources */,
 				83F235242CEDCEFD00A6AE3B /* privacy_policy_es.html in Resources */,
 				833C2C922CA2B89D00DFF6CD /* Helvetica-Oblique.afm in Resources */,
 				83C0ECB52C41331200244071 /* Merriweather-LightItalic.ttf in Resources */,
-				B240772F20A5B87B00A8EE1C /* Localizable.strings in Resources */,
 				83C0ECB42C41331200244071 /* Merriweather-Light.ttf in Resources */,
 				833C2C8A2CA2B89D00DFF6CD /* Helvetica-Bold.afm in Resources */,
 				83C0ECBA2C41331200244071 /* Merriweather-Italic.ttf in Resources */,
@@ -19237,41 +19211,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		B240772220A5B87B00A8EE1C /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B240772320A5B87B00A8EE1C /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		B240772420A5B87B00A8EE1C /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B240772520A5B87B00A8EE1C /* en */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		B240772720A5B87B00A8EE1C /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B240772820A5B87B00A8EE1C /* es */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		B240772920A5B87B00A8EE1C /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B240772A20A5B87B00A8EE1C /* es */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		C30B3261163804620072A515 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -19326,6 +19265,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				J2OBJC_HOME = "/Users/desarrolloabamobile/Downloads/j2objc-2.8";
 				LIBRARY_SEARCH_PATHS = "${J2OBJC_HOME}/lib";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-l",
@@ -19399,6 +19339,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				J2OBJC_HOME = "/Users/desarrolloabamobile/Downloads/j2objc-2.8";
 				LIBRARY_SEARCH_PATHS = "${J2OBJC_HOME}/lib";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "Autofirma App";
 				PROVISIONING_PROFILE = "c08ed7da-989b-4719-b284-d895789fd7db";
@@ -19464,6 +19405,7 @@
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Firma_iOS/Cliente @firma-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -19531,6 +19473,7 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Cliente AFirma Movil AppStore";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Firma_iOS/Cliente @firma-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				SYSTEM_HEADER_SEARCH_PATHS = "";

@@ -1,3 +1,0 @@
-/* Localized versions of Info.plist keys */
-
-"NFCReaderUsageDescription" = "This app requires access to NFC to interact with smart cards.";
