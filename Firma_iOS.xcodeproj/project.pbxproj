@@ -2684,12 +2684,8 @@
 		83FD0B092C3FC96200902E19 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FD0B082C3FC96200902E19 /* OnboardingView.swift */; };
 		83FD0B0B2C3FCBB000902E19 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FD0B0A2C3FCBB000902E19 /* OnboardingViewController.swift */; };
 		9226967323C6512400F099F0 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9226967223C6512400F099F0 /* NSString+Extension.m */; };
-		9A51A79A2B79FEC700826C72 /* AOHelpOptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A51A7992B79FEC700826C72 /* AOHelpOptionView.m */; };
 		9A51A7A02B7A371A00826C72 /* flecha_dcha.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A51A79F2B7A371A00826C72 /* flecha_dcha.png */; };
 		9A64AD762AC6AFB50089A289 /* NSMutableAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A64AD752AC6AFB40089A289 /* NSMutableAttributedString.m */; };
-		9A7018FB2ACFECB4000B11D6 /* AOHelpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7018FA2ACFECB4000B11D6 /* AOHelpCell.m */; };
-		9A7018FE2AD00478000B11D6 /* StoryboardUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7018FD2AD00478000B11D6 /* StoryboardUtils.m */; };
-		9A7019012AD03102000B11D6 /* AOAvailableCertificatesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7019002AD03102000B11D6 /* AOAvailableCertificatesCell.m */; };
 		9AB783512ACA9B98005C2B82 /* UIFont+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB783502ACA9B98005C2B82 /* UIFont+Utils.m */; };
 		9AD3D2B22B6CF23300F04B14 /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD3D2B12B6CEA1E00F04B14 /* UIImage+Utils.m */; };
 		A065483D2CE969BF00C9D8DE /* SSLBypassDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A065483C2CE969BF00C9D8DE /* SSLBypassDelegate.swift */; };
@@ -2711,17 +2707,9 @@
 		A08F818D2CF356EF0067266C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F818C2CF356EF0067266C /* libsqlite3.tbd */; };
 		A08F818E2CF356EF0067266C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F818B2CF356EF0067266C /* libz.tbd */; };
 		A08F81902CF372C10067266C /* HandleNFCErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08F818F2CF372C10067266C /* HandleNFCErrors.swift */; };
-		A09BDEFD2B7B6D270016102B /* HeaderCertificateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A09BDEFC2B7B6D270016102B /* HeaderCertificateCell.m */; };
 		A0DACD4F2CF2092F00D645CB /* CertificateInfoModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DACD4E2CF2092F00D645CB /* CertificateInfoModalView.swift */; };
 		A0F3951D2CE692CA00DD7AE3 /* AOCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0F3951B2CE692CA00DD7AE3 /* AOCoreDataModel.xcdatamodeld */; };
 		A0F3951F2CE69A0D00DD7AE3 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F3951E2CE69A0D00DD7AE3 /* AppError.swift */; };
-		B2406F2E20C5CACA008ED085 /* AORegisteredCertificatesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F2920C5CACA008ED085 /* AORegisteredCertificatesTVC.m */; };
-		B2406F2F20C5CACA008ED085 /* AOAvailableCertificatesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F2A20C5CACA008ED085 /* AOAvailableCertificatesTVC.m */; };
-		B2406F3320C5CB8E008ED085 /* AlertProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F3220C5CB8D008ED085 /* AlertProgressBar.m */; };
-		B2406F3620C5CD4D008ED085 /* AOCertificateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F3420C5CD4D008ED085 /* AOCertificateCell.m */; };
-		B2406F3920C5CE6F008ED085 /* AORegisterCertificateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F3720C5CE6F008ED085 /* AORegisterCertificateVC.m */; };
-		B2406F3D20C5CF89008ED085 /* AOAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F3C20C5CF89008ED085 /* AOAboutViewController.m */; };
-		B2406F4020C5D043008ED085 /* AOSignViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F3F20C5D043008ED085 /* AOSignViewController.m */; };
 		B240772D20A5B87B00A8EE1C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B240772020A5B87B00A8EE1C /* main.m */; };
 		B240772E20A5B87B00A8EE1C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B240772220A5B87B00A8EE1C /* InfoPlist.strings */; };
 		B240772F20A5B87B00A8EE1C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B240772420A5B87B00A8EE1C /* Localizable.strings */; };
@@ -2729,8 +2717,6 @@
 		B240773120A5B87B00A8EE1C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B240772920A5B87B00A8EE1C /* Localizable.strings */; };
 		B243848120C539DA0087BAE0 /* iPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B243847D20C539DA0087BAE0 /* iPhoneStoryboard.storyboard */; };
 		B243848220C539DA0087BAE0 /* iPadStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B243847E20C539DA0087BAE0 /* iPadStoryboard.storyboard */; };
-		B24384BB20C541620087BAE0 /* AOHelpMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B24384B920C541620087BAE0 /* AOHelpMenuViewController.m */; };
-		B24384BC20C541620087BAE0 /* AOAcercadeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B24384BA20C541620087BAE0 /* AOAcercadeViewController.m */; };
 		B27395CD20A4384300A7D05A /* CADESConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395CC20A4384300A7D05A /* CADESConstants.m */; };
 		B27395D820A43AF800A7D05A /* cert_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = B27395CF20A43AF800A7D05A /* cert_menu.png */; };
 		B27395D920A43AF800A7D05A /* flecha.png in Resources */ = {isa = PBXBuildFile; fileRef = B27395D020A43AF800A7D05A /* flecha.png */; };
@@ -2743,14 +2729,12 @@
 		B27395E020A43AF800A7D05A /* warning_mini.png in Resources */ = {isa = PBXBuildFile; fileRef = B27395D720A43AF800A7D05A /* warning_mini.png */; };
 		B273960420A43E2800A7D05A /* AOCounterSignPreItems.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395E320A43E2800A7D05A /* AOCounterSignPreItems.m */; };
 		B273960520A43E2800A7D05A /* AOCounterSignXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395E520A43E2800A7D05A /* AOCounterSignXMLParser.m */; };
-		B273960620A43E2800A7D05A /* AOCustomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395E720A43E2800A7D05A /* AOCustomSegue.m */; };
 		B273960720A43E2800A7D05A /* AOTriphaseData.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395E920A43E2800A7D05A /* AOTriphaseData.m */; };
 		B273960820A43E2800A7D05A /* AOUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395EB20A43E2800A7D05A /* AOUtils.m */; };
 		B273960920A43E2800A7D05A /* Base64Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395ED20A43E2800A7D05A /* Base64Utils.m */; };
 		B273960A20A43E2800A7D05A /* CADESMonoPhase.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395EF20A43E2800A7D05A /* CADESMonoPhase.m */; };
 		B273960B20A43E2800A7D05A /* CADESSignUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395F120A43E2800A7D05A /* CADESSignUtils.m */; };
 		B273960C20A43E2800A7D05A /* CertificateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395F320A43E2800A7D05A /* CertificateUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		B273960D20A43E2800A7D05A /* ColorChart.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395F520A43E2800A7D05A /* ColorChart.m */; };
 		B273960E20A43E2800A7D05A /* DateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395F720A43E2800A7D05A /* DateHelper.m */; };
 		B273960F20A43E2800A7D05A /* DesCypher.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395F920A43E2800A7D05A /* DesCypher.m */; };
 		B273961020A43E2800A7D05A /* Firma.m in Sources */ = {isa = PBXBuildFile; fileRef = B27395FB20A43E2800A7D05A /* Firma.m */; };
@@ -2765,7 +2749,6 @@
 		B2952CB520D981F700A4467B /* UITextView+Boldify.m in Sources */ = {isa = PBXBuildFile; fileRef = B2952CB420D981F700A4467B /* UITextView+Boldify.m */; };
 		B2AE16992133E3330082C892 /* GlobalConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = B2AE16982133E3330082C892 /* GlobalConstants.m */; };
 		B2B0369C21369663009E57BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2B0369B21369663009E57BB /* LaunchScreen.storyboard */; };
-		B2D0158D20CA7F9400FD4102 /* CommonAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D0158C20CA7F9400FD4102 /* CommonAlert.m */; };
 		B2EE5C1020AC4359000A4A28 /* AOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B2EE5C0E20AC4358000A4A28 /* AOAppDelegate.m */; };
 		C30B322C163804620072A515 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30B322B163804620072A515 /* UIKit.framework */; };
 		C30B322E163804620072A515 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30B322D163804620072A515 /* Foundation.framework */; };
@@ -8025,17 +8008,9 @@
 		83FD0B0A2C3FCBB000902E19 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		9226967123C6510700F099F0 /* NSString+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		9226967223C6512400F099F0 /* NSString+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
-		9A51A7982B79FD5400826C72 /* AOHelpOptionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOHelpOptionView.h; sourceTree = "<group>"; };
-		9A51A7992B79FEC700826C72 /* AOHelpOptionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AOHelpOptionView.m; sourceTree = "<group>"; };
 		9A51A79F2B7A371A00826C72 /* flecha_dcha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flecha_dcha.png; sourceTree = "<group>"; };
 		9A64AD732AC6AED80089A289 /* NSMutableAttributedString+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+Extension.h"; sourceTree = "<group>"; };
 		9A64AD752AC6AFB40089A289 /* NSMutableAttributedString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSMutableAttributedString.m; sourceTree = "<group>"; };
-		9A7018F72ACFE816000B11D6 /* AOHelpCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOHelpCell.h; sourceTree = "<group>"; };
-		9A7018FA2ACFECB4000B11D6 /* AOHelpCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AOHelpCell.m; sourceTree = "<group>"; };
-		9A7018FC2AD00416000B11D6 /* StoryboardUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoryboardUtils.h; sourceTree = "<group>"; };
-		9A7018FD2AD00478000B11D6 /* StoryboardUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoryboardUtils.m; sourceTree = "<group>"; };
-		9A7018FF2AD0308A000B11D6 /* AOAvailableCertificatesCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOAvailableCertificatesCell.h; sourceTree = "<group>"; };
-		9A7019002AD03102000B11D6 /* AOAvailableCertificatesCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AOAvailableCertificatesCell.m; sourceTree = "<group>"; };
 		9AB7834F2ACA9A8A005C2B82 /* UIFont+Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIFont+Utils.h"; sourceTree = "<group>"; };
 		9AB783502ACA9B98005C2B82 /* UIFont+Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Utils.m"; sourceTree = "<group>"; };
 		9AD3D2B02B6CEA0400F04B14 /* UIImage+Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Utils.h"; sourceTree = "<group>"; };
@@ -8061,25 +8036,9 @@
 		A08F818B2CF356EF0067266C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		A08F818C2CF356EF0067266C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		A08F818F2CF372C10067266C /* HandleNFCErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleNFCErrors.swift; sourceTree = "<group>"; };
-		A09BDEFB2B7B6D270016102B /* HeaderCertificateCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderCertificateCell.h; sourceTree = "<group>"; };
-		A09BDEFC2B7B6D270016102B /* HeaderCertificateCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeaderCertificateCell.m; sourceTree = "<group>"; };
 		A0DACD4E2CF2092F00D645CB /* CertificateInfoModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateInfoModalView.swift; sourceTree = "<group>"; };
 		A0F3951C2CE692CA00DD7AE3 /* AOCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AOCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		A0F3951E2CE69A0D00DD7AE3 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
-		B2406F2720C5CACA008ED085 /* AOAvailableCertificatesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOAvailableCertificatesTVC.h; sourceTree = "<group>"; };
-		B2406F2920C5CACA008ED085 /* AORegisteredCertificatesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AORegisteredCertificatesTVC.m; sourceTree = "<group>"; };
-		B2406F2A20C5CACA008ED085 /* AOAvailableCertificatesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOAvailableCertificatesTVC.m; sourceTree = "<group>"; };
-		B2406F2C20C5CACA008ED085 /* AORegisteredCertificatesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AORegisteredCertificatesTVC.h; sourceTree = "<group>"; };
-		B2406F3120C5CB8D008ED085 /* AlertProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertProgressBar.h; sourceTree = "<group>"; };
-		B2406F3220C5CB8D008ED085 /* AlertProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertProgressBar.m; sourceTree = "<group>"; };
-		B2406F3420C5CD4D008ED085 /* AOCertificateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOCertificateCell.m; sourceTree = "<group>"; };
-		B2406F3520C5CD4D008ED085 /* AOCertificateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOCertificateCell.h; sourceTree = "<group>"; };
-		B2406F3720C5CE6F008ED085 /* AORegisterCertificateVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AORegisterCertificateVC.m; sourceTree = "<group>"; };
-		B2406F3820C5CE6F008ED085 /* AORegisterCertificateVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AORegisterCertificateVC.h; sourceTree = "<group>"; };
-		B2406F3B20C5CF89008ED085 /* AOAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOAboutViewController.h; sourceTree = "<group>"; };
-		B2406F3C20C5CF89008ED085 /* AOAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOAboutViewController.m; sourceTree = "<group>"; };
-		B2406F3E20C5D043008ED085 /* AOSignViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOSignViewController.h; sourceTree = "<group>"; };
-		B2406F3F20C5D043008ED085 /* AOSignViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOSignViewController.m; sourceTree = "<group>"; };
 		B240772020A5B87B00A8EE1C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = "<group>"; };
 		B240772320A5B87B00A8EE1C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
 		B240772520A5B87B00A8EE1C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
@@ -8090,10 +8049,6 @@
 		B240773B20A5CA5F00A8EE1C /* ANF_PF_Activo.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; name = ANF_PF_Activo.p12; path = "Supporting Files/ANF_PF_Activo.p12"; sourceTree = "<group>"; };
 		B243847D20C539DA0087BAE0 /* iPhoneStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhoneStoryboard.storyboard; sourceTree = "<group>"; };
 		B243847E20C539DA0087BAE0 /* iPadStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPadStoryboard.storyboard; sourceTree = "<group>"; };
-		B24384B720C541620087BAE0 /* AOAcercadeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOAcercadeViewController.h; sourceTree = "<group>"; };
-		B24384B820C541620087BAE0 /* AOHelpMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOHelpMenuViewController.h; sourceTree = "<group>"; };
-		B24384B920C541620087BAE0 /* AOHelpMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOHelpMenuViewController.m; sourceTree = "<group>"; };
-		B24384BA20C541620087BAE0 /* AOAcercadeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOAcercadeViewController.m; sourceTree = "<group>"; };
 		B27395C020A435F400A7D05A /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = "Google Analytics library/GAIDictionaryBuilder.h"; sourceTree = "<group>"; };
 		B27395C120A435F400A7D05A /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GAIEcommercePromotion.h; path = "Google Analytics library/GAIEcommercePromotion.h"; sourceTree = "<group>"; };
 		B27395C220A435F400A7D05A /* GAITrackedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GAITrackedViewController.h; path = "Google Analytics library/GAITrackedViewController.h"; sourceTree = "<group>"; };
@@ -8119,8 +8074,6 @@
 		B27395E320A43E2800A7D05A /* AOCounterSignPreItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOCounterSignPreItems.m; sourceTree = "<group>"; };
 		B27395E420A43E2800A7D05A /* AOCounterSignXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOCounterSignXMLParser.h; sourceTree = "<group>"; };
 		B27395E520A43E2800A7D05A /* AOCounterSignXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOCounterSignXMLParser.m; sourceTree = "<group>"; };
-		B27395E620A43E2800A7D05A /* AOCustomSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOCustomSegue.h; sourceTree = "<group>"; };
-		B27395E720A43E2800A7D05A /* AOCustomSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOCustomSegue.m; sourceTree = "<group>"; };
 		B27395E820A43E2800A7D05A /* AOTriphaseData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOTriphaseData.h; sourceTree = "<group>"; };
 		B27395E920A43E2800A7D05A /* AOTriphaseData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOTriphaseData.m; sourceTree = "<group>"; };
 		B27395EA20A43E2800A7D05A /* AOUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOUtils.h; sourceTree = "<group>"; };
@@ -8133,8 +8086,6 @@
 		B27395F120A43E2800A7D05A /* CADESSignUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CADESSignUtils.m; sourceTree = "<group>"; };
 		B27395F220A43E2800A7D05A /* CertificateUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CertificateUtils.h; sourceTree = "<group>"; };
 		B27395F320A43E2800A7D05A /* CertificateUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CertificateUtils.m; sourceTree = "<group>"; };
-		B27395F420A43E2800A7D05A /* ColorChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorChart.h; sourceTree = "<group>"; };
-		B27395F520A43E2800A7D05A /* ColorChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorChart.m; sourceTree = "<group>"; };
 		B27395F620A43E2800A7D05A /* DateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateHelper.h; sourceTree = "<group>"; };
 		B27395F720A43E2800A7D05A /* DateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateHelper.m; sourceTree = "<group>"; };
 		B27395F820A43E2800A7D05A /* DesCypher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesCypher.h; sourceTree = "<group>"; };
@@ -8158,8 +8109,6 @@
 		B2AE16972133E3330082C892 /* GlobalConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalConstants.h; sourceTree = "<group>"; };
 		B2AE16982133E3330082C892 /* GlobalConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalConstants.m; sourceTree = "<group>"; };
 		B2B0369B21369663009E57BB /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B2D0158B20CA7F9400FD4102 /* CommonAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonAlert.h; sourceTree = "<group>"; };
-		B2D0158C20CA7F9400FD4102 /* CommonAlert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonAlert.m; sourceTree = "<group>"; };
 		B2EE5C0E20AC4358000A4A28 /* AOAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOAppDelegate.m; sourceTree = "<group>"; };
 		B2EE5C0F20AC4359000A4A28 /* AOAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOAppDelegate.h; sourceTree = "<group>"; };
 		C30B3227163804620072A515 /* Cliente @firma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cliente @firma.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -16217,53 +16166,17 @@
 				83C0EC832C3FE69D00244071 /* Privacy */,
 				83FD0B062C3FC3E300902E19 /* Settings */,
 				83FD0B022C3FBE8600902E19 /* Onboarding */,
-				B2406F3A20C5CF89008ED085 /* About */,
 				B2406F3020C5CB8D008ED085 /* Alerts */,
-				B2406F2620C5CACA008ED085 /* Certificates */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		B2406F2620C5CACA008ED085 /* Certificates */ = {
-			isa = PBXGroup;
-			children = (
-				B2406F2720C5CACA008ED085 /* AOAvailableCertificatesTVC.h */,
-				B2406F2A20C5CACA008ED085 /* AOAvailableCertificatesTVC.m */,
-				B2406F3520C5CD4D008ED085 /* AOCertificateCell.h */,
-				B2406F3420C5CD4D008ED085 /* AOCertificateCell.m */,
-				B2406F3820C5CE6F008ED085 /* AORegisterCertificateVC.h */,
-				B2406F3720C5CE6F008ED085 /* AORegisterCertificateVC.m */,
-				B2406F2C20C5CACA008ED085 /* AORegisteredCertificatesTVC.h */,
-				B2406F2920C5CACA008ED085 /* AORegisteredCertificatesTVC.m */,
-				B2406F3E20C5D043008ED085 /* AOSignViewController.h */,
-				B2406F3F20C5D043008ED085 /* AOSignViewController.m */,
-				9A7018FF2AD0308A000B11D6 /* AOAvailableCertificatesCell.h */,
-				9A7019002AD03102000B11D6 /* AOAvailableCertificatesCell.m */,
-				A09BDEFB2B7B6D270016102B /* HeaderCertificateCell.h */,
-				A09BDEFC2B7B6D270016102B /* HeaderCertificateCell.m */,
-			);
-			path = Certificates;
 			sourceTree = "<group>";
 		};
 		B2406F3020C5CB8D008ED085 /* Alerts */ = {
 			isa = PBXGroup;
 			children = (
 				83C0ECC72C44F75C00244071 /* Modals */,
-				B2406F3120C5CB8D008ED085 /* AlertProgressBar.h */,
-				B2406F3220C5CB8D008ED085 /* AlertProgressBar.m */,
-				B2D0158B20CA7F9400FD4102 /* CommonAlert.h */,
-				B2D0158C20CA7F9400FD4102 /* CommonAlert.m */,
 			);
 			path = Alerts;
-			sourceTree = "<group>";
-		};
-		B2406F3A20C5CF89008ED085 /* About */ = {
-			isa = PBXGroup;
-			children = (
-				B2406F3B20C5CF89008ED085 /* AOAboutViewController.h */,
-				B2406F3C20C5CF89008ED085 /* AOAboutViewController.m */,
-			);
-			path = About;
 			sourceTree = "<group>";
 		};
 		B240772120A5B87B00A8EE1C /* en.lproj */ = {
@@ -16289,7 +16202,6 @@
 		B243847B20C539DA0087BAE0 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
-				B24384B620C541620087BAE0 /* HelpViews */,
 				B243847C20C539DA0087BAE0 /* Storyboard */,
 				B2406EED20C5C0A9008ED085 /* Views */,
 			);
@@ -16304,21 +16216,6 @@
 				B2B0369B21369663009E57BB /* LaunchScreen.storyboard */,
 			);
 			path = Storyboard;
-			sourceTree = "<group>";
-		};
-		B24384B620C541620087BAE0 /* HelpViews */ = {
-			isa = PBXGroup;
-			children = (
-				B24384B720C541620087BAE0 /* AOAcercadeViewController.h */,
-				B24384B820C541620087BAE0 /* AOHelpMenuViewController.h */,
-				B24384B920C541620087BAE0 /* AOHelpMenuViewController.m */,
-				B24384BA20C541620087BAE0 /* AOAcercadeViewController.m */,
-				9A7018F72ACFE816000B11D6 /* AOHelpCell.h */,
-				9A7018FA2ACFECB4000B11D6 /* AOHelpCell.m */,
-				9A51A7982B79FD5400826C72 /* AOHelpOptionView.h */,
-				9A51A7992B79FEC700826C72 /* AOHelpOptionView.m */,
-			);
-			path = HelpViews;
 			sourceTree = "<group>";
 		};
 		B27395CA20A4384300A7D05A /* Constants */ = {
@@ -16362,8 +16259,6 @@
 				B27395E320A43E2800A7D05A /* AOCounterSignPreItems.m */,
 				B27395E420A43E2800A7D05A /* AOCounterSignXMLParser.h */,
 				B27395E520A43E2800A7D05A /* AOCounterSignXMLParser.m */,
-				B27395E620A43E2800A7D05A /* AOCustomSegue.h */,
-				B27395E720A43E2800A7D05A /* AOCustomSegue.m */,
 				B27395E820A43E2800A7D05A /* AOTriphaseData.h */,
 				B27395E920A43E2800A7D05A /* AOTriphaseData.m */,
 				B27395EA20A43E2800A7D05A /* AOUtils.h */,
@@ -16376,8 +16271,6 @@
 				B27395F120A43E2800A7D05A /* CADESSignUtils.m */,
 				B27395F220A43E2800A7D05A /* CertificateUtils.h */,
 				B27395F320A43E2800A7D05A /* CertificateUtils.m */,
-				B27395F420A43E2800A7D05A /* ColorChart.h */,
-				B27395F520A43E2800A7D05A /* ColorChart.m */,
 				B27395F620A43E2800A7D05A /* DateHelper.h */,
 				B27395F720A43E2800A7D05A /* DateHelper.m */,
 				B27395F820A43E2800A7D05A /* DesCypher.h */,
@@ -16396,8 +16289,6 @@
 				B2952CB420D981F700A4467B /* UITextView+Boldify.m */,
 				B2AE16972133E3330082C892 /* GlobalConstants.h */,
 				B2AE16982133E3330082C892 /* GlobalConstants.m */,
-				9A7018FC2AD00416000B11D6 /* StoryboardUtils.h */,
-				9A7018FD2AD00478000B11D6 /* StoryboardUtils.m */,
 				9AD3D2B02B6CEA0400F04B14 /* UIImage+Utils.h */,
 				9AD3D2B12B6CEA1E00F04B14 /* UIImage+Utils.m */,
 				83144EA02C3FD97900CC38AB /* TextStyles.swift */,
@@ -16558,7 +16449,7 @@
 				ORGANIZATIONNAME = "Solid GEAR";
 				TargetAttributes = {
 					C30B3226163804620072A515 = {
-						DevelopmentTeam = 2H36E8KFN2;
+						DevelopmentTeam = LCLHA32ZLW;
 						LastSwiftMigration = 1500;
 						ProvisioningStyle = Automatic;
 					};
@@ -16664,7 +16555,6 @@
 				8325D6B92CAADD18007224E9 /* ECCurve.m in Sources */,
 				8325D3CF2CAADD17007224E9 /* PrivateKeysContextSpecific.m in Sources */,
 				8325D4012CAADD17007224E9 /* Asn1Exception.m in Sources */,
-				B2406F3920C5CE6F008ED085 /* AORegisterCertificateVC.m in Sources */,
 				8325D4482CAADD17007224E9 /* OffsetOutsideEfException.m in Sources */,
 				8325D6AB2CAADD18007224E9 /* SecT571K1Point.m in Sources */,
 				83AF00122CA2C95D00A26C0F /* OtherHashAlgAndValue.c in Sources */,
@@ -16906,7 +16796,6 @@
 				833C2C262CA2B89C00DFF6CD /* PdfPCellEventForwarder.m in Sources */,
 				8325D4762CAADD17007224E9 /* CardNotPresentException.m in Sources */,
 				833C28132CA2B89A00DFF6CD /* ASN1GeneralizedTime.m in Sources */,
-				B273960D20A43E2800A7D05A /* ColorChart.m in Sources */,
 				833C2B542CA2B89C00DFF6CD /* PdfSessionManager.m in Sources */,
 				8325D46B2CAADD17007224E9 /* package-info.m in Sources */,
 				8325D58C2CAADD18007224E9 /* CMSUtils.m in Sources */,
@@ -17200,7 +17089,6 @@
 				83AF00302CA2C95D00A26C0F /* SubjectKeyIdentifierIOS.c in Sources */,
 				833C295A2CA2B89A00DFF6CD /* PKCS12BagAttributeCarrier.m in Sources */,
 				833C2B6B2CA2B89C00DFF6CD /* ListItem.m in Sources */,
-				B2D0158D20CA7F9400FD4102 /* CommonAlert.m in Sources */,
 				835135A02C60BD3A005081EE /* AddCertificateViewModel.swift in Sources */,
 				833C29B12CA2B89B00DFF6CD /* SecP224R1FieldElement.m in Sources */,
 				833C29062CA2B89A00DFF6CD /* SHA3Digest.m in Sources */,
@@ -17404,7 +17292,6 @@
 				8325D48F2CAADD17007224E9 /* CMSAlgorithmProtection.m in Sources */,
 				8325D6312CAADD18007224E9 /* ECKey.m in Sources */,
 				8325D41D2CAADD17007224E9 /* Dnie3r2PinCwa14890Constants.m in Sources */,
-				B273960620A43E2800A7D05A /* AOCustomSegue.m in Sources */,
 				833C28632CA2B89A00DFF6CD /* ExtensionsGenerator.m in Sources */,
 				8325D4B22CAADD17007224E9 /* PrivateKeyInfo.m in Sources */,
 				833C2B002CA2B89B00DFF6CD /* NameCertificateBean.m in Sources */,
@@ -17650,7 +17537,6 @@
 				833C29C92CA2B89B00DFF6CD /* SecT113R1Curve.m in Sources */,
 				8325D63D2CAADD18007224E9 /* ECPrivateKeySpec.m in Sources */,
 				8325D3F62CAADD17007224E9 /* IcaoUtils.m in Sources */,
-				B2406F2E20C5CACA008ED085 /* AORegisteredCertificatesTVC.m in Sources */,
 				8325D78E2CAADD18007224E9 /* SK.m in Sources */,
 				83FC0C462C48016100BBB5A8 /* FindDNIModalView.swift in Sources */,
 				8325D47F2CAADD17007224E9 /* DnieFactoryWrapper.m in Sources */,
@@ -17680,7 +17566,6 @@
 				8325D51E2CAADD17007224E9 /* ASN1Sequence.m in Sources */,
 				833C27EE2CA2B89A00DFF6CD /* NetscapeRevocationURL.m in Sources */,
 				8325D6C42CAADD18007224E9 /* PreCompCallback.m in Sources */,
-				B2406F3320C5CB8E008ED085 /* AlertProgressBar.m in Sources */,
 				8369D1142CD8B65F005B5129 /* PDFCoordinatesModalView.swift in Sources */,
 				8325D6B02CAADD18007224E9 /* EndoUtil.m in Sources */,
 				833C2B1B2CA2B89B00DFF6CD /* AOPkcs1TriPhaseSigner.m in Sources */,
@@ -17835,7 +17720,6 @@
 				8325D62C2CAADD18007224E9 /* JcaJceHelper.m in Sources */,
 				8325D7782CAADD18007224E9 /* HashFunctions.m in Sources */,
 				8325D6442CAADD18007224E9 /* Curve25519FieldElement.m in Sources */,
-				B2406F3D20C5CF89008ED085 /* AOAboutViewController.m in Sources */,
 				833C29862CA2B89A00DFF6CD /* Tnaf.m in Sources */,
 				833C2BC02CA2B89C00DFF6CD /* PdfArray.m in Sources */,
 				83AF00012CA2C95D00A26C0F /* ESSCertIDIOS.c in Sources */,
@@ -17849,7 +17733,6 @@
 				8325D38B2CAADD17007224E9 /* MseSetPaceAlgorithmApduCommand.m in Sources */,
 				8325D7892CAADD18007224E9 /* NodeEntry.m in Sources */,
 				833C2AB72CA2B89B00DFF6CD /* FlatteningPathIterator.m in Sources */,
-				B2406F2F20C5CACA008ED085 /* AOAvailableCertificatesTVC.m in Sources */,
 				833C2BB92CA2B89C00DFF6CD /* JBIG2Image.m in Sources */,
 				833C2BBC2CA2B89C00DFF6CD /* TiffImage.m in Sources */,
 				833C286A2CA2B89A00DFF6CD /* PolicyInformation.m in Sources */,
@@ -18121,7 +18004,6 @@
 				833C2B792CA2B89C00DFF6CD /* PdfTemplate.m in Sources */,
 				833C2BC72CA2B89C00DFF6CD /* PdfName.m in Sources */,
 				8325D5E42CAADD18007224E9 /* AsymmetricCipherKeyPair.m in Sources */,
-				B24384BB20C541620087BAE0 /* AOHelpMenuViewController.m in Sources */,
 				8325D7CB2CAADD18007224E9 /* MessageEncryptor.m in Sources */,
 				833C2C302CA2B89C00DFF6CD /* PdfPages.m in Sources */,
 				833C2A292CA2B89B00DFF6CD /* CMSSignedData.m in Sources */,
@@ -18169,7 +18051,6 @@
 				833C2BFC2CA2B89C00DFF6CD /* BaseFont.m in Sources */,
 				8325D7772CAADD18007224E9 /* Utils.m in Sources */,
 				8325D4272CAADD17007224E9 /* package-info.m in Sources */,
-				B2406F4020C5D043008ED085 /* AOSignViewController.m in Sources */,
 				833C27F52CA2B89A00DFF6CD /* ASN1Generator.m in Sources */,
 				833C28272CA2B89A00DFF6CD /* X9FieldElement.m in Sources */,
 				833C2BF12CA2B89C00DFF6CD /* ArabicLigaturizer.m in Sources */,
@@ -18205,7 +18086,6 @@
 				83AFFFFD2CA2C95D00A26C0F /* DigestAlgorithmIdentifiers.c in Sources */,
 				8325D7FA2CAADD18007224E9 /* SignatureSpi.m in Sources */,
 				8325D3902CAADD17007224E9 /* GetResponseApduCommand.m in Sources */,
-				9A7018FB2ACFECB4000B11D6 /* AOHelpCell.m in Sources */,
 				8325D6622CAADD18007224E9 /* SecP224K1FieldElement.m in Sources */,
 				833C2B572CA2B89C00DFF6CD /* SigUtils.m in Sources */,
 				833C2A272CA2B89B00DFF6CD /* RecipientInfoGenerator.m in Sources */,
@@ -18286,7 +18166,6 @@
 				833C28B32CA2B89A00DFF6CD /* RevokedInfo.m in Sources */,
 				833C2B532CA2B89C00DFF6CD /* InvalidPdfException.m in Sources */,
 				8325D4F92CAADD17007224E9 /* X509Name.m in Sources */,
-				9A51A79A2B79FEC700826C72 /* AOHelpOptionView.m in Sources */,
 				8325D80E2CAADD18007224E9 /* SPHINCS256KeyGenParameterSpec.m in Sources */,
 				8325D3C82CAADD17007224E9 /* package-info.m in Sources */,
 				833C29F02CA2B89B00DFF6CD /* SecP256K1FieldElement.m in Sources */,
@@ -18356,7 +18235,6 @@
 				8325D4382CAADD17007224E9 /* IcaoMrtdWithPace.m in Sources */,
 				83C0ECAA2C410B5900244071 /* AttributedText.swift in Sources */,
 				8325D7072CAADD18007224E9 /* XMSSMTPublicKey.m in Sources */,
-				B24384BC20C541620087BAE0 /* AOAcercadeViewController.m in Sources */,
 				833C2C5D2CA2B89C00DFF6CD /* XmpWriter.m in Sources */,
 				8325D39D2CAADD17007224E9 /* CommandApdu.m in Sources */,
 				8325D7EA2CAADD18007224E9 /* BCqTESLAPrivateKey.m in Sources */,
@@ -18517,7 +18395,6 @@
 				8325D3B62CAADD17007224E9 /* package-info.m in Sources */,
 				8325D4622CAADD17007224E9 /* InvalidCryptographicChecksumException.m in Sources */,
 				8325D7D62CAADD18007224E9 /* XMSSKey.m in Sources */,
-				9A7018FE2AD00478000B11D6 /* StoryboardUtils.m in Sources */,
 				9A64AD762AC6AFB50089A289 /* NSMutableAttributedString.m in Sources */,
 				8325D7342CAADD18007224E9 /* LMSPublicKeyParameters.m in Sources */,
 				8325D80D2CAADD18007224E9 /* RainbowPublicKeySpec.m in Sources */,
@@ -18942,7 +18819,6 @@
 				833C2B552CA2B89C00DFF6CD /* PdfUtil.m in Sources */,
 				8325D7D22CAADD18007224E9 /* NHPublicKey.m in Sources */,
 				833C2ADE2CA2B89B00DFF6CD /* URLName.m in Sources */,
-				B2406F3620C5CD4D008ED085 /* AOCertificateCell.m in Sources */,
 				83AFFFFC2CA2C95D00A26C0F /* DigestAlgorithmIdentifier.c in Sources */,
 				833C29AA2CA2B89B00DFF6CD /* SecP192R1Field.m in Sources */,
 				833C27F12CA2B89A00DFF6CD /* NTTObjectIdentifiers.m in Sources */,
@@ -19026,7 +18902,6 @@
 				8325D44C2CAADD17007224E9 /* Atr.m in Sources */,
 				8325D6E12CAADD18007224E9 /* Nat320.m in Sources */,
 				8325D4002CAADD17007224E9 /* package-info.m in Sources */,
-				9A7019012AD03102000B11D6 /* AOAvailableCertificatesCell.m in Sources */,
 				833C2C682CA2B89C00DFF6CD /* SimpleXMLParser.m in Sources */,
 				8325D7592CAADD18007224E9 /* Poly.m in Sources */,
 				83AFFFE52CA2C95D00A26C0F /* AttributeTypeAndValueIOS.c in Sources */,
@@ -19301,7 +19176,6 @@
 				8325D8022CAADD18007224E9 /* BCXMSSPublicKey.m in Sources */,
 				8325D7322CAADD18007224E9 /* LMSParameters.m in Sources */,
 				8325D3792CAADD17007224E9 /* CeresSignDataApduCommand.m in Sources */,
-				A09BDEFD2B7B6D270016102B /* HeaderCertificateCell.m in Sources */,
 				833C2A3D2CA2B89B00DFF6CD /* CMSSecureReadable.m in Sources */,
 				8325D7632CAADD18007224E9 /* GF2Field.m in Sources */,
 				833C297E2CA2B89A00DFF6CD /* ZTauElement.m in Sources */,
@@ -19548,7 +19422,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 12;
-				DEVELOPMENT_TEAM = 2H36E8KFN2;
+				DEVELOPMENT_TEAM = LCLHA32ZLW;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/Frameworks",
@@ -19585,7 +19459,7 @@
 					"-l",
 					protobuf,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "es.gob.afirma.Cliente--firma";
+				PRODUCT_BUNDLE_IDENTIFIER = "es.abamobile.afirma.Cliente--firma";
 				PRODUCT_NAME = "Cliente @firma";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";

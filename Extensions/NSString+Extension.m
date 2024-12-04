@@ -8,26 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "NSString+Extension.h"
-#import "ColorChart.h"
 #import "UIFont+Utils.h"
 
 @implementation NSString (Common)
 
 - (NSString *) localized {
     return NSLocalizedString(self, nil);
-}
-
-    // Function to apply a style to the text that simulates a link
-- (NSMutableAttributedString *) linkStyle {
-    NSMutableAttributedString *textFormatted = [[NSMutableAttributedString alloc] initWithString:self];
-        // Text font
-    [textFormatted addAttribute:NSFontAttributeName value: [[UIFont alloc] mediumSystemFontScaled] range:NSMakeRange(0, [textFormatted length])];
-        // Text color
-    [textFormatted addAttribute:NSForegroundColorAttributeName value: LINK_COLOR range:NSMakeRange(0, [textFormatted length])];
-        // Underline
-    [textFormatted addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:NSMakeRange(0, [textFormatted length])];
-    
-    return textFormatted;
 }
 
     // Method to detect HTML text

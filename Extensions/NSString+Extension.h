@@ -15,7 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSString (Common)
 
 - (NSString *) localized;
-- (NSMutableAttributedString *) linkStyle;
 - (NSMutableAttributedString *) getHtml: (UIFont *) textFont;
 - (CGSize)usedSizeForMaxWidth:(CGFloat)width withFont:(UIFont *)font;
 

@@ -4,13 +4,9 @@
     //
 
 #import "AOAppDelegate.h"
-#import "AOAboutViewController.h"
-#import "AORegisteredCertificatesTVC.h"
 #import "GAI.h"
 #import "GlobalConstants.h"
-#import "ColorChart.h"
 #import "UIFont+Utils.h"
-#import "StoryboardUtils.h"
 #import "Cliente__firma-Swift.h"
 #import "AONSBundle+Language.h"
 
@@ -35,11 +31,6 @@ NSString *URLString, *state = @"Inactive";
         [UINavigationBar appearance].compactAppearance = navigationBarAppearance;
         [UINavigationBar appearance].scrollEdgeAppearance = navigationBarAppearance;
     }
-    
-    [UITextView appearance].linkTextAttributes = @{
-        NSForegroundColorAttributeName : LINK_COLOR,
-        NSUnderlineStyleAttributeName : [NSNumber numberWithInteger:NSUnderlineStyleSingle]
-    };
     
         // FONTS
     UIFont *genericFont = [[UIFont alloc] mediumSystemFontScaled];
