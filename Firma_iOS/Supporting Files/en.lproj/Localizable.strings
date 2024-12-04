@@ -3,132 +3,29 @@
  Firma_iOS
  
  Created by Tomas on 30/08/13.
- 
- NSLocalizedString(@"cerrar",nil)
- 
  */
+
+//Previous
 "password" = "Password";
-"processing" = "Processing...";
-"processing_web_data" = "Preocessing web data.";
 "atencion" = "Warning!";
-"cerrar" = "Close";
-"conectar" = "Connect";
 "url_forja" = "https://github.com/ctt-gob-es/clienteafirma/wiki/Importaci%C3%B3n-de-certificados-en-iOS";
-"seleccion_almacen" = "Please, select a keychain";
-"no_almacenes" = "Keychain not available in the application. In order to add a keychain to the application, please use the option in iTunes configuration panel.";
 "error" = "Error";
-"no_datos_firmar" = "Data to sign not found. Please, go back to the browser where you started the operation and try again";
-"seleccion_almacen_guradar" = "Select a keychain to save";
-"error_descarga_fichero" = "Error downloading the file. Try again later.";
 "ok" = "OK!";
-"finalizado" = "Process complete. The signing process has finished and the signature is properly saved in the cloud:";
-"error_guardar_firma" = "Error saving the signature:";
-"help_acercade" = "About...";
-"help_instalar_certificados" = "How to install certificates";
-"help_preguntas" = "Frequently Asked Questions";
-"preg_borrar_almacen" = "Do you want to delete the keychain?";
-"borrar" = "Delete";
-"seleccion_almacen_borrar" = "Please, select the keychain to delete";
-"bienvenida" = "Welcome to Autofirma App!";
-"bienvenida_msg" = "In order to begin to use Autofirma App, first you must install a keychain. You are able to import a keychain from the iTunes configuration panel.";
-"error_borrar_almacen" = "Error deleting selected keychain.";
-"introducir_contrasenia" = "Please, enter your keychain password ";
-"error_contrasenia" = "Wrong keychain password";
-"error_carga_almacen" = "Error loading the keychain";
-"seleccion_fichero_firma" = "Select a file to proceed with the signature";
-"error_descarga_fichero" = "Error downloading the file. Try again later.";
-"error_datos_firmar" = "No data to sign available. Please, go back to the browser where you started the operation and try again later";
-"error_objetivo_contrafirma" = "Selected countersign target is not supported";
-"error_codigo_desconocido" = "Unknown operation code. Please, go back to the browser where you started the operation and try again later";
-"error_url_servidor" = "Server URL not found. Please, go back to the browser where you started the operation and try again later";
-"error_formato_firma" = "Signature format not found. Please, go back to the browser where you started the operation and try again later";
-"error_formato_no_soportado" = "Format not supported";
-"error_algoritmo_no_soportado" = "Algorithm not valid or supported. Please, go back to the browser where you started the operation and try again later";
-"proceso_finalizado_trifasico" = "Signing process complete. Please, go back to the browser where you started the operation to continue";
-"error_proceso_firma" = "Error signing. Please, go back to the browser where you started the operation and try again later";
-"error_process_select_certificate" = "Error in select certificate process. Please, go back to the browser where you started the operation and try again later";
-"error_conexion_servidor" = "Couldn't open connection to server. Please, go back to the browser where you started the operation and try again later";
-"certificate_not_found" = "Certificate not found.";
-"wrong_password" = "Wrong password.";
-"certificate_already_loaded" = "Certificate already loaded.";
-"an_error_occurred_with_number" = "An error occurred %d";
-"an_error_occurred" = "An error occurred.";
-"enter_your_certificate_password" = "Please enter your certificate password.";
-"certificate_successfully_deleted" = "Certificate has been successfully deleted.";
-"certificate_successfully_loaded" = "Certificate has been successfully loaded.";
-"certificate_successfully_selected" = "Certificate has been successfully selected. Please, go back to the browser where you started the operation to continue.";
-"certificate_loaded" = "Certificate loaded.";
-"certificate_successfully_loaded_in_app" = "Certificate has been successfully loaded in your app.";
-"remove" = "Remove";
-"error_ocurred_while_loading_the_certificate" = "An error occurred while loading the certificate.";
-"valid_from_to" = "Valid from %@ to %@";
-"certificate_instructions" = "The application is requesting access to stored certificates and there are none registered.\n\n  To install a certificate :\n 1. Connect your device to your PC or Mac.\n 2. Locate the certificate you want to install ....(you must know the PIN code of the certificate)\n3 In iTunes select your certificate and drag it to the document window....\n4. Go back to this screen and register it in the device's storage.\n";
-"certificate_description_label" = "This section allows you import new certificates to perform your own signatures or delete certificates already installed on device.";
-"home_description_label" = "Welcome to \"Client @firma iOS\" %@\nThis application allows you to perform electronic signatures on the pages of service providers that support it.\nTo function correctly you must install an electronic certificate and its private key from the Certificate Management section . Consult your iOS system documentation and with your certification service provider.";
-"available_certificates_description_label" = "Certificates available on your device. Please select the certificate you want to register.";
-"register_certificate_description_label" = "Enter the password for the selected certificate to be registered.";
-"register_cretificate_register_button_title" = "Register";
-"register_certificate_title"= "Register Certificate";
-"selectcert_certificate_selector_label" = "The next certificate is selected from the keychain: ";
-"selectcert_certificate_description_label" = "This certificate is going to be use in the send certificate procedure. Please, push the \"Send\" button to start the process.";
 "send" = "Send";
-"download" = "Download";
-"sign_certificate_selector_label" = "The next certificate is selected from the keychain: ";
-"sign_certificate_description_label" = "This certificate is going to be use in the signing procedure. Please, push the \"Sign\" button to start the process.";
-"help_menu_description_label" = "This section contents are specific to the mobile version of the service. For more general information about it, visit the <a href='http://administracionelectronica.gob.es/'>Web portal of the Electronic Administration</a>";
-"help_menu_title" = "Help";
-"about_title_label" = "About...";
-"about_description_label_1" = "\"Autofirma App for Apple iOS\" v%@<br/>2023 Gobierno de España<br/><br/>";
-"about_description_label_2" = "<br/>Autofirma App for Apple iOS is open source; is available for redistribution and/or modification using the EUPL license: \"European Software License 1.1\", the complete text can be found on the website <a href='https://joinup.ec.europa.eu/licence/european-union-public-licence-version-11-or-later-eupl'>IDABC of the European Commission</a>";
-"about_description_label_3" = "<br/><br/>The source code of this software, as well as all the components used in this project are available to download freely from <a href='http://forja- ctt.administracionelectronica.gob.es'>Web Portal of the Electronic Administration</a>";
-"about_description_label_4" = "<br/><br/>The project Autofirma App is a cooperative project, and if you want to participate on it, you shouldn't doubt about joining the community, available in the <a href='https://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0l7mhc'>Web portal of the Electronic Administration</a>";
-"how_to_install_certificates_title" = "How to install certificates";
-"iTunes_instructions_label" = "Upload your certificate to your device or iCloud and import it via the \"Certificate Management\" option in the app.";
-"certificate_instructions_label" = "Allowed file extensions: .p12 and .pfx. Keep in mind that you need the password to export your certificate, and it must include the private key.";
-"more_info_button" = "  More information";
-"frequently_asked_questions_title_label" = "Frequently asked questions";
-"frequently_asked_questions_description_label_1" = "How can I sign electronically using this software?\n\n";
-"frequently_asked_questions_description_label_2" = "Autofirma App iOS allows you to sign web procedures compatible with the application with your certificate.\nTo sign a procedure, complete it normally through your web browser. If the procedure is prepared for signing with the Autofirma App, this will be executed at the time of signing so that the user can select their certificate and execute the operation.\nRemember that before starting the process you must have imported your signature certificate in the Autofirma App iOS.\n\n";
-"frequently_asked_questions_description_label_3" = "The signature of some web procedures fail, while that same
-procedure works on other devices. Why?\n\n";
-"frequently_asked_questions_description_label_4" = "Autofirma App for Apple iOS lacks certain functions which exist in versions for other operating systems. Future updates will solve this issues. Meanwhile, you should use another system and contact with web process provider if you consider it necessary.\n\n";
-"frequently_asked_questions_description_label_5" = "Are my certificates in danger if I lose my device?\n\n";
-"frequently_asked_questions_description_label_6" = "The certificates are stored in your device with a powerful encryption algorithm protected with password. However, as every encryption system, once it is out of the owner hands it could be compromised. In this situation you must contact your certification services provider straightaway to revoke the certificated contained in the lost device.\n\n";
-"frequently_asked_questions_description_label_7" = "I successfully imported my certificates to Autofirma App for Apple iOS, but I cannot use them to authenticate in electronic head offices and other websites where they are required. Why?\n\n";
-"frequently_asked_questions_description_label_8" = "Imported certificates to Autofirma App for Apple iOS are used only in websites designed for electronic signing. In order to use a digital certificate to authenticate in a web, you should follow your browser and Apple instructions, about the certificates and keys installation process in iOS operating system and in your own browser if needed.";
-"home_footer_label" = "Autofirma App for Apple iOS %@ \n© Copyright: Gobierno de España, 2023";
-"home_title" = "Home";
-"registered_certificates" = "Registered Certificates";
 "sign" = "Sign";
-"help" = "Help";
-"available_certificates" = "Available Certificates";
-"about_navigation_title" = "About";
-"how_to_navigation_title" = "How to";
-"questions_navigation_title" = "Questions";
-"keystore_manager_bar_item" = "Keystore Manager";
-"help_bar_item" = "Help";
-"files_app_button" = "Add more certificates from Files App";
-"files_app_alert_affirmative_button" = "OK";
-"files_app_alert_message_incorrect_file" = "The file %@ is not a valid certificate.";
-"files_app_alert_message_success" = "The file %@ has been successfully added";
-"files_app_alert_message_cannot_add_certificate" = "The file %@ has not been added correctly";
+
 "batch_signs_all_ok" = "All of the petitions were signed correctly";
 "batch_signs_generic_error" = "Failed to complete batch signing";
 "batch_signs_ok_with_signs_error" = "Batch signing ended with errors";
 "batch_signs_ok_with_all_signs_error" = "Batch signing ended with all wrong signatures";
-"error_server_triphase" = "The web procedure has not defined a signature service with which to complete the operation";
-"logo" = ""; //"Client Signature Logo";
-"issuer_label" = "Issuer:";
-"use_label" = "Use:";
-"back" = "Back";
-"accesibility_statement" = "Accessibility Statement";
+
+
 "url_accessibility_statement" = "http://estaticos.redsara.es/comunes/clientefirmaandroid/1/8/0/declaracion_accesibilidad.pdf";
 "privacy_policy" = "Privacy Policy";
 "url_privacy_policy" = "https://administracion.gob.es/pag_Home/politicaDePrivacidad.html";
 "certificate_expired" = "Expired certificate";
 "certificate_close_to_expire" = "Certificate close to expire";
 "external_link_icon_label" = "External link";
-"button_accessibility_label" = "Button";
 
 //Onboarding
 "onboarding_title" = "Easy and secure signature";
