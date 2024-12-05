@@ -16205,6 +16205,7 @@
 		B27395E120A43E2800A7D05A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				83FD0B072C3FC96200902E19 /* Cliente @firma-Bridging-Header.h */,
 				B240773A20A5C3D600A8EE1C /* Firma_iOS-Prefix.pch */,
 				8309F6A62D0189D200F15CD9 /* OBJ-C */,
 				8309F6A52D0189CC00F15CD9 /* Swift */,
@@ -16225,7 +16226,6 @@
 				A08F81812CF355B20067266C /* lib */,
 				C30B322A163804620072A515 /* Frameworks */,
 				C3AF7F6717FD5FFA0084D916 /* Google Analytics library */,
-				B273961520A441FF00A7D05A /* Images.xcassets */,
 				C30B3228163804620072A515 /* Products */,
 				C30B3231163804620072A515 /* Firma_iOS */,
 			);
@@ -16259,11 +16259,11 @@
 			children = (
 				B2EE5C0F20AC4359000A4A28 /* AOAppDelegate.h */,
 				B2EE5C0E20AC4358000A4A28 /* AOAppDelegate.m */,
-				83FD0B072C3FC96200902E19 /* Cliente @firma-Bridging-Header.h */,
+				B273961520A441FF00A7D05A /* Images.xcassets */,
 				A073AA792893E7BB00FE30CE /* Domain */,
 				B243847B20C539DA0087BAE0 /* Interface */,
-				C30B3232163804620072A515 /* Supporting Files */,
 				B27395E120A43E2800A7D05A /* Utils */,
+				C30B3232163804620072A515 /* Supporting Files */,
 			);
 			path = Firma_iOS;
 			sourceTree = "<group>";
@@ -19304,7 +19304,7 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "Firma_iOS/Cliente @firma-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Firma_iOS/Utils/Cliente @firma-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				SYSTEM_HEADER_SEARCH_PATHS = "";
@@ -19372,7 +19372,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Cliente AFirma Movil AppStore";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "Firma_iOS/Cliente @firma-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Firma_iOS/Utils/Cliente @firma-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				SYSTEM_HEADER_SEARCH_PATHS = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
