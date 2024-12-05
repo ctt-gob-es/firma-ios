@@ -17,8 +17,6 @@ NSString *URLString, *state = @"Inactive";
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-    [self registerDefaultsFromSettingsBundle];
-    
     if (@available(iOS 15, *)) {
             // MARK: Navigation bar appearance
         UINavigationBarAppearance *navigationBarAppearance = [UINavigationBarAppearance alloc];
@@ -94,19 +92,6 @@ void setAppLanguage(NSString *language) {
     [[NSUserDefaults standardUserDefaults] setObject:URLString forKey:URL];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    /*  ANTIGUO */
-    // Lanzamos el controller de seleccion de certificado para firmar por root (No se permite ir atrás cuando estas firmando)
-    /*UIStoryboard *mainStoryboard = [StoryboardUtils getMainStoryboard];
-    
-    AORegisteredCertificatesTVC *registeredCertificatesTVC = (AORegisteredCertificatesTVC *)[mainStoryboard instantiateViewControllerWithIdentifier:@"AORegisteredCertificatesTVC"];
-    
-    [registeredCertificatesTVC setMode:AORegisteredCertificatesTVCModeSign];
-    [registeredCertificatesTVC setStartURL:URLString];
-	
-    
-    self.window.rootViewController = registeredCertificatesTVC;*/
-    
-    /*  NUEVO */
     [self updateOrCreateMainViewControllerWithMode:ViewModesSign :url];
     
     return YES;
@@ -144,34 +129,6 @@ void setAppLanguage(NSString *language) {
 - (void)applicationWillTerminate:(UIApplication *)application
 {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
-
-/**
- Método que obtiene los datos introducidos en la pantalla de preferencias.
- */
-- (void)registerDefaultsFromSettingsBundle
-{
-    
-    NSString *settingsBundle = [[NSBundle mainBundle] pathForResource:@"Settings" ofType:@"bundle"];
-    if(!settingsBundle)
-    {
-        return;
-    }
-    
-    NSDictionary *settings = [NSDictionary dictionaryWithContentsOfFile:[settingsBundle stringByAppendingPathComponent:@"Root.plist"]];
-    NSArray *preferences = [settings objectForKey:PREFERENCE_SPECIFIERS];
-    
-    NSMutableDictionary *defaultsToRegister = [[NSMutableDictionary alloc] initWithCapacity:[preferences count]];
-    for(NSDictionary *prefSpecification in preferences)
-    {
-        NSString *key = [prefSpecification objectForKey:KEY];
-        if(key)
-        {
-            [defaultsToRegister setObject:[prefSpecification objectForKey:@"DefaultValue"] forKey:key];
-        }
-    }
-    
-    [[NSUserDefaults standardUserDefaults] registerDefaults:defaultsToRegister];
 }
 
 @end
