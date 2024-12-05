@@ -13,6 +13,12 @@
 		8309F69F2D009CB900F15CD9 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 8309F69E2D009CB900F15CD9 /* InfoPlist.xcstrings */; };
 		8309F6A12D009CB900F15CD9 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 8309F6A02D009CB900F15CD9 /* Localizable.xcstrings */; };
 		8309F6A42D0185A000F15CD9 /* UIFont+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8309F6A32D0185A000F15CD9 /* UIFont+Utils.m */; };
+		8309F6A82D018E0000F15CD9 /* privacy_policy_es.html in Resources */ = {isa = PBXBuildFile; fileRef = 8309F6A72D018E0000F15CD9 /* privacy_policy_es.html */; };
+		8309F6AF2D018E9600F15CD9 /* privacy_policy_ca.html in Resources */ = {isa = PBXBuildFile; fileRef = 8309F6AA2D018E9500F15CD9 /* privacy_policy_ca.html */; };
+		8309F6B02D018E9600F15CD9 /* privacy_policy_eu.html in Resources */ = {isa = PBXBuildFile; fileRef = 8309F6AB2D018E9500F15CD9 /* privacy_policy_eu.html */; };
+		8309F6B12D018E9600F15CD9 /* privacy_policy_en.html in Resources */ = {isa = PBXBuildFile; fileRef = 8309F6AC2D018E9500F15CD9 /* privacy_policy_en.html */; };
+		8309F6B22D018E9600F15CD9 /* privacy_policy_va.html in Resources */ = {isa = PBXBuildFile; fileRef = 8309F6AD2D018E9500F15CD9 /* privacy_policy_va.html */; };
+		8309F6B32D018E9600F15CD9 /* privacy_policy_gl.html in Resources */ = {isa = PBXBuildFile; fileRef = 8309F6AE2D018E9600F15CD9 /* privacy_policy_gl.html */; };
 		830CDEA32C6AAF5C00E2890D /* AOPadesUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 830CDEA22C6AAF5C00E2890D /* AOPadesUtils.m */; };
 		83144EA12C3FD97900CC38AB /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83144EA02C3FD97900CC38AB /* TextStyles.swift */; };
 		83144EA32C3FDAE400CC38AB /* Color+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83144EA22C3FDAE400CC38AB /* Color+Utils.swift */; };
@@ -2677,7 +2683,6 @@
 		83EF14CF2C465EDF003EC42A /* ExitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EF14CE2C465EDF003EC42A /* ExitButton.swift */; };
 		83EF14D32C46722D003EC42A /* RecoveryModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EF14D22C46722D003EC42A /* RecoveryModalView.swift */; };
 		83EF14D52C467241003EC42A /* DocumentErrorModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EF14D42C467241003EC42A /* DocumentErrorModalView.swift */; };
-		83F235242CEDCEFD00A6AE3B /* privacy_policy_es.html in Resources */ = {isa = PBXBuildFile; fileRef = 83F235232CEDCEFD00A6AE3B /* privacy_policy_es.html */; };
 		83F235262CEDCF7900A6AE3B /* PrivacyPolicyHTMLWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F235252CEDCF7900A6AE3B /* PrivacyPolicyHTMLWeb.swift */; };
 		83FC0C402C47F84700BBB5A8 /* DNIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC0C3F2C47F84700BBB5A8 /* DNIView.swift */; };
 		83FC0C422C47F86B00BBB5A8 /* DNICompatibleModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC0C412C47F86B00BBB5A8 /* DNICompatibleModalView.swift */; };
@@ -2764,6 +2769,12 @@
 		8309F6A02D009CB900F15CD9 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = Localizable.xcstrings; path = "Supporting Files/Localizable.xcstrings"; sourceTree = "<group>"; };
 		8309F6A22D01859F00F15CD9 /* UIFont+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Utils.h"; sourceTree = "<group>"; };
 		8309F6A32D0185A000F15CD9 /* UIFont+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Utils.m"; sourceTree = "<group>"; };
+		8309F6A72D018E0000F15CD9 /* privacy_policy_es.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = privacy_policy_es.html; path = "Supporting Files/privacy_policy_es.html"; sourceTree = "<group>"; };
+		8309F6AA2D018E9500F15CD9 /* privacy_policy_ca.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = privacy_policy_ca.html; path = "Supporting Files/privacy_policy_ca.html"; sourceTree = "<group>"; };
+		8309F6AB2D018E9500F15CD9 /* privacy_policy_eu.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = privacy_policy_eu.html; path = "Supporting Files/privacy_policy_eu.html"; sourceTree = "<group>"; };
+		8309F6AC2D018E9500F15CD9 /* privacy_policy_en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = privacy_policy_en.html; path = "Supporting Files/privacy_policy_en.html"; sourceTree = "<group>"; };
+		8309F6AD2D018E9500F15CD9 /* privacy_policy_va.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = privacy_policy_va.html; path = "Supporting Files/privacy_policy_va.html"; sourceTree = "<group>"; };
+		8309F6AE2D018E9600F15CD9 /* privacy_policy_gl.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = privacy_policy_gl.html; path = "Supporting Files/privacy_policy_gl.html"; sourceTree = "<group>"; };
 		830CDEA22C6AAF5C00E2890D /* AOPadesUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AOPadesUtils.m; sourceTree = "<group>"; };
 		830CDEA42C6AAF6C00E2890D /* AOPadesUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOPadesUtils.h; sourceTree = "<group>"; };
 		83144EA02C3FD97900CC38AB /* TextStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
@@ -7978,7 +7989,6 @@
 		83EF14CE2C465EDF003EC42A /* ExitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitButton.swift; sourceTree = "<group>"; };
 		83EF14D22C46722D003EC42A /* RecoveryModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryModalView.swift; sourceTree = "<group>"; };
 		83EF14D42C467241003EC42A /* DocumentErrorModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentErrorModalView.swift; sourceTree = "<group>"; };
-		83F235232CEDCEFD00A6AE3B /* privacy_policy_es.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = privacy_policy_es.html; sourceTree = "<group>"; };
 		83F235252CEDCF7900A6AE3B /* PrivacyPolicyHTMLWeb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyHTMLWeb.swift; sourceTree = "<group>"; };
 		83FC0C3F2C47F84700BBB5A8 /* DNIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNIView.swift; sourceTree = "<group>"; };
 		83FC0C412C47F86B00BBB5A8 /* DNICompatibleModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNICompatibleModalView.swift; sourceTree = "<group>"; };
@@ -8199,6 +8209,19 @@
 				830CDEA42C6AAF6C00E2890D /* AOPadesUtils.h */,
 			);
 			path = "OBJ-C";
+			sourceTree = "<group>";
+		};
+		8309F6A92D018E1600F15CD9 /* PrivacyPolicies */ = {
+			isa = PBXGroup;
+			children = (
+				8309F6AA2D018E9500F15CD9 /* privacy_policy_ca.html */,
+				8309F6AC2D018E9500F15CD9 /* privacy_policy_en.html */,
+				8309F6AB2D018E9500F15CD9 /* privacy_policy_eu.html */,
+				8309F6AE2D018E9600F15CD9 /* privacy_policy_gl.html */,
+				8309F6AD2D018E9500F15CD9 /* privacy_policy_va.html */,
+				8309F6A72D018E0000F15CD9 /* privacy_policy_es.html */,
+			);
+			name = PrivacyPolicies;
 			sourceTree = "<group>";
 		};
 		8325C90A2CAADD16007224E9 /* ceres */ = {
@@ -16271,7 +16294,7 @@
 		C30B3232163804620072A515 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				83F235232CEDCEFD00A6AE3B /* privacy_policy_es.html */,
+				8309F6A92D018E1600F15CD9 /* PrivacyPolicies */,
 				B240773B20A5CA5F00A8EE1C /* ANF_PF_Activo.p12 */,
 				8309F6A02D009CB900F15CD9 /* Localizable.xcstrings */,
 				8309F69E2D009CB900F15CD9 /* InfoPlist.xcstrings */,
@@ -16374,13 +16397,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8309F6AF2D018E9600F15CD9 /* privacy_policy_ca.html in Resources */,
 				833C2C882CA2B89D00DFF6CD /* Times-BoldItalic.afm in Resources */,
+				8309F6B22D018E9600F15CD9 /* privacy_policy_va.html in Resources */,
 				83C0ECB92C41331200244071 /* Merriweather-Regular.ttf in Resources */,
 				833C2C892CA2B89D00DFF6CD /* glyphlist.txt in Resources */,
 				B2B0369C21369663009E57BB /* LaunchScreen.storyboard in Resources */,
 				8309F69F2D009CB900F15CD9 /* InfoPlist.xcstrings in Resources */,
 				833C2C932CA2B89D00DFF6CD /* Helvetica-BoldOblique.afm in Resources */,
+				8309F6B12D018E9600F15CD9 /* privacy_policy_en.html in Resources */,
 				833C2C8D2CA2B89D00DFF6CD /* Times-Italic.afm in Resources */,
+				8309F6B32D018E9600F15CD9 /* privacy_policy_gl.html in Resources */,
 				83C0ECBB2C41331200244071 /* Merriweather-Bold.ttf in Resources */,
 				833C2C902CA2B89D00DFF6CD /* Symbol.afm in Resources */,
 				833C2C8F2CA2B89D00DFF6CD /* Helvetica.afm in Resources */,
@@ -16389,7 +16416,6 @@
 				833C2C912CA2B89D00DFF6CD /* Times-Bold.afm in Resources */,
 				8309F6A12D009CB900F15CD9 /* Localizable.xcstrings in Resources */,
 				B273961620A441FF00A7D05A /* Images.xcassets in Resources */,
-				83F235242CEDCEFD00A6AE3B /* privacy_policy_es.html in Resources */,
 				833C2C922CA2B89D00DFF6CD /* Helvetica-Oblique.afm in Resources */,
 				83C0ECB52C41331200244071 /* Merriweather-LightItalic.ttf in Resources */,
 				83C0ECB42C41331200244071 /* Merriweather-Light.ttf in Resources */,
@@ -16397,9 +16423,11 @@
 				83C0ECBA2C41331200244071 /* Merriweather-Italic.ttf in Resources */,
 				833C2C8C2CA2B89D00DFF6CD /* Courier-Oblique.afm in Resources */,
 				83C0ECB62C41331200244071 /* Merriweather-BoldItalic.ttf in Resources */,
+				8309F6A82D018E0000F15CD9 /* privacy_policy_es.html in Resources */,
 				83C0ECBF2C4135D100244071 /* NunitoSans_10pt-Bold.ttf in Resources */,
 				83C0ECBD2C41358400244071 /* NunitoSans_10pt-Regular.ttf in Resources */,
 				833C2C952CA2B89D00DFF6CD /* Times-Roman.afm in Resources */,
+				8309F6B02D018E9600F15CD9 /* privacy_policy_eu.html in Resources */,
 				83AF00502CA423D100A26C0F /* cardmessages.properties in Resources */,
 				83C0ECB72C41331200244071 /* Merriweather-BlackItalic.ttf in Resources */,
 				833C2C872CA2B89D00DFF6CD /* Courier.afm in Resources */,
