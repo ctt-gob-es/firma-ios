@@ -8132,6 +8132,75 @@
 			path = SwiftRest;
 			sourceTree = "<group>";
 		};
+		8309F6A52D0189CC00F15CD9 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				833C1E0E2CA2B6F600DFF6CD /* PadesUtilsSwift.swift */,
+				83144EA02C3FD97900CC38AB /* TextStyles.swift */,
+				83144EA22C3FDAE400CC38AB /* Color+Utils.swift */,
+				83144EA42C3FDB1A00CC38AB /* ColorConstants.swift */,
+				83144EA62C3FDFDD00CC38AB /* CustomButtonStyle.swift */,
+				83C0ECA92C410B5900244071 /* AttributedText.swift */,
+				83C0ECC02C4142D000244071 /* LanguageUtils.swift */,
+				83DF46752C4876D6000C3F31 /* ViewUtils.swift */,
+				83DF467C2C490E2E000C3F31 /* FileUtils.swift */,
+				83A5EDC12C53B4BB00F93B6D /* SwiftCertificateUtils.swift */,
+				8393EED72C58FBD3009FDE6E /* SwiftDate+Utils.swift */,
+				83063D0D2C6B5B2E00E88046 /* PDFConstants.swift */,
+				83AF00512CA4284E00A26C0F /* PrivateConstants.swift */,
+				83D390092CA544BA00D16BA6 /* LogUtils.swift */,
+				83D3900B2CA5455200D16BA6 /* ByteArrayUtils.swift */,
+			);
+			path = Swift;
+			sourceTree = "<group>";
+		};
+		8309F6A62D0189D200F15CD9 /* OBJ-C */ = {
+			isa = PBXGroup;
+			children = (
+				8309F6A22D01859F00F15CD9 /* UIFont+Utils.h */,
+				8309F6A32D0185A000F15CD9 /* UIFont+Utils.m */,
+				833C1E0F2CA2B6F600DFF6CD /* PadesUtils.h */,
+				833C1E102CA2B6F600DFF6CD /* PadesUtils.m */,
+				B27395E220A43E2800A7D05A /* AOCounterSignPreItems.h */,
+				B27395E320A43E2800A7D05A /* AOCounterSignPreItems.m */,
+				B27395E420A43E2800A7D05A /* AOCounterSignXMLParser.h */,
+				B27395E520A43E2800A7D05A /* AOCounterSignXMLParser.m */,
+				B27395E820A43E2800A7D05A /* AOTriphaseData.h */,
+				B27395E920A43E2800A7D05A /* AOTriphaseData.m */,
+				B27395EA20A43E2800A7D05A /* AOUtils.h */,
+				B27395EB20A43E2800A7D05A /* AOUtils.m */,
+				B27395EC20A43E2800A7D05A /* Base64Utils.h */,
+				B27395ED20A43E2800A7D05A /* Base64Utils.m */,
+				B27395EE20A43E2800A7D05A /* CADESMonoPhase.h */,
+				B27395EF20A43E2800A7D05A /* CADESMonoPhase.m */,
+				B27395F020A43E2800A7D05A /* CADESSignUtils.h */,
+				B27395F120A43E2800A7D05A /* CADESSignUtils.m */,
+				B27395F220A43E2800A7D05A /* CertificateUtils.h */,
+				B27395F320A43E2800A7D05A /* CertificateUtils.m */,
+				B27395F620A43E2800A7D05A /* DateHelper.h */,
+				B27395F720A43E2800A7D05A /* DateHelper.m */,
+				B27395F820A43E2800A7D05A /* DesCypher.h */,
+				B27395F920A43E2800A7D05A /* DesCypher.m */,
+				B27395FA20A43E2800A7D05A /* Firma.h */,
+				B27395FB20A43E2800A7D05A /* Firma.m */,
+				B27395FC20A43E2800A7D05A /* NSDate+Utils.h */,
+				B27395FD20A43E2800A7D05A /* NSDate+Utils.m */,
+				B27395FE20A43E2800A7D05A /* NSDateFormatter+Utils.h */,
+				B27395FF20A43E2800A7D05A /* NSDateFormatter+Utils.m */,
+				B273960020A43E2800A7D05A /* OpenSSLCertificateHelper.h */,
+				B273960120A43E2800A7D05A /* OpenSSLCertificateHelper.m */,
+				B273960220A43E2800A7D05A /* QuartzUtils.h */,
+				B273960320A43E2800A7D05A /* QuartzUtils.m */,
+				B2AE16972133E3330082C892 /* GlobalConstants.h */,
+				B2AE16982133E3330082C892 /* GlobalConstants.m */,
+				83C0ECC22C41489E00244071 /* AONSBundle+Language.m */,
+				83C0ECC42C4148AB00244071 /* AONSBundle+Language.h */,
+				830CDEA22C6AAF5C00E2890D /* AOPadesUtils.m */,
+				830CDEA42C6AAF6C00E2890D /* AOPadesUtils.h */,
+			);
+			path = "OBJ-C";
+			sourceTree = "<group>";
+		};
 		8325C90A2CAADD16007224E9 /* ceres */ = {
 			isa = PBXGroup;
 			children = (
@@ -16136,63 +16205,12 @@
 		B27395E120A43E2800A7D05A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				B240773A20A5C3D600A8EE1C /* Firma_iOS-Prefix.pch */,
+				8309F6A62D0189D200F15CD9 /* OBJ-C */,
+				8309F6A52D0189CC00F15CD9 /* Swift */,
 				B27395CA20A4384300A7D05A /* Constants */,
-				8309F6A22D01859F00F15CD9 /* UIFont+Utils.h */,
-				8309F6A32D0185A000F15CD9 /* UIFont+Utils.m */,
 				8369D10C2CD8B5B4005B5129 /* PDFUtils */,
-				833C1E0F2CA2B6F600DFF6CD /* PadesUtils.h */,
-				833C1E102CA2B6F600DFF6CD /* PadesUtils.m */,
-				833C1E0E2CA2B6F600DFF6CD /* PadesUtilsSwift.swift */,
-				B27395E220A43E2800A7D05A /* AOCounterSignPreItems.h */,
-				B27395E320A43E2800A7D05A /* AOCounterSignPreItems.m */,
-				B27395E420A43E2800A7D05A /* AOCounterSignXMLParser.h */,
-				B27395E520A43E2800A7D05A /* AOCounterSignXMLParser.m */,
-				B27395E820A43E2800A7D05A /* AOTriphaseData.h */,
-				B27395E920A43E2800A7D05A /* AOTriphaseData.m */,
-				B27395EA20A43E2800A7D05A /* AOUtils.h */,
-				B27395EB20A43E2800A7D05A /* AOUtils.m */,
-				B27395EC20A43E2800A7D05A /* Base64Utils.h */,
-				B27395ED20A43E2800A7D05A /* Base64Utils.m */,
-				B27395EE20A43E2800A7D05A /* CADESMonoPhase.h */,
-				B27395EF20A43E2800A7D05A /* CADESMonoPhase.m */,
-				B27395F020A43E2800A7D05A /* CADESSignUtils.h */,
-				B27395F120A43E2800A7D05A /* CADESSignUtils.m */,
-				B27395F220A43E2800A7D05A /* CertificateUtils.h */,
-				B27395F320A43E2800A7D05A /* CertificateUtils.m */,
-				B27395F620A43E2800A7D05A /* DateHelper.h */,
-				B27395F720A43E2800A7D05A /* DateHelper.m */,
-				B27395F820A43E2800A7D05A /* DesCypher.h */,
-				B27395F920A43E2800A7D05A /* DesCypher.m */,
-				B27395FA20A43E2800A7D05A /* Firma.h */,
-				B27395FB20A43E2800A7D05A /* Firma.m */,
-				B27395FC20A43E2800A7D05A /* NSDate+Utils.h */,
-				B27395FD20A43E2800A7D05A /* NSDate+Utils.m */,
-				B27395FE20A43E2800A7D05A /* NSDateFormatter+Utils.h */,
-				B27395FF20A43E2800A7D05A /* NSDateFormatter+Utils.m */,
-				B273960020A43E2800A7D05A /* OpenSSLCertificateHelper.h */,
-				B273960120A43E2800A7D05A /* OpenSSLCertificateHelper.m */,
-				B273960220A43E2800A7D05A /* QuartzUtils.h */,
-				B273960320A43E2800A7D05A /* QuartzUtils.m */,
-				B2AE16972133E3330082C892 /* GlobalConstants.h */,
-				B2AE16982133E3330082C892 /* GlobalConstants.m */,
-				83144EA02C3FD97900CC38AB /* TextStyles.swift */,
-				83144EA22C3FDAE400CC38AB /* Color+Utils.swift */,
-				83144EA42C3FDB1A00CC38AB /* ColorConstants.swift */,
-				83144EA62C3FDFDD00CC38AB /* CustomButtonStyle.swift */,
-				83C0ECA92C410B5900244071 /* AttributedText.swift */,
-				83C0ECC02C4142D000244071 /* LanguageUtils.swift */,
-				83C0ECC22C41489E00244071 /* AONSBundle+Language.m */,
-				83C0ECC42C4148AB00244071 /* AONSBundle+Language.h */,
-				83DF46752C4876D6000C3F31 /* ViewUtils.swift */,
-				83DF467C2C490E2E000C3F31 /* FileUtils.swift */,
-				83A5EDC12C53B4BB00F93B6D /* SwiftCertificateUtils.swift */,
-				8393EED72C58FBD3009FDE6E /* SwiftDate+Utils.swift */,
-				830CDEA22C6AAF5C00E2890D /* AOPadesUtils.m */,
-				830CDEA42C6AAF6C00E2890D /* AOPadesUtils.h */,
-				83063D0D2C6B5B2E00E88046 /* PDFConstants.swift */,
-				83AF00512CA4284E00A26C0F /* PrivateConstants.swift */,
-				83D390092CA544BA00D16BA6 /* LogUtils.swift */,
-				83D3900B2CA5455200D16BA6 /* ByteArrayUtils.swift */,
+				C3B3E38C17253C5C00F3D458 /* XML */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -16242,12 +16260,10 @@
 				B2EE5C0F20AC4359000A4A28 /* AOAppDelegate.h */,
 				B2EE5C0E20AC4358000A4A28 /* AOAppDelegate.m */,
 				83FD0B072C3FC96200902E19 /* Cliente @firma-Bridging-Header.h */,
-				B240773A20A5C3D600A8EE1C /* Firma_iOS-Prefix.pch */,
 				A073AA792893E7BB00FE30CE /* Domain */,
 				B243847B20C539DA0087BAE0 /* Interface */,
 				C30B3232163804620072A515 /* Supporting Files */,
 				B27395E120A43E2800A7D05A /* Utils */,
-				C3B3E38C17253C5C00F3D458 /* XML */,
 			);
 			path = Firma_iOS;
 			sourceTree = "<group>";
@@ -16291,7 +16307,7 @@
 				C3B3E39117253CC800F3D458 /* AOEntity.m */,
 			);
 			name = XML;
-			path = ..;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -19252,7 +19268,7 @@
 				);
 				GCC_NO_COMMON_BLOCKS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Firma_iOS/Firma_iOS-Prefix.pch";
+				GCC_PREFIX_HEADER = "Firma_iOS/Utils/Firma_iOS-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Firma_iOS/Supporting Files/Firma_iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -19320,7 +19336,7 @@
 				);
 				GCC_NO_COMMON_BLOCKS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Firma_iOS/Firma_iOS-Prefix.pch";
+				GCC_PREFIX_HEADER = "Firma_iOS/Utils/Firma_iOS-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Firma_iOS/Supporting Files/Firma_iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
