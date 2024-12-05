@@ -16219,15 +16219,15 @@
 		C30B321C163804620072A515 = {
 			isa = PBXGroup;
 			children = (
-				83AFFFDD2CA2C95D00A26C0F /* SimpleSign */,
+				C3A91DF816F8CD8D009D07AD /* Cliente @firma.entitlements */,
+				C30B3231163804620072A515 /* Firma_iOS */,
 				8327542F2C6BB27B0092BF56 /* J2OBJC */,
 				83C0ECAB2C4132E500244071 /* Fonts */,
-				C3A91DF816F8CD8D009D07AD /* Cliente @firma.entitlements */,
-				A08F81812CF355B20067266C /* lib */,
+				83AFFFDD2CA2C95D00A26C0F /* SimpleSign */,
 				C30B322A163804620072A515 /* Frameworks */,
 				C3AF7F6717FD5FFA0084D916 /* Google Analytics library */,
+				A08F81812CF355B20067266C /* lib */,
 				C30B3228163804620072A515 /* Products */,
-				C30B3231163804620072A515 /* Firma_iOS */,
 			);
 			sourceTree = "<group>";
 			tabWidth = 5;
