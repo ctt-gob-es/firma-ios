@@ -22,7 +22,7 @@ struct DNIStepHeaderView: View {
 				.titleStyleBlack(foregroundColor: ColorConstants.Text.primary)
 				.accessibilityAddTraits(.isHeader)
 			 
-			 AccessibleText(content: NSLocalizedString("dni_connection_step", bundle: Bundle.main, comment: "") + " " + String(step.step) + " " +  NSLocalizedString("dni_connection_step_of", bundle: Bundle.main, comment: "") + " " + String(totalSteps))
+                AccessibleText(content: String(format: NSLocalizedString("dni_connection_step", comment: ""), String(step.step)))
 				.regularStyle(foregroundColor: ColorConstants.Text.secondary)
 				.accessibilityAddTraits(.isHeader)
 		  }

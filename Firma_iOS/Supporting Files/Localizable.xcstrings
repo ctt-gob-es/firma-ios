@@ -2,10 +2,84 @@
   "sourceLanguage" : "en",
   "strings" : {
     "" : {
-
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        },
+        "ca-ES-valencia" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
     },
     " " : {
-
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " "
+          }
+        },
+        "ca-ES-valencia" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " "
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " "
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " "
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " "
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " "
+          }
+        }
+      }
     },
     "?" : {
       "localizations" : {
@@ -43,6 +117,86 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "?"
+          }
+        }
+      }
+    },
+    "%lld / %lld" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld / %2$lld"
+          }
+        },
+        "ca-ES-valencia" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld / %2$lld"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld / %2$lld"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld / %2$lld"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld / %2$lld"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld / %2$lld"
+          }
+        }
+      }
+    },
+    "%lld of %lld" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld of %2$lld"
+          }
+        },
+        "ca-ES-valencia" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld of %2$lld"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld of %2$lld"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld of %2$lld"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld of %2$lld"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld of %2$lld"
           }
         }
       }
@@ -88,6 +242,7 @@
       }
     },
     "add_certificates_description" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -168,6 +323,7 @@
       }
     },
     "add_certificates_title" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -248,6 +404,7 @@
       }
     },
     "batch_signs_generic_error" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -1048,6 +1205,7 @@
       }
     },
     "certificate_needed_button_title" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -1408,6 +1566,7 @@
       }
     },
     "change_certificate_button_title" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -1568,6 +1727,7 @@
       }
     },
     "default_autofirma_document_name" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -3052,71 +3212,37 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Passo"
+            "value" : "Passo %d de 3"
           }
         },
         "ca-ES-valencia" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Passe"
+            "value" : "Passe %d de 3"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Step"
+            "value" : "Step %dof 3"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Paso"
-          }
-        },
-        "gl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Paso"
-          }
-        }
-      }
-    },
-    "dni_connection_step_of" : {
-      "localizations" : {
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "de"
-          }
-        },
-        "ca-ES-valencia" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "de"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "of"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "de"
+            "value" : "Paso %d de 3"
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "3ko %s urratsa"
+            "value" : "3ko %d urratsa"
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "de"
+            "value" : "Paso %d de 3"
           }
         }
       }
@@ -4202,6 +4328,7 @@
       }
     },
     "error" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -4242,6 +4369,7 @@
       }
     },
     "external_link_icon_label" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -5002,6 +5130,7 @@
       }
     },
     "historical_external_data_type" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -5042,6 +5171,7 @@
       }
     },
     "historical_external_sign_type" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -5082,6 +5212,7 @@
       }
     },
     "historical_local_data_type" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -5122,6 +5253,7 @@
       }
     },
     "historical_local_sign_type" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -6842,6 +6974,7 @@
       }
     },
     "NFC_DESCRIPTION" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -6922,6 +7055,7 @@
       }
     },
     "nfc_dni_sign_success" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -7162,6 +7296,7 @@
       }
     },
     "nfc_reset_successful" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -7202,6 +7337,7 @@
       }
     },
     "nfc_resetting" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -7242,6 +7378,7 @@
       }
     },
     "nfc_session_closed" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -7282,6 +7419,7 @@
       }
     },
     "nfc_session_opened" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -7362,6 +7500,7 @@
       }
     },
     "ok" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -7842,6 +7981,7 @@
       }
     },
     "privacy_policy" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -7962,6 +8102,7 @@
       }
     },
     "pseudonym_modal_description" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -8002,6 +8143,7 @@
       }
     },
     "pseudonym_modal_title" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -8766,42 +8908,43 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Versió v%s"
+            "value" : "Versió v%@"
           }
         },
         "ca-ES-valencia" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Versió v%s"
+            "value" : "Versió v%@"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Version v%s"
+            "value" : "Version v%@"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Versión v1.0"
+            "value" : "Versión v%@"
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "v%s bertsioa"
+            "value" : "v%@ bertsioa"
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Versión v%s"
+            "value" : "Versión V%@"
           }
         }
       }
     },
     "sign" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -9686,37 +9829,37 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "\"Autofirma App per a Apple iOS\" v.1.8 2023 Govern d'Espanya\n\nAutofirma App per a Apple iOS és Programari Lliure; pots redistribuir-lo i/o modificar-lo sota els termes de la llicència següent: “European Software License 1.1”, el text complet del qual es pot consultar a la pàgina web següent: http://ec.europa.eu/idabc/eupl.html\n\nEl codi font d'aquest programa, així com de la resta dels components del projecte, es poden descarregar lliurement des de: http://forja-ctt.administracionelectronica.gob.es\n\nEl projecte Autofirma App és un projecte col·laboratiu, si voleu participar-hi, no dubteu a unir-vos a la comunitat, accessible des de la següent pàgina Web: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc"
+            "value" : "\"Autofirma App per a Apple iOS\" v%@ 2024 Govern d'Espanya\n\nAutofirma App per a Apple iOS és Programari Lliure; pots redistribuir-lo i/o modificar-lo sota els termes de la llicència següent: “European Software License 1.1”, el text complet del qual es pot consultar a la pàgina web següent: http://ec.europa.eu/idabc/eupl.html\n\nEl codi font d'aquest programa, així com de la resta dels components del projecte, es poden descarregar lliurement des de: http://forja-ctt.administracionelectronica.gob.es\n\nEl projecte Autofirma App és un projecte col·laboratiu, si voleu participar-hi, no dubteu a unir-vos a la comunitat, accessible des de la següent pàgina Web: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc"
           }
         },
         "ca-ES-valencia" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "“Autofirma App per a Apple iOS” v.1.8 2023 Govern d'Espanya\n\nAutofirma App per a Apple iOS és Programari Lliure; pots redistribuir-ho i/o modificar-ho sota els termes de la següent llicència: “European Software License 1.1”, el text complet del qual pot consultar-se en la següent pàgina Web: http://ec.europa.eu/idabc/eupl.html\n\nEl codi font d'este programa, així com de la resta dels components del projecte es poden descarregar lliurement des de: http://forja-ctt.administracionelectronica.gob.es\n\nEl projecte autofirma App és un projecte col·laboratiu, si desitja participar en ell, no dubte a unir-se a la comunitat, accessible des de la següent pàgina Web: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc"
+            "value" : "“Autofirma App per a Apple iOS” v%@ 2024 Govern d'Espanya\n\nAutofirma App per a Apple iOS és Programari Lliure; pots redistribuir-ho i/o modificar-ho sota els termes de la següent llicència: “European Software License 1.1”, el text complet del qual pot consultar-se en la següent pàgina Web: http://ec.europa.eu/idabc/eupl.html\n\nEl codi font d'este programa, així com de la resta dels components del projecte es poden descarregar lliurement des de: http://forja-ctt.administracionelectronica.gob.es\n\nEl projecte autofirma App és un projecte col·laboratiu, si desitja participar en ell, no dubte a unir-se a la comunitat, accessible des de la següent pàgina Web: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "“Autofirma App for Apple iOS” v.1.8 2023 Government of Spain\n\nThe Autofirma App for Apple iOS is Free Software; you can redistribute and/or modify it under the terms of the following license: “European Software License 1.1”, the full text of which can be consulted on the following website: http://ec.europa.eu/idabc/eupl.html\n\nThe source code for this program, as well as the rest of the project components, can be freely downloaded from: http://forja-ctt.administracionelectronica.gob.es\n\nThe Autofirma App project is a collaborative project. If you wish to participate in it, do not hesitate to join the community, accessible from the following website: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc"
+            "value" : "“Autofirma App for Apple iOS” v%@ 2024 Government of Spain\n\nThe Autofirma App for Apple iOS is Free Software; you can redistribute and/or modify it under the terms of the following license: “European Software License 1.1”, the full text of which can be consulted on the following website: http://ec.europa.eu/idabc/eupl.html\n\nThe source code for this program, as well as the rest of the project components, can be freely downloaded from: http://forja-ctt.administracionelectronica.gob.es\n\nThe Autofirma App project is a collaborative project. If you wish to participate in it, do not hesitate to join the community, accessible from the following website: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "“Autofirma App para Apple iOS” v.1.8 2023 Gobierno de España\n\nAutofirma App para Apple iOS es Software Libre; puedes redistribuirlo y/o modificarlo bajo los términos de la siguiente licencia: “European Software License 1.1”, cuyo texto completo puede consultarse en la siguiente página Web: http://ec.europa.eu/idabc/eupl.html\n\nEl código fuente de este programa, así como del resto de los componentes del proyecto se pueden descargar libremente desde: http://forja-ctt.administracionelectronica.gob.es\n\nEl proyecto Autofirma App es un proyecto colaborativo, si desea participar en él, no dude en unirse a la comunidad, accesible desde la siguiente página Web: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc"
+            "value" : "“Autofirma App para Apple iOS” v%@ 2024 Gobierno de España\n\nAutofirma App para Apple iOS es Software Libre; puedes redistribuirlo y/o modificarlo bajo los términos de la siguiente licencia: “European Software License 1.1”, cuyo texto completo puede consultarse en la siguiente página Web: http://ec.europa.eu/idabc/eupl.html\n\nEl código fuente de este programa, así como del resto de los componentes del proyecto se pueden descargar libremente desde: http://forja-ctt.administracionelectronica.gob.es\n\nEl proyecto Autofirma App es un proyecto colaborativo, si desea participar en él, no dude en unirse a la comunidad, accesible desde la siguiente página Web: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc"
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "“Autofirma App for Apple iOS” v.1.8 2023 Espainiako Gobernua\n\nAutofirma App bezeroa Software Librea da; birbanatu eta/edo alda dezakezu honako lizentzia honen baldintzetan: “European Software License 1.1”, zeinaren testu osoa honako webgune honetan kontsulta daiteke: http://ec.europa.eu/idabc/eupl. html\n\nPrograma honen iturburu-kodea, baita proiektuaren gainerako osagaiak ere, doan deskargatu daitezke: http://forja-ctt.administracionelectronica.gob.es\n\nAutofirma App lankidetza-proiektu bat da. Bertan parte hartu nahi baduzu, ez izan zalantzarik komunitatean sartzeko, webgune honetatik eskuragarri: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc"
+            "value" : "“Autofirma App for Apple iOS” v%@ 2024 Espainiako Gobernua\n\nAutofirma App bezeroa Software Librea da; birbanatu eta/edo alda dezakezu honako lizentzia honen baldintzetan: “European Software License 1.1”, zeinaren testu osoa honako webgune honetan kontsulta daiteke: http://ec.europa.eu/idabc/eupl. html\n\nPrograma honen iturburu-kodea, baita proiektuaren gainerako osagaiak ere, doan deskargatu daitezke: http://forja-ctt.administracionelectronica.gob.es\n\nAutofirma App lankidetza-proiektu bat da. Bertan parte hartu nahi baduzu, ez izan zalantzarik komunitatean sartzeko, webgune honetatik eskuragarri: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc"
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Autofirma App for Apple iOS” v.1.8 2023 Goberno de España\n\nAutofirma App para Apple iOS é Software Libre; pode redistribuílo e/ou modificalo nos termos da seguinte licenza: “Licenza Europea de Software 1.1”, cuxo texto completo pódese consultar na seguinte páxina web: http://ec.europa.eu/idabc/eupl. html\n\nO código fonte deste programa, así como o resto dos compoñentes do proxecto, pódese descargar libremente en: http://forja-ctt.administracionelectronica.gob.es\n\nAutofirma App é un proxecto colaborativo. Se desexas participar nel, non dubides en unirte á comunidade, accesible desde a seguinte páxina web: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc"
+            "value" : "Autofirma App for Apple iOS” v%@ 2024 Goberno de España\n\nAutofirma App para Apple iOS é Software Libre; pode redistribuílo e/ou modificalo nos termos da seguinte licenza: “Licenza Europea de Software 1.1”, cuxo texto completo pódese consultar na seguinte páxina web: http://ec.europa.eu/idabc/eupl. html\n\nO código fonte deste programa, así como o resto dos compoñentes do proxecto, pódese descargar libremente en: http://forja-ctt.administracionelectronica.gob.es\n\nAutofirma App é un proxecto colaborativo. Se desexas participar nel, non dubides en unirte á comunidade, accesible desde a seguinte páxina web: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc"
           }
         }
       }
@@ -9726,37 +9869,37 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Versió v%s"
+            "value" : "Versió v%@"
           }
         },
         "ca-ES-valencia" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Versió v%s"
+            "value" : "Versió v%@"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Version v%s"
+            "value" : "Version v%@"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Versión v1.0"
+            "value" : "Versión v%@"
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "v%s bertsioa"
+            "value" : "v%@ bertsioa"
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Versión v%s"
+            "value" : "Versión v%@"
           }
         }
       }

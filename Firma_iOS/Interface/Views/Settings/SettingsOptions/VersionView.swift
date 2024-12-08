@@ -11,9 +11,9 @@ import SwiftUI
 struct VersionView: View {
     var body: some View {
 	   VStack {
-		  AttributedTextView(text: NSLocalizedString("version_text",bundle: Bundle.main ,comment: ""))
+            AttributedTextView(text: String(format: NSLocalizedString("version_text", bundle: Bundle.main, comment: ""), Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""))
 			 .padding()
 	   }
-	   .navigationBarTitle(NSLocalizedString("version_title",bundle: Bundle.main ,comment: ""), displayMode: .inline)
+	   .navigationBarTitle(String(format: NSLocalizedString("version_title", bundle: Bundle.main, comment: ""), Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""), displayMode: .inline)
     }
 }
