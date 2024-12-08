@@ -50,7 +50,7 @@ class IOSNFCSessionManager: NSObject, NFCTagReaderSessionDelegate {
     }
 
     func tagReaderSession(_ session: NFCTagReaderSession, didDetect tags: [NFCTag]) {
-	   print(NSLocalizedString("nfc_detected_tags", comment: "\(tags.count)"))
+	   print("Tags NFC detectados: \(tags.count)")
 
 	   if tags.count > 1 {
 		  session.invalidate(errorMessage: NSLocalizedString("nfc_multiple_tags_error", comment: ""))
