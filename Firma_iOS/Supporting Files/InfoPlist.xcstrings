@@ -5,9 +5,39 @@
       "comment" : "Bundle display name",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autofirma App"
+          }
+        },
+        "ca-ES-valencia" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autofirma App"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
+            "value" : "Autofirma App"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autofirma App"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autofirma App"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "Autofirma App"
           }
         }
@@ -17,10 +47,40 @@
       "comment" : "Bundle name",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autofirma App"
+          }
+        },
+        "ca-ES-valencia" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autofirma App"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Cliente @firma"
+            "value" : "Autofirma App"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autofirma App"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autofirma App"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autofirma App"
           }
         }
       }
@@ -28,16 +88,40 @@
     "NFCReaderUsageDescription" : {
       "comment" : "Localized versions of Info.plist keys",
       "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aquesta aplicació necessita accés a NFC per poder fer la signatura amb DNIe"
+          }
+        },
+        "ca-ES-valencia" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta aplicación necesita acceso a NFC para poder asinar con DNIe"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This app requires access to NFC to interact with smart cards."
+            "value" : "This application needs access to NFC to be able to sign with DNIe"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Esta aplicación requiere acceso a NFC para interactuar con tarjetas inteligentes."
+            "value" : "Esta aplicación necesita acceso a NFC para poder realizar la firma con DNIe"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aplikazio honek NFCrako sarbidea behar du DNIe-rekin sinatu ahal izateko"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta aplicació necessita accés a NFC per a poder realitzar la firma amb DNIe"
           }
         }
       }

@@ -16381,6 +16381,10 @@
 				en,
 				es,
 				Base,
+				ca,
+				gl,
+				"ca-ES-valencia",
+				eu,
 			);
 			mainGroup = C30B321C163804620072A515;
 			productRefGroup = C30B3228163804620072A515 /* Products */;
