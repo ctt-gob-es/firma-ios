@@ -241,47 +241,6 @@
         }
       }
     },
-    "add_certificates_description" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Introduïu la contrasenya per registrar el certificat seleccionat."
-          }
-        },
-        "ca-ES-valencia" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Introduïx la contrasenya per a registrar el certificat seleccionat."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Enter the password to register the selected certificate."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Introduce la contraseña para registrar el certificado seleccionado."
-          }
-        },
-        "eu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Idatzi pasahitza hautatutako ziurtagiria erregistratzeko."
-          }
-        },
-        "gl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Introduza o contrasinal para rexistrar o certificado seleccionado."
-          }
-        }
-      }
-    },
     "add_certificates_error_placeholder" : {
       "localizations" : {
         "ca" : {
@@ -322,47 +281,6 @@
         }
       }
     },
-    "add_certificates_title" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Afegir certificat"
-          }
-        },
-        "ca-ES-valencia" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Afegir certificat"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Add certificate"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Añadir Certificado"
-          }
-        },
-        "eu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gehitu ziurtagiria"
-          }
-        },
-        "gl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Engadir certificado"
-          }
-        }
-      }
-    },
     "batch_signs_all_ok" : {
       "localizations" : {
         "ca" : {
@@ -399,47 +317,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "A sinatura do lote completouse correctamente."
-          }
-        }
-      }
-    },
-    "batch_signs_generic_error" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No s'ha pogut completar la signatura del lot"
-          }
-        },
-        "ca-ES-valencia" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No s'ha pogut completar la firma del lot"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Failed to complete batch signing"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No se ha podido completar la firma del lote"
-          }
-        },
-        "eu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ezin izan da lotearen sinadura osatu"
-          }
-        },
-        "gl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Non se puido completar a sinatura do lote"
           }
         }
       }
@@ -1204,47 +1081,6 @@
         }
       }
     },
-    "certificate_needed_button_title" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Afegir nou certificat"
-          }
-        },
-        "ca-ES-valencia" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Afegir nou certificat"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Add new certificate"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Añadir nuevo certificado"
-          }
-        },
-        "eu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gehitu ziurtagiri berria"
-          }
-        },
-        "gl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Engadir novo certificado"
-          }
-        }
-      }
-    },
     "certificate_needed_description" : {
       "localizations" : {
         "ca" : {
@@ -1565,47 +1401,6 @@
         }
       }
     },
-    "change_certificate_button_title" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Canviar de certificat"
-          }
-        },
-        "ca-ES-valencia" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Canviar de certificat"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Change certificate"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cambiar de certificado"
-          }
-        },
-        "eu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aldatu ziurtagiria"
-          }
-        },
-        "gl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cambiar de certificado"
-          }
-        }
-      }
-    },
     "Checked" : {
       "localizations" : {
         "ca" : {
@@ -1727,7 +1522,6 @@
       }
     },
     "default_autofirma_document_name" : {
-      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -4368,47 +4162,6 @@
         }
       }
     },
-    "external_link_icon_label" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Enllaç extern"
-          }
-        },
-        "ca-ES-valencia" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Enllaç extern"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "External link"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Enlace externo"
-          }
-        },
-        "eu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kanpoko esteka"
-          }
-        },
-        "gl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ligazón externa"
-          }
-        }
-      }
-    },
     "faq_answer_four" : {
       "localizations" : {
         "ca" : {
@@ -6973,47 +6726,6 @@
         }
       }
     },
-    "NFC_DESCRIPTION" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "L'aplicació necessita accés a NFC per llegir el DNIe."
-          }
-        },
-        "ca-ES-valencia" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "L'aplicació necessita accés a NFC per a llegir el DNIe."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "App needs access to NFC to read DNIe."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "La aplicación necesita acceso a NFC para leer el DNIe."
-          }
-        },
-        "eu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aplikazioak NFC sarbidea behar du NANa irakurtzeko."
-          }
-        },
-        "gl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "A aplicación necesita acceso a NFC para ler o DNIe."
-          }
-        }
-      }
-    },
     "nfc_dni_active_conexion_warning" : {
       "localizations" : {
         "ca" : {
@@ -7050,47 +6762,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Conexión establecida."
-          }
-        }
-      }
-    },
-    "nfc_dni_sign_success" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "S'ha signat correctament"
-          }
-        },
-        "ca-ES-valencia" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "S'ha firmat correctament"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Signed successfully"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Se ha firmado correctamente"
-          }
-        },
-        "eu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Behar bezala sinatu da"
-          }
-        },
-        "gl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Foi asinado correctamente"
           }
         }
       }
@@ -7291,170 +6962,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gardáronse as túas preferencias"
-          }
-        }
-      }
-    },
-    "nfc_reset_successful" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Connexió NFC restablida amb èxit."
-          }
-        },
-        "ca-ES-valencia" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Connexió NFC restablida amb èxit."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "NFC connection reset successfully."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Conexión NFC restablecida con éxito."
-          }
-        },
-        "eu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "NFC konexioa behar bezala leheneratu da."
-          }
-        },
-        "gl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "A conexión NFC restaurouse correctamente."
-          }
-        }
-      }
-    },
-    "nfc_resetting" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Reiniciant la connexió NFC..."
-          }
-        },
-        "ca-ES-valencia" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Reiniciant la connexió NFC..."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Resetting NFC connection..."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Reiniciando la conexión NFC..."
-          }
-        },
-        "eu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "NFC konexioa berrezartzen..."
-          }
-        },
-        "gl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Restablecendo a conexión NFC..."
-          }
-        }
-      }
-    },
-    "nfc_session_closed" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sessió NFC tancada."
-          }
-        },
-        "ca-ES-valencia" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sessió NFC tancada."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "NFC session closed."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sesión NFC cerrada."
-          }
-        },
-        "eu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "NFC saioa itxita."
-          }
-        },
-        "gl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sesión NFC pechada."
-          }
-        }
-      }
-    },
-    "nfc_session_opened" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sessió NFC oberta. Llista per transmetre ordres APDU."
-          }
-        },
-        "ca-ES-valencia" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sessió NFC oberta. Llista per a transmetre comandos APDU."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "NFC session opened. Ready to transmit APDU commands."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sesión NFC abierta. Lista para transmitir comandos APDU."
-          }
-        },
-        "eu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "NFC saioa irekita. APDU komandoak transmititzeko prest."
-          }
-        },
-        "gl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sesión NFC aberta. Listo para transmitir comandos APDU."
           }
         }
       }
