@@ -293,7 +293,8 @@ class HomeViewModel: ObservableObject {
 	   } else {
 		  urlComponents = URLComponents(string: baseURL + "/failure")!
 		  urlComponents.queryItems = [
-			 URLQueryItem(name: "code", value: String(appStatus.appError?.code ?? AppError.generalSoftwareError.code))
+			 URLQueryItem(name: "code", value: String(appStatus.appError?.code ?? AppError.generalSoftwareError.code)),
+                URLQueryItem(name: "description", value: String(appStatus.appError?.description ?? AppError.generalSoftwareError.description))
 		  ]
 	   }
 	   
