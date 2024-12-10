@@ -4454,37 +4454,37 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Autofirma App iOS permet signar amb el vostre certificat tràmits web compatibles amb l'aplicació. Per signar un tràmit, completeu-lo normalment a través del vostre navegador web. Si el tràmit està preparat per a la signatura amb Autofirma App mòbil, aquest s'executarà en el moment de la signatura perquè l'usuari seleccioni el certificat i executi l'operació. Recordeu que abans d'iniciar el tràmit heu d'haver importat el vostre certificat de signatura a Autofirma App iOS."
+            "value" : "Autofirma App permet signar amb certificat tràmits web compatibles amb l'aplicació. Per a signar un tràmit, completi'l normalment a través del seu navegador web. Si el tràmit està preparat per a la signatura amb Autofirma App, aquesta s'executarà en el moment de la signatura, permetrà a l'usuari seleccionar el certificat de signatura i executi l'operació.També existeix la possibilitat d'obrir l'aplicació i signar directament un fitxer per a ús personal. Als documents PDF se'ls agregarà una signatura, mentre que per als altres fitxers es generarà un fitxer de signatura independent.Recordeu que abans d'iniciar el tràmit heu d'haver importat el vostre certificat de signatura a Autofirma App iOS."
           }
         },
         "ca-ES-valencia" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "autofirma App iOS permet firmar amb el seu certificat tràmits web compatibles amb l'aplicació. Per a firmar un tràmit, complete'l normalment a través del seu navegador web. Si el tràmit està preparat per a la firma amb autofirma App mòbil, este s'executarà en el moment de la firma perquè l'usuari seleccione el seu certificat i execute l'operació. Recorde que abans d'iniciar el tràmit ha d'haver importat el seu certificat de firma en autofirma App iOS."
+            "value" : "Autofirma App permet signar amb certificat tramits web compatibles amb l'aplicacio. Per a signar un tramite, complete'l normalment a traves del seu navegador web. Si el tramite esta preparat per a la signatura amb Autofirma App, esta s'executara en el moment de la signatura, permetra a l'usuari seleccionar el certificat de signatura i execute l'operacio. Tambe existeix la possibilitat d'obrir l'aplicacio i signar directament un fitxer per a us personal. Als documents PDF se'ls agregara una signatura, mentre que per als altres fitxers es generara un fitxer de signatura independent. Recorde que abans d'iniciar el tràmit ha d'haver importat el seu certificat de firma en autofirma App iOS."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The iOS @firma Client allows you to sign web procedures compatible with the application with your certificate. To sign a procedure, complete it normally through your web browser. If the procedure is prepared for signing with the mobile @firma Client, it will be executed at the time of signing so that the user can select their certificate and execute the operation. Remember that before starting the procedure you must have imported your signature certificate into the iOS @firma Client."
+            "value" : "Autofirma App allows you to sign with certified web formalities compatible with the application. To sign a paperwork, please complete it normally through your web browser. If the procedure is ready for signature with Autofirma App, it will be executed at the time of signature, will allow the user to select the signing certificate and run the operation.There is also the possibility of opening the application and signing a file directly for personal use. A signature will be added to the PDF documents, while for the other files a separate signature file will be generated. Remember that before starting the procedure you must have imported your signature certificate into the iOS @firma Client."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Autofirma App iOS permite firmar con su certificado trámites web compatibles con la aplicación. Para firmar un trámite, complételo normalmente a través de su navegador web. Si el trámite está preparado para la firma con Autofirma App móvil, este se ejecutará en el momento de la firma para que el usuario seleccione su certificado y ejecute la operación. Recuerde que antes de iniciar el trámite debe haber importado su certificado de firma en Autofirma App iOS."
+            "value" : "Autofirma App permite firmar con certificado trámites web compatibles con la aplicación. Para firmar un trámite, complételo normalmente a través de su navegador web. Si el trámite está preparado para la firma con Autofirma App, esta se ejecutará en el momento de la firma, permitirá al usuario seleccionar el certificado de firma y ejecute la operación. También existe la posibilidad de abrir la aplicación y firmar directamente un fichero para uso personal. A los documentos PDF se les agregará una firma, mientras que para los demás ficheros se generará un fichero de firma independiente. Recuerde que antes de iniciar el trámite debe haber importado su certificado de firma en Autofirma App iOS."
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Auto-Sinadura aplikazioa iOS-ek aplikazioarekin bateragarriak diren web-prozedurak sinatzeko aukera ematen dizu zure ziurtagiriarekin. Prozedura bat sinatzeko, bete normalean zure web arakatzailearen bidez. Autofirma Mugikorreko aplikazioarekin sinatzeko prozedura prestatuta badago, hori sinatzerako unean gauzatuko da, erabiltzaileak bere ziurtagiria hautatu eta eragiketa gauzatu dezan. Gogoratu prozesua hasi aurretik zure sinadura-ziurtagiria Autofirma App iOS-era inportatu behar duzula."
+            "value" : "Aplikazioarekin bateragarriak diren web-izapideak ziurtagiri bidez sinatzeko aukera ematen du Autofirma App-ek. Izapide bat sinatzeko, osa ezazu normalean zure web nabigatzailearen bidez. Izapidea prest badago Autofirma App-ekin sinatzeko, sinatzeko unean exekutatuko da, erabiltzaileari sinaduraren ziurtagiria hautatzeko eta eragiketa exekutatzeko aukera emango dio. Aplikazioa irekitzeko eta zuzenean erabilera pertsonalerako fitxategi bat sinatzeko aukera ere badago. PDF dokumentuei sinadura bat erantsiko zaie; gainerako fitxategiei, berriz, sinadura-fitxategi independente bat sortuko zaie. Gogoratu prozesua hasi aurretik zure sinadura-ziurtagiria Autofirma App iOS-era inportatu behar duzula."
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A aplicación de autosinatura iOS permítelle asinar procedementos web compatibles coa aplicación co seu certificado. Para asinar un procedemento, complétao normalmente a través do seu navegador web. Se o procedemento está preparado para asinar coa App Móbil Autofirma, este executarase no momento da sinatura para que o usuario seleccione o seu certificado e execute a operación. Lembra que antes de iniciar o proceso debes ter importado o teu certificado de sinatura na App Autofirma iOS."
+            "value" : "Autofirma App permite asinar con certificado trámites web compatibles coa aplicación. Para asinar un trámite, compléteo normalmente a través do seu navegador web. Se o trámite está preparado para a firma con Autofirma App, esta executarase no momento da firma, permitirá ao usuario seleccionar o certificado de firma e execute a operación.&lt;/p> &lt;p>Tamén existe a posibilidade de abrir a aplicación e asinar directamente un ficheiro para uso persoal. Aos documentos PDF agregaráselles unha firma, mentres que para os demais ficheiros xerarase un ficheiro de firma independente. Lembre que antes de iniciar o proceso debes ter importado o teu certificado de sinatura na App Autofirma iOS."
           }
         }
       }
@@ -4494,37 +4494,37 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Els certificats s'emmagatzemen al dispositiu amb un potent xifrat protegit amb contrasenya, però com qualsevol sistema xifrat, el moment que estigui fora del control de propietari corre el risc de ser compromès. Si perdeu el dispositiu heu de contactar el més aviat possible amb el vostre proveïdor de serveis de certificació per revocar immediatament els certificats que aquest contenia."
+            "value" : "Els certificats s'emmagatzemen en el seu dispositiu amb un potent xifrat, però com qualsevol sistema criptogràfic, al moment que aquest està fora del control de propietari corre el risc de ser compromès. Si perd el dispositiu ha de contactar al més aviat possible amb el seu proveïdor de serveis de certificació per revocar immediatament els certificats que aquest contenia."
           }
         },
         "ca-ES-valencia" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Els certificats s'emmagatzemen en el seu dispositiu amb un potent xifratge protegit amb contrasenya, però com qualsevol sistema xifrat, el moment que este estiga fora del control de propietari corre el risc de ser compromés. Si perd el dispositiu ha de contactar "
+            "value" : "Els certificats s'emmagatzemen en el seu dispositiu amb un potent xifrat, però com qualsevol sistema criptogràfic, en el moment que este està fora del control de propietari corre el risc de ser compromès. Si perd el dispositiu ha de contactar al més prompte possible amb el seu proveïdor de servicis de certificació per a revocar immediatament els certificats que este contenia."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Certificates are stored on your device with a powerful password-protected encryption, but like any encrypted system, the moment it is out of the owner's control it runs the risk of being compromised. If you lose the device, you should contact your certification service provider as soon as possible to immediately revoke the certificates it contained."
+            "value" : "The certificates are stored on your device with powerful encryption, but like any cryptographic system, at the time it is out of control of the owner is at risk of being compromised. If you lose the device you should contact your certification service provider as soon as possible to immediately revoke the certificates it contained."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Los certificados se almacenan en su dispositivo con un potente cifrado protegido con contraseña, pero como cualquier sistema cifrado, el momento que este esté fuera del control de propietario corre el riesgo de ser comprometido. Si pierde el dispositivo debe contactar lo antes posible con su proveedor de servicios de certificación para revocar de inmediato los certificados que este contenía."
+            "value" : "Los certificados se almacenan en su dispositivo con un potente cifrado, pero como cualquier sistema criptográfico, en el momento que este está fuera del control de propietario corre el riesgo de ser comprometido. Si pierde el dispositivo debe contactar lo antes posible con su proveedor de servicios de certificación para revocar de inmediato los certificados que este contenía."
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ziurtagiriak pasahitz bidez babestutako enkriptazio indartsuarekin gordetzen dira zure gailuan, baina enkriptatutako edozein sistema bezala, jabearen kontroletik kanpo dagoenean arriskuan jar daiteke. Zure gailua galtzen baduzu, zure ziurtagiri-zerbitzu-hornitzailearekin harremanetan jarri behar duzu ahalik eta lasterren bertan jasotako ziurtagiriak berehala baliogabetzeko."
+            "value" : "Ziurtagiriak zifratze ahaltsu batekin biltegiratzen dira zure gailuan, baina, edozein sistema kriptografiko bezala, jabearen kontroletik kanpo dagoenean, konpromisoa hartzeko arriskua dago. Gailua galtzen baduzu, lehenbailehen jarri behar duzu harremanetan ziurtatze-zerbitzuen hornitzailearekin, hark zituen ziurtagiriak berehala ezeztatzeko."
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Os certificados gárdanse no teu dispositivo cun potente cifrado protexido por contrasinal, pero como calquera sistema cifrado, unha vez que está fóra do control do propietario, corre o risco de verse comprometido. Se perde o dispositivo, debe poñerse en contacto co seu fornecedor de servizos de certificación o antes posible para revogar inmediatamente os certificados que contiña."
+            "value" : "Os certificados almacénanse no seu dispositivo cun potente cifrado, pero como calquera sistema criptográfico, no momento que este está fóra do control de propietario corre o risco de ser comprometido. Se perde o dispositivo debe contactar canto antes co seu provedor de servizos de certificación para revogar de inmediato os certificados que este contiña."
           }
         }
       }
@@ -4534,13 +4534,13 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Autofirma App per a Apple iOS manca encara de certes funcionalitats que sí que estan presents en versions per a altres sistemes operatius. Futures actualitzacions del producte solucionaran aquestes mancances. Mentrestant, utilitzeu un altre sistema i notifiqueu si ho considereu necessari al responsable del tràmit web."
+            "value" : "Autofirma App manca encara de certes funcionalitats que sí que són presents en versions per a altres sistemes operatius. Futures actualitzacions de l'app solucionaran aquestes manques. Mentrestant, utilitzi un PC amb Autofirma instal·lat per a completar el tràmit web i notifiqui el problema al responsable del tràmit si el considera precís."
           }
         },
         "ca-ES-valencia" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "autofirma App per a Apple iOS manca encara d'unes certes funcionalitats que sí que són presents en versions per a altres sistemes operatius. Futures actualitzacions del producte solucionaran estes mancances. Mentrestant, utilitze un altre sistema i notifique si ho considera precís al responsable del tràmit web."
+            "value" : "Autofirma App manca encara de certes funcionalitats que sí que són presents en versions per a altres sistemes operatius. Futures actualitzacions de l'app solucionaran estes manques. Mentrestant, utilitze un PC amb Autofirma instal·lat per a completar el tràmit web i notifique el problema al responsable del tràmit si el considera precís."
           }
         },
         "en" : {
@@ -4552,19 +4552,19 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Autofirma App para Apple iOS carece aún de ciertas funcionalidades que sí están presentes en versiones para otros sistemas operativos. Futuras actualizaciones del producto solventarán estas carencias. Mientras tanto, utilice otro sistema y notifique si lo considera preciso al responsable del trámite web."
+            "value" : "Autofirma App carece aún de ciertas funcionalidades que sí están presentes en versiones para otros sistemas operativos. Futuras actualizaciones de la app solventarán estas carencias. Mientras tanto, utilice un PC con Autofirma instalado para completar el trámite web y notifique el problema al responsable del trámite si lo considera preciso."
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Apple iOS-erako Autofirma aplikazioak oraindik ez ditu beste sistema eragile batzuen bertsioetan dauden funtzionalitate batzuk. Etorkizuneko produktuen eguneratzeek gabezia horiei aurre egingo diete. Bitartean, erabili beste sistema bat eta jakinarazi web-prozeduraren arduradunari beharrezkoa iruditzen bazaizu."
+            "value" : "Autofirma App-ek oraindik ez ditu beste sistema eragile batzuetarako bertsioetan agertzen diren funtzionalitate batzuk. Aplikazioaren etorkizuneko eguneratzeek konponduko dituzte gabezia horiek. Bitartean, erabili Autofirma instalatuta duen PC bat web-izapidea osatzeko, eta jakinarazi arazoa izapidearen arduradunari, hala baderitzozu."
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Autofirma App para Apple iOS aínda carece de certas funcionalidades que están presentes en versións para outros sistemas operativos. As futuras actualizacións de produtos resolverán estas deficiencias. Mentres tanto, utiliza outro sistema e avisa ao responsable do trámite web se o consideras necesario."
+            "value" : "Autofirma App carece aínda de certas funcionalidades que si están presentes en versións para outros sistemas operativos. Futuras actualizacións da app liquidarán estas carencias. Mentres tanto, utilice un PC con Autofirma instalado para completar o trámite web e notifique o problema ao responsable do trámite se o considera preciso."
           }
         }
       }
@@ -4638,13 +4638,13 @@
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nola egin dezaket sinadura elektronikoa programa honekin?"
+            "value" : "Nola egin ditzaket sinadura elektronikoak programa honekin?"
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Como podo facer sinaturas electrónicas con este programa?"
+            "value" : "Como podo realizar firmas electrónicas con este programa?"
           }
         }
       }
@@ -4654,7 +4654,7 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Els meus certificats corren perill si perdo el dispositiu?"
+            "value" : "Corren perill els meus certificats si perdo el dispositiu?"
           }
         },
         "ca-ES-valencia" : {
@@ -4678,13 +4678,13 @@
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nire ziurtagiriak arriskuan al daude gailua galtzen badut?"
+            "value" : "Arriskuan daude nire ziurtagiriak, gailua galtzen badut?"
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "¿Están en perigo os meus certificados se perdo o meu dispositivo?"
+            "value" : "Corren perigo os meus certificados se perdo o dispositivo?"
           }
         }
       }
@@ -4694,37 +4694,37 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La signatura d'alguns tràmits web fallen, mentre que aquest tràmit funciona en altres dispositius. Per què?"
+            "value" : "La signatura d'alguns tràmits web amb Autofirma App falla, mentre que en aquests mateixos tràmits funciona en altres dispositius. Per què?"
           }
         },
         "ca-ES-valencia" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La firma d'alguns tràmits web fallen, mentres que eixe mateix tràmit funciona en altres dispositius. Per què?"
+            "value" : "La signatura d'alguns tràmits web amb Autofirma App falla, mentre que en eixos mateixos tràmits funciona en altres dispositius. Per què?"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The signature of some web procedures fails, while that same procedure works on other devices. Why?"
+            "value" : "The signing of some web formalities with Autofirma App fails, while in those same procedures it works on other devices. Why?"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La firma de algunos trámites web fallan, mientras que ese mismo trámite funciona en otros dispositivos. ¿Por qué?"
+            "value" : "La firma de algunos trámites web con Autofirma App falla, mientras que en esos mismos trámites funciona en otros dispositivos. ¿Por qué?"
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Web-prozedura batzuen sinadurak huts egiten du, prozedura bera beste gailu batzuetan funtzionatzen duen bitartean. Zeren?"
+            "value" : "Autofirma App-en web-izapide batzuk sinatzeak huts egiten du, eta izapide horietan bertan beste gailu batzuetan ere funtzionatzen du. Zergatik?"
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A sinatura dalgúns procedementos web falla, mentres que o mesmo procedemento funciona noutros dispositivos. Porque?"
+            "value" : "A sinatura dalgúns trámites web con Autofirma App falla, mentres que neses mesmos trámites funciona noutros dispositivos. Por que?"
           }
         }
       }
