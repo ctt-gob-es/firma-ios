@@ -122,5 +122,4 @@ NSString *const PROPERTY_NAME_PKCS1_SIGN_PREFIX = @"PK1.";
 NSString *const PROPERTY_NAME_NEED_DATA =@"NEED_DATA";
 NSString *const PROPERTY_NAME_NEED_PRE =@"NEED_PRE";
 
-NSString *const DEFAULT_NAME_DOCUMENT =@"default_autofirma_document_name";
 @end
