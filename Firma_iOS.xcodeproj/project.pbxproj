@@ -2699,7 +2699,6 @@
 		A06548482CEA37D800C9D8DE /* SendCertificateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06548472CEA37D800C9D8DE /* SendCertificateUseCase.swift */; };
 		A065484B2CEA5E7800C9D8DE /* CipherUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A065484A2CEA5E7800C9D8DE /* CipherUtils.swift */; };
 		A065484F2CEB2B4B00C9D8DE /* LoadDataLocalFileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A065484E2CEB2B4B00C9D8DE /* LoadDataLocalFileUseCase.swift */; };
-		A073AA7C2893E7FC00FE30CE /* BatchSignUseCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A073AA7B2893E7FC00FE30CE /* BatchSignUseCase.m */; };
 		A073AA7F2893F71E00FE30CE /* InputParametersBatch.m in Sources */ = {isa = PBXBuildFile; fileRef = A073AA7E2893F71E00FE30CE /* InputParametersBatch.m */; };
 		A075F1FC2CEB67FA005E1EDA /* ThreePhaseServerRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A075F1FB2CEB67FA005E1EDA /* ThreePhaseServerRest.swift */; };
 		A075F1FE2CEBFEA8005E1EDA /* HandeThirdPartyErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A075F1FD2CEBFEA8005E1EDA /* HandeThirdPartyErrors.swift */; };
@@ -8006,8 +8005,6 @@
 		A06548472CEA37D800C9D8DE /* SendCertificateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCertificateUseCase.swift; sourceTree = "<group>"; };
 		A065484A2CEA5E7800C9D8DE /* CipherUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CipherUtils.swift; sourceTree = "<group>"; };
 		A065484E2CEB2B4B00C9D8DE /* LoadDataLocalFileUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadDataLocalFileUseCase.swift; sourceTree = "<group>"; };
-		A073AA7A2893E7FC00FE30CE /* BatchSignUseCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BatchSignUseCase.h; sourceTree = "<group>"; };
-		A073AA7B2893E7FC00FE30CE /* BatchSignUseCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BatchSignUseCase.m; sourceTree = "<group>"; };
 		A073AA7D2893F71E00FE30CE /* InputParametersBatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputParametersBatch.h; sourceTree = "<group>"; };
 		A073AA7E2893F71E00FE30CE /* InputParametersBatch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputParametersBatch.m; sourceTree = "<group>"; };
 		A075F1FB2CEB67FA005E1EDA /* ThreePhaseServerRest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreePhaseServerRest.swift; sourceTree = "<group>"; };
@@ -15604,8 +15601,6 @@
 		8393EECF2C58FA67009FDE6E /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
-				A073AA7A2893E7FC00FE30CE /* BatchSignUseCase.h */,
-				A073AA7B2893E7FC00FE30CE /* BatchSignUseCase.m */,
 				838114C22C51317100CDEC97 /* SwiftUseCase */,
 			);
 			path = UseCase;
@@ -18891,7 +18886,6 @@
 				8325D5ED2CAADD18007224E9 /* CryptoServicesPermission.m in Sources */,
 				8325D4D62CAADD17007224E9 /* AttributeCertificate.m in Sources */,
 				8325D61A2CAADD18007224E9 /* X509CertificateInternal.m in Sources */,
-				A073AA7C2893E7FC00FE30CE /* BatchSignUseCase.m in Sources */,
 				833C28C92CA2B89A00DFF6CD /* PKCSObjectIdentifiers.m in Sources */,
 				8325D5252CAADD17007224E9 /* ASN1Tag.m in Sources */,
 				833C28F82CA2B89A00DFF6CD /* ParametersWithRandom.m in Sources */,
