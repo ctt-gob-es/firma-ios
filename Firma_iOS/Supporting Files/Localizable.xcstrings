@@ -2166,37 +2166,37 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "part inferior dreta del DNI."
+            "value" : " part inferior dreta del DNI. "
           }
         },
         "ca-ES-valencia" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "part inferior dreta del DNI. "
+            "value" : " part inferior dreta del DNI. "
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "bottom right of the DNI."
+            "value" : " bottom right of the DNI. "
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "parte inferior derecha del DNI. "
+            "value" : " parte inferior derecha del DNI. "
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "NANaren beheko eskuineko zatia."
+            "value" : " NANaren beheko eskuineko zatia. "
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "parte inferior dereita do DNI."
+            "value" : " parte inferior dereita do DNI. "
           }
         }
       }
@@ -2406,37 +2406,37 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "DNI 3.0"
+            "value" : " DNI 3.0 "
           }
         },
         "ca-ES-valencia" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "DNI 3.0"
+            "value" : " DNI 3.0 "
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "DNI 3.0"
+            "value" : " DNI 3.0 "
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "DNI 3.0"
+            "value" : " DNI 3.0 "
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ID 3.0"
+            "value" : " ID 3.0 "
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ID 3.0"
+            "value" : " ID 3.0 "
           }
         }
       }
@@ -2486,37 +2486,37 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "4.0"
+            "value" : " 4.0 "
           }
         },
         "ca-ES-valencia" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "4.0"
+            "value" : " 4.0 "
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "4.0"
+            "value" : " 4.0 "
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "4.0"
+            "value" : " 4.0 "
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "4.0"
+            "value" : " 4.0 "
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "4.0"
+            "value" : " 4.0 "
           }
         }
       }
@@ -2806,37 +2806,37 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "sense funda"
+            "value" : " sense funda "
           }
         },
         "ca-ES-valencia" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "sense funda "
+            "value" : " sense funda "
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "without a case "
+            "value" : " without a case "
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "sin funda "
+            "value" : " sin funda "
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "estalkirik gabe"
+            "value" : " estalkirik gabe "
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "sen cuberta"
+            "value" : " sen cuberta "
           }
         }
       }
