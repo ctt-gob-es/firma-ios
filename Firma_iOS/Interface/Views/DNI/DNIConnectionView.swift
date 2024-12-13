@@ -68,7 +68,6 @@ struct DNIConnectionView: View {
 		  NavigationBarButton(imageName: "cross_gray", action: {
 			 DispatchQueue.main.async {
                     NotificationCenter.default.post(name: .ErrorModalCancelButtonAction, object: nil, userInfo: nil)
-                    nfcViewModel?.sendError(error: AppError.userOperationCanceled)
                 }
 		  })
 	   }
@@ -130,7 +129,6 @@ struct DNIConnectionView: View {
 		  if $0 {
 			 DispatchQueue.main.async {
  				NotificationCenter.default.post(name: .ErrorModalCancelButtonAction, object: nil, userInfo: nil)
-				nfcViewModel?.sendError(error: AppError.userOperationCanceled)
 			 }
 		  }
 	   }
