@@ -144,6 +144,11 @@ public class ParseDataURLOperationUseCase: NSObject {
                 }
              
                 dataResponse = decoded
+            } else {
+                
+                if let base64String = String(data: dataResponse, encoding: .utf8), let decoded = Data(base64Encoded: base64String) {
+                    dataResponse = decoded
+                }
             }
             
             loadDownloadData(dataResponse, completion: completion)
@@ -154,6 +159,7 @@ public class ParseDataURLOperationUseCase: NSObject {
 	   _ decodedData: Data,
 	   completion: @escaping (Result<NSMutableDictionary, AppError>) -> Void
     ) {
+        
         var datosInUse = String(data: decodedData, encoding: .utf8)
         datosInUse = datosInUse?.removingPercentEncoding
         
@@ -175,6 +181,10 @@ public class ParseDataURLOperationUseCase: NSObject {
         DispatchQueue.main.async {
             completion(.success(self.opParameters))
         }
+    }
+    
+    public func getOpParameters() -> NSMutableDictionary {
+        return opParameters;
     }
     
     private func sendError(error: AppError, completion: @escaping (Result<NSMutableDictionary, AppError>) -> Void) {
