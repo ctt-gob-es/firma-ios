@@ -8543,7 +8543,7 @@
 			isa = PBXGroup;
 			children = (
 				833EFDC22CA2C59800170A8B /* JMulticard */,
-				83AF003F2CA2C9EF00A26C0F /* Pades */,
+				83AF003F2CA2C9EF00A26C0F /* Pkcs1Decoding */,
 			);
 			path = J2OBJC;
 			sourceTree = "<group>";
@@ -8653,12 +8653,12 @@
 			path = BatchRest;
 			sourceTree = "<group>";
 		};
-		83AF003F2CA2C9EF00A26C0F /* Pades */ = {
+		83AF003F2CA2C9EF00A26C0F /* Pkcs1Decoding */ = {
 			isa = PBXGroup;
 			children = (
 				833C1E132CA2B89800DFF6CD /* src */,
 			);
-			path = Pades;
+			path = Pkcs1Decoding;
 			sourceTree = "<group>";
 		};
 		83AF00402CA2CB5A00A26C0F /* DNIe */ = {
