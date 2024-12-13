@@ -26,7 +26,6 @@
 #include "es/gob/jmulticard/ios/DnieFactoryWrapper.h"
 #include "es/gob/jmulticard/ios/DnieWrapper.h"
 #include "es/gob/jmulticard/ios/ErrorCode.h"
-#include "es/gob/afirma/core/misc/Base64.h"
 #include "es/gob/jmulticard/card/dnie/Dnie3.h"
 #include "es/gob/jmulticard/card/CryptoCard.h"
 #import "IOSObjectArray.h"
