@@ -17,7 +17,6 @@
 #import "GAIDictionaryBuilder.h"
 #import "Base64Utils.h"
 #import "AOCounterSignXMLParser.h"
-#import "Pkcs1Utils.h"
 #import "IOSPrimitiveArray.h"
 #import "J2ObjC_source.h"
 #import "AOUtils.h"
@@ -66,3 +65,6 @@
 #include "org/bouncycastle/util/encoders/Base64.h"
 #include "es/gob/jmulticard/card/dnie/Dnie3.h"
 #include "es/gob/jmulticard/card/CryptoCard.h"
+
+//FRAMEWORKS
+#import <PAdESSignature/PKCS1DecoderUtils.h>

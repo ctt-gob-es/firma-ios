@@ -337,7 +337,7 @@ class GenericBatchSignUseCase: NSObject {
     
     func decodePK1Signature(_ signedData: Data) -> String {
 	   let iosByteArray = IOSByteArray(nsData: signedData)
-	   let decodedSignature = EsGobAfirmaCoreSignersPkcs1Utils.decodeSignature(with: iosByteArray)
+	   let decodedSignature = PKCS1DecoderUtils.decodeSignature(with: iosByteArray)
 	   return Base64Utils.encode(decodedSignature?.toNSData())
     }
 }
