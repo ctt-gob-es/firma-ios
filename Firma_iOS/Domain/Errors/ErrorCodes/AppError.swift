@@ -90,11 +90,11 @@ enum AppError: Error {
     }
     
     var serverErrorMessage: String {
-        return "ERR-\(self.code):=\(self.description)"
+        return "ERR-AI\(self.code):=\(self.description)"
     }
     
     var screenErrorMessage: String {
-        return "\(self.code) - \(self.screenType.description)"
+        return "AI\(self.code) - \(self.screenType.description)"
     }
 }
 
