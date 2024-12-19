@@ -50,7 +50,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		5fqb5PwVnA9TV+vWmLC09e289b0=
+		NNcRR9kGCfyH40VU00bNGXC2iVw=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -89,6 +89,10 @@
 	<dict>
 		<key>Courier-Bold.afm</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			SzkUwU50rHGgISJz2gpei+v46xA=
+			</data>
 			<key>hash2</key>
 			<data>
 			rQFQ1L7cyId3Qr+UJR/OwT40jdWZ1GA/Z52SAn0ebpk=
@@ -96,6 +100,10 @@
 		</dict>
 		<key>Courier-BoldOblique.afm</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			puFm0kV/NVgwtOeBUUjoLS3V8XM=
+			</data>
 			<key>hash2</key>
 			<data>
 			y4LmnvX21CHo9AT+ALsNmTQlqueXJTMdDr+EfpTpfpI=
@@ -103,6 +111,10 @@
 		</dict>
 		<key>Courier-Oblique.afm</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			KlVETF4+JqNi+urqlqxi/lzcHn8=
+			</data>
 			<key>hash2</key>
 			<data>
 			snEDsqLvYDDBEGJll+KrR7uCeQdaA5q5Fw+ssKofcOE=
@@ -110,6 +122,10 @@
 		</dict>
 		<key>Courier.afm</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			FyqGkwNHwRVRe2vu7H+ulGnTwfo=
+			</data>
 			<key>hash2</key>
 			<data>
 			Uh4NfHUh79S+eKWpxTmOTGfQdx45YRWwNGvE73StpT0=
@@ -117,6 +133,10 @@
 		</dict>
 		<key>Headers/PAdESSignature.h</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			qndMM+HXDyvtMFdbiD3brreq+OI=
+			</data>
 			<key>hash2</key>
 			<data>
 			zlPtnwqaOYE5woiowz7qgil/Jv5/Z/5UY49JO/a9dQc=
@@ -124,6 +144,10 @@
 		</dict>
 		<key>Headers/PAdESSignatureUtils.h</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			YSfGOAqMnMXz6i7ZPOlrKCKOsLU=
+			</data>
 			<key>hash2</key>
 			<data>
 			wQnjiLrNkulBnuaaZETELPLXBS1hXcMK1zYB05mGDYY=
@@ -131,6 +155,10 @@
 		</dict>
 		<key>Headers/PKCS1DecoderUtils.h</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			cUBUxL6yPNTJ6kXNproiN2/lxLU=
+			</data>
 			<key>hash2</key>
 			<data>
 			lPRVtOBc0r4zc3kWo4RzoAB9WlgGHPaEb5swc/uyQjM=
@@ -138,6 +166,10 @@
 		</dict>
 		<key>Helvetica-Bold.afm</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			dEtNTXkg8MZoICRxyCUqRqnwW28=
+			</data>
 			<key>hash2</key>
 			<data>
 			uIDZa69W0MwFnyWPYLTXZO9JtVWrnbKUuVnAAW3uQfI=
@@ -145,6 +177,10 @@
 		</dict>
 		<key>Helvetica-BoldOblique.afm</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			NL4MusJpAAUHEeoiBBBVg80M76Q=
+			</data>
 			<key>hash2</key>
 			<data>
 			aZhKNcomlzo58mHPg+DTZ+ouZRfFkLCwMNTUohnZwmk=
@@ -152,6 +188,10 @@
 		</dict>
 		<key>Helvetica-Oblique.afm</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			K8Qdt2WI4mspqD6YGTz9weqpyws=
+			</data>
 			<key>hash2</key>
 			<data>
 			tGCbcbZgo5KsCd81BgJxqHbCzmZhfdg7+Cb3QrudlyE=
@@ -159,6 +199,10 @@
 		</dict>
 		<key>Helvetica.afm</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			bkR00k/Bi8AgkS8D6sXHu3BbJg4=
+			</data>
 			<key>hash2</key>
 			<data>
 			2jPxhwR0yOaL/j4jU/8QerbG7qH5g2ziqvHhoHsXmC8=
@@ -166,6 +210,10 @@
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			m9Sn1LkE3FIzoQS9Jj08h+P/AV4=
+			</data>
 			<key>hash2</key>
 			<data>
 			t7FK6CXPBYWrrkNd3IQBjbW8OfgdZEVLiaKQxrrbfMY=
@@ -173,6 +221,10 @@
 		</dict>
 		<key>Symbol.afm</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			JO+fHZgWM1MBgcQNoLD27G2+SKE=
+			</data>
 			<key>hash2</key>
 			<data>
 			PSEoqCA3WhDem8i/bPsV3tSCwByg+VzAsyd/N+yL3mY=
@@ -180,6 +232,10 @@
 		</dict>
 		<key>Times-Bold.afm</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			xpMyHJT1Mt+C55Dnc34+z90kdVw=
+			</data>
 			<key>hash2</key>
 			<data>
 			tKAA7YXLIsbN2YWqD9P2947VB5t8aGDcTwI04NDjxSI=
@@ -187,6 +243,10 @@
 		</dict>
 		<key>Times-BoldItalic.afm</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			CchjjKd2DyNYvduWxIzENwnHkcE=
+			</data>
 			<key>hash2</key>
 			<data>
 			k8R0S6lVIV3gLEquC3dxM0Qq2i96taKvMKBAt5KzxV0=
@@ -194,6 +254,10 @@
 		</dict>
 		<key>Times-Italic.afm</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			Mb7ygZse8PZcnHmMTSTkBDUovDo=
+			</data>
 			<key>hash2</key>
 			<data>
 			7Tf6LmpntbF9/Ufzb8fpDfMokaRAiGDbyNTLvplZ4kI=
@@ -201,6 +265,10 @@
 		</dict>
 		<key>Times-Roman.afm</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			8dZjYjyJsN8ByYQ5jbAdTYHFxhc=
+			</data>
 			<key>hash2</key>
 			<data>
 			do4cq+oIXUiaY9o+gLlrxavw7JjTBzybTWunbnvMumQ=
@@ -208,6 +276,10 @@
 		</dict>
 		<key>ZapfDingbats.afm</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			9a5afa4FJjUPgOnQ4DYyr+Bh5wo=
+			</data>
 			<key>hash2</key>
 			<data>
 			oyVlyQr9G1enAI/FZ7eNlc8cIq3/XghglNZm2IsDmFk=
@@ -215,6 +287,10 @@
 		</dict>
 		<key>glyphlist.txt</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			9G3X6+lCLg+ABLgGQ8nCrxvLyW8=
+			</data>
 			<key>hash2</key>
 			<data>
 			7ugtotvVpNId5UqaqpsNB+W1LC1z1eXazipeY4AOTX8=
