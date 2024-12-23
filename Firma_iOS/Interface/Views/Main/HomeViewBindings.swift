@@ -51,6 +51,11 @@ extension View {
 				viewModel.signMode = .idCard
 			 }
 		  }
+		  .onChange(of: viewModel.signMode) { newValue in
+			 if newValue == .electronicCertificate && viewModel.isLocalSign {
+				viewModel.handleSignModeChange()
+			 }
+		  }
     }
     
     // MARK: - Status Bindings

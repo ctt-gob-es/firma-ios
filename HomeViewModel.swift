@@ -129,13 +129,19 @@ class HomeViewModel: ObservableObject {
                     }
                 }
             } else {
-                //TODO: If we don't have any URL, its signing locally
-                self.isLocalSign = true
-                self.signModel = SignModel(dictionary: NSMutableDictionary())
-                self.signUseCase = SingleSignUseCase(signModel: signModel!, certificateUtils: certificateUtils)
-                configureMode(signModel: signModel!)
+               handleLocalSing()
             }
         }
+    }
+    
+    func handleLocalSing() {
+	   self.viewMode = .sign
+	   self.isLocalSign = true
+	   self.signModel = SignModel(dictionary: NSMutableDictionary())
+	   self.signModel?.operation = OPERATION_SIGN
+	   self.signUseCase = SingleSignUseCase(signModel: signModel!, certificateUtils: certificateUtils)
+	   chooseButtonTitle()
+	   appStatus.showDocumentImportingPicker = true
     }
     
     func handleCertificateChange(_ value: AOCertificateInfo?) {
@@ -146,9 +152,16 @@ class HomeViewModel: ObservableObject {
             
             DispatchQueue.main.async {
                 self.buttonEnabled = isButtonEnabled
-             
             }
         }
+    }
+    
+    func handleSignModeChange() {
+	   areCertificatesSelectable = false
+	   DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+		  self.showSignCoordinatesModal = true
+		  self.areCertificatesSelectable = true
+	   }
     }
     
     func handleShouldSignChange(_ value: Bool) {
@@ -163,20 +176,20 @@ class HomeViewModel: ObservableObject {
     }
     
     func selectSignMode() {
-        let nfcEnabled = UserDefaults.standard.object(forKey: "isNfcEnabled") == nil ? true : UserDefaults.standard.bool(forKey: "isNfcEnabled")
-        if nfcEnabled {
-            showSelectSignMode = true
-        } else {
-            if certificates.isEmpty {
+	   let nfcEnabled = UserDefaults.standard.object(forKey: "isNfcEnabled") == nil ? true : UserDefaults.standard.bool(forKey: "isNfcEnabled")
+	   if nfcEnabled {
+		  showSelectSignMode = true
+	   } else {
+		  if certificates.isEmpty {
 			 sendErrorOperation(error: AppError.certificateNeeded)
-            } else {
-                areCertificatesSelectable = true
-                signMode = .electronicCertificate
-                if let visibleSignature = self.signModel?.visibleSignature {
-                    self.showSignCoordinatesModal = true
-                }
-            }
-        }
+		  } else {
+			 areCertificatesSelectable = true
+			 signMode = .electronicCertificate
+			 if (self.signModel?.visibleSignature) != nil {
+				self.showSignCoordinatesModal = true
+			 }
+		  }
+	   }
     }
     
     func handleImportedDataURLsChange(_ value: [URL]?) {
@@ -407,8 +420,19 @@ class HomeViewModel: ObservableObject {
     
     private func handleOperationSaveData() {
         if let receivedStringData = signModel?.datosInUse {
+		  let archiveName: String
+		  if isLocalSign {
+			 if let name = appStatus.importedDataArchiveName {
+				archiveName = name + "_signed.pdf"
+			 } else {
+				archiveName = FileUtils.getArchiveNameFromParameters(parameters: parameters)
+			 }
+		  } else {
+			 archiveName = FileUtils.getArchiveNameFromParameters(parameters: parameters)
+		  }
+		  
             SaveDataUseCase().saveFileFromBase64Data(
-                archiveName: FileUtils.getArchiveNameFromParameters(parameters: parameters),
+                archiveName: archiveName,
                 base64Data: receivedStringData
             ) { result in
                 self.isLoading = false
@@ -438,26 +462,20 @@ class HomeViewModel: ObservableObject {
     
     func signLocalPdf() {
 	   guard
-		  //let stringBase64Data = PDFConstants.mockPDFString,
-		  let pdfData = Base64Utils.decode(PDFConstants.mockPDFString, urlSafe: true),
+		  let stringBase64Data = signModel?.datosInUse,
+		  let pdfData = Base64Utils.decode(stringBase64Data, urlSafe: true),
 		  let privateKeyRef = certificateUtils?.privateKey,
 		  let certificateName = certificateUtils?.selectedCertificateName,
 		  let identity = SwiftCertificateUtils.getIdentityFromKeychain(certName: certificateName),
 		  let certificateRef = SwiftCertificateUtils.getCertificateRefFromIdentity(identity: identity),
-		  let certificateAlgorithm = SwiftCertificateUtils.getAlgorithmFromCertificate(certificate: certificateRef) else {
+		  let certificateAlgorithm = SwiftCertificateUtils.getAlgorithmFromCertificate(certificate: certificateRef),
+		  let extraParams = signModel?.dictExtraParams,
+		  let stringDict: [String: String] = extraParams as? [String:String] else {
 		  print("Missing required data for signing")
             showError(appError: AppError.generalSoftwareError)
 		  isLoading = false
 		  return
 	   }
-	   
-	   let extraParams = [
-		  "signaturePositionOnPageLowerLeftX": "0",
-		  "signaturePositionOnPageLowerLeftY": "0",
-		  "signaturePositionOnPageUpperRightX": "200",
-		  "signaturePositionOnPageUpperRightY": "200",
-		  "signaturePages": "1"
-	   ]
 	   
 	   let swiftPadesUtils = PadesUtilsSwift()
 	   swiftPadesUtils.signPdf(
@@ -466,13 +484,17 @@ class HomeViewModel: ObservableObject {
 		  privateKey: privateKeyRef,
 		  certificateRef: certificateRef,
 		  certificateAlgorithm: certificateAlgorithm,
-		  extraParams: extraParams
+		  extraParams: stringDict
 	   ) { result in
             switch result {
-            case .success(_):
-                self.viewMode = .home
-                self.successModalState = .successSign
-                self.showSuccessModal = true
+            case .success(let signedPDF):
+			 self.isLoading = false
+			 self.areCertificatesSelectable = false
+			 self.viewMode = .home
+			 self.appStatus.showDocumentSavingPicker = true
+			 self.signModel?.datosInUse = signedPDF
+			 self.handleOperationSaveData()
+
             case.failure(let error):
                 // Al ser firma local no necesitamos enviar error al servidor
                 self.showError(appError: error)
@@ -508,7 +530,7 @@ class HomeViewModel: ObservableObject {
                 checkCertificateSelected(step: .expiredNearPass)
             }
         case .expiredNearPass:
-            handleOperationSignWithElectronicCertificate()
+		  handleOperationSignWithElectronicCertificate()
         }
     }
     
@@ -591,7 +613,9 @@ class HomeViewModel: ObservableObject {
         if (self.viewMode == .sign) {
             // Si estamos en operacion de firma, mostramos el aviso de operacion cancelada y enviamos al servidor
             showError(appError: AppError.userOperationCanceled)
-            SendErrorOperationUseCase().execute(error: AppError.userOperationCanceled, signModel: signModel)
+		  if !isLocalSign {
+			 SendErrorOperationUseCase().execute(error: AppError.userOperationCanceled, signModel: signModel)
+		  }
         }
         resetHomeViewModelVariables()
     }

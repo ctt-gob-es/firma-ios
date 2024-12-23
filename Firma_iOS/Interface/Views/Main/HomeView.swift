@@ -226,6 +226,12 @@ struct HomeView: View {
     private var homeButtons : some View {
 	   VStack {
 		  Button(action: {
+			 viewModel.handleLocalSing()
+		 }) {
+			AccessibleText(content: NSLocalizedString("historical_local_sign_type", bundle: Bundle.main, comment: ""))
+		 }
+		 .buttonStyle(CustomButtonStyle(isEnabled: true))
+		  Button(action: {
 			appStatus.showDocumentPicker.toggle()
 		 }) {
 			AccessibleText(content: NSLocalizedString("home_certificates_add_certificate_button_title", bundle: Bundle.main, comment: ""))

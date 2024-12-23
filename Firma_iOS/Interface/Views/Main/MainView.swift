@@ -223,6 +223,11 @@ struct MainView: View {
 	   switch result {
 		  case .success(let urls):
 			 appStatus.importedDataURLS = urls
+			 if let fileName = urls.last?.lastPathComponent {
+				let archiveName = fileName.components(separatedBy: ".").dropLast().joined(separator: ".")
+				appStatus.importedDataArchiveName = archiveName
+			 }
+	   
 		  case .failure(let error):
 			 print("File import failed with error: \(error.localizedDescription)")
 			 handleErrorImportingFile(error: error)
