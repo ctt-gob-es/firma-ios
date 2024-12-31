@@ -48,7 +48,7 @@ class DNISingleSignUseCase : GenericSignUseCase, DNIeResult {
     func getDNIeNFCSuccess(wrapper: EsGobJmulticardIosDnieWrapper) {
 	   let certJ509 = wrapper.getCertificateWith(PrivateConstants.certFromDNIe)
 	   if let certJ509 = certJ509 {
-		  self.certificateData = EsGobAfirmaCoreMiscBase64_encodeWithByteArray_withBoolean_(certJ509.getEncoded(), true)
+		  self.certificateData = Base64Utils.encode(certJ509.getEncoded().toNSData(), urlSafe: true)
 	   } else{
 		  handleErrorDnieWrapper(errorCode: 11)
 		  return

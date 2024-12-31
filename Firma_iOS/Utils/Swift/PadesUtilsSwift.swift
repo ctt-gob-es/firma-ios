@@ -20,7 +20,7 @@ class PadesUtilsSwift {
 	   completion: @escaping (Result<String, AppError>) -> Void
     ) {
 	   DispatchQueue.global(qos: .userInitiated).async {
-		  let utils = AOPadesUtils()
+		  /*let utils = AOPadesUtils()
 
 		  utils.signPdf(
 			 with: pdfData,
@@ -40,7 +40,7 @@ class PadesUtilsSwift {
 				    completion(.failure(unknownError))
 				}
 			 }
-		  }
+		  }*/
 	   }
     }
 }
