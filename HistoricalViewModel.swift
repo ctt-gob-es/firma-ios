@@ -12,7 +12,6 @@ import CoreData
 
 class HistoricalViewModel: ObservableObject {
     @Published var historyList: [History] = []
-    @Published var sheetHeight: CGFloat = .zero
     
     private let historicalUseCase = HistoricalUseCase()
 

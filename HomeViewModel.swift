@@ -39,7 +39,6 @@ class HomeViewModel: ObservableObject {
     @Published var signType: SignType? = nil
     @Published var dataType: DataType? = nil
     @Published var showTextfieldModal: Bool = false
-    @Published var sheetHeight: CGFloat = .zero
     @Published var showSelectSignMode: Bool = false
     @Published var selectDNIe: Bool = false
     @Published var selectElectronicCertificate: Bool = false

@@ -12,6 +12,7 @@ import Combine
 struct HomeView: View {
     @EnvironmentObject private var appStatus: AppStatus
     @StateObject private var viewModel: HomeViewModel
+    @State private var contentSheetHeight: CGFloat = 0
     
     @Binding var shouldSign: Bool
     @Binding var viewMode: ViewModes
@@ -69,38 +70,31 @@ struct HomeView: View {
         .sheet(isPresented: $appStatus.showDeleteModal) {
            if let selectedCertificate = appStatus.selectedCertificate {
               DeleteCertificateModalView(
+                 contentHeight: $contentSheetHeight,
                  shouldReload: $viewModel.shouldReloadCertificates,
                  certificate: selectedCertificate
               )
-              .fixedSize(horizontal: false, vertical: true)
-              .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
-              .presentationDetents([.height(viewModel.sheetHeight)])
+              .presentationDetents([.height(contentSheetHeight)])
               .accessibility(addTraits: .isModal)
               .interactiveDismissDisabled(true)
            }
         }
         .sheet(isPresented: $viewModel.showPseudonymModal) {
-            CertificateInfoModalView(title: "pseudonym_modal_title", message: "pseudonym_modal_description", onContinue: {
+            CertificateInfoModalView(contentHeight: $contentSheetHeight, title: "pseudonym_modal_title", message: "pseudonym_modal_description", onContinue: {
                 viewModel.checkCertificateSelected(step: .pseudonymPass)})
-                .fixedSize(horizontal: false, vertical: true)
-                .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
-                .presentationDetents([.height(viewModel.sheetHeight)])
+                .presentationDetents([.height(contentSheetHeight)])
                 .accessibility(addTraits: .isModal)
                 .interactiveDismissDisabled(true)
         }
         .sheet(isPresented: $viewModel.showCertificateInfoModal) {
-            CertificateInfoModalView(title: viewModel.titleCertificateInfoModal, message: viewModel.messageCertificateInfoModal, onContinue: { viewModel.checkCertificateSelected(step: .expiredNearPass)})
-                .fixedSize(horizontal: false, vertical: true)
-                .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
-                .presentationDetents([.height(viewModel.sheetHeight)])
+            CertificateInfoModalView(contentHeight: $contentSheetHeight, title: viewModel.titleCertificateInfoModal, message: viewModel.messageCertificateInfoModal, onContinue: { viewModel.checkCertificateSelected(step: .expiredNearPass)})
+                .presentationDetents([.height(contentSheetHeight)])
                 .accessibility(addTraits: .isModal)
                 .interactiveDismissDisabled(true)
         }
 	   .sheet(isPresented: $viewModel.showTextfieldModal) {
-		  TextfieldModalView(password: $password, shouldCancelOperation: $shouldCancelOperation)
-			 .fixedSize(horizontal: false, vertical: true)
-			 .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
-			 .presentationDetents([.height(viewModel.sheetHeight)])
+		  TextfieldModalView(contentHeight: $contentSheetHeight, password: $password, shouldCancelOperation: $shouldCancelOperation)
+                .presentationDetents([.height(contentSheetHeight)])
 			 .accessibility(addTraits: .isModal)
 			 .interactiveDismissDisabled(true)
 	   }
@@ -128,12 +122,11 @@ struct HomeView: View {
 		  }
 	   }) {
 		  SignModalView(
+                contentHeight: $contentSheetHeight,
 			 certificateSignAction: viewMode == .sign ? $appStatus.keepParentController : $appStatus.navigateToSelectCertificate,
 			 dniSignAction: $viewModel.selectDNIe
 		  )
-		  .fixedSize(horizontal: false, vertical: true)
-		  .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
-		  .presentationDetents([.height(viewModel.sheetHeight)])
+		  .presentationDetents([.height(contentSheetHeight)])
 		  .accessibility(addTraits: .isModal)
 		  .interactiveDismissDisabled(true)
 	   }

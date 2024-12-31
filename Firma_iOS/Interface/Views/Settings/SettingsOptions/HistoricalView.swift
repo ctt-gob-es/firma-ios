@@ -12,6 +12,8 @@ import CoreData
 
 struct HistoricalView: View {
     @ObservedObject var viewModel = HistoricalViewModel()
+    @State private var contentSheetHeight: CGFloat = 0
+    
     @State var showDeleteModal: Bool = false
     
     var body: some View {
@@ -43,10 +45,8 @@ struct HistoricalView: View {
 		  }
 	   }
 	   .sheet(isPresented: $showDeleteModal) {
-		  DeleteHistoricalModalView(viewModel: viewModel)
-			 .fixedSize(horizontal: false, vertical: true)
-			 .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
-			 .presentationDetents([.height(viewModel.sheetHeight)])
+            DeleteHistoricalModalView(contentHeight: $contentSheetHeight, viewModel: viewModel)
+			 .presentationDetents([.height(contentSheetHeight)])
 			 .accessibility(addTraits: .isModal)
 			 .interactiveDismissDisabled(true)
 	   }
