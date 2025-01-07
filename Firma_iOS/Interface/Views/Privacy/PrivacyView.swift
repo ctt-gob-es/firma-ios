@@ -11,10 +11,13 @@ import SwiftUI
 struct PrivacyView: View {
     @State private var isPrivacyPolicyAccepted: Bool = false
     @State private var isTermsAccepted: Bool = false
+    @State private var selectedLanguage: LocalizedLanguage = LocalizedLanguage.allLanguages.first!
     
     var body: some View {
 	   VStack(alignment: .leading, spacing: 20) {
-		  PrivacyPolicyHTMLWeb(htmlFileName: "privacy_policy")
+		  LanguageSelectorView(selectedLanguage: $selectedLanguage)
+		  
+		  PrivacyPolicyHTMLWeb(htmlFileName: "privacy_policy", languageCode: selectedLanguage.code)
 			 
 			 VStack(alignment: .leading, spacing: 10) {
 				CheckBoxView(
@@ -44,3 +47,58 @@ struct PrivacyView: View {
     }
 }
 
+struct LanguageSelectorView: View {
+    @Binding var selectedLanguage: LocalizedLanguage
+
+    var body: some View {
+	   HStack {
+		  AccessibleText(content: NSLocalizedString("language_title", bundle: Bundle.main, comment: ""))
+			 .font(.headline)
+		  
+		  Menu {
+			 ForEach(LocalizedLanguage.allLanguages) { language in
+				Button(action: {
+				    selectLanguage(language)
+				}) {
+				    HStack {
+					   Text(language.name)
+					   if language.id == selectedLanguage.id {
+						  Spacer()
+						  Image(systemName: "checkmark")
+					   }
+				    }
+				}
+			 }
+		  } label: {
+			 HStack {
+				Text(selectedLanguage.name)
+				    .foregroundColor(.primary)
+				Image(systemName: "chevron.down")
+				    .font(.system(size: 12, weight: .bold))
+			 }
+			 .padding(.horizontal)
+			 .padding(.vertical, 5)
+			 .overlay(
+				RoundedRectangle(cornerRadius: 10)
+				    .stroke(Color.gray, lineWidth: 1)
+			 )
+		  }
+	   }
+	   .onAppear {
+		  loadSavedLanguage()
+	   }
+    }
+
+    private func selectLanguage(_ language: LocalizedLanguage) {
+	   selectedLanguage = language
+	   UserDefaults.standard.set(language.code, forKey: "appLanguage")
+	   Bundle.setLanguage(language.code)
+    }
+
+    private func loadSavedLanguage() {
+	   let savedLanguageCode = UserDefaults.standard.string(forKey: "appLanguage") ?? Locale.current.language.languageCode?.identifier ?? "es"
+	   if let language = LocalizedLanguage.allLanguages.first(where: { $0.code == savedLanguageCode }) {
+		  selectedLanguage = language
+	   }
+    }
+}
