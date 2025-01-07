@@ -28,6 +28,7 @@ struct ParentView: View {
 }
 
 struct MainView: View {
+    @State private var contentSheetHeight: CGFloat = 0
     @EnvironmentObject var appStatus : AppStatus
     @StateObject var viewModel : MainViewModel
     
@@ -147,43 +148,36 @@ struct MainView: View {
 		  onCancellation: handleFileImportCancellation
 	   )
 	   .sheet(isPresented: $appStatus.showingInfoModal) {
-		  InfoModalView()
-			 //.fixedSize(horizontal: false, vertical: true)
-			 .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
-			 .presentationDetents([.height(UIScreen.main.bounds.height * 0.75)])
+		  InfoModalView(contentHeight: $contentSheetHeight)
+			 .presentationDetents([.height(contentSheetHeight)])
 			 .accessibility(addTraits: .isModal)
 			 .interactiveDismissDisabled(true)
 	   }
        .sheet(isPresented: $appStatus.showSuccessModal) {
 		  SuccessModalView(
+                contentHeight: $contentSheetHeight,
 			 title: appStatus.successModalState.title,
 			 description: appStatus.successModalState.description
 		  )
-		  .fixedSize(horizontal: false, vertical: true)
-		  .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
-		  .presentationDetents([.height(viewModel.sheetHeight)])
+            .presentationDetents([.height(contentSheetHeight)])
 		  .accessibility(addTraits: .isModal)
 		  .interactiveDismissDisabled(true)
 	   }
 	   .sheet(isPresented: $appStatus.showErrorModal) {
 		  ErrorModalView(
+                contentHeight: $contentSheetHeight,
 			 viewMode: $viewModel.viewMode,
 			 description: $appStatus.errorModalDescription,
 			 shouldReloadParentView: $appStatus.navigateToSelectCertificate,
                 appError: appStatus.appError ?? AppError.generalSoftwareError
 		  )
-		  .environmentObject(appStatus)
-		  .fixedSize(horizontal: false, vertical: true)
-		  .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
-		  .presentationDetents([.height(viewModel.sheetHeight)])
+            .presentationDetents([.height(contentSheetHeight)])
 		  .accessibility(addTraits: .isModal)
 		  .interactiveDismissDisabled(true)
 	   }
 	   .sheet(isPresented: $appStatus.showRecoveryModal) {
-		  RecoveryModalView()
-			 .fixedSize(horizontal: false, vertical: true)
-			 .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
-			 .presentationDetents([.height(viewModel.sheetHeight)])
+		  RecoveryModalView(contentHeight: $contentSheetHeight)
+			 .presentationDetents([.height(contentSheetHeight)])
 			 .accessibility(addTraits: .isModal)
 			 .interactiveDismissDisabled(true)
 	   }

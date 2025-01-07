@@ -9,12 +9,12 @@ import SwiftUI
 
 struct InfoModalView: View {
     @Environment(\.presentationMode) var presentationMode
+    @Binding var contentHeight: CGFloat
     
     var body: some View {
-        VStack(spacing: 20) {
-            ScrollView {
-                VStack(spacing: 0) {
-                    
+        ScrollView {
+            VStack(spacing: 0) {
+                VStack(spacing: 20) {
                     HStack {
                         AccessibleText(content: NSLocalizedString("info_view_title", bundle: Bundle.main, comment: ""))
                             .mediumBoldStyle(foregroundColor: ColorConstants.Text.primary)
@@ -46,33 +46,39 @@ struct InfoModalView: View {
                                 .regularStyle(foregroundColor: ColorConstants.Text.primary)
                         }
                     }
-                }
+                    
+                    Spacer()
+                    
+                    /*Button(action: {
+                     if let url = URL(string: "https://www.fondoseuropeos.hacienda.gob.es/sitios/dgpmrr/es-es/Paginas/Inicio.aspx") {
+                     UIApplication.shared.open(url)
+                     }
+                     }) {
+                     AccessibleText(content: NSLocalizedString("info_view_more_info", bundle: Bundle.main, comment: ""))
+                     .regularBoldStyle(foregroundColor: ColorConstants.Background.buttonEnabled)
+                     .foregroundColor(ColorConstants.Background.buttonEnabled)
+                     .underline()
+                     .frame(maxWidth: .infinity, alignment: .center)
+                     }*/
+                    
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }) {
+                        AccessibleText(content: NSLocalizedString("info_view_button_title", bundle: Bundle.main, comment: ""))
+                    }
+                    .buttonStyle(CustomButtonStyle(isEnabled: true))
+                }.padding()
             }
-                
-            Spacer()
-            
-            /*Button(action: {
-                if let url = URL(string: "https://www.fondoseuropeos.hacienda.gob.es/sitios/dgpmrr/es-es/Paginas/Inicio.aspx") {
-                    UIApplication.shared.open(url)
+            .background(GeometryReader { geometry in
+                Color.white.onAppear {
+                    // Medir la altura del contenido cuando se muestra
+                    contentHeight = geometry.size.height
                 }
-            }) {
-                AccessibleText(content: NSLocalizedString("info_view_more_info", bundle: Bundle.main, comment: ""))
-                    .regularBoldStyle(foregroundColor: ColorConstants.Background.buttonEnabled)
-                    .foregroundColor(ColorConstants.Background.buttonEnabled)
-                    .underline()
-                    .frame(maxWidth: .infinity, alignment: .center)
-            }*/
-            
-            Button(action: {
-                self.presentationMode.wrappedValue.dismiss()
-            }) {
-                AccessibleText(content: NSLocalizedString("info_view_button_title", bundle: Bundle.main, comment: ""))
-            }
-            .buttonStyle(CustomButtonStyle(isEnabled: true))
+            })
+            .fixedSize(horizontal: false, vertical: true) // Ajuste del contenido
+            .modifier(GetHeightModifier(height: $contentHeight)) // Modificar la altura
+            .cornerRadius(10)
         }
-        .padding()
-        .background(Color.white)
-        .cornerRadius(10)
     }
 }
 

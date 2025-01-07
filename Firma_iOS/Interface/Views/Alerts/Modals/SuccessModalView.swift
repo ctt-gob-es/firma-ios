@@ -10,46 +10,58 @@ import SwiftUI
 
 struct SuccessModalView: View {
     @Environment(\.presentationMode) var presentationMode
+
+    @Binding var contentHeight: CGFloat
     var title: String
     var description: String
     
     var body: some View {
-	   VStack(spacing: 10) {
-		  HStack {
-			 Image("tick")
-				.resizable()
-				.scaledToFit()
-				.frame(width: 64, height: 64)
-			 Spacer()
-		  }
-		  .padding(.leading)
-		  
-		  VStack(alignment: .leading, spacing: 0) {
-			 AccessibleText(content: title)
-				.titleStyleBlack(foregroundColor: ColorConstants.Text.primary)
-				.accessibilityAddTraits(.isHeader)
-				.padding(.bottom)
-			 
-			 AccessibleText(content: description)
-				.regularStyle(foregroundColor: ColorConstants.Text.secondary)
-		  }
-		  .padding(.horizontal)
-		  .frame(maxWidth: .infinity, alignment: .leading)
-		  
-		  Spacer()
-		  
-		  VStack(spacing: 10) {
-			 Button(action: {
-				self.presentationMode.wrappedValue.dismiss()
-			 }) {
-				AccessibleText(content: NSLocalizedString("info_view_button_title", bundle: Bundle.main, comment: ""))
-			 }
-			 .buttonStyle(CustomButtonStyle(isEnabled: true))
-		  }
-	   }
-	   .padding()
-	   .background(Color.white)
-	   .cornerRadius(10)
+        ScrollView {
+            VStack(spacing: 0) {
+                VStack(spacing: 10) {
+                    HStack {
+                        Image("tick")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 64, height: 64)
+                        Spacer()
+                    }
+                    .padding(.leading)
+                    
+                    VStack(alignment: .leading, spacing: 0) {
+                        AccessibleText(content: title)
+                            .titleStyleBlack(foregroundColor: ColorConstants.Text.primary)
+                            .accessibilityAddTraits(.isHeader)
+                            .padding(.bottom)
+                        
+                        AccessibleText(content: description)
+                            .regularStyle(foregroundColor: ColorConstants.Text.secondary)
+                    }
+                    .padding(.horizontal)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    Spacer()
+                    
+                    VStack(spacing: 10) {
+                        Button(action: {
+                            self.presentationMode.wrappedValue.dismiss()
+                        }) {
+                            AccessibleText(content: NSLocalizedString("info_view_button_title", bundle: Bundle.main, comment: ""))
+                        }
+                        .buttonStyle(CustomButtonStyle(isEnabled: true))
+                    }
+                }.padding()
+            }
+            .background(GeometryReader { geometry in
+                Color.white.onAppear {
+                    // Medir la altura del contenido cuando se muestra
+                    contentHeight = geometry.size.height
+                }
+            })
+            .fixedSize(horizontal: false, vertical: true) // Ajuste del contenido
+            .modifier(GetHeightModifier(height: $contentHeight)) // Modificar la altura
+            .cornerRadius(10)
+        }
     }
 }
 

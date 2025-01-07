@@ -13,11 +13,12 @@ struct DNIConnectionView: View {
     @EnvironmentObject private var appStatus : AppStatus
     @Environment(\.presentationMode) var presentationMode
     @Binding var isPresented: Bool
+    
+    @State private var contentSheetHeight: CGFloat = 0
     @State var step: DNIConnectionSteps = .canStep
     @State var buttonEnabled: Bool = false
     @State var showFieldError: Bool = false
     @State var isSearching: Bool = false
-    @State private var sheetHeight: CGFloat = .zero
     @State var can: String = PrivateConstants.can
     @State var pin: String = PrivateConstants.pin
     @State var signModel: SignModel
@@ -68,7 +69,6 @@ struct DNIConnectionView: View {
 		  NavigationBarButton(imageName: "cross_gray", action: {
 			 DispatchQueue.main.async {
                     NotificationCenter.default.post(name: .ErrorModalCancelButtonAction, object: nil, userInfo: nil)
-                    nfcViewModel?.sendError(error: AppError.userOperationCanceled)
                 }
 		  })
 	   }
@@ -77,11 +77,10 @@ struct DNIConnectionView: View {
 	   .sheet(isPresented: $isSearching) {
 		  if let nfcViewModel = nfcViewModel {
 			 FindDNIModalView(
+                    contentHeight:$contentSheetHeight,
 				model: nfcViewModel
 			 )
-			 .fixedSize(horizontal: false, vertical: true)
-			 .modifier(GetHeightModifier(height: $sheetHeight))
-			 .presentationDetents([.height(sheetHeight)])
+			 .presentationDetents([.height(contentSheetHeight)])
 			 .accessibility(addTraits: .isModal)
 			 .interactiveDismissDisabled(true)
 			 .onAppear() {
@@ -108,10 +107,8 @@ struct DNIConnectionView: View {
 		  }
 	   }
 	   .sheet(isPresented: $showTextfieldModal) {
-		  TextfieldModalView(password: $password, shouldCancelOperation: $shouldCancelOperation)
-			 .fixedSize(horizontal: false, vertical: true)
-			 .modifier(GetHeightModifier(height: $sheetHeight))
-			 .presentationDetents([.height(sheetHeight)])
+            TextfieldModalView(contentHeight:$contentSheetHeight, password: $password, shouldCancelOperation: $shouldCancelOperation)
+			 .presentationDetents([.height(contentSheetHeight)])
 			 .accessibility(addTraits: .isModal)
 			 .interactiveDismissDisabled(true)
 			 .onAppear() {
@@ -130,7 +127,6 @@ struct DNIConnectionView: View {
 		  if $0 {
 			 DispatchQueue.main.async {
  				NotificationCenter.default.post(name: .ErrorModalCancelButtonAction, object: nil, userInfo: nil)
-				nfcViewModel?.sendError(error: AppError.userOperationCanceled)
 			 }
 		  }
 	   }

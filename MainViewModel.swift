@@ -9,7 +9,6 @@
 import Foundation
 
 @objc class MainViewModel: NSObject, ObservableObject {
-    @Published var sheetHeight: CGFloat = .zero
     @Published var navigationTitle = "Autofirma"
     @objc @Published var viewMode: ViewModes = .home
     @objc @Published var urlReceived: URL?
