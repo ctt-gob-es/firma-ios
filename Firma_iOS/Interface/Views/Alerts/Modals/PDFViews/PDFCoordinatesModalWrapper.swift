@@ -150,8 +150,17 @@ struct PDFCoordinatesModalWrapper: View {
 	   if let newDocument = PDFDocument(data: pdfData) {
 		  if newDocument.isEncrypted {
 			 if newDocument.unlock(withPassword: password) {
-				self.document = newDocument
-				self.showPasswordPrompt = false
+				if newDocument.allowsDocumentChanges {
+				    self.document = newDocument
+				    self.showPasswordPrompt = false
+				} else {
+				    self.showPasswordPrompt = true
+				    if isFirstTime {
+					   isFirstTime = false
+				    } else {
+					   self.showFieldError = true
+				    }
+				}
 			 } else {
 				self.showPasswordPrompt = true
 				if isFirstTime {
