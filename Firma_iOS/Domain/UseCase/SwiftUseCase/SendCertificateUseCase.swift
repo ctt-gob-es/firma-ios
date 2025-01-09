@@ -8,16 +8,6 @@
 
 import Foundation
 
-//
-//  SendCertificateUseCase.swift
-//  Cliente @firma
-//
-//  Created by Desarrollo Abamobile on 24/7/24.
-//  Copyright © 2024 Solid GEAR. All rights reserved.
-//
-
-import Foundation
-
 class SendCertificateUseCase {
     
     func execute (

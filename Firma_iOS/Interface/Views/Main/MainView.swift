@@ -195,9 +195,12 @@ struct MainView: View {
 					   print("URL of the saved archive: " + url.absoluteString)
 					   appStatus.showSuccessModal = true
 					   appStatus.successModalState = .successArhiveAdded
+					   viewModel.successSavingArchive()
+					   
 				    case .failure(let error):
 					   print("Error while saving the data, : " + error.localizedDescription)
 					   handleErrorSavingData(error: error)
+					   viewModel.errorSavingArchive()
 				}
 			 })
 			 .interactiveDismissDisabled(true)

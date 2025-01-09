@@ -210,4 +210,6 @@ struct UpdateErrorButtons: View {
 extension Notification.Name {
     static let ErrorModalCancelButtonAction = Notification.Name("CancelButtonAction")
     static let CloseSignMode = Notification.Name("CloseSignMode")
+    static let SuccessSavingArchive = Notification.Name("SuccessSavingArchive")
+    static let ErrorSavingArchive = Notification.Name("ErrorSavingArchive")
 }

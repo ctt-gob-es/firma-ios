@@ -519,6 +519,10 @@ class HomeViewModel: ObservableObject {
 	   }
     }
     
+    func sendSuccessSavingArchive() {
+	   SendSuccessOperationUseCase().execute(signModel: self.signModel)
+    }
+    
     private func showCertificateInfoModal(title: String, message: String) {
         titleCertificateInfoModal = title
         messageCertificateInfoModal = message

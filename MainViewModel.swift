@@ -13,8 +13,6 @@ import Foundation
     @objc @Published var viewMode: ViewModes = .home
     @objc @Published var urlReceived: URL?
     @Published var shouldSign: Bool = false
-    
-    
     @Published var isNavigationDisabled: Bool = false
     @Published var shouldCancel: Bool = false
     
@@ -41,6 +39,18 @@ import Foundation
         DispatchQueue.main.async {
            NotificationCenter.default.post(name: .ErrorModalCancelButtonAction, object: nil, userInfo: nil)
         }
+    }
+    
+    func successSavingArchive() {
+	   DispatchQueue.main.async {
+		 NotificationCenter.default.post(name: .SuccessSavingArchive, object: nil, userInfo: nil)
+	   }
+    }
+    
+    func errorSavingArchive() {
+	   DispatchQueue.main.async {
+		 NotificationCenter.default.post(name: .ErrorSavingArchive, object: nil, userInfo: nil)
+	   }
     }
 }
 
