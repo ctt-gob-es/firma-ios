@@ -86,6 +86,11 @@ class FileUtils {
 	   return (archiveName == nil ? NSLocalizedString("default_autofirma_document_name", bundle: Bundle.main, comment: "") : archiveName!) + (parameters?[PARAMETER_NAME_EXTENSION]  as? String ?? "")
     }
     
+    static func hasArchiveFilename(parameters: NSMutableDictionary?) -> Bool{
+	   let archiveName = parameters?[PARAMETER_NAME_FILENAME] as? String
+	   return (archiveName == nil ? true : false)
+    }
+    
     static func getExtensionFromParameters(parameters: NSMutableDictionary?) -> String{
 	   return parameters?[PARAMETER_NAME_EXTENSION] as? String ?? ""
     }

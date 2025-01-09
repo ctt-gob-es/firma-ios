@@ -64,9 +64,11 @@ class NFCViewModel: NSObject, ObservableObject {
 				    let history = HistoryModel(
 					   date: Date(),
 					   signType: self.signType ?? .external,
-					   externalApp: self.signModel.appname,
 					   dataType: self.dataType ?? .external,
-					   filename: FileUtils.getArchiveNameFromParameters(parameters: self.parameters)
+					   externalApp: self.signModel.appname,
+					   filename: FileUtils.getArchiveNameFromParameters(parameters: self.parameters),
+					   returnURL: self.signModel.returnURL,
+					   operation: self.signModel.operation
 				    )
 				    HistoricalUseCase().saveHistory(history: history) { result in
 					   let modalState = SuccessModalState.successSign

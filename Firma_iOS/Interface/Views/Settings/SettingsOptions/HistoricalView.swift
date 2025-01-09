@@ -64,6 +64,8 @@ struct HistoricalCell: View {
     @State var history: History
     
     var body: some View {
+	   let textToShow = HistoricalUtils.getTextToShowFromHistory(history: history)
+	   
 	   HStack {
 		  VStack(alignment: .leading, spacing: 6) {
 			 
@@ -107,6 +109,11 @@ struct HistoricalCell: View {
 						  .regularStyle(foregroundColor: ColorConstants.Text.secondary)
 				    }
 				}
+			 }
+			 
+			 HStack {
+				AccessibleText(content: textToShow)
+				    .mediumBoldStyle(foregroundColor: ColorConstants.Text.primary)
 			 }
 		  }
 	   }

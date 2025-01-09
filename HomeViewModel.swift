@@ -393,10 +393,12 @@ class HomeViewModel: ObservableObject {
                             let history = HistoryModel(
                                 date: Date(),
                                 signType: self.signType ?? .external,
-                                externalApp: self.signModel?.appname,
-                                dataType: self.dataType ?? .external,
-                                filename: FileUtils.getArchiveNameFromParameters(parameters: self.parameters)
-                            )
+						  dataType: self.dataType ?? .external,
+						  externalApp: self.signModel?.appname,
+						  filename: FileUtils.getArchiveNameFromParameters (parameters: self.parameters),
+						  returnURL: self.signModel?.returnURL,
+						  operation: self.signModel?.operation
+					   )
                             HistoricalUseCase().saveHistory(history: history) { result in
                                 // Independientemente del resultado del guardado en historico, mostramos que la firma ha sido correcta
                                 self.handleOperationSuccess(successState: .successSign)

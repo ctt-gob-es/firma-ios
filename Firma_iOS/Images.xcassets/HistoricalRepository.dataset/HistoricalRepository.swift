@@ -30,8 +30,6 @@ class HistoricalRepository: HistoricalRepositoryProtocol {
 	   historyCoreData.externalApp = history.externalApp
 	   historyCoreData.dataType = history.dataType.rawValue
 	   historyCoreData.filename = history.filename
-	   historyCoreData.returnURL = history.returnURL
-	   historyCoreData.operation = history.operation
 
 	   do {
 		  try context.save()

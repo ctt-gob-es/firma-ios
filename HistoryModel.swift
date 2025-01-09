@@ -11,9 +11,11 @@ import Foundation
 struct HistoryModel {
     var date: Date
     var signType: SignType
-    var externalApp: String?
     var dataType: DataType
-    var filename: String
+    var externalApp: String?
+    var filename: String?
+    var returnURL: String?
+    var operation: String?
 }
 
 enum SignType : String {
