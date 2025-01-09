@@ -14,29 +14,32 @@ struct PrivacyView: View {
     @State private var selectedLanguage: LocalizedLanguage = LocalizedLanguage.allLanguages.first!
     
     var body: some View {
-	   VStack(alignment: .leading, spacing: 20) {
+	   VStack(alignment: .leading) {
 		  LanguageSelectorView(selectedLanguage: $selectedLanguage)
-		  
-		  PrivacyPolicyHTMLWeb(htmlFileName: "privacy_policy", languageCode: selectedLanguage.code)
+		  VStack(alignment: .leading, spacing: 20) {
+			 PrivacyPolicyHTMLWeb(htmlFileName: "privacy_policy", languageCode: selectedLanguage.code)
+				.padding()
+				.border(Color.gray)
+				
+				VStack(alignment: .leading, spacing: 10) {
+				    CheckBoxView(
+					   isChecked: $isPrivacyPolicyAccepted,
+					   title: NSLocalizedString("privacy_policy_checkbox_description", bundle: Bundle.main, comment: "")
+				    )
+				    CheckBoxView(
+					   isChecked: $isTermsAccepted,
+					   title: NSLocalizedString("privacy_tou_checkbox_description", bundle: Bundle.main, comment: "")
+				    )
+				}
 			 
-			 VStack(alignment: .leading, spacing: 10) {
-				CheckBoxView(
-				    isChecked: $isPrivacyPolicyAccepted,
-				    title: NSLocalizedString("privacy_policy_checkbox_description", bundle: Bundle.main, comment: "")
-				)
-				CheckBoxView(
-				    isChecked: $isTermsAccepted,
-				    title: NSLocalizedString("privacy_tou_checkbox_description", bundle: Bundle.main, comment: "")
-				)
+			 Spacer()
+			 
+			 NavigationLink(destination: ParentView(viewMode: ViewModes.home, urlReceived: nil)) {
+				AccessibleText(content: NSLocalizedString("accept_button_title", bundle: Bundle.main, comment: ""))
 			 }
-		  
-		  Spacer()
-		  
-            NavigationLink(destination: ParentView(viewMode: ViewModes.home, urlReceived: nil)) {
-			 AccessibleText(content: NSLocalizedString("accept_button_title", bundle: Bundle.main, comment: ""))
+			 .buttonStyle(CustomButtonStyle(isEnabled: (isPrivacyPolicyAccepted && isTermsAccepted)))
+			 .disabled(!(isPrivacyPolicyAccepted && isTermsAccepted))
 		  }
-		  .buttonStyle(CustomButtonStyle(isEnabled: (isPrivacyPolicyAccepted && isTermsAccepted)))
-		  .disabled(!(isPrivacyPolicyAccepted && isTermsAccepted))
 	   }
 	   .navigationBarBackButtonHidden(true)
 	   .navigationBarTitle(NSLocalizedString("privacy_controller_title", bundle: Bundle.main, comment: ""), displayMode: .inline)
