@@ -122,6 +122,7 @@
       }
     },
     "%lld / %lld" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -7206,6 +7207,46 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sinatura fácil e segura"
+          }
+        }
+      }
+    },
+    "page_number" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Pàgina %d de %d"
+          }
+        },
+        "ca-ES-valencia" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Pàgina %d de %d"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Page %d of %d"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Página %d de %d"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Orrialdea %d / %d"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Páxina %d de %d"
           }
         }
       }
