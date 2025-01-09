@@ -97,7 +97,7 @@ struct ErrorModalView: View {
                             }
                             
                             Button(action: {
-                                if (appError == AppError.certificateLoadingError) {
+                                if (appError == AppError.certificateImportingError) {
                                     appStatus.showDocumentPicker = true
                                 }
                                 self.presentationMode.wrappedValue.dismiss()

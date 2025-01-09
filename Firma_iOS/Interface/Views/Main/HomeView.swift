@@ -57,7 +57,7 @@ struct HomeView: View {
                      viewModel.certificateURL = url
                      viewModel.navigateToAddCertificate.toggle()
                  } else {
-                         appStatus.appError = AppError.certificateLoadingError
+                         appStatus.appError = AppError.certificateImportingError
                      appStatus.showErrorModal.toggle()
                  }
               }, onCancel: {
