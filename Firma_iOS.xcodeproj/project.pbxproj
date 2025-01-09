@@ -18,6 +18,7 @@
 		8309F6B12D018E9600F15CD9 /* privacy_policy_en.html in Resources */ = {isa = PBXBuildFile; fileRef = 8309F6AC2D018E9500F15CD9 /* privacy_policy_en.html */; };
 		8309F6B22D018E9600F15CD9 /* privacy_policy_va.html in Resources */ = {isa = PBXBuildFile; fileRef = 8309F6AD2D018E9500F15CD9 /* privacy_policy_va.html */; };
 		8309F6B32D018E9600F15CD9 /* privacy_policy_gl.html in Resources */ = {isa = PBXBuildFile; fileRef = 8309F6AE2D018E9600F15CD9 /* privacy_policy_gl.html */; };
+		830A01262D2D1BE9009DC723 /* SendSuccessOperationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830A01252D2D1BE9009DC723 /* SendSuccessOperationUseCase.swift */; };
 		831079372D0ABE9D0001F355 /* ByteArrayTagOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 831079232D0ABE9C0001F355 /* ByteArrayTagOrder.m */; };
 		831079382D0ABE9D0001F355 /* DerInputBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 831079242D0ABE9C0001F355 /* DerInputBuffer.m */; };
 		831079392D0ABE9D0001F355 /* ByteArrayLexOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 831079272D0ABE9C0001F355 /* ByteArrayLexOrder.m */; };
@@ -1504,6 +1505,7 @@
 		83FC0C482C48120B00BBB5A8 /* FloatingPlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC0C472C48120A00BBB5A8 /* FloatingPlaceholderTextView.swift */; };
 		83FD0B092C3FC96200902E19 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FD0B082C3FC96200902E19 /* OnboardingView.swift */; };
 		83FD0B0B2C3FCBB000902E19 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FD0B0A2C3FCBB000902E19 /* OnboardingViewController.swift */; };
+		83FE072F2D2FEBA800EFD607 /* HistoricalUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FE072E2D2FEBA800EFD607 /* HistoricalUtils.swift */; };
 		A065483D2CE969BF00C9D8DE /* SSLBypassDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A065483C2CE969BF00C9D8DE /* SSLBypassDelegate.swift */; };
 		A065483F2CE969D500C9D8DE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A065483E2CE969D500C9D8DE /* NetworkManager.swift */; };
 		A06548422CE96F8A00C9D8DE /* NetworkUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06548412CE96F8A00C9D8DE /* NetworkUtility.swift */; };
@@ -1585,6 +1587,7 @@
 		8309F6AC2D018E9500F15CD9 /* privacy_policy_en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = privacy_policy_en.html; path = "Supporting Files/privacy_policy_en.html"; sourceTree = "<group>"; };
 		8309F6AD2D018E9500F15CD9 /* privacy_policy_va.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = privacy_policy_va.html; path = "Supporting Files/privacy_policy_va.html"; sourceTree = "<group>"; };
 		8309F6AE2D018E9600F15CD9 /* privacy_policy_gl.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = privacy_policy_gl.html; path = "Supporting Files/privacy_policy_gl.html"; sourceTree = "<group>"; };
+		830A01252D2D1BE9009DC723 /* SendSuccessOperationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendSuccessOperationUseCase.swift; sourceTree = "<group>"; };
 		831079202D0ABE9C0001F355 /* Pkcs1Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pkcs1Utils.h; sourceTree = "<group>"; };
 		831079222D0ABE9C0001F355 /* DerValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DerValue.h; sourceTree = "<group>"; };
 		831079232D0ABE9C0001F355 /* ByteArrayTagOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ByteArrayTagOrder.m; sourceTree = "<group>"; };
@@ -4451,6 +4454,7 @@
 		83FD0B072C3FC96200902E19 /* Cliente @firma-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cliente @firma-Bridging-Header.h"; sourceTree = "<group>"; };
 		83FD0B082C3FC96200902E19 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		83FD0B0A2C3FCBB000902E19 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		83FE072E2D2FEBA800EFD607 /* HistoricalUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalUtils.swift; sourceTree = "<group>"; };
 		A065483C2CE969BF00C9D8DE /* SSLBypassDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLBypassDelegate.swift; sourceTree = "<group>"; };
 		A065483E2CE969D500C9D8DE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A06548412CE96F8A00C9D8DE /* NetworkUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtility.swift; sourceTree = "<group>"; };
@@ -4611,6 +4615,7 @@
 				83AF00512CA4284E00A26C0F /* PrivateConstants.swift */,
 				83D390092CA544BA00D16BA6 /* LogUtils.swift */,
 				83D3900B2CA5455200D16BA6 /* ByteArrayUtils.swift */,
+				83FE072E2D2FEBA800EFD607 /* HistoricalUtils.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -8599,6 +8604,7 @@
 				8393EECC2C58FA21009FDE6E /* HistoricalUseCase.swift */,
 				A06548472CEA37D800C9D8DE /* SendCertificateUseCase.swift */,
 				A065484E2CEB2B4B00C9D8DE /* LoadDataLocalFileUseCase.swift */,
+				830A01252D2D1BE9009DC723 /* SendSuccessOperationUseCase.swift */,
 			);
 			path = SwiftUseCase;
 			sourceTree = "<group>";
@@ -10686,6 +10692,7 @@
 				8325D75F2CAADD18007224E9 /* QTESLAPrivateKeyParameters.m in Sources */,
 				8325D7C72CAADD18007224E9 /* XMSSVerifierUtil.m in Sources */,
 				8310793B2D0ABE9D0001F355 /* BitArray.m in Sources */,
+				83FE072F2D2FEBA800EFD607 /* HistoricalUtils.swift in Sources */,
 				8325D4212CAADD17007224E9 /* DnieCardException.m in Sources */,
 				83AF00382CA2C95D00A26C0F /* xer_support.c in Sources */,
 				8325D4D32CAADD17007224E9 /* AttCertIssuer.m in Sources */,
@@ -10816,6 +10823,7 @@
 				8325D7682CAADD18007224E9 /* RainbowKeyParameters.m in Sources */,
 				8325D5D82CAADD18007224E9 /* MGFParameters.m in Sources */,
 				8325D8372CAADD18007224E9 /* ModularResultant.m in Sources */,
+				830A01262D2D1BE9009DC723 /* SendSuccessOperationUseCase.swift in Sources */,
 				8325D83C2CAADD18007224E9 /* TernaryPolynomial.m in Sources */,
 				8325D6282CAADD18007224E9 /* HybridValueParameterSpec.m in Sources */,
 				8325D5ED2CAADD18007224E9 /* CryptoServicesPermission.m in Sources */,

@@ -2252,7 +2252,7 @@
         "ca-ES-valencia" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Has cancel·lat la sessió per a concetar amb el DNIe. Per favor, torna a intentar-ho. Recorda mantindre-ho en una superfície llisa i mantindre el teu telèfon mòbil uns segons fix sobre la targeta per a la seua correcta lectura"
+            "value" : "Has cancel·lat la sessió per a conectar amb el DNIe. Per favor, torna a intentar-ho. Recorda mantindre-ho en una superfície llisa i mantindre el teu telèfon mòbil uns segons fix sobre la targeta per a la seua correcta lectura"
           }
         },
         "en" : {
@@ -2264,7 +2264,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Has cancelado la sesión para concetar con el DNIe. Por favor, vuelve a intentarlo. Recuerda mantenerlo en una superficie lisa y mantener tu teléfono móvil unos segundos fijo sobre la tarjeta para su correcta lectura"
+            "value" : "Has cancelado la sesión para conectar con el DNIe. Por favor, vuelve a intentarlo. Recuerda mantenerlo en una superficie lisa y mantener tu teléfono móvil unos segundos fijo sobre la tarjeta para su correcta lectura"
           }
         },
         "eu" : {
@@ -4166,38 +4166,38 @@
       "localizations" : {
         "ca" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Els certificats importats a Autofirma App per a Apple iOS són d'ús exclusiu per a signatura electrònica en pàgines web dissenyades a aquest efecte. Per utilitzar un certificat digital per a la identificació en pàgines web haureu de seguir les instruccions del vostre navegador web i d'Apple respecte al procés d'instal·lació dels certificats i les vostres claus al sistema operatiu iOS i al propi navegador web si calgués."
+            "state" : "needs_review",
+            "value" : "Els certificats importats a Autofirma App són d'ús exclusiu per a signatura electrònica en pàgines web dissenyades a aquest efecte. Per utilitzar un certificat digital per a la identificació en pàgines web haureu de seguir les instruccions del vostre navegador web i d'Apple respecte al procés d'instal·lació dels certificats i les vostres claus al sistema operatiu iOS i al propi navegador web si calgués."
           }
         },
         "ca-ES-valencia" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Els certificats importats en autofirma App per a Apple iOS són d'ús exclusiu per a firma electrònica en pàgines Web dissenyades a este efecte. Per a usar un certificat digital per a identificació en pàgines Web haurà de seguir les instruccions del seu navegador Web i d'Apple respecte al procés d'instal·lació dels certificats i les seues claus en el sistema operatiu iOS i en el propi navegador Web si calguera."
+            "state" : "needs_review",
+            "value" : "Els certificats importats en autofirma App són d'ús exclusiu per a firma electrònica en pàgines Web dissenyades a este efecte. Per a usar un certificat digital per a identificació en pàgines Web haurà de seguir les instruccions del seu navegador Web i d'Apple respecte al procés d'instal·lació dels certificats i les seues claus en el sistema operatiu iOS i en el propi navegador Web si calguera."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Certificates imported into the @firma Client for Apple iOS are for exclusive use for electronic signatures on Web pages designed for this purpose. To use a digital certificate for identification on Web pages, you must follow the instructions of your Web browser and of Apple regarding the installation process of the certificates and their keys in the iOS operating system and in the Web browser itself if necessary."
+            "value" : "Certificates imported into the Autofirma App are for exclusive use for electronic signatures on Web pages designed for this purpose. To use a digital certificate for identification on Web pages, you must follow the instructions of your Web browser and of Apple regarding the installation process of the certificates and their keys in the iOS operating system and in the Web browser itself if necessary."
           }
         },
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Los certificados importados en Autofirma App para Apple iOS son de uso exclusivo para firma electrónica en páginas Web diseñadas a tal efecto. Para usar un certificado digital para identificación en páginas Web deberá seguir las instrucciones de su navegador Web y de Apple respecto al proceso de instalación de los certificados y sus claves en el sistema operativo iOS y en el propio navegador Web si fuese preciso."
+            "state" : "needs_review",
+            "value" : "Los certificados importados en Autofirma App son de uso exclusivo para firma electrónica en páginas Web diseñadas a tal efecto. Para usar un certificado digital para identificación en páginas Web deberá seguir las instrucciones de su navegador Web y de Apple respecto al proceso de instalación de los certificados y sus claves en el sistema operativo iOS y en el propio navegador Web si fuese preciso."
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Apple iOS-erako Autofirma App-ra inportatutako ziurtagiriak horretarako diseinatutako web orrietako sinadura elektronikoetarako soilik dira. Web-orrietan identifikaziorako ziurtagiri digitala erabiltzeko, zure web-arakatzailearen eta Apple-ren argibideak jarraitu behar dituzu ziurtagiriak eta haien gakoak iOS sistema eragilean eta beharrezkoa izanez gero web-arakatzailean bertan instalatzeko prozesuari buruz."
+            "value" : "Autofirma App-ra inportatutako ziurtagiriak horretarako diseinatutako web orrietako sinadura elektronikoetarako soilik dira. Web-orrietan identifikaziorako ziurtagiri digitala erabiltzeko, zure web-arakatzailearen eta Apple-ren argibideak jarraitu behar dituzu ziurtagiriak eta haien gakoak iOS sistema eragilean eta beharrezkoa izanez gero web-arakatzailean bertan instalatzeko prozesuari buruz."
           }
         },
         "gl" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Os certificados importados na App Autofirma para Apple iOS son de uso exclusivo para sinaturas electrónicas nas páxinas web deseñadas para tal fin. Para utilizar un certificado dixital para a identificación en páxinas web, debes seguir as instrucións do teu navegador web e de Apple sobre o proceso de instalación dos certificados e as súas claves no sistema operativo iOS e no propio navegador web se é necesario."
+            "state" : "needs_review",
+            "value" : "Os certificados importados na App Autofirma son de uso exclusivo para sinaturas electrónicas nas páxinas web deseñadas para tal fin. Para utilizar un certificado dixital para a identificación en páxinas web, debes seguir as instrucións do teu navegador web e de Apple sobre o proceso de instalación dos certificados e as súas claves no sistema operativo iOS e no propio navegador web se é necesario."
           }
         }
       }
@@ -4286,37 +4286,37 @@
       "localizations" : {
         "ca" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Autofirma App manca encara de certes funcionalitats que sí que són presents en versions per a altres sistemes operatius. Futures actualitzacions de l'app solucionaran aquestes manques. Mentrestant, utilitzi un PC amb Autofirma instal·lat per a completar el tràmit web i notifiqui el problema al responsable del tràmit si el considera precís."
           }
         },
         "ca-ES-valencia" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Autofirma App manca encara de certes funcionalitats que sí que són presents en versions per a altres sistemes operatius. Futures actualitzacions de l'app solucionaran estes manques. Mentrestant, utilitze un PC amb Autofirma instal·lat per a completar el tràmit web i notifique el problema al responsable del tràmit si el considera precís."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The @firma Client for Apple iOS still lacks certain functionalities that are present in versions for other operating systems. Future product updates will solve these deficiencies. In the meantime, use another system and notify the person responsible for the web procedure if you consider it necessary."
+            "value" : "The Autofirma App still lacks certain functionalities that are present in versions for other operating systems. Future product updates will solve these deficiencies. In the meantime, use another system and notify the person responsible for the web procedure if you consider it necessary."
           }
         },
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Autofirma App carece aún de ciertas funcionalidades que sí están presentes en versiones para otros sistemas operativos. Futuras actualizaciones de la app solventarán estas carencias. Mientras tanto, utilice un PC con Autofirma instalado para completar el trámite web y notifique el problema al responsable del trámite si lo considera preciso."
           }
         },
         "eu" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Autofirma App-ek oraindik ez ditu beste sistema eragile batzuetarako bertsioetan agertzen diren funtzionalitate batzuk. Aplikazioaren etorkizuneko eguneratzeek konponduko dituzte gabezia horiek. Bitartean, erabili Autofirma instalatuta duen PC bat web-izapidea osatzeko, eta jakinarazi arazoa izapidearen arduradunari, hala baderitzozu."
           }
         },
         "gl" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Autofirma App carece aínda de certas funcionalidades que si están presentes en versións para outros sistemas operativos. Futuras actualizacións da app liquidarán estas carencias. Mentres tanto, utilice un PC con Autofirma instalado para completar o trámite web e notifique o problema ao responsable do trámite se o considera preciso."
           }
         }
@@ -4326,37 +4326,37 @@
       "localizations" : {
         "ca" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "He importat els certificats correctament a Autofirma App per a Apple iOS, però tot i així no aconsegueixo identificar-me amb ells a les seus electròniques i altres pàgines web que ho requereixen Per què?"
+            "state" : "needs_review",
+            "value" : "He importat els certificats correctament a Autofirma App, però tot i així no aconsegueixo identificar-me amb ells a les seus electròniques i altres pàgines web que ho requereixen Per què?"
           }
         },
         "ca-ES-valencia" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "He importat els certificats correctament en autofirma App per a Apple iOS, però així i tot no aconseguisc identificar-me amb ells en les seus electròniques i altres pàgines Web que ho requerixen Per què?"
+            "state" : "needs_review",
+            "value" : "He importat els certificats correctament en autofirma App, però així i tot no aconseguisc identificar-me amb ells en les seus electròniques i altres pàgines Web que ho requerixen Per què?"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "I have imported the certificates correctly into the @firma Client for Apple iOS, but I still cannot log in with them to the electronic offices and other Web pages that require it. Why?"
+            "value" : "I have imported the certificates correctly into the Autofirma App, but I still cannot log in with them to the electronic offices and other Web pages that require it. Why?"
           }
         },
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "He importado los certificados correctamente en Autofirma App para Apple iOS, pero aun así no consigo identificarme con ellos en las sedes electrónicas y demás páginas Web que lo requieren ¿Por qué?"
+            "state" : "needs_review",
+            "value" : "He importado los certificados correctamente en Autofirma App, pero aun así no consigo identificarme con ellos en las sedes electrónicas y demás páginas Web que lo requieren ¿Por qué?"
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ziurtagiriak behar bezala inportatu ditut Apple iOS-erako Autofirma aplikaziora, baina oraindik ezin naiz haiekin identifikatu bulego elektronikoetan eta eskatzen duten beste web orrietan."
+            "value" : "Ziurtagiriak behar bezala inportatu erako Autofirma aplikaziora, baina oraindik ezin naiz haiekin identifikatu bulego elektronikoetan eta eskatzen duten beste web orrietan."
           }
         },
         "gl" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Importei os certificados correctamente na aplicación Autofirma para iOS de Apple, pero aínda non podo identificarme con eles nas sedes electrónicas e outras páxinas web que o requiran."
           }
         }
@@ -7047,6 +7047,9 @@
         }
       }
     },
+    "OK" : {
+
+    },
     "omit_button_title" : {
       "localizations" : {
         "ca" : {
@@ -8113,7 +8116,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Histórico de archivos firmados"
+            "value" : "Histórico de firmas"
           }
         },
         "eu" : {
@@ -9336,37 +9339,37 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "\"Autofirma App per a Apple iOS\" v%@ 2024 Govern d'Espanya\n\nAutofirma App per a Apple iOS és Programari Lliure; pots redistribuir-lo i/o modificar-lo sota els termes de la llicència següent: “European Software License 1.1”, el text complet del qual es pot consultar a la pàgina web següent: http://ec.europa.eu/idabc/eupl.html\n\nEl codi font d'aquest programa, així com de la resta dels components del projecte, es poden descarregar lliurement des de: http://forja-ctt.administracionelectronica.gob.es\n\nEl projecte Autofirma App és un projecte col·laboratiu, si voleu participar-hi, no dubteu a unir-vos a la comunitat, accessible des de la següent pàgina Web: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc"
+            "value" : "\"Autofirma App\" v%@ 2024 Govern d'Espanya\n\nAutofirma App és Programari Lliure; pots redistribuir-lo i/o modificar-lo sota els termes de la llicència següent: “European Software License 1.1”, el text complet del qual es pot consultar a la pàgina web següent: http://ec.europa.eu/idabc/eupl.html\n\nEl codi font d'aquest programa, així com de la resta dels components del projecte, es poden descarregar lliurement des de: http://forja-ctt.administracionelectronica.gob.es\n\nEl projecte Autofirma App és un projecte col·laboratiu, si voleu participar-hi, no dubteu a unir-vos a la comunitat, accessible des de la següent pàgina Web: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc"
           }
         },
         "ca-ES-valencia" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "“Autofirma App per a Apple iOS” v%@ 2024 Govern d'Espanya\n\nAutofirma App per a Apple iOS és Programari Lliure; pots redistribuir-ho i/o modificar-ho sota els termes de la següent llicència: “European Software License 1.1”, el text complet del qual pot consultar-se en la següent pàgina Web: http://ec.europa.eu/idabc/eupl.html\n\nEl codi font d'este programa, així com de la resta dels components del projecte es poden descarregar lliurement des de: http://forja-ctt.administracionelectronica.gob.es\n\nEl projecte autofirma App és un projecte col·laboratiu, si desitja participar en ell, no dubte a unir-se a la comunitat, accessible des de la següent pàgina Web: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc"
+            "value" : "“Autofirma App” v%@ 2024 Govern d'Espanya\n\nAutofirma App és Programari Lliure; pots redistribuir-ho i/o modificar-ho sota els termes de la següent llicència: “European Software License 1.1”, el text complet del qual pot consultar-se en la següent pàgina Web: http://ec.europa.eu/idabc/eupl.html\n\nEl codi font d'este programa, així com de la resta dels components del projecte es poden descarregar lliurement des de: http://forja-ctt.administracionelectronica.gob.es\n\nEl projecte autofirma App és un projecte col·laboratiu, si desitja participar en ell, no dubte a unir-se a la comunitat, accessible des de la següent pàgina Web: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "“Autofirma App for Apple iOS” v%@ 2024 Government of Spain\n\nThe Autofirma App for Apple iOS is Free Software; you can redistribute and/or modify it under the terms of the following license: “European Software License 1.1”, the full text of which can be consulted on the following website: http://ec.europa.eu/idabc/eupl.html\n\nThe source code for this program, as well as the rest of the project components, can be freely downloaded from: http://forja-ctt.administracionelectronica.gob.es\n\nThe Autofirma App project is a collaborative project. If you wish to participate in it, do not hesitate to join the community, accessible from the following website: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc"
+            "value" : "“Autofirma App” v%@ 2024 Government of Spain\n\nThe Autofirma App is Free Software; you can redistribute and/or modify it under the terms of the following license: “European Software License 1.1”, the full text of which can be consulted on the following website: http://ec.europa.eu/idabc/eupl.html\n\nThe source code for this program, as well as the rest of the project components, can be freely downloaded from: http://forja-ctt.administracionelectronica.gob.es\n\nThe Autofirma App project is a collaborative project. If you wish to participate in it, do not hesitate to join the community, accessible from the following website: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc"
           }
         },
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "“Autofirma App para Apple iOS” v%@ 2024 Gobierno de España\n\nAutofirma App para Apple iOS es Software Libre; puedes redistribuirlo y/o modificarlo bajo los términos de la siguiente licencia: “European Software License 1.1”, cuyo texto completo puede consultarse en la siguiente página Web: http://ec.europa.eu/idabc/eupl.html\n\nEl código fuente de este programa, así como del resto de los componentes del proyecto se pueden descargar libremente desde: http://forja-ctt.administracionelectronica.gob.es\n\nEl proyecto Autofirma App es un proyecto colaborativo, si desea participar en él, no dude en unirse a la comunidad, accesible desde la siguiente página Web: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc"
+            "state" : "needs_review",
+            "value" : "“Autofirma App” v%@ 2024 Gobierno de España\n\nAutofirma App es Software Libre; puedes redistribuirlo y/o modificarlo bajo los términos de la siguiente licencia: “European Software License 1.1”, cuyo texto completo puede consultarse en la siguiente página Web: http://ec.europa.eu/idabc/eupl.html\n\nEl código fuente de este programa, así como del resto de los componentes del proyecto se pueden descargar libremente desde: http://forja-ctt.administracionelectronica.gob.es\n\nEl proyecto Autofirma App es un proyecto colaborativo, si desea participar en él, no dude en unirse a la comunidad, accesible desde la siguiente página Web: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc"
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "“Autofirma App for Apple iOS” v%@ 2024 Espainiako Gobernua\n\nAutofirma App bezeroa Software Librea da; birbanatu eta/edo alda dezakezu honako lizentzia honen baldintzetan: “European Software License 1.1”, zeinaren testu osoa honako webgune honetan kontsulta daiteke: http://ec.europa.eu/idabc/eupl. html\n\nPrograma honen iturburu-kodea, baita proiektuaren gainerako osagaiak ere, doan deskargatu daitezke: http://forja-ctt.administracionelectronica.gob.es\n\nAutofirma App lankidetza-proiektu bat da. Bertan parte hartu nahi baduzu, ez izan zalantzarik komunitatean sartzeko, webgune honetatik eskuragarri: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc"
+            "value" : "“Autofirma App” v%@ 2024 Espainiako Gobernua\n\nAutofirma App bezeroa Software Librea da; birbanatu eta/edo alda dezakezu honako lizentzia honen baldintzetan: “European Software License 1.1”, zeinaren testu osoa honako webgune honetan kontsulta daiteke: http://ec.europa.eu/idabc/eupl. html\n\nPrograma honen iturburu-kodea, baita proiektuaren gainerako osagaiak ere, doan deskargatu daitezke: http://forja-ctt.administracionelectronica.gob.es\n\nAutofirma App lankidetza-proiektu bat da. Bertan parte hartu nahi baduzu, ez izan zalantzarik komunitatean sartzeko, webgune honetatik eskuragarri: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc"
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Autofirma App for Apple iOS” v%@ 2024 Goberno de España\n\nAutofirma App para Apple iOS é Software Libre; pode redistribuílo e/ou modificalo nos termos da seguinte licenza: “Licenza Europea de Software 1.1”, cuxo texto completo pódese consultar na seguinte páxina web: http://ec.europa.eu/idabc/eupl. html\n\nO código fonte deste programa, así como o resto dos compoñentes do proxecto, pódese descargar libremente en: http://forja-ctt.administracionelectronica.gob.es\n\nAutofirma App é un proxecto colaborativo. Se desexas participar nel, non dubides en unirte á comunidade, accesible desde a seguinte páxina web: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc"
+            "value" : "Autofirma App” v%@ 2024 Goberno de España\n\nAutofirma App é Software Libre; pode redistribuílo e/ou modificalo nos termos da seguinte licenza: “Licenza Europea de Software 1.1”, cuxo texto completo pódese consultar na seguinte páxina web: http://ec.europa.eu/idabc/eupl. html\n\nO código fonte deste programa, así como o resto dos compoñentes do proxecto, pódese descargar libremente en: http://forja-ctt.administracionelectronica.gob.es\n\nAutofirma App é un proxecto colaborativo. Se desexas participar nel, non dubides en unirte á comunidade, accesible desde a seguinte páxina web: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc"
           }
         }
       }
