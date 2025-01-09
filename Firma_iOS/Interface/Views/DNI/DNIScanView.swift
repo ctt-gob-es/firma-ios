@@ -24,6 +24,9 @@ struct DNIScanView: View {
 							 Text(NSLocalizedString("dni_connection_nfc_description_3", bundle: Bundle.main, comment: "")))
 			 
 			 Image("nfc_sample")
+				.resizable()
+				.scaledToFit()
+				.padding()
 		  }
 	   }
 	   .padding()

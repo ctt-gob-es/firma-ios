@@ -19,7 +19,7 @@ struct DNIConnectionView: View {
     @State var buttonEnabled: Bool = false
     @State var showFieldError: Bool = false
     @State var isSearching: Bool = false
-    @State var can: String = PrivateConstants.can
+    @State var can: String = UserDefaults.standard.string(forKey: "can") ?? ""
     @State var pin: String = PrivateConstants.pin
     @State var signModel: SignModel
     @State var parameters: NSMutableDictionary?
@@ -65,11 +65,25 @@ struct DNIConnectionView: View {
 		  setupNFCObservation()
 	   }
 	   .dismissKeyboardOnTap()
+	   .navigationBarBackButtonHidden(true)
 	   .navigationBarItems(trailing: HStack(spacing: 4) {
 		  NavigationBarButton(imageName: "cross_gray", action: {
 			 DispatchQueue.main.async {
                     NotificationCenter.default.post(name: .ErrorModalCancelButtonAction, object: nil, userInfo: nil)
                 }
+		  })
+	   }
+		  .padding(.bottom, 4)
+	   )
+	   .navigationBarItems(leading: HStack(spacing: 4) {
+		  NavigationBarButton(imageName: "backbutton", action: {
+			 if step == .canStep {
+				isPresented = false
+			 } else if step == .pinStep {
+				step = .canStep
+			 } else if step == .nfcStep {
+				step = .pinStep
+			 }
 		  })
 	   }
 		  .padding(.bottom, 4)
@@ -129,6 +143,9 @@ struct DNIConnectionView: View {
  				NotificationCenter.default.post(name: .ErrorModalCancelButtonAction, object: nil, userInfo: nil)
 			 }
 		  }
+	   }
+	   .onChange(of: can) { newValue in
+		  UserDefaults.standard.set(newValue, forKey: "can")
 	   }
 	   .onReceive(NotificationCenter.default.publisher(for: .DNIeError)) { notification in
 		  appStatus.isLoading = false

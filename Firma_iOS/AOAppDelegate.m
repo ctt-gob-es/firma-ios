@@ -60,6 +60,9 @@ NSString *URLString, *state = @"Inactive";
 		  [NSBundle setLanguage:defaultLanguage];
 	   }
     
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"can"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     [self decideController];
     
     return YES;

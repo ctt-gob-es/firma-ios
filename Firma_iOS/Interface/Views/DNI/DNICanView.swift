@@ -35,11 +35,15 @@ struct DNICanView: View {
 				isSecureTextEntry: false,
 				validation: { can in
 				    return canValidation(can: can)
-				}
+				},
+				keyboardType: .numberPad
 			 )
 			 .padding(.vertical)
 			 
 			 Image("dni_sample")
+				.resizable()
+				.scaledToFit()
+				.padding()
 		  }
 	   }
 	   .padding()

@@ -10,6 +10,9 @@ struct FloatingPlaceholderTextField: View {
     @State var validation: (_ :String) -> Bool
     @State private var isFocused: Bool = false
     @State var isSecureTextShown: Bool = false
+    @State var keyboardType: UIKeyboardType = .default
+    
+    @FocusState private var isInputFocused: Bool
     
     var body: some View {
 	   VStack(alignment: .leading) {
@@ -34,18 +37,46 @@ struct FloatingPlaceholderTextField: View {
 				    .padding(.horizontal)
 				    .textInputAutocapitalization(.none)
 				    .autocapitalization(.none)
+				    .focused($isInputFocused)
 				} else {
 				    TextField("",
 						    text: $text,
 						    onEditingChanged: { editing in
 					   isFocused = editing
-					   showError = !validation(text)
+					   if text != "" {
+						  showError = !validation(text)
+					   } else {
+						  showError = false
+					   }
 				    })
 				    .font(.custom("NunitoSans10pt-Regular", size: 16))
 				    .foregroundColor(.primary)
+				    .focused($isInputFocused)
 				    .padding(.horizontal)
 				    .textInputAutocapitalization(.none)
 				    .autocapitalization(.none)
+				    .keyboardType(keyboardType)
+				    .onChange(of: text) { newValue in
+					   if newValue != "" {
+						  showError = !validation(newValue)
+					   } else {
+						  showError = false
+					   }
+				    }
+				    .toolbar {
+					   ToolbarItemGroup(placement: .keyboard) {
+						  Spacer()
+						  Button("OK") {
+							 isFocused = false
+							 if text != "" {
+								showError = !validation(text)
+							 } else {
+								showError = false
+							 }
+							 isInputFocused = false
+						  }
+					   }
+				    }
 				}
 				
 				if isSecureTextEntry && !text.isEmpty {
@@ -71,6 +102,9 @@ struct FloatingPlaceholderTextField: View {
 				.padding(.horizontal)
 				.padding(.bottom, 4)
 			 }
+		  }
+		  .onTapGesture {
+			 isInputFocused = true
 		  }
 		  .background(
 			 RoundedRectangle(cornerRadius: 8)
