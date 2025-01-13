@@ -46,4 +46,10 @@ extension Date {
 	   let formatter = DateFormatter.longDate
 	   return formatter.string(from: self)
     }
+    
+    var historicalFormat: String {
+	   let formatter = DateFormatter()
+	   formatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
+	   return formatter.string(from: self)
+    }
 }

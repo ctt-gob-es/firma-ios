@@ -1506,6 +1506,7 @@
 		83FD0B092C3FC96200902E19 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FD0B082C3FC96200902E19 /* OnboardingView.swift */; };
 		83FD0B0B2C3FCBB000902E19 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FD0B0A2C3FCBB000902E19 /* OnboardingViewController.swift */; };
 		83FE072F2D2FEBA800EFD607 /* HistoricalUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FE072E2D2FEBA800EFD607 /* HistoricalUtils.swift */; };
+		83FE07312D310B9C00EFD607 /* HistoricalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FE07302D310B9C00EFD607 /* HistoricalCell.swift */; };
 		A065483D2CE969BF00C9D8DE /* SSLBypassDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A065483C2CE969BF00C9D8DE /* SSLBypassDelegate.swift */; };
 		A065483F2CE969D500C9D8DE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A065483E2CE969D500C9D8DE /* NetworkManager.swift */; };
 		A06548422CE96F8A00C9D8DE /* NetworkUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06548412CE96F8A00C9D8DE /* NetworkUtility.swift */; };
@@ -4455,6 +4456,7 @@
 		83FD0B082C3FC96200902E19 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		83FD0B0A2C3FCBB000902E19 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		83FE072E2D2FEBA800EFD607 /* HistoricalUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalUtils.swift; sourceTree = "<group>"; };
+		83FE07302D310B9C00EFD607 /* HistoricalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalCell.swift; sourceTree = "<group>"; };
 		A065483C2CE969BF00C9D8DE /* SSLBypassDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLBypassDelegate.swift; sourceTree = "<group>"; };
 		A065483E2CE969D500C9D8DE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A06548412CE96F8A00C9D8DE /* NetworkUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtility.swift; sourceTree = "<group>"; };
@@ -9011,6 +9013,7 @@
 				83C0ECA52C4103E700244071 /* InstallCertificateView.swift */,
 				83C0ECA72C41044E00244071 /* SettingsWebView.swift */,
 				8393EECA2C58F8E2009FDE6E /* HistoricalView.swift */,
+				83FE07302D310B9C00EFD607 /* HistoricalCell.swift */,
 			);
 			path = SettingsOptions;
 			sourceTree = "<group>";
@@ -10104,6 +10107,7 @@
 				8325D4FF2CAADD17007224E9 /* ASN1BitString.m in Sources */,
 				8325D5372CAADD17007224E9 /* BEROctetString.m in Sources */,
 				8325D79D2CAADD18007224E9 /* Utils.m in Sources */,
+				83FE07312D310B9C00EFD607 /* HistoricalCell.swift in Sources */,
 				8325D7C42CAADD18007224E9 /* XMSSSigner.m in Sources */,
 				8325D8292CAADD18007224E9 /* PolynomialGF2mSmallM.m in Sources */,
 				8325D79E2CAADD18007224E9 /* BDS.m in Sources */,

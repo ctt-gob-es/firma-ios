@@ -13,7 +13,6 @@ import CoreData
 struct HistoricalView: View {
     @ObservedObject var viewModel = HistoricalViewModel()
     @State private var contentSheetHeight: CGFloat = 0
-    
     @State var showDeleteModal: Bool = false
     
     var body: some View {
@@ -56,66 +55,6 @@ struct HistoricalView: View {
 	   offsets.forEach { index in
 		  let history = viewModel.historyList[index]
 		  viewModel.deleteHistory(history: history)
-	   }
-    }
-}
-
-struct HistoricalCell: View {
-    @State var history: History
-    
-    var body: some View {
-	   let textToShow = HistoricalUtils.getTextToShowFromHistory(history: history)
-	   
-	   HStack {
-		  VStack(alignment: .leading, spacing: 6) {
-			 
-			 if let externalApp = history.externalApp {
-				if externalApp != "" {
-				    AccessibleText(content: externalApp)
-					   .regularBoldStyle(foregroundColor: ColorConstants.Text.secondary)
-					   .underline()
-				}
-			 }
-			 
-			 HStack {
-				AccessibleText(content: history.filename ?? "")
-				    .mediumBoldStyle(foregroundColor: ColorConstants.Text.primary)
-				
-				Spacer()
-			 }
-			 
-			 HStack {
-				if let signType = history.signType {
-				    Image(systemName: "signature")
-				    
-				    AccessibleText(content: NSLocalizedString(signType, bundle: Bundle.main, comment: ""))
-					   .mediumBoldStyle(foregroundColor: ColorConstants.Text.primary)
-				}
-			 }
-			 
-			 if let date = history.date {
-				HStack {
-				    Image(systemName: "calendar.badge.clock")
-					   .foregroundColor(ColorConstants.Text.accent)
-					   .accessibilityHidden(true)
-				    
-				    AccessibleText(content: date.shortFormatted)
-					   .regularStyle(foregroundColor: ColorConstants.Text.secondary)
-				    
-				    Spacer()
-				    
-				    if let dataType = history.dataType {
-					   AccessibleText(content: NSLocalizedString(dataType, bundle: Bundle.main, comment: ""))
-						  .regularStyle(foregroundColor: ColorConstants.Text.secondary)
-				    }
-				}
-			 }
-			 
-			 HStack {
-				AccessibleText(content: textToShow)
-				    .mediumBoldStyle(foregroundColor: ColorConstants.Text.primary)
-			 }
-		  }
 	   }
     }
 }

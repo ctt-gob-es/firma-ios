@@ -399,6 +399,7 @@ class HomeViewModel: ObservableObject {
 						  returnURL: self.signModel?.returnURL,
 						  operation: self.signModel?.operation
 					   )
+					   
                             HistoricalUseCase().saveHistory(history: history) { result in
                                 // Independientemente del resultado del guardado en historico, mostramos que la firma ha sido correcta
                                 self.handleOperationSuccess(successState: .successSign)

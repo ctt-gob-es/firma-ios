@@ -4889,13 +4889,13 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fitxer externa"
+            "value" : "Fitxer externo"
           }
         },
         "ca-ES-valencia" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fitxer externa"
+            "value" : "Fitxer externo"
           }
         },
         "en" : {
@@ -4907,7 +4907,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fichero externa"
+            "value" : "Fichero externo"
           }
         },
         "eu" : {
@@ -5052,37 +5052,37 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Històric"
+            "value" : "Històric de signatures"
           }
         },
         "ca-ES-valencia" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Històric"
+            "value" : "Històric de signatures"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Historical"
+            "value" : "Signature History"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Histórico"
+            "value" : "Histórico de firmas"
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Historikoa"
+            "value" : "Sinadura Historikoa"
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Histórico"
+            "value" : "Histórico de sinaturas"
           }
         }
       }
@@ -5211,38 +5211,38 @@
       "localizations" : {
         "ca" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "%@ sol·licitada per %@%@"
           }
         },
         "ca-ES-valencia" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "%@ sol·licitada per %@%@"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ requested from another application%@%@"
+            "value" : "%@ requested from application %@%@"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ solicitada desde otra aplicación%@%@"
+            "value" : "%@ solicitada por aplicación %@%@"
           }
         },
         "eu" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "%@ web aplikazioaren bidez eskatuta %@%@"
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ solicitada desde outra aplicación%@%@"
+            "value" : "%@ solicitada por aplicación %@%@"
           }
         }
       }
@@ -5252,37 +5252,37 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Signatura per lots web sol·licitada per %@%@"
+            "value" : "%@ sol·licitada des d'una altra aplicació%@%@"
           }
         },
         "ca-ES-valencia" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "%@ sol·licitada des d'una altra aplicació%@%@"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ requested by %@%@"
+            "value" : "%@ requested by other app %@%@"
           }
         },
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ solicitada por %@%@"
+            "state" : "needs_review",
+            "value" : "%@ solicitada desde otra aplicación %@%@"
           }
         },
         "eu" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "%@ beste aplikazio batetik eskatuta%@%@"
           }
         },
         "gl" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ solicitada por %@%@"
+            "state" : "needs_review",
+            "value" : "%@ solicitada por outra aplicación %@%@"
           }
         }
       }
@@ -7644,6 +7644,214 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sinatura fácil e segura"
+          }
+        }
+      }
+    },
+    "operation_(operationKey)" : {
+
+    },
+    "operation_batch" : {
+      "comment" : "Operation: Batch",
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lot"
+          }
+        },
+        "ca-ES-valencia" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lot"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Batch"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lote"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lotea"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lote"
+          }
+        }
+      }
+    },
+    "operation_cosign" : {
+      "comment" : "Operation: Co-sign",
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cofirmació"
+          }
+        },
+        "ca-ES-valencia" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cofirmació"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Co-sign"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cofirma"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kofirma"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cofirma"
+          }
+        }
+      }
+    },
+    "operation_countersign" : {
+      "comment" : "Operation: Counter-sign",
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contrafirmació"
+          }
+        },
+        "ca-ES-valencia" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contrafirmació"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Counter-sign"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contrafirma"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kontrafirma"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contrafirma"
+          }
+        }
+      }
+    },
+    "operation_sign" : {
+      "comment" : "Operation: Sign",
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Signatura"
+          }
+        },
+        "ca-ES-valencia" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Signatura"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sign"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Firma"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sinadura"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sinatura"
+          }
+        }
+      }
+    },
+    "operation_unknown_operation" : {
+      "comment" : "Operation: Unknown",
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Operació desconeguda"
+          }
+        },
+        "ca-ES-valencia" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Operació desconeguda"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unknown operation"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Operación desconocida"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ezezaguneko operazioa"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Operación descoñecida"
           }
         }
       }
