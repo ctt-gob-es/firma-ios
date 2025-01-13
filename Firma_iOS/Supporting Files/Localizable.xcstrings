@@ -5087,205 +5087,245 @@
         }
       }
     },
-    "history_batch_sign" : {
-      "localizations" : {
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Signatura per lots"
-          }
-        },
-        "ca-ES-valencia" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Signatura per lots"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Batch signing"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Firma de lote"
-          }
-        },
-        "eu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Batch sinadura"
-          }
-        },
-        "gl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sinatura por lotes"
-          }
-        }
-      }
+    "history_app_name_file" : {
+	   "localizations": {
+				"ca": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "%1$@ sol·licitada per %2$@ del fitxer %3$@"
+				    }
+				},
+				"ca-ES-valencia": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "%1$@ sol·licitada per %2$@ del fitxer %3$@"
+				    }
+				},
+				"en": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "%1$@ requested by %2$@ of the file %3$@"
+				    }
+				},
+				"es": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "%1$@ solicitada por %2$@ del fichero %3$@"
+				    }
+				},
+				"eu": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "%1$@ aplikazioaren bidez eskatuta %2$@ fitxategiaren %3$@"
+				    }
+				},
+				"gl": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "%1$@ solicitada por %2$@ do ficheiro %3$@"
+				    }
+				}
+			 }
     },
-    "history_batch_sign_requested_by_app" : {
-      "localizations" : {
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Signatura per lots sol·licitada per %@"
-          }
-        },
-        "ca-ES-valencia" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Signatura per lots sol·licitada per %@"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Batch signing requested by %@"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Firma de lote solicitada por %@"
-          }
-        },
-        "eu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Batch sinadura aplikazioaren bidez eskatuta %@"
-          }
-        },
-        "gl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sinatura por lotes solicitada por %@"
-          }
-        }
-      }
+    "history_app_name_no_file" : {
+	   "localizations": {
+				"ca": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "%1$@ sol·licitada per %2$@"
+				    }
+				},
+				"ca-ES-valencia": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "%1$@ sol·licitada per %2$@"
+				    }
+				},
+				"en": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "%1$@ requested by %2$@"
+				    }
+				},
+				"es": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "%1$@ solicitada por %2$@"
+				    }
+				},
+				"eu": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "%1$@ aplikazioaren bidez eskatuta %2$@"
+				    }
+				},
+				"gl": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "%1$@ solicitada por %2$@"
+				    }
+				}
+			 }
     },
-    "history_file_info_format" : {
-      "localizations" : {
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : " del fitxer %@"
-          }
-        },
-        "ca-ES-valencia" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : " del fitxer %@"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : " of the file %@"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : " del fichero %@"
-          }
-        },
-        "eu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : " fitxategiaren %@"
-          }
-        },
-        "gl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : " do ficheiro %@"
-          }
-        }
-      }
+    "history_batch_app_name" : {
+	   "localizations": {
+				"ca": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "Signatura per lots sol·licitada per %1$@"
+				    }
+				},
+				"ca-ES-valencia": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "Signatura per lots sol·licitada per %1$@"
+				    }
+				},
+				"en": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "Batch signing requested by %1$@"
+				    }
+				},
+				"es": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "Firma de lote solicitada por %1$@"
+				    }
+				},
+				"eu": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "Batch sinadura aplikazioaren bidez eskatuta %1$@"
+				    }
+				},
+				"gl": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "Sinatura por lotes solicitada por %1$@"
+				    }
+				}
+			 }
     },
-    "history_operation_requested_by_app" : {
-      "localizations" : {
-        "ca" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "%@ sol·licitada per %@%@"
-          }
-        },
-        "ca-ES-valencia" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "%@ sol·licitada per %@%@"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ requested from application %@%@"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ solicitada por aplicación %@%@"
-          }
-        },
-        "eu" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "%@ web aplikazioaren bidez eskatuta %@%@"
-          }
-        },
-        "gl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ solicitada por aplicación %@%@"
-          }
-        }
-      }
+    "history_batch_no_app_name" : {
+	   "localizations": {
+				"ca": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "Signatura per lots"
+				    }
+				},
+				"ca-ES-valencia": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "Signatura per lots"
+				    }
+				},
+				"en": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "Batch signing"
+				    }
+				},
+				"es": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "Firma de lote"
+				    }
+				},
+				"eu": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "Batch sinadura"
+				    }
+				},
+				"gl": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "Sinatura por lotes"
+				    }
+				}
+			 }
     },
-    "history_operation_requested_by_other_app" : {
-      "localizations" : {
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ sol·licitada des d'una altra aplicació%@%@"
-          }
-        },
-        "ca-ES-valencia" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "%@ sol·licitada des d'una altra aplicació%@%@"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ requested by other app %@%@"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "%@ solicitada desde otra aplicación %@%@"
-          }
-        },
-        "eu" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "%@ beste aplikazio batetik eskatuta%@%@"
-          }
-        },
-        "gl" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "%@ solicitada por outra aplicación %@%@"
-          }
-        }
-      }
+    "history_no_app_name_file" : {
+	   "localizations": {
+			    "ca": {
+				   "stringUnit": {
+					  "state": "translated",
+					  "value": "%1$@ sol·licitada des d'una altra aplicació del fitxer %2$@"
+				   }
+			    },
+			    "ca-ES-valencia": {
+				   "stringUnit": {
+					  "state": "translated",
+					  "value": "%1$@ sol·licitada des d'una altra aplicació del fitxer %2$@"
+				   }
+			    },
+			    "en": {
+				   "stringUnit": {
+					  "state": "translated",
+					  "value": "%1$@ requested from another application of the file %2$@"
+				   }
+			    },
+			    "es": {
+				   "stringUnit": {
+					  "state": "translated",
+					  "value": "%1$@ solicitada desde otra aplicación del fichero %2$@"
+				   }
+			    },
+			    "eu": {
+				   "stringUnit": {
+					  "state": "translated",
+					  "value": "%1$@ beste aplikazio batetik eskatuta fitxategiaren %2$@"
+				   }
+			    },
+			    "gl": {
+				   "stringUnit": {
+					  "state": "translated",
+					  "value": "%1$@ solicitada desde outra aplicación do ficheiro %2$@"
+				   }
+			    }
+			}
+    },
+    "history_no_app_name_no_file" : {
+	   "localizations": {
+				"ca": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "%1$@ sol·licitada des d'una altra aplicació"
+				    }
+				},
+				"ca-ES-valencia": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "%1$@ sol·licitada des d'una altra aplicació"
+				    }
+				},
+				"en": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "%1$@ requested from another application"
+				    }
+				},
+				"es": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "%1$@ solicitada desde otra aplicación"
+				    }
+				},
+				"eu": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "%1$@ beste aplikazio batetik eskatuta"
+				    }
+				},
+				"gl": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "%1$@ solicitada desde outra aplicación"
+				    }
+				}
+			 }
     },
     "history_unknown_operation" : {
       "localizations" : {
@@ -5327,165 +5367,245 @@
         }
       }
     },
-    "history_web_batch_sign" : {
-      "localizations" : {
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Signatura per lots web"
-          }
-        },
-        "ca-ES-valencia" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Signatura per lots web"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Web batch signing"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Firma de lote web"
-          }
-        },
-        "eu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Web batch sinadura"
-          }
-        },
-        "gl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sinatura por lotes web"
-          }
-        }
-      }
+    "history_web_app_name_file" : {
+	   "localizations": {
+			    "ca": {
+				   "stringUnit": {
+					  "state": "translated",
+					  "value": "%1$@ web sol·licitada per %2$@ del fitxer %3$@"
+				   }
+			    },
+			    "ca-ES-valencia": {
+				   "stringUnit": {
+					  "state": "translated",
+					  "value": "%1$@ web sol·licitada per %2$@ del fitxer %3$@"
+				   }
+			    },
+			    "en": {
+				   "stringUnit": {
+					  "state": "translated",
+					  "value": "%1$@ web requested by %2$@ of the file %3$@"
+				   }
+			    },
+			    "es": {
+				   "stringUnit": {
+					  "state": "translated",
+					  "value": "%1$@ web solicitada por %2$@ del fichero %3$@"
+				   }
+			    },
+			    "eu": {
+				   "stringUnit": {
+					  "state": "translated",
+					  "value": "%1$@ web aplikazioaren bidez eskatuta %2$@ fitxategiaren %3$@"
+				   }
+			    },
+			    "gl": {
+				   "stringUnit": {
+					  "state": "translated",
+					  "value": "%1$@ web solicitada por %2$@ do ficheiro %3$@"
+				   }
+			    }
+			}
     },
-    "history_web_batch_sign_requested_by_app" : {
-      "localizations" : {
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Signatura per lots web sol·licitada per %@"
-          }
-        },
-        "ca-ES-valencia" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Signatura per lots web sol·licitada per %@"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Web batch signing requested by %@"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ solicitada por %@%@"
-          }
-        },
-        "eu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Web batch sinadura aplikazioaren bidez eskatuta %@"
-          }
-        },
-        "gl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sinatura por lotes web solicitada por %@"
-          }
-        }
-      }
+    "history_web_app_name_no_file" : {
+	   "localizations": {
+			    "ca": {
+				   "stringUnit": {
+					  "state": "translated",
+					  "value": "%1$@ web sol·licitada per %2$@"
+				   }
+			    },
+			    "ca-ES-valencia": {
+				   "stringUnit": {
+					  "state": "translated",
+					  "value": "%1$@ web sol·licitada per %2$@"
+				   }
+			    },
+			    "en": {
+				   "stringUnit": {
+					  "state": "translated",
+					  "value": "%1$@ web requested by %2$@"
+				   }
+			    },
+			    "es": {
+				   "stringUnit": {
+					  "state": "translated",
+					  "value": "%1$@ web solicitada por %2$@"
+				   }
+			    },
+			    "eu": {
+				   "stringUnit": {
+					  "state": "translated",
+					  "value": "%1$@ web aplikazioaren bidez eskatuta %2$@"
+				   }
+			    },
+			    "gl": {
+				   "stringUnit": {
+					  "state": "translated",
+					  "value": "%1$@ web solicitada por %2$@"
+				   }
+			    }
+			}
     },
-    "history_web_operation" : {
-      "localizations" : {
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "\"%@ web%@\""
-          }
-        },
-        "ca-ES-valencia" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ web%@"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ web%@"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ web%@"
-          }
-        },
-        "eu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ web%@"
-          }
-        },
-        "gl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ web%@"
-          }
-        }
-      }
+    "history_web_batch_app_name" : {
+	   "localizations": {
+				"ca": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "Signatura per lots web sol·licitada per %1$@"
+				    }
+				},
+				"ca-ES-valencia": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "Signatura per lots web sol·licitada per %1$@"
+				    }
+				},
+				"en": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "Web batch signing requested by %1$@"
+				    }
+				},
+				"es": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "Firma de lote web solicitada por %1$@"
+				    }
+				},
+				"eu": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "Web batch sinadura aplikazioaren bidez eskatuta %1$@"
+				    }
+				},
+				"gl": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "Sinatura por lotes web solicitada por %1$@"
+				    }
+				}
+			 }
     },
-    "history_web_operation_requested_by_app" : {
-      "localizations" : {
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ web sol·licitada per %@%@"
-          }
-        },
-        "ca-ES-valencia" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ web sol·licitada per %@%@"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ web requested by %@%@"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ web solicitada por %@%@"
-          }
-        },
-        "eu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ aplikazioaren bidez eskatuta %@%@"
-          }
-        },
-        "gl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ web solicitada por %@%@"
-          }
-        }
-      }
+    "history_web_batch_no_app_name" : {
+	   "localizations": {
+			    "ca": {
+				   "stringUnit": {
+					  "state": "translated",
+					  "value": "Signatura per lots web"
+				   }
+			    },
+			    "ca-ES-valencia": {
+				   "stringUnit": {
+					  "state": "translated",
+					  "value": "Signatura per lots web"
+				   }
+			    },
+			    "en": {
+				   "stringUnit": {
+					  "state": "translated",
+					  "value": "Web batch signing"
+				   }
+			    },
+			    "es": {
+				   "stringUnit": {
+					  "state": "translated",
+					  "value": "Firma de lote web"
+				   }
+			    },
+			    "eu": {
+				   "stringUnit": {
+					  "state": "translated",
+					  "value": "Web batch sinadura"
+				   }
+			    },
+			    "gl": {
+				   "stringUnit": {
+					  "state": "translated",
+					  "value": "Sinatura por lotes web"
+				   }
+			    }
+			}
+    },
+    "history_web_no_app_name_file" : {
+	   "localizations": {
+				"ca": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "%1$@ web del fitxer %2$@"
+				    }
+				},
+				"ca-ES-valencia": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "%1$@ web del fitxer %2$@"
+				    }
+				},
+				"en": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "%1$@ web of the file %2$@"
+				    }
+				},
+				"es": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "%1$@ web del fichero %2$@"
+				    }
+				},
+				"eu": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "%1$@ web fitxategiaren %2$@"
+				    }
+				},
+				"gl": {
+				    "stringUnit": {
+					   "state": "translated",
+					   "value": "%1$@ web do ficheiro %2$@"
+				    }
+				}
+			 }
+    },
+    "history_web_no_app_name_no_file" : {
+	   "localizations": {
+			    "ca": {
+				   "stringUnit": {
+					  "state": "translated",
+					  "value": "%1$@ web"
+				   }
+			    },
+			    "ca-ES-valencia": {
+				   "stringUnit": {
+					  "state": "translated",
+					  "value": "%1$@ web"
+				   }
+			    },
+			    "en": {
+				   "stringUnit": {
+					  "state": "translated",
+					  "value": "%1$@ web"
+				   }
+			    },
+			    "es": {
+				   "stringUnit": {
+					  "state": "translated",
+					  "value": "%1$@ web"
+				   }
+			    },
+			    "eu": {
+				   "stringUnit": {
+					  "state": "translated",
+					  "value": "%1$@ web"
+				   }
+			    },
+			    "gl": {
+				   "stringUnit": {
+					  "state": "translated",
+					  "value": "%1$@ web"
+				   }
+			    }
+			}
     },
     "home_certificates_add_certificate_button_title" : {
       "localizations" : {

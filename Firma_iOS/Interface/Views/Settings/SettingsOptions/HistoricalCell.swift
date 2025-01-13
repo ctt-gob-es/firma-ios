@@ -18,13 +18,14 @@ struct HistoricalCell: View {
 	   HStack {
 		  VStack(alignment: .leading, spacing: 6) {
 			 
+			 //TODO: Confirm with Android Design
 			 /*if let externalApp = history.externalApp {
 				if externalApp != "" {
 				    AccessibleText(content: externalApp)
 					   .regularBoldStyle(foregroundColor: ColorConstants.Text.secondary)
 					   .underline()
 				}
-			 }*/
+			 }
 			 
 			 HStack {
 				AccessibleText(content: history.filename ?? "")
@@ -40,6 +41,12 @@ struct HistoricalCell: View {
 				    AccessibleText(content: NSLocalizedString(signType, bundle: Bundle.main, comment: ""))
 					   .mediumBoldStyle(foregroundColor: ColorConstants.Text.primary)
 				}
+			 }*/
+			 
+			 
+			 HStack {
+				AccessibleText(content: textToShow)
+				    .mediumBoldStyle(foregroundColor: ColorConstants.Text.primary)
 			 }
 			 
 			 if let date = history.date {
@@ -61,10 +68,6 @@ struct HistoricalCell: View {
 				}
 			 }
 
-			 HStack {
-				AccessibleText(content: textToShow)
-				    .mediumBoldStyle(foregroundColor: ColorConstants.Text.primary)
-			 }
 		  }
 	   }
     }
