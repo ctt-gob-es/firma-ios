@@ -16,7 +16,7 @@ struct HistoricalView: View {
     @State var showDeleteModal: Bool = false
     
     var body: some View {
-	   VStack {
+	   VStack() {
 		  if viewModel.historyList.isEmpty {
 			 VStack {
 				Spacer()
@@ -29,21 +29,23 @@ struct HistoricalView: View {
 				Spacer()
 			 }
 		  } else {
-			 List {
+                List {
 				ForEach(viewModel.historyList, id: \.self) { history in
-				    HistoricalCell(history: history)
+                        HistoricalCell(history: history).background(Color.blue)
 				}
 				.onDelete(perform: delete)
 			 }
+                .listStyle(PlainListStyle())
+                .background(Color.white)
 			 .navigationBarTitle(NSLocalizedString("historical_view_title", bundle: Bundle.main, comment: ""))
 			 .navigationBarItems(trailing: HStack(spacing: 4) {
-				NavigationBarButton(imageName: "trash.circle.fill", isNativeIcon: true, action: {
-				    showDeleteModal.toggle()
-				})
+                    NavigationBarButton(imageName: "trash_gray", isNativeIcon: false, action: {
+                        self.showDeleteModal.toggle()
+                    })
 			 })
 		  }
 	   }
-	   .sheet(isPresented: $showDeleteModal) {
+        .sheet(isPresented: $showDeleteModal) {
             DeleteHistoricalModalView(contentHeight: $contentSheetHeight, viewModel: viewModel)
 			 .presentationDetents([.height(contentSheetHeight)])
 			 .accessibility(addTraits: .isModal)

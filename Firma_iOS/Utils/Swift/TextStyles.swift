@@ -70,6 +70,13 @@ extension AccessibleText {
 		  .foregroundColor(foregroundColor)
 		  .multilineTextAlignment(alignment)
     }
+    
+    func regularStyleSmall(foregroundColor: Color, alignment: TextAlignment = .leading) -> some View {
+       self
+          .font(.custom("NunitoSans10pt-Regular", size: 12))
+          .foregroundColor(foregroundColor)
+          .multilineTextAlignment(alignment)
+    }
 }
 
 extension Text {
