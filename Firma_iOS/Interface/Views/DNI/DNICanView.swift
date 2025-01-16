@@ -46,6 +46,9 @@ struct DNICanView: View {
 				.padding()
 		  }
 	   }
+        .onAppear() {
+            let _ = canValidation(can: can)
+        }
 	   .padding()
     }
     
