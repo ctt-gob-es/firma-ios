@@ -308,6 +308,7 @@ extension AppError {
 extension AppError {
     // 500XXX: Error general
     static let userOperationCanceled = AppError.functionalError(500001, "Operación cancelada por el usuario.", .userCancelled)
+    static let userOperationSaveCanceled = AppError.functionalError(500001, "Operación cancelada por el usuario.", .userCancelledSave)
     
     // 501XXX: Operación de firma
     static let certificateNeeded = AppError.functionalError(501001, "Error en la operación, no hay certificados", .certificateNeeded)

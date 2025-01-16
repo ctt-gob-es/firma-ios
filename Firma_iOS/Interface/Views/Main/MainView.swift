@@ -138,7 +138,6 @@ struct MainView: View {
 	   .navigationBarColor(UIColor(ColorConstants.Background.main), titleColor: .black)
 	   .environment(\.managedObjectContext, persistenceController.context)
 	   .onDisappear(perform: onDisappear)
-	   .onChange(of: appStatus.showDocumentSavingPicker, perform: handleDocumentSavingPicker)
 	   //TODO: USE UIKIT SELECTOR for iOS 16
 	   .fileImporter(
 		  isPresented: $appStatus.showDocumentImportingPicker,
@@ -167,7 +166,6 @@ struct MainView: View {
 		  ErrorModalView(
                 contentHeight: $contentSheetHeight,
 			 viewMode: $viewModel.viewMode,
-			 description: $appStatus.errorModalDescription,
 			 shouldReloadParentView: $appStatus.navigateToSelectCertificate,
                 appError: appStatus.appError ?? AppError.generalSoftwareError
 		  )
@@ -186,35 +184,9 @@ struct MainView: View {
 			 .accessibility(addTraits: .isModal)
 			 .interactiveDismissDisabled(true)
 	   }
-	   .sheet(isPresented: $appStatus.showDocumentSavingPicker) {
-		  if let url = appStatus.downloadedData {
-			 DocumentSavingPicker(fileURL: url, onDismiss: { result in
-				viewModel.viewMode = .home
-				switch result {
-				    case .success(let url):
-					   print("URL of the saved archive: " + url.absoluteString)
-					   appStatus.showSuccessModal = true
-					   appStatus.successModalState = .successArhiveAdded
-					   viewModel.successSavingArchive()
-					   
-				    case .failure(let error):
-					   print("Error while saving the data, : " + error.localizedDescription)
-					   handleErrorSavingData(error: error)
-					   viewModel.errorSavingArchive()
-				}
-			 })
-			 .interactiveDismissDisabled(true)
-		  }
-        }
     }
     
     private func onDisappear() {}
-    
-    private func handleDocumentSavingPicker(_ value: Bool) {
-	   if !value {
-		  viewModel.viewMode = .home
-	   }
-    }
     
     private func handleFileImport(result: Result<[URL], Error>) {
 	   switch result {
@@ -235,12 +207,6 @@ struct MainView: View {
     func handleErrorImportingFile(error: Error) {
 	   appStatus.showErrorModal = true
 	   appStatus.appError = AppError.fileLoadingLocalFile
-	   appStatus.errorModalDescription = error.localizedDescription
     }
-    
-    func handleErrorSavingData(error: Error) {
-	   appStatus.showErrorModal = true
-	   appStatus.appError = AppError.dataSavingFileSaveDisk
-	   appStatus.errorModalDescription = error.localizedDescription
-    }
+
 }

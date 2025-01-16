@@ -66,7 +66,7 @@ class NFCViewModel: NSObject, ObservableObject {
 					   signType: self.signType ?? .external,
 					   dataType: self.dataType ?? .external,
 					   externalApp: self.signModel.appname,
-					   filename: FileUtils.getArchiveNameFromParameters(parameters: self.parameters),
+                            filename: self.signModel.filename,
 					   returnURL: self.signModel.returnURL,
 					   operation: self.signModel.operation
 				    )

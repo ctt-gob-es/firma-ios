@@ -34,6 +34,8 @@ class SignModel {
     var visibleSignature: VisibleSignatureType?
     var appname: String?
     
+    var filename: String? // Nombre del fichero que se está procesando
+    
     init(dictionary: NSMutableDictionary) {
 	   self.operation = dictionary[PARAMETER_NAME_OPERATION] as? String
 	   self.datosInUse = dictionary[PARAMETER_NAME_DAT] as? String
@@ -46,6 +48,7 @@ class SignModel {
 	   self.rtServlet = dictionary[PARAMETER_NAME_RTSERVLET] as? String
 	   self.fileId = dictionary[PARAMETER_NAME_FILE_ID] as? String
 	   self.returnURL = dictionary[PARAMETER_NAME_RETURN_URL] as? String
+        self.filename = dictionary[PARAMETER_NAME_FILENAME] as? String
 
 	   if let extraParams = self.extraParams {
 		  if let dataReceived = Base64Utils.decode(extraParams, urlSafe: true),

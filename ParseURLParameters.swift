@@ -20,4 +20,5 @@ struct ParseURLParameters {
     var reportErrorCert: Bool = false
     var retrievingDataFromServletCert: Bool = false
     var numberOfRetries = 0
+    var filename : String?
 }

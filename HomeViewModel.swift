@@ -34,12 +34,13 @@ class HomeViewModel: ObservableObject {
     @Published var showErrorModal: Bool? = false
     @Published var showSuccessModal: Bool? = false
     @Published var showDocumentImportingPicker: Bool? = false
-    @Published var errorModalDescription: String? = ""
     @Published var showSignCoordinatesModal: Bool = false
     @Published var signType: SignType? = nil
     @Published var dataType: DataType? = nil
     @Published var showTextfieldModal: Bool = false
     @Published var showSelectSignMode: Bool = false
+    @Published var showDocumentSavingPicker: Bool = false
+    @Published var downloadedData: URL? = nil
     @Published var selectDNIe: Bool = false
     @Published var selectElectronicCertificate: Bool = false
     @Published var signMode: SignMode?
@@ -184,8 +185,9 @@ class HomeViewModel: ObservableObject {
         self.isLoading = true
         LoadDataLocalFileUseCase().execute(urlFile: value, signModel: signModel) {result in
             switch result {
-            case .success(let stringData):
+            case .success(let (filename, stringData)):
                 self.signModel?.datosInUse = stringData
+                self.signModel?.filename = filename
                 self.isLoading = false
                 self.selectSignMode()
             case .failure(let error):
@@ -395,7 +397,7 @@ class HomeViewModel: ObservableObject {
                                 signType: self.signType ?? .external,
 						  dataType: self.dataType ?? .external,
 						  externalApp: self.signModel?.appname,
-						  filename: FileUtils.getArchiveNameFromParameters (parameters: self.parameters),
+                                filename: self.signModel?.filename,
 						  returnURL: self.signModel?.returnURL,
 						  operation: self.signModel?.operation
 					   )
@@ -462,16 +464,16 @@ class HomeViewModel: ObservableObject {
     private func handleOperationSaveData() {
         if let receivedStringData = signModel?.datosInUse {
             SaveDataUseCase().saveFileFromBase64Data(
-                archiveName: FileUtils.getArchiveNameFromParameters(parameters: parameters),
+                archiveName: self.signModel?.filename ?? NSLocalizedString("default_autofirma_document_name", bundle: Bundle.main, comment: ""),
                 base64Data: receivedStringData
             ) { result in
                 self.isLoading = false
                 switch result {
                 case .success(let url):
-                    self.appStatus.downloadedData = url
-                    self.appStatus.showDocumentSavingPicker = true
+                    self.downloadedData = url
+                    self.showDocumentSavingPicker = true
                 case .failure(let error):
-                    self.showError(appError: error)
+                    self.sendErrorOperation(error: error)
                 }
             }
         }
@@ -535,9 +537,6 @@ class HomeViewModel: ObservableObject {
 	   }
     }
     
-    func sendSuccessSavingArchive() {
-	   SendSuccessOperationUseCase().execute(signModel: self.signModel)
-    }
     
     private func showCertificateInfoModal(title: String, message: String) {
         titleCertificateInfoModal = title
@@ -649,6 +648,18 @@ class HomeViewModel: ObservableObject {
         } else {
             resetHomeViewModelVariables()
         }
+    }
+    
+    func successOperationSaveFile() {
+        viewMode = .home
+        appStatus.showSuccessModal = true
+        appStatus.successModalState = .successArhiveAdded
+        SendSuccessOperationUseCase().execute(signModel: self.signModel)
+    }
+    
+    func cancelOperationSaveFile() {
+        SendErrorOperationUseCase().execute(error: AppError.userOperationSaveCanceled, signModel: signModel)
+        handleOperationError(appError: AppError.userOperationSaveCanceled)
     }
     
     func handleNotAnyCoordinatesSelected() {

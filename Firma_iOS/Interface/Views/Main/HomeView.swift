@@ -57,7 +57,7 @@ struct HomeView: View {
                      viewModel.certificateURL = url
                      viewModel.navigateToAddCertificate.toggle()
                  } else {
-                         appStatus.appError = AppError.certificateImportingError
+                     appStatus.appError = AppError.certificateImportingError
                      appStatus.showErrorModal.toggle()
                  }
               }, onCancel: {
@@ -130,6 +130,24 @@ struct HomeView: View {
 		  .accessibility(addTraits: .isModal)
 		  .interactiveDismissDisabled(true)
 	   }
+        .sheet(isPresented: $viewModel.showDocumentSavingPicker) {
+           if let url = viewModel.downloadedData {
+              DocumentSavingPicker(fileURL: url, onDismiss: { result in
+                 switch result {
+                     case .success(_):
+                        viewModel.successOperationSaveFile()
+                     case .failure(let error):
+                         if (error == .userOperationSaveCanceled){
+                             viewModel.cancelOperationSaveFile()
+                         } else {
+                             print("Error while saving the data, : " + error.localizedDescription)
+                             viewModel.sendErrorOperation(error: AppError.saveHistorySign)
+                         }
+                 }
+              })
+              .interactiveDismissDisabled(true)
+           }
+         }
 	   .fullScreenCover(isPresented: $viewModel.showSignCoordinatesModal, onDismiss: {
 		  if viewModel.annotations.isEmpty {
 			 viewModel.handleNotAnyCoordinatesSelected()

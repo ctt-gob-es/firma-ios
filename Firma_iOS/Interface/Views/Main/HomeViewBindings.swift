@@ -136,11 +136,5 @@ extension View {
                viewModel.resetHomeViewModelVariables()
                appStatus.isLoading = false
             }
-		  .onReceive(NotificationCenter.default.publisher(for: .SuccessSavingArchive)) { _ in
-			 viewModel.sendSuccessSavingArchive()
-		  }
-		  .onReceive(NotificationCenter.default.publisher(for: .ErrorSavingArchive)) { _ in
-			 viewModel.sendErrorOperation(error: AppError.saveHistorySign)
-		  }
     }
 }

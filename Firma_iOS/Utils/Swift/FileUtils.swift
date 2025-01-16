@@ -10,6 +10,11 @@ import Foundation
 import SwiftUI
 import UniformTypeIdentifiers
 
+struct FileData {
+    let data : Data
+    let fileName : String
+}
+
 class FileUtils {
     func handleFile(at url: URL) -> Bool {
 	   let fileType = url.pathExtension.lowercased()
@@ -58,7 +63,7 @@ class FileUtils {
 	   return matches
     }
     
-    static func convertURLFileToData(urls: [URL], completion: @escaping (Result<Data, Error>) -> Void) {
+    static func convertURLFileToData(urls: [URL], completion: @escaping (Result<FileData, Error>) -> Void) {
 	   guard let url = urls.first else {
             completion(.failure(AppError.generalSoftwareError))
 		  return
@@ -75,24 +80,11 @@ class FileUtils {
 	   
 	   do {
 		  let data = try Data(contentsOf: url)
-		  completion(.success(data))
+            let fileName = url.lastPathComponent
+		  completion(.success(FileData(data: data, fileName: fileName)))
 	   } catch let error {
 		  completion(.failure(error))
 	   }
-    }
-    
-    static func getArchiveNameFromParameters(parameters: NSMutableDictionary?) -> String{
-	   let archiveName = parameters?[PARAMETER_NAME_FILENAME] as? String
-	   return (archiveName == nil ? NSLocalizedString("default_autofirma_document_name", bundle: Bundle.main, comment: "") : archiveName!) + (parameters?[PARAMETER_NAME_EXTENSION]  as? String ?? "")
-    }
-    
-    static func hasArchiveFilename(parameters: NSMutableDictionary?) -> Bool{
-	   let archiveName = parameters?[PARAMETER_NAME_FILENAME] as? String
-	   return (archiveName == nil ? true : false)
-    }
-    
-    static func getExtensionFromParameters(parameters: NSMutableDictionary?) -> String{
-	   return parameters?[PARAMETER_NAME_EXTENSION] as? String ?? ""
     }
     
     static func fileType(from data: Data) -> String? {
