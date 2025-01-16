@@ -127,7 +127,7 @@ extension AppError {
     static let nfcReaderTransceiveErrorTagNotConnected = AppError.hardwareError(102012, "La etiqueta NFC no está conectada", .dniReadingErrorLong)
     static let nfcReaderTransceiveErrorPacketTooLong = AppError.hardwareError(102013, "Paquete demasiado largo para la etiqueta NFC")
     static let nfcReaderSessionInvalidationErrorUserCanceled = AppError.hardwareError(102014, "El usuario canceló manualmente la sesión", .dniCanceledSession)
-    static let nfcReaderSessionInvalidationErrorSessionTimeout = AppError.hardwareError(102015, "La sesión NFC expiró debido a inactividad", .dniReadingErrorLong)
+    static let nfcReaderSessionInvalidationErrorSessionTimeout = AppError.hardwareError(102015, "La sesión NFC expiró debido a inactividad", .dniTimeoutError)
     static let nfcReaderSessionInvalidationErrorSessionTerminatedUnexpectedly = AppError.hardwareError(102016, "La sesión NFC se cerró inesperadamente", .dniReadingErrorLong)
     static let nfcReaderSessionInvalidationErrorSystemIsBusy = AppError.hardwareError(102017, "El sistema está ocupado", .dniReadingErrorLong)
     static let nfcReaderSessionInvalidationErrorFirstNDEFTagRead = AppError.hardwareError(102018, "Sesión cerrada tras leer la primera etiqueta (según configuración)", .dniReadingErrorLong)
