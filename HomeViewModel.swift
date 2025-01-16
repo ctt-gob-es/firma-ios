@@ -427,8 +427,21 @@ class HomeViewModel: ObservableObject {
             self.isLoading = false
             
             switch result {
-            case .success(let resultBatch):
-                self.handleOperationSuccess(successState: self.getSuccessModal(resultBatch))
+            case .success(_):
+                let history = HistoryModel(
+                    date: Date(),
+                    signType: self.signType ?? .external,
+                    dataType: self.dataType ?? .external,
+                    externalApp: self.signModel?.appname,
+                    filename: nil,
+                    returnURL: self.signModel?.returnURL,
+                    operation: self.signModel?.operation
+                )
+               
+                HistoricalUseCase().saveHistory(history: history) { result in
+                    // Independientemente del resultado del guardado en historico, mostramos que la firma ha sido correcta
+                    self.handleOperationSuccess(successState: .successSign)
+                }
             case .failure(let error):
                 self.handleOperationError(appError: error)
             }
