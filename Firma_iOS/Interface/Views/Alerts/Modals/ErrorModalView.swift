@@ -13,7 +13,6 @@ struct ErrorModalView: View {
     
     @Binding var contentHeight: CGFloat
     @Binding var viewMode: ViewModes
-    @Binding var description: String
     @Binding var shouldReloadParentView: Bool
     @EnvironmentObject var appStatus : AppStatus
     
@@ -56,7 +55,7 @@ struct ErrorModalView: View {
                             .accessibilityAddTraits(.isHeader)
                             .padding(.bottom)
                         
-                        AccessibleText(content: description == "" ? appError.screenErrorMessage : description)
+                        AccessibleText(content: appError.screenErrorMessage)
                             .regularStyle(foregroundColor: ColorConstants.Text.secondary)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -210,6 +209,4 @@ struct UpdateErrorButtons: View {
 extension Notification.Name {
     static let ErrorModalCancelButtonAction = Notification.Name("CancelButtonAction")
     static let CloseSignMode = Notification.Name("CloseSignMode")
-    static let SuccessSavingArchive = Notification.Name("SuccessSavingArchive")
-    static let ErrorSavingArchive = Notification.Name("ErrorSavingArchive")
 }
