@@ -3682,6 +3682,47 @@
         }
       }
     },
+    "dni_reading_error_timeout_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "S'ha superat el timeout de connexió. Si us plau, torna a intentar-ho. Recorda mantenir-lo en una superfície llisa i mantenir el teu telèfon mòbil uns segons fix sobre la targeta per a la lectura correcta."
+          }
+        },
+        "ca-ES-valencia" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "S'ha superat el timeout de connexió. Per favor, torna a intentar-ho. Recorda mantindre-ho en una superfície llisa i mantindre el teu telèfon mòbil uns segons fix sobre la targeta per a la seua correcta lectura."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connection timeout exceeded. Please try again. Remember to keep it on a flat surface and hold your mobile phone fixed on the card for a few seconds for it to be read correctly."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Se ha superado el timeout de conexión. Por favor, vuelve a intentarlo. Recuerda mantenerlo en una superficie lisa y mantener tu teléfono móvil unos segundos fijo sobre la tarjeta para su correcta lectura."
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Konexioaren denbora-muga gainditu da. Mesedez, saiatu berriro. Gogoratu gainazal leun batean gorde behar duzula eta telefono mugikorra txartelean finkatuta edukitzea segundo batzuetan irakurketa zuzena izan dadin."
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Superouse o tempo de espera da conexión. Téntao de novo. Lembra mantelo nunha superficie lisa e manteña o teu teléfono móbil fixado na tarxeta durante uns segundos para unha lectura correcta."
+          }
+        }
+      }
+    },
     "dni_reading_error_title" : {
       "localizations" : {
         "ca" : {
@@ -5088,244 +5129,244 @@
       }
     },
     "history_app_name_file" : {
-	   "localizations": {
-				"ca": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "%1$@ sol·licitada per %2$@ del fitxer %3$@"
-				    }
-				},
-				"ca-ES-valencia": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "%1$@ sol·licitada per %2$@ del fitxer %3$@"
-				    }
-				},
-				"en": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "%1$@ requested by %2$@ of the file %3$@"
-				    }
-				},
-				"es": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "%1$@ solicitada por %2$@ del fichero %3$@"
-				    }
-				},
-				"eu": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "%1$@ aplikazioaren bidez eskatuta %2$@ fitxategiaren %3$@"
-				    }
-				},
-				"gl": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "%1$@ solicitada por %2$@ do ficheiro %3$@"
-				    }
-				}
-			 }
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ sol·licitada per %2$@ del fitxer %3$@"
+          }
+        },
+        "ca-ES-valencia" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ sol·licitada per %2$@ del fitxer %3$@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ requested by %2$@ of the file %3$@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ solicitada por %2$@ del fichero %3$@"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ aplikazioaren bidez eskatuta %2$@ fitxategiaren %3$@"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ solicitada por %2$@ do ficheiro %3$@"
+          }
+        }
+      }
     },
     "history_app_name_no_file" : {
-	   "localizations": {
-				"ca": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "%1$@ sol·licitada per %2$@"
-				    }
-				},
-				"ca-ES-valencia": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "%1$@ sol·licitada per %2$@"
-				    }
-				},
-				"en": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "%1$@ requested by %2$@"
-				    }
-				},
-				"es": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "%1$@ solicitada por %2$@"
-				    }
-				},
-				"eu": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "%1$@ aplikazioaren bidez eskatuta %2$@"
-				    }
-				},
-				"gl": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "%1$@ solicitada por %2$@"
-				    }
-				}
-			 }
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ sol·licitada per %2$@"
+          }
+        },
+        "ca-ES-valencia" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ sol·licitada per %2$@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ requested by %2$@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ solicitada por %2$@"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ aplikazioaren bidez eskatuta %2$@"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ solicitada por %2$@"
+          }
+        }
+      }
     },
     "history_batch_app_name" : {
-	   "localizations": {
-				"ca": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "Signatura per lots sol·licitada per %1$@"
-				    }
-				},
-				"ca-ES-valencia": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "Signatura per lots sol·licitada per %1$@"
-				    }
-				},
-				"en": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "Batch signing requested by %1$@"
-				    }
-				},
-				"es": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "Firma de lote solicitada por %1$@"
-				    }
-				},
-				"eu": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "Batch sinadura aplikazioaren bidez eskatuta %1$@"
-				    }
-				},
-				"gl": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "Sinatura por lotes solicitada por %1$@"
-				    }
-				}
-			 }
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Signatura per lots sol·licitada per %1$@"
+          }
+        },
+        "ca-ES-valencia" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Signatura per lots sol·licitada per %1$@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Batch signing requested by %1$@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Firma de lote solicitada por %1$@"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Batch sinadura aplikazioaren bidez eskatuta %1$@"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sinatura por lotes solicitada por %1$@"
+          }
+        }
+      }
     },
     "history_batch_no_app_name" : {
-	   "localizations": {
-				"ca": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "Signatura per lots"
-				    }
-				},
-				"ca-ES-valencia": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "Signatura per lots"
-				    }
-				},
-				"en": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "Batch signing"
-				    }
-				},
-				"es": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "Firma de lote"
-				    }
-				},
-				"eu": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "Batch sinadura"
-				    }
-				},
-				"gl": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "Sinatura por lotes"
-				    }
-				}
-			 }
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Signatura per lots"
+          }
+        },
+        "ca-ES-valencia" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Signatura per lots"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Batch signing"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Firma de lote"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Batch sinadura"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sinatura por lotes"
+          }
+        }
+      }
     },
     "history_no_app_name_file" : {
-	   "localizations": {
-			    "ca": {
-				   "stringUnit": {
-					  "state": "translated",
-					  "value": "%1$@ sol·licitada des d'una altra aplicació del fitxer %2$@"
-				   }
-			    },
-			    "ca-ES-valencia": {
-				   "stringUnit": {
-					  "state": "translated",
-					  "value": "%1$@ sol·licitada des d'una altra aplicació del fitxer %2$@"
-				   }
-			    },
-			    "en": {
-				   "stringUnit": {
-					  "state": "translated",
-					  "value": "%1$@ requested from another application of the file %2$@"
-				   }
-			    },
-			    "es": {
-				   "stringUnit": {
-					  "state": "translated",
-					  "value": "%1$@ solicitada desde otra aplicación del fichero %2$@"
-				   }
-			    },
-			    "eu": {
-				   "stringUnit": {
-					  "state": "translated",
-					  "value": "%1$@ beste aplikazio batetik eskatuta fitxategiaren %2$@"
-				   }
-			    },
-			    "gl": {
-				   "stringUnit": {
-					  "state": "translated",
-					  "value": "%1$@ solicitada desde outra aplicación do ficheiro %2$@"
-				   }
-			    }
-			}
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ sol·licitada des d'una altra aplicació del fitxer %2$@"
+          }
+        },
+        "ca-ES-valencia" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ sol·licitada des d'una altra aplicació del fitxer %2$@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ requested from another application of the file %2$@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ solicitada desde otra aplicación del fichero %2$@"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ beste aplikazio batetik eskatuta fitxategiaren %2$@"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ solicitada desde outra aplicación do ficheiro %2$@"
+          }
+        }
+      }
     },
     "history_no_app_name_no_file" : {
-	   "localizations": {
-				"ca": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "%1$@ sol·licitada des d'una altra aplicació"
-				    }
-				},
-				"ca-ES-valencia": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "%1$@ sol·licitada des d'una altra aplicació"
-				    }
-				},
-				"en": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "%1$@ requested from another application"
-				    }
-				},
-				"es": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "%1$@ solicitada desde otra aplicación"
-				    }
-				},
-				"eu": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "%1$@ beste aplikazio batetik eskatuta"
-				    }
-				},
-				"gl": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "%1$@ solicitada desde outra aplicación"
-				    }
-				}
-			 }
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ sol·licitada des d'una altra aplicació"
+          }
+        },
+        "ca-ES-valencia" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ sol·licitada des d'una altra aplicació"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ requested from another application"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ solicitada desde otra aplicación"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ beste aplikazio batetik eskatuta"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ solicitada desde outra aplicación"
+          }
+        }
+      }
     },
     "history_unknown_operation" : {
       "localizations" : {
@@ -5368,244 +5409,244 @@
       }
     },
     "history_web_app_name_file" : {
-	   "localizations": {
-			    "ca": {
-				   "stringUnit": {
-					  "state": "translated",
-					  "value": "%1$@ web sol·licitada per %2$@ del fitxer %3$@"
-				   }
-			    },
-			    "ca-ES-valencia": {
-				   "stringUnit": {
-					  "state": "translated",
-					  "value": "%1$@ web sol·licitada per %2$@ del fitxer %3$@"
-				   }
-			    },
-			    "en": {
-				   "stringUnit": {
-					  "state": "translated",
-					  "value": "%1$@ web requested by %2$@ of the file %3$@"
-				   }
-			    },
-			    "es": {
-				   "stringUnit": {
-					  "state": "translated",
-					  "value": "%1$@ web solicitada por %2$@ del fichero %3$@"
-				   }
-			    },
-			    "eu": {
-				   "stringUnit": {
-					  "state": "translated",
-					  "value": "%1$@ web aplikazioaren bidez eskatuta %2$@ fitxategiaren %3$@"
-				   }
-			    },
-			    "gl": {
-				   "stringUnit": {
-					  "state": "translated",
-					  "value": "%1$@ web solicitada por %2$@ do ficheiro %3$@"
-				   }
-			    }
-			}
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ web sol·licitada per %2$@ del fitxer %3$@"
+          }
+        },
+        "ca-ES-valencia" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ web sol·licitada per %2$@ del fitxer %3$@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ web requested by %2$@ of the file %3$@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ web solicitada por %2$@ del fichero %3$@"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ web aplikazioaren bidez eskatuta %2$@ fitxategiaren %3$@"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ web solicitada por %2$@ do ficheiro %3$@"
+          }
+        }
+      }
     },
     "history_web_app_name_no_file" : {
-	   "localizations": {
-			    "ca": {
-				   "stringUnit": {
-					  "state": "translated",
-					  "value": "%1$@ web sol·licitada per %2$@"
-				   }
-			    },
-			    "ca-ES-valencia": {
-				   "stringUnit": {
-					  "state": "translated",
-					  "value": "%1$@ web sol·licitada per %2$@"
-				   }
-			    },
-			    "en": {
-				   "stringUnit": {
-					  "state": "translated",
-					  "value": "%1$@ web requested by %2$@"
-				   }
-			    },
-			    "es": {
-				   "stringUnit": {
-					  "state": "translated",
-					  "value": "%1$@ web solicitada por %2$@"
-				   }
-			    },
-			    "eu": {
-				   "stringUnit": {
-					  "state": "translated",
-					  "value": "%1$@ web aplikazioaren bidez eskatuta %2$@"
-				   }
-			    },
-			    "gl": {
-				   "stringUnit": {
-					  "state": "translated",
-					  "value": "%1$@ web solicitada por %2$@"
-				   }
-			    }
-			}
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ web sol·licitada per %2$@"
+          }
+        },
+        "ca-ES-valencia" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ web sol·licitada per %2$@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ web requested by %2$@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ web solicitada por %2$@"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ web aplikazioaren bidez eskatuta %2$@"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ web solicitada por %2$@"
+          }
+        }
+      }
     },
     "history_web_batch_app_name" : {
-	   "localizations": {
-				"ca": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "Signatura per lots web sol·licitada per %1$@"
-				    }
-				},
-				"ca-ES-valencia": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "Signatura per lots web sol·licitada per %1$@"
-				    }
-				},
-				"en": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "Web batch signing requested by %1$@"
-				    }
-				},
-				"es": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "Firma de lote web solicitada por %1$@"
-				    }
-				},
-				"eu": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "Web batch sinadura aplikazioaren bidez eskatuta %1$@"
-				    }
-				},
-				"gl": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "Sinatura por lotes web solicitada por %1$@"
-				    }
-				}
-			 }
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Signatura per lots web sol·licitada per %1$@"
+          }
+        },
+        "ca-ES-valencia" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Signatura per lots web sol·licitada per %1$@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Web batch signing requested by %1$@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Firma de lote web solicitada por %1$@"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Web batch sinadura aplikazioaren bidez eskatuta %1$@"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sinatura por lotes web solicitada por %1$@"
+          }
+        }
+      }
     },
     "history_web_batch_no_app_name" : {
-	   "localizations": {
-			    "ca": {
-				   "stringUnit": {
-					  "state": "translated",
-					  "value": "Signatura per lots web"
-				   }
-			    },
-			    "ca-ES-valencia": {
-				   "stringUnit": {
-					  "state": "translated",
-					  "value": "Signatura per lots web"
-				   }
-			    },
-			    "en": {
-				   "stringUnit": {
-					  "state": "translated",
-					  "value": "Web batch signing"
-				   }
-			    },
-			    "es": {
-				   "stringUnit": {
-					  "state": "translated",
-					  "value": "Firma de lote web"
-				   }
-			    },
-			    "eu": {
-				   "stringUnit": {
-					  "state": "translated",
-					  "value": "Web batch sinadura"
-				   }
-			    },
-			    "gl": {
-				   "stringUnit": {
-					  "state": "translated",
-					  "value": "Sinatura por lotes web"
-				   }
-			    }
-			}
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Signatura per lots web"
+          }
+        },
+        "ca-ES-valencia" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Signatura per lots web"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Web batch signing"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Firma de lote web"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Web batch sinadura"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sinatura por lotes web"
+          }
+        }
+      }
     },
     "history_web_no_app_name_file" : {
-	   "localizations": {
-				"ca": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "%1$@ web del fitxer %2$@"
-				    }
-				},
-				"ca-ES-valencia": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "%1$@ web del fitxer %2$@"
-				    }
-				},
-				"en": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "%1$@ web of the file %2$@"
-				    }
-				},
-				"es": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "%1$@ web del fichero %2$@"
-				    }
-				},
-				"eu": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "%1$@ web fitxategiaren %2$@"
-				    }
-				},
-				"gl": {
-				    "stringUnit": {
-					   "state": "translated",
-					   "value": "%1$@ web do ficheiro %2$@"
-				    }
-				}
-			 }
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ web del fitxer %2$@"
+          }
+        },
+        "ca-ES-valencia" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ web del fitxer %2$@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ web of the file %2$@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ web del fichero %2$@"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ web fitxategiaren %2$@"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ web do ficheiro %2$@"
+          }
+        }
+      }
     },
     "history_web_no_app_name_no_file" : {
-	   "localizations": {
-			    "ca": {
-				   "stringUnit": {
-					  "state": "translated",
-					  "value": "%1$@ web"
-				   }
-			    },
-			    "ca-ES-valencia": {
-				   "stringUnit": {
-					  "state": "translated",
-					  "value": "%1$@ web"
-				   }
-			    },
-			    "en": {
-				   "stringUnit": {
-					  "state": "translated",
-					  "value": "%1$@ web"
-				   }
-			    },
-			    "es": {
-				   "stringUnit": {
-					  "state": "translated",
-					  "value": "%1$@ web"
-				   }
-			    },
-			    "eu": {
-				   "stringUnit": {
-					  "state": "translated",
-					  "value": "%1$@ web"
-				   }
-			    },
-			    "gl": {
-				   "stringUnit": {
-					  "state": "translated",
-					  "value": "%1$@ web"
-				   }
-			    }
-			}
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ web"
+          }
+        },
+        "ca-ES-valencia" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ web"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ web"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ web"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ web"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ web"
+          }
+        }
+      }
     },
     "home_certificates_add_certificate_button_title" : {
       "localizations" : {
@@ -10136,6 +10177,88 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cancelouse o proceso de sinatura"
+          }
+        }
+      }
+    },
+    "user_cancelled_save_error_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Heu cancel·lat el procés de desament, si voleu desar el fitxer haureu de repetir el procés."
+          }
+        },
+        "ca-ES-valencia" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Has cancel·lat el procés de guardat, si desitges desar l'arxiu hauràs de repetir el procés."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You have cancelled the save process, if you want to save the file you will have to repeat the process."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Has cancelado el proceso de guardado, si deseas guardar el archivo tendrás que repetir el proceso."
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gorde prozesua bertan behera utzi duzu, fitxategia gorde nahi baduzu prozesua errepikatu beharko duzu."
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancelaches o proceso de gardar, se queres gardar o ficheiro terás que repetir o proceso."
+          }
+        }
+      }
+    },
+    "user_cancelled_save_error_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Procés de desament cancel·lat"
+          }
+        },
+        "ca-ES-valencia" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Procés de guardat cancel·lat"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save process cancelled"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Proceso de guardado cancelado"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gorde prozesua bertan behera utzi da"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancelouse o proceso de gardar"
           }
         }
       }
