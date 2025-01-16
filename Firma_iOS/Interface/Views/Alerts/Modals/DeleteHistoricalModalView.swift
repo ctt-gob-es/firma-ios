@@ -50,6 +50,7 @@ struct DeleteHistoricalModalView: View {
                         
                         Button(action: {
                             viewModel.deleteAllHistory()
+                            self.presentationMode.wrappedValue.dismiss()
                         }) {
                             AccessibleText(content: NSLocalizedString("delete_historical_button_title", bundle: Bundle.main, comment: ""))
                         }

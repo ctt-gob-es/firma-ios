@@ -31,7 +31,7 @@ struct HistoricalView: View {
 		  } else {
                 List {
 				ForEach(viewModel.historyList, id: \.self) { history in
-                        HistoricalCell(history: history).background(Color.blue)
+                        HistoricalCell(history: history)
 				}
 				.onDelete(perform: delete)
 			 }
@@ -40,7 +40,7 @@ struct HistoricalView: View {
 			 .navigationBarTitle(NSLocalizedString("historical_view_title", bundle: Bundle.main, comment: ""))
 			 .navigationBarItems(trailing: HStack(spacing: 4) {
                     NavigationBarButton(imageName: "trash_gray", isNativeIcon: false, action: {
-                        self.showDeleteModal.toggle()
+                        showDeleteModal.toggle()
                     })
 			 })
 		  }
