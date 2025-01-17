@@ -9393,17 +9393,16 @@
 			};
 			buildConfigurationList = C30B3221163804620072A515 /* Build configuration list for PBXProject "Firma_iOS" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				es,
 				Base,
 				ca,
 				gl,
-				"ca-ES-valencia",
 				eu,
+				"ca-val",
 			);
 			mainGroup = C30B321C163804620072A515;
 			productRefGroup = C30B3228163804620072A515 /* Products */;
@@ -11138,6 +11137,7 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Firma_iOS/Supporting Files/Firma_iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				J2OBJC_HOME = "$(inherited)";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib",
@@ -11193,7 +11193,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2H36E8KFN2;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -11206,6 +11206,7 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Firma_iOS/Supporting Files/Firma_iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				J2OBJC_HOME = "$(inherited)";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib",

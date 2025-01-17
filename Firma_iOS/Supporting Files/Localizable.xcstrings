@@ -9,7 +9,7 @@
             "value" : ""
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : ""
@@ -49,7 +49,7 @@
             "value" : " "
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : " "
@@ -89,7 +89,7 @@
             "value" : "?"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "?"
@@ -130,7 +130,7 @@
             "value" : "%1$lld / %2$lld"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$lld / %2$lld"
@@ -170,7 +170,7 @@
             "value" : "%1$lld of %2$lld"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$lld of %2$lld"
@@ -210,7 +210,7 @@
             "value" : "Acceptar"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Acceptar"
@@ -250,7 +250,7 @@
             "value" : "Contrasenya incorrecta. Intenta-ho de nou."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Contrasenya incorrecta. Intenta-ho de nou."
@@ -290,7 +290,7 @@
             "value" : "La signatura del lot ha finalitzat correctament."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "La firma del lot ha finalitzat correctament."
@@ -330,7 +330,7 @@
             "value" : "La signatura del lot ha finalitzat amb totes les firmes errònies"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "La firma del lot ha finalitzat amb totes les firmes erroneas"
@@ -370,7 +370,7 @@
             "value" : "La signatura del lot ha finalitzat amb errors"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "La firma del lot ha finalitzat amb errors"
@@ -410,7 +410,7 @@
             "value" : "Cancel·lar"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cancel·lar"
@@ -450,7 +450,7 @@
             "value" : "El certificat s'ha afegit correctament."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "El certificat s'ha afegit correctament."
@@ -490,7 +490,7 @@
             "value" : "Certificat afegit"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Certificat afegit"
@@ -530,7 +530,7 @@
             "value" : "Certificat proper a caducar"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Certificat pròxim a caducar"
@@ -570,7 +570,7 @@
             "value" : "Eliminar"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Eliminar"
@@ -610,7 +610,7 @@
             "value" : "El certificat s'ha suprimit correctament."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "El certificat s'ha eliminat correctament."
@@ -650,7 +650,7 @@
             "value" : "Certificat eliminat"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Certificat eliminat"
@@ -690,7 +690,7 @@
             "value" : "Certificat caducat"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Certificat caducat"
@@ -730,7 +730,7 @@
             "value" : "El certificat noés válid, ja que está caducat."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "El certificat noés válid, ja que está caducat."
@@ -770,7 +770,7 @@
             "value" : "Certificat caducat"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Certificat caducat"
@@ -810,7 +810,7 @@
             "value" : "Alguna cosa ha fallat, mantingues fix diversos segons el teu mòbil sobre el DNIe fins que es realitzi la lectura NFC."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Alguna cosa ha fallat, mantingues fix diversos segons el teu mòbil damunt del DNIe fins que es realitze la lectura NFC."
@@ -850,7 +850,7 @@
             "value" : "Alguna cosa ha fallat, els certificats del teu DNIe no són vigents, acudeixi a un Punt d'Actualització del DNI (PAD) existents a les Oficines d'Expedició."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Alguna cosa ha fallat, els certificats del teu DNIe no estan vigents, acudisca a un Punt d'Actualització del DNI (PAD) existents en les Oficines d'Expedició."
@@ -890,7 +890,7 @@
             "value" : "Ho sentim, ha passat un error"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ho sentim, ha ocorregut un error"
@@ -930,7 +930,7 @@
             "value" : "Ho sentim, ha passat un error"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "El sentim, ha ocorregut un error"
@@ -970,7 +970,7 @@
             "value" : "Emisor"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Emisor"
@@ -1010,7 +1010,7 @@
             "value" : "Aquest certificat és a punt de caducar-se."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Este certificat està a punt de caducar-se."
@@ -1050,7 +1050,7 @@
             "value" : "Certificat amb caducitat propera a caducar-se"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Certificat amb caducitat pròxima a caducar-se"
@@ -1090,7 +1090,7 @@
             "value" : "Per signar necessites registrar un certificat digital."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Per a firmar necessites registrar un certificat digital."
@@ -1130,7 +1130,7 @@
             "value" : "No hi ha cap certificat"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "No existix cap certificat"
@@ -1170,7 +1170,7 @@
             "value" : "Aquest certificat no és vàlid, ja que està revocat."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Este certificat no és vàlid, ja que està revocat."
@@ -1210,7 +1210,7 @@
             "value" : "Certificat revocat"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Certificat revocat"
@@ -1250,7 +1250,7 @@
             "value" : "El certificat s'ha enviat correctament."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "El certificat s'ha enviat correctament."
@@ -1290,7 +1290,7 @@
             "value" : "Certificat enviat"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Certificat enviat"
@@ -1330,7 +1330,7 @@
             "value" : "Ús"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ús"
@@ -1370,7 +1370,7 @@
             "value" : "Válido hasta"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Válido hasta"
@@ -1410,7 +1410,7 @@
             "value" : "Checked"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Checked"
@@ -1450,7 +1450,7 @@
             "value" : "Tancar aplicació"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tancar aplicació"
@@ -1490,7 +1490,7 @@
             "value" : "Continuar"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Continuar"
@@ -1530,7 +1530,7 @@
             "value" : "Document Autofirma"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Document autofirma"
@@ -1570,7 +1570,7 @@
             "value" : "Eliminar certificat"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Eliminar certificat"
@@ -1610,7 +1610,7 @@
             "value" : "Cancel·la"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cancel·lar"
@@ -1650,7 +1650,7 @@
             "value" : "Si elimines el certificat no el podràs recuperar i hauràs d'utilitzar un altre certificat. També en pots afegir un de nou quan vulguis."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Si elimines el certificat no podràs recuperar-lo i hauràs d'utilitzar un altre certificat. També pots afegir un nou quan desitges."
@@ -1690,7 +1690,7 @@
             "value" : "Vols eliminar"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vols eliminar"
@@ -1730,7 +1730,7 @@
             "value" : "Eliminar certificat"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Eliminar certificat"
@@ -1770,7 +1770,7 @@
             "value" : "Eliminar històric"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Eliminar històric"
@@ -1810,7 +1810,7 @@
             "value" : "Cancel·lar"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cancel·lar"
@@ -1850,7 +1850,7 @@
             "value" : "Si elimines l'històric no el podràs recuperar."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Si elimines l'històric no podràs recuperar-ho."
@@ -1890,7 +1890,7 @@
             "value" : "Eliminar històric"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Eliminar històric"
@@ -1930,7 +1930,7 @@
             "value" : "Rebutjar"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rebutjar"
@@ -1970,7 +1970,7 @@
             "value" : "El DNI té el PIN bloquejat. Podeu acudir a una comissaria de Policia Nacional a un Punt d'Actualització del DNIe (PAD) per desbloquejar-lo."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "El DNIe té el PIN bloquejat. Pots acudir a una comissaria de Policia Nacional a un Punt d'Actualització del DNIe (PAD) per a desbloquejar-lo."
@@ -2010,7 +2010,7 @@
             "value" : "Error en la lectura del teu DNIe"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Error en la lectura de la teua DNIe"
@@ -2050,7 +2050,7 @@
             "value" : "El DNIe que has proporcionat sembla que està malmès. Necessites acudir a la teva comissaria de Policia Nacional per sol·licitar-ne un de nou."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "El DNIe que has proporcionat sembla estar danyat. Necessites acudir a la teua comissaria de Policia Nacional per a sol·licitar un nou."
@@ -2090,7 +2090,7 @@
             "value" : "Error en la lectura del teu DNIe"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Error en la lectura de la teua DNIe"
@@ -2130,7 +2130,7 @@
             "value" : "El CAN és el número situat a la"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "El CA és el número situat en la "
@@ -2170,7 +2170,7 @@
             "value" : " part inferior dreta del DNI. "
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : " part inferior dreta del DNI. "
@@ -2210,7 +2210,7 @@
             "value" : "És necessari per llegir el DNI amb NFC."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "És necessari per a llegir el DNI amb NFC."
@@ -2250,7 +2250,7 @@
             "value" : "Heu cancel·lat la sessió per concedir amb el DNIe. Si us plau, torna a intentar-ho. Recorda mantenir-lo en una superfície llisa i mantenir el teu telèfon mòbil uns segons fix sobre la targeta per a la lectura correcta"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Has cancel·lat la sessió per a conectar amb el DNIe. Per favor, torna a intentar-ho. Recorda mantindre-ho en una superfície llisa i mantindre el teu telèfon mòbil uns segons fix sobre la targeta per a la seua correcta lectura"
@@ -2290,7 +2290,7 @@
             "value" : "És el meu DNI compatible?"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "És el meu DNI compatible?"
@@ -2330,7 +2330,7 @@
             "value" : "Entès"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Entés"
@@ -2370,7 +2370,7 @@
             "value" : "Els DNIe compatibles amb aquest procés són els"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Els DNIe compatibles amb este procés són els "
@@ -2410,7 +2410,7 @@
             "value" : " DNI 3.0 "
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : " DNI 3.0 "
@@ -2450,7 +2450,7 @@
             "value" : " i"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : " i "
@@ -2490,7 +2490,7 @@
             "value" : " 4.0 "
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : " 4.0 "
@@ -2530,7 +2530,7 @@
             "value" : ". Si tens dubtes de quin és el teu, pots consultar-ho al següent enllaç:"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : ". Si tens dubtes de quin és el teu, pots consultar-ho en el següent enllaç: "
@@ -2570,7 +2570,7 @@
             "value" : "És el meu DNI compatible?"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "És el meu DNI compatible?"
@@ -2610,7 +2610,7 @@
             "value" : "Portal del DNI electrònic, Cos Nacional de Policia"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Portal del DNI electrònic, Cos Nacional de Policia"
@@ -2650,7 +2650,7 @@
             "value" : "Introdueixi un CA válid"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Introduïsca un CA válid"
@@ -2690,7 +2690,7 @@
             "value" : "Escriu el teu codi CAN del DNI"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Escriu el teu codi CA del DNI"
@@ -2730,7 +2730,7 @@
             "value" : "Identificació amb DNIe"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Identificació amb DNIe"
@@ -2770,7 +2770,7 @@
             "value" : "Col·loca el teu DNIe sobre una superfície llisa i col·loca el teu mòbil"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Col·loca el teu DNIe sobre una superfície llisa i col·loca el teu mòbil "
@@ -2810,7 +2810,7 @@
             "value" : " sense funda "
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : " sense funda "
@@ -2850,7 +2850,7 @@
             "value" : "sobre ell fins que detecti el xip."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "sobre ell fins que detecte el xip."
@@ -2890,7 +2890,7 @@
             "value" : "PIN En fer-te el DNIe vas rebre un codi PIN que pots recuperar o canviar en comissaries sense cita prévia."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "PIN En fer-te el DNIe vas rebre un codi PIN que pots recuperar o canviar en comissaries sense cita prévia."
@@ -2930,7 +2930,7 @@
             "value" : "Introdueixi un pin válid"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Introduïsca un pin válid"
@@ -2970,7 +2970,7 @@
             "value" : "Escriu el teu codi PIN"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Escriu el teu codi PIN"
@@ -3010,7 +3010,7 @@
             "value" : "Passo %d de 3"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Passe %d de 3"
@@ -3050,7 +3050,7 @@
             "value" : "Continuar"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Continuar"
@@ -3090,7 +3090,7 @@
             "value" : "Introdueix el CAN del DNI"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Introduïx el CA del DNI"
@@ -3130,7 +3130,7 @@
             "value" : "Llegir DNIe"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Llegir DNIe"
@@ -3170,7 +3170,7 @@
             "value" : "Llegeix el teu DNIe amb el mòbil"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Lee el teu DNIe amb el mòbil"
@@ -3210,7 +3210,7 @@
             "value" : "Continuar"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Continuar"
@@ -3250,7 +3250,7 @@
             "value" : "Introdueix el"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Introduïx el"
@@ -3290,7 +3290,7 @@
             "value" : "El DNIe que heu aproximat no té certificat de signatura o el certificat està caducat. Pots acudir a una comissaria de Policia Nacional a un Punt d'Actualització del DNIe (PAD), per solucionar-ho."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "El DNIe que has aproximat no té certificat de firma o el certificat està caducat. Pots acudir a una comissaria de Policia Nacional a un Punt d'Actualització del DNIe (PAD), per a solucionar-lo."
@@ -3330,7 +3330,7 @@
             "value" : "Error en la lectura del teu DNIe"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Error en la lectura de la teua DNIe"
@@ -3370,7 +3370,7 @@
             "value" : "Error en iniciar la connexió amb la targeta.és possible que el CA sigui incorrecte. Intenti-ho de nou."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Error en iniciar la connexió amb la targeta. És possible que el CA siga incorrecte. Intente-ho de nou."
@@ -3410,7 +3410,7 @@
             "value" : "CAN incorrecte"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "CA incorrecte"
@@ -3450,7 +3450,7 @@
             "value" : "El PIN del dispositiu criptográficés incorrecte. Tingui en compte que diversos intents fallits consecutius podrien bloquejar-ho."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "El PIN del dispositiu criptográficés incorrecte. Tinga en compte que diversos intents fallits consecutius podrien bloquejar-ho."
@@ -3490,7 +3490,7 @@
             "value" : "PIN incorrecte"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "PIN incorrecte"
@@ -3530,7 +3530,7 @@
             "value" : "https://www.dnielectronico.es/"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "https://www.dnielectronico.es/"
@@ -3570,7 +3570,7 @@
             "value" : "La targeta que heu proporcionat no sembla ser un DNIe. Si us plau intenta-ho de nou."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "La targeta que has proporcionat no sembla ser un DNIe. Per favor intenta-ho de nou."
@@ -3610,7 +3610,7 @@
             "value" : "S'ha produït un error en intentar llegir el DNIe. Si us plau, torna a intentar-ho. Recorda mantenir-lo en una superfície llisa i mantenir el teu telèfon mòbil uns segons fix sobre la targeta per a la lectura correcta."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "S'ha produït un error en intentar llegir el teu DNIe. Per favor, torna a intentar-ho. Recorda mantindre-ho en una superfície llisa i mantindre el teu telèfon mòbil uns segons fix sobre la targeta per a la seua correcta lectura."
@@ -3650,7 +3650,7 @@
             "value" : "Error en la lectura del teu DNIe"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Error en la lectura de la teua DNIe"
@@ -3691,7 +3691,7 @@
             "value" : "S'ha superat el timeout de connexió. Si us plau, torna a intentar-ho. Recorda mantenir-lo en una superfície llisa i mantenir el teu telèfon mòbil uns segons fix sobre la targeta per a la lectura correcta."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "S'ha superat el timeout de connexió. Per favor, torna a intentar-ho. Recorda mantindre-ho en una superfície llisa i mantindre el teu telèfon mòbil uns segons fix sobre la targeta per a la seua correcta lectura."
@@ -3731,7 +3731,7 @@
             "value" : "Error en la lectura del teu DNIe"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Error en la lectura de la teua DNIe"
@@ -3771,7 +3771,7 @@
             "value" : "Començar"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Començar"
@@ -3811,7 +3811,7 @@
             "value" : "Per identificar-te mitjançant DNIe és necessari que tinguis un DNI electrónic amb"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Per a identificar-te mitjançant DNIe és necessari que tingues un DNI electrónic amb"
@@ -3851,7 +3851,7 @@
             "value" : "certificats vigent"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "certificats vigents"
@@ -3891,7 +3891,7 @@
             "value" : "i coneguis"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "i conegues"
@@ -3931,7 +3931,7 @@
             "value" : "el codi PIN."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "el codi PIN"
@@ -3971,7 +3971,7 @@
             "value" : "Identificació amb DNIe"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Identificació amb DNIe"
@@ -4011,7 +4011,7 @@
             "value" : "Acceptació de textos legals"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Acceptació de textos legals"
@@ -4051,7 +4051,7 @@
             "value" : "S'ha produït un error durant l'accés als documents legals. \nIntenta-ho de nou més tard."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "S'ha produït un error durant l'accés als documents legals. \nInténtalo de nou més tard."
@@ -4091,7 +4091,7 @@
             "value" : "Error en carregar els documents"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Error en carregar els documents"
@@ -4131,7 +4131,7 @@
             "value" : "Permetre"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Permetre"
@@ -4172,7 +4172,7 @@
             "value" : "Error"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Error"
@@ -4212,7 +4212,7 @@
             "value" : "Els certificats importats a Autofirma App són d'ús exclusiu per a signatura electrònica en pàgines web dissenyades a aquest efecte. Per utilitzar un certificat digital per a la identificació en pàgines web haureu de seguir les instruccions del vostre navegador web i d'Apple respecte al procés d'instal·lació dels certificats i les vostres claus al sistema operatiu iOS i al propi navegador web si calgués."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Els certificats importats en autofirma App són d'ús exclusiu per a firma electrònica en pàgines Web dissenyades a este efecte. Per a usar un certificat digital per a identificació en pàgines Web haurà de seguir les instruccions del seu navegador Web i d'Apple respecte al procés d'instal·lació dels certificats i les seues claus en el sistema operatiu iOS i en el propi navegador Web si calguera."
@@ -4252,7 +4252,7 @@
             "value" : "Autofirma App permet signar amb certificat tràmits web compatibles amb l'aplicació. Per a signar un tràmit, completi'l normalment a través del seu navegador web. Si el tràmit està preparat per a la signatura amb Autofirma App, aquesta s'executarà en el moment de la signatura, permetrà a l'usuari seleccionar el certificat de signatura i executi l'operació.També existeix la possibilitat d'obrir l'aplicació i signar directament un fitxer per a ús personal. Als documents PDF se'ls agregarà una signatura, mentre que per als altres fitxers es generarà un fitxer de signatura independent.Recordeu que abans d'iniciar el tràmit heu d'haver importat el vostre certificat de signatura a Autofirma App iOS."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Autofirma App permet signar amb certificat tramits web compatibles amb l'aplicacio. Per a signar un tramite, complete'l normalment a traves del seu navegador web. Si el tramite esta preparat per a la signatura amb Autofirma App, esta s'executara en el moment de la signatura, permetra a l'usuari seleccionar el certificat de signatura i execute l'operacio. Tambe existeix la possibilitat d'obrir l'aplicacio i signar directament un fitxer per a us personal. Als documents PDF se'ls agregara una signatura, mentre que per als altres fitxers es generara un fitxer de signatura independent. Recorde que abans d'iniciar el tràmit ha d'haver importat el seu certificat de firma en autofirma App iOS."
@@ -4292,7 +4292,7 @@
             "value" : "Els certificats s'emmagatzemen en el seu dispositiu amb un potent xifrat, però com qualsevol sistema criptogràfic, al moment que aquest està fora del control de propietari corre el risc de ser compromès. Si perd el dispositiu ha de contactar al més aviat possible amb el seu proveïdor de serveis de certificació per revocar immediatament els certificats que aquest contenia."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Els certificats s'emmagatzemen en el seu dispositiu amb un potent xifrat, però com qualsevol sistema criptogràfic, en el moment que este està fora del control de propietari corre el risc de ser compromès. Si perd el dispositiu ha de contactar al més prompte possible amb el seu proveïdor de servicis de certificació per a revocar immediatament els certificats que este contenia."
@@ -4332,7 +4332,7 @@
             "value" : "Autofirma App manca encara de certes funcionalitats que sí que són presents en versions per a altres sistemes operatius. Futures actualitzacions de l'app solucionaran aquestes manques. Mentrestant, utilitzi un PC amb Autofirma instal·lat per a completar el tràmit web i notifiqui el problema al responsable del tràmit si el considera precís."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Autofirma App manca encara de certes funcionalitats que sí que són presents en versions per a altres sistemes operatius. Futures actualitzacions de l'app solucionaran estes manques. Mentrestant, utilitze un PC amb Autofirma instal·lat per a completar el tràmit web i notifique el problema al responsable del tràmit si el considera precís."
@@ -4372,7 +4372,7 @@
             "value" : "He importat els certificats correctament a Autofirma App, però tot i així no aconsegueixo identificar-me amb ells a les seus electròniques i altres pàgines web que ho requereixen Per què?"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "He importat els certificats correctament en autofirma App, però així i tot no aconseguisc identificar-me amb ells en les seus electròniques i altres pàgines Web que ho requerixen Per què?"
@@ -4412,7 +4412,7 @@
             "value" : "Com puc fer signatures electròniques amb aquest programa?"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Com puc realitzar firmes electròniques amb este programa?"
@@ -4452,7 +4452,7 @@
             "value" : "Corren perill els meus certificats si perdo el dispositiu?"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Corren perill els meus certificats si perd el dispositiu?"
@@ -4492,7 +4492,7 @@
             "value" : "La signatura d'alguns tràmits web amb Autofirma App falla, mentre que en aquests mateixos tràmits funciona en altres dispositius. Per què?"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "La signatura d'alguns tràmits web amb Autofirma App falla, mentre que en eixos mateixos tràmits funciona en altres dispositius. Per què?"
@@ -4532,7 +4532,7 @@
             "value" : "Preguntes freqüents"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Preguntes freqüents"
@@ -4572,7 +4572,7 @@
             "value" : "Posa el teu mòbil sobre el DNIe el més a prop possible del lector NFC."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Posa el teu mòbil sobre el DNIe el més a prop possible del lector NFC."
@@ -4612,7 +4612,7 @@
             "value" : "Buscant DNIe"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Buscant DNIe"
@@ -4652,7 +4652,7 @@
             "value" : "Garrapata Alert és un projecte del “Pla de Recuperació, Transformació i Resiliència ‐ Finançat per la Unió Europea – NextGenerationEU”."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Paparra Alert és un projecte del “Pla de Recuperació, Transformació i Resiliència ‐ Finançat per la Unió Europea – NextGenerationEU”."
@@ -4692,7 +4692,7 @@
             "value" : "Entès"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Entés"
@@ -4732,7 +4732,7 @@
             "value" : "Hem intentat processar la teva sol·licitud, però no s'ha pogut completar amb èxit. Si us plau revisa la documentació."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Hem intentat processar la teua sol·licitud, però no ha pogut ser completada amb èxit. Per favor revisa la documentació."
@@ -4772,7 +4772,7 @@
             "value" : "Alguna cosa va sortir malament!"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Alguna cosa va eixir malament!"
@@ -4812,7 +4812,7 @@
             "value" : "Tornar a l'inici"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tornar a l'inici"
@@ -4852,7 +4852,7 @@
             "value" : "No hem pogut trobar cap fitxer signat des d'aquest dispositiu."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "No hem pogut trobar cap arxiu firmat des d'este dispositiu."
@@ -4892,7 +4892,7 @@
             "value" : "No s'ha signat cap fitxer"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "No s'ha firmat cap arxiu"
@@ -4933,7 +4933,7 @@
             "value" : "Fitxer externo"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fitxer externo"
@@ -4974,7 +4974,7 @@
             "value" : "Signatura externa"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Firma externa"
@@ -5015,7 +5015,7 @@
             "value" : "Fitxer local"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fitxer local"
@@ -5056,7 +5056,7 @@
             "value" : "Signatura local"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Firma local"
@@ -5096,7 +5096,7 @@
             "value" : "Històric de signatures"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Històric de signatures"
@@ -5136,7 +5136,7 @@
             "value" : "%1$@ sol·licitada per %2$@ del fitxer %3$@"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$@ sol·licitada per %2$@ del fitxer %3$@"
@@ -5176,7 +5176,7 @@
             "value" : "%1$@ sol·licitada per %2$@"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$@ sol·licitada per %2$@"
@@ -5216,7 +5216,7 @@
             "value" : "Signatura per lots sol·licitada per %1$@"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Signatura per lots sol·licitada per %1$@"
@@ -5256,7 +5256,7 @@
             "value" : "Signatura per lots"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Signatura per lots"
@@ -5296,7 +5296,7 @@
             "value" : "%1$@ sol·licitada des d'una altra aplicació del fitxer %2$@"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$@ sol·licitada des d'una altra aplicació del fitxer %2$@"
@@ -5336,7 +5336,7 @@
             "value" : "%1$@ sol·licitada des d'una altra aplicació"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$@ sol·licitada des d'una altra aplicació"
@@ -5376,7 +5376,7 @@
             "value" : "Operació desconeguda"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Operació desconeguda"
@@ -5416,7 +5416,7 @@
             "value" : "%1$@ web sol·licitada per %2$@ del fitxer %3$@"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$@ web sol·licitada per %2$@ del fitxer %3$@"
@@ -5456,7 +5456,7 @@
             "value" : "%1$@ web sol·licitada per %2$@"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$@ web sol·licitada per %2$@"
@@ -5496,7 +5496,7 @@
             "value" : "Signatura per lots web sol·licitada per %1$@"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Signatura per lots web sol·licitada per %1$@"
@@ -5536,7 +5536,7 @@
             "value" : "Signatura per lots web"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Signatura per lots web"
@@ -5576,7 +5576,7 @@
             "value" : "%1$@ web del fitxer %2$@"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$@ web del fitxer %2$@"
@@ -5616,7 +5616,7 @@
             "value" : "%1$@ web"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$@ web"
@@ -5656,7 +5656,7 @@
             "value" : "Afegir nou certificat"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afegir nou certificat"
@@ -5696,7 +5696,7 @@
             "value" : "Des d'Autofirma pots afegir nous certificats amb els quals podràs processar les teves signatures, o eliminar els certificats instal·lats al dispositiu."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Des d'autofirma pots afegir nous certificats amb els quals podràs processar les teues firmes, o eliminar els certificats instal·lats en el teu dispositiu."
@@ -5736,7 +5736,7 @@
             "value" : "Certificats"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Certificats"
@@ -5776,7 +5776,7 @@
             "value" : "Per signar necessites registrar un certificat digital"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Per a firmar necessites registrar un certificat digital"
@@ -5816,7 +5816,7 @@
             "value" : "No tens certificats instal·lats"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "No tens certificats instal·lats"
@@ -5856,7 +5856,7 @@
             "value" : "Signar fitxer"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Firmar fitxer"
@@ -5896,7 +5896,7 @@
             "value" : "Reintentar"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "reintentar"
@@ -5936,7 +5936,7 @@
             "value" : "S'ha detectat un error de connexió. \nEls nostres serveis podrien no estan disponibles en aquest moment, comproveu que teniu connexió a internet, i intenteu-ho més tard."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "S'ha detectat un error de connexió. \nNuestros servicis podrien no estan disponibles en este moment, comprove que té connexió a internet, i intente-ho més tard."
@@ -5976,7 +5976,7 @@
             "value" : "Error iniciant l'aplicació"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Error iniciant l'aplicació"
@@ -6016,7 +6016,7 @@
             "value" : "Actualitzar"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Actualitzar"
@@ -6056,7 +6056,7 @@
             "value" : "Per continuar utilitzant l'aplicació, cal actualitzar-la."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Per a poder continuar utilitzant l'aplicació, has d'actualitzar-la."
@@ -6096,7 +6096,7 @@
             "value" : "Actualització obligatòria Autofirma"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Actualització obligatòria autofirma"
@@ -6136,7 +6136,7 @@
             "value" : "No hem pogut afegir el vostre certificat a l'aplicació de Portafirmes de manera correcta. Intenta-ho de nou més tade."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "No hem pogut afegir el teu certificat a l'aplicació de Portafirmes de manera correcta. Intenta-ho de nou més tade."
@@ -6176,7 +6176,7 @@
             "value" : "No hem pogut afegir el teu certificat"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "No hem pogut afegir el teu certificat"
@@ -6216,7 +6216,7 @@
             "value" : "No hem pogut afegir el fitxer a l'aplicació de Portafirmes de manera correcta. Intenta-ho de nou més tade."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "No hem pogut afegir el teu arxiu a l'aplicació de Portafirmes de manera correcta. Intenta-ho de nou més tade."
@@ -6256,7 +6256,7 @@
             "value" : "No hem pogut afegir el teu fitxer"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "No hem pogut afegir el teu arxiu"
@@ -6296,7 +6296,7 @@
             "value" : "Entés"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Entás"
@@ -6336,7 +6336,7 @@
             "value" : "Carrega el teu certificat al dispositiu o iCloud. Importa-ho a través de l'opció “Afegir certificat” de l'aplicació."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Càrrega el teu certificat en el teu dispositiu o iCloud. Importa-ho a través de l'opció “Afegir certificat” de l'aplicació."
@@ -6376,7 +6376,7 @@
             "value" : "Extensions permeses: .p12 i .pfx. Recordeu que necessiteu la contrasenya d'exportació del vostre certificat, i que aquest ha d'incloure la clau privada."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Extensions pérmitidas: .p12 i .pfx. Recorda que necessites la contrasenya d'exportació del teu certificat, i que este ha d'incloure la clau privada. "
@@ -6416,7 +6416,7 @@
             "value" : "Com instal·lar certificats?"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Com instal·lar certificats?"
@@ -6456,7 +6456,7 @@
             "value" : "Aquesta aplicació permet fer signatures electròniques a les pàgines dels proveïdors de serveis que el suportin.\nPer funcionar correctament has d'instal·lar un certificat electrònic. Consulta la documentació del sistema IOS i amb el proveïdor de serveis de certificació."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Esta aplicació permet realitzar firmes electròniques en les pàgines dels proveïdors de servicis que ho suporten.\nPara funcionar correctament has d'instal·lar un certificat electrònic. Consulta la documentació del seu sistema IOS i amb el teu proveïdor de servicis de certificació."
@@ -6496,7 +6496,7 @@
             "value" : "Más informació"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Más informació"
@@ -6536,7 +6536,7 @@
             "value" : "http://administracionelectronica.gob.es/"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "http://administracionelectronica.gob.es/"
@@ -6576,7 +6576,7 @@
             "value" : "Para quin serveix Autofirma?"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Para quin servix Autofirma?"
@@ -6616,7 +6616,7 @@
             "value" : "Continuar"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Continuar"
@@ -6656,7 +6656,7 @@
             "value" : "Afegir certificat"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afegir certificat"
@@ -6696,7 +6696,7 @@
             "value" : "Localitza el fitxer .p12 o .pfx. al telèfon."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Localitza l'arxiu .p12 o .pfx. en el teu telèfon."
@@ -6736,7 +6736,7 @@
             "value" : "Si no el trobes, envia'l al teu mòbil des d'un altre dispositiu mitjançant correu electrònic o altres aplicacions a Cloud."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Si no ho trobes, envia-ho al teu mòbil des d'un altre dispositiu mitjançant correu electrònic o altres aplicacions en Cloud."
@@ -6776,7 +6776,7 @@
             "value" : "Instal·lar certificat"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Instal·lar certificat"
@@ -6816,7 +6816,7 @@
             "value" : "Localitza el fitxer"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Localitza l'arxiu"
@@ -6856,7 +6856,7 @@
             "value" : "Envia al dispositiu"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Envia al dispositiu"
@@ -6896,7 +6896,7 @@
             "value" : "El vostre dispositiu no té un sistema operatiu oficial. Per raons de seguretat, no podeu utilitzar aquesta aplicació."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "El teu dispositiu no té un sistema operatiu oficial. Per raons de seguretat, no pots utilitzar esta aplicació."
@@ -6936,7 +6936,7 @@
             "value" : "Alerta de seguretat"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Alerta de seguretat"
@@ -6976,7 +6976,7 @@
             "value" : "Catalá"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Catalá"
@@ -7016,7 +7016,7 @@
             "value" : "English"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "English"
@@ -7056,7 +7056,7 @@
             "value" : "Español"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Español"
@@ -7096,7 +7096,7 @@
             "value" : "Euskera"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Euskera"
@@ -7136,7 +7136,7 @@
             "value" : "Galego"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Galego"
@@ -7176,7 +7176,7 @@
             "value" : "Idioma"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Idioma"
@@ -7216,7 +7216,7 @@
             "value" : "Valenciano"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Valenciano"
@@ -7256,7 +7256,7 @@
             "value" : "Error en connectar amb l'etiqueta NFC: %@"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Error en connectar amb l'etiqueta NFC: %@"
@@ -7296,7 +7296,7 @@
             "value" : "Connexió establerta."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Connexió establida."
@@ -7336,7 +7336,7 @@
             "value" : "No mogueu el DNI o la lectura fallarà."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "No mogues el DNI o la lectura fallarà."
@@ -7376,7 +7376,7 @@
             "value" : "S'ha trobat més d'una etiqueta. Només presenta una etiqueta."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Es va trobar més d'una etiqueta. Presenta només una etiqueta."
@@ -7416,7 +7416,7 @@
             "value" : "No s'ha pogut obtenir la primera etiqueta."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "No es va poder obtindre la primera etiqueta."
@@ -7456,7 +7456,7 @@
             "value" : "Aquest dispositiu no suporta NFC."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Este dispositiu no suporta NFC."
@@ -7496,7 +7496,7 @@
             "value" : "Les teves preferències s'han desat"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Les teues preferències s'han guardat"
@@ -7536,7 +7536,7 @@
             "value" : "L'etiqueta detectada no és compatible."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "L'etiqueta detectada no és compatible."
@@ -7577,7 +7577,7 @@
             "value" : "OK!"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "OK!"
@@ -7617,7 +7617,7 @@
             "value" : "OK"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "OK"
@@ -7657,7 +7657,7 @@
             "value" : "Skip"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ometre"
@@ -7697,7 +7697,7 @@
             "value" : "Començar"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Començar"
@@ -7737,7 +7737,7 @@
             "value" : "Signa documents de manera segura i legal identificant-te amb el teu certificat digital o DNI electrònic."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Firma documents de manera segura i legal identificant-te amb el teu certificat digital o DNI electrònic."
@@ -7777,7 +7777,7 @@
             "value" : "Firma fàcil i segura"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Firma fàcil i segura"
@@ -7821,7 +7821,7 @@
             "value" : "Lot"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Lot"
@@ -7862,7 +7862,7 @@
             "value" : "Cofirmació"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cofirmació"
@@ -7903,7 +7903,7 @@
             "value" : "Contrafirmació"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Contrafirmació"
@@ -7944,7 +7944,7 @@
             "value" : "Signatura"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Signatura"
@@ -7985,7 +7985,7 @@
             "value" : "Operació desconeguda"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Operació desconeguda"
@@ -8025,7 +8025,7 @@
             "value" : "Pàgina %d de %d"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pàgina %d de %d"
@@ -8065,7 +8065,7 @@
             "value" : "Contrasenya"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Contrasenya"
@@ -8105,7 +8105,7 @@
             "value" : "Només pots escollir un lloc on signar"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Només pots triar un lloc on firmar"
@@ -8145,7 +8145,7 @@
             "value" : "On t'agradaria signar?"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "On t'agradaria firmar?"
@@ -8185,7 +8185,7 @@
             "value" : "Guardar"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Guardar"
@@ -8225,7 +8225,7 @@
             "value" : "Permetre l'ús del DNIe per NFC"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Permetre l'ús de DNIe per NFC"
@@ -8265,7 +8265,7 @@
             "value" : "Permisos"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Permisos"
@@ -8305,7 +8305,7 @@
             "value" : "Acceptació de condicions"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Acceptació de condicions"
@@ -8346,7 +8346,7 @@
             "value" : "Política de privadesa"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Política de privacitat"
@@ -8386,7 +8386,7 @@
             "value" : "He llegit i estic d\\'acord amb la Política de Privadesa"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "He llegit i estic d\\'acord amb la Política de Privacitat"
@@ -8426,7 +8426,7 @@
             "value" : "He llegit i estic d\\'acord amb l\\'Avís Legal i els Termes i Condicions d\\'ús"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "He llegit i estic d\\'acord amb l\\'Avís Legal i els Termes i Condicions d\\'ús"
@@ -8467,7 +8467,7 @@
             "value" : "El certificat escollités un certificat de pseudònim. En la signatura no apareixeran les seves dades personals"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "El certificat triatés un certificat de pseudònim. En la firma no apareixeran les seues dades personals"
@@ -8508,7 +8508,7 @@
             "value" : "Avís"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Avís"
@@ -8548,7 +8548,7 @@
             "value" : "Pla de Recuperació"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pla de Recuperació"
@@ -8588,7 +8588,7 @@
             "value" : "Tornar a intentar-ho"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tornar a intentar-ho"
@@ -8628,7 +8628,7 @@
             "value" : "El fitxer ha estat guardat correctament."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "El fitxer ha sigut desat correctament."
@@ -8668,7 +8668,7 @@
             "value" : "Fitxer desat"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fitxer desat"
@@ -8708,7 +8708,7 @@
             "value" : "Selecciona el certificat amb què vulguis signar el fitxer."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Selecciona el certificat amb el qual vulgues firmar el fitxer."
@@ -8748,7 +8748,7 @@
             "value" : "Enviar"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Enviar"
@@ -8788,7 +8788,7 @@
             "value" : "Declaració d\\'accessibilitat"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Declaració d\\'accessibilitat"
@@ -8828,7 +8828,7 @@
             "value" : "Preguntes freqüents"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Preguntes freqüents"
@@ -8868,7 +8868,7 @@
             "value" : "Informació general"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Informació general"
@@ -8908,7 +8908,7 @@
             "value" : "Ajuda"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ajuda"
@@ -8948,7 +8948,7 @@
             "value" : "Històric d'arxius signats"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Històric d'arxius firmats"
@@ -8988,7 +8988,7 @@
             "value" : "Com instal·lar un certificat"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Com instal·lar un certificat"
@@ -9028,7 +9028,7 @@
             "value" : "Idioma"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Idioma"
@@ -9068,7 +9068,7 @@
             "value" : "Avís legal"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Avís legal"
@@ -9108,7 +9108,7 @@
             "value" : "La meva configuració"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "La meua configuració"
@@ -9148,7 +9148,7 @@
             "value" : "Permisos"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Permisos"
@@ -9188,7 +9188,7 @@
             "value" : "Política de privadesa"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Política de privacitat"
@@ -9228,7 +9228,7 @@
             "value" : "Ajustos"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ajustos"
@@ -9268,7 +9268,7 @@
             "value" : "Versió v%@"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Versió v%@"
@@ -9309,7 +9309,7 @@
             "value" : "Signatura electrònica"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Firma electrònica"
@@ -9349,7 +9349,7 @@
             "value" : "Amb què signaràs el fitxer?"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Amb què firmaràs el fitxer?"
@@ -9389,7 +9389,7 @@
             "value" : "El fitxer ha estat signat correctament."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "El fitxer ha sigut firmat correctament."
@@ -9429,7 +9429,7 @@
             "value" : "Fitxer signat"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fitxer firmat"
@@ -9469,7 +9469,7 @@
             "value" : "Certificat electrònic"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Certificat electrònic"
@@ -9509,7 +9509,7 @@
             "value" : "DNI electrònic"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "DNI electrònic"
@@ -9549,7 +9549,7 @@
             "value" : "Introdueixi la contrasenya:"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Introduïsca la contrasenya:"
@@ -9589,7 +9589,7 @@
             "value" : "Cancel·la"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cancel·lar"
@@ -9629,7 +9629,7 @@
             "value" : "Si us plau, introduïu la contrasenya del document per poder continuar amb el procés de signatura"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Per favor, introduïx la contrasenya del document per a poder continuar amb el procés de firma"
@@ -9669,7 +9669,7 @@
             "value" : "El document està encriptat"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "El document està encriptat"
@@ -9709,7 +9709,7 @@
             "value" : "Toggle"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Toggle"
@@ -9749,7 +9749,7 @@
             "value" : "Permetre que l'app enviï informació d'activitat per ajudar el desenvolupament?"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Permetre que l'app envie informació d'activitat per a ajudar al seu desenrotllament?"
@@ -9789,7 +9789,7 @@
             "value" : "Informació d'activitat"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Informació d'activitat"
@@ -9829,7 +9829,7 @@
             "value" : "Unchecked"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Unchecked"
@@ -9869,7 +9869,7 @@
             "value" : "Actualitzar"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Actualitzar"
@@ -9909,7 +9909,7 @@
             "value" : "Hi ha disponible una nova actualització d'Autofirma."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Hi ha disponible una nova actualització d'autofirma."
@@ -9949,7 +9949,7 @@
             "value" : "Nova versió disponible"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nova versió disponible"
@@ -9989,7 +9989,7 @@
             "value" : "http://estaticos.redsara.es/comunes/clientefirmaandroid/1/8/0/declaracion_accesibilidad.pdf"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "http://estaticos.redsara.es/comunes/clientefirmaandroid/1/8/0/declaracion_accesibilidad.pdf"
@@ -10029,7 +10029,7 @@
             "value" : "https://github.com/ctt-gob-es/clienteafirma/wiki/Importaci%C3%B3n-de-certificados-en-iOS"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "https://github.com/ctt-gob-es/clienteafirma/wiki/Importaci%C3%B3n-de-certificados-en-iOS"
@@ -10069,7 +10069,7 @@
             "value" : "https://administracion.gob.es/pag_Home/politicaDePrivacidad.html"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "https://administracion.gob.es/pag_Home/politicaDePrivacidad.html"
@@ -10109,7 +10109,7 @@
             "value" : "Heu cancel·lat el procés de signatura, si voleu signar el fitxer, haureu de repetir el procés complet."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Has cancel·lat el procés de firma, si vols firmar l'arxiu, hauràs de repetir el procés complet."
@@ -10149,7 +10149,7 @@
             "value" : "Procés de signatura cancel·lat"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Procés de firma cancel·lat"
@@ -10190,7 +10190,7 @@
             "value" : "Heu cancel·lat el procés de desament, si voleu desar el fitxer haureu de repetir el procés."
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Has cancel·lat el procés de guardat, si desitges desar l'arxiu hauràs de repetir el procés."
@@ -10231,7 +10231,7 @@
             "value" : "Procés de desament cancel·lat"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Procés de guardat cancel·lat"
@@ -10271,7 +10271,7 @@
             "value" : "\"Autofirma App\" v%@ 2024 Govern d'Espanya\n\nAutofirma App és Programari Lliure; pots redistribuir-lo i/o modificar-lo sota els termes de la llicència següent: “European Software License 1.1”, el text complet del qual es pot consultar a la pàgina web següent: http://ec.europa.eu/idabc/eupl.html\n\nEl codi font d'aquest programa, així com de la resta dels components del projecte, es poden descarregar lliurement des de: http://forja-ctt.administracionelectronica.gob.es\n\nEl projecte Autofirma App és un projecte col·laboratiu, si voleu participar-hi, no dubteu a unir-vos a la comunitat, accessible des de la següent pàgina Web: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "“Autofirma App” v%@ 2024 Govern d'Espanya\n\nAutofirma App és Programari Lliure; pots redistribuir-ho i/o modificar-ho sota els termes de la següent llicència: “European Software License 1.1”, el text complet del qual pot consultar-se en la següent pàgina Web: http://ec.europa.eu/idabc/eupl.html\n\nEl codi font d'este programa, així com de la resta dels components del projecte es poden descarregar lliurement des de: http://forja-ctt.administracionelectronica.gob.es\n\nEl projecte autofirma App és un projecte col·laboratiu, si desitja participar en ell, no dubte a unir-se a la comunitat, accessible des de la següent pàgina Web: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc"
@@ -10311,7 +10311,7 @@
             "value" : "Versió v%@"
           }
         },
-        "ca-ES-valencia" : {
+        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Versió v%@"
