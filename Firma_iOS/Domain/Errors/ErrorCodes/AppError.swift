@@ -198,7 +198,7 @@ extension AppError {
     // 3001XX: JMulticard
     static let invalidCard = AppError.requestError(300100, "La tarjeta identificada en el lector es desconocida o no está soportada", .dniReadingError)
     static let burnedCard = AppError.requestError(300101, "La tarjeta está corrompida, posiblemente se autodestruyó", .dniBroken)
-    static let connectionError = AppError.requestError(300102, "No se ha podido conectar con la tarjeta", .dniReadingError)
+    static let connectionError = AppError.requestError(300102, "No se ha podido conectar con la tarjeta", .dniReadingErrorLong)
     static let notInitialized = AppError.requestError(300103, "La conexión con la tarjeta no está inicializada", .dniReadingErrorLong)
     static let operationError = AppError.requestError(300104, "Ocurrió un error inesperado durante la operación", .dniReadingErrorLong)
     static let badPin = AppError.requestError(300105, "PIN incorrecto", .dniIncorrectPin)
