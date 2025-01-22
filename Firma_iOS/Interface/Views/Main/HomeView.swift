@@ -111,8 +111,19 @@ struct HomeView: View {
                         viewModel.sendErrorOperation(error: AppError.certificateNeeded)
 				}
 				if let visibleSignature = viewModel.signModel?.visibleSignature {
-				    //We need to select the coordinates of the sign
-				    viewModel.showSignCoordinatesModal = true
+				    //If it's PADES sign, we must check if it's a PDF
+				    if viewModel.signModel?.signFormat == PADES_FORMAT || viewModel.signModel?.signFormat == PADES_TRI_FORMAT {
+					   //Check if the data is a PDF
+					   if let pdfData = viewModel.signModel?.datosInUse,
+						 FileUtils.isBase64StringPDF(pdfData) {
+						  //We need to select the coordinates of the sign
+						  viewModel.showSignCoordinatesModal = true
+					   } else{
+						  viewModel.sendErrorOperation(error: AppError.singingFileIsNotPDF)
+					   }
+				    } else {
+					   viewModel.sendErrorOperation(error: AppError.singingFileIsNotPDF)
+				    }
 				}
 			 }
 		  } else {

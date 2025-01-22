@@ -139,9 +139,10 @@ struct MainView: View {
 	   .environment(\.managedObjectContext, persistenceController.context)
 	   .onDisappear(perform: onDisappear)
 	   //TODO: USE UIKIT SELECTOR for iOS 16
+	   // Check if its PADES sign to allow only PDF selection or any Data
 	   .fileImporter(
 		  isPresented: $appStatus.showDocumentImportingPicker,
-		  allowedContentTypes: [.data],
+		  allowedContentTypes: appStatus.signFormat == PADES_FORMAT || appStatus.signFormat == PADES_TRI_FORMAT ? [.pdf] : [.data],
 		  allowsMultipleSelection: false,
 		  onCompletion: handleFileImport,
 		  onCancellation: handleFileImportCancellation

@@ -36,5 +36,7 @@ class AppStatus: ObservableObject {
     @Published var userIDCAN: String? = nil
     @Published var userIDPIN: String? = nil
     
+    @Published var signFormat: String? = nil
+    
     var errorPublisher = PassthroughSubject<String, Never>()
 }

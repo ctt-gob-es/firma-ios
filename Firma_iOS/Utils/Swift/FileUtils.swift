@@ -116,6 +116,18 @@ class FileUtils {
 	   let validExtensions = ["jpg", "jpeg", "png", "pdf", "zip", "gz", "tiff", "bmp"]
 	   return validExtensions.contains(ext.lowercased())
     }
+    
+    static func isBase64StringPDF(_ base64String: String) -> Bool {
+	   guard let data = Data(base64Encoded: base64String) else {
+		  return false
+	   }
+	   
+	   if let headerString = String(data: data.prefix(5), encoding: .ascii) {
+		  return headerString == "%PDF-"
+	   }
+
+	   return false
+    }
 }
 
 struct GetHeightModifier: ViewModifier {
