@@ -3688,7 +3688,7 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "S'ha superat el timeout de connexió. Si us plau, torna a intentar-ho. Recorda mantenir-lo en una superfície llisa i mantenir el teu telèfon mòbil uns segons fix sobre la targeta per a la lectura correcta."
+            "value" : "S'ha superat el temps d'espera de connexió. Si us plau, torna a intentar-ho. Recorda mantenir-lo en una superfície llisa i mantenir el teu telèfon mòbil uns segons fix sobre la targeta per a la lectura correcta."
           }
         },
         "en" : {
@@ -3700,7 +3700,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Se ha superado el timeout de conexión. Por favor, vuelve a intentarlo. Recuerda mantenerlo en una superficie lisa y mantener tu teléfono móvil unos segundos fijo sobre la tarjeta para su correcta lectura."
+            "value" : "Se ha superado el tiempo de espera de conexión. Por favor, vuelve a intentarlo. Recuerda mantenerlo en una superficie lisa y mantener tu teléfono móvil unos segundos fijo sobre la tarjeta para su correcta lectura."
           }
         },
         "eu" : {
@@ -3718,7 +3718,7 @@
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "S'ha superat el timeout de connexió. Per favor, torna a intentar-ho. Recorda mantindre-ho en una superfície llisa i mantindre el teu telèfon mòbil uns segons fix sobre la targeta per a la seua correcta lectura."
+            "value" : "S'ha superat el temps d'espera de connexió. Per favor, torna a intentar-ho. Recorda mantindre-ho en una superfície llisa i mantindre el teu telèfon mòbil uns segons fix sobre la targeta per a la seua correcta lectura."
           }
         }
       }
@@ -8335,6 +8335,7 @@
             "value" : "Acceptació de textos legals"
           }
         }
+
       }
     },
     "privacy_policy" : {
