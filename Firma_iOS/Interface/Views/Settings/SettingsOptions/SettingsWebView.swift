@@ -10,15 +10,31 @@ import Foundation
 import SwiftUI
 import WebKit
 
+enum SettingsWebKeys {
+    case legal_advise
+    case privacy_policy
+    case accesibility
+}
+
 struct WebView: UIViewRepresentable {
-    let urlString: String
+    let settingKey: SettingsWebKeys
     
     func makeUIView(context: Context) -> WKWebView {
 	   WKWebView()
     }
     
     func updateUIView(_ uiView: WKWebView, context: Context) {
-	   if let url = URL(string: urlString) {
+        var stringUrl: String =
+        switch settingKey {
+        case .legal_advise:
+            NSLocalizedString("url_aviso_legal", bundle: Bundle.main, comment: "")
+        case .privacy_policy:
+            NSLocalizedString("url_privacy_policy", bundle: Bundle.main, comment: "")
+        case .accesibility:
+            NSLocalizedString("url_accessibility_statement", bundle: Bundle.main, comment: "")
+        }
+        
+	   if let url = URL(string: stringUrl) {
 		  let request = URLRequest(url: url)
 		  uiView.load(request)
 	   }
