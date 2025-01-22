@@ -8302,37 +8302,37 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Acceptació de condicions"
+            "value" : "Acceptació de textos legals"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Acceptance of terms"
+            "value" : "Acceptance of legal texts"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aceptación de condiciones"
+            "value" : "Aceptación de textos legales"
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Baldintzak onartzea"
+            "value" : "Lege-testuak onartzea"
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aceptación de condicións"
+            "value" : "Aceptación de textos legais"
           }
         },
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Acceptació de condicions"
+            "value" : "Acceptació de textos legals"
           }
         }
       }
