@@ -9,12 +9,6 @@
             "value" : ""
           }
         },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -34,6 +28,12 @@
           }
         },
         "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        },
+        "va" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : ""
@@ -49,12 +49,6 @@
             "value" : " "
           }
         },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : " "
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -74,6 +68,12 @@
           }
         },
         "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " "
+          }
+        },
+        "va" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : " "
@@ -89,12 +89,6 @@
             "value" : "?"
           }
         },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "?"
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -114,6 +108,12 @@
           }
         },
         "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "?"
+          }
+        },
+        "va" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "?"
@@ -130,12 +130,6 @@
             "value" : "%1$lld / %2$lld"
           }
         },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$lld / %2$lld"
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -155,6 +149,12 @@
           }
         },
         "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld / %2$lld"
+          }
+        },
+        "va" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$lld / %2$lld"
@@ -170,12 +170,6 @@
             "value" : "%1$lld of %2$lld"
           }
         },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$lld of %2$lld"
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -199,18 +193,18 @@
             "state" : "translated",
             "value" : "%1$lld of %2$lld"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld of %2$lld"
+          }
         }
       }
     },
     "accept_button_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Acceptar"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Acceptar"
@@ -239,18 +233,18 @@
             "state" : "translated",
             "value" : "Aceptar"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acceptar"
+          }
         }
       }
     },
     "add_certificates_error_placeholder" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Contrasenya incorrecta. Intenta-ho de nou."
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Contrasenya incorrecta. Intenta-ho de nou."
@@ -279,6 +273,12 @@
             "state" : "translated",
             "value" : "Contrasinal incorrecto. Téntao de novo."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contrasenya incorrecta. Intenta-ho de nou."
+          }
         }
       }
     },
@@ -288,12 +288,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "La signatura del lot ha finalitzat correctament."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "La firma del lot ha finalitzat correctament."
           }
         },
         "en" : {
@@ -319,6 +313,12 @@
             "state" : "translated",
             "value" : "A sinatura do lote completouse correctamente."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La firma del lot ha finalitzat correctament."
+          }
         }
       }
     },
@@ -328,12 +328,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "La signatura del lot ha finalitzat amb totes les firmes errònies"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "La firma del lot ha finalitzat amb totes les firmes erroneas"
           }
         },
         "en" : {
@@ -359,6 +353,12 @@
             "state" : "translated",
             "value" : "Completouse a sinatura do lote con todas as sinaturas incorrectas"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La firma del lot ha finalitzat amb totes les firmes erroneas"
+          }
         }
       }
     },
@@ -368,12 +368,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "La signatura del lot ha finalitzat amb errors"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "La firma del lot ha finalitzat amb errors"
           }
         },
         "en" : {
@@ -399,18 +393,18 @@
             "state" : "translated",
             "value" : "A sinatura do lote rematou con erros"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La firma del lot ha finalitzat amb errors"
+          }
         }
       }
     },
     "cancel_button_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cancel·lar"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cancel·lar"
@@ -439,18 +433,18 @@
             "state" : "translated",
             "value" : "Cancelar"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel·lar"
+          }
         }
       }
     },
     "certificate_added_success_description" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El certificat s'ha afegit correctament."
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "El certificat s'ha afegit correctament."
@@ -479,18 +473,18 @@
             "state" : "translated",
             "value" : "O certificado engadiuse correctamente."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El certificat s'ha afegit correctament."
+          }
         }
       }
     },
     "certificate_added_success_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Certificat afegit"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Certificat afegit"
@@ -519,6 +513,12 @@
             "state" : "translated",
             "value" : "Certificado engadido"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Certificat afegit"
+          }
         }
       }
     },
@@ -528,12 +528,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Certificat proper a caducar"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Certificat pròxim a caducar"
           }
         },
         "en" : {
@@ -559,18 +553,18 @@
             "state" : "translated",
             "value" : "Certificado a piques de caducar"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Certificat pròxim a caducar"
+          }
         }
       }
     },
     "certificate_delete" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Eliminar"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Eliminar"
@@ -599,6 +593,12 @@
             "state" : "translated",
             "value" : "Eliminar"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eliminar"
+          }
         }
       }
     },
@@ -608,12 +608,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "El certificat s'ha suprimit correctament."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El certificat s'ha eliminat correctament."
           }
         },
         "en" : {
@@ -639,18 +633,18 @@
             "state" : "translated",
             "value" : "O certificado eliminouse correctamente."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El certificat s'ha eliminat correctament."
+          }
         }
       }
     },
     "certificate_delete_success_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Certificat eliminat"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Certificat eliminat"
@@ -679,18 +673,18 @@
             "state" : "translated",
             "value" : "Certificado eliminado"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Certificat eliminat"
+          }
         }
       }
     },
     "certificate_expired" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Certificat caducat"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Certificat caducat"
@@ -719,18 +713,18 @@
             "state" : "translated",
             "value" : "Certificado caducado"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Certificat caducat"
+          }
         }
       }
     },
     "certificate_expired_description" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El certificat noés válid, ja que está caducat."
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "El certificat noés válid, ja que está caducat."
@@ -759,18 +753,18 @@
             "state" : "translated",
             "value" : "O certificado non é válido, xa que está caducado."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El certificat noés válid, ja que está caducat."
+          }
         }
       }
     },
     "certificate_expired_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Certificat caducat"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Certificat caducat"
@@ -799,6 +793,12 @@
             "state" : "translated",
             "value" : "Certificado caducado"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Certificat caducat"
+          }
         }
       }
     },
@@ -808,12 +808,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Alguna cosa ha fallat, mantingues fix diversos segons el teu mòbil sobre el DNIe fins que es realitzi la lectura NFC."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Alguna cosa ha fallat, mantingues fix diversos segons el teu mòbil damunt del DNIe fins que es realitze la lectura NFC."
           }
         },
         "en" : {
@@ -839,6 +833,12 @@
             "state" : "translated",
             "value" : "Algo saíu mal, manteña o teléfono móbil fixo sobre o DNIe durante varios segundos ata que se realice a lectura do NFC."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alguna cosa ha fallat, mantingues fix diversos segons el teu mòbil damunt del DNIe fins que es realitze la lectura NFC."
+          }
         }
       }
     },
@@ -848,12 +848,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Alguna cosa ha fallat, els certificats del teu DNIe no són vigents, acudeixi a un Punt d'Actualització del DNI (PAD) existents a les Oficines d'Expedició."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Alguna cosa ha fallat, els certificats del teu DNIe no estan vigents, acudisca a un Punt d'Actualització del DNI (PAD) existents en les Oficines d'Expedició."
           }
         },
         "en" : {
@@ -879,6 +873,12 @@
             "state" : "translated",
             "value" : "Produciuse un erro, os teus certificados de DNIe non son válidos, acude a un Punto de Actualización do DNI (PAD) existente nas Oficinas de Emisión."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alguna cosa ha fallat, els certificats del teu DNIe no estan vigents, acudisca a un Punt d'Actualització del DNI (PAD) existents en les Oficines d'Expedició."
+          }
         }
       }
     },
@@ -888,12 +888,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ho sentim, ha passat un error"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ho sentim, ha ocorregut un error"
           }
         },
         "en" : {
@@ -918,6 +912,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Produciuse un erro"
+          }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ho sentim, ha ocorregut un error"
           }
         }
       }
@@ -930,12 +930,6 @@
             "value" : "Ho sentim, ha passat un error"
           }
         },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El sentim, ha ocorregut un error"
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -959,18 +953,18 @@
             "state" : "translated",
             "value" : "Produciuse un erro"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El sentim, ha ocorregut un error"
+          }
         }
       }
     },
     "certificate_issuer" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Emisor"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Emisor"
@@ -999,6 +993,12 @@
             "state" : "translated",
             "value" : "Emisor"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Emisor"
+          }
         }
       }
     },
@@ -1008,12 +1008,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aquest certificat és a punt de caducar-se."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Este certificat està a punt de caducar-se."
           }
         },
         "en" : {
@@ -1039,6 +1033,12 @@
             "state" : "translated",
             "value" : "Este certificado está a piques de caducar."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este certificat està a punt de caducar-se."
+          }
         }
       }
     },
@@ -1048,12 +1048,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Certificat amb caducitat propera a caducar-se"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Certificat amb caducitat pròxima a caducar-se"
           }
         },
         "en" : {
@@ -1079,6 +1073,12 @@
             "state" : "translated",
             "value" : "Certificado con caducidade próxima ao vencemento"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Certificat amb caducitat pròxima a caducar-se"
+          }
         }
       }
     },
@@ -1088,12 +1088,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Per signar necessites registrar un certificat digital."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Per a firmar necessites registrar un certificat digital."
           }
         },
         "en" : {
@@ -1119,6 +1113,12 @@
             "state" : "translated",
             "value" : "Para asinar é necesario rexistrar un certificado dixital."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per a firmar necessites registrar un certificat digital."
+          }
         }
       }
     },
@@ -1128,12 +1128,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No hi ha cap certificat"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No existix cap certificat"
           }
         },
         "en" : {
@@ -1159,6 +1153,12 @@
             "state" : "translated",
             "value" : "Non hai certificado"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No existix cap certificat"
+          }
         }
       }
     },
@@ -1168,12 +1168,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aquest certificat no és vàlid, ja que està revocat."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Este certificat no és vàlid, ja que està revocat."
           }
         },
         "en" : {
@@ -1199,18 +1193,18 @@
             "state" : "translated",
             "value" : "Este certificado non é válido xa que foi revogado."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este certificat no és vàlid, ja que està revocat."
+          }
         }
       }
     },
     "certificate_revoked_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Certificat revocat"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Certificat revocat"
@@ -1239,18 +1233,18 @@
             "state" : "translated",
             "value" : "Certificado revogado"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Certificat revocat"
+          }
         }
       }
     },
     "certificate_sent_success_description" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El certificat s'ha enviat correctament."
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "El certificat s'ha enviat correctament."
@@ -1279,18 +1273,18 @@
             "state" : "translated",
             "value" : "O certificado foi enviado correctamente."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El certificat s'ha enviat correctament."
+          }
         }
       }
     },
     "certificate_sent_success_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Certificat enviat"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Certificat enviat"
@@ -1319,18 +1313,18 @@
             "state" : "translated",
             "value" : "Certificado enviado"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Certificat enviat"
+          }
         }
       }
     },
     "certificate_use" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ús"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ús"
@@ -1359,18 +1353,18 @@
             "state" : "translated",
             "value" : "Use"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ús"
+          }
         }
       }
     },
     "certificate_valid_date" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Válido hasta"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Válido hasta"
@@ -1399,18 +1393,18 @@
             "state" : "translated",
             "value" : "Válido hasta"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Válido hasta"
+          }
         }
       }
     },
     "Checked" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Checked"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Checked"
@@ -1439,18 +1433,18 @@
             "state" : "translated",
             "value" : "Comprobado"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Checked"
+          }
         }
       }
     },
     "close_app_button_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tancar aplicació"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tancar aplicació"
@@ -1479,18 +1473,18 @@
             "state" : "translated",
             "value" : "Pechar a aplicación"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tancar aplicació"
+          }
         }
       }
     },
     "continue_button_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Continuar"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Continuar"
@@ -1519,6 +1513,12 @@
             "state" : "translated",
             "value" : "Continuar"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuar"
+          }
         }
       }
     },
@@ -1528,12 +1528,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Document Autofirma"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Document autofirma"
           }
         },
         "en" : {
@@ -1559,18 +1553,18 @@
             "state" : "translated",
             "value" : "Documento de autofirma"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Document autofirma"
+          }
         }
       }
     },
     "delete_certificate_button_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Eliminar certificat"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Eliminar certificat"
@@ -1599,6 +1593,12 @@
             "state" : "translated",
             "value" : "Eliminar certificado"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eliminar certificat"
+          }
         }
       }
     },
@@ -1608,12 +1608,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cancel·la"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cancel·lar"
           }
         },
         "en" : {
@@ -1639,6 +1633,12 @@
             "state" : "translated",
             "value" : "Cancelar"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel·lar"
+          }
         }
       }
     },
@@ -1648,12 +1648,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Si elimines el certificat no el podràs recuperar i hauràs d'utilitzar un altre certificat. També en pots afegir un de nou quan vulguis."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Si elimines el certificat no podràs recuperar-lo i hauràs d'utilitzar un altre certificat. També pots afegir un nou quan desitges."
           }
         },
         "en" : {
@@ -1679,18 +1673,18 @@
             "state" : "translated",
             "value" : "Se eliminas o certificado non poderás recuperalo e terás que utilizar outro certificado. Tamén podes engadir un novo cando queiras."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si elimines el certificat no podràs recuperar-lo i hauràs d'utilitzar un altre certificat. També pots afegir un nou quan desitges."
+          }
         }
       }
     },
     "delete_certificate_subtitle" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vols eliminar"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vols eliminar"
@@ -1719,18 +1713,18 @@
             "state" : "translated",
             "value" : "Queres eliminar"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vols eliminar"
+          }
         }
       }
     },
     "delete_certificate_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Eliminar certificat"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Eliminar certificat"
@@ -1759,18 +1753,18 @@
             "state" : "translated",
             "value" : "Eliminar certificado"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eliminar certificat"
+          }
         }
       }
     },
     "delete_historical_button_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Eliminar històric"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Eliminar històric"
@@ -1799,18 +1793,18 @@
             "state" : "translated",
             "value" : "Eliminar historial"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eliminar històric"
+          }
         }
       }
     },
     "delete_historical_cancel_button_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cancel·lar"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cancel·lar"
@@ -1839,6 +1833,12 @@
             "state" : "translated",
             "value" : "Cancelar"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel·lar"
+          }
         }
       }
     },
@@ -1848,12 +1848,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Si elimines l'històric no el podràs recuperar."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Si elimines l'històric no podràs recuperar-ho."
           }
         },
         "en" : {
@@ -1879,18 +1873,18 @@
             "state" : "translated",
             "value" : "Se eliminas o historial non poderás recuperalo."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si elimines l'històric no podràs recuperar-ho."
+          }
         }
       }
     },
     "delete_historical_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Eliminar històric"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Eliminar històric"
@@ -1919,18 +1913,18 @@
             "state" : "translated",
             "value" : "Eliminar historial"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eliminar històric"
+          }
         }
       }
     },
     "disable_button_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rebutjar"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rebutjar"
@@ -1959,6 +1953,12 @@
             "state" : "translated",
             "value" : "Declinar"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rebutjar"
+          }
         }
       }
     },
@@ -1968,12 +1968,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "El DNI té el PIN bloquejat. Podeu acudir a una comissaria de Policia Nacional a un Punt d'Actualització del DNIe (PAD) per desbloquejar-lo."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El DNIe té el PIN bloquejat. Pots acudir a una comissaria de Policia Nacional a un Punt d'Actualització del DNIe (PAD) per a desbloquejar-lo."
           }
         },
         "en" : {
@@ -1999,6 +1993,12 @@
             "state" : "translated",
             "value" : "O DNIe ten o PIN bloqueado. Podes acudir a unha comisaría da Policía Nacional a un Punto de Actualización do DNIe (PAD) para desbloquealo."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El DNIe té el PIN bloquejat. Pots acudir a una comissaria de Policia Nacional a un Punt d'Actualització del DNIe (PAD) per a desbloquejar-lo."
+          }
         }
       }
     },
@@ -2008,12 +2008,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Error en la lectura del teu DNIe"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Error en la lectura de la teua DNIe"
           }
         },
         "en" : {
@@ -2039,6 +2033,12 @@
             "state" : "translated",
             "value" : "Erro ao ler o teu DNIe"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error en la lectura de la teua DNIe"
+          }
         }
       }
     },
@@ -2048,12 +2048,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "El DNIe que has proporcionat sembla que està malmès. Necessites acudir a la teva comissaria de Policia Nacional per sol·licitar-ne un de nou."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El DNIe que has proporcionat sembla estar danyat. Necessites acudir a la teua comissaria de Policia Nacional per a sol·licitar un nou."
           }
         },
         "en" : {
@@ -2079,6 +2073,12 @@
             "state" : "translated",
             "value" : "O DNI que facilitaches parece estar danado. Debes acudir á túa comisaría da Policía Nacional para solicitar unha nova."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El DNIe que has proporcionat sembla estar danyat. Necessites acudir a la teua comissaria de Policia Nacional per a sol·licitar un nou."
+          }
         }
       }
     },
@@ -2088,12 +2088,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Error en la lectura del teu DNIe"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Error en la lectura de la teua DNIe"
           }
         },
         "en" : {
@@ -2119,6 +2113,12 @@
             "state" : "translated",
             "value" : "Erro ao ler o teu DNIe"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error en la lectura de la teua DNIe"
+          }
         }
       }
     },
@@ -2128,12 +2128,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "El CAN és el número situat a la"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El CA és el número situat en la "
           }
         },
         "en" : {
@@ -2159,18 +2153,18 @@
             "state" : "translated",
             "value" : "O CAN é o número situado no"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El CA és el número situat en la "
+          }
         }
       }
     },
     "dni_can_view_description_2" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : " part inferior dreta del DNI. "
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : " part inferior dreta del DNI. "
@@ -2199,6 +2193,12 @@
             "state" : "translated",
             "value" : " parte inferior dereita do DNI. "
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " part inferior dreta del DNI. "
+          }
         }
       }
     },
@@ -2208,12 +2208,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "És necessari per llegir el DNI amb NFC."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "És necessari per a llegir el DNI amb NFC."
           }
         },
         "en" : {
@@ -2239,6 +2233,12 @@
             "state" : "translated",
             "value" : "É necesario ler o DNI con NFC."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "És necessari per a llegir el DNI amb NFC."
+          }
         }
       }
     },
@@ -2248,12 +2248,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Heu cancel·lat la sessió per concedir amb el DNIe. Si us plau, torna a intentar-ho. Recorda mantenir-lo en una superfície llisa i mantenir el teu telèfon mòbil uns segons fix sobre la targeta per a la lectura correcta"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Has cancel·lat la sessió per a conectar amb el DNIe. Per favor, torna a intentar-ho. Recorda mantindre-ho en una superfície llisa i mantindre el teu telèfon mòbil uns segons fix sobre la targeta per a la seua correcta lectura"
           }
         },
         "en" : {
@@ -2279,18 +2273,18 @@
             "state" : "translated",
             "value" : "Cancelaches a sesión para conectarte co DNIe. Téntao de novo. Lembra mantelo nunha superficie lisa e manteña o teu teléfono móbil fixado na tarxeta durante uns segundos para unha lectura correcta."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Has cancel·lat la sessió per a conectar amb el DNIe. Per favor, torna a intentar-ho. Recorda mantindre-ho en una superfície llisa i mantindre el teu telèfon mòbil uns segons fix sobre la targeta per a la seua correcta lectura"
+          }
         }
       }
     },
     "dni_compatible_button_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "És el meu DNI compatible?"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "És el meu DNI compatible?"
@@ -2319,6 +2313,12 @@
             "state" : "translated",
             "value" : "É o meu DNI compatible?"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "És el meu DNI compatible?"
+          }
         }
       }
     },
@@ -2328,12 +2328,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Entès"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Entés"
           }
         },
         "en" : {
@@ -2359,6 +2353,12 @@
             "state" : "translated",
             "value" : "Entendido"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entés"
+          }
         }
       }
     },
@@ -2368,12 +2368,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Els DNIe compatibles amb aquest procés són els"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Els DNIe compatibles amb este procés són els "
           }
         },
         "en" : {
@@ -2399,18 +2393,18 @@
             "state" : "translated",
             "value" : "Os DNIe compatibles con este proceso son os"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Els DNIe compatibles amb este procés són els "
+          }
         }
       }
     },
     "dni_compatible_view_description_2" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : " DNI 3.0 "
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : " DNI 3.0 "
@@ -2439,6 +2433,12 @@
             "state" : "translated",
             "value" : " ID 3.0 "
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " DNI 3.0 "
+          }
         }
       }
     },
@@ -2448,12 +2448,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : " i"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : " i "
           }
         },
         "en" : {
@@ -2479,18 +2473,18 @@
             "state" : "translated",
             "value" : " e"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " i "
+          }
         }
       }
     },
     "dni_compatible_view_description_4" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : " 4.0 "
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : " 4.0 "
@@ -2519,6 +2513,12 @@
             "state" : "translated",
             "value" : " 4.0 "
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " 4.0 "
+          }
         }
       }
     },
@@ -2528,12 +2528,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : ". Si tens dubtes de quin és el teu, pots consultar-ho al següent enllaç:"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ". Si tens dubtes de quin és el teu, pots consultar-ho en el següent enllaç: "
           }
         },
         "en" : {
@@ -2559,18 +2553,18 @@
             "state" : "translated",
             "value" : ". Se tes dúbidas sobre cal é o teu, podes consultalo na seguinte ligazón:"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ". Si tens dubtes de quin és el teu, pots consultar-ho en el següent enllaç: "
+          }
         }
       }
     },
     "dni_compatible_view_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "És el meu DNI compatible?"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "És el meu DNI compatible?"
@@ -2599,18 +2593,18 @@
             "state" : "translated",
             "value" : "O meu DNI é compatible?"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "És el meu DNI compatible?"
+          }
         }
       }
     },
     "dni_compatible_view_web_portal_button" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Portal del DNI electrònic, Cos Nacional de Policia"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Portal del DNI electrònic, Cos Nacional de Policia"
@@ -2639,6 +2633,12 @@
             "state" : "translated",
             "value" : "Portal do DNI electrónico, Corpo Nacional de Policía"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Portal del DNI electrònic, Cos Nacional de Policia"
+          }
         }
       }
     },
@@ -2648,12 +2648,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Introdueixi un CA válid"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Introduïsca un CA válid"
           }
         },
         "en" : {
@@ -2679,6 +2673,12 @@
             "state" : "translated",
             "value" : "Introduza un CAN válido"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introduïsca un CA válid"
+          }
         }
       }
     },
@@ -2688,12 +2688,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Escriu el teu codi CAN del DNI"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Escriu el teu codi CA del DNI"
           }
         },
         "en" : {
@@ -2719,18 +2713,18 @@
             "state" : "translated",
             "value" : "Escribe o teu código DNI CAN"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escriu el teu codi CA del DNI"
+          }
         }
       }
     },
     "dni_connection_header_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Identificació amb DNIe"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Identificació amb DNIe"
@@ -2759,6 +2753,12 @@
             "state" : "translated",
             "value" : "Identificación con DNIe"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Identificació amb DNIe"
+          }
         }
       }
     },
@@ -2768,12 +2768,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Col·loca el teu DNIe sobre una superfície llisa i col·loca el teu mòbil"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Col·loca el teu DNIe sobre una superfície llisa i col·loca el teu mòbil "
           }
         },
         "en" : {
@@ -2799,18 +2793,18 @@
             "state" : "translated",
             "value" : "Coloca o teu DNIe nunha superficie lisa e coloca o teu móbil"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Col·loca el teu DNIe sobre una superfície llisa i col·loca el teu mòbil "
+          }
         }
       }
     },
     "dni_connection_nfc_description_2" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : " sense funda "
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : " sense funda "
@@ -2839,6 +2833,12 @@
             "state" : "translated",
             "value" : " sen cuberta "
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " sense funda "
+          }
         }
       }
     },
@@ -2848,12 +2848,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "sobre ell fins que detecti el xip."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "sobre ell fins que detecte el xip."
           }
         },
         "en" : {
@@ -2879,18 +2873,18 @@
             "state" : "translated",
             "value" : "nel ata que detecte o chip."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "sobre ell fins que detecte el xip."
+          }
         }
       }
     },
     "dni_connection_pin_description" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "PIN En fer-te el DNIe vas rebre un codi PIN que pots recuperar o canviar en comissaries sense cita prévia."
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "PIN En fer-te el DNIe vas rebre un codi PIN que pots recuperar o canviar en comissaries sense cita prévia."
@@ -2919,6 +2913,12 @@
             "state" : "translated",
             "value" : "Ao facerche o DNIe recibiches un código PIN que podes recuperar ou cambiar en comisarías sen cita previa."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PIN En fer-te el DNIe vas rebre un codi PIN que pots recuperar o canviar en comissaries sense cita prévia."
+          }
         }
       }
     },
@@ -2928,12 +2928,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Introdueixi un pin válid"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Introduïsca un pin válid"
           }
         },
         "en" : {
@@ -2959,18 +2953,18 @@
             "state" : "translated",
             "value" : "Introduza un pin válido"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introduïsca un pin válid"
+          }
         }
       }
     },
     "dni_connection_pin_placeholder" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Escriu el teu codi PIN"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Escriu el teu codi PIN"
@@ -2999,6 +2993,12 @@
             "state" : "translated",
             "value" : "Escribe o teu código PIN"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escriu el teu codi PIN"
+          }
         }
       }
     },
@@ -3008,12 +3008,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Passo %d de 3"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Passe %d de 3"
           }
         },
         "en" : {
@@ -3039,18 +3033,18 @@
             "state" : "translated",
             "value" : "Paso %d de 3"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passe %d de 3"
+          }
         }
       }
     },
     "dni_connection_step_one_button_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Continuar"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Continuar"
@@ -3079,6 +3073,12 @@
             "state" : "translated",
             "value" : "Continuar"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuar"
+          }
         }
       }
     },
@@ -3088,12 +3088,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Introdueix el CAN del DNI"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Introduïx el CA del DNI"
           }
         },
         "en" : {
@@ -3119,18 +3113,18 @@
             "state" : "translated",
             "value" : "Introduce o CAN do DNI"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introduïx el CA del DNI"
+          }
         }
       }
     },
     "dni_connection_step_three_button_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Llegir DNIe"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Llegir DNIe"
@@ -3159,6 +3153,12 @@
             "state" : "translated",
             "value" : "Ler DNIe"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Llegir DNIe"
+          }
         }
       }
     },
@@ -3168,12 +3168,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Llegeix el teu DNIe amb el mòbil"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lee el teu DNIe amb el mòbil"
           }
         },
         "en" : {
@@ -3199,18 +3193,18 @@
             "state" : "translated",
             "value" : "Le o teu DNIe co teu móbil"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lee el teu DNIe amb el mòbil"
+          }
         }
       }
     },
     "dni_connection_step_two_button_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Continuar"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Continuar"
@@ -3239,6 +3233,12 @@
             "state" : "translated",
             "value" : "Continuar"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuar"
+          }
         }
       }
     },
@@ -3248,12 +3248,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Introdueix el"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Introduïx el"
           }
         },
         "en" : {
@@ -3279,6 +3273,12 @@
             "state" : "translated",
             "value" : "Introduce o PIN"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introduïx el"
+          }
         }
       }
     },
@@ -3288,12 +3288,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "El DNIe que heu aproximat no té certificat de signatura o el certificat està caducat. Pots acudir a una comissaria de Policia Nacional a un Punt d'Actualització del DNIe (PAD), per solucionar-ho."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El DNIe que has aproximat no té certificat de firma o el certificat està caducat. Pots acudir a una comissaria de Policia Nacional a un Punt d'Actualització del DNIe (PAD), per a solucionar-lo."
           }
         },
         "en" : {
@@ -3319,6 +3313,12 @@
             "state" : "translated",
             "value" : "O DNIe que aproximou non ten certificado de sinatura ou o certificado está caducado. Podes acudir a unha comisaría da Policía Nacional a un Punto de Actualización do DNIe (PAD), para solucionalo."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El DNIe que has aproximat no té certificat de firma o el certificat està caducat. Pots acudir a una comissaria de Policia Nacional a un Punt d'Actualització del DNIe (PAD), per a solucionar-lo."
+          }
         }
       }
     },
@@ -3328,12 +3328,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Error en la lectura del teu DNIe"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Error en la lectura de la teua DNIe"
           }
         },
         "en" : {
@@ -3359,6 +3353,12 @@
             "state" : "translated",
             "value" : "Erro ao ler o teu DNIe"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error en la lectura de la teua DNIe"
+          }
         }
       }
     },
@@ -3368,12 +3368,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Error en iniciar la connexió amb la targeta.és possible que el CA sigui incorrecte. Intenti-ho de nou."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Error en iniciar la connexió amb la targeta. És possible que el CA siga incorrecte. Intente-ho de nou."
           }
         },
         "en" : {
@@ -3399,6 +3393,12 @@
             "state" : "translated",
             "value" : "Erro ao iniciar a conexión co cartón. É posible que o CAN sexa incorrecto. Ténteo de novo."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error en iniciar la connexió amb la targeta. És possible que el CA siga incorrecte. Intente-ho de nou."
+          }
         }
       }
     },
@@ -3408,12 +3408,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "CAN incorrecte"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "CA incorrecte"
           }
         },
         "en" : {
@@ -3439,6 +3433,12 @@
             "state" : "translated",
             "value" : "CAN incorrecto"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "CA incorrecte"
+          }
         }
       }
     },
@@ -3448,12 +3448,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "El PIN del dispositiu criptográficés incorrecte. Tingui en compte que diversos intents fallits consecutius podrien bloquejar-ho."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El PIN del dispositiu criptográficés incorrecte. Tinga en compte que diversos intents fallits consecutius podrien bloquejar-ho."
           }
         },
         "en" : {
@@ -3479,18 +3473,18 @@
             "state" : "translated",
             "value" : "O PIN do dispositivo criptográfico é incorrecto. Teña en conta que varios intentos errados consecutivos poderían bloquealo."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El PIN del dispositiu criptográficés incorrecte. Tinga en compte que diversos intents fallits consecutius podrien bloquejar-ho."
+          }
         }
       }
     },
     "dni_incorrect_pin_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "PIN incorrecte"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "PIN incorrecte"
@@ -3519,18 +3513,18 @@
             "state" : "translated",
             "value" : "PIN incorrecto"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PIN incorrecte"
+          }
         }
       }
     },
     "dni_portal_url" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "https://www.dnielectronico.es/"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "https://www.dnielectronico.es/"
@@ -3559,6 +3553,12 @@
             "state" : "translated",
             "value" : "https://www.dnielectronico.es/"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "https://www.dnielectronico.es/"
+          }
         }
       }
     },
@@ -3568,12 +3568,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "La targeta que heu proporcionat no sembla ser un DNIe. Si us plau intenta-ho de nou."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "La targeta que has proporcionat no sembla ser un DNIe. Per favor intenta-ho de nou."
           }
         },
         "en" : {
@@ -3599,6 +3593,12 @@
             "state" : "translated",
             "value" : "A tarxeta que proporcionou non parece ser un eDNI. Téntao de novo."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La targeta que has proporcionat no sembla ser un DNIe. Per favor intenta-ho de nou."
+          }
         }
       }
     },
@@ -3608,12 +3608,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "S'ha produït un error en intentar llegir el DNIe. Si us plau, torna a intentar-ho. Recorda mantenir-lo en una superfície llisa i mantenir el teu telèfon mòbil uns segons fix sobre la targeta per a la lectura correcta."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "S'ha produït un error en intentar llegir el teu DNIe. Per favor, torna a intentar-ho. Recorda mantindre-ho en una superfície llisa i mantindre el teu telèfon mòbil uns segons fix sobre la targeta per a la seua correcta lectura."
           }
         },
         "en" : {
@@ -3639,6 +3633,12 @@
             "state" : "translated",
             "value" : "Produciuse un erro ao tentar ler o teu DNIe. Téntao de novo. Lembra mantelo nunha superficie lisa e manteña o teu teléfono móbil fixado na tarxeta durante uns segundos para unha lectura correcta."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "S'ha produït un error en intentar llegir el teu DNIe. Per favor, torna a intentar-ho. Recorda mantindre-ho en una superfície llisa i mantindre el teu telèfon mòbil uns segons fix sobre la targeta per a la seua correcta lectura."
+          }
         }
       }
     },
@@ -3648,12 +3648,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Error en la lectura del teu DNIe"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Error en la lectura de la teua DNIe"
           }
         },
         "en" : {
@@ -3679,6 +3673,12 @@
             "state" : "translated",
             "value" : "Erro ao ler o teu DNIe"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error en la lectura de la teua DNIe"
+          }
         }
       }
     },
@@ -3689,12 +3689,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "S'ha superat el timeout de connexió. Si us plau, torna a intentar-ho. Recorda mantenir-lo en una superfície llisa i mantenir el teu telèfon mòbil uns segons fix sobre la targeta per a la lectura correcta."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "S'ha superat el timeout de connexió. Per favor, torna a intentar-ho. Recorda mantindre-ho en una superfície llisa i mantindre el teu telèfon mòbil uns segons fix sobre la targeta per a la seua correcta lectura."
           }
         },
         "en" : {
@@ -3720,6 +3714,12 @@
             "state" : "translated",
             "value" : "Superouse o tempo de espera da conexión. Téntao de novo. Lembra mantelo nunha superficie lisa e manteña o teu teléfono móbil fixado na tarxeta durante uns segundos para unha lectura correcta."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "S'ha superat el timeout de connexió. Per favor, torna a intentar-ho. Recorda mantindre-ho en una superfície llisa i mantindre el teu telèfon mòbil uns segons fix sobre la targeta per a la seua correcta lectura."
+          }
         }
       }
     },
@@ -3729,12 +3729,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Error en la lectura del teu DNIe"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Error en la lectura de la teua DNIe"
           }
         },
         "en" : {
@@ -3760,18 +3754,18 @@
             "state" : "translated",
             "value" : "Erro ao ler o teu DNIe"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error en la lectura de la teua DNIe"
+          }
         }
       }
     },
     "dni_view_button_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Començar"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Començar"
@@ -3800,6 +3794,12 @@
             "state" : "translated",
             "value" : "Comeza"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Començar"
+          }
         }
       }
     },
@@ -3809,12 +3809,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Per identificar-te mitjançant DNIe és necessari que tinguis un DNI electrónic amb"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Per a identificar-te mitjançant DNIe és necessari que tingues un DNI electrónic amb"
           }
         },
         "en" : {
@@ -3840,6 +3834,12 @@
             "state" : "translated",
             "value" : "Para identificarche mediante DNIe é necesario que teñas un DNI electrónico con"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per a identificar-te mitjançant DNIe és necessari que tingues un DNI electrónic amb"
+          }
         }
       }
     },
@@ -3849,12 +3849,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "certificats vigent"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "certificats vigents"
           }
         },
         "en" : {
@@ -3880,6 +3874,12 @@
             "state" : "translated",
             "value" : "certificados vixentes"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "certificats vigents"
+          }
         }
       }
     },
@@ -3889,12 +3889,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "i coneguis"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "i conegues"
           }
         },
         "en" : {
@@ -3920,6 +3914,12 @@
             "state" : "translated",
             "value" : "y conozcas el "
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "i conegues"
+          }
         }
       }
     },
@@ -3929,12 +3929,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "el codi PIN."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "el codi PIN"
           }
         },
         "en" : {
@@ -3960,18 +3954,18 @@
             "state" : "translated",
             "value" : "código PIN."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "el codi PIN"
+          }
         }
       }
     },
     "dni_view_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Identificació amb DNIe"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Identificació amb DNIe"
@@ -4000,18 +3994,18 @@
             "state" : "translated",
             "value" : "Identificación con DNIe"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Identificació amb DNIe"
+          }
         }
       }
     },
     "document_error_controller_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Acceptació de textos legals"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Acceptació de textos legals"
@@ -4040,6 +4034,12 @@
             "state" : "translated",
             "value" : "Aceptación de textos legais"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acceptació de textos legals"
+          }
         }
       }
     },
@@ -4049,12 +4049,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "S'ha produït un error durant l'accés als documents legals. \nIntenta-ho de nou més tard."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "S'ha produït un error durant l'accés als documents legals. \nInténtalo de nou més tard."
           }
         },
         "en" : {
@@ -4080,18 +4074,18 @@
             "state" : "translated",
             "value" : "Produciuse un erro ao acceder a documentos legais. \nTéntao de novo máis tarde."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "S'ha produït un error durant l'accés als documents legals. \nInténtalo de nou més tard."
+          }
         }
       }
     },
     "document_error_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Error en carregar els documents"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Error en carregar els documents"
@@ -4120,18 +4114,18 @@
             "state" : "translated",
             "value" : "Produciuse un erro ao cargar documentos"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error en carregar els documents"
+          }
         }
       }
     },
     "enable_button_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Permetre"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Permetre"
@@ -4160,6 +4154,12 @@
             "state" : "translated",
             "value" : "Permitir"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Permetre"
+          }
         }
       }
     },
@@ -4167,12 +4167,6 @@
       "extractionState" : "stale",
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Error"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Error"
@@ -4201,6 +4195,12 @@
             "state" : "translated",
             "value" : "Erro"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error"
+          }
         }
       }
     },
@@ -4210,12 +4210,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Els certificats importats a Autofirma App són d'ús exclusiu per a signatura electrònica en pàgines web dissenyades a aquest efecte. Per utilitzar un certificat digital per a la identificació en pàgines web haureu de seguir les instruccions del vostre navegador web i d'Apple respecte al procés d'instal·lació dels certificats i les vostres claus al sistema operatiu iOS i al propi navegador web si calgués."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Els certificats importats en autofirma App són d'ús exclusiu per a firma electrònica en pàgines Web dissenyades a este efecte. Per a usar un certificat digital per a identificació en pàgines Web haurà de seguir les instruccions del seu navegador Web i d'Apple respecte al procés d'instal·lació dels certificats i les seues claus en el sistema operatiu iOS i en el propi navegador Web si calguera."
           }
         },
         "en" : {
@@ -4241,6 +4235,12 @@
             "state" : "translated",
             "value" : "Os certificados importados na App Autofirma son de uso exclusivo para sinaturas electrónicas nas páxinas web deseñadas para tal fin. Para utilizar un certificado dixital para a identificación en páxinas web, debes seguir as instrucións do teu navegador web e de Apple sobre o proceso de instalación dos certificados e as súas claves no sistema operativo iOS e no propio navegador web se é necesario."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Els certificats importats en autofirma App són d'ús exclusiu per a firma electrònica en pàgines Web dissenyades a este efecte. Per a usar un certificat digital per a identificació en pàgines Web haurà de seguir les instruccions del seu navegador Web i d'Apple respecte al procés d'instal·lació dels certificats i les seues claus en el sistema operatiu iOS i en el propi navegador Web si calguera."
+          }
         }
       }
     },
@@ -4250,12 +4250,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Autofirma App permet signar amb certificat tràmits web compatibles amb l'aplicació. Per a signar un tràmit, completi'l normalment a través del seu navegador web. Si el tràmit està preparat per a la signatura amb Autofirma App, aquesta s'executarà en el moment de la signatura, permetrà a l'usuari seleccionar el certificat de signatura i executi l'operació.També existeix la possibilitat d'obrir l'aplicació i signar directament un fitxer per a ús personal. Als documents PDF se'ls agregarà una signatura, mentre que per als altres fitxers es generarà un fitxer de signatura independent.Recordeu que abans d'iniciar el tràmit heu d'haver importat el vostre certificat de signatura a Autofirma App iOS."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Autofirma App permet signar amb certificat tramits web compatibles amb l'aplicacio. Per a signar un tramite, complete'l normalment a traves del seu navegador web. Si el tramite esta preparat per a la signatura amb Autofirma App, esta s'executara en el moment de la signatura, permetra a l'usuari seleccionar el certificat de signatura i execute l'operacio. Tambe existeix la possibilitat d'obrir l'aplicacio i signar directament un fitxer per a us personal. Als documents PDF se'ls agregara una signatura, mentre que per als altres fitxers es generara un fitxer de signatura independent. Recorde que abans d'iniciar el tràmit ha d'haver importat el seu certificat de firma en autofirma App iOS."
           }
         },
         "en" : {
@@ -4281,6 +4275,12 @@
             "state" : "translated",
             "value" : "Autofirma App permite asinar con certificado trámites web compatibles coa aplicación. Para asinar un trámite, compléteo normalmente a través do seu navegador web. Se o trámite está preparado para a firma con Autofirma App, esta executarase no momento da firma, permitirá ao usuario seleccionar o certificado de firma e execute a operación.&lt;/p> &lt;p>Tamén existe a posibilidade de abrir a aplicación e asinar directamente un ficheiro para uso persoal. Aos documentos PDF agregaráselles unha firma, mentres que para os demais ficheiros xerarase un ficheiro de firma independente. Lembre que antes de iniciar o proceso debes ter importado o teu certificado de sinatura na App Autofirma iOS."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autofirma App permet signar amb certificat tramits web compatibles amb l'aplicacio. Per a signar un tramite, complete'l normalment a traves del seu navegador web. Si el tramite esta preparat per a la signatura amb Autofirma App, esta s'executara en el moment de la signatura, permetra a l'usuari seleccionar el certificat de signatura i execute l'operacio. Tambe existeix la possibilitat d'obrir l'aplicacio i signar directament un fitxer per a us personal. Als documents PDF se'ls agregara una signatura, mentre que per als altres fitxers es generara un fitxer de signatura independent. Recorde que abans d'iniciar el tràmit ha d'haver importat el seu certificat de firma en autofirma App iOS."
+          }
         }
       }
     },
@@ -4290,12 +4290,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Els certificats s'emmagatzemen en el seu dispositiu amb un potent xifrat, però com qualsevol sistema criptogràfic, al moment que aquest està fora del control de propietari corre el risc de ser compromès. Si perd el dispositiu ha de contactar al més aviat possible amb el seu proveïdor de serveis de certificació per revocar immediatament els certificats que aquest contenia."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Els certificats s'emmagatzemen en el seu dispositiu amb un potent xifrat, però com qualsevol sistema criptogràfic, en el moment que este està fora del control de propietari corre el risc de ser compromès. Si perd el dispositiu ha de contactar al més prompte possible amb el seu proveïdor de servicis de certificació per a revocar immediatament els certificats que este contenia."
           }
         },
         "en" : {
@@ -4321,6 +4315,12 @@
             "state" : "translated",
             "value" : "Os certificados almacénanse no seu dispositivo cun potente cifrado, pero como calquera sistema criptográfico, no momento que este está fóra do control de propietario corre o risco de ser comprometido. Se perde o dispositivo debe contactar canto antes co seu provedor de servizos de certificación para revogar de inmediato os certificados que este contiña."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Els certificats s'emmagatzemen en el seu dispositiu amb un potent xifrat, però com qualsevol sistema criptogràfic, en el moment que este està fora del control de propietari corre el risc de ser compromès. Si perd el dispositiu ha de contactar al més prompte possible amb el seu proveïdor de servicis de certificació per a revocar immediatament els certificats que este contenia."
+          }
         }
       }
     },
@@ -4330,12 +4330,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Autofirma App manca encara de certes funcionalitats que sí que són presents en versions per a altres sistemes operatius. Futures actualitzacions de l'app solucionaran aquestes manques. Mentrestant, utilitzi un PC amb Autofirma instal·lat per a completar el tràmit web i notifiqui el problema al responsable del tràmit si el considera precís."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Autofirma App manca encara de certes funcionalitats que sí que són presents en versions per a altres sistemes operatius. Futures actualitzacions de l'app solucionaran estes manques. Mentrestant, utilitze un PC amb Autofirma instal·lat per a completar el tràmit web i notifique el problema al responsable del tràmit si el considera precís."
           }
         },
         "en" : {
@@ -4361,6 +4355,12 @@
             "state" : "translated",
             "value" : "Autofirma App carece aínda de certas funcionalidades que si están presentes en versións para outros sistemas operativos. Futuras actualizacións da app liquidarán estas carencias. Mentres tanto, utilice un PC con Autofirma instalado para completar o trámite web e notifique o problema ao responsable do trámite se o considera preciso."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autofirma App manca encara de certes funcionalitats que sí que són presents en versions per a altres sistemes operatius. Futures actualitzacions de l'app solucionaran estes manques. Mentrestant, utilitze un PC amb Autofirma instal·lat per a completar el tràmit web i notifique el problema al responsable del tràmit si el considera precís."
+          }
         }
       }
     },
@@ -4370,12 +4370,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "He importat els certificats correctament a Autofirma App, però tot i així no aconsegueixo identificar-me amb ells a les seus electròniques i altres pàgines web que ho requereixen Per què?"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "He importat els certificats correctament en autofirma App, però així i tot no aconseguisc identificar-me amb ells en les seus electròniques i altres pàgines Web que ho requerixen Per què?"
           }
         },
         "en" : {
@@ -4401,6 +4395,12 @@
             "state" : "translated",
             "value" : "Importei os certificados correctamente na aplicación Autofirma para iOS de Apple, pero aínda non podo identificarme con eles nas sedes electrónicas e outras páxinas web que o requiran."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "He importat els certificats correctament en autofirma App, però així i tot no aconseguisc identificar-me amb ells en les seus electròniques i altres pàgines Web que ho requerixen Per què?"
+          }
         }
       }
     },
@@ -4410,12 +4410,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Com puc fer signatures electròniques amb aquest programa?"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Com puc realitzar firmes electròniques amb este programa?"
           }
         },
         "en" : {
@@ -4441,6 +4435,12 @@
             "state" : "translated",
             "value" : "Como podo realizar firmas electrónicas con este programa?"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Com puc realitzar firmes electròniques amb este programa?"
+          }
         }
       }
     },
@@ -4450,12 +4450,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Corren perill els meus certificats si perdo el dispositiu?"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Corren perill els meus certificats si perd el dispositiu?"
           }
         },
         "en" : {
@@ -4481,6 +4475,12 @@
             "state" : "translated",
             "value" : "Corren perigo os meus certificados se perdo o dispositivo?"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Corren perill els meus certificats si perd el dispositiu?"
+          }
         }
       }
     },
@@ -4490,12 +4490,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "La signatura d'alguns tràmits web amb Autofirma App falla, mentre que en aquests mateixos tràmits funciona en altres dispositius. Per què?"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "La signatura d'alguns tràmits web amb Autofirma App falla, mentre que en eixos mateixos tràmits funciona en altres dispositius. Per què?"
           }
         },
         "en" : {
@@ -4521,18 +4515,18 @@
             "state" : "translated",
             "value" : "A sinatura dalgúns trámites web con Autofirma App falla, mentres que neses mesmos trámites funciona noutros dispositivos. Por que?"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La signatura d'alguns tràmits web amb Autofirma App falla, mentre que en eixos mateixos tràmits funciona en altres dispositius. Per què?"
+          }
         }
       }
     },
     "faq_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Preguntes freqüents"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Preguntes freqüents"
@@ -4561,18 +4555,18 @@
             "state" : "translated",
             "value" : "Preguntas frecuentes"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preguntes freqüents"
+          }
         }
       }
     },
     "find_dni_view_description" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Posa el teu mòbil sobre el DNIe el més a prop possible del lector NFC."
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Posa el teu mòbil sobre el DNIe el més a prop possible del lector NFC."
@@ -4601,18 +4595,18 @@
             "state" : "translated",
             "value" : "Coloca o teu teléfono móbil no DNIe o máis preto posible do lector NFC."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posa el teu mòbil sobre el DNIe el més a prop possible del lector NFC."
+          }
         }
       }
     },
     "find_dni_view_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Buscant DNIe"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Buscant DNIe"
@@ -4641,6 +4635,12 @@
             "state" : "translated",
             "value" : "Buscando DNIe"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscant DNIe"
+          }
         }
       }
     },
@@ -4650,12 +4650,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Garrapata Alert és un projecte del “Pla de Recuperació, Transformació i Resiliència ‐ Finançat per la Unió Europea – NextGenerationEU”."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Paparra Alert és un projecte del “Pla de Recuperació, Transformació i Resiliència ‐ Finançat per la Unió Europea – NextGenerationEU”."
           }
         },
         "en" : {
@@ -4681,6 +4675,12 @@
             "state" : "translated",
             "value" : "Garrapata Alert é un proxecto do “Plan de Recuperación, Transformación e Resiliencia – Financiado pola Unión Europea – NextGenerationEU”."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paparra Alert és un projecte del “Pla de Recuperació, Transformació i Resiliència ‐ Finançat per la Unió Europea – NextGenerationEU”."
+          }
         }
       }
     },
@@ -4690,12 +4690,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Entès"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Entés"
           }
         },
         "en" : {
@@ -4721,6 +4715,12 @@
             "state" : "translated",
             "value" : "Entendido"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entés"
+          }
         }
       }
     },
@@ -4730,12 +4730,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Hem intentat processar la teva sol·licitud, però no s'ha pogut completar amb èxit. Si us plau revisa la documentació."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hem intentat processar la teua sol·licitud, però no ha pogut ser completada amb èxit. Per favor revisa la documentació."
           }
         },
         "en" : {
@@ -4761,6 +4755,12 @@
             "state" : "translated",
             "value" : "Tentamos procesar a túa solicitude, pero non se puido completar correctamente. Revisa a documentación."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hem intentat processar la teua sol·licitud, però no ha pogut ser completada amb èxit. Per favor revisa la documentació."
+          }
         }
       }
     },
@@ -4770,12 +4770,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Alguna cosa va sortir malament!"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Alguna cosa va eixir malament!"
           }
         },
         "en" : {
@@ -4801,18 +4795,18 @@
             "state" : "translated",
             "value" : "Algo saíu mal!"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alguna cosa va eixir malament!"
+          }
         }
       }
     },
     "go_home_button_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tornar a l'inici"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tornar a l'inici"
@@ -4841,6 +4835,12 @@
             "state" : "translated",
             "value" : "Volver arriba"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tornar a l'inici"
+          }
         }
       }
     },
@@ -4850,12 +4850,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No hem pogut trobar cap fitxer signat des d'aquest dispositiu."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No hem pogut trobar cap arxiu firmat des d'este dispositiu."
           }
         },
         "en" : {
@@ -4881,6 +4875,12 @@
             "state" : "translated",
             "value" : "Non puidemos atopar ningún ficheiro asinado deste dispositivo."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No hem pogut trobar cap arxiu firmat des d'este dispositiu."
+          }
         }
       }
     },
@@ -4890,12 +4890,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No s'ha signat cap fitxer"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No s'ha firmat cap arxiu"
           }
         },
         "en" : {
@@ -4921,6 +4915,12 @@
             "state" : "translated",
             "value" : "Non se asinou ningún ficheiro"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No s'ha firmat cap arxiu"
+          }
         }
       }
     },
@@ -4928,12 +4928,6 @@
       "extractionState" : "stale",
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fitxer externo"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fitxer externo"
@@ -4962,6 +4956,12 @@
             "state" : "translated",
             "value" : "Ficheiro externo"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fitxer externo"
+          }
         }
       }
     },
@@ -4972,12 +4972,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Signatura externa"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Firma externa"
           }
         },
         "en" : {
@@ -5003,6 +4997,12 @@
             "state" : "translated",
             "value" : "Sinatura externa"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Firma externa"
+          }
         }
       }
     },
@@ -5010,12 +5010,6 @@
       "extractionState" : "stale",
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fitxer local"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fitxer local"
@@ -5044,6 +5038,12 @@
             "state" : "translated",
             "value" : "Ficheiro local"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fitxer local"
+          }
         }
       }
     },
@@ -5054,12 +5054,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Signatura local"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Firma local"
           }
         },
         "en" : {
@@ -5085,18 +5079,18 @@
             "state" : "translated",
             "value" : "Sinatura local"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Firma local"
+          }
         }
       }
     },
     "historical_view_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Històric de signatures"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Històric de signatures"
@@ -5125,18 +5119,18 @@
             "state" : "translated",
             "value" : "Histórico de sinaturas"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Històric de signatures"
+          }
         }
       }
     },
     "history_app_name_file" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$@ sol·licitada per %2$@ del fitxer %3$@"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$@ sol·licitada per %2$@ del fitxer %3$@"
@@ -5165,18 +5159,18 @@
             "state" : "translated",
             "value" : "%1$@ solicitada por %2$@ do ficheiro %3$@"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ sol·licitada per %2$@ del fitxer %3$@"
+          }
         }
       }
     },
     "history_app_name_no_file" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$@ sol·licitada per %2$@"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$@ sol·licitada per %2$@"
@@ -5205,18 +5199,18 @@
             "state" : "translated",
             "value" : "%1$@ solicitada por %2$@"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ sol·licitada per %2$@"
+          }
         }
       }
     },
     "history_batch_app_name" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Signatura per lots sol·licitada per %1$@"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Signatura per lots sol·licitada per %1$@"
@@ -5245,18 +5239,18 @@
             "state" : "translated",
             "value" : "Sinatura por lotes solicitada por %1$@"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Signatura per lots sol·licitada per %1$@"
+          }
         }
       }
     },
     "history_batch_no_app_name" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Signatura per lots"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Signatura per lots"
@@ -5285,18 +5279,18 @@
             "state" : "translated",
             "value" : "Sinatura por lotes"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Signatura per lots"
+          }
         }
       }
     },
     "history_no_app_name_file" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$@ sol·licitada des d'una altra aplicació del fitxer %2$@"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$@ sol·licitada des d'una altra aplicació del fitxer %2$@"
@@ -5325,18 +5319,18 @@
             "state" : "translated",
             "value" : "%1$@ solicitada desde outra aplicación do ficheiro %2$@"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ sol·licitada des d'una altra aplicació del fitxer %2$@"
+          }
         }
       }
     },
     "history_no_app_name_no_file" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$@ sol·licitada des d'una altra aplicació"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$@ sol·licitada des d'una altra aplicació"
@@ -5365,18 +5359,18 @@
             "state" : "translated",
             "value" : "%1$@ solicitada desde outra aplicación"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ sol·licitada des d'una altra aplicació"
+          }
         }
       }
     },
     "history_unknown_operation" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Operació desconeguda"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Operació desconeguda"
@@ -5405,18 +5399,18 @@
             "state" : "translated",
             "value" : "Operación descoñecida"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Operació desconeguda"
+          }
         }
       }
     },
     "history_web_app_name_file" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$@ web sol·licitada per %2$@ del fitxer %3$@"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$@ web sol·licitada per %2$@ del fitxer %3$@"
@@ -5445,18 +5439,18 @@
             "state" : "translated",
             "value" : "%1$@ web solicitada por %2$@ do ficheiro %3$@"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ web sol·licitada per %2$@ del fitxer %3$@"
+          }
         }
       }
     },
     "history_web_app_name_no_file" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$@ web sol·licitada per %2$@"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$@ web sol·licitada per %2$@"
@@ -5485,18 +5479,18 @@
             "state" : "translated",
             "value" : "%1$@ web solicitada por %2$@"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ web sol·licitada per %2$@"
+          }
         }
       }
     },
     "history_web_batch_app_name" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Signatura per lots web sol·licitada per %1$@"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Signatura per lots web sol·licitada per %1$@"
@@ -5525,18 +5519,18 @@
             "state" : "translated",
             "value" : "Sinatura por lotes web solicitada por %1$@"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Signatura per lots web sol·licitada per %1$@"
+          }
         }
       }
     },
     "history_web_batch_no_app_name" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Signatura per lots web"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Signatura per lots web"
@@ -5565,18 +5559,18 @@
             "state" : "translated",
             "value" : "Sinatura por lotes web"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Signatura per lots web"
+          }
         }
       }
     },
     "history_web_no_app_name_file" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$@ web del fitxer %2$@"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$@ web del fitxer %2$@"
@@ -5605,18 +5599,18 @@
             "state" : "translated",
             "value" : "%1$@ web do ficheiro %2$@"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ web del fitxer %2$@"
+          }
         }
       }
     },
     "history_web_no_app_name_no_file" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$@ web"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$@ web"
@@ -5645,18 +5639,18 @@
             "state" : "translated",
             "value" : "%1$@ web"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ web"
+          }
         }
       }
     },
     "home_certificates_add_certificate_button_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Afegir nou certificat"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afegir nou certificat"
@@ -5685,6 +5679,12 @@
             "state" : "translated",
             "value" : "Engadir un novo certificado"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afegir nou certificat"
+          }
         }
       }
     },
@@ -5694,12 +5694,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Des d'Autofirma pots afegir nous certificats amb els quals podràs processar les teves signatures, o eliminar els certificats instal·lats al dispositiu."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Des d'autofirma pots afegir nous certificats amb els quals podràs processar les teues firmes, o eliminar els certificats instal·lats en el teu dispositiu."
           }
         },
         "en" : {
@@ -5725,18 +5719,18 @@
             "state" : "translated",
             "value" : "Desde Autosignature podes engadir novos certificados cos que poderás procesar as túas sinaturas, ou eliminar os certificados instalados no teu dispositivo."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Des d'autofirma pots afegir nous certificats amb els quals podràs processar les teues firmes, o eliminar els certificats instal·lats en el teu dispositiu."
+          }
         }
       }
     },
     "home_certificates_label" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Certificats"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Certificats"
@@ -5765,6 +5759,12 @@
             "state" : "translated",
             "value" : "Certificados"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Certificats"
+          }
         }
       }
     },
@@ -5774,12 +5774,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Per signar necessites registrar un certificat digital"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Per a firmar necessites registrar un certificat digital"
           }
         },
         "en" : {
@@ -5805,18 +5799,18 @@
             "state" : "translated",
             "value" : "Para asinar é necesario rexistrar un certificado dixital"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per a firmar necessites registrar un certificat digital"
+          }
         }
       }
     },
     "home_certificates_not_available_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No tens certificats instal·lats"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "No tens certificats instal·lats"
@@ -5845,6 +5839,12 @@
             "state" : "translated",
             "value" : "Non tes certificados instalados"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No tens certificats instal·lats"
+          }
         }
       }
     },
@@ -5854,12 +5854,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Signar fitxer"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Firmar fitxer"
           }
         },
         "en" : {
@@ -5885,6 +5879,12 @@
             "state" : "translated",
             "value" : "Asinar ficheiro"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Firmar fitxer"
+          }
         }
       }
     },
@@ -5894,12 +5894,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Reintentar"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "reintentar"
           }
         },
         "en" : {
@@ -5925,6 +5919,12 @@
             "state" : "translated",
             "value" : "Volve tentar"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "reintentar"
+          }
         }
       }
     },
@@ -5934,12 +5934,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "S'ha detectat un error de connexió. \nEls nostres serveis podrien no estan disponibles en aquest moment, comproveu que teniu connexió a internet, i intenteu-ho més tard."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "S'ha detectat un error de connexió. \nNuestros servicis podrien no estan disponibles en este moment, comprove que té connexió a internet, i intente-ho més tard."
           }
         },
         "en" : {
@@ -5965,18 +5959,18 @@
             "state" : "translated",
             "value" : "Detectouse un erro de conexión. \nÉ posible que os nosos servizos non estean dispoñibles neste momento. Comproba que tes conexión a Internet e téntao de novo máis tarde."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "S'ha detectat un error de connexió. \nNuestros servicis podrien no estan disponibles en este moment, comprove que té connexió a internet, i intente-ho més tard."
+          }
         }
       }
     },
     "home_init_error_app_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Error iniciant l'aplicació"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Error iniciant l'aplicació"
@@ -6005,18 +5999,18 @@
             "state" : "translated",
             "value" : "Erro ao iniciar a aplicación"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error iniciant l'aplicació"
+          }
         }
       }
     },
     "home_update_app_button_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Actualitzar"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Actualitzar"
@@ -6045,6 +6039,12 @@
             "state" : "translated",
             "value" : "Actualizar"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actualitzar"
+          }
         }
       }
     },
@@ -6054,12 +6054,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Per continuar utilitzant l'aplicació, cal actualitzar-la."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Per a poder continuar utilitzant l'aplicació, has d'actualitzar-la."
           }
         },
         "en" : {
@@ -6085,6 +6079,12 @@
             "state" : "translated",
             "value" : "Para seguir usando a aplicación, debes actualizala."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per a poder continuar utilitzant l'aplicació, has d'actualitzar-la."
+          }
         }
       }
     },
@@ -6094,12 +6094,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Actualització obligatòria Autofirma"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Actualització obligatòria autofirma"
           }
         },
         "en" : {
@@ -6125,6 +6119,12 @@
             "state" : "translated",
             "value" : "Actualización obrigatoria Autofirma"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actualització obligatòria autofirma"
+          }
         }
       }
     },
@@ -6134,12 +6134,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No hem pogut afegir el vostre certificat a l'aplicació de Portafirmes de manera correcta. Intenta-ho de nou més tade."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No hem pogut afegir el teu certificat a l'aplicació de Portafirmes de manera correcta. Intenta-ho de nou més tade."
           }
         },
         "en" : {
@@ -6165,18 +6159,18 @@
             "state" : "translated",
             "value" : "Non puidemos engadir correctamente o teu certificado á aplicación Portafirmas. Téntao de novo máis tarde."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No hem pogut afegir el teu certificat a l'aplicació de Portafirmes de manera correcta. Intenta-ho de nou més tade."
+          }
         }
       }
     },
     "importing_certificate_error_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No hem pogut afegir el teu certificat"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "No hem pogut afegir el teu certificat"
@@ -6205,6 +6199,12 @@
             "state" : "translated",
             "value" : "Non puidemos engadir o teu certificado"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No hem pogut afegir el teu certificat"
+          }
         }
       }
     },
@@ -6214,12 +6214,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No hem pogut afegir el fitxer a l'aplicació de Portafirmes de manera correcta. Intenta-ho de nou més tade."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No hem pogut afegir el teu arxiu a l'aplicació de Portafirmes de manera correcta. Intenta-ho de nou més tade."
           }
         },
         "en" : {
@@ -6245,6 +6239,12 @@
             "state" : "translated",
             "value" : "Non puidemos engadir correctamente o teu ficheiro á aplicación Portafirmas. Téntao de novo máis tarde."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No hem pogut afegir el teu arxiu a l'aplicació de Portafirmes de manera correcta. Intenta-ho de nou més tade."
+          }
         }
       }
     },
@@ -6254,12 +6254,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No hem pogut afegir el teu fitxer"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No hem pogut afegir el teu arxiu"
           }
         },
         "en" : {
@@ -6285,6 +6279,12 @@
             "state" : "translated",
             "value" : "Non puidemos engadir o teu ficheiro"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No hem pogut afegir el teu arxiu"
+          }
         }
       }
     },
@@ -6294,12 +6294,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Entés"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Entás"
           }
         },
         "en" : {
@@ -6325,6 +6319,12 @@
             "state" : "translated",
             "value" : "Entendido"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entás"
+          }
         }
       }
     },
@@ -6334,12 +6334,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Carrega el teu certificat al dispositiu o iCloud. Importa-ho a través de l'opció “Afegir certificat” de l'aplicació."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Càrrega el teu certificat en el teu dispositiu o iCloud. Importa-ho a través de l'opció “Afegir certificat” de l'aplicació."
           }
         },
         "en" : {
@@ -6365,6 +6359,12 @@
             "state" : "translated",
             "value" : "Carga o teu certificado no teu dispositivo ou iCloud. Importe a través da opción \"Engadir certificado\" da aplicación."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Càrrega el teu certificat en el teu dispositiu o iCloud. Importa-ho a través de l'opció “Afegir certificat” de l'aplicació."
+          }
         }
       }
     },
@@ -6374,12 +6374,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Extensions permeses: .p12 i .pfx. Recordeu que necessiteu la contrasenya d'exportació del vostre certificat, i que aquest ha d'incloure la clau privada."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Extensions pérmitidas: .p12 i .pfx. Recorda que necessites la contrasenya d'exportació del teu certificat, i que este ha d'incloure la clau privada. "
           }
         },
         "en" : {
@@ -6405,18 +6399,18 @@
             "state" : "translated",
             "value" : "Extensións permitidas: .p12 e .pfx. Lembra que necesitas o contrasinal de exportación para o teu certificado e que debe incluír a clave privada."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extensions pérmitidas: .p12 i .pfx. Recorda que necessites la contrasenya d'exportació del teu certificat, i que este ha d'incloure la clau privada. "
+          }
         }
       }
     },
     "info_view_certificate_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Com instal·lar certificats?"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Com instal·lar certificats?"
@@ -6445,6 +6439,12 @@
             "state" : "translated",
             "value" : "Como instalar certificados?"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Com instal·lar certificats?"
+          }
         }
       }
     },
@@ -6454,12 +6454,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aquesta aplicació permet fer signatures electròniques a les pàgines dels proveïdors de serveis que el suportin.\nPer funcionar correctament has d'instal·lar un certificat electrònic. Consulta la documentació del sistema IOS i amb el proveïdor de serveis de certificació."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Esta aplicació permet realitzar firmes electròniques en les pàgines dels proveïdors de servicis que ho suporten.\nPara funcionar correctament has d'instal·lar un certificat electrònic. Consulta la documentació del seu sistema IOS i amb el teu proveïdor de servicis de certificació."
           }
         },
         "en" : {
@@ -6485,18 +6479,18 @@
             "state" : "translated",
             "value" : "Esta aplicación permítelle realizar sinaturas electrónicas nas páxinas dos provedores de servizos que a admiten.\nPara funcionar correctamente debes instalar un certificado electrónico. Consulta a documentación do teu sistema iOS e o teu provedor de servizos de certificación."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta aplicació permet realitzar firmes electròniques en les pàgines dels proveïdors de servicis que ho suporten.\nPara funcionar correctament has d'instal·lar un certificat electrònic. Consulta la documentació del seu sistema IOS i amb el teu proveïdor de servicis de certificació."
+          }
         }
       }
     },
     "info_view_more_info" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Más informació"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Más informació"
@@ -6525,18 +6519,18 @@
             "state" : "translated",
             "value" : "Máis información"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Más informació"
+          }
         }
       }
     },
     "info_view_more_info_url" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "http://administracionelectronica.gob.es/"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "http://administracionelectronica.gob.es/"
@@ -6565,6 +6559,12 @@
             "state" : "translated",
             "value" : "http://administracionelectronica.gob.es/"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "http://administracionelectronica.gob.es/"
+          }
         }
       }
     },
@@ -6574,12 +6574,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Para quin serveix Autofirma?"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Para quin servix Autofirma?"
           }
         },
         "en" : {
@@ -6605,18 +6599,18 @@
             "state" : "translated",
             "value" : "Para que serve Autofirma?"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para quin servix Autofirma?"
+          }
         }
       }
     },
     "install_certificate_button_one_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Continuar"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Continuar"
@@ -6645,18 +6639,18 @@
             "state" : "translated",
             "value" : "Continuar"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuar"
+          }
         }
       }
     },
     "install_certificate_button_two_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Afegir certificat"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afegir certificat"
@@ -6685,6 +6679,12 @@
             "state" : "translated",
             "value" : "Engadir certificado"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afegir certificat"
+          }
         }
       }
     },
@@ -6694,12 +6694,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Localitza el fitxer .p12 o .pfx. al telèfon."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Localitza l'arxiu .p12 o .pfx. en el teu telèfon."
           }
         },
         "en" : {
@@ -6725,6 +6719,12 @@
             "state" : "translated",
             "value" : "Localice o ficheiro .p12 ou .pfx. no teu teléfono."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Localitza l'arxiu .p12 o .pfx. en el teu telèfon."
+          }
         }
       }
     },
@@ -6734,12 +6734,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Si no el trobes, envia'l al teu mòbil des d'un altre dispositiu mitjançant correu electrònic o altres aplicacions a Cloud."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Si no ho trobes, envia-ho al teu mòbil des d'un altre dispositiu mitjançant correu electrònic o altres aplicacions en Cloud."
           }
         },
         "en" : {
@@ -6765,18 +6759,18 @@
             "state" : "translated",
             "value" : "Se non o atopas, envíao ao teu móbil desde outro dispositivo mediante o correo electrónico ou outras aplicacións Cloud."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si no ho trobes, envia-ho al teu mòbil des d'un altre dispositiu mitjançant correu electrònic o altres aplicacions en Cloud."
+          }
         }
       }
     },
     "install_certificate_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Instal·lar certificat"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Instal·lar certificat"
@@ -6805,6 +6799,12 @@
             "state" : "translated",
             "value" : "Instalar certificado"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instal·lar certificat"
+          }
         }
       }
     },
@@ -6814,12 +6814,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Localitza el fitxer"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Localitza l'arxiu"
           }
         },
         "en" : {
@@ -6845,18 +6839,18 @@
             "state" : "translated",
             "value" : "Localiza o ficheiro"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Localitza l'arxiu"
+          }
         }
       }
     },
     "install_certificate_title_two" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Envia al dispositiu"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Envia al dispositiu"
@@ -6885,6 +6879,12 @@
             "state" : "translated",
             "value" : "Enviar ao dispositivo"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Envia al dispositiu"
+          }
         }
       }
     },
@@ -6894,12 +6894,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "El vostre dispositiu no té un sistema operatiu oficial. Per raons de seguretat, no podeu utilitzar aquesta aplicació."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El teu dispositiu no té un sistema operatiu oficial. Per raons de seguretat, no pots utilitzar esta aplicació."
           }
         },
         "en" : {
@@ -6925,18 +6919,18 @@
             "state" : "translated",
             "value" : "O teu dispositivo non ten un sistema operativo oficial. Por motivos de seguridade, non pode usar esta aplicación."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El teu dispositiu no té un sistema operatiu oficial. Per raons de seguretat, no pots utilitzar esta aplicació."
+          }
         }
       }
     },
     "jailbreak_error_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Alerta de seguretat"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Alerta de seguretat"
@@ -6965,18 +6959,18 @@
             "state" : "translated",
             "value" : "Alerta de seguridade"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alerta de seguretat"
+          }
         }
       }
     },
     "language_ca" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Catalá"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Catalá"
@@ -7005,18 +6999,18 @@
             "state" : "translated",
             "value" : "Catalá"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Catalá"
+          }
         }
       }
     },
     "language_en" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "English"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "English"
@@ -7041,6 +7035,12 @@
           }
         },
         "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "English"
+          }
+        },
+        "va" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "English"
@@ -7056,12 +7056,6 @@
             "value" : "Español"
           }
         },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Español"
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7081,6 +7075,12 @@
           }
         },
         "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Español"
+          }
+        },
+        "va" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Español"
@@ -7096,12 +7096,6 @@
             "value" : "Euskera"
           }
         },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Euskera"
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7121,6 +7115,12 @@
           }
         },
         "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Euskera"
+          }
+        },
+        "va" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Euskera"
@@ -7136,12 +7136,6 @@
             "value" : "Galego"
           }
         },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Galego"
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7165,18 +7159,18 @@
             "state" : "translated",
             "value" : "Galego"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Galego"
+          }
         }
       }
     },
     "language_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Idioma"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Idioma"
@@ -7205,18 +7199,18 @@
             "state" : "translated",
             "value" : "Idioma"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Idioma"
+          }
         }
       }
     },
     "language_va" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Valenciano"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Valenciano"
@@ -7245,18 +7239,18 @@
             "state" : "translated",
             "value" : "Valenciano"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Valenciano"
+          }
         }
       }
     },
     "nfc_connection_error" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Error en connectar amb l'etiqueta NFC: %@"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Error en connectar amb l'etiqueta NFC: %@"
@@ -7285,6 +7279,12 @@
             "state" : "translated",
             "value" : "Erro ao conectar coa etiqueta NFC: %@"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error en connectar amb l'etiqueta NFC: %@"
+          }
         }
       }
     },
@@ -7294,12 +7294,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Connexió establerta."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Connexió establida."
           }
         },
         "en" : {
@@ -7325,6 +7319,12 @@
             "state" : "translated",
             "value" : "Conexión establecida."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connexió establida."
+          }
         }
       }
     },
@@ -7334,12 +7334,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No mogueu el DNI o la lectura fallarà."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No mogues el DNI o la lectura fallarà."
           }
         },
         "en" : {
@@ -7365,6 +7359,12 @@
             "state" : "translated",
             "value" : "Non movas o ID ou fallará a lectura."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No mogues el DNI o la lectura fallarà."
+          }
         }
       }
     },
@@ -7374,12 +7374,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "S'ha trobat més d'una etiqueta. Només presenta una etiqueta."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Es va trobar més d'una etiqueta. Presenta només una etiqueta."
           }
         },
         "en" : {
@@ -7405,6 +7399,12 @@
             "state" : "translated",
             "value" : "Atopouse máis dunha etiqueta. Só ten unha etiqueta."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Es va trobar més d'una etiqueta. Presenta només una etiqueta."
+          }
         }
       }
     },
@@ -7414,12 +7414,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No s'ha pogut obtenir la primera etiqueta."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No es va poder obtindre la primera etiqueta."
           }
         },
         "en" : {
@@ -7445,6 +7439,12 @@
             "state" : "translated",
             "value" : "Non se puido obter a primeira etiqueta."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No es va poder obtindre la primera etiqueta."
+          }
         }
       }
     },
@@ -7454,12 +7454,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aquest dispositiu no suporta NFC."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Este dispositiu no suporta NFC."
           }
         },
         "en" : {
@@ -7485,6 +7479,12 @@
             "state" : "translated",
             "value" : "Este dispositivo non é compatible con NFC."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este dispositiu no suporta NFC."
+          }
         }
       }
     },
@@ -7494,12 +7494,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Les teves preferències s'han desat"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Les teues preferències s'han guardat"
           }
         },
         "en" : {
@@ -7525,18 +7519,18 @@
             "state" : "translated",
             "value" : "Gardáronse as túas preferencias"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les teues preferències s'han guardat"
+          }
         }
       }
     },
     "nfc_unsupported_tag_error" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "L'etiqueta detectada no és compatible."
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "L'etiqueta detectada no és compatible."
@@ -7565,6 +7559,12 @@
             "state" : "translated",
             "value" : "A etiqueta detectada non é compatible."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L'etiqueta detectada no és compatible."
+          }
         }
       }
     },
@@ -7572,12 +7572,6 @@
       "extractionState" : "stale",
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "OK!"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "OK!"
@@ -7606,18 +7600,18 @@
             "state" : "translated",
             "value" : "OK!"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK!"
+          }
         }
       }
     },
     "OK" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "OK"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "OK"
@@ -7646,6 +7640,12 @@
             "state" : "translated",
             "value" : "OK"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
         }
       }
     },
@@ -7655,12 +7655,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Skip"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ometre"
           }
         },
         "en" : {
@@ -7686,18 +7680,18 @@
             "state" : "translated",
             "value" : "Saltar"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ometre"
+          }
         }
       }
     },
     "onboarding_button_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Començar"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Començar"
@@ -7726,6 +7720,12 @@
             "state" : "translated",
             "value" : "Comezar"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Començar"
+          }
         }
       }
     },
@@ -7735,12 +7735,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Signa documents de manera segura i legal identificant-te amb el teu certificat digital o DNI electrònic."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Firma documents de manera segura i legal identificant-te amb el teu certificat digital o DNI electrònic."
           }
         },
         "en" : {
@@ -7766,18 +7760,18 @@
             "state" : "translated",
             "value" : "Asina documentos de forma segura e legal identificándose co teu certificado dixital ou DNI electrónico."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Firma documents de manera segura i legal identificant-te amb el teu certificat digital o DNI electrònic."
+          }
         }
       }
     },
     "onboarding_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Firma fàcil i segura"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Firma fàcil i segura"
@@ -7806,6 +7800,12 @@
             "state" : "translated",
             "value" : "Sinatura fácil e segura"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Firma fàcil i segura"
+          }
         }
       }
     },
@@ -7816,12 +7816,6 @@
       "comment" : "Operation: Batch",
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lot"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Lot"
@@ -7850,6 +7844,12 @@
             "state" : "translated",
             "value" : "Lote"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lot"
+          }
         }
       }
     },
@@ -7857,12 +7857,6 @@
       "comment" : "Operation: Co-sign",
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cofirmació"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cofirmació"
@@ -7891,6 +7885,12 @@
             "state" : "translated",
             "value" : "Cofirma"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cofirmació"
+          }
         }
       }
     },
@@ -7898,12 +7898,6 @@
       "comment" : "Operation: Counter-sign",
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Contrafirmació"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Contrafirmació"
@@ -7932,6 +7926,12 @@
             "state" : "translated",
             "value" : "Contrafirma"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contrafirmació"
+          }
         }
       }
     },
@@ -7939,12 +7939,6 @@
       "comment" : "Operation: Sign",
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Signatura"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Signatura"
@@ -7973,6 +7967,12 @@
             "state" : "translated",
             "value" : "Sinatura"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Signatura"
+          }
         }
       }
     },
@@ -7980,12 +7980,6 @@
       "comment" : "Operation: Unknown",
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Operació desconeguda"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Operació desconeguda"
@@ -8014,18 +8008,18 @@
             "state" : "translated",
             "value" : "Operación descoñecida"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Operació desconeguda"
+          }
         }
       }
     },
     "page_number" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pàgina %d de %d"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pàgina %d de %d"
@@ -8054,18 +8048,18 @@
             "state" : "translated",
             "value" : "Páxina %d de %d"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pàgina %d de %d"
+          }
         }
       }
     },
     "password" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Contrasenya"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Contrasenya"
@@ -8094,6 +8088,12 @@
             "state" : "translated",
             "value" : "Contrasinal"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contrasenya"
+          }
         }
       }
     },
@@ -8103,12 +8103,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Només pots escollir un lloc on signar"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Només pots triar un lloc on firmar"
           }
         },
         "en" : {
@@ -8134,6 +8128,12 @@
             "state" : "translated",
             "value" : "Só podes escoller un lugar para asinar"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Només pots triar un lloc on firmar"
+          }
         }
       }
     },
@@ -8143,12 +8143,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "On t'agradaria signar?"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "On t'agradaria firmar?"
           }
         },
         "en" : {
@@ -8174,18 +8168,18 @@
             "state" : "translated",
             "value" : "Onde che gustaría asinar?"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "On t'agradaria firmar?"
+          }
         }
       }
     },
     "permissions_button_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Guardar"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Guardar"
@@ -8214,6 +8208,12 @@
             "state" : "translated",
             "value" : "Gardar"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardar"
+          }
         }
       }
     },
@@ -8223,12 +8223,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Permetre l'ús del DNIe per NFC"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Permetre l'ús de DNIe per NFC"
           }
         },
         "en" : {
@@ -8254,18 +8248,18 @@
             "state" : "translated",
             "value" : "Permitir o uso de DNIe mediante NFC"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Permetre l'ús de DNIe per NFC"
+          }
         }
       }
     },
     "permissions_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Permisos"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Permisos"
@@ -8294,18 +8288,18 @@
             "state" : "translated",
             "value" : "Permisos"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Permisos"
+          }
         }
       }
     },
     "privacy_controller_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Acceptació de condicions"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Acceptació de condicions"
@@ -8334,6 +8328,12 @@
             "state" : "translated",
             "value" : "Aceptación de condicións"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acceptació de condicions"
+          }
         }
       }
     },
@@ -8344,12 +8344,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Política de privadesa"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Política de privacitat"
           }
         },
         "en" : {
@@ -8375,6 +8369,12 @@
             "state" : "translated",
             "value" : "Política de privacidade"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Política de privacitat"
+          }
         }
       }
     },
@@ -8383,13 +8383,7 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "He llegit i estic d\\'acord amb la Política de Privadesa"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "He llegit i estic d\\'acord amb la Política de Privacitat"
+            "value" : "He llegit i estic d'acord amb la Política de Privadesa"
           }
         },
         "en" : {
@@ -8415,6 +8409,12 @@
             "state" : "translated",
             "value" : "Lin e estou de acordo con a Política de Privacidade"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "He llegit i estic d'acord amb la Política de Privacitat"
+          }
         }
       }
     },
@@ -8423,13 +8423,7 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "He llegit i estic d\\'acord amb l\\'Avís Legal i els Termes i Condicions d\\'ús"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "He llegit i estic d\\'acord amb l\\'Avís Legal i els Termes i Condicions d\\'ús"
+            "value" : "He llegit i estic d'acord amb l'Avís Legal i els Termes i Condicions d'ús"
           }
         },
         "en" : {
@@ -8455,6 +8449,12 @@
             "state" : "translated",
             "value" : "Lin e estou de acordo con o Aviso Legal e os Termos e Condicións de Uso"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "He llegit i estic d'acord amb l'Avís Legal i els Termes i Condicions d'ús"
+          }
         }
       }
     },
@@ -8465,12 +8465,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "El certificat escollités un certificat de pseudònim. En la signatura no apareixeran les seves dades personals"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El certificat triatés un certificat de pseudònim. En la firma no apareixeran les seues dades personals"
           }
         },
         "en" : {
@@ -8496,6 +8490,12 @@
             "state" : "translated",
             "value" : "O certificado escollido é un certificado de pseudónimo. Na firma non aparecerán os seus datos persoais"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El certificat triatés un certificat de pseudònim. En la firma no apareixeran les seues dades personals"
+          }
         }
       }
     },
@@ -8503,12 +8503,6 @@
       "extractionState" : "stale",
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Avís"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Avís"
@@ -8537,18 +8531,18 @@
             "state" : "translated",
             "value" : "Aviso"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avís"
+          }
         }
       }
     },
     "recovery_button_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pla de Recuperació"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pla de Recuperació"
@@ -8577,18 +8571,18 @@
             "state" : "translated",
             "value" : "Plan de Recuperación"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pla de Recuperació"
+          }
         }
       }
     },
     "retry_button_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tornar a intentar-ho"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tornar a intentar-ho"
@@ -8617,6 +8611,12 @@
             "state" : "translated",
             "value" : "téntao de novo"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tornar a intentar-ho"
+          }
         }
       }
     },
@@ -8626,12 +8626,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "El fitxer ha estat guardat correctament."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El fitxer ha sigut desat correctament."
           }
         },
         "en" : {
@@ -8657,18 +8651,18 @@
             "state" : "translated",
             "value" : "O ficheiro gardouse correctamente."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El fitxer ha sigut desat correctament."
+          }
         }
       }
     },
     "save_success_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fitxer desat"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fitxer desat"
@@ -8697,6 +8691,12 @@
             "state" : "translated",
             "value" : "Ficheiro gardado"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fitxer desat"
+          }
         }
       }
     },
@@ -8706,12 +8706,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Selecciona el certificat amb què vulguis signar el fitxer."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Selecciona el certificat amb el qual vulgues firmar el fitxer."
           }
         },
         "en" : {
@@ -8737,18 +8731,18 @@
             "state" : "translated",
             "value" : "Seleccione o certificado co que quere asinar o ficheiro."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecciona el certificat amb el qual vulgues firmar el fitxer."
+          }
         }
       }
     },
     "send" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Enviar"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Enviar"
@@ -8777,6 +8771,12 @@
             "state" : "translated",
             "value" : "Enviar"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enviar"
+          }
         }
       }
     },
@@ -8785,13 +8785,7 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Declaració d\\'accessibilitat"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Declaració d\\'accessibilitat"
+            "value" : "Declaració d'accessibilitat"
           }
         },
         "en" : {
@@ -8817,18 +8811,18 @@
             "state" : "translated",
             "value" : "Declaración de accesibilidade"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Declaració d'accessibilitat"
+          }
         }
       }
     },
     "settings_faq_row" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Preguntes freqüents"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Preguntes freqüents"
@@ -8857,18 +8851,18 @@
             "state" : "translated",
             "value" : "Preguntas frecuentes"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preguntes freqüents"
+          }
         }
       }
     },
     "settings_general_info_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Informació general"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Informació general"
@@ -8897,18 +8891,18 @@
             "state" : "translated",
             "value" : "Información xeral"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Informació general"
+          }
         }
       }
     },
     "settings_help_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ajuda"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ajuda"
@@ -8937,6 +8931,12 @@
             "state" : "translated",
             "value" : "Axuda"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajuda"
+          }
         }
       }
     },
@@ -8946,12 +8946,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Històric d'arxius signats"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Històric d'arxius firmats"
           }
         },
         "en" : {
@@ -8977,18 +8971,18 @@
             "state" : "translated",
             "value" : "Historial de ficheiros asinados"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Històric d'arxius firmats"
+          }
         }
       }
     },
     "settings_install_certificate_row" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Com instal·lar un certificat"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Com instal·lar un certificat"
@@ -9017,18 +9011,18 @@
             "state" : "translated",
             "value" : "Como instalar un certificado"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Com instal·lar un certificat"
+          }
         }
       }
     },
     "settings_language_row" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Idioma"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Idioma"
@@ -9057,18 +9051,18 @@
             "state" : "translated",
             "value" : "Idioma"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Idioma"
+          }
         }
       }
     },
     "settings_legal_advice_row" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Avís legal"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Avís legal"
@@ -9097,6 +9091,12 @@
             "state" : "translated",
             "value" : "Aviso legal"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avís legal"
+          }
         }
       }
     },
@@ -9106,12 +9106,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "La meva configuració"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "La meua configuració"
           }
         },
         "en" : {
@@ -9137,18 +9131,18 @@
             "state" : "translated",
             "value" : "A miña configuración"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La meua configuració"
+          }
         }
       }
     },
     "settings_permission_row" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Permisos"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Permisos"
@@ -9177,6 +9171,12 @@
             "state" : "translated",
             "value" : "Permisos"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Permisos"
+          }
         }
       }
     },
@@ -9186,12 +9186,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Política de privadesa"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Política de privacitat"
           }
         },
         "en" : {
@@ -9217,18 +9211,18 @@
             "state" : "translated",
             "value" : "Política de privacidade"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Política de privacitat"
+          }
         }
       }
     },
     "settings_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ajustos"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ajustos"
@@ -9257,18 +9251,18 @@
             "state" : "translated",
             "value" : "Axustes"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajustos"
+          }
         }
       }
     },
     "settings_version_row" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Versió v%@"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Versió v%@"
@@ -9297,6 +9291,12 @@
             "state" : "translated",
             "value" : "Versión V%@"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versió v%@"
+          }
         }
       }
     },
@@ -9307,12 +9307,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Signatura electrònica"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Firma electrònica"
           }
         },
         "en" : {
@@ -9338,6 +9332,12 @@
             "state" : "translated",
             "value" : "Sinatura electrónica"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Firma electrònica"
+          }
         }
       }
     },
@@ -9347,12 +9347,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Amb què signaràs el fitxer?"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Amb què firmaràs el fitxer?"
           }
         },
         "en" : {
@@ -9378,6 +9372,12 @@
             "state" : "translated",
             "value" : "Con que vai asinar o ficheiro?"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Amb què firmaràs el fitxer?"
+          }
         }
       }
     },
@@ -9387,12 +9387,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "El fitxer ha estat signat correctament."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El fitxer ha sigut firmat correctament."
           }
         },
         "en" : {
@@ -9418,6 +9412,12 @@
             "state" : "translated",
             "value" : "O ficheiro asinouse correctamente."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El fitxer ha sigut firmat correctament."
+          }
         }
       }
     },
@@ -9427,12 +9427,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fitxer signat"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fitxer firmat"
           }
         },
         "en" : {
@@ -9458,18 +9452,18 @@
             "state" : "translated",
             "value" : "Ficheiro asinado"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fitxer firmat"
+          }
         }
       }
     },
     "sign_with_certificate" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Certificat electrònic"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Certificat electrònic"
@@ -9498,18 +9492,18 @@
             "state" : "translated",
             "value" : "Certificado electrónico"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Certificat electrònic"
+          }
         }
       }
     },
     "sign_with_dni" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "DNI electrònic"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "DNI electrònic"
@@ -9538,6 +9532,12 @@
             "state" : "translated",
             "value" : "DNI electrónico"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DNI electrònic"
+          }
         }
       }
     },
@@ -9547,12 +9547,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Introdueixi la contrasenya:"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Introduïsca la contrasenya:"
           }
         },
         "en" : {
@@ -9578,6 +9572,12 @@
             "state" : "translated",
             "value" : "Introduza o contrasinal:"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introduïsca la contrasenya:"
+          }
         }
       }
     },
@@ -9587,12 +9587,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cancel·la"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cancel·lar"
           }
         },
         "en" : {
@@ -9618,6 +9612,12 @@
             "state" : "translated",
             "value" : "Cancelar"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel·lar"
+          }
         }
       }
     },
@@ -9627,12 +9627,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Si us plau, introduïu la contrasenya del document per poder continuar amb el procés de signatura"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Per favor, introduïx la contrasenya del document per a poder continuar amb el procés de firma"
           }
         },
         "en" : {
@@ -9658,18 +9652,18 @@
             "state" : "translated",
             "value" : "Introduza o contrasinal do documento para continuar co proceso de sinatura"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per favor, introduïx la contrasenya del document per a poder continuar amb el procés de firma"
+          }
         }
       }
     },
     "textfield_modal_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El document està encriptat"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "El document està encriptat"
@@ -9698,18 +9692,18 @@
             "state" : "translated",
             "value" : "O documento está cifrado"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El document està encriptat"
+          }
         }
       }
     },
     "Toggle" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Toggle"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Toggle"
@@ -9738,6 +9732,12 @@
             "state" : "translated",
             "value" : "Alterna"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toggle"
+          }
         }
       }
     },
@@ -9747,12 +9747,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Permetre que l'app enviï informació d'activitat per ajudar el desenvolupament?"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Permetre que l'app envie informació d'activitat per a ajudar al seu desenrotllament?"
           }
         },
         "en" : {
@@ -9778,18 +9772,18 @@
             "state" : "translated",
             "value" : "Permitir que a aplicación envíe información de actividade para axudar ao seu desenvolvemento?"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Permetre que l'app envie informació d'activitat per a ajudar al seu desenrotllament?"
+          }
         }
       }
     },
     "tracking_error_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Informació d'activitat"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Informació d'activitat"
@@ -9818,18 +9812,18 @@
             "state" : "translated",
             "value" : "Información da actividade"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Informació d'activitat"
+          }
         }
       }
     },
     "Unchecked" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Unchecked"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Unchecked"
@@ -9858,18 +9852,18 @@
             "state" : "translated",
             "value" : "Desmarcado"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unchecked"
+          }
         }
       }
     },
     "update_button_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Actualitzar"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Actualitzar"
@@ -9898,6 +9892,12 @@
             "state" : "translated",
             "value" : "Actualizar"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actualitzar"
+          }
         }
       }
     },
@@ -9907,12 +9907,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Hi ha disponible una nova actualització d'Autofirma."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hi ha disponible una nova actualització d'autofirma."
           }
         },
         "en" : {
@@ -9938,18 +9932,18 @@
             "state" : "translated",
             "value" : "Hai unha nova actualización de sinatura automática dispoñible."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hi ha disponible una nova actualització d'autofirma."
+          }
         }
       }
     },
     "update_error_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nova versió disponible"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nova versió disponible"
@@ -9978,6 +9972,12 @@
             "state" : "translated",
             "value" : "Nova versión dispoñible"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nova versió disponible"
+          }
         }
       }
     },
@@ -9989,12 +9989,6 @@
             "value" : "http://estaticos.redsara.es/comunes/clientefirmaandroid/1/8/0/declaracion_accesibilidad.pdf"
           }
         },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "http://estaticos.redsara.es/comunes/clientefirmaandroid/1/8/0/declaracion_accesibilidad.pdf"
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10014,6 +10008,12 @@
           }
         },
         "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "http://estaticos.redsara.es/comunes/clientefirmaandroid/1/8/0/declaracion_accesibilidad.pdf"
+          }
+        },
+        "va" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "http://estaticos.redsara.es/comunes/clientefirmaandroid/1/8/0/declaracion_accesibilidad.pdf"
@@ -10021,42 +10021,43 @@
         }
       }
     },
-    "url_forja" : {
+    "url_aviso_legal" : {
+      "extractionState" : "manual",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "https://github.com/ctt-gob-es/clienteafirma/wiki/Importaci%C3%B3n-de-certificados-en-iOS"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "https://github.com/ctt-gob-es/clienteafirma/wiki/Importaci%C3%B3n-de-certificados-en-iOS"
+            "value" : "https://administracion.gob.es/pag_Home/ca/avisoLegal.html"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "https://github.com/ctt-gob-es/clienteafirma/wiki/Importaci%C3%B3n-de-certificados-en-iOS"
+            "value" : "https://administracion.gob.es/pag_Home/en/avisoLegal.html"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "https://github.com/ctt-gob-es/clienteafirma/wiki/Importaci%C3%B3n-de-certificados-en-iOS"
+            "value" : "https://administracion.gob.es/pag_Home/avisoLegal.html"
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "https://github.com/ctt-gob-es/clienteafirma/wiki/Importaci%C3%B3n-de-certificados-en-iOS"
+            "value" : "https://administracion.gob.es/pag_Home/eu/avisoLegal.html"
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "https://github.com/ctt-gob-es/clienteafirma/wiki/Importaci%C3%B3n-de-certificados-en-iOS"
+            "value" : "https://administracion.gob.es/pag_Home/gl/avisoLegal.html"
+          }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "https://administracion.gob.es/pag_Home/va/avisoLegal.html"
           }
         }
       }
@@ -10066,19 +10067,13 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "https://administracion.gob.es/pag_Home/politicaDePrivacidad.html"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "https://administracion.gob.es/pag_Home/politicaDePrivacidad.html"
+            "value" : "https://administracion.gob.es/pag_Home/ca/politicaDePrivacidad.html"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "https://administracion.gob.es/pag_Home/politicaDePrivacidad.html"
+            "value" : "https://administracion.gob.es/pag_Home/en/politicaDePrivacidad.html"
           }
         },
         "es" : {
@@ -10090,13 +10085,19 @@
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "https://administracion.gob.es/pag_Home/politicaDePrivacidad.html"
+            "value" : "https://administracion.gob.es/pag_Home/eu/politicaDePrivacidad.html"
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "https://administracion.gob.es/pag_Home/politicaDePrivacidad.html"
+            "value" : "https://administracion.gob.es/pag_Home/gl/politicaDePrivacidad.html"
+          }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "https://administracion.gob.es/pag_Home/va/politicaDePrivacidad.html"
           }
         }
       }
@@ -10107,12 +10108,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Heu cancel·lat el procés de signatura, si voleu signar el fitxer, haureu de repetir el procés complet."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Has cancel·lat el procés de firma, si vols firmar l'arxiu, hauràs de repetir el procés complet."
           }
         },
         "en" : {
@@ -10138,6 +10133,12 @@
             "state" : "translated",
             "value" : "Cancelaches o proceso de sinatura, se queres asinar o expediente, terás que repetir todo o proceso."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Has cancel·lat el procés de firma, si vols firmar l'arxiu, hauràs de repetir el procés complet."
+          }
         }
       }
     },
@@ -10147,12 +10148,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Procés de signatura cancel·lat"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Procés de firma cancel·lat"
           }
         },
         "en" : {
@@ -10178,6 +10173,12 @@
             "state" : "translated",
             "value" : "Cancelouse o proceso de sinatura"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Procés de firma cancel·lat"
+          }
         }
       }
     },
@@ -10188,12 +10189,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Heu cancel·lat el procés de desament, si voleu desar el fitxer haureu de repetir el procés."
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Has cancel·lat el procés de guardat, si desitges desar l'arxiu hauràs de repetir el procés."
           }
         },
         "en" : {
@@ -10219,6 +10214,12 @@
             "state" : "translated",
             "value" : "Cancelaches o proceso de gardar, se queres gardar o ficheiro terás que repetir o proceso."
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Has cancel·lat el procés de guardat, si desitges desar l'arxiu hauràs de repetir el procés."
+          }
         }
       }
     },
@@ -10229,12 +10230,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Procés de desament cancel·lat"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Procés de guardat cancel·lat"
           }
         },
         "en" : {
@@ -10260,6 +10255,12 @@
             "state" : "translated",
             "value" : "Cancelouse o proceso de gardar"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Procés de guardat cancel·lat"
+          }
         }
       }
     },
@@ -10269,12 +10270,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "\"Autofirma App\" v%@ 2024 Govern d'Espanya\n\nAutofirma App és Programari Lliure; pots redistribuir-lo i/o modificar-lo sota els termes de la llicència següent: “European Software License 1.1”, el text complet del qual es pot consultar a la pàgina web següent: http://ec.europa.eu/idabc/eupl.html\n\nEl codi font d'aquest programa, així com de la resta dels components del projecte, es poden descarregar lliurement des de: http://forja-ctt.administracionelectronica.gob.es\n\nEl projecte Autofirma App és un projecte col·laboratiu, si voleu participar-hi, no dubteu a unir-vos a la comunitat, accessible des de la següent pàgina Web: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc"
-          }
-        },
-        "ca-val" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "“Autofirma App” v%@ 2024 Govern d'Espanya\n\nAutofirma App és Programari Lliure; pots redistribuir-ho i/o modificar-ho sota els termes de la següent llicència: “European Software License 1.1”, el text complet del qual pot consultar-se en la següent pàgina Web: http://ec.europa.eu/idabc/eupl.html\n\nEl codi font d'este programa, així com de la resta dels components del projecte es poden descarregar lliurement des de: http://forja-ctt.administracionelectronica.gob.es\n\nEl projecte autofirma App és un projecte col·laboratiu, si desitja participar en ell, no dubte a unir-se a la comunitat, accessible des de la següent pàgina Web: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc"
           }
         },
         "en" : {
@@ -10300,18 +10295,18 @@
             "state" : "translated",
             "value" : "Autofirma App” v%@ 2024 Goberno de España\n\nAutofirma App é Software Libre; pode redistribuílo e/ou modificalo nos termos da seguinte licenza: “Licenza Europea de Software 1.1”, cuxo texto completo pódese consultar na seguinte páxina web: http://ec.europa.eu/idabc/eupl. html\n\nO código fonte deste programa, así como o resto dos compoñentes do proxecto, pódese descargar libremente en: http://forja-ctt.administracionelectronica.gob.es\n\nAutofirma App é un proxecto colaborativo. Se desexas participar nel, non dubides en unirte á comunidade, accesible desde a seguinte páxina web: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc"
           }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Autofirma App” v%@ 2024 Govern d'Espanya\n\nAutofirma App és Programari Lliure; pots redistribuir-ho i/o modificar-ho sota els termes de la següent llicència: “European Software License 1.1”, el text complet del qual pot consultar-se en la següent pàgina Web: http://ec.europa.eu/idabc/eupl.html\n\nEl codi font d'este programa, així com de la resta dels components del projecte es poden descarregar lliurement des de: http://forja-ctt.administracionelectronica.gob.es\n\nEl projecte autofirma App és un projecte col·laboratiu, si desitja participar en ell, no dubte a unir-se a la comunitat, accessible des de la següent pàgina Web: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc"
+          }
         }
       }
     },
     "version_title" : {
       "localizations" : {
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Versió v%@"
-          }
-        },
-        "ca-val" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Versió v%@"
@@ -10339,6 +10334,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Versión v%@"
+          }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versió v%@"
           }
         }
       }

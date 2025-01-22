@@ -54,6 +54,6 @@ extension LocalizedLanguage {
 	   LocalizedLanguage(name: NSLocalizedString("language_ca", bundle: Bundle.main, comment: ""), code: "ca"),
 	   LocalizedLanguage(name: NSLocalizedString("language_ga", bundle: Bundle.main, comment: ""), code: "gl"),
 	   LocalizedLanguage(name: NSLocalizedString("language_eu", bundle: Bundle.main, comment: ""), code: "eu"),
-	   LocalizedLanguage(name: NSLocalizedString("language_va", bundle: Bundle.main, comment: ""), code: "ca-val")
+	   LocalizedLanguage(name: NSLocalizedString("language_va", bundle: Bundle.main, comment: ""), code: "va")
     ]
 }
