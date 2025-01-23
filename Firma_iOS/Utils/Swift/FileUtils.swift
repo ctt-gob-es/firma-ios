@@ -118,13 +118,16 @@ class FileUtils {
     }
     
     static func isBase64StringPDF(_ base64String: String) -> Bool {
-	   guard let data = Data(base64Encoded: base64String) else {
-		  return false
-	   }
-	   
-	   if let headerString = String(data: data.prefix(5), encoding: .ascii) {
-		  return headerString == "%PDF-"
-	   }
+        var data = Base64Utils.decode(base64String, urlSafe: true)
+        if (data == nil) {
+            data = Base64Utils.decode(base64String)
+        }
+        
+        if let data = data {
+            if let headerString = String(data: data.prefix(5), encoding: .ascii) {
+                return headerString == "%PDF-"
+            }
+        }
 
 	   return false
     }
