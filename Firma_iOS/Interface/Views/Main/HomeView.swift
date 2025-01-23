@@ -114,7 +114,7 @@ struct HomeView: View {
                     if let visibleSignature = viewModel.signModel?.visibleSignature, (visibleSignature == .optional || visibleSignature == .want) {
                         //Check if the data is a PDF
                         if let pdfData = viewModel.signModel?.datosInUse,
-                           !FileUtils.isBase64StringPDF(pdfData) {
+                           FileUtils.isBase64StringPDF(pdfData) {
                             //We need to select the coordinates of the sign
                             viewModel.showSignCoordinatesModal = true
                         } else{
