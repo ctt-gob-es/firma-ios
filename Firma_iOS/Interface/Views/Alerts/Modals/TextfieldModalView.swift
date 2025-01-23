@@ -82,7 +82,7 @@ struct TextfieldModalView: View {
                                 self.presentationMode.wrappedValue.dismiss()
                             }
                         }) {
-                            AccessibleText(content: NSLocalizedString("textfield_modal_button_title", bundle: Bundle.main, comment: ""))
+                            AccessibleText(content: NSLocalizedString("accept_button_title", bundle: Bundle.main, comment: ""))
                         }
                         .buttonStyle(CustomButtonStyle(isEnabled: buttonEnabled))
                     }

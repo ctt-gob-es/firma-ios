@@ -78,7 +78,7 @@ struct PDFCoordinatesModalWrapper: View {
 							 showPasswordPrompt = true
 							 loadPDFDocument()
 						  }) {
-							 AccessibleText(content: NSLocalizedString("textfield_modal_button_title", bundle: Bundle.main, comment: ""))
+							 AccessibleText(content: NSLocalizedString("accept_button_title", bundle: Bundle.main, comment: ""))
 						  }
 						  .buttonStyle(CustomButtonStyle(isEnabled: true))
 					   }

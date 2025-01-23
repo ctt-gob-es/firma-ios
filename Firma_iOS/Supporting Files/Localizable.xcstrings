@@ -8335,7 +8335,6 @@
             "value" : "Acceptació de textos legals"
           }
         }
-
       }
     },
     "privacy_policy" : {
@@ -9543,11 +9542,12 @@
       }
     },
     "textfield_modal_button_title" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Introdueixi la contrasenya:"
+            "value" : "Introdueixi la contrasenya"
           }
         },
         "en" : {
@@ -9571,13 +9571,13 @@
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Introduza o contrasinal:"
+            "value" : "Introduza o contrasinal"
           }
         },
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Introduïsca la contrasenya:"
+            "value" : "Introduïsca la contrasenya"
           }
         }
       }
