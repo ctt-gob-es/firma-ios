@@ -10,7 +10,7 @@ import Foundation
 
 class LoadDataLocalFileUseCase {
     
-    func execute(urlFile: [URL]?, signModel: SignModel?, completion: @escaping (Result<String, AppError>) -> Void) {
+    func execute(urlFile: [URL]?, signModel: SignModel?, completion: @escaping (Result<(String, String), AppError>) -> Void) {
         guard let urlFile = urlFile else {
             // Error la url no es válida
             sendError(error: AppError.signingLoadLocalFile, signModel: signModel, completion: completion)
@@ -19,10 +19,10 @@ class LoadDataLocalFileUseCase {
         
         FileUtils.convertURLFileToData(urls: urlFile) { result in
             switch result {
-            case .success(let data):
-                let dataFile = Base64Utils.encode(data,urlSafe: true)
+            case .success(let fileData):
+                let dataFile = Base64Utils.encode(fileData.data,urlSafe: true)
                 if let dataFile = dataFile {
-                    completion(.success(dataFile))
+                    completion(.success((fileData.fileName, dataFile)))
                 }
             case .failure(_):
                 self.sendError(error: AppError.signingLoadLocalFile, signModel: signModel, completion: completion)
@@ -30,7 +30,7 @@ class LoadDataLocalFileUseCase {
         }
     }
     
-    private func sendError(error: AppError, signModel: SignModel?, completion: @escaping (Result<String, AppError>) -> Void) {
+    private func sendError(error: AppError, signModel: SignModel?, completion: @escaping (Result<(String, String), AppError>) -> Void) {
         guard let urlServlet = signModel?.urlServlet,
              let docId = signModel?.docId else {
             completion(.failure(error))

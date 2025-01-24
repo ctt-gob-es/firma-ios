@@ -8,7 +8,6 @@
 import Foundation
 
 public class ParseDataURLOperationUseCase: NSObject {
-    private var urlParameters : ParseURLParameters = ParseURLParameters()
     private var opParameters: NSMutableDictionary = [:]
     private var url = ""
     private var numberRetries = 0;
@@ -115,9 +114,7 @@ public class ParseDataURLOperationUseCase: NSObject {
 	   data: Data,
 	   completion: @escaping (Result<NSMutableDictionary, AppError>) -> Void
     ) {
-	   self.urlParameters.receivedDataCert = data
-	   
-        if String(data: data, encoding: .utf8)?.hasPrefix("ERR") == true{
+	   if String(data: data, encoding: .utf8)?.hasPrefix("ERR") == true{
             // Si llega ERR-06 se reintenta la peticion hasta un maximo de 3 veces
             if String(data: data, encoding: .utf8)?.hasPrefix("ERR-06") == true && numberRetries < 3 {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
@@ -144,6 +141,11 @@ public class ParseDataURLOperationUseCase: NSObject {
                 }
              
                 dataResponse = decoded
+            } else {
+                
+                if let base64String = String(data: dataResponse, encoding: .utf8), let decoded = Data(base64Encoded: base64String) {
+                    dataResponse = decoded
+                }
             }
             
             loadDownloadData(dataResponse, completion: completion)
@@ -154,6 +156,7 @@ public class ParseDataURLOperationUseCase: NSObject {
 	   _ decodedData: Data,
 	   completion: @escaping (Result<NSMutableDictionary, AppError>) -> Void
     ) {
+        
         var datosInUse = String(data: decodedData, encoding: .utf8)
         datosInUse = datosInUse?.removingPercentEncoding
         
@@ -171,10 +174,15 @@ public class ParseDataURLOperationUseCase: NSObject {
         opParameters[PARAMETER_NAME_BATCH_PRESIGNER_URL] = (entidad as AnyObject).batchpresignerurl ?? ""
         opParameters[PARAMETER_NAME_BATCH_POSTSIGNER_URL] = (entidad as AnyObject).batchpostsignerurl ?? ""
         opParameters[PARAMETER_NAME_BATCH_JSON] = (entidad as AnyObject).batchjson ?? ""
+        opParameters[PARAMETER_NAME_FILENAME] = (entidad as AnyObject).filename ?? ""
         
         DispatchQueue.main.async {
             completion(.success(self.opParameters))
         }
+    }
+    
+    public func getOpParameters() -> NSMutableDictionary {
+        return opParameters;
     }
     
     private func sendError(error: AppError, completion: @escaping (Result<NSMutableDictionary, AppError>) -> Void) {

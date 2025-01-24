@@ -90,11 +90,11 @@ enum AppError: Error {
     }
     
     var serverErrorMessage: String {
-        return "ERR-\(self.code):=\(self.description)"
+        return "ERR-AI\(self.code):=\(self.description)"
     }
     
     var screenErrorMessage: String {
-        return "\(self.code) - \(self.screenType.description)"
+        return "AI\(self.code) - \(self.screenType.description)"
     }
 }
 
@@ -117,7 +117,7 @@ extension AppError {
     static let nfcReaderErrorUnsupportedFeature = AppError.hardwareError(102002, "Función no soportada por el hardware del dispositivo")
     static let nfcReaderErrorSecurityViolation = AppError.hardwareError(102003, "Restricción de seguridad")
     static let nfcReaderErrorInvalidParameter = AppError.hardwareError(102004, "Parámetro inválido en la conexion NFC", .dniReadingErrorLong)
-    static let nfcReaderErrorInvalidParameterLength = AppError.hardwareError(102005, " Longitud de parámetro no válida en la conexión NFC")
+    static let nfcReaderErrorInvalidParameterLength = AppError.hardwareError(102005, "Longitud de parámetro no válida en la conexión NFC")
     static let nfcReaderErrorParameterOutOfBound = AppError.hardwareError(102006, "Parámetro fuera de los límites aceptables")
     static let nfcReaderErrorRadioDisabled = AppError.hardwareError(102007, "La radio NFC está deshabilitada", .dniReadingErrorLong)
     static let nfcReaderTransceiveErrorTagConnectionLost = AppError.hardwareError(102008, "La conexión con la etiqueta NFC se perdió", .dniReadingErrorLong)
@@ -125,9 +125,9 @@ extension AppError {
     static let nfcReaderTransceiveErrorTagResponseError = AppError.hardwareError(102010, "Respuesta inválida desde la etiqueta NFC")
     static let nfcReaderTransceiveErrorSessionInvalidated = AppError.hardwareError(102011, "Transmisión en sesión invalidada")
     static let nfcReaderTransceiveErrorTagNotConnected = AppError.hardwareError(102012, "La etiqueta NFC no está conectada", .dniReadingErrorLong)
-    static let nfcReaderTransceiveErrorPacketTooLong = AppError.hardwareError(102013, " Paquete demasiado largo para la etiqueta NFC")
+    static let nfcReaderTransceiveErrorPacketTooLong = AppError.hardwareError(102013, "Paquete demasiado largo para la etiqueta NFC")
     static let nfcReaderSessionInvalidationErrorUserCanceled = AppError.hardwareError(102014, "El usuario canceló manualmente la sesión", .dniCanceledSession)
-    static let nfcReaderSessionInvalidationErrorSessionTimeout = AppError.hardwareError(102015, "La sesión NFC expiró debido a inactividad", .dniReadingErrorLong)
+    static let nfcReaderSessionInvalidationErrorSessionTimeout = AppError.hardwareError(102015, "La sesión NFC expiró debido a inactividad", .dniTimeoutError)
     static let nfcReaderSessionInvalidationErrorSessionTerminatedUnexpectedly = AppError.hardwareError(102016, "La sesión NFC se cerró inesperadamente", .dniReadingErrorLong)
     static let nfcReaderSessionInvalidationErrorSystemIsBusy = AppError.hardwareError(102017, "El sistema está ocupado", .dniReadingErrorLong)
     static let nfcReaderSessionInvalidationErrorFirstNDEFTagRead = AppError.hardwareError(102018, "Sesión cerrada tras leer la primera etiqueta (según configuración)", .dniReadingErrorLong)
@@ -153,7 +153,7 @@ extension AppError {
     static let signingLoadLocalFile = AppError.internalSoftware(200102, "Error al cargar el fichero local para realizar la firma")
     static let generatePK1Certificate = AppError.internalSoftware(200103, "Error realizando la firma del fichero con certificado")
     static let generatePK1DNIe = AppError.internalSoftware(200104, "Error realizando la firma del fichero con DNIe")
-
+    static let singingFileIsNotPDF = AppError.internalSoftware(200106, "Error realizando la firma, el fichero a firmar no es un PDF", .globalError)
     
     // 2002XX: Operación de selección de certificados
     static let certificateSelectionCipherCertificateError = AppError.internalSoftware(200200, "Error al cifrar el certificado para enviarlo al servidor intermedio")
@@ -185,7 +185,7 @@ extension AppError {
     static let fileLoadingLocalFile = AppError.internalSoftware(201000, "Error en la carga de fichero local para firmar")
     
     //2011XX: Carga/listado de certificados (en esta categoría se agregarán todos los errores de carga de certificado, independientemente de que se cargue para firmar un documento o para seleccionar el certificado.)
-    static let certificateLoadingError = AppError.internalSoftware(201100, "Error en la carga de certificado para importar", .certificateNotImported)
+    static let certificateImportingError = AppError.internalSoftware(201100, "Error en la carga de certificado para importar", .certificateNotImported)
     
     //2012XX: Operación de firma local (errores que sólo pueden producirse en la firma local y no en la web)
 
@@ -199,7 +199,7 @@ extension AppError {
     // 3001XX: JMulticard
     static let invalidCard = AppError.requestError(300100, "La tarjeta identificada en el lector es desconocida o no está soportada", .dniReadingError)
     static let burnedCard = AppError.requestError(300101, "La tarjeta está corrompida, posiblemente se autodestruyó", .dniBroken)
-    static let connectionError = AppError.requestError(300102, "No se ha podido conectar con la tarjeta", .dniReadingError)
+    static let connectionError = AppError.requestError(300102, "No se ha podido conectar con la tarjeta", .dniReadingErrorLong)
     static let notInitialized = AppError.requestError(300103, "La conexión con la tarjeta no está inicializada", .dniReadingErrorLong)
     static let operationError = AppError.requestError(300104, "Ocurrió un error inesperado durante la operación", .dniReadingErrorLong)
     static let badPin = AppError.requestError(300105, "PIN incorrecto", .dniIncorrectPin)
@@ -231,49 +231,49 @@ extension AppError {
     static let threePhaseServerPostsignErrorResponseOkFormat = AppError.thirdPartySoftwareError(300407, "El servidor trifasico devolvio una resuesta con texto OK pero no llega el formato correcto para obtener la información a enviar al servidor intermedio")
     static let threePhaseServerPostsignErrorResponseData = AppError.thirdPartySoftwareError(300408, "El servidor trifasico devolvio una resuesta correcta que no sabemos procesar. No llega ni OK ni ERR-")
     
-    static let threePhaseServerPresignErr1 = AppError.thirdPartySoftwareError(300409, "El servidor trifasico devolvio una resuesta de error ERR-1 al realizar la prefirma. No se ha indicado la operacion a realizar")
-    static let threePhaseServerPresignErr2 = AppError.thirdPartySoftwareError(300410, "El servidor trifasico devolvio una resuesta de error ERR-2 al realizar la prefirma: No se ha indicado el identificador del documento")
-    static let threePhaseServerPresignErr3 = AppError.thirdPartySoftwareError(300411, "El servidor trifasico devolvio una resuesta de error ERR-3 al realizar la prefirma: No se ha indicado el algoritmo de firma")
-    static let threePhaseServerPresignErr4 = AppError.thirdPartySoftwareError(300412, "El servidor trifasico devolvio una resuesta de error ERR-4 al realizar la prefirma: No se ha indicado el formato de firma")
-    static let threePhaseServerPresignErr5 = AppError.thirdPartySoftwareError(300413, "El servidor trifasico devolvio una resuesta de error ERR-5 al realizar la prefirma: No se ha indicado el certificado de usuario")
-    static let threePhaseServerPresignErr6 = AppError.thirdPartySoftwareError(300414, "El servidor trifasico devolvio una resuesta de error ERR-6 al realizar la prefirma: El formato de los parametros adicionales suministrados es erroneo")
-    static let threePhaseServerPresignErr7 = AppError.thirdPartySoftwareError(300415, "El servidor trifasico devolvio una resuesta de error ERR-7 al realizar la prefirma: El certificado de usuario no esta en formato X.509")
-    static let threePhaseServerPresignErr8 = AppError.thirdPartySoftwareError(300416, "El servidor trifasico devolvio una resuesta de error ERR-8 al realizar la prefirma: Formato de firma no soportado")
-    static let threePhaseServerPresignErr9 = AppError.thirdPartySoftwareError(300417, "El servidor trifasico devolvio una resuesta de error ERR-9 al realizar la prefirma: Error realizando la prefirma")
-    static let threePhaseServerPresignErr10 = AppError.thirdPartySoftwareError(300418, "El servidor trifasico devolvio una resuesta de error ERR-10 al realizar la prefirma: Error al almacenar el documento")
-    static let threePhaseServerPresignErr11 = AppError.thirdPartySoftwareError(300419, "El servidor trifasico devolvio una resuesta de error ERR-11 al realizar la prefirma: Operacion desconocida")
-    static let threePhaseServerPresignErr12 = AppError.thirdPartySoftwareError(300420, "El servidor trifasico devolvio una resuesta de error ERR-12 al realizar la prefirma: Error realizando la postfirma")
-    static let threePhaseServerPresignErr13 = AppError.thirdPartySoftwareError(300421, "El servidor trifasico devolvio una resuesta de error ERR-13 al realizar la prefirma: No se indicado una sub-operacion valida a realizar (firma, cofirma,...)")
-    static let threePhaseServerPresignErr14 = AppError.thirdPartySoftwareError(300422, "El servidor trifasico devolvio una resuesta de error ERR-14 al realizar la prefirma: Error al recuperar el documento")
-    static let threePhaseServerPresignErr15 = AppError.thirdPartySoftwareError(300423, "El servidor trifasico devolvio una resuesta de error ERR-15 al realizar la prefirma: El formato de los datos de sesion suministrados es erroneo")
-    static let threePhaseServerPresignErr16 = AppError.thirdPartySoftwareError(300424, "El servidor trifasico devolvio una resuesta de error ERR-16 al realizar la prefirma: Error al generar el codigo de verificacion de las firmas")
-    static let threePhaseServerPresignErr17 = AppError.thirdPartySoftwareError(300425, "El servidor trifasico devolvio una resuesta de error ERR-17 al realizar la prefirma: Error al comprobar el codigo de verificacion de las firmas")
-    static let threePhaseServerPresignErr18 = AppError.thirdPartySoftwareError(300426, "El servidor trifasico devolvio una resuesta de error ERR-18 al realizar la prefirma: Error de integridad en la firma")
-    static let threePhaseServerPresignErr19 = AppError.thirdPartySoftwareError(300427, "El servidor trifasico devolvio una resuesta de error ERR-19 al realizar la prefirma: El formato de los datos de operacion suministrados es erroneo")
-    static let threePhaseServerPresignErr20 = AppError.thirdPartySoftwareError(300428, "El servidor trifasico devolvio una resuesta de error ERR-20 al realizar la prefirma: Algoritmo de firma no soportado")
-    static let threePhaseServerPresignErr21 = AppError.thirdPartySoftwareError(300429, "El servidor trifasico devolvio una resuesta de error ERR-21 al realizar la prefirma: Se requiere intervencion del usuario")
+    static let threePhaseServerPresignErr1 = AppError.thirdPartySoftwareError(300409, "ERR-1 en la prefirma. No se ha indicado la operacion a realizar")
+    static let threePhaseServerPresignErr2 = AppError.thirdPartySoftwareError(300410, "ERR-2 en la prefirma: No se ha indicado el identificador del documento")
+    static let threePhaseServerPresignErr3 = AppError.thirdPartySoftwareError(300411, "ERR-3 en la prefirma: No se ha indicado el algoritmo de firma")
+    static let threePhaseServerPresignErr4 = AppError.thirdPartySoftwareError(300412, "ERR-4 en la prefirma: No se ha indicado el formato de firma")
+    static let threePhaseServerPresignErr5 = AppError.thirdPartySoftwareError(300413, "ERR-5 en la prefirma: No se ha indicado el certificado de usuario")
+    static let threePhaseServerPresignErr6 = AppError.thirdPartySoftwareError(300414, "ERR-6 en la prefirma: El formato de los parametros adicionales suministrados es erroneo")
+    static let threePhaseServerPresignErr7 = AppError.thirdPartySoftwareError(300415, "ERR-7 en la prefirma: El certificado de usuario no esta en formato X.509")
+    static let threePhaseServerPresignErr8 = AppError.thirdPartySoftwareError(300416, "ERR-8 en la prefirma: Formato de firma no soportado")
+    static let threePhaseServerPresignErr9 = AppError.thirdPartySoftwareError(300417, "ERR-9 en la prefirma: Error realizando la prefirma")
+    static let threePhaseServerPresignErr10 = AppError.thirdPartySoftwareError(300418, "ERR-10 en la prefirma: Error al almacenar el documento")
+    static let threePhaseServerPresignErr11 = AppError.thirdPartySoftwareError(300419, "ERR-11 en la prefirma: Operacion desconocida")
+    static let threePhaseServerPresignErr12 = AppError.thirdPartySoftwareError(300420, "ERR-12 en la prefirma: Error realizando la postfirma")
+    static let threePhaseServerPresignErr13 = AppError.thirdPartySoftwareError(300421, "ERR-13 en la prefirma: No se indicado una sub-operacion valida a realizar (firma, cofirma,...)")
+    static let threePhaseServerPresignErr14 = AppError.thirdPartySoftwareError(300422, "ERR-14 en la prefirma: Error al recuperar el documento")
+    static let threePhaseServerPresignErr15 = AppError.thirdPartySoftwareError(300423, "ERR-15 en la prefirma: El formato de los datos de sesion suministrados es erroneo")
+    static let threePhaseServerPresignErr16 = AppError.thirdPartySoftwareError(300424, "ERR-16 en la prefirma: Error al generar el codigo de verificacion de las firmas")
+    static let threePhaseServerPresignErr17 = AppError.thirdPartySoftwareError(300425, "ERR-17 en la prefirma: Error al comprobar el codigo de verificacion de las firmas")
+    static let threePhaseServerPresignErr18 = AppError.thirdPartySoftwareError(300426, "ERR-18 en la prefirma: Error de integridad en la firma")
+    static let threePhaseServerPresignErr19 = AppError.thirdPartySoftwareError(300427, "ERR-19 en la prefirma: El formato de los datos de operacion suministrados es erroneo")
+    static let threePhaseServerPresignErr20 = AppError.thirdPartySoftwareError(300428, "ERR-20 en la prefirma: Algoritmo de firma no soportado")
+    static let threePhaseServerPresignErr21 = AppError.thirdPartySoftwareError(300429, "ERR-21 en la prefirma: Se requiere intervencion del usuario")
     
-    static let threePhaseServerPostsignErr1 = AppError.thirdPartySoftwareError(300430, "El servidor trifasico devolvio una resuesta de error ERR-1 al realizar la postfirma. No se ha indicado la operacion a realizar")
-    static let threePhaseServerPostsignErr2 = AppError.thirdPartySoftwareError(300431, "El servidor trifasico devolvio una resuesta de error ERR-2 al realizar la postfirma: No se ha indicado el identificador del documento")
-    static let threePhaseServerPostsignErr3 = AppError.thirdPartySoftwareError(300432, "El servidor trifasico devolvio una resuesta de error ERR-3 al realizar la postfirma: No se ha indicado el algoritmo de firma")
-    static let threePhaseServerPostsignErr4 = AppError.thirdPartySoftwareError(300433, "El servidor trifasico devolvio una resuesta de error ERR-4 al realizar la postfirma: No se ha indicado el formato de firma")
-    static let threePhaseServerPostsignErr5 = AppError.thirdPartySoftwareError(300434, "El servidor trifasico devolvio una resuesta de error ERR-5 al realizar la postfirma: No se ha indicado el certificado de usuario")
-    static let threePhaseServerPostsignErr6 = AppError.thirdPartySoftwareError(300435, "El servidor trifasico devolvio una resuesta de error ERR-6 al realizar la postfirma: El formato de los parametros adicionales suministrados es erroneo")
-    static let threePhaseServerPostsignErr7 = AppError.thirdPartySoftwareError(300436, "El servidor trifasico devolvio una resuesta de error ERR-7 al realizar la postfirma: El certificado de usuario no esta en formato X.509")
-    static let threePhaseServerPostsignErr8 = AppError.thirdPartySoftwareError(300437, "El servidor trifasico devolvio una resuesta de error ERR-8 al realizar la postfirma: Formato de firma no soportado")
-    static let threePhaseServerPostsignErr9 = AppError.thirdPartySoftwareError(300438, "El servidor trifasico devolvio una resuesta de error ERR-9 al realizar la postfirma: Error realizando la prefirma")
-    static let threePhaseServerPostsignErr10 = AppError.thirdPartySoftwareError(300439, "El servidor trifasico devolvio una resuesta de error ERR-10 al realizar la postfirma: Error al almacenar el documento")
-    static let threePhaseServerPostsignErr11 = AppError.thirdPartySoftwareError(300440, "El servidor trifasico devolvio una resuesta de error ERR-11 al realizar la postfirma: Operacion desconocida")
-    static let threePhaseServerPostsignErr12 = AppError.thirdPartySoftwareError(300441, "El servidor trifasico devolvio una resuesta de error ERR-12 al realizar la postfirma: Error realizando la postfirma")
-    static let threePhaseServerPostsignErr13 = AppError.thirdPartySoftwareError(300442, "El servidor trifasico devolvio una resuesta de error ERR-13 al realizar la postfirma: No se indicado una sub-operacion valida a realizar (firma, cofirma,...)")
-    static let threePhaseServerPostsignErr14 = AppError.thirdPartySoftwareError(300443, "El servidor trifasico devolvio una resuesta de error ERR-14 al realizar la postfirma: Error al recuperar el documento")
-    static let threePhaseServerPostsignErr15 = AppError.thirdPartySoftwareError(300444, "El servidor trifasico devolvio una resuesta de error ERR-15 al realizar la postfirma: El formato de los datos de sesion suministrados es erroneo")
-    static let threePhaseServerPostsignErr16 = AppError.thirdPartySoftwareError(300445, "El servidor trifasico devolvio una resuesta de error ERR-16 al realizar la postfirma: Error al generar el codigo de verificacion de las firmas")
-    static let threePhaseServerPostsignErr17 = AppError.thirdPartySoftwareError(300446, "El servidor trifasico devolvio una resuesta de error ERR-17 al realizar la postfirma: Error al comprobar el codigo de verificacion de las firmas")
-    static let threePhaseServerPostsignErr18 = AppError.thirdPartySoftwareError(300447, "El servidor trifasico devolvio una resuesta de error ERR-18 al realizar la postfirma: Error de integridad en la firma")
-    static let threePhaseServerPostsignErr19 = AppError.thirdPartySoftwareError(300448, "El servidor trifasico devolvio una resuesta de error ERR-19 al realizar la postfirma: El formato de los datos de operacion suministrados es erroneo")
-    static let threePhaseServerPostsignErr20 = AppError.thirdPartySoftwareError(300449, "El servidor trifasico devolvio una resuesta de error ERR-20 al realizar la postfirma: Algoritmo de firma no soportado")
-    static let threePhaseServerPostsignErr21 = AppError.thirdPartySoftwareError(300450, "El servidor trifasico devolvio una resuesta de error ERR-21 al realizar la postfirma: Se requiere intervencion del usuario")
+    static let threePhaseServerPostsignErr1 = AppError.thirdPartySoftwareError(300430, "ERR-1 en la postfirma. No se ha indicado la operacion a realizar")
+    static let threePhaseServerPostsignErr2 = AppError.thirdPartySoftwareError(300431, "ERR-2 en la postfirma: No se ha indicado el identificador del documento")
+    static let threePhaseServerPostsignErr3 = AppError.thirdPartySoftwareError(300432, "ERR-3 en la postfirma: No se ha indicado el algoritmo de firma")
+    static let threePhaseServerPostsignErr4 = AppError.thirdPartySoftwareError(300433, "ERR-4 en la postfirma: No se ha indicado el formato de firma")
+    static let threePhaseServerPostsignErr5 = AppError.thirdPartySoftwareError(300434, "ERR-5 en la postfirma: No se ha indicado el certificado de usuario")
+    static let threePhaseServerPostsignErr6 = AppError.thirdPartySoftwareError(300435, "ERR-6 en la postfirma: El formato de los parametros adicionales suministrados es erroneo")
+    static let threePhaseServerPostsignErr7 = AppError.thirdPartySoftwareError(300436, "ERR-7 en la postfirma: El certificado de usuario no esta en formato X.509")
+    static let threePhaseServerPostsignErr8 = AppError.thirdPartySoftwareError(300437, "ERR-8 en la postfirma: Formato de firma no soportado")
+    static let threePhaseServerPostsignErr9 = AppError.thirdPartySoftwareError(300438, "ERR-9 en la postfirma: Error realizando la prefirma")
+    static let threePhaseServerPostsignErr10 = AppError.thirdPartySoftwareError(300439, "ERR-10 en la postfirma: Error al almacenar el documento")
+    static let threePhaseServerPostsignErr11 = AppError.thirdPartySoftwareError(300440, "ERR-11 en la postfirma: Operacion desconocida")
+    static let threePhaseServerPostsignErr12 = AppError.thirdPartySoftwareError(300441, "ERR-12 en la postfirma: Error realizando la postfirma")
+    static let threePhaseServerPostsignErr13 = AppError.thirdPartySoftwareError(300442, "ERR-13 en la postfirma: No se indicado una sub-operacion valida a realizar (firma, cofirma,...)")
+    static let threePhaseServerPostsignErr14 = AppError.thirdPartySoftwareError(300443, "ERR-14 en la postfirma: Error al recuperar el documento")
+    static let threePhaseServerPostsignErr15 = AppError.thirdPartySoftwareError(300444, "ERR-15 en la postfirma: El formato de los datos de sesion suministrados es erroneo")
+    static let threePhaseServerPostsignErr16 = AppError.thirdPartySoftwareError(300445, "ERR-16 en la postfirma: Error al generar el codigo de verificacion de las firmas")
+    static let threePhaseServerPostsignErr17 = AppError.thirdPartySoftwareError(300446, "ERR-17 en la postfirma: Error al comprobar el codigo de verificacion de las firmas")
+    static let threePhaseServerPostsignErr18 = AppError.thirdPartySoftwareError(300447, "ERR-18 en la postfirma: Error de integridad en la firma")
+    static let threePhaseServerPostsignErr19 = AppError.thirdPartySoftwareError(300448, "ERR-19 en la postfirma: El formato de los datos de operacion suministrados es erroneo")
+    static let threePhaseServerPostsignErr20 = AppError.thirdPartySoftwareError(300449, "ERR-20 en la postfirma: Algoritmo de firma no soportado")
+    static let threePhaseServerPostsignErr21 = AppError.thirdPartySoftwareError(300450, "ERR-21 en la postfirma: Se requiere intervencion del usuario")
     
     
     // 3005XX: Biblioteca firma (código convertido en iOS)
@@ -289,7 +289,7 @@ extension AppError {
     static let intermediateServerDownloadCommunicationError = AppError.communicationError(401100, "Error en la descarga de la firma")
     
     // 4012XX: Servidor intermedio (subida)
-    static let intermediateServerUploadCommunicationError = AppError.communicationError(401200, "Error en la descarga de la firma")
+    static let intermediateServerUploadCommunicationError = AppError.communicationError(401200, "Error en la subida de datos")
     
     // 4013XX: Servidor trifásico Prefirma
     static let threePhaseServerPreSignCommunicationError = AppError.communicationError(401300, "Error de conexion con el servidor trifasico al hacer la prefirma")
@@ -309,6 +309,7 @@ extension AppError {
 extension AppError {
     // 500XXX: Error general
     static let userOperationCanceled = AppError.functionalError(500001, "Operación cancelada por el usuario.", .userCancelled)
+    static let userOperationSaveCanceled = AppError.functionalError(500001, "Operación cancelada por el usuario.", .userCancelledSave)
     
     // 501XXX: Operación de firma
     static let certificateNeeded = AppError.functionalError(501001, "Error en la operación, no hay certificados", .certificateNeeded)

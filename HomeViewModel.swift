@@ -34,13 +34,13 @@ class HomeViewModel: ObservableObject {
     @Published var showErrorModal: Bool? = false
     @Published var showSuccessModal: Bool? = false
     @Published var showDocumentImportingPicker: Bool? = false
-    @Published var errorModalDescription: String? = ""
     @Published var showSignCoordinatesModal: Bool = false
     @Published var signType: SignType? = nil
     @Published var dataType: DataType? = nil
     @Published var showTextfieldModal: Bool = false
-    @Published var sheetHeight: CGFloat = .zero
     @Published var showSelectSignMode: Bool = false
+    @Published var showDocumentSavingPicker: Bool = false
+    @Published var downloadedData: URL? = nil
     @Published var selectDNIe: Bool = false
     @Published var selectElectronicCertificate: Bool = false
     @Published var signMode: SignMode?
@@ -116,7 +116,8 @@ class HomeViewModel: ObservableObject {
             if let urlReceived = urlReceived {
                 isLoading = true
                 
-                ParseDataURLOperationUseCase().execute(url: urlReceived.absoluteString) { result in
+                let parseDataUrlUseCase = ParseDataURLOperationUseCase()
+                parseDataUrlUseCase.execute(url: urlReceived.absoluteString) { result in
                     self.isLoading = false
                     switch result {
                     case .success(let dictionary):
@@ -125,7 +126,8 @@ class HomeViewModel: ObservableObject {
                         guard let signModel = self.signModel else { return }
                         self.configureMode(signModel: signModel)
                     case .failure(let error):
-                        self.showError(appError: error)
+                        self.signModel = SignModel(dictionary: parseDataUrlUseCase.getOpParameters())
+                        self.handleOperationError(appError: error)
                     }
                 }
             } else {
@@ -196,8 +198,9 @@ class HomeViewModel: ObservableObject {
         self.isLoading = true
         LoadDataLocalFileUseCase().execute(urlFile: value, signModel: signModel) {result in
             switch result {
-            case .success(let stringData):
+            case .success(let (filename, stringData)):
                 self.signModel?.datosInUse = stringData
+                self.signModel?.filename = filename
                 self.isLoading = false
                 self.selectSignMode()
             case .failure(let error):
@@ -209,7 +212,8 @@ class HomeViewModel: ObservableObject {
     private func configureMode(signModel: SignModel) {
         // Por defecto la firma es externa
         dataType = .external
-        
+	   appStatus.signFormat = signModel.signFormat
+	   
         if (signModel.operation == OPERATION_SIGN || signModel.operation == OPERATION_COSIGN || signModel.operation == OPERATION_COUNTERSIGN) {
 		  // Si el NFC está deshabilitado, deberemos comprobar si hay certificados antes de escoger archivo, sólo podremos comprobarlo si está deshabilitado, ya que si no podría escoger firmar con DNI
 		  let nfcEnabled = UserDefaults.standard.object(forKey: "isNfcEnabled") == nil ? true : UserDefaults.standard.bool(forKey: "isNfcEnabled")
@@ -288,23 +292,72 @@ class HomeViewModel: ObservableObject {
         }
     }
     
-    func handleOpenReturnURL(success: Bool) {
+    func handleOperationSuccess(successState: SuccessModalState) {
+        resetHomeViewModelVariables()
+        
+        if let baseURL = signModel?.returnURL,
+             let stservlet = signModel?.urlServlet,
+             let docId = signModel?.docId {
+            
+            // Si tiene url de retorno navegamos y no se muuestra pop up
+            var urlComponents = URLComponents(string: baseURL + "success")!
+            urlComponents.queryItems = [
+                URLQueryItem(name: "stservlet", value: stservlet),
+                URLQueryItem(name: "docId", value: docId)
+            ]
+            
+            if let finalURL = urlComponents.url {
+                UIApplication.shared.open(finalURL) { success in
+                    
+                }
+            }
+        } else {
+            // si no tienen return URL mostramos dialogo de success
+            self.successModalState = successState
+            self.showSuccessModal = true
+        }
+    }
+    
+    func handleOperationError(appError: AppError) {
+        resetHomeViewModelVariables()
+        
+        if let baseURL = signModel?.returnURL {
+            
+            // Si tiene url de retorno navegamos y no se muuestra pop up
+            var urlComponents = URLComponents(string: baseURL + "failure")!
+            urlComponents.queryItems = [
+               URLQueryItem(name: "code", value: String(appError.code)),
+                  URLQueryItem(name: "description", value: String(appError.description))
+            ]
+            
+            if let finalURL = urlComponents.url {
+                UIApplication.shared.open(finalURL) { success in
+                    
+                }
+            }
+        } else {
+            // si no tienen return URL mostramos dialogo de error
+            self.showError(appError: appError)
+        }
+    }
+    
+    /*func handleOpenReturnURL(success: Bool) -> Bool {
 	   guard let baseURL = signModel?.returnURL,
 		    let stservlet = signModel?.urlServlet,
 		    let docId = signModel?.docId else {
-		  return
+		  return false
 	   }
 	   
 	   var urlComponents: URLComponents
 	   
 	   if success {
-		  urlComponents = URLComponents(string: baseURL + "/success")!
+		  urlComponents = URLComponents(string: baseURL + "success")!
 		  urlComponents.queryItems = [
 			 URLQueryItem(name: "stservlet", value: stservlet),
 			 URLQueryItem(name: "docId", value: docId)
 		  ]
 	   } else {
-		  urlComponents = URLComponents(string: baseURL + "/failure")!
+		  urlComponents = URLComponents(string: baseURL + "failure")!
 		  urlComponents.queryItems = [
 			 URLQueryItem(name: "code", value: String(appStatus.appError?.code ?? AppError.generalSoftwareError.code)),
                 URLQueryItem(name: "description", value: String(appStatus.appError?.description ?? AppError.generalSoftwareError.description))
@@ -316,7 +369,8 @@ class HomeViewModel: ObservableObject {
 			 print("Open \(success) with URL: \(finalURL)")
 		  }
 	   }
-    }
+        return true
+    }*/
     
     private func handleOperationSelectCertificate() {
         guard let certificateData = certificateUtils?.base64UrlSafeCertificateData,
@@ -355,25 +409,21 @@ class HomeViewModel: ObservableObject {
                             let history = HistoryModel(
                                 date: Date(),
                                 signType: self.signType ?? .external,
-                                externalApp: self.signModel?.appname,
-                                dataType: self.dataType ?? .external,
-                                filename: FileUtils.getArchiveNameFromParameters(parameters: self.parameters)
-                            )
+						  dataType: self.dataType ?? .external,
+						  externalApp: self.signModel?.appname,
+                                filename: self.signModel?.filename,
+						  returnURL: self.signModel?.returnURL,
+						  operation: self.signModel?.operation
+					   )
+					   
                             HistoricalUseCase().saveHistory(history: history) { result in
                                 // Independientemente del resultado del guardado en historico, mostramos que la firma ha sido correcta
-                                self.viewMode = .home
-                                self.successModalState = .successSign
-                                self.showSuccessModal = true
-                                self.areCertificatesSelectable = false
-						  
-						  // Si realizaron la llamada desde una APP, navegaremos a ella de vuelta.
-						  self.handleOpenReturnURL(success: true)
+                                self.handleOperationSuccess(successState: .successSign)
                             }
                         }
                         
                     case .failure(let error):
-                        self.showError(appError: error)
-				    self.handleOpenReturnURL(success: false)
+                        self.handleOperationError(appError: error)
                     }
                 }
             }
@@ -393,16 +443,23 @@ class HomeViewModel: ObservableObject {
             self.isLoading = false
             
             switch result {
-            case .success(let resultBatch):
-                self.areCertificatesSelectable = false
-                self.viewMode = .home
-                self.successModalState = self.getSuccessModal(resultBatch)
-                self.showSuccessModal = true
-			 // Si realizaron la llamada desde una APP, navegaremos a ella de vuelta.
-			 self.handleOpenReturnURL(success: true)
+            case .success(_):
+                let history = HistoryModel(
+                    date: Date(),
+                    signType: self.signType ?? .external,
+                    dataType: self.dataType ?? .external,
+                    externalApp: self.signModel?.appname,
+                    filename: nil,
+                    returnURL: self.signModel?.returnURL,
+                    operation: self.signModel?.operation
+                )
+               
+                HistoricalUseCase().saveHistory(history: history) { result in
+                    // Independientemente del resultado del guardado en historico, mostramos que la firma ha sido correcta
+                    self.handleOperationSuccess(successState: .successSign)
+                }
             case .failure(let error):
-                self.showError(appError: error)
-			 self.handleOpenReturnURL(success: false)
+                self.handleOperationError(appError: error)
             }
         }
     }
@@ -438,10 +495,10 @@ class HomeViewModel: ObservableObject {
                 self.isLoading = false
                 switch result {
                 case .success(let url):
-                    self.appStatus.downloadedData = url
-                    self.appStatus.showDocumentSavingPicker = true
+                    self.downloadedData = url
+                    self.showDocumentSavingPicker = true
                 case .failure(let error):
-                    self.showError(appError: error)
+                    self.sendErrorOperation(error: error)
                 }
             }
         }
@@ -488,18 +545,29 @@ class HomeViewModel: ObservableObject {
 	   ) { result in
             switch result {
             case .success(let signedPDF):
-			 self.isLoading = false
-			 self.areCertificatesSelectable = false
-			 self.viewMode = .home
-			 self.appStatus.showDocumentSavingPicker = true
-			 self.signModel?.datosInUse = signedPDF
-			 self.handleOperationSaveData()
+			 let history = HistoryModel(
+				date: Date(),
+				signType: self.isLocalSign ? .local : (self.signType ?? .external),
+				dataType: self.isLocalSign ? .local : (self.dataType ?? .external),
+				externalApp: self.signModel?.appname,
+				filename: self.signModel?.filename,
+				returnURL: self.signModel?.returnURL,
+				operation: self.signModel?.operation
+			 )
+			 
+			 HistoricalUseCase().saveHistory(history: history) { result in
+				// Independientemente del resultado del guardado en historico, mostramos que la firma ha sido correcta
+				self.isLoading = false
+				self.appStatus.showDocumentSavingPicker = true
+				self.signModel?.datosInUse = signedPDF
+				self.handleOperationSaveData()
+				self.resetHomeViewModelVariables()
+			 }
 
             case.failure(let error):
                 // Al ser firma local no necesitamos enviar error al servidor
                 self.showError(appError: error)
             }
-		  
 	   }
     }
     
@@ -508,7 +576,6 @@ class HomeViewModel: ObservableObject {
         messageCertificateInfoModal = message
         showCertificateInfoModal = true
     }
-
     
     enum CheckCertificateStep {
         case initial
@@ -589,10 +656,6 @@ class HomeViewModel: ObservableObject {
 	   }
     }
     
-    func handleFinishSign() {
-	   self.resetHomeViewModelVariables()
-    }
-    
     func handleCoordinatesSelection(annotation: PDFAnnotation) {
 	   if let signModel = signModel {
 		  PDFCoordinateUtils.setCoordinatesFromAnnotation(signModel: signModel, annotation: annotation)
@@ -605,19 +668,37 @@ class HomeViewModel: ObservableObject {
     
     /// Envia el error en la operación al servidor intermedio, resetea la vista y muestra la pantalla de error
     func sendErrorOperation(error: AppError) {
-        showError(appError: error)
-        SendErrorOperationUseCase().execute(error: error, signModel: signModel)
+	   if !isLocalSign {
+		  SendErrorOperationUseCase().execute(error: error, signModel: signModel)
+	   }
+        handleOperationError(appError: error)
     }
     
     func cancelOperation() {
         if (self.viewMode == .sign) {
-            // Si estamos en operacion de firma, mostramos el aviso de operacion cancelada y enviamos al servidor
-            showError(appError: AppError.userOperationCanceled)
 		  if !isLocalSign {
 			 SendErrorOperationUseCase().execute(error: AppError.userOperationCanceled, signModel: signModel)
 		  }
+            handleOperationError(appError: AppError.userOperationCanceled)
+        } else {
+            resetHomeViewModelVariables()
         }
-        resetHomeViewModelVariables()
+    }
+    
+    func successOperationSaveFile() {
+        viewMode = .home
+        appStatus.showSuccessModal = true
+        appStatus.successModalState = .successArhiveAdded
+	   if !isLocalSign {
+		  SendSuccessOperationUseCase().execute(signModel: self.signModel)
+	   }
+    }
+    
+    func cancelOperationSaveFile() {
+	   if !isLocalSign {
+		  SendErrorOperationUseCase().execute(error: AppError.userOperationSaveCanceled, signModel: signModel)
+	   }
+        handleOperationError(appError: AppError.userOperationSaveCanceled)
     }
     
     func handleNotAnyCoordinatesSelected() {

@@ -12,6 +12,7 @@ import WebKit
 
 struct PrivacyPolicyHTMLWeb: UIViewRepresentable {
     let htmlFileName: String
+    let languageCode: String
 
     func makeUIView(context: Context) -> WKWebView {
 	   let webView = WKWebView()
@@ -21,20 +22,35 @@ struct PrivacyPolicyHTMLWeb: UIViewRepresentable {
 	   webView.scrollView.alwaysBounceHorizontal = false
 	   webView.scrollView.showsHorizontalScrollIndicator = false
 
-	   let savedLanguageCode = UserDefaults.standard.string(forKey: "appLanguage") ?? Locale.current.language.languageCode?.identifier ?? "es"
-	   let localizedHtmlFileName = "\(htmlFileName)_\(savedLanguageCode)"
-	   
+	   applyCustomCSS(to: webView)
+
+	   return webView
+    }
+
+    func updateUIView(_ uiView: WKWebView, context: Context) {
+	   loadLocalizedHTML(in: uiView)
+    }
+
+    func makeCoordinator() -> Coordinator {
+	   Coordinator(self)
+    }
+
+    private func loadLocalizedHTML(in webView: WKWebView) {
+	   let localizedHtmlFileName = "\(htmlFileName)_\(languageCode)"
+
 	   if let filePath = Bundle.main.path(forResource: localizedHtmlFileName, ofType: "html") {
 		  let fileURL = URL(fileURLWithPath: filePath)
 		  webView.loadFileURL(fileURL, allowingReadAccessTo: fileURL.deletingLastPathComponent())
 	   } else if let defaultFilePath = Bundle.main.path(forResource: "\(htmlFileName)_es", ofType: "html") {
-		  // Si no existe cargamos por defecto la página en Castellano
+		  // Load default HTML in Spanish if localized version is not found
 		  let fileURL = URL(fileURLWithPath: defaultFilePath)
 		  webView.loadFileURL(fileURL, allowingReadAccessTo: fileURL.deletingLastPathComponent())
 	   } else {
 		  print("Error: Both localized and default HTML files not found.")
 	   }
+    }
 
+    private func applyCustomCSS(to webView: WKWebView) {
 	   let cssScript = """
 	   var meta = document.createElement('meta');
 	   meta.name = 'viewport';
@@ -47,14 +63,6 @@ struct PrivacyPolicyHTMLWeb: UIViewRepresentable {
 	   """
 	   let userScript = WKUserScript(source: cssScript, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
 	   webView.configuration.userContentController.addUserScript(userScript)
-
-	   return webView
-    }
-
-    func updateUIView(_ uiView: WKWebView, context: Context) {}
-
-    func makeCoordinator() -> Coordinator {
-	   Coordinator(self)
     }
 
     class Coordinator: NSObject, WKNavigationDelegate {

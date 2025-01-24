@@ -24,9 +24,7 @@ class AppStatus: ObservableObject {
     @Published var successModalState: SuccessModalState = .successCertificateAdded
     @Published var appError: AppError?
     
-    @Published var errorModalDescription: String = ""
     @Published var selectedCertificate: AOCertificateInfo? = nil
-    @Published var downloadedData: URL? = nil
     @Published var importedDataURLS: [URL]? = nil
     @Published var importedDataArchiveName: String? = nil
     @Published var shouldUseNFC: Bool? = false
@@ -39,6 +37,8 @@ class AppStatus: ObservableObject {
     
     @Published var userIDCAN: String? = nil
     @Published var userIDPIN: String? = nil
+    
+    @Published var signFormat: String? = nil
     
     var errorPublisher = PassthroughSubject<String, Never>()
 }

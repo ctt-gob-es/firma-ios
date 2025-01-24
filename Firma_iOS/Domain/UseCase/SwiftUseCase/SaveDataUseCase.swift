@@ -19,19 +19,17 @@ class SaveDataUseCase {
 	   
 	   let fileExtension = FileUtils.fileType(from: data)
 	   let tempDirectory = FileManager.default.temporaryDirectory
-	   let archiveNameWithoutSpaces = archiveName.replacingOccurrences(of: " ", with: "")
-	   let fileURL: URL
+	   var archiveNameWithoutSpaces = archiveName.replacingOccurrences(of: " ", with: "")
 	   
-	   if archiveName.contains(".") {
-		  fileURL = tempDirectory.appendingPathComponent(archiveNameWithoutSpaces)
-	   } else {
-		  fileURL = tempDirectory.appendingPathComponent(archiveNameWithoutSpaces + "." + (fileExtension ?? ""))
+	   if !archiveName.contains("."), let fileExtension = fileExtension {
+            archiveNameWithoutSpaces = archiveNameWithoutSpaces + "." + fileExtension
 	   }
 	   
+        let fileURL = tempDirectory.appendingPathComponent(archiveNameWithoutSpaces)
+        
 	   do {
 		  try data.write(to: fileURL)
-		  let escapedURL = fileURL.absoluteString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? fileURL.absoluteString
-		  completion(.success(URL(string: escapedURL)!))
+		  completion(.success(URL(string: fileURL.absoluteString)!))
 	   } catch {
             completion(.failure(AppError.dataSavingFileSaveDisk))
 	   }

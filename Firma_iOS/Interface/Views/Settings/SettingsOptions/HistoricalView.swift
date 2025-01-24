@@ -12,10 +12,11 @@ import CoreData
 
 struct HistoricalView: View {
     @ObservedObject var viewModel = HistoricalViewModel()
+    @State private var contentSheetHeight: CGFloat = 0
     @State var showDeleteModal: Bool = false
     
     var body: some View {
-	   VStack {
+	   VStack() {
 		  if viewModel.historyList.isEmpty {
 			 VStack {
 				Spacer()
@@ -28,25 +29,25 @@ struct HistoricalView: View {
 				Spacer()
 			 }
 		  } else {
-			 List {
+                List {
 				ForEach(viewModel.historyList, id: \.self) { history in
-				    HistoricalCell(history: history)
+                        HistoricalCell(history: history)
 				}
 				.onDelete(perform: delete)
 			 }
+                .listStyle(PlainListStyle())
+                .background(Color.white)
 			 .navigationBarTitle(NSLocalizedString("historical_view_title", bundle: Bundle.main, comment: ""))
 			 .navigationBarItems(trailing: HStack(spacing: 4) {
-				NavigationBarButton(imageName: "trash.circle.fill", isNativeIcon: true, action: {
-				    showDeleteModal.toggle()
-				})
+                    NavigationBarButton(imageName: "trash_gray", isNativeIcon: false, action: {
+                        showDeleteModal.toggle()
+                    })
 			 })
 		  }
 	   }
-	   .sheet(isPresented: $showDeleteModal) {
-		  DeleteHistoricalModalView(viewModel: viewModel)
-			 .fixedSize(horizontal: false, vertical: true)
-			 .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
-			 .presentationDetents([.height(viewModel.sheetHeight)])
+        .sheet(isPresented: $showDeleteModal) {
+            DeleteHistoricalModalView(contentHeight: $contentSheetHeight, viewModel: viewModel)
+			 .presentationDetents([.height(contentSheetHeight)])
 			 .accessibility(addTraits: .isModal)
 			 .interactiveDismissDisabled(true)
 	   }
@@ -56,59 +57,6 @@ struct HistoricalView: View {
 	   offsets.forEach { index in
 		  let history = viewModel.historyList[index]
 		  viewModel.deleteHistory(history: history)
-	   }
-    }
-}
-
-struct HistoricalCell: View {
-    @State var history: History
-    
-    var body: some View {
-	   HStack {
-		  VStack(alignment: .leading, spacing: 6) {
-			 
-			 if let externalApp = history.externalApp {
-				if externalApp != "" {
-				    AccessibleText(content: externalApp)
-					   .regularBoldStyle(foregroundColor: ColorConstants.Text.secondary)
-					   .underline()
-				}
-			 }
-			 
-			 HStack {
-				AccessibleText(content: history.filename ?? "")
-				    .mediumBoldStyle(foregroundColor: ColorConstants.Text.primary)
-				
-				Spacer()
-			 }
-			 
-			 HStack {
-				if let signType = history.signType {
-				    Image(systemName: "signature")
-				    
-				    AccessibleText(content: NSLocalizedString(signType, bundle: Bundle.main, comment: ""))
-					   .mediumBoldStyle(foregroundColor: ColorConstants.Text.primary)
-				}
-			 }
-			 
-			 if let date = history.date {
-				HStack {
-				    Image(systemName: "calendar.badge.clock")
-					   .foregroundColor(ColorConstants.Text.accent)
-					   .accessibilityHidden(true)
-				    
-				    AccessibleText(content: date.shortFormatted)
-					   .regularStyle(foregroundColor: ColorConstants.Text.secondary)
-				    
-				    Spacer()
-				    
-				    if let dataType = history.dataType {
-					   AccessibleText(content: NSLocalizedString(dataType, bundle: Bundle.main, comment: ""))
-						  .regularStyle(foregroundColor: ColorConstants.Text.secondary)
-				    }
-				}
-			 }
-		  }
 	   }
     }
 }

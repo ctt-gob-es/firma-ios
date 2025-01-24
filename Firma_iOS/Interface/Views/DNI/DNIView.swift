@@ -10,9 +10,10 @@ import SwiftUI
 
 struct DNIView: View {
     @EnvironmentObject private var appStatus : AppStatus
+    
+    @State private var contentSheetHeight: CGFloat = 0
     @Environment(\.presentationMode) var presentationMode
     @State private var isShowingModal: Bool = false
-    @State private var sheetHeight: CGFloat = .zero
     @State private var navigateToConnection: Bool = false
     @State var signModel: SignModel? = nil
     @State var parameters: NSMutableDictionary? = nil
@@ -40,8 +41,10 @@ struct DNIView: View {
 		  }
 	   }
 	   .sheet(isPresented: $isShowingModal) {
-		  modalView
-			 .interactiveDismissDisabled(true)
+            DNICompatibleModalView(contentHeight: $contentSheetHeight)
+                .presentationDetents([.height(contentSheetHeight)])
+                .accessibility(addTraits: .isModal)
+                .interactiveDismissDisabled(true)
 	   }
 	   .navigationBarBackButtonHidden(true)
 	   .toolbar {
@@ -96,14 +99,6 @@ struct DNIView: View {
 		  AccessibleText(content: NSLocalizedString("dni_view_button_title", bundle: Bundle.main, comment: ""))
 	   }
 	   .buttonStyle(CustomButtonStyle(isEnabled: true))
-    }
-    
-    private var modalView: some View {
-	   DNICompatibleModalView()
-		  .fixedSize(horizontal: false, vertical: true)
-		  .modifier(GetHeightModifier(height: $sheetHeight))
-		  .presentationDetents([.height(sheetHeight)])
-		  .accessibility(addTraits: .isModal)
     }
     
     // MARK: - Custom Back Button Handler

@@ -10,6 +10,11 @@ import Foundation
 import SwiftUI
 import UniformTypeIdentifiers
 
+struct FileData {
+    let data : Data
+    let fileName : String
+}
+
 class FileUtils {
     func handleFile(at url: URL) -> Bool {
 	   let fileType = url.pathExtension.lowercased()
@@ -58,7 +63,7 @@ class FileUtils {
 	   return matches
     }
     
-    static func convertURLFileToData(urls: [URL], completion: @escaping (Result<Data, Error>) -> Void) {
+    static func convertURLFileToData(urls: [URL], completion: @escaping (Result<FileData, Error>) -> Void) {
 	   guard let url = urls.first else {
             completion(.failure(AppError.generalSoftwareError))
 		  return
@@ -75,7 +80,8 @@ class FileUtils {
 	   
 	   do {
 		  let data = try Data(contentsOf: url)
-		  completion(.success(data))
+            let fileName = url.lastPathComponent
+		  completion(.success(FileData(data: data, fileName: fileName)))
 	   } catch let error {
 		  completion(.failure(error))
 	   }
@@ -89,6 +95,7 @@ class FileUtils {
     static func getExtensionFromParameters(parameters: NSMutableDictionary?) -> String{
 	   return parameters?[PARAMETER_NAME_EXTENSION] as? String ?? ""
     }
+
     
     static func fileType(from data: Data) -> String? {
 	   var bytes = [UInt8](repeating: 0, count: 12)
@@ -118,6 +125,21 @@ class FileUtils {
     static func isValidFileExtension(_ ext: String) -> Bool {
 	   let validExtensions = ["jpg", "jpeg", "png", "pdf", "zip", "gz", "tiff", "bmp"]
 	   return validExtensions.contains(ext.lowercased())
+    }
+    
+    static func isBase64StringPDF(_ base64String: String) -> Bool {
+        var data = Base64Utils.decode(base64String, urlSafe: true)
+        if (data == nil) {
+            data = Base64Utils.decode(base64String)
+        }
+        
+        if let data = data {
+            if let headerString = String(data: data.prefix(5), encoding: .ascii) {
+                return headerString == "%PDF-"
+            }
+        }
+
+	   return false
     }
 }
 

@@ -1302,6 +1302,9 @@
 		8325D8602CAADD18007224E9 /* StoreException.m in Sources */ = {isa = PBXBuildFile; fileRef = 8325D36F2CAADD16007224E9 /* StoreException.m */; };
 		8325D8612CAADD18007224E9 /* StringList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8325D3712CAADD16007224E9 /* StringList.m */; };
 		8325D8622CAADD18007224E9 /* Strings.m in Sources */ = {isa = PBXBuildFile; fileRef = 8325D3732CAADD16007224E9 /* Strings.m */; };
+		8326F2462D43863A00B5ED73 /* SendSuccessOperationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8326F2452D43863A00B5ED73 /* SendSuccessOperationUseCase.swift */; };
+		8326F2482D4386AF00B5ED73 /* HistoricalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8326F2472D4386AF00B5ED73 /* HistoricalCell.swift */; };
+		8326F24A2D4386C800B5ED73 /* HistoricalUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8326F2492D4386C800B5ED73 /* HistoricalUtils.swift */; };
 		833C1E112CA2B6F600DFF6CD /* PadesUtilsSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833C1E0E2CA2B6F600DFF6CD /* PadesUtilsSwift.swift */; };
 		833D30132CC9103500F510F8 /* InvalidAccessCodeException.m in Sources */ = {isa = PBXBuildFile; fileRef = 833D30122CC9103500F510F8 /* InvalidAccessCodeException.m */; };
 		833D30152CCA5D4B00F510F8 /* GenericBatchSignUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D30142CCA5D4B00F510F8 /* GenericBatchSignUseCase.swift */; };
@@ -4145,6 +4148,9 @@
 		8325D3712CAADD16007224E9 /* StringList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringList.m; sourceTree = "<group>"; };
 		8325D3722CAADD16007224E9 /* Strings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Strings.h; sourceTree = "<group>"; };
 		8325D3732CAADD16007224E9 /* Strings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Strings.m; sourceTree = "<group>"; };
+		8326F2452D43863A00B5ED73 /* SendSuccessOperationUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendSuccessOperationUseCase.swift; sourceTree = "<group>"; };
+		8326F2472D4386AF00B5ED73 /* HistoricalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoricalCell.swift; sourceTree = "<group>"; };
+		8326F2492D4386C800B5ED73 /* HistoricalUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoricalUtils.swift; sourceTree = "<group>"; };
 		833C1E0E2CA2B6F600DFF6CD /* PadesUtilsSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PadesUtilsSwift.swift; sourceTree = "<group>"; };
 		833D30112CC9103400F510F8 /* InvalidAccessCodeException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvalidAccessCodeException.h; sourceTree = "<group>"; };
 		833D30122CC9103500F510F8 /* InvalidAccessCodeException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvalidAccessCodeException.m; sourceTree = "<group>"; };
@@ -4630,6 +4636,7 @@
 		8309F6A52D0189CC00F15CD9 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
+				8326F2492D4386C800B5ED73 /* HistoricalUtils.swift */,
 				833C1E0E2CA2B6F600DFF6CD /* PadesUtilsSwift.swift */,
 				83144EA02C3FD97900CC38AB /* TextStyles.swift */,
 				83144EA22C3FDAE400CC38AB /* Color+Utils.swift */,
@@ -8548,6 +8555,7 @@
 		838114C22C51317100CDEC97 /* SwiftUseCase */ = {
 			isa = PBXGroup;
 			children = (
+				8326F2452D43863A00B5ED73 /* SendSuccessOperationUseCase.swift */,
 				A075F1FA2CEB322F005E1EDA /* SignUseCase */,
 				83DF46812C493C56000C3F31 /* ParseDataURLOperationUseCase.swift */,
 				83A5EDC52C53E2F600F93B6D /* SaveDataUseCase.swift */,
@@ -8946,6 +8954,7 @@
 		83C0EC9C2C41033A00244071 /* SettingsOptions */ = {
 			isa = PBXGroup;
 			children = (
+				8326F2472D4386AF00B5ED73 /* HistoricalCell.swift */,
 				83C0EC9D2C41034F00244071 /* LanguageView.swift */,
 				83C0EC9F2C41036D00244071 /* PermissionsView.swift */,
 				83C0ECA12C4103BC00244071 /* VersionView.swift */,
@@ -9652,6 +9661,7 @@
 				8325D4B52CAADD17007224E9 /* SignedData.m in Sources */,
 				8325D3FD2CAADD17007224E9 /* SubjectFacePhoto.m in Sources */,
 				8325D6E52CAADD18007224E9 /* Nat576.m in Sources */,
+				8326F24A2D4386C800B5ED73 /* HistoricalUtils.swift in Sources */,
 				8325D41A2CAADD17007224E9 /* Dnie3PinCwa14890Constants.m in Sources */,
 				8325D3C92CAADD17007224E9 /* Path.m in Sources */,
 				8325D7902CAADD18007224E9 /* SPHINCSPlusKeyGenerationParameters.m in Sources */,
@@ -10116,6 +10126,7 @@
 				8325D5792CAADD17007224E9 /* CertIOException.m in Sources */,
 				8325D4142CAADD17007224E9 /* TifCwa14890Constants.m in Sources */,
 				8325D3832CAADD17007224E9 /* GiDeRetriesLeftApduCommand.m in Sources */,
+				8326F2482D4386AF00B5ED73 /* HistoricalCell.swift in Sources */,
 				8325D84B2CAADD18007224E9 /* PemWriter.m in Sources */,
 				8325D3CA2CAADD17007224E9 /* PathLength.m in Sources */,
 				8325D6072CAADD18007224E9 /* DigestUpdatingOutputStream.m in Sources */,
@@ -10311,6 +10322,7 @@
 				8325D4702CAADD17007224E9 /* ApduConnection.m in Sources */,
 				8325D6DF2CAADD18007224E9 /* Nat224.m in Sources */,
 				83AF000F2CA2C95D00A26C0F /* NULL.c in Sources */,
+				8326F2462D43863A00B5ED73 /* SendSuccessOperationUseCase.swift in Sources */,
 				8325D8242CAADD18007224E9 /* IntegerFunctions.m in Sources */,
 				8352FF2F2C47C500003402CC /* HomeErrorView.swift in Sources */,
 				8325D5012CAADD17007224E9 /* ASN1BMPString.m in Sources */,

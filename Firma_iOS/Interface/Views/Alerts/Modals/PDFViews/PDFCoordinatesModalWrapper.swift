@@ -78,7 +78,7 @@ struct PDFCoordinatesModalWrapper: View {
 							 showPasswordPrompt = true
 							 loadPDFDocument()
 						  }) {
-							 AccessibleText(content: NSLocalizedString("textfield_modal_button_title", bundle: Bundle.main, comment: ""))
+							 AccessibleText(content: NSLocalizedString("accept_button_title", bundle: Bundle.main, comment: ""))
 						  }
 						  .buttonStyle(CustomButtonStyle(isEnabled: true))
 					   }
@@ -93,18 +93,32 @@ struct PDFCoordinatesModalWrapper: View {
 			 }
 
 			 HStack {
+				Button(action: goToFirstPage) {
+				    Image(systemName: "arrow.left.to.line")
+				}
+				.disabled(currentPageIndex <= 0)
+				.foregroundColor(currentPageIndex > 0 ? ColorConstants.Background.buttonEnabled : .gray)
+				
 				Button(action: goToPreviousPage) {
 				    Image(systemName: "chevron.left.circle")
 				}
 				.disabled(currentPageIndex <= 0)
+				.foregroundColor(currentPageIndex > 0 ? ColorConstants.Background.buttonEnabled : .gray)
 				
-				Text("\(currentPageIndex + 1) / \(totalPages)")
+				PageNumberView(currentPageIndex: currentPageIndex, totalPages: totalPages)
 				    .foregroundColor(.gray)
 				
 				Button(action: goToNextPage) {
 				    Image(systemName: "chevron.right.circle")
 				}
 				.disabled(currentPageIndex >= totalPages - 1)
+				.foregroundColor(currentPageIndex < totalPages - 1 ? ColorConstants.Background.buttonEnabled : .gray)
+				
+				Button(action: goToLastPage) {
+				    Image(systemName: "arrow.right.to.line")
+				}
+				.disabled(currentPageIndex >= totalPages - 1)
+				.foregroundColor(currentPageIndex < totalPages - 1 ? ColorConstants.Background.buttonEnabled : .gray)
 			 }
 			 .padding()
 			 .background(Color.white)
@@ -150,8 +164,17 @@ struct PDFCoordinatesModalWrapper: View {
 	   if let newDocument = PDFDocument(data: pdfData) {
 		  if newDocument.isEncrypted {
 			 if newDocument.unlock(withPassword: password) {
-				self.document = newDocument
-				self.showPasswordPrompt = false
+				if newDocument.allowsDocumentChanges {
+				    self.document = newDocument
+				    self.showPasswordPrompt = false
+				} else {
+				    self.showPasswordPrompt = true
+				    if isFirstTime {
+					   isFirstTime = false
+				    } else {
+					   self.showFieldError = true
+				    }
+				}
 			 } else {
 				self.showPasswordPrompt = true
 				if isFirstTime {
@@ -191,10 +214,27 @@ struct PDFCoordinatesModalWrapper: View {
 	   }
     }
     
+    private func goToFirstPage() {
+	   currentPageIndex = 0
+    }
+
+    private func goToLastPage() {
+	   currentPageIndex = totalPages - 1
+    }
+    
     private func resetAnnotations() {
 	   annotations.forEach { annotation in
 		  annotation.page?.removeAnnotation(annotation)
 	   }
 	   annotations.removeAll()
+    }
+}
+
+struct PageNumberView: View {
+    var currentPageIndex: Int
+    var totalPages: Int
+    
+    var body: some View {
+	   Text(String(format: NSLocalizedString("page_number", bundle: Bundle.main, comment: ""), currentPageIndex + 1, totalPages))
     }
 }

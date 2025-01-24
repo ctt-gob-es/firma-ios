@@ -12,6 +12,7 @@ import Combine
 struct HomeView: View {
     @EnvironmentObject private var appStatus: AppStatus
     @StateObject private var viewModel: HomeViewModel
+    @State private var contentSheetHeight: CGFloat = 0
     
     @Binding var shouldSign: Bool
     @Binding var viewMode: ViewModes
@@ -56,7 +57,7 @@ struct HomeView: View {
                      viewModel.certificateURL = url
                      viewModel.navigateToAddCertificate.toggle()
                  } else {
-                         appStatus.appError = AppError.certificateLoadingError
+                     appStatus.appError = AppError.certificateImportingError
                      appStatus.showErrorModal.toggle()
                  }
               }, onCancel: {
@@ -69,38 +70,31 @@ struct HomeView: View {
         .sheet(isPresented: $appStatus.showDeleteModal) {
            if let selectedCertificate = appStatus.selectedCertificate {
               DeleteCertificateModalView(
+                 contentHeight: $contentSheetHeight,
                  shouldReload: $viewModel.shouldReloadCertificates,
                  certificate: selectedCertificate
               )
-              .fixedSize(horizontal: false, vertical: true)
-              .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
-              .presentationDetents([.height(viewModel.sheetHeight)])
+              .presentationDetents([.height(contentSheetHeight)])
               .accessibility(addTraits: .isModal)
               .interactiveDismissDisabled(true)
            }
         }
         .sheet(isPresented: $viewModel.showPseudonymModal) {
-            CertificateInfoModalView(title: "pseudonym_modal_title", message: "pseudonym_modal_description", onContinue: {
+            CertificateInfoModalView(contentHeight: $contentSheetHeight, title: "pseudonym_modal_title", message: "pseudonym_modal_description", onContinue: {
                 viewModel.checkCertificateSelected(step: .pseudonymPass)})
-                .fixedSize(horizontal: false, vertical: true)
-                .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
-                .presentationDetents([.height(viewModel.sheetHeight)])
+                .presentationDetents([.height(contentSheetHeight)])
                 .accessibility(addTraits: .isModal)
                 .interactiveDismissDisabled(true)
         }
         .sheet(isPresented: $viewModel.showCertificateInfoModal) {
-            CertificateInfoModalView(title: viewModel.titleCertificateInfoModal, message: viewModel.messageCertificateInfoModal, onContinue: { viewModel.checkCertificateSelected(step: .expiredNearPass)})
-                .fixedSize(horizontal: false, vertical: true)
-                .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
-                .presentationDetents([.height(viewModel.sheetHeight)])
+            CertificateInfoModalView(contentHeight: $contentSheetHeight, title: viewModel.titleCertificateInfoModal, message: viewModel.messageCertificateInfoModal, onContinue: { viewModel.checkCertificateSelected(step: .expiredNearPass)})
+                .presentationDetents([.height(contentSheetHeight)])
                 .accessibility(addTraits: .isModal)
                 .interactiveDismissDisabled(true)
         }
 	   .sheet(isPresented: $viewModel.showTextfieldModal) {
-		  TextfieldModalView(password: $password, shouldCancelOperation: $shouldCancelOperation)
-			 .fixedSize(horizontal: false, vertical: true)
-			 .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
-			 .presentationDetents([.height(viewModel.sheetHeight)])
+		  TextfieldModalView(contentHeight: $contentSheetHeight, password: $password, shouldCancelOperation: $shouldCancelOperation)
+                .presentationDetents([.height(contentSheetHeight)])
 			 .accessibility(addTraits: .isModal)
 			 .interactiveDismissDisabled(true)
 	   }
@@ -116,9 +110,16 @@ struct HomeView: View {
 				    //There is no certificate in the app
                         viewModel.sendErrorOperation(error: AppError.certificateNeeded)
 				}
-				if let visibleSignature = viewModel.signModel?.visibleSignature {
-				    //We need to select the coordinates of the sign
-				    viewModel.showSignCoordinatesModal = true
+                    viewModel.signModel?.visibleSignature = .optional
+                    if let visibleSignature = viewModel.signModel?.visibleSignature, (visibleSignature == .optional || visibleSignature == .want) {
+                        //Check if the data is a PDF
+                        if let pdfData = viewModel.signModel?.datosInUse,
+                           FileUtils.isBase64StringPDF(pdfData) {
+                            //We need to select the coordinates of the sign
+                            viewModel.showSignCoordinatesModal = true
+                        } else{
+                            viewModel.sendErrorOperation(error: AppError.singingFileIsNotPDF)
+                        }
 				}
 			 }
 		  } else {
@@ -128,15 +129,32 @@ struct HomeView: View {
 		  }
 	   }) {
 		  SignModalView(
+                contentHeight: $contentSheetHeight,
 			 certificateSignAction: viewMode == .sign ? $appStatus.keepParentController : $appStatus.navigateToSelectCertificate,
 			 dniSignAction: $viewModel.selectDNIe
 		  )
-		  .fixedSize(horizontal: false, vertical: true)
-		  .modifier(GetHeightModifier(height: $viewModel.sheetHeight))
-		  .presentationDetents([.height(viewModel.sheetHeight)])
+		  .presentationDetents([.height(contentSheetHeight)])
 		  .accessibility(addTraits: .isModal)
 		  .interactiveDismissDisabled(true)
 	   }
+        .sheet(isPresented: $viewModel.showDocumentSavingPicker) {
+           if let url = viewModel.downloadedData {
+              DocumentSavingPicker(fileURL: url, onDismiss: { result in
+                 switch result {
+                     case .success(_):
+                        viewModel.successOperationSaveFile()
+                     case .failure(let error):
+                         if (error == .userOperationSaveCanceled){
+                             viewModel.cancelOperationSaveFile()
+                         } else {
+                             print("Error while saving the data, : " + error.localizedDescription)
+                             viewModel.sendErrorOperation(error: AppError.saveHistorySign)
+                         }
+                 }
+              })
+              .interactiveDismissDisabled(true)
+           }
+         }
 	   .fullScreenCover(isPresented: $viewModel.showSignCoordinatesModal, onDismiss: {
 		  if viewModel.annotations.isEmpty {
 			 viewModel.handleNotAnyCoordinatesSelected()

@@ -70,10 +70,10 @@ struct SettingsView: View {
 		  SettingsSection(
 			 header: NSLocalizedString("settings_general_info_title", bundle: Bundle.main, comment: ""),
 			 rows: [
-				SettingsRowItem(icon: "clock.arrow.circlepath", text: NSLocalizedString("settings_historical_row", bundle: Bundle.main, comment: ""), detailText: nil, destination: AnyView(HistoricalView())),
-				SettingsRowItem(icon: "accessibility", text: NSLocalizedString("settings_accesibility_info_row", bundle: Bundle.main, comment: ""), detailText: nil, destination: AnyView(WebView(urlString: NSLocalizedString("url_accessibility_statement", bundle: Bundle.main, comment: "")))),
-				SettingsRowItem(icon: "shield", text: NSLocalizedString("settings_legal_advice_row", bundle: Bundle.main, comment: ""), detailText: nil, destination: AnyView(WebView(urlString: NSLocalizedString("url_forja", bundle: Bundle.main, comment: "")))),
-				SettingsRowItem(icon: "lock", text: NSLocalizedString("settings_privacy_policy_row", bundle: Bundle.main, comment: ""), detailText: nil, destination: AnyView(WebView(urlString: NSLocalizedString("url_privacy_policy", bundle: Bundle.main, comment: "")))),
+				SettingsRowItem(icon: "clock", text: NSLocalizedString("settings_historical_row", bundle: Bundle.main, comment: ""), detailText: nil, destination: AnyView(HistoricalView())),
+                    SettingsRowItem(icon: "accessibility", text: NSLocalizedString("settings_accesibility_info_row", bundle: Bundle.main, comment: ""), detailText: nil, destination: AnyView(WebView(settingKey: .accesibility))),
+                    SettingsRowItem(icon: "shield", text: NSLocalizedString("settings_legal_advice_row", bundle: Bundle.main, comment: ""), detailText: nil, destination: AnyView(WebView(settingKey: .legal_advise))),
+                    SettingsRowItem(icon: "lock", text: NSLocalizedString("settings_privacy_policy_row", bundle: Bundle.main, comment: ""), detailText: nil, destination: AnyView(WebView(settingKey: .privacy_policy))),
                     SettingsRowItem(icon: "iphone", text:String(format: NSLocalizedString("settings_version_row", bundle: Bundle.main, comment: ""), Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""), detailText: nil, destination: AnyView(VersionView()))
 			 ]
 		  )

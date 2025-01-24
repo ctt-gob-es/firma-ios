@@ -130,11 +130,8 @@ extension View {
 			 viewModel.areCertificatesSelectable = false
 		  }
 		  .onReceive(NotificationCenter.default.publisher(for: .DNIeSuccess)) { resultBatch in
-			 viewModel.handleOpenReturnURL(success: true)
-			 viewModel.handleFinishSign()
-			 appStatus.isLoading = false
-			 appStatus.showSuccessModal = true
-			 appStatus.successModalState = .successSign
+                appStatus.isLoading = false
+                viewModel.handleOperationSuccess(successState: .successSign)
 		  }
 		  .onReceive(NotificationCenter.default.publisher(for: .ErrorModalCancelButtonAction)) { _ in
 			 viewModel.cancelOperation()

@@ -223,7 +223,7 @@ class GenericBatchSignUseCase: NSObject {
         
         let cipherKey = self.parametersBatch.cipherKey
         // Si llega la clave de cifrado, ciframos los datos. En caso contrario no es necesario
-        if true {
+        if !cipherKey.isEmpty {
             guard let cipherSign = DesCypher.cypherData(dataPostSign, sk: self.parametersBatch.cipherKey.data(using: .utf8)!) else {
                 sendError(appError: AppError.jsonBatchCipherSignError)
                 return nil
@@ -240,6 +240,7 @@ class GenericBatchSignUseCase: NSObject {
         // Si no llega clave de cifrado enviamos el json e base64 y el certificado, ambos sin cifrar
         guard let base64DataPostSign = Base64Utils.encode(dataPostSign, urlSafe: true) else {
             sendError(appError: AppError.jsonBatchCipherSignError)
+            return nil
         }
         return "\(base64DataPostSign)|\(certificateData)"
     }

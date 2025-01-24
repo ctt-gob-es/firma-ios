@@ -9,7 +9,6 @@
 import Foundation
 
 class SendErrorOperationUseCase {
-    
     func execute (error: AppError, signModel: SignModel?) {
         if let signModel = signModel {
             IntermediateServerRest().storeDataError(error: error, stServlet: signModel.urlServlet!, docId: signModel.docId!) { result in

@@ -64,9 +64,11 @@ class NFCViewModel: NSObject, ObservableObject {
 				    let history = HistoryModel(
 					   date: Date(),
 					   signType: self.signType ?? .external,
-					   externalApp: self.signModel.appname,
 					   dataType: self.dataType ?? .external,
-					   filename: FileUtils.getArchiveNameFromParameters(parameters: self.parameters)
+					   externalApp: self.signModel.appname,
+                            filename: self.signModel.filename,
+					   returnURL: self.signModel.returnURL,
+					   operation: self.signModel.operation
 				    )
 				    HistoricalUseCase().saveHistory(history: history) { result in
 					   let modalState = SuccessModalState.successSign
@@ -102,10 +104,21 @@ class NFCViewModel: NSObject, ObservableObject {
 		  self.dniBatchSignUseCase?.signBatch(dataOperation: swiftDictionary, completion: { result in
                 switch result {
                 case .success(let resultBatch):
-                    let successModalState = self.getSuccessModal(resultBatch)
-                    self.dniBatchSignUseCase?.invalidateSessionManually(withAlertMessage: successModalState.description)
-                    DispatchQueue.main.async {
-                       NotificationCenter.default.post(name: .DNIeSuccess, object: successModalState)
+                    let history = HistoryModel(
+                       date: Date(),
+                       signType: self.signType ?? .external,
+                       dataType: self.dataType ?? .external,
+                       externalApp: self.signModel.appname,
+                       filename: nil,
+                       returnURL: self.signModel.returnURL,
+                       operation: self.signModel.operation
+                    )
+                    HistoricalUseCase().saveHistory(history: history) { result in
+                        let successModalState = self.getSuccessModal(resultBatch)
+                        self.dniBatchSignUseCase?.invalidateSessionManually(withAlertMessage: successModalState.description)
+                        DispatchQueue.main.async {
+                           NotificationCenter.default.post(name: .DNIeSuccess, object: successModalState)
+                        }
                     }
                 case .failure(let appError):
                     self.dniBatchSignUseCase?.invalidateSessionManually(withAlertMessage: appError.screenType.title)

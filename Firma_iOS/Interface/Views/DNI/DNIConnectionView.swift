@@ -13,12 +13,13 @@ struct DNIConnectionView: View {
     @EnvironmentObject private var appStatus : AppStatus
     @Environment(\.presentationMode) var presentationMode
     @Binding var isPresented: Bool
+    
+    @State private var contentSheetHeight: CGFloat = 0
     @State var step: DNIConnectionSteps = .canStep
     @State var buttonEnabled: Bool = false
     @State var showFieldError: Bool = false
     @State var isSearching: Bool = false
-    @State private var sheetHeight: CGFloat = .zero
-    @State var can: String = PrivateConstants.can
+    @State var can: String = UserDefaults.standard.string(forKey: "can") ?? ""
     @State var pin: String = PrivateConstants.pin
     @State var signModel: SignModel
     @State var parameters: NSMutableDictionary?
@@ -64,12 +65,25 @@ struct DNIConnectionView: View {
 		  setupNFCObservation()
 	   }
 	   .dismissKeyboardOnTap()
+	   .navigationBarBackButtonHidden(true)
 	   .navigationBarItems(trailing: HStack(spacing: 4) {
 		  NavigationBarButton(imageName: "cross_gray", action: {
 			 DispatchQueue.main.async {
                     NotificationCenter.default.post(name: .ErrorModalCancelButtonAction, object: nil, userInfo: nil)
-                    nfcViewModel?.sendError(error: AppError.userOperationCanceled)
                 }
+		  })
+	   }
+		  .padding(.bottom, 4)
+	   )
+	   .navigationBarItems(leading: HStack(spacing: 4) {
+		  NavigationBarButton(imageName: "backbutton", action: {
+			 if step == .canStep {
+				isPresented = false
+			 } else if step == .pinStep {
+				step = .canStep
+			 } else if step == .nfcStep {
+				step = .pinStep
+			 }
 		  })
 	   }
 		  .padding(.bottom, 4)
@@ -77,11 +91,10 @@ struct DNIConnectionView: View {
 	   .sheet(isPresented: $isSearching) {
 		  if let nfcViewModel = nfcViewModel {
 			 FindDNIModalView(
+                    contentHeight:$contentSheetHeight,
 				model: nfcViewModel
 			 )
-			 .fixedSize(horizontal: false, vertical: true)
-			 .modifier(GetHeightModifier(height: $sheetHeight))
-			 .presentationDetents([.height(sheetHeight)])
+			 .presentationDetents([.height(contentSheetHeight)])
 			 .accessibility(addTraits: .isModal)
 			 .interactiveDismissDisabled(true)
 			 .onAppear() {
@@ -108,10 +121,8 @@ struct DNIConnectionView: View {
 		  }
 	   }
 	   .sheet(isPresented: $showTextfieldModal) {
-		  TextfieldModalView(password: $password, shouldCancelOperation: $shouldCancelOperation)
-			 .fixedSize(horizontal: false, vertical: true)
-			 .modifier(GetHeightModifier(height: $sheetHeight))
-			 .presentationDetents([.height(sheetHeight)])
+            TextfieldModalView(contentHeight:$contentSheetHeight, password: $password, shouldCancelOperation: $shouldCancelOperation)
+			 .presentationDetents([.height(contentSheetHeight)])
 			 .accessibility(addTraits: .isModal)
 			 .interactiveDismissDisabled(true)
 			 .onAppear() {
@@ -130,9 +141,11 @@ struct DNIConnectionView: View {
 		  if $0 {
 			 DispatchQueue.main.async {
  				NotificationCenter.default.post(name: .ErrorModalCancelButtonAction, object: nil, userInfo: nil)
-				nfcViewModel?.sendError(error: AppError.userOperationCanceled)
 			 }
 		  }
+	   }
+	   .onChange(of: can) { newValue in
+		  UserDefaults.standard.set(newValue, forKey: "can")
 	   }
 	   .onReceive(NotificationCenter.default.publisher(for: .DNIeError)) { notification in
 		  appStatus.isLoading = false

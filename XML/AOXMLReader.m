@@ -70,6 +70,10 @@ NSDictionary *attributeDictionary;
             if([key isEqualToString:PARAMETER_NAME_BATCH_JSON]){
                 currentEntidad.batchjson = [attributeDictionary valueForKey:@"v"];
             }
+            
+            if([key isEqualToString:PARAMETER_NAME_FILENAME]){
+                currentEntidad.filename = [attributeDictionary valueForKey:@"v"];
+            }
         }
 	}
 }
