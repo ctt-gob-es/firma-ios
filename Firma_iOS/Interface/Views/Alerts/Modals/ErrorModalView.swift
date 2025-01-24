@@ -99,6 +99,9 @@ struct ErrorModalView: View {
                                 if (appError == AppError.certificateImportingError) {
                                     appStatus.showDocumentPicker = true
                                 }
+                                if (appError == AppError.selectedFileIsNotPDF) {
+                                    appStatus.showDocumentImportingPicker = true
+                                }
                                 self.presentationMode.wrappedValue.dismiss()
                             }) {
                                 if let buttonTitle = appError.screenType.bottomButtonTitle {

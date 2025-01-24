@@ -4564,6 +4564,86 @@
         }
       }
     },
+    "file_not_pdf_title" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El fitxer no és un PDF"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The file is not a PDF"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El fichero no es un PDF"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fitxategia ez da PDF bat"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O ficheiro non é un PDF"
+          }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El fitxer no és un PDF"
+          }
+        }
+      }
+    },
+    "file_not_pdf_description" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per poder realitzar aquesta operació cal seleccionar un fitxer PDF"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To perform this operation, you must select a PDF file"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para poder realizar esta operación es necesario seleccionar un fichero PDF"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eragiketa hau egiteko beharrezkoa da PDF fitxategi bat hautatzea"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para realizar esta operación é necesario seleccionar un ficheiro PDF"
+          }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per a poder realitzar esta operació és necessari seleccionar un fitxer PDF"
+          }
+        }
+      }
+    },
     "find_dni_view_description" : {
       "localizations" : {
         "ca" : {

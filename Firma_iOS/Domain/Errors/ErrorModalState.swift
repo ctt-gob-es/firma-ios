@@ -26,6 +26,8 @@ enum ErrorModalState {
     case dniIncorrectCan
     case dniExpired
     
+    case fileSelectedNoPDF
+    
     case globalError
     case trackingError
     
@@ -83,6 +85,8 @@ enum ErrorModalState {
 			 return NSLocalizedString("user_cancelled_error_title", bundle: Bundle.main, comment: "")
             case .userCancelledSave:
                 return NSLocalizedString("user_cancelled_save_error_title", bundle: Bundle.main, comment: "")
+            case .fileSelectedNoPDF:
+                return NSLocalizedString("file_not_pdf_title", bundle: Bundle.main, comment: "")
 	   }
     }
     
@@ -134,6 +138,8 @@ enum ErrorModalState {
 			 return NSLocalizedString("user_cancelled_error_description", bundle: Bundle.main, comment: "")
             case .userCancelledSave:
                 return NSLocalizedString("user_cancelled_save_error_description", bundle: Bundle.main, comment: "")
+            case .fileSelectedNoPDF:
+                return NSLocalizedString("file_not_pdf_description", bundle: Bundle.main, comment: "")
 	   }
     }
     
@@ -141,9 +147,9 @@ enum ErrorModalState {
 	   switch self {
 		  case .certificateNeeded, .certificateNotImported, .dataNotImported:
 			 return "cross"
-        case .certificateGenericError, .certificateGenericErrorLong, .dniReadingError, .dniCanceledSession, .dniReadingErrorLong, .dniTimeoutError, .dniBroken, .dniBlockedPin, .dniIncorrectPin, .dniIncorrectCan, .dniExpired, .jailbreakError, .userCancelled, .userCancelledSave:
+            case .certificateGenericError, .certificateGenericErrorLong, .dniReadingError, .dniCanceledSession, .dniReadingErrorLong, .dniTimeoutError, .dniBroken, .dniBlockedPin, .dniIncorrectPin, .dniIncorrectCan, .dniExpired, .jailbreakError, .userCancelled, .userCancelledSave:
 			 return "warning"
-		  case .certificateExpired, .certificateRevoked, .certificateNearExpiry, .globalError, .trackingError:
+            case .certificateExpired, .certificateRevoked, .certificateNearExpiry, .globalError, .trackingError, .fileSelectedNoPDF:
 			 return "info_red"
 		  case .updateError:
 			 return "reload"
@@ -154,16 +160,16 @@ enum ErrorModalState {
 	   switch self {
 		  case .certificateGenericError, .certificateGenericErrorLong, .certificateExpired, .certificateRevoked, .certificateNearExpiry:
 			 return true
-        case .certificateNeeded, .dniReadingError, .dniBroken, .dniReadingErrorLong, .dniTimeoutError, .dniBlockedPin, .dniIncorrectPin, .dniIncorrectCan, .dniExpired, .globalError, .trackingError, .jailbreakError, .updateError, .certificateNotImported, .dataNotImported, .userCancelled, .userCancelledSave, .dniCanceledSession:
+        case .certificateNeeded, .dniReadingError, .dniBroken, .dniReadingErrorLong, .dniTimeoutError, .dniBlockedPin, .dniIncorrectPin, .dniIncorrectCan, .dniExpired, .globalError, .trackingError, .jailbreakError, .updateError, .certificateNotImported, .dataNotImported, .userCancelled, .userCancelledSave, .dniCanceledSession, .fileSelectedNoPDF:
 			 return false
 	   }
     }
     
     var hasCancelButton: Bool {
 	   switch self {
-		  case .certificateNeeded, .certificateGenericError, .certificateGenericErrorLong, .certificateExpired, .certificateRevoked, .certificateNearExpiry, .dniIncorrectPin, .globalError, .trackingError, .jailbreakError, .updateError, .userCancelled, .userCancelledSave, .dniCanceledSession:
+        case .certificateNeeded, .certificateGenericError, .certificateGenericErrorLong, .certificateExpired, .certificateRevoked, .certificateNearExpiry, .dniIncorrectPin, .globalError, .trackingError, .jailbreakError, .updateError, .userCancelled, .userCancelledSave, .dniCanceledSession:
 			 return false
-		  case .dniReadingError, .dniBroken, .dniReadingErrorLong, .dniTimeoutError, .dniBlockedPin,.dniIncorrectCan, .dniExpired, .certificateNotImported, .dataNotImported:
+		  case .dniReadingError, .dniBroken, .dniReadingErrorLong, .dniTimeoutError, .dniBlockedPin,.dniIncorrectCan, .dniExpired, .certificateNotImported, .dataNotImported, .fileSelectedNoPDF:
 			 return true
 	   }
     }
@@ -174,7 +180,7 @@ enum ErrorModalState {
 			 return NSLocalizedString("generic_error_button_title", bundle: Bundle.main, comment: "")
 		  case .certificateExpired, .certificateRevoked, .certificateNearExpiry, .userCancelled, .userCancelledSave, .certificateNeeded:
 			 return NSLocalizedString("accept_button_title", bundle: Bundle.main, comment: "")
-            case .dniReadingError, .dniBroken, .dniReadingErrorLong, .dniTimeoutError, .dniBlockedPin,.dniIncorrectCan, .dniExpired, .certificateNotImported, .dataNotImported,   .dniCanceledSession:
+            case .dniReadingError, .dniBroken, .dniReadingErrorLong, .dniTimeoutError, .dniBlockedPin,.dniIncorrectCan, .dniExpired, .certificateNotImported, .dataNotImported, .dniCanceledSession, .fileSelectedNoPDF:
 			 return NSLocalizedString("retry_button_title", bundle: Bundle.main, comment: "")
 		  case .globalError, .trackingError, .updateError, .jailbreakError:
 			 return nil
