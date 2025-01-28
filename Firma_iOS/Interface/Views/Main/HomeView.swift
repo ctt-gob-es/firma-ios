@@ -110,7 +110,7 @@ struct HomeView: View {
 				    //There is no certificate in the app
                         viewModel.sendErrorOperation(error: AppError.certificateNeeded)
 				}
-                    viewModel.signModel?.visibleSignature = .optional
+                    
                     if let visibleSignature = viewModel.signModel?.visibleSignature, (visibleSignature == .optional || visibleSignature == .want) {
                         //Check if the data is a PDF
                         if let pdfData = viewModel.signModel?.datosInUse,
@@ -118,7 +118,7 @@ struct HomeView: View {
                             //We need to select the coordinates of the sign
                             viewModel.showSignCoordinatesModal = true
                         } else{
-                            viewModel.sendErrorOperation(error: AppError.singingFileIsNotPDF)
+                            viewModel.sendErrorOperation(error: AppError.receivedFileIsNotPDF)
                         }
 				}
 			 }

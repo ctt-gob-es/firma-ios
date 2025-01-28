@@ -199,9 +199,19 @@ class HomeViewModel: ObservableObject {
         LoadDataLocalFileUseCase().execute(urlFile: value, signModel: signModel) {result in
             switch result {
             case .success(let (filename, stringData)):
+                self.isLoading = false
+                
+                // Si tenemos firma visible opcional o requerida comprobamos que sea un PDF
+                if let visibleSignature = self.signModel?.visibleSignature, (visibleSignature == .optional || visibleSignature == .want) {
+                    //Check if the data is a PDF
+                    if !FileUtils.isBase64StringPDF(stringData) {
+                        self.appStatus.appError = AppError.selectedFileIsNotPDF
+                        self.appStatus.showErrorModal = true
+                        return
+                    }
+                }
                 self.signModel?.datosInUse = stringData
                 self.signModel?.filename = filename
-                self.isLoading = false
                 self.selectSignMode()
             case .failure(let error):
                 self.showError(appError: error)

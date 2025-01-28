@@ -153,7 +153,8 @@ extension AppError {
     static let signingLoadLocalFile = AppError.internalSoftware(200102, "Error al cargar el fichero local para realizar la firma")
     static let generatePK1Certificate = AppError.internalSoftware(200103, "Error realizando la firma del fichero con certificado")
     static let generatePK1DNIe = AppError.internalSoftware(200104, "Error realizando la firma del fichero con DNIe")
-    static let singingFileIsNotPDF = AppError.internalSoftware(200106, "Error realizando la firma, el fichero a firmar no es un PDF", .globalError)
+    static let selectedFileIsNotPDF = AppError.internalSoftware(200106, "El usuario selecciono un documento no PDF sobre el que realizar una firma PAdES", .fileSelectedNoPDF)
+    static let receivedFileIsNotPDF = AppError.internalSoftware(200107, "No es posible hacer firma PAdES sobre datos no PDF", .globalError)
     
     // 2002XX: Operación de selección de certificados
     static let certificateSelectionCipherCertificateError = AppError.internalSoftware(200200, "Error al cifrar el certificado para enviarlo al servidor intermedio")
