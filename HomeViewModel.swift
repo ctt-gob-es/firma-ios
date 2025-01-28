@@ -141,6 +141,7 @@ class HomeViewModel: ObservableObject {
 	   self.isLocalSign = true
 	   self.signModel = SignModel(dictionary: NSMutableDictionary())
 	   self.signModel?.operation = OPERATION_SIGN
+	   self.signModel?.visibleSignature = .want
 	   self.signUseCase = SingleSignUseCase(signModel: signModel!, certificateUtils: certificateUtils)
 	   chooseButtonTitle()
 	   appStatus.showDocumentImportingPicker = true
@@ -723,5 +724,8 @@ class HomeViewModel: ObservableObject {
 	   self.selectDNIe = false
 	   self.viewMode = .home
 	   self.areCertificatesSelectable = false
+	   self.appStatus.keepParentController = false
+	   self.appStatus.selectedCertificate = nil
+	   self.annotations = []
     }
 }
