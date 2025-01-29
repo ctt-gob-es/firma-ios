@@ -11,6 +11,7 @@ import Foundation
 enum VisibleSignatureType: String {
     case want = "want"
     case optional = "optional"
+    case none = "none"
 }
 
 class SignModel {

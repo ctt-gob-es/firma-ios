@@ -141,7 +141,7 @@ class HomeViewModel: ObservableObject {
 	   self.isLocalSign = true
 	   self.signModel = SignModel(dictionary: NSMutableDictionary())
 	   self.signModel?.operation = OPERATION_SIGN
-	   self.signModel?.visibleSignature = .want
+	   self.signModel?.visibleSignature = UserDefaults.standard.bool(forKey: "isSignatureVisible") ? .want : VisibleSignatureType.none
 	   self.signUseCase = SingleSignUseCase(signModel: signModel!, certificateUtils: certificateUtils)
 	   chooseButtonTitle()
 	   appStatus.showDocumentImportingPicker = true
@@ -162,7 +162,9 @@ class HomeViewModel: ObservableObject {
     func handleSignModeChange() {
 	   areCertificatesSelectable = false
 	   DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-		  self.showSignCoordinatesModal = true
+		  if self.signModel?.visibleSignature != VisibleSignatureType.none {
+			 self.showSignCoordinatesModal = true
+		  }
 		  self.areCertificatesSelectable = true
 	   }
     }
@@ -188,7 +190,7 @@ class HomeViewModel: ObservableObject {
 		  } else {
 			 areCertificatesSelectable = true
 			 signMode = .electronicCertificate
-			 if (self.signModel?.visibleSignature) != nil {
+			 if (self.signModel?.visibleSignature != VisibleSignatureType.none) {
 				self.showSignCoordinatesModal = true
 			 }
 		  }
@@ -203,7 +205,7 @@ class HomeViewModel: ObservableObject {
                 self.isLoading = false
                 
                 // Si tenemos firma visible opcional o requerida comprobamos que sea un PDF
-                if let visibleSignature = self.signModel?.visibleSignature, (visibleSignature == .optional || visibleSignature == .want) {
+                if let visibleSignature = self.signModel?.visibleSignature, (visibleSignature == .optional || visibleSignature == .want || visibleSignature == .none) {
                     //Check if the data is a PDF
                     if !FileUtils.isBase64StringPDF(stringData) {
                         self.appStatus.appError = AppError.selectedFileIsNotPDF
@@ -536,14 +538,15 @@ class HomeViewModel: ObservableObject {
 		  let certificateName = certificateUtils?.selectedCertificateName,
 		  let identity = SwiftCertificateUtils.getIdentityFromKeychain(certName: certificateName),
 		  let certificateRef = SwiftCertificateUtils.getCertificateRefFromIdentity(identity: identity),
-		  let certificateAlgorithm = SwiftCertificateUtils.getAlgorithmFromCertificate(certificate: certificateRef),
-		  let extraParams = signModel?.dictExtraParams,
-		  let stringDict: [String: String] = extraParams as? [String:String] else {
+		  let certificateAlgorithm = SwiftCertificateUtils.getAlgorithmFromCertificate(certificate: certificateRef) else {
 		  print("Missing required data for signing")
             showError(appError: AppError.generalSoftwareError)
 		  isLoading = false
 		  return
 	   }
+	   
+	   let extraParams = signModel?.dictExtraParams
+	   let stringDict: [String: String]? = extraParams as? [String:String]
 	   
 	   let swiftPadesUtils = PadesUtilsSwift()
 	   swiftPadesUtils.signPdf(

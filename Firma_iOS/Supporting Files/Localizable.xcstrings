@@ -4564,46 +4564,6 @@
         }
       }
     },
-    "file_not_pdf_title" : {
-      "localizations" : {
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El fitxer no és un PDF"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The file is not a PDF"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El fichero no es un PDF"
-          }
-        },
-        "eu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fitxategia ez da PDF bat"
-          }
-        },
-        "gl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "O ficheiro non é un PDF"
-          }
-        },
-        "va" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El fitxer no és un PDF"
-          }
-        }
-      }
-    },
     "file_not_pdf_description" : {
       "localizations" : {
         "ca" : {
@@ -4640,6 +4600,46 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Per a poder realitzar esta operació és necessari seleccionar un fitxer PDF"
+          }
+        }
+      }
+    },
+    "file_not_pdf_title" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El fitxer no és un PDF"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The file is not a PDF"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El fichero no es un PDF"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fitxategia ez da PDF bat"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O ficheiro non é un PDF"
+          }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El fitxer no és un PDF"
           }
         }
       }
@@ -8372,6 +8372,86 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Permetre l'ús de DNIe per NFC"
+          }
+        }
+      }
+    },
+    "permissions_obfuscate_identifiers" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ofuscar identificadors d'usuari a les signatures"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obfuscate user identifiers in signatures"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ofuscar identificadores de usuario en las firmas"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erabiltzaile-identifikatzaileak sinaduretan ezkutatu"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ofuscar identificadores de usuario nas sinaturas"
+          }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ofuscar identificadors d'usuari a les signatures"
+          }
+        }
+      }
+    },
+    "permissions_signature_visible" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fer visible la signatura"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Make signature visible"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hacer firma visible"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sinadura ikusgai jarri"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Facer a sinatura visible"
+          }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fer visible la signatura"
           }
         }
       }

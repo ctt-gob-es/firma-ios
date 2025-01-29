@@ -11,14 +11,15 @@ import SwiftUI
 struct PermissionsView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var isNfcEnabled: Bool = true
+    @State private var isSignatureVisible: Bool = false
+    @State private var obfuscateUserIdentifiers: Bool = true
     @State private var showToast = false
     
     var body: some View {
-	   ZStack {
 		  VStack {
-			 Form {
+			 List {
 				Section {
-				    VStack {
+				    VStack(alignment: .leading) {
 					   Toggle(isOn: $isNfcEnabled) {
 						  AccessibleText(content: NSLocalizedString("permissions_nfc_description", bundle: Bundle.main, comment: ""))
 							 .regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
@@ -26,16 +27,36 @@ struct PermissionsView: View {
 					   .toggleStyle(CustomToggleStyle())
 					   
 					   Divider()
+					   
+					   Toggle(isOn: $isSignatureVisible) {
+						  AccessibleText(content: NSLocalizedString("permissions_signature_visible", bundle: Bundle.main, comment: ""))
+							 .regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
+					   }
+					   .toggleStyle(CustomToggleStyle())
+					   
+					   Divider()
+					   
+					   Toggle(isOn: $obfuscateUserIdentifiers) {
+						  AccessibleText(content: NSLocalizedString("permissions_obfuscate_identifiers", bundle: Bundle.main, comment: ""))
+							 .regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
+					   }
+					   .toggleStyle(CustomToggleStyle())
+					   
+					   Divider()
 				    }
 				}
+				.frame(maxWidth: .infinity)
 			 }
-			 .background(Color.white)
 			 .scrollContentBackground(.hidden)
+			 .frame(maxWidth: .infinity)
 			 
 			 Spacer()
 			 
 			 Button(action: {
 				UserDefaults.standard.set(isNfcEnabled, forKey: "isNfcEnabled")
+				UserDefaults.standard.set(isSignatureVisible, forKey: "isSignatureVisible")
+				UserDefaults.standard.set(obfuscateUserIdentifiers, forKey: "obfuscateUserIdentifiers")
+				
 				showToast = true
 				
 				DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
@@ -48,14 +69,13 @@ struct PermissionsView: View {
 			 .buttonStyle(CustomButtonStyle(isEnabled: true))
 			 .padding(.bottom, 20)
 		  }
+		  .frame(maxWidth: .infinity)
 		  .background(Color.white.edgesIgnoringSafeArea(.all))
 		  .navigationBarTitle(NSLocalizedString("permissions_title", bundle: Bundle.main, comment: ""), displayMode: .inline)
 		  .onAppear {
-			 if let savedValue = UserDefaults.standard.object(forKey: "isNfcEnabled") as? Bool {
-				isNfcEnabled = savedValue
-			 } else {
-				isNfcEnabled = true
-			 }
+			 isNfcEnabled = UserDefaults.standard.object(forKey: "isNfcEnabled") as? Bool ?? true
+			 isSignatureVisible = UserDefaults.standard.object(forKey: "isSignatureVisible") as? Bool ?? true
+			 obfuscateUserIdentifiers = UserDefaults.standard.object(forKey: "obfuscateUserIdentifiers") as? Bool ?? false
 		  }
 		  
 		  if showToast {
@@ -65,12 +85,11 @@ struct PermissionsView: View {
 				.padding(.bottom, 50)
 		  }
 	   }
-    }
 }
 
 struct CustomToggleStyle: ToggleStyle {
     func makeBody(configuration: Configuration) -> some View {
-	   HStack {
+	   HStack(spacing: 0) {
 		  configuration.label
 		  Spacer()
 		  Rectangle()
