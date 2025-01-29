@@ -102,21 +102,27 @@
  */
 +(NSDictionary*) parseUrl:(NSString*) urlString {
     urlString =  [self decodeFromPercentEscapeString:urlString];
-    NSString* webStringURL = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]];
-    NSURL * url = [NSURL URLWithString:webStringURL];
+    NSURL * url = [NSURL URLWithString:urlString];
     NSArray *listItems = [[url query] componentsSeparatedByString:@"&"];
     NSMutableDictionary *keyValues = [NSMutableDictionary dictionaryWithCapacity:listItems.count];
+    
     for (NSString *item in listItems) {
 	   NSRange range = [item rangeOfString:@"="];
-	   NSString *parte1 = [item substringToIndex:range.location];
-	   NSString *parte2 = [item substringFromIndex:range.location+1];//le sumamos 1 para que no coja el "="
-	   //omitimos el parámetro "op" ya no se va a usar
-	   if(![parte1 isEqualToString:PARAMETER_NAME_OPERATION])
-		  [keyValues setObject:parte2 forKey:parte1];
+	   
+	   if (range.location != NSNotFound) {
+		  NSString *parte1 = [item substringToIndex:range.location];
+		  NSString *parte2 = [item substringFromIndex:range.location + 1];
+		  NSString *parte2Decode = [parte2 stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]];
+		  
+		  if (![parte1 isEqualToString:PARAMETER_NAME_OPERATION]) {
+			 [keyValues setObject:parte2Decode forKey:parte1];
+		  }
+	   }
     }
+    
     //if([keyValues objectForKey:PARAMETER_NAME_OPERATION]!=NULL)
     if([url host] != NULL)
-	   [keyValues setObject:[url host] forKey:PARAMETER_NAME_OPERATION];
+	  [keyValues setObject:[url host] forKey:PARAMETER_NAME_OPERATION];
     return keyValues;
 }
 
