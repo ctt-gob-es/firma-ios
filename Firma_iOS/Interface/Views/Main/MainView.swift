@@ -142,7 +142,7 @@ struct MainView: View {
 	   // Check if its PADES sign to allow only PDF selection or any Data
 	   .fileImporter(
 		  isPresented: $appStatus.showDocumentImportingPicker,
-		  allowedContentTypes: appStatus.signFormat == PADES_FORMAT || appStatus.signFormat == PADES_TRI_FORMAT ? [.pdf] : [.data],
+            allowedContentTypes: appStatus.signFormat == PADES_FORMAT || appStatus.signFormat == PADES_TRI_FORMAT || appStatus.signFormat == ADOBE_PDF_FORMAT ? [.pdf] : [.data],
 		  allowsMultipleSelection: false,
 		  onCompletion: handleFileImport,
 		  onCancellation: handleFileImportCancellation

@@ -141,6 +141,7 @@ class HomeViewModel: ObservableObject {
 	   self.isLocalSign = true
 	   self.signModel = SignModel(dictionary: NSMutableDictionary())
 	   self.signModel?.operation = OPERATION_SIGN
+	   self.signModel?.signFormat = PADES_FORMAT
 	   self.signModel?.visibleSignature = UserDefaults.standard.bool(forKey: "isSignatureVisible") ? .want : VisibleSignatureType.none
 	   self.signUseCase = SingleSignUseCase(signModel: signModel!, certificateUtils: certificateUtils)
 	   chooseButtonTitle()
@@ -162,7 +163,7 @@ class HomeViewModel: ObservableObject {
     func handleSignModeChange() {
 	   areCertificatesSelectable = false
 	   DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-		  if self.signModel?.visibleSignature != VisibleSignatureType.none {
+		  if self.signModel?.isSignatureCoordinatesRequired() ?? false{
 			 self.showSignCoordinatesModal = true
 		  }
 		  self.areCertificatesSelectable = true
@@ -187,14 +188,14 @@ class HomeViewModel: ObservableObject {
 	   } else {
 		  if certificates.isEmpty {
 			 sendErrorOperation(error: AppError.certificateNeeded)
-		  } else {
-			 areCertificatesSelectable = true
-			 signMode = .electronicCertificate
-			 if (self.signModel?.visibleSignature != VisibleSignatureType.none) {
-				self.showSignCoordinatesModal = true
-			 }
-		  }
-	   }
+            } else {
+                areCertificatesSelectable = true
+                signMode = .electronicCertificate
+                if self.signModel?.isSignatureCoordinatesRequired() ?? false {
+                    self.showSignCoordinatesModal = true
+                }
+            }
+        }
     }
     
     func handleImportedDataURLsChange(_ value: [URL]?) {
@@ -204,8 +205,8 @@ class HomeViewModel: ObservableObject {
             case .success(let (filename, stringData)):
                 self.isLoading = false
                 
-                // Si tenemos firma visible opcional o requerida comprobamos que sea un PDF
-                if let visibleSignature = self.signModel?.visibleSignature, (visibleSignature == .optional || visibleSignature == .want || visibleSignature == .none) {
+                // Si tenemos firma visible opcional o requerida y es una firma PDF comprobamos que el formatp sea PDF
+                if self.signModel?.isSignatureCoordinatesRequired() ?? false {
                     //Check if the data is a PDF
                     if !FileUtils.isBase64StringPDF(stringData) {
                         self.appStatus.appError = AppError.selectedFileIsNotPDF
@@ -724,9 +725,9 @@ class HomeViewModel: ObservableObject {
     
     func handleNotAnyCoordinatesSelected() {
         // Si no se meten coordenadas y es obligatoria la firma se cancela la operacion
-        if let visibleSignature = signModel?.visibleSignature, visibleSignature == .want {
-            cancelOperation()
-        }
+	   if signModel?.isSignatureCoordinatesMandatory() ?? false {
+		  cancelOperation()
+	   }
     }
     
     func resetHomeViewModelVariables() {

@@ -106,4 +106,16 @@ class SignModel {
 		  }
 	   }
     }
+    
+    func isSignatureCoordinatesRequired() -> Bool {
+        return ((signFormat == PADES_FORMAT || signFormat == PADES_TRI_FORMAT || signFormat == ADOBE_PDF_FORMAT) && (visibleSignature == .want || visibleSignature == .optional))
+    }
+    
+    func isSignatureCoordinatesMandatory() -> Bool {
+	   if visibleSignature == .want {
+		  return true
+	   } else {
+		  return false
+	   }
+    }
 }
