@@ -78,6 +78,7 @@ NSString *const CADES_TRI_FORMAT = @"CAdEStri";
 NSString *const PADES_TRI_FORMAT = @"PAdEStri";
 NSString *const XADES_TRI_FORMAT = @"XAdEStri";
 NSString *const PADES_FORMAT = @"PAdES";
+NSString *const ADOBE_PDF_FORMAT = @"Adobe%2520PDF"; // antiguo formato PADES
 NSString *const XADES_FORMAT = @"XAdES";
 NSString *const NONE_FORMAT = @"NONE";
 NSString *const NONE_TRI_FORMAT = @"NONEtri";

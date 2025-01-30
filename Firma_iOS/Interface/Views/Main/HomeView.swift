@@ -111,7 +111,7 @@ struct HomeView: View {
                         viewModel.sendErrorOperation(error: AppError.certificateNeeded)
 				}
                     
-                    if let visibleSignature = viewModel.signModel?.visibleSignature, (visibleSignature == .optional || visibleSignature == .want) {
+                    if viewModel.signModel?.isSignatureCoordinatesRequired() ?? false {
                         //Check if the data is a PDF
                         if let pdfData = viewModel.signModel?.datosInUse,
                            FileUtils.isBase64StringPDF(pdfData) {

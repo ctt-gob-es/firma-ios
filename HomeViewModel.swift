@@ -174,7 +174,7 @@ class HomeViewModel: ObservableObject {
             } else {
                 areCertificatesSelectable = true
                 signMode = .electronicCertificate
-                if let visibleSignature = self.signModel?.visibleSignature {
+                if self.signModel?.isSignatureCoordinatesRequired() ?? false {
                     self.showSignCoordinatesModal = true
                 }
             }
@@ -188,8 +188,8 @@ class HomeViewModel: ObservableObject {
             case .success(let (filename, stringData)):
                 self.isLoading = false
                 
-                // Si tenemos firma visible opcional o requerida comprobamos que sea un PDF
-                if let visibleSignature = self.signModel?.visibleSignature, (visibleSignature == .optional || visibleSignature == .want) {
+                // Si tenemos firma visible opcional o requerida y es una firma PDF comprobamos que el formatp sea PDF
+                if self.signModel?.isSignatureCoordinatesRequired() ?? false {
                     //Check if the data is a PDF
                     if !FileUtils.isBase64StringPDF(stringData) {
                         self.appStatus.appError = AppError.selectedFileIsNotPDF
