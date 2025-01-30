@@ -21,10 +21,7 @@ class PDFCoordinateUtils {
 		  "signaturePages": "\(annotation.page?.pageRef?.pageNumber ?? 1)"
 	   ]
 	   
-	   if obfuscateUserIdentifiers {
-		  extraParams["obfuscateCertText"] = "true"
-		  extraParams["obfuscationMask"] = "#;3;false,false,true,true,false;true"
-	   }
+	   extraParams["obfuscateCertText"] = obfuscateUserIdentifiers ? "true" : "false"
 	   
 	   signModel.updateExtraParams(dict: extraParams)
     }
