@@ -98,6 +98,13 @@ struct HomeView: View {
 			 .accessibility(addTraits: .isModal)
 			 .interactiveDismissDisabled(true)
 	   }
+        .fileImporter(
+            isPresented: $appStatus.showDocumentImportingPicker,
+            allowedContentTypes: viewModel.signModel?.signFormat == PADES_FORMAT || viewModel.signModel?.signFormat == PADES_TRI_FORMAT || viewModel.signModel?.signFormat == ADOBE_PDF_FORMAT ? [.pdf] : [.data],
+           allowsMultipleSelection: false,
+           onCompletion: handleFileImport,
+           onCancellation: viewModel.cancelOperation
+        )
 	   .sheet(isPresented: $viewModel.showSelectSignMode,
 			onDismiss: {
 		  if viewMode == .sign {
@@ -260,5 +267,17 @@ struct HomeView: View {
 	   }
 	   .buttonStyle(CustomButtonStyle(isEnabled: viewModel.buttonEnabled ?? false))
     }
+    
+    private func handleFileImport(result: Result<[URL], Error>) {
+        switch result {
+            case .success(let urls):
+                viewModel.handleImportedDataURLsChange(urls)
+            case .failure(_):
+                appStatus.showErrorModal = true
+                appStatus.appError = AppError.fileLoadingLocalFile
+        }
+    }
+    
+    
 }
 

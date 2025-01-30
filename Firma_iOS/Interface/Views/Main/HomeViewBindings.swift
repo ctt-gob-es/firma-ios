@@ -45,8 +45,8 @@ extension View {
     
     private func applyViewModeBindings(viewModel: HomeViewModel, viewMode: Binding<ViewModes>) -> some View {
 	   self
-		  .onChange(of: viewModel.viewMode) { viewMode.wrappedValue = $0 ?? .home }
-		  .onChange(of: viewModel.selectDNIe) { newValue in
+		  .onChange(of: viewModel.viewMode) {  _, newValue in viewMode.wrappedValue = newValue ?? .home }
+		  .onChange(of: viewModel.selectDNIe) { _, newValue in
 			 if newValue == true {
 				viewModel.signMode = .idCard
 			 }
@@ -57,22 +57,21 @@ extension View {
     
     private func applyStatusBindings(viewModel: HomeViewModel, appStatus: AppStatus) -> some View {
 	   self
-		  .onChange(of: appStatus.selectedCertificate, perform: viewModel.handleCertificateChange)
-		  .onChange(of: appStatus.importedDataURLS, perform: viewModel.handleImportedDataURLsChange)
-		  .onChange(of: viewModel.isLoading) { appStatus.isLoading = $0 ?? false }
-		  .onChange(of: appStatus.keepParentController) { newValue in
+            .onChange(of: appStatus.selectedCertificate) { _, newValue in viewModel.handleCertificateChange(newValue) }
+		  .onChange(of: viewModel.isLoading) { _, newValue in appStatus.isLoading = newValue ?? false }
+            .onChange(of: appStatus.keepParentController) { _, newValue in
 			 if newValue {
 				viewModel.signMode = .electronicCertificate
 				viewModel.areCertificatesSelectable = true
 			 }
 		  }
-		  .onChange(of: viewModel.annotations) {
-			 if $0.count > 0 {
-				viewModel.handleCoordinatesSelection(annotation: $0[0])
+		  .onChange(of: viewModel.annotations) { _, newValue in
+			 if newValue.count > 0 {
+				viewModel.handleCoordinatesSelection(annotation: newValue[0])
 			 }
 		  }
-		  .onChange(of: viewModel.password) {
-			 viewModel.handlePasswordEncryption(password: $0)
+		  .onChange(of: viewModel.password) { _, newValue in
+			 viewModel.handlePasswordEncryption(password: newValue)
 		  }
     }
     
@@ -80,12 +79,11 @@ extension View {
     
     private func applyModalBindings(viewModel: HomeViewModel, appStatus: AppStatus) -> some View {
 	   self
-		  .onChange(of: viewModel.appError) { appStatus.appError = $0 ?? AppError.generalSoftwareError }
-		  .onChange(of: viewModel.successModalState) { appStatus.successModalState = $0 ?? .successSign }
-		  .onChange(of: viewModel.showErrorModal) { appStatus.showErrorModal = $0 ?? false }
-		  .onChange(of: viewModel.showSuccessModal) { appStatus.showSuccessModal = $0 ?? false }
-		  .onChange(of: viewModel.showDocumentImportingPicker) { appStatus.showDocumentImportingPicker = $0 ?? false }
-		  .onChange(of: viewModel.showSignCoordinatesModal) { appStatus.showSignCoordinatesModal = $0 ?? false }
+		  .onChange(of: viewModel.appError) {_, newValue in appStatus.appError = newValue ?? AppError.generalSoftwareError }
+		  .onChange(of: viewModel.successModalState) {_, newValue in appStatus.successModalState = newValue ?? .successSign }
+		  .onChange(of: viewModel.showErrorModal) {_, newValue in appStatus.showErrorModal = newValue ?? false }
+		  .onChange(of: viewModel.showSuccessModal) {_, newValue in appStatus.showSuccessModal = newValue ?? false }
+		  .onChange(of: viewModel.showSignCoordinatesModal) {_, newValue in appStatus.showSignCoordinatesModal = newValue }
     }
     
     // MARK: - Action Bindings
@@ -99,29 +97,29 @@ extension View {
 	   password: Binding<String>
     ) -> some View {
 	   self
-            .onChange(of: viewModel.shouldReloadCertificates, perform: viewModel.getCertificates)
-		  .onChange(of: shouldSign.wrappedValue, perform: viewModel.handleShouldSignChange)
-		  .onChange(of: shouldCancelOperation.wrappedValue) {
-			 if $0 == true {
+            .onChange(of: viewModel.shouldReloadCertificates) {_, newValue in viewModel.getCertificates(newValue) }
+            .onChange(of: shouldSign.wrappedValue) {_, newValue in viewModel.handleShouldSignChange(newValue) }
+		  .onChange(of: shouldCancelOperation.wrappedValue) { _, newValue in
+			 if newValue {
 				viewModel.viewMode = .home
 				viewModel.areCertificatesSelectable = false
 				appStatus.showErrorModal = true
 				appStatus.appError = AppError.userOperationCanceled
 			 }
 		  }
-		  .onChange(of: shouldSendStopSign.wrappedValue) {
-			 if $0 == true {
+		  .onChange(of: shouldSendStopSign.wrappedValue) { _, newValue in
+			 if newValue == true {
 				viewModel.cancelOperation()
 			 }
 		  }
-		  .onChange(of: viewModel.showTextfieldModal) { newValue in
+		  .onChange(of: viewModel.showTextfieldModal) { _, newValue in
 			 if !newValue {
 				if password.wrappedValue != "" {
 				    viewModel.signModel?.updateExtraParams(dict: ["ownerPassword": password.wrappedValue])
 				}
 			 }
 		  }
-		  .onChange(of: viewModel.shouldCancel) { newValue in
+		  .onChange(of: viewModel.shouldCancel) {_, newValue in
 			 viewModel.areCertificatesSelectable = false
 		  }
 		  .onReceive(NotificationCenter.default.publisher(for: .DNIeSuccess)) { resultBatch in

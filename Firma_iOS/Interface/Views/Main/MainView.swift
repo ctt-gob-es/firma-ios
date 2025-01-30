@@ -138,15 +138,6 @@ struct MainView: View {
 	   .navigationBarColor(UIColor(ColorConstants.Background.main), titleColor: .black)
 	   .environment(\.managedObjectContext, persistenceController.context)
 	   .onDisappear(perform: onDisappear)
-	   //TODO: USE UIKIT SELECTOR for iOS 16
-	   // Check if its PADES sign to allow only PDF selection or any Data
-	   .fileImporter(
-		  isPresented: $appStatus.showDocumentImportingPicker,
-            allowedContentTypes: appStatus.signFormat == PADES_FORMAT || appStatus.signFormat == PADES_TRI_FORMAT || appStatus.signFormat == ADOBE_PDF_FORMAT ? [.pdf] : [.data],
-		  allowsMultipleSelection: false,
-		  onCompletion: handleFileImport,
-		  onCancellation: handleFileImportCancellation
-	   )
 	   .sheet(isPresented: $appStatus.showingInfoModal) {
 		  InfoModalView(contentHeight: $contentSheetHeight)
 			 .presentationDetents([.height(contentSheetHeight)])
@@ -189,25 +180,6 @@ struct MainView: View {
     
     private func onDisappear() {}
     
-    private func handleFileImport(result: Result<[URL], Error>) {
-	   switch result {
-		  case .success(let urls):
-			 appStatus.importedDataURLS = urls
-		  case .failure(let error):
-			 print("File import failed with error: \(error.localizedDescription)")
-			 handleErrorImportingFile(error: error)
-	   }
-    }
     
-    private func handleFileImportCancellation() {
-	   appStatus.showErrorModal = true
-	   appStatus.appError = AppError.userOperationCanceled
-	   viewModel.cancelSign()
-    }
-    
-    func handleErrorImportingFile(error: Error) {
-	   appStatus.showErrorModal = true
-	   appStatus.appError = AppError.fileLoadingLocalFile
-    }
 
 }

@@ -24,7 +24,6 @@ class AppStatus: ObservableObject {
     @Published var appError: AppError?
     
     @Published var selectedCertificate: AOCertificateInfo? = nil
-    @Published var importedDataURLS: [URL]? = nil
     @Published var shouldUseNFC: Bool? = false
     @Published var languageHasChanged: Bool? = false
     @Published var updateNeeded: Bool = false
@@ -35,8 +34,7 @@ class AppStatus: ObservableObject {
     
     @Published var userIDCAN: String? = nil
     @Published var userIDPIN: String? = nil
-    
-    @Published var signFormat: String? = nil
+
     
     var errorPublisher = PassthroughSubject<String, Never>()
 }
