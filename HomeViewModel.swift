@@ -545,7 +545,14 @@ class HomeViewModel: ObservableObject {
 		  return
 	   }
 	   
-	   let extraParams = signModel?.dictExtraParams
+	   var extraParams = signModel?.dictExtraParams
+	   let isPseudonym = certificateUtils?.isPseudonymCertificate(SwiftCertificateUtils.getIdentityFromKeychain(certName: certificateName)) ?? false
+	   let layer2Text = isPseudonym
+		  ? "Firmado por $$PSEUDONYM$$ - $$OU$$ el día $$SIGNDATE=dd/MM/yyyy$$ con un certificado emitido por $$ISSUERCN$$"
+		  : "Firmado por $$SUBJECTCN$$ el día $$SIGNDATE=dd/MM/yyyy$$ con un certificado emitido por $$ISSUERCN$$"
+
+	   extraParams?["layer2Text"] = layer2Text
+	   
 	   let stringDict: [String: String]? = extraParams as? [String:String]
 	   
 	   let swiftPadesUtils = PadesUtilsSwift()

@@ -42,7 +42,7 @@ struct SignModalView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .onTapGesture {
                             self.presentationMode.wrappedValue.dismiss()
-                            certificateSignAction.toggle()
+                            certificateSignAction = true
                         }
                         
                         HStack {
@@ -55,7 +55,7 @@ struct SignModalView: View {
                         .onTapGesture {
                             if isNfcEnabled {
                                 self.presentationMode.wrappedValue.dismiss()
-                                dniSignAction.toggle()
+                                dniSignAction = true
                             }
                         }
                         .disabled(!isNfcEnabled)
