@@ -458,7 +458,7 @@ class HomeViewModel: ObservableObject {
         }
     }
     
-    private func handleOperationSaveData() {
+    func handleOperationSaveData() {
         if let receivedStringData = signModel?.datosInUse {
 		  let archiveName: String
 		  if isLocalSign {

@@ -11,6 +11,7 @@ import CoreNFC
 
 extension Notification.Name {
     static let DNIeSuccess = Notification.Name("DNIeSuccess")
+    static let DNIeSuccessLocalSign = Notification.Name("DNIeSuccessLocalSign")
     static let DNIeError = Notification.Name("DNIeError")
 }
 

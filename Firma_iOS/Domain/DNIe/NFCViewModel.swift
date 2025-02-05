@@ -170,7 +170,7 @@ class NFCViewModel: NSObject, ObservableObject {
 					   let modalState = SuccessModalState.successSign
 					   self.dniLocalSignUseCase?.invalidateSessionManually(withAlertMessage: modalState.description)
 					   DispatchQueue.main.async {
-						  NotificationCenter.default.post(name: .DNIeSuccess, object: modalState)
+						  NotificationCenter.default.post(name: .DNIeSuccessLocalSign, object: modalState)
 					   }
 				    }
 				}

@@ -131,6 +131,11 @@ extension View {
                 appStatus.isLoading = false
                 viewModel.handleOperationSuccess(successState: .successSign)
 		  }
+		  .onReceive(NotificationCenter.default.publisher(for: .DNIeSuccessLocalSign)) { resultBatch in
+			 appStatus.isLoading = false
+			 viewModel.handleOperationSaveData()
+			 viewModel.resetHomeViewModelVariables()
+		  }
 		  .onReceive(NotificationCenter.default.publisher(for: .ErrorModalCancelButtonAction)) { _ in
 			 viewModel.cancelOperation()
 			 appStatus.isLoading = false

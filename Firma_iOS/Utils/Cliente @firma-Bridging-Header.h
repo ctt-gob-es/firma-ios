@@ -69,3 +69,5 @@
 //FRAMEWORKS
 #import <PAdESSignature/PKCS1DecoderUtils.h>
 #import <PAdESSignature/PAdESSignatureUtils.h>
+#import <PAdESSignature/PresignResponse.h>
+#import <PAdESSignature/PostsignResponse.h>

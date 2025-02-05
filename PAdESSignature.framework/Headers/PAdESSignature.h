@@ -17,3 +17,5 @@ FOUNDATION_EXPORT const unsigned char PAdESSignatureVersionString[];
 
 #import <PAdESSignature/PAdESSignatureUtils.h>
 #import <PAdESSignature/PKCS1DecoderUtils.h>
+#import <PAdESSignature/PresignResponse.h>
+#import <PAdESSignature/PostsignResponse.h>

@@ -22,15 +22,23 @@
 		</data>
 		<key>Headers/PAdESSignature.h</key>
 		<data>
-		qndMM+HXDyvtMFdbiD3brreq+OI=
+		d4D5OKYRcAqHpET3bQMyuQ9M74E=
 		</data>
 		<key>Headers/PAdESSignatureUtils.h</key>
 		<data>
-		YSfGOAqMnMXz6i7ZPOlrKCKOsLU=
+		z4UrZU/QJMtTFfLORa23Jhbv5U0=
 		</data>
 		<key>Headers/PKCS1DecoderUtils.h</key>
 		<data>
 		cUBUxL6yPNTJ6kXNproiN2/lxLU=
+		</data>
+		<key>Headers/PostsignResponse.h</key>
+		<data>
+		Wp+MrG9sBaYq4iBhdm9ifJjr08U=
+		</data>
+		<key>Headers/PresignResponse.h</key>
+		<data>
+		zBQhn4Hwsv7RhsfW1jA5qYwIPQc=
 		</data>
 		<key>Helvetica-Bold.afm</key>
 		<data>
@@ -50,7 +58,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		NNcRR9kGCfyH40VU00bNGXC2iVw=
+		tQQ6YINoFChuTITsALmtOPJiTbk=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -135,22 +143,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			qndMM+HXDyvtMFdbiD3brreq+OI=
+			d4D5OKYRcAqHpET3bQMyuQ9M74E=
 			</data>
 			<key>hash2</key>
 			<data>
-			zlPtnwqaOYE5woiowz7qgil/Jv5/Z/5UY49JO/a9dQc=
+			EXLvnz6uhQ35Mxps4MdVL8YSUqoZ0j7i5/58LAllaiA=
 			</data>
 		</dict>
 		<key>Headers/PAdESSignatureUtils.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			YSfGOAqMnMXz6i7ZPOlrKCKOsLU=
+			z4UrZU/QJMtTFfLORa23Jhbv5U0=
 			</data>
 			<key>hash2</key>
 			<data>
-			wQnjiLrNkulBnuaaZETELPLXBS1hXcMK1zYB05mGDYY=
+			ssqya39x6mPwUIaX9laciDoE1JFnSqaxGAydfADlJ/M=
 			</data>
 		</dict>
 		<key>Headers/PKCS1DecoderUtils.h</key>
@@ -162,6 +170,28 @@
 			<key>hash2</key>
 			<data>
 			lPRVtOBc0r4zc3kWo4RzoAB9WlgGHPaEb5swc/uyQjM=
+			</data>
+		</dict>
+		<key>Headers/PostsignResponse.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Wp+MrG9sBaYq4iBhdm9ifJjr08U=
+			</data>
+			<key>hash2</key>
+			<data>
+			MzqwPKqhMC8pHRrqeeJDn1gZph9fVqk3Sl1kFki61Vs=
+			</data>
+		</dict>
+		<key>Headers/PresignResponse.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			zBQhn4Hwsv7RhsfW1jA5qYwIPQc=
+			</data>
+			<key>hash2</key>
+			<data>
+			XtbtoBTg57JKuVEXGFcPtAaHGxKMzvhpyLP/2yPqcWg=
 			</data>
 		</dict>
 		<key>Helvetica-Bold.afm</key>

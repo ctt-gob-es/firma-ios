@@ -24,8 +24,7 @@
 		83092A662D141E9900275A0D /* Helvetica-BoldOblique.afm in Resources */ = {isa = PBXBuildFile; fileRef = 83092A572D141E9900275A0D /* Helvetica-BoldOblique.afm */; };
 		83092A672D141E9900275A0D /* Courier-Bold.afm in Resources */ = {isa = PBXBuildFile; fileRef = 83092A582D141E9900275A0D /* Courier-Bold.afm */; };
 		83092A682D141E9900275A0D /* Times-Roman.afm in Resources */ = {isa = PBXBuildFile; fileRef = 83092A592D141E9900275A0D /* Times-Roman.afm */; };
-		8309A7852D0C58840045FD1E /* PAdESSignature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8309A7832D0C58640045FD1E /* PAdESSignature.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		8309A7862D0C58840045FD1E /* PAdESSignature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8309A7832D0C58640045FD1E /* PAdESSignature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8309A7852D0C58840045FD1E /* PAdESSignature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8309A7832D0C58640045FD1E /* PAdESSignature.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		8309F69F2D009CB900F15CD9 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 8309F69E2D009CB900F15CD9 /* InfoPlist.xcstrings */; };
 		8309F6A12D009CB900F15CD9 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 8309F6A02D009CB900F15CD9 /* Localizable.xcstrings */; };
 		8309F6A42D0185A000F15CD9 /* UIFont+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8309F6A32D0185A000F15CD9 /* UIFont+Utils.m */; };
@@ -1578,7 +1577,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8309A7862D0C58840045FD1E /* PAdESSignature.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 1;
