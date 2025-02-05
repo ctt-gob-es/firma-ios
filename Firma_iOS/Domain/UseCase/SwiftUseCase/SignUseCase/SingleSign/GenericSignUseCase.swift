@@ -360,34 +360,6 @@ class GenericSignUseCase {
             }
     }
     
-    
-    /*func loadCertificateAndRetrieveValues(
-	   certName: String,
-	   password: String,
-	   fromDocument: Bool,
-	   completion: @escaping (String?, SecKey?) -> Void
-    ) {
-	   DispatchQueue.global(qos: .background).async {
-		  self.certificateUtils?.selectedCertificateName = certName
-		  let status = self.certificateUtils?.loadCertKeyChain(withName: certName, password: password, fromDocument: fromDocument)
-		  
-		  guard status == errSecSuccess else {
-			 print("Failed to load certificate with status: \(status ?? -1)")
-			 DispatchQueue.main.async {
-				completion(nil, nil)
-			 }
-			 return
-		  }
-		  
-		  let base64UrlSafeCertificateData = self.certificateUtils?.base64UrlSafeCertificateData
-		  let privateKey = self.certificateUtils?.privateKey
-		  
-		  DispatchQueue.main.async {
-			 completion(base64UrlSafeCertificateData, privateKey)
-		  }
-	   }
-    }*/
-    
     private func sendError(error: AppError) {
         guard let urlServlet = signModel.urlServlet,
              let docId = signModel.docId else {

@@ -21,6 +21,7 @@ class HomeViewModel: ObservableObject {
     @Published var isLoading: Bool? = false
     @Published var signUseCase: GenericSignUseCase? = nil
     @Published var batchSignUseCase: GenericBatchSignUseCase? = nil
+    @Published var localSignUseCase: GenericLocalSignUseCase? = nil
     @Published var certificateUtils: CertificateUtils? = nil
     @Published var signModel: SignModel? = nil
     @Published var parameters: NSMutableDictionary? = [:]
@@ -67,6 +68,7 @@ class HomeViewModel: ObservableObject {
          isLoading: Bool? = false,
          signUseCase: GenericSignUseCase? = nil,
          batchSignUseCase: GenericBatchSignUseCase? = nil,
+	    localSignUseCase: GenericLocalSignUseCase? = nil,
          certificateUtils: CertificateUtils? = nil,
          signModel: SignModel? = nil,
          parameters: NSMutableDictionary? = [:],
@@ -82,6 +84,7 @@ class HomeViewModel: ObservableObject {
         self.isLoading = isLoading
         self.signUseCase = signUseCase
         self.batchSignUseCase = batchSignUseCase
+	   self.localSignUseCase = localSignUseCase
         self.certificateUtils = certificateUtils
         self.signModel = signModel
         self.parameters = parameters
@@ -143,7 +146,6 @@ class HomeViewModel: ObservableObject {
 	   self.signModel?.operation = OPERATION_SIGN
 	   self.signModel?.signFormat = PADES_FORMAT
 	   self.signModel?.visibleSignature = UserDefaults.standard.bool(forKey: "isSignatureVisible") ? .want : VisibleSignatureType.none
-	   self.signUseCase = SingleSignUseCase(signModel: signModel!, certificateUtils: certificateUtils)
 	   chooseButtonTitle()
 	   appStatus.showDocumentImportingPicker = true
     }
@@ -409,38 +411,7 @@ class HomeViewModel: ObservableObject {
         if isLocalSign {
             signLocalPdf()
         } else {
-            guard let signModel = self.signModel else { return }
-            self.signUseCase = SingleSignUseCase(signModel: signModel, certificateUtils: certificateUtils)
-            self.signUseCase?.singleSign { result in
-                DispatchQueue.main.async {
-                    self.isLoading = false
-                    
-                    switch result {
-                    case .success(let shouldRetry):
-                        if shouldRetry {
-                            self.showTextfieldModal = true
-                        } else {
-                            let history = HistoryModel(
-                                date: Date(),
-                                signType: self.signType ?? .external,
-						  dataType: self.dataType ?? .external,
-						  externalApp: self.signModel?.appname,
-                                filename: self.signModel?.filename,
-						  returnURL: self.signModel?.returnURL,
-						  operation: self.signModel?.operation
-					   )
-					   
-                            HistoricalUseCase().saveHistory(history: history) { result in
-                                // Independientemente del resultado del guardado en historico, mostramos que la firma ha sido correcta
-                                self.handleOperationSuccess(successState: .successSign)
-                            }
-                        }
-                        
-                    case .failure(let error):
-                        self.handleOperationError(appError: error)
-                    }
-                }
-            }
+		  signWeb()
         }
     }
     
@@ -531,66 +502,70 @@ class HomeViewModel: ObservableObject {
         }
     }
     
-    func signLocalPdf() {
-	   guard
-		  let stringBase64Data = signModel?.datosInUse,
-		  let pdfData = Base64Utils.decode(stringBase64Data, urlSafe: true),
-		  let privateKeyRef = certificateUtils?.privateKey,
-		  let certificateName = certificateUtils?.selectedCertificateName,
-		  let identity = SwiftCertificateUtils.getIdentityFromKeychain(certName: certificateName),
-		  let certificateRef = SwiftCertificateUtils.getCertificateRefFromIdentity(identity: identity),
-		  let certificateAlgorithm = SwiftCertificateUtils.getAlgorithmFromCertificate(certificate: certificateRef) else {
-		  print("Missing required data for signing")
-            showError(appError: AppError.generalSoftwareError)
-		  isLoading = false
-		  return
-	   }
-	   
-	   var extraParams = signModel?.dictExtraParams
-	   let isPseudonym = certificateUtils?.isPseudonymCertificate(SwiftCertificateUtils.getIdentityFromKeychain(certName: certificateName)) ?? false
-	   let layer2Text = isPseudonym
-		  ? "Firmado por $$PSEUDONYM$$ - $$OU$$ el día $$SIGNDATE=dd/MM/yyyy$$ con un certificado emitido por $$ISSUERCN$$"
-		  : "Firmado por $$SUBJECTCN$$ el día $$SIGNDATE=dd/MM/yyyy$$ con un certificado emitido por $$ISSUERCN$$"
-
-	   extraParams?["layer2Text"] = layer2Text
-	   
-	   let stringDict: [String: String]? = extraParams as? [String:String]
-	   
-	   let swiftPadesUtils = PadesUtilsSwift()
-	   swiftPadesUtils.signPdf(
-		  pdfData: pdfData,
-		  signAlgorithm: nil,
-		  privateKey: privateKeyRef,
-		  certificateRef: certificateRef,
-		  certificateAlgorithm: certificateAlgorithm,
-		  extraParams: stringDict
-	   ) { result in
-            switch result {
-            case .success(let signedPDF):
-			 let history = HistoryModel(
-				date: Date(),
-				signType: self.isLocalSign ? .local : (self.signType ?? .external),
-				dataType: self.isLocalSign ? .local : (self.dataType ?? .external),
-				externalApp: self.signModel?.appname,
-				filename: self.signModel?.filename,
-				returnURL: self.signModel?.returnURL,
-				operation: self.signModel?.operation
-			 )
+    private func signWeb() {
+	   guard let signModel = self.signModel else { return }
+	   self.signUseCase = SingleSignUseCase(signModel: signModel, certificateUtils: certificateUtils)
+	   self.signUseCase?.singleSign { result in
+		  DispatchQueue.main.async {
+			 self.isLoading = false
 			 
-			 HistoricalUseCase().saveHistory(history: history) { result in
-				// Independientemente del resultado del guardado en historico, mostramos que la firma ha sido correcta
-				self.isLoading = false
-				self.appStatus.showDocumentSavingPicker = true
-				self.signModel?.datosInUse = signedPDF
-				self.handleOperationSaveData()
-				self.resetHomeViewModelVariables()
+			 switch result {
+			 case .success(let shouldRetry):
+				if shouldRetry {
+				    self.showTextfieldModal = true
+				} else {
+				    let history = HistoryModel(
+					   date: Date(),
+					   signType: self.signType ?? .external,
+					   dataType: self.dataType ?? .external,
+					   externalApp: self.signModel?.appname,
+					   filename: self.signModel?.filename,
+					   returnURL: self.signModel?.returnURL,
+					   operation: self.signModel?.operation
+				    )
+				    
+				    HistoricalUseCase().saveHistory(history: history) { result in
+					   // Independientemente del resultado del guardado en historico, mostramos que la firma ha sido correcta
+					   self.handleOperationSuccess(successState: .successSign)
+				    }
+				}
+				
+			 case .failure(let error):
+				self.handleOperationError(appError: error)
 			 }
-
-            case.failure(let error):
-                // Al ser firma local no necesitamos enviar error al servidor
-                self.showError(appError: error)
-            }
+		  }
 	   }
+    }
+    
+    private func signLocalPdf() {
+	   guard let signModel = self.signModel else { return }
+	   self.localSignUseCase = CertificateLocalSignUseCase(signModel: signModel, certificateUtils: certificateUtils)
+	   self.localSignUseCase?.executeSign(completion: { result in
+		  switch result {
+			 case .success(_):
+				let history = HistoryModel(
+				    date: Date(),
+				    signType: .local,
+				    dataType: .local,
+				    externalApp: self.signModel?.appname,
+				    filename: self.signModel?.filename,
+				    returnURL: self.signModel?.returnURL,
+				    operation: self.signModel?.operation
+				)
+				
+				HistoricalUseCase().saveHistory(history: history) { result in
+				    // Independientemente del resultado del guardado en historico, mostramos que la firma ha sido correcta
+				    self.isLoading = false
+				    self.appStatus.showDocumentSavingPicker = true
+				    self.handleOperationSaveData()
+				    self.resetHomeViewModelVariables()
+				    
+				}
+
+			 case .failure(let error):
+				self.showError(appError: error)
+		  }
+	   })
     }
     
     private func showCertificateInfoModal(title: String, message: String) {

@@ -24,32 +24,44 @@ class NFCViewModel: NSObject, ObservableObject {
     
     private var dniSingleSignUseCase: DNISingleSignUseCase?
     private var dniBatchSignUseCase: DNIeBatchSignUseCase?
+    private var dniLocalSignUseCase: DNILocalSignUseCase?
     
     init(can: String,
 	    pin: String,
 	    signModel: SignModel,
-	    parameters: NSMutableDictionary? = nil
+	    parameters: NSMutableDictionary? = nil,
+	    signType: SignType
     ) {
 	   self.can = can
 	   self.pin = pin
 	   self.signModel = signModel
 	   self.parameters = parameters
+	   self.signType = signType
     }
     
     func signWithDNIe() {
-        if signModel.operation == OPERATION_SIGN || signModel.operation == OPERATION_COSIGN || signModel.operation == OPERATION_COUNTERSIGN {
-		  self.dniSingleSignUseCase = DNISingleSignUseCase(
+	   if signType == .local {
+		  self.dniLocalSignUseCase = DNILocalSignUseCase(
 			 can: can,
 			 pin: pin,
 			 signModel: signModel
 		  )
-		  singleSignWithDNIe()
-	   } else if signModel.operation == OPERATION_BATCH {
-		  self.dniBatchSignUseCase = DNIeBatchSignUseCase(
-			 can: can,
-			 pin: pin
-		  )
-		  batchSignWithDNIe()
+		  localSignWithDNIe()
+	   } else {
+		  if signModel.operation == OPERATION_SIGN || signModel.operation == OPERATION_COSIGN || signModel.operation == OPERATION_COUNTERSIGN {
+			 self.dniSingleSignUseCase = DNISingleSignUseCase(
+				can: can,
+				pin: pin,
+				signModel: signModel
+			 )
+			 singleSignWithDNIe()
+		  } else if signModel.operation == OPERATION_BATCH {
+			 self.dniBatchSignUseCase = DNIeBatchSignUseCase(
+				can: can,
+				pin: pin
+			 )
+			 batchSignWithDNIe()
+		  }
 	   }
     }
     
@@ -135,6 +147,45 @@ class NFCViewModel: NSObject, ObservableObject {
 			 
 		  })
 	   }
+    }
+    
+    private func localSignWithDNIe() {
+	   self.dniLocalSignUseCase?.executeSign(completion: { result in
+		  switch result {
+			 case .success(let shouldRetry):
+				if shouldRetry {
+				    self.showTextfieldModal = true
+				    self.dniLocalSignUseCase?.invalidateSessionManually(withErrorMessage: NSLocalizedString("textfield_modal_description",bundle: Bundle.main, comment: ""))
+				} else {
+				    let history = HistoryModel(
+					   date: Date(),
+					   signType: self.signType ?? .local,
+					   dataType: self.dataType ?? .local,
+					   externalApp: self.signModel.appname,
+					   filename: self.signModel.filename,
+					   returnURL: self.signModel.returnURL,
+					   operation: self.signModel.operation
+				    )
+				    HistoricalUseCase().saveHistory(history: history) { result in
+					   let modalState = SuccessModalState.successSign
+					   self.dniLocalSignUseCase?.invalidateSessionManually(withAlertMessage: modalState.description)
+					   DispatchQueue.main.async {
+						  NotificationCenter.default.post(name: .DNIeSuccess, object: modalState)
+					   }
+				    }
+				}
+			 case .failure(let appError):
+				self.dniLocalSignUseCase?.invalidateSessionManually(withErrorMessage: appError.screenType.title)
+
+				DispatchQueue.main.async {
+				    NotificationCenter.default.post(
+					   name: .DNIeError,
+					   object: nil,
+					   userInfo: ["error": appError]
+				    )
+				}
+		  }
+	   })
     }
     
     private func getSuccessModal(_ resultBatch: BatchResult) -> SuccessModalState {

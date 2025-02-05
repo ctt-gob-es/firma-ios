@@ -21,7 +21,7 @@ class PadesUtilsSwift {
     ) {
 	   DispatchQueue.global(qos: .userInitiated).async {
 		  let utils = PAdESSignatureUtils()
-
+		  
 		  utils.signPdf(
 			 with: pdfData,
 			 signAlgorithm: signAlgorithm,
@@ -36,7 +36,7 @@ class PadesUtilsSwift {
 				} else if let result = result {
 				    completion(.success(result))
 				} else {
-                        let unknownError = AppError.generalSoftwareError
+				    let unknownError = AppError.generalSoftwareError
 				    completion(.failure(unknownError))
 				}
 			 }

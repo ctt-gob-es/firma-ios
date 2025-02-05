@@ -35,8 +35,8 @@ class HistoricalRepository: HistoricalRepositoryProtocol {
 
 	   do {
 		  try context.save()
-		  //completion(.success(()))
-            completion(.failure(AppError.saveHistorySign))
+		  completion(.success(()))
+            //completion(.failure(AppError.saveHistorySign))
 	   } catch {
             completion(.failure(AppError.saveHistorySign))
 	   }

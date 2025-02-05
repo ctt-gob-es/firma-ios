@@ -17,6 +17,7 @@ struct DNIView: View {
     @State private var navigateToConnection: Bool = false
     @State var signModel: SignModel? = nil
     @State var parameters: NSMutableDictionary? = nil
+    @State var isLocalSign: Bool
     @Binding var hasDismissed: Bool
     
     var body: some View {
@@ -36,7 +37,8 @@ struct DNIView: View {
 			 DNIConnectionView(
 				isPresented: $navigateToConnection,
 				signModel: signModel,
-				parameters: parameters
+				parameters: parameters,
+				isLocalSign: isLocalSign
 			 )
 		  }
 	   }

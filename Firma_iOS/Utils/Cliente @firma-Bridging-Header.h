@@ -68,3 +68,4 @@
 
 //FRAMEWORKS
 #import <PAdESSignature/PKCS1DecoderUtils.h>
+#import <PAdESSignature/PAdESSignatureUtils.h>

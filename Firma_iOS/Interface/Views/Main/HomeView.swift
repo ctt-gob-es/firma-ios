@@ -181,6 +181,7 @@ struct HomeView: View {
 		  DNIView(
 			 signModel: viewModel.signModel,
 			 parameters: viewModel.parameters,
+			 isLocalSign: viewModel.isLocalSign,
 			 hasDismissed: $shouldSendStopSign
 		  )
         }

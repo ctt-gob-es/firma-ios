@@ -30,6 +30,7 @@ struct DNIConnectionView: View {
     @State var shouldCancelOperation: Bool = false
     @State private var showTextfieldModal: Bool = false
     @State private var nfcCancellable: AnyCancellable?
+    @State var isLocalSign: Bool
     
     var body: some View {
 	   VStack {
@@ -174,8 +175,10 @@ struct DNIConnectionView: View {
 		  can: can,
 		  pin: pin,
 		  signModel: signModel,
-		  parameters: parameters
+		  parameters: parameters,
+		  signType: isLocalSign ? .local : .external
 	   )
+	   
 	   configureModel()
 	   
 	   setupNFCObservation()
