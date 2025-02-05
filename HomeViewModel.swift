@@ -34,7 +34,6 @@ class HomeViewModel: ObservableObject {
     @Published var successModalState: SuccessModalState? = nil
     @Published var showErrorModal: Bool? = false
     @Published var showSuccessModal: Bool? = false
-    @Published var showDocumentImportingPicker: Bool? = false
     @Published var showSignCoordinatesModal: Bool = false
     @Published var signType: SignType? = nil
     @Published var dataType: DataType? = nil
@@ -228,7 +227,6 @@ class HomeViewModel: ObservableObject {
     private func configureMode(signModel: SignModel) {
         // Por defecto la firma es externa
         dataType = .external
-	   appStatus.signFormat = signModel.signFormat
 	   
         if (signModel.operation == OPERATION_SIGN || signModel.operation == OPERATION_COSIGN || signModel.operation == OPERATION_COUNTERSIGN) {
 		  // Si el NFC está deshabilitado, deberemos comprobar si hay certificados antes de escoger archivo, sólo podremos comprobarlo si está deshabilitado, ya que si no podría escoger firmar con DNI
@@ -242,14 +240,14 @@ class HomeViewModel: ObservableObject {
 		  
             if signModel.datosInUse == nil && signModel.fileId == nil {
                 // No tenemos datos para firmar. Es una firma seleccionando fichero local. Mostramos el picker y establecemos el dataType a .local
-                showDocumentImportingPicker = true
+                appStatus.showDocumentImportingPicker = true
                 dataType = .local
             }
         }
         
         // Si es firma o batch hay que seleccionar con que se quiere realizar (certificado o dnie). Para el sendcertificate o save, es siempre certificado
         if (signModel.operation == OPERATION_SIGN || signModel.operation == OPERATION_COSIGN || signModel.operation == OPERATION_COUNTERSIGN || signModel.operation == OPERATION_BATCH) {
-            if(!(showDocumentImportingPicker ?? false)) {
+            if(!appStatus.showDocumentImportingPicker) {
                 selectSignMode()
             }
 	   } else {
