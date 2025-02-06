@@ -26,7 +26,7 @@
 		</data>
 		<key>Headers/PAdESSignatureUtils.h</key>
 		<data>
-		z4UrZU/QJMtTFfLORa23Jhbv5U0=
+		5KSq16L2z4qqdw4kB+q7R7+OzDM=
 		</data>
 		<key>Headers/PKCS1DecoderUtils.h</key>
 		<data>
@@ -34,11 +34,11 @@
 		</data>
 		<key>Headers/PostsignResponse.h</key>
 		<data>
-		Wp+MrG9sBaYq4iBhdm9ifJjr08U=
+		QtpBNiJQRVs1qOhnlwiDXEovDvs=
 		</data>
 		<key>Headers/PresignResponse.h</key>
 		<data>
-		zBQhn4Hwsv7RhsfW1jA5qYwIPQc=
+		b+sbBKpWZdMG20TMbY9jmfNppyg=
 		</data>
 		<key>Helvetica-Bold.afm</key>
 		<data>
@@ -154,11 +154,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			z4UrZU/QJMtTFfLORa23Jhbv5U0=
+			5KSq16L2z4qqdw4kB+q7R7+OzDM=
 			</data>
 			<key>hash2</key>
 			<data>
-			ssqya39x6mPwUIaX9laciDoE1JFnSqaxGAydfADlJ/M=
+			grDcNNKKycobd24OPlnrCbZMbz10rfTFrtLzljYt2Es=
 			</data>
 		</dict>
 		<key>Headers/PKCS1DecoderUtils.h</key>
@@ -176,22 +176,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Wp+MrG9sBaYq4iBhdm9ifJjr08U=
+			QtpBNiJQRVs1qOhnlwiDXEovDvs=
 			</data>
 			<key>hash2</key>
 			<data>
-			MzqwPKqhMC8pHRrqeeJDn1gZph9fVqk3Sl1kFki61Vs=
+			YAQV4MMvV4+0fd2TfkUmhqiv/4Mefwg/ZKbl7Se6aZw=
 			</data>
 		</dict>
 		<key>Headers/PresignResponse.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			zBQhn4Hwsv7RhsfW1jA5qYwIPQc=
+			b+sbBKpWZdMG20TMbY9jmfNppyg=
 			</data>
 			<key>hash2</key>
 			<data>
-			XtbtoBTg57JKuVEXGFcPtAaHGxKMzvhpyLP/2yPqcWg=
+			WX0hgYHMCM40bRA5HIxekrznL44ohVmFjsblp5C5DFc=
 			</data>
 		</dict>
 		<key>Helvetica-Bold.afm</key>

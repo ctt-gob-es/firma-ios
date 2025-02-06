@@ -12,16 +12,7 @@
 @class EsGobAfirmaIosPresignResult;
 @class IOSByteArray;
 
-/*@protocol PadesManagerDelegate <NSObject>
-@required
-- (NSData *)generatePKCS1WithPreSignResult:(NSData *)preSignResult;
-@end*/
-
 @interface PAdESSignatureUtils : NSObject
-
-//@property (nonatomic, weak) id<PadesManagerDelegate> delegate;
-
-//- (instancetype)initWithDelegate:(id<PadesManagerDelegate>)delegate;
 
 typedef void (^SignPdfCompletionHandler)(NSString * result, NSError * error);
 
@@ -45,13 +36,5 @@ typedef void (^SignPdfCompletionHandler)(NSString * result, NSError * error);
 	   certificateAlgorithm:(NSString *)certificateAlgorithm
 				extraParams:(NSDictionary *)extraParams
 								pkcs1:(NSData *)pkcs1;
-
-/*- (void)dnieSignPdfWithData:(NSData *)pdfData
-			  signAlgorithm:(NSString *)signAlgorithm
-				 privateKey:(SecKeyRef)privateKey
-				certificate:(SecCertificateRef)certificate
-	   certificateAlgorithm:(NSString *)certificateAlgorithm
-				extraParams:(NSDictionary *)extraParams
-				 completion:(SignPdfCompletionHandler)completion;*/
 
 @end

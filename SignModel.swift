@@ -89,19 +89,22 @@ class SignModel {
     }
     
     func updateExtraParams(dict: [String: Any]?) {
-	   guard let dict = dict else { return }
+	   guard let newDict = dict else { return }
 	   
 	   if dictExtraParams == nil {
 		  dictExtraParams = [:]
 	   }
 	   
-	   for (key, value) in dict {
-		  dictExtraParams?[key] = value
+	   for (key, value) in newDict {
+		  if dictExtraParams?[key] == nil {
+			 dictExtraParams?[key] = value
+		  } else {
+			 dictExtraParams?[key] = value
+		  }
 	   }
 	   
 	   if let updatedDict = dictExtraParams {
-		  let updatedString = CADESSignUtils.dictionary2JavaProperties(updatedDict)
-		  if let updatedString = updatedString {
+		  if let updatedString = CADESSignUtils.dictionary2JavaProperties(updatedDict) {
 			 extraParams = updatedString
 		  }
 	   }

@@ -539,25 +539,29 @@ class HomeViewModel: ObservableObject {
 	   guard let signModel = self.signModel else { return }
 	   self.localSignUseCase = CertificateLocalSignUseCase(signModel: signModel, certificateUtils: certificateUtils)
 	   self.localSignUseCase?.executeSign(completion: { result in
+		  self.isLoading = false
 		  switch result {
-			 case .success(_):
-				let history = HistoryModel(
-				    date: Date(),
-				    signType: .local,
-				    dataType: .local,
-				    externalApp: self.signModel?.appname,
-				    filename: self.signModel?.filename,
-				    returnURL: self.signModel?.returnURL,
-				    operation: self.signModel?.operation
-				)
-				
-				HistoricalUseCase().saveHistory(history: history) { result in
-				    // Independientemente del resultado del guardado en historico, mostramos que la firma ha sido correcta
-				    self.isLoading = false
-				    self.appStatus.showDocumentSavingPicker = true
-				    self.handleOperationSaveData()
-				    self.resetHomeViewModelVariables()
+			 case .success(let shouldRetry):
+				if shouldRetry {
+				    self.showTextfieldModal = true
+				} else {
+				    let history = HistoryModel(
+					   date: Date(),
+					   signType: .local,
+					   dataType: .local,
+					   externalApp: self.signModel?.appname,
+					   filename: self.signModel?.filename,
+					   returnURL: self.signModel?.returnURL,
+					   operation: self.signModel?.operation
+				    )
 				    
+				    HistoricalUseCase().saveHistory(history: history) { result in
+					   // Independientemente del resultado del guardado en historico, mostramos que la firma ha sido correcta
+					   self.isLoading = false
+					   self.appStatus.showDocumentSavingPicker = true
+					   self.handleOperationSaveData()
+					   self.resetHomeViewModelVariables()
+				    }
 				}
 
 			 case .failure(let error):

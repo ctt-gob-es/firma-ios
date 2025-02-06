@@ -31,8 +31,8 @@ class PadesUtilsSwift {
 			 extraParams: extraParams
 		  ) { result, error in
 			 DispatchQueue.main.async {
-				if let error = error {
-				    completion(.failure(AppError.generalSoftwareError))
+				if let error = error as? NSError {
+				    completion(.failure(HandeThirdPartyErrors.getLocalSignError(codigo: error.code)))
 				} else if let result = result {
 				    completion(.success(result))
 				} else {

@@ -13,7 +13,7 @@ class PDFCoordinateUtils {
 	   let bounds = annotation.bounds
 	   let obfuscateUserIdentifiers = UserDefaults.standard.bool(forKey: "obfuscateUserIdentifiers")
 	   
-	   var extraParams = [
+	   var newParams = [
 		  "signaturePositionOnPageLowerLeftX": "\(Int(bounds.minX))",
 		  "signaturePositionOnPageLowerLeftY": "\(Int(bounds.minY))",
 		  "signaturePositionOnPageUpperRightX": "\(Int(bounds.maxX))",
@@ -21,8 +21,13 @@ class PDFCoordinateUtils {
 		  "signaturePages": "\(annotation.page?.pageRef?.pageNumber ?? 1)"
 	   ]
 	   
-	   extraParams["obfuscateCertText"] = obfuscateUserIdentifiers ? "true" : "false"
+	   newParams["obfuscateCertText"] = obfuscateUserIdentifiers ? "true" : "false"
 	   
-	   signModel.updateExtraParams(dict: extraParams)
+	   var mergedParams = signModel.dictExtraParams ?? [:]
+	   newParams.forEach { key, value in
+		  mergedParams[key] = value
+	   }
+	   
+	   signModel.updateExtraParams(dict: mergedParams)
     }
 }

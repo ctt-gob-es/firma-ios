@@ -135,6 +135,49 @@ struct HandeThirdPartyErrors {
         default:
             return AppError.generalSoftwareError
         }
-        
+    }
+    
+    static func getLocalSignError(codigo: Int) -> AppError {
+	   switch codigo {
+	   case 1:
+		  return AppError.unknownSignatureError
+	   case 2:
+		  return AppError.unknownSevereError
+	   case 3:
+		  return AppError.userOperationCanceled
+	   case 4:
+		  return AppError.inputOutputError
+	   case 5:
+		  return AppError.pdfIsPasswordProtected
+	   case 6:
+		  return AppError.pdfBadPassword
+	   case 7:
+		  return AppError.pdfInvalidFormat
+	   case 8:
+		  return AppError.pdfInvalidPageSelection
+	   case 9:
+		  return AppError.pdfInvalidRubricPosition
+	   case 10:
+		  return AppError.pdfFormModified
+	   case 11:
+		  return AppError.pdfSuspectedPSA
+	   case 12:
+		  return AppError.pdfUnregisteredSignatures
+	   case 13:
+		  return AppError.pdfCertifiedDocument
+	   default:
+		  return AppError.generalSoftwareError
+	   }
+    }
+    
+    static func shouldRetry(error: AppError) -> Bool{
+	   let retryableErrors: Set<AppError> = [
+		  .pdfFormModified,
+		  .pdfBadPassword,
+		  .pdfIsPasswordProtected,
+		  .pdfSuspectedPSA,
+		  .pdfCertifiedDocument
+	   ]
+	   return retryableErrors.contains(error)
     }
 }

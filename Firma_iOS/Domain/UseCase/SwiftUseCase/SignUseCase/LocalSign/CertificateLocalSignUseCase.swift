@@ -60,12 +60,16 @@ class CertificateLocalSignUseCase: GenericLocalSignUseCase {
 				self.signModel.datosInUse = signedPDF
 				
 				if let completionCallback = self.completionCallback {
-				    completionCallback(.success(true))
+				    completionCallback(.success(false))
 				}
 				
 			 case .failure(let error):
 				if let completionCallback = self.completionCallback {
-				    completionCallback(.failure(error))
+				    if HandeThirdPartyErrors.shouldRetry(error: error) {
+					   completionCallback(.success(true))
+				    } else {
+					   completionCallback(.failure(error))
+				    }
 				}
 		  }
 	   }

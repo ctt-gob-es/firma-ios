@@ -47,7 +47,7 @@ struct ErrorInfo: Error, Equatable {
     }
 }*/
 
-enum AppError: Error {
+enum AppError: Error, Hashable {
     case hardwareError(_ code: Int, _ description: String, _ screenType: ErrorModalState = .globalError)
     case internalSoftware(_ code: Int, _ description: String, _ screenType: ErrorModalState = .globalError)
     case thirdPartySoftwareError(_ code: Int, _ description: String, _ screenType: ErrorModalState = .globalError)
@@ -278,7 +278,19 @@ extension AppError {
     
     
     // 3005XX: Biblioteca firma (código convertido en iOS)
-    
+    static let pdfIsPasswordProtected = AppError.thirdPartySoftwareError(3005001, "El PDF está protegido por contraseña")
+    static let pdfBadPassword = AppError.thirdPartySoftwareError(3005002, "La contraseña del PDF no es correcta")
+    static let pdfInvalidFormat = AppError.thirdPartySoftwareError(3005003, "El documento no es un PDF soportado")
+    static let pdfInvalidPageSelection = AppError.thirdPartySoftwareError(3005004, "Se seleccionó una página no válida para la rúbrica del documento")
+    static let pdfInvalidRubricPosition = AppError.thirdPartySoftwareError(3005005, "Se seleccionó una posición no válida para la rúbrica del documento")
+    static let pdfFormModified = AppError.thirdPartySoftwareError(3005006, "Hay sospechas de que uno de los campos del formulario ha sido modificado después de una firma anterior")
+    static let pdfShadowAttack = AppError.thirdPartySoftwareError(3005007, "Hay sospechas de que el documento ha sido modificado después de una firma anterior")
+    static let pdfSuspectedPSA = AppError.thirdPartySoftwareError(3005008, "Hay sospechas de que el documento ha sido modificado después de una firma anterior")
+    static let pdfUnregisteredSignatures = AppError.thirdPartySoftwareError(3005009, "El documento tiene firmas anteriores sin registrar correctamente")
+    static let pdfCertifiedDocument = AppError.thirdPartySoftwareError(3005010, "El documento está certificado y una nueva firma puede invalidar las anteriores")
+    static let unknownSignatureError = AppError.thirdPartySoftwareError(3005012, "Error desconocido durante la operación")
+    static let inputOutputError = AppError.thirdPartySoftwareError(3005013, "Error en una operación de lectura/escritura")
+    static let unknownSevereError = AppError.thirdPartySoftwareError(3005014, "Error desconocido grave")
 }
     
 /// Communication Error 4XXXXX problemas comunicaciones: Errores de comunicación con sistemas externos.
