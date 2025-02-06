@@ -90,7 +90,11 @@ enum AppError: Error, Hashable {
     }
     
     var serverErrorMessage: String {
-        return "ERR-AI\(self.code):=\(self.description)"
+        if (self == .userOperationCanceled || self == .userOperationSaveCanceled) {
+            // Para la operacion de cancelación por el usuario es necesario devolver el código antiguo en el ERR
+            return "ERR-11:=AI\(self.code) - \(self.description)"
+        }
+        return "ERR-AI\(self.code):=AI\(self.code) - \(self.description)"
     }
     
     var screenErrorMessage: String {
