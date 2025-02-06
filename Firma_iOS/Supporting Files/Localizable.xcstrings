@@ -4564,46 +4564,6 @@
         }
       }
     },
-    "file_not_pdf_title" : {
-      "localizations" : {
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El fitxer no és un PDF"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The file is not a PDF"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El fichero no es un PDF"
-          }
-        },
-        "eu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fitxategia ez da PDF bat"
-          }
-        },
-        "gl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "O ficheiro non é un PDF"
-          }
-        },
-        "va" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El fitxer no és un PDF"
-          }
-        }
-      }
-    },
     "file_not_pdf_description" : {
       "localizations" : {
         "ca" : {
@@ -4640,6 +4600,46 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Per a poder realitzar esta operació és necessari seleccionar un fitxer PDF"
+          }
+        }
+      }
+    },
+    "file_not_pdf_title" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El fitxer no és un PDF"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The file is not a PDF"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El fichero no es un PDF"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fitxategia ez da PDF bat"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O ficheiro non é un PDF"
+          }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El fitxer no és un PDF"
           }
         }
       }
@@ -10067,13 +10067,13 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "http://estaticos.redsara.es/comunes/clientefirmaandroid/1/8/0/declaracion_accesibilidad.pdf"
+            "value" : "http://estaticos.redsara.es/comunes/clientefirmaandroid/1/8/0/translated(ca)_declaracion_accesibilidad.pdf"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "http://estaticos.redsara.es/comunes/clientefirmaandroid/1/8/0/declaracion_accesibilidad.pdf"
+            "value" : "http://estaticos.redsara.es/comunes/clientefirmaandroid/1/8/0/translated(en)_declaracion_accesibilidad.pdf"
           }
         },
         "es" : {
@@ -10085,19 +10085,19 @@
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "http://estaticos.redsara.es/comunes/clientefirmaandroid/1/8/0/declaracion_accesibilidad.pdf"
+            "value" : "http://estaticos.redsara.es/comunes/clientefirmaandroid/1/8/0/translated(eu)_declaracion_accesibilidad.pdf"
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "http://estaticos.redsara.es/comunes/clientefirmaandroid/1/8/0/declaracion_accesibilidad.pdf"
+            "value" : "http://estaticos.redsara.es/comunes/clientefirmaandroid/1/8/0/translated(gl)_declaracion_accesibilidad.pdf"
           }
         },
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "http://estaticos.redsara.es/comunes/clientefirmaandroid/1/8/0/declaracion_accesibilidad.pdf"
+            "value" : "http://estaticos.redsara.es/comunes/clientefirmaandroid/1/8/0/translated(val)_declaracion_accesibilidad.pdf"
           }
         }
       }
