@@ -37,7 +37,7 @@ import Foundation
 		  let certJ509 = Base64Utils.decode(getCertificateData(), urlSafe: true),
 		  let secCert = SecCertificateCreateWithData(nil, certJ509 as CFData),
 		  let certificateAlgorithm = SwiftCertificateUtils.getAlgorithmFromCertificate(certificate: secCert)
-	   else { return handleErrorLocalSign(errorCode: -1) }
+	   else { return handleErrorLocalSign(errorCode: 1) }
 
 	   let utils = PAdESSignatureUtils()
 	   let extraParams = signModel.dictExtraParams
@@ -49,11 +49,11 @@ import Foundation
 		  certificateAlgorithm: certificateAlgorithm,
 		  extraParams: extraParams
 	   ) else {
-		  return handleErrorLocalSign(errorCode: -1)
+		  return handleErrorLocalSign(errorCode: 1)
 	   }
 
 	   guard let presignData = presignResponse.data else {
-		  let errorCode = (presignResponse.error as NSError?)?.code ?? -1
+		  let errorCode = (presignResponse.error as NSError?)?.code ?? 1
 		  return handleErrorLocalSign(errorCode: errorCode)
 	   }
 	   
@@ -62,7 +62,7 @@ import Foundation
 	   }
 
 	   guard let pkcs1 = generatePKCS1(withPreSignResult: presignData) else {
-		  return handleErrorDnieWrapper(errorCode: -1)
+		  return handleErrorDnieWrapper(errorCode: 10)
 	   }
 
 	   guard let postsignResponse = utils.dniePostsignPdf(
@@ -73,11 +73,11 @@ import Foundation
 		  extraParams: extraParams,
 		  pkcs1: pkcs1
 	   ) else {
-		  return handleErrorLocalSign(errorCode: -1)
+		  return handleErrorLocalSign(errorCode: 1)
 	   }
 
 	   guard let postsignData = postsignResponse.signedString else {
-		  let errorCode = (postsignResponse.error as NSError?)?.code ?? -2
+		  let errorCode = (postsignResponse.error as NSError?)?.code ?? 1
 		  return handleErrorLocalSign(errorCode: errorCode)
 	   }
 	   
