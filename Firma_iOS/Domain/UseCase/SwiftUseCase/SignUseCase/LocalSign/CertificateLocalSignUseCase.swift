@@ -16,10 +16,6 @@ class CertificateLocalSignUseCase: GenericLocalSignUseCase {
 	   self.certificateUtils = certificateUtils
     }
     
-    override func getCertificateData() -> String? {
-	   return certificateUtils?.base64UrlSafeCertificateData
-    }
-    
     override func sign() {
 	   print("Ejecutando firma con certificado digital")
 	   
@@ -29,14 +25,13 @@ class CertificateLocalSignUseCase: GenericLocalSignUseCase {
 		  let privateKeyRef = certificateUtils?.privateKey,
 		  let certificateName = certificateUtils?.selectedCertificateName,
 		  let identity = SwiftCertificateUtils.getIdentityFromKeychain(certName: certificateName),
-		  let certificateRef = SwiftCertificateUtils.getCertificateRefFromIdentity(identity: identity),
-		  let certificateAlgorithm = SwiftCertificateUtils.getAlgorithmFromCertificate(certificate: certificateRef)
+		  let certificateRef = SwiftCertificateUtils.getCertificateRefFromIdentity(identity: identity)
 	   else {
 		  print("Missing required data for signing")
 		  return
 	   }
-	   
-	   var extraParams = signModel.dictExtraParams
+        
+        var extraParams = signModel.dictExtraParams
 	   let isPseudonym = certificateUtils?.isPseudonymCertificate(identity) ?? false
 	   let layer2Text = isPseudonym
 	   ? "Firmado por $$PSEUDONYM$$ - $$OU$$ el día $$SIGNDATE=dd/MM/yyyy$$ con un certificado emitido por $$ISSUERCN$$"
@@ -47,12 +42,11 @@ class CertificateLocalSignUseCase: GenericLocalSignUseCase {
 	   let stringDict: [String: String]? = extraParams as? [String: String]
 	   
 	   let swiftPadesUtils = PadesUtilsSwift()
-	   swiftPadesUtils.signPdf(
+        
+        swiftPadesUtils.signPdf(
 		  pdfData: pdfData,
-		  signAlgorithm: nil,
 		  privateKey: privateKeyRef,
 		  certificateRef: certificateRef,
-		  certificateAlgorithm: certificateAlgorithm,
 		  extraParams: stringDict
 	   ) { result in
 		  switch result {
@@ -75,11 +69,4 @@ class CertificateLocalSignUseCase: GenericLocalSignUseCase {
 	   }
     }
     
-    override func preSign() {
-	   fatalError("This method is overrided")
-    }
-    
-    override func postSign() {
-	   fatalError("This method is overrided")
-    }
 }

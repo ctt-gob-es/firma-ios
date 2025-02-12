@@ -24,7 +24,6 @@
 		83092A662D141E9900275A0D /* Helvetica-BoldOblique.afm in Resources */ = {isa = PBXBuildFile; fileRef = 83092A572D141E9900275A0D /* Helvetica-BoldOblique.afm */; };
 		83092A672D141E9900275A0D /* Courier-Bold.afm in Resources */ = {isa = PBXBuildFile; fileRef = 83092A582D141E9900275A0D /* Courier-Bold.afm */; };
 		83092A682D141E9900275A0D /* Times-Roman.afm in Resources */ = {isa = PBXBuildFile; fileRef = 83092A592D141E9900275A0D /* Times-Roman.afm */; };
-		8309A7852D0C58840045FD1E /* PAdESSignature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8309A7832D0C58640045FD1E /* PAdESSignature.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		8309F69F2D009CB900F15CD9 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 8309F69E2D009CB900F15CD9 /* InfoPlist.xcstrings */; };
 		8309F6A12D009CB900F15CD9 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 8309F6A02D009CB900F15CD9 /* Localizable.xcstrings */; };
 		8309F6A42D0185A000F15CD9 /* UIFont+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8309F6A32D0185A000F15CD9 /* UIFont+Utils.m */; };
@@ -1534,6 +1533,7 @@
 		A08F818E2CF356EF0067266C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F818B2CF356EF0067266C /* libz.tbd */; };
 		A08F81902CF372C10067266C /* HandleNFCErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08F818F2CF372C10067266C /* HandleNFCErrors.swift */; };
 		A0DACD4F2CF2092F00D645CB /* CertificateInfoModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DACD4E2CF2092F00D645CB /* CertificateInfoModalView.swift */; };
+		A0DD2BEA2D5C8A670025138A /* PAdESSignature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0DD2BE92D5C8A670025138A /* PAdESSignature.framework */; };
 		A0F3951D2CE692CA00DD7AE3 /* AOCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0F3951B2CE692CA00DD7AE3 /* AOCoreDataModel.xcdatamodeld */; };
 		A0F3951F2CE69A0D00DD7AE3 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F3951E2CE69A0D00DD7AE3 /* AppError.swift */; };
 		B240772D20A5B87B00A8EE1C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B240772020A5B87B00A8EE1C /* main.m */; };
@@ -1611,7 +1611,6 @@
 		83092A572D141E9900275A0D /* Helvetica-BoldOblique.afm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Helvetica-BoldOblique.afm"; sourceTree = "<group>"; };
 		83092A582D141E9900275A0D /* Courier-Bold.afm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Courier-Bold.afm"; sourceTree = "<group>"; };
 		83092A592D141E9900275A0D /* Times-Roman.afm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Times-Roman.afm"; sourceTree = "<group>"; };
-		8309A7832D0C58640045FD1E /* PAdESSignature.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PAdESSignature.framework; sourceTree = "<group>"; };
 		8309F69E2D009CB900F15CD9 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = InfoPlist.xcstrings; path = "Supporting Files/InfoPlist.xcstrings"; sourceTree = "<group>"; };
 		8309F6A02D009CB900F15CD9 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = Localizable.xcstrings; path = "Supporting Files/Localizable.xcstrings"; sourceTree = "<group>"; };
 		8309F6A22D01859F00F15CD9 /* UIFont+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Utils.h"; sourceTree = "<group>"; };
@@ -4492,6 +4491,7 @@
 		A08F818C2CF356EF0067266C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		A08F818F2CF372C10067266C /* HandleNFCErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleNFCErrors.swift; sourceTree = "<group>"; };
 		A0DACD4E2CF2092F00D645CB /* CertificateInfoModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateInfoModalView.swift; sourceTree = "<group>"; };
+		A0DD2BE92D5C8A670025138A /* PAdESSignature.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PAdESSignature.framework; sourceTree = "<group>"; };
 		A0F3951C2CE692CA00DD7AE3 /* AOCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AOCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		A0F3951E2CE69A0D00DD7AE3 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		B240772020A5B87B00A8EE1C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = "<group>"; };
@@ -4571,7 +4571,7 @@
 				A08F818D2CF356EF0067266C /* libsqlite3.tbd in Frameworks */,
 				C3AF7F7517FD62180084D916 /* SystemConfiguration.framework in Frameworks */,
 				A08F818E2CF356EF0067266C /* libz.tbd in Frameworks */,
-				8309A7852D0C58840045FD1E /* PAdESSignature.framework in Frameworks */,
+				A0DD2BEA2D5C8A670025138A /* PAdESSignature.framework in Frameworks */,
 				A08F81882CF355B30067266C /* libAdIdAccess.a in Frameworks */,
 				C3AF7F7217FD61EF0084D916 /* CoreData.framework in Frameworks */,
 				A08F81862CF355B30067266C /* libcrypto.a in Frameworks */,
@@ -9273,7 +9273,7 @@
 		C30B322A163804620072A515 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8309A7832D0C58640045FD1E /* PAdESSignature.framework */,
+				A0DD2BE92D5C8A670025138A /* PAdESSignature.framework */,
 				C3AF7F7317FD62090084D916 /* SystemConfiguration.framework */,
 				C3AF7F7017FD61CE0084D916 /* CoreData.framework */,
 				C31649D6175F2A3C009F3B67 /* QuartzCore.framework */,

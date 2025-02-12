@@ -11,6 +11,8 @@ import Foundation
 class GenericLocalSignUseCase : NSObject {
     var signModel: SignModel
     
+    private let defaultSignAlgorithm = "SHA256"
+    
     init(signModel: SignModel) {
 	   self.signModel = signModel
     }
@@ -27,20 +29,12 @@ class GenericLocalSignUseCase : NSObject {
 	   fatalError("This method must be overrided")
     }
     
-    func preSign() {
-	   fatalError("This method must be overrided")
-    }
-    
-    func postSign() {
-	   fatalError("This method must be overrided")
-    }
-    
-    func getCertificateData() -> String? {
-	   fatalError("This method must be overrided")
-    }
-    
-    private func validateData() -> Bool {
+    func validateData() -> Bool {
 	   return true
+    }
+    
+    func getSignAlghorithm() {
+        
     }
     
     func configure() {

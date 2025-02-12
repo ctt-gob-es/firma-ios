@@ -22,54 +22,45 @@ import Foundation
 	   wrapper?.getDNIe(completion: self)
     }
     
-    override func getCertificateData() -> String? {
-	   return certificateData
-    }
-    
-    override func preSign() {}
-    
-    override func postSign() {}
-
     override func sign() {
 	   guard
 		  let stringBase64Data = signModel.datosInUse,
 		  let pdfData = Base64Utils.decode(stringBase64Data, urlSafe: true),
-		  let certJ509 = Base64Utils.decode(getCertificateData(), urlSafe: true),
-		  let secCert = SecCertificateCreateWithData(nil, certJ509 as CFData),
-		  let certificateAlgorithm = SwiftCertificateUtils.getAlgorithmFromCertificate(certificate: secCert)
+		  let certJ509 = Base64Utils.decode(certificateData, urlSafe: true),
+		  let secCert = SecCertificateCreateWithData(nil, certJ509 as CFData)
 	   else { return handleErrorLocalSign(errorCode: 1) }
 
 	   let utils = PAdESSignatureUtils()
 	   let extraParams = signModel.dictExtraParams
 
+        
 	   guard let presignResponse = utils.dniePresignPdf(
 		  with: pdfData,
-		  signAlgorithm: nil,
+            hashAlgorithmType: HashAlgorithmType.SHA256,
 		  certificate: secCert,
-		  certificateAlgorithm: certificateAlgorithm,
 		  extraParams: extraParams
 	   ) else {
 		  return handleErrorLocalSign(errorCode: 1)
 	   }
 
 	   guard let presignData = presignResponse.data else {
-		  let errorCode = (presignResponse.error as NSError?)?.code ?? 1
+            // TODO Revisar si se puede añadir el reintentar
+            /*if presignResponse.retry {
+               completionCallback?(.success(true))
+            }*/
+            let errorCode = (presignResponse.error as NSError?)?.code ?? 1
 		  return handleErrorLocalSign(errorCode: errorCode)
 	   }
-	   
-	   if presignResponse.retry {
-		  completionCallback?(.success(true))
-	   }
 
-	   guard let pkcs1 = generatePKCS1(withPreSignResult: presignData) else {
+        let signAlgorithm = utils.getSignAlgorithm(HashAlgorithmType.SHA256, with: secCert)
+        guard let pkcs1 = generatePKCS1(preSignResult: presignData, signAlgorithm: signAlgorithm ?? "SHA256withRSA") else {
 		  return handleErrorDnieWrapper(errorCode: 10)
 	   }
 
 	   guard let postsignResponse = utils.dniePostsignPdf(
 		  with: pdfData,
-		  signAlgorithm: nil,
+            hashAlgorithmType: HashAlgorithmType.SHA256,
 		  certificate: secCert,
-		  certificateAlgorithm: certificateAlgorithm,
 		  extraParams: extraParams,
 		  pkcs1: pkcs1
 	   ) else {
@@ -134,10 +125,9 @@ import Foundation
 	   self.wrapper?.nfcSessionManager.invalidateSessionManually(withAlertMessage: withAlertMessage)
     }
     
-    func generatePKCS1(withPreSignResult preSignResult: Data!) -> Data? {
-	   let algorithm = "SHA256withRSA"
-	   guard let privateKeyReference = dnieWrapper?.getPrivateKey(with: PrivateConstants.certFromDNIe),
-		    let dataSigned = dnieWrapper?.sign(with: IOSByteArray(nsData: preSignResult), with: algorithm, with: privateKeyReference) else {
+    func generatePKCS1(preSignResult: Data!, signAlgorithm: String) -> Data? {
+        guard let privateKeyReference = dnieWrapper?.getPrivateKey(with: PrivateConstants.certFromDNIe),
+		    let dataSigned = dnieWrapper?.sign(with: IOSByteArray(nsData: preSignResult), with: signAlgorithm, with: privateKeyReference) else {
 		  handleErrorDnieWrapper(errorCode: Int(dnieWrapper?.getErrorCode() ?? 10))
 		  return nil
 	   }

@@ -12,10 +12,8 @@ import Security
 class PadesUtilsSwift {
     func signPdf(
 	   pdfData: Data,
-	   signAlgorithm: String?,
 	   privateKey: SecKey,
 	   certificateRef: SecCertificate,
-	   certificateAlgorithm: String?,
 	   extraParams: [String: String]?,
 	   completion: @escaping (Result<String, AppError>) -> Void
     ) {
@@ -24,10 +22,9 @@ class PadesUtilsSwift {
 		  
 		  utils.signPdf(
 			 with: pdfData,
-			 signAlgorithm: signAlgorithm,
+                hashAlgorithmType: HashAlgorithmType.SHA256,
 			 privateKey: privateKey,
-			 certificate: certificateRef,
-			 certificateAlgorithm: certificateAlgorithm,
+                certificate: certificateRef,
 			 extraParams: extraParams
 		  ) { result, error in
 			 DispatchQueue.main.async {

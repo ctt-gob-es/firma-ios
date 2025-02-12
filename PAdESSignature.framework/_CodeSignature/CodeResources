@@ -20,13 +20,17 @@
 		<data>
 		FyqGkwNHwRVRe2vu7H+ulGnTwfo=
 		</data>
+		<key>Headers/HashAlgorithmType.h</key>
+		<data>
+		vnB5IlVjjOYPOeTZbsaq8Rv85w0=
+		</data>
 		<key>Headers/PAdESSignature.h</key>
 		<data>
 		d4D5OKYRcAqHpET3bQMyuQ9M74E=
 		</data>
 		<key>Headers/PAdESSignatureUtils.h</key>
 		<data>
-		5KSq16L2z4qqdw4kB+q7R7+OzDM=
+		6VrquvnGCw5xXuFzvg5r3gDDm2A=
 		</data>
 		<key>Headers/PKCS1DecoderUtils.h</key>
 		<data>
@@ -58,7 +62,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		tQQ6YINoFChuTITsALmtOPJiTbk=
+		Nfw6jGYa877CTcuzUjTUuogAgdU=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -139,6 +143,17 @@
 			Uh4NfHUh79S+eKWpxTmOTGfQdx45YRWwNGvE73StpT0=
 			</data>
 		</dict>
+		<key>Headers/HashAlgorithmType.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			vnB5IlVjjOYPOeTZbsaq8Rv85w0=
+			</data>
+			<key>hash2</key>
+			<data>
+			cwh6ngON9nPopU5DMHswWQIGXImNpDzZPTZCC8dQoYI=
+			</data>
+		</dict>
 		<key>Headers/PAdESSignature.h</key>
 		<dict>
 			<key>hash</key>
@@ -154,11 +169,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			5KSq16L2z4qqdw4kB+q7R7+OzDM=
+			6VrquvnGCw5xXuFzvg5r3gDDm2A=
 			</data>
 			<key>hash2</key>
 			<data>
-			grDcNNKKycobd24OPlnrCbZMbz10rfTFrtLzljYt2Es=
+			MW8CoIXezp9Pu0YnxnLHKJVkpBgjUnZDEsDHtxL0HQk=
 			</data>
 		</dict>
 		<key>Headers/PKCS1DecoderUtils.h</key>
