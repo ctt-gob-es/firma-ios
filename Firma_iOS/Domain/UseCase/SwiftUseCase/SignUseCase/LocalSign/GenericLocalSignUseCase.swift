@@ -26,18 +26,92 @@ class GenericLocalSignUseCase : NSObject {
     }
     
     func sign() {
-	   fatalError("This method must be overrided")
+        guard
+            let stringBase64Data = signModel.datosInUse,
+            let pdfData = Base64Utils.decode(stringBase64Data, urlSafe: true),
+            let secCert = getCertificateRef()
+        else {
+            return handleErrorLocalSign(errorCode: 1)
+        }
+
+        let utils = PAdESSignatureUtils()
+        let extraParams = signModel.dictExtraParams
+
+        
+        guard let presignResponse = utils.dniePresignPdf(
+            with: pdfData,
+            hashAlgorithmType: HashAlgorithmType.SHA256,
+            certificate: secCert,
+            extraParams: extraParams
+        ) else {
+            return handleErrorLocalSign(errorCode: 1)
+        }
+
+        guard let presignData = presignResponse.data else {
+            // TODO Revisar si se puede añadir el reintentar
+            /*if presignResponse.retry {
+               completionCallback?(.success(true))
+            }*/
+            let errorCode = (presignResponse.error as NSError?)?.code ?? 1
+            return handleErrorLocalSign(errorCode: errorCode)
+        }
+        
+        let signAlgorithm = utils.getSignAlgorithm(HashAlgorithmType.SHA256, with: secCert)
+        
+        guard let pkcs1 = generatePKCS1(preSignResult: presignData, signAlgorithm: signAlgorithm ?? "SHA256withRSA") else {
+            completionCallback?(.failure(AppError.badCan))
+            return
+        }
+
+        guard let postsignResponse = utils.dniePostsignPdf(
+            with: pdfData,
+            hashAlgorithmType: HashAlgorithmType.SHA256,
+            certificate: secCert,
+            extraParams: extraParams,
+            pkcs1: pkcs1
+        ) else {
+            return handleErrorLocalSign(errorCode: 1)
+        }
+
+        guard let postsignData = postsignResponse.signedString else {
+            let errorCode = (postsignResponse.error as NSError?)?.code ?? 1
+            return handleErrorLocalSign(errorCode: errorCode)
+        }
+       
+        if postsignResponse.retry {
+            completionCallback?(.success(true))
+        }
+
+        self.signModel.datosInUse = postsignData
+       
+        completionCallback?(.success(false))
+    }
+    
+    private func handleErrorLocalSign(errorCode: Int) {
+       let error = HandeThirdPartyErrors.getLocalSignError(codigo: errorCode)
+       if HandeThirdPartyErrors.shouldRetry(error: error) {
+          completionCallback?(.success(true))
+       } else {
+          completionCallback?(.failure(error))
+       }
+    }
+    
+    // MARK: - Methods to override
+    func getCertificateRef() -> SecCertificate? {
+       fatalError("This method should be overridden")
+    }
+    
+    func generatePKCS1(preSignResult: Data!, signAlgorithm: String) -> Data? {
+        fatalError("This method should be override")
+    }
+    
+    func configure() {
+        fatalError("This method should be override")
     }
     
     func validateData() -> Bool {
 	   return true
     }
     
-    func getSignAlghorithm() {
-        
-    }
     
-    func configure() {
-	   sign()
-    }
 }

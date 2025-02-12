@@ -16,7 +16,43 @@ class CertificateLocalSignUseCase: GenericLocalSignUseCase {
 	   self.certificateUtils = certificateUtils
     }
     
-    override func sign() {
+    override func configure() {
+        sign()
+    }
+    
+    override func getCertificateRef() -> SecCertificate? {
+        guard let certificateName = certificateUtils?.selectedCertificateName,
+              let identity = SwiftCertificateUtils.getIdentityFromKeychain(certName: certificateName),
+              let certificateRef = SwiftCertificateUtils.getCertificateRefFromIdentity(identity: identity) 
+        else {
+            return nil
+        }
+        return certificateRef
+    }
+    
+    override func generatePKCS1(preSignResult: Data!, signAlgorithm algorithm: String) -> Data? {
+        guard
+           let privateKeyRef = certificateUtils?.privateKey
+        else {
+           return nil
+        }
+        
+        var signedData: Data
+       
+        let signUtils = CADESSignUtils()
+       
+        let unmanagedPrivateKey = Unmanaged.passUnretained(privateKeyRef)
+        let privateKeyPointer: UnsafeMutablePointer<Unmanaged<SecKey>?> = .allocate(capacity: 1)
+        privateKeyPointer.initialize(to: unmanagedPrivateKey)
+        signedData = signUtils.signData(withPrivateKey: privateKeyPointer, data: preSignResult, algorithm: algorithm)
+       
+        privateKeyPointer.deinitialize(count: 1)
+        privateKeyPointer.deallocate()
+       
+        return signedData
+    }
+    
+   /* override func sign() {
 	   print("Ejecutando firma con certificado digital")
 	   
 	   guard
@@ -67,6 +103,6 @@ class CertificateLocalSignUseCase: GenericLocalSignUseCase {
 				}
 		  }
 	   }
-    }
+    }*/
     
 }

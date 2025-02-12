@@ -22,7 +22,7 @@ import Foundation
 	   wrapper?.getDNIe(completion: self)
     }
     
-    override func sign() {
+    /*override func sign() {
 	   guard
 		  let stringBase64Data = signModel.datosInUse,
 		  let pdfData = Base64Utils.decode(stringBase64Data, urlSafe: true),
@@ -79,7 +79,7 @@ import Foundation
 	   self.signModel.datosInUse = postsignData
 	   
 	   completionCallback?(.success(false))
-    }
+    }*/
     
     private func handleErrorLocalSign(errorCode: Int) {
 	   let error = HandeThirdPartyErrors.getLocalSignError(codigo: errorCode)
@@ -125,7 +125,18 @@ import Foundation
 	   self.wrapper?.nfcSessionManager.invalidateSessionManually(withAlertMessage: withAlertMessage)
     }
     
-    func generatePKCS1(preSignResult: Data!, signAlgorithm: String) -> Data? {
+    override func getCertificateRef() -> SecCertificate? {
+        guard 
+            let certJ509 = Base64Utils.decode(certificateData, urlSafe: true),
+            let secCert = SecCertificateCreateWithData(nil, certJ509 as CFData)
+        else {    
+            return nil
+        }
+        
+        return secCert
+    }
+    
+    override func generatePKCS1(preSignResult: Data!, signAlgorithm: String) -> Data? {
         guard let privateKeyReference = dnieWrapper?.getPrivateKey(with: PrivateConstants.certFromDNIe),
 		    let dataSigned = dnieWrapper?.sign(with: IOSByteArray(nsData: preSignResult), with: signAlgorithm, with: privateKeyReference) else {
 		  handleErrorDnieWrapper(errorCode: Int(dnieWrapper?.getErrorCode() ?? 10))
