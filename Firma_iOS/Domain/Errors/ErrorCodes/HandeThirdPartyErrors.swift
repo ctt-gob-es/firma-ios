@@ -172,11 +172,8 @@ struct HandeThirdPartyErrors {
     
     static func shouldRetry(error: AppError) -> Bool{
 	   let retryableErrors: Set<AppError> = [
-		  .pdfFormModified,
 		  .pdfBadPassword,
-		  .pdfIsPasswordProtected,
-		  .pdfSuspectedPSA,
-		  .pdfCertifiedDocument
+		  .pdfIsPasswordProtected
 	   ]
 	   return retryableErrors.contains(error)
     }
