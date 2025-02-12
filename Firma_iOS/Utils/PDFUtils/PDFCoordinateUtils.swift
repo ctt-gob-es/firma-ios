@@ -11,7 +11,8 @@ import Foundation
 class PDFCoordinateUtils {
     static func setCoordinatesFromAnnotation(signModel: SignModel, annotation: PDFAnnotation) {
 	   let bounds = annotation.bounds
-	   let obfuscateUserIdentifiers = UserDefaults.standard.bool(forKey: "obfuscateUserIdentifiers")
+	   let key = "obfuscateUserIdentifiers"
+	   let obfuscateUserIdentifiers = UserDefaults.standard.object(forKey: key) == nil ? true : UserDefaults.standard.bool(forKey: key)
 	   
 	   var newParams = [
 		  "signaturePositionOnPageLowerLeftX": "\(Int(bounds.minX))",
