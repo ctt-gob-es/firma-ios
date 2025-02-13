@@ -600,6 +600,7 @@ class HomeViewModel: ObservableObject {
                 checkCertificateSelected(step: .expiredNearPass)
             }
         case .expiredNearPass:
+		  showCertificateInfoModal = false
 		  handleOperationSignWithElectronicCertificate()
         }
     }
@@ -690,11 +691,13 @@ class HomeViewModel: ObservableObject {
     
     func successOperationSaveFile() {
         viewMode = .home
+	   self.showDocumentSavingPicker = false
         appStatus.showSuccessModal = true
         appStatus.successModalState = .successArhiveAdded
 	   if !isLocalSign {
 		  SendSuccessOperationUseCase().execute(signModel: self.signModel)
 	   }
+	   resetHomeViewModelVariables()
     }
     
     func cancelOperationSaveFile() {

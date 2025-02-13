@@ -87,7 +87,10 @@ struct HomeView: View {
                 .interactiveDismissDisabled(true)
         }
         .sheet(isPresented: $viewModel.showCertificateInfoModal) {
-            CertificateInfoModalView(contentHeight: $contentSheetHeight, title: viewModel.titleCertificateInfoModal, message: viewModel.messageCertificateInfoModal, onContinue: { viewModel.checkCertificateSelected(step: .expiredNearPass)})
+		  CertificateInfoModalView(contentHeight: $contentSheetHeight, title: viewModel.titleCertificateInfoModal, message: viewModel.messageCertificateInfoModal, onContinue: {
+			 viewModel.showCertificateInfoModal = false
+			 viewModel.checkCertificateSelected(step: .expiredNearPass)
+		  })
                 .presentationDetents([.height(contentSheetHeight)])
                 .accessibility(addTraits: .isModal)
                 .interactiveDismissDisabled(true)
@@ -288,7 +291,5 @@ struct HomeView: View {
                 appStatus.appError = AppError.fileLoadingLocalFile
         }
     }
-    
-    
 }
 
