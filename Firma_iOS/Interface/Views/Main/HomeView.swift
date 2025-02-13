@@ -154,6 +154,7 @@ struct HomeView: View {
                      case .success(_):
                         viewModel.successOperationSaveFile()
                      case .failure(let error):
+					viewModel.showDocumentSavingPicker = false
                          if (error == .userOperationSaveCanceled){
                              viewModel.cancelOperationSaveFile()
                          } else {
