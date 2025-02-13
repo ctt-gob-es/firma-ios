@@ -1,5 +1,5 @@
 //
-//  PAdESSignatureUtils.h
+//  PAdESSigner.h
 //  PAdESSignature
 //
 //  Created by Desarrollo Abamobile on 10/12/24.
@@ -8,31 +8,30 @@
 #import <Foundation/Foundation.h>
 #import <PAdESSignature/PresignResponse.h>
 #import <PAdESSignature/HashAlgorithmType.h>
-#import <PAdESSignature/PostsignResponse.h>
+#import <PAdESSignature/SignatureResponse.h>
 
 @class EsGobAfirmaIosPresignResult;
 @class IOSByteArray;
 
-@interface PAdESSignatureUtils : NSObject
+@interface PAdESSigner : NSObject
 
-typedef void (^SignPdfCompletionHandler)(NSString * result, NSError * error);
+/*typedef void (^SignPdfCompletionHandler)(NSString * result, NSError * error);*/
 
 /**
- *  Realiza la operacion de firma sobre el data de un PDF
+ *  Realiza la operacion de firma sobre el data de un PDF. 
  *
  *  @param pdfData Objeto NSData con el PDF a firmar
  *  @param hashAlgorithmType El algoritmo de hash (SHA1, SHA256, SHA384 o SHA512.).
  *  @param privateKey La clave privada del certificado con el que se desea firmar
  *  @param certificate El certificado con el que se desea firmar
  *  @param extraParams Dicionario con parrametros extras para la firma (firmavisible, ofuscación, mensaje a mostrsar en la firma visible, coordenadas de firma, ...)
- *  @param completion función a invocar cuando termine la firma que develve el PDF firmado o un error
+ *  @return Objeto con el resultado de la firma
  */
-- (void)signPdfWithData:(NSData *)pdfData
+- (SignatureResponse *)signPdfWithData:(NSData *)pdfData
       hashAlgorithmType:(HashAlgorithmType)hashAlgorithmType
 			 privateKey:(SecKeyRef)privateKey
 			certificate:(SecCertificateRef)certificate
-			extraParams:(NSDictionary *)extraParams
-			 completion:(SignPdfCompletionHandler)completion;
+			extraParams:(NSDictionary *)extraParams;
 
 /**
  *  Realiza la operacion de prefirma sobre el data de un PDF
@@ -59,12 +58,19 @@ typedef void (^SignPdfCompletionHandler)(NSString * result, NSError * error);
  *  @param pkcs1 La firma PKCS1 del NSData del PDF
  *  @return Resultado de la posfirma
  */
-- (PostsignResponse *)dniePostsignPdfWithData:(NSData *)pdfData
+- (SignatureResponse *)dniePostsignPdfWithData:(NSData *)pdfData
                             hashAlgorithmType:(HashAlgorithmType)hashAlgorithmType
                                   certificate:(SecCertificateRef)certificate
                                   extraParams:(NSDictionary *)extraParams
                                         pkcs1:(NSData *)pkcs1;
 
+/**
+ *  Obtiene el algoritmo de firma en función de algoritmo hash y el certificado (RSA, ECDSA)
+ *
+ *  @param hashAlgorithmType Algoritmo de firma (SHA1, SHA256, SHA384, SHA512)
+ *  @param certificate Certificado con el que se va a realizar la firma
+ *  @return Algorirmo de firma (SHA1withRSA, SHA256withECDSA, ...)
+ */
 - (NSString *) getSignAlgorithm:(HashAlgorithmType)hashAlgorithmType
                 withCertificate:(SecCertificateRef)certificate;
 

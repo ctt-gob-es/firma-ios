@@ -67,7 +67,8 @@
 #include "es/gob/jmulticard/card/CryptoCard.h"
 
 //FRAMEWORKS
-#import <PAdESSignature/PKCS1DecoderUtils.h>
-#import <PAdESSignature/PAdESSignatureUtils.h>
+#import <PAdESSignature/PAdESSigner.h>
 #import <PAdESSignature/PresignResponse.h>
-#import <PAdESSignature/PostsignResponse.h>
+#import <PAdESSignature/SignatureResponse.h>
+#import <PAdESSignature/HashAlgorithmType.h>
+#import <PAdESSignature/PKCS1DecoderUtils.h>

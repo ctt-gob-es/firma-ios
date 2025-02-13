@@ -295,6 +295,12 @@ extension AppError {
     static let unknownSignatureError = AppError.thirdPartySoftwareError(3005012, "Error desconocido durante la operación")
     static let inputOutputError = AppError.thirdPartySoftwareError(3005013, "Error en una operación de lectura/escritura")
     static let unknownSevereError = AppError.thirdPartySoftwareError(3005014, "Error desconocido grave")
+    static let localSignDataError = AppError.thirdPartySoftwareError(3005015, "No se ha recibido los datos necesarios para hacer la firma. No se pueden obtener los datos del PDF a firmar o los datos del certificado")
+    static let localSignPresignError = AppError.thirdPartySoftwareError(3005015, "Error al hacer la prefirma. No se han obtenido datos")
+    static let localSignAlgorithmError = AppError.thirdPartySoftwareError(3005016, "No se ha podido obtener el algoritmo de firma a partir del hash de firma y el certificado")
+    static let localSignSignatureError = AppError.thirdPartySoftwareError(3005017, "No se ha podido generar la firma con el certificado y los datos de la prefirma")
+    static let localSignPresignNotFoundError = AppError.thirdPartySoftwareError(3005018, "Error al hacer la posfirma. No se ha realizado una prefirma previamente")
+    static let localSignPostsignError = AppError.thirdPartySoftwareError(3005019, "Error al hacer la posfirma. No se han obtenido datos")
 }
     
 /// Communication Error 4XXXXX problemas comunicaciones: Errores de comunicación con sistemas externos.

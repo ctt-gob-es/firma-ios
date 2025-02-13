@@ -52,7 +52,7 @@ class CertificateLocalSignUseCase: GenericLocalSignUseCase {
         return signedData
     }
     
-   /* override func sign() {
+  /*  override func sign() {
 	   print("Ejecutando firma con certificado digital")
 	   
 	   guard
@@ -79,30 +79,30 @@ class CertificateLocalSignUseCase: GenericLocalSignUseCase {
 	   
 	   let swiftPadesUtils = PadesUtilsSwift()
         
-        swiftPadesUtils.signPdf(
+        let result = swiftPadesUtils.signPdf(
 		  pdfData: pdfData,
 		  privateKey: privateKeyRef,
 		  certificateRef: certificateRef,
 		  extraParams: stringDict
-	   ) { result in
-		  switch result {
-			 case .success(let signedPDF):
-				self.signModel.datosInUse = signedPDF
+        );
+        
+        switch result {
+            case .success(let signedPDF):
+                self.signModel.datosInUse = signedPDF
 				
-				if let completionCallback = self.completionCallback {
-				    completionCallback(.success(false))
-				}
+                if let completionCallback = self.completionCallback {
+                    completionCallback(.success(false))
+                }
 				
-			 case .failure(let error):
-				if let completionCallback = self.completionCallback {
-				    if HandeThirdPartyErrors.shouldRetry(error: error) {
-					   completionCallback(.success(true))
-				    } else {
-					   completionCallback(.failure(error))
-				    }
-				}
-		  }
-	   }
+            case .failure(let error):
+                if let completionCallback = self.completionCallback {
+                    if HandeThirdPartyErrors.shouldRetry(error: error) {
+                        completionCallback(.success(true))
+                    } else {
+                        completionCallback(.failure(error))
+                    }
+                }
+        }
     }*/
     
 }

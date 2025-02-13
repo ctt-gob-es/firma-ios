@@ -14,8 +14,8 @@ FOUNDATION_EXPORT double PAdESSignatureVersionNumber;
 FOUNDATION_EXPORT const unsigned char PAdESSignatureVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <PAdESSignature/PublicHeader.h>
-
-#import <PAdESSignature/PAdESSignatureUtils.h>
-#import <PAdESSignature/PKCS1DecoderUtils.h>
+#import <PAdESSignature/PAdESSigner.h>
 #import <PAdESSignature/PresignResponse.h>
-#import <PAdESSignature/PostsignResponse.h>
+#import <PAdESSignature/SignatureResponse.h>
+#import <PAdESSignature/HashAlgorithmType.h>
+#import <PAdESSignature/PKCS1DecoderUtils.h>

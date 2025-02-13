@@ -31,10 +31,11 @@ class GenericLocalSignUseCase : NSObject {
             let pdfData = Base64Utils.decode(stringBase64Data, urlSafe: true),
             let secCert = getCertificateRef()
         else {
-            return handleErrorLocalSign(errorCode: 1)
+            completionCallback?(.failure(AppError.localSignDataError))
+            return
         }
 
-        let utils = PAdESSignatureUtils()
+        let utils = PAdESSigner()
         let extraParams = signModel.dictExtraParams
 
         
@@ -44,14 +45,11 @@ class GenericLocalSignUseCase : NSObject {
             certificate: secCert,
             extraParams: extraParams
         ) else {
-            return handleErrorLocalSign(errorCode: 1)
+            completionCallback?(.failure(AppError.localSignPresignError))
+            return
         }
 
         guard let presignData = presignResponse.data else {
-            // TODO Revisar si se puede añadir el reintentar
-            /*if presignResponse.retry {
-               completionCallback?(.success(true))
-            }*/
             let errorCode = (presignResponse.error as NSError?)?.code ?? 1
             return handleErrorLocalSign(errorCode: errorCode)
         }
@@ -59,31 +57,27 @@ class GenericLocalSignUseCase : NSObject {
         let signAlgorithm = utils.getSignAlgorithm(HashAlgorithmType.SHA256, with: secCert)
         
         guard let pkcs1 = generatePKCS1(preSignResult: presignData, signAlgorithm: signAlgorithm ?? "SHA256withRSA") else {
-            completionCallback?(.failure(AppError.badCan))
+            completionCallback?(.failure(AppError.localSignSignatureError))
             return
         }
 
-        guard let postsignResponse = utils.dniePostsignPdf(
+        guard let signatureResponse = utils.dniePostsignPdf(
             with: pdfData,
             hashAlgorithmType: HashAlgorithmType.SHA256,
             certificate: secCert,
             extraParams: extraParams,
             pkcs1: pkcs1
         ) else {
-            return handleErrorLocalSign(errorCode: 1)
+            completionCallback?(.failure(AppError.localSignPostsignError))
+            return
         }
 
-        guard let postsignData = postsignResponse.signedString else {
-            let errorCode = (postsignResponse.error as NSError?)?.code ?? 1
+        guard let postsignData = signatureResponse.signedString else {
+            let errorCode = (signatureResponse.error as NSError?)?.code ?? 1
             return handleErrorLocalSign(errorCode: errorCode)
         }
-       
-        if postsignResponse.retry {
-            completionCallback?(.success(true))
-        }
-
+        
         self.signModel.datosInUse = postsignData
-       
         completionCallback?(.success(false))
     }
     

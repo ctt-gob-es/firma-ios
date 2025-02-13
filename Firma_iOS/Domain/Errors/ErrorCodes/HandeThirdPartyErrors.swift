@@ -165,6 +165,16 @@ struct HandeThirdPartyErrors {
 		  return AppError.pdfUnregisteredSignatures
 	   case 13:
 		  return AppError.pdfCertifiedDocument
+        case 1001:
+           return AppError.localSignPresignError
+        case 1002:
+           return AppError.localSignAlgorithmError
+        case 1003:
+           return AppError.localSignSignatureError
+        case 1004:
+           return AppError.localSignPresignNotFoundError
+        case 1005:
+           return AppError.localSignPostsignError
 	   default:
 		  return AppError.generalSoftwareError
 	   }

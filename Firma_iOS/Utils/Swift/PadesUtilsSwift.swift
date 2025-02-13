@@ -14,30 +14,29 @@ class PadesUtilsSwift {
 	   pdfData: Data,
 	   privateKey: SecKey,
 	   certificateRef: SecCertificate,
-	   extraParams: [String: String]?,
-	   completion: @escaping (Result<String, AppError>) -> Void
-    ) {
-	   DispatchQueue.global(qos: .userInitiated).async {
-		  let utils = PAdESSignatureUtils()
-		  
-		  utils.signPdf(
-			 with: pdfData,
-                hashAlgorithmType: HashAlgorithmType.SHA256,
-			 privateKey: privateKey,
-                certificate: certificateRef,
-			 extraParams: extraParams
-		  ) { result, error in
-			 DispatchQueue.main.async {
-				if let error = error as? NSError {
-				    completion(.failure(HandeThirdPartyErrors.getLocalSignError(codigo: error.code)))
-				} else if let result = result {
-				    completion(.success(result))
-				} else {
-				    let unknownError = AppError.generalSoftwareError
-				    completion(.failure(unknownError))
-				}
-			 }
-		  }
-	   }
+        extraParams: [String: String]?) -> Result<String, AppError>
+    {
+        let utils = PAdESSigner()
+        
+        let signatureResponse = utils.signPdf(
+            with: pdfData,
+            hashAlgorithmType: HashAlgorithmType.SHA256,
+            privateKey: privateKey,
+            certificate: certificateRef,
+            extraParams: extraParams
+        );
+        
+        if let signatureResponse = signatureResponse {
+            if let error = signatureResponse.error as? NSError {
+                return .failure(HandeThirdPartyErrors.getLocalSignError(codigo: error.code))
+            } else {
+                guard let postsignData = signatureResponse.signedString else {
+                    return .failure(HandeThirdPartyErrors.getLocalSignError(codigo: 1))
+                }
+                return .success(postsignData)
+            }
+        } else {
+            return .failure(HandeThirdPartyErrors.getLocalSignError(codigo: 1))
+        }
     }
 }
