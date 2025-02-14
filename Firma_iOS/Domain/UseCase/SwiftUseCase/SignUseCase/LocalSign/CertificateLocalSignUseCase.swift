@@ -17,6 +17,28 @@ class CertificateLocalSignUseCase: GenericLocalSignUseCase {
     }
     
     override func configure() {
+	   guard let certificateName = certificateUtils?.selectedCertificateName,
+		    let identity = SwiftCertificateUtils.getIdentityFromKeychain(certName: certificateName)
+	   else {
+		  print("Missing required data for signing")
+		  return
+	   }
+	   
+	   let isPseudonym = certificateUtils?.isPseudonymCertificate(identity) ?? false
+	   let key = "obfuscateUserIdentifiers"
+	   let obfuscateUserIdentifiers = UserDefaults.standard.object(forKey: key) == nil ? true : UserDefaults.standard.bool(forKey: key)
+	   if isPseudonym {
+		  signModel.dictExtraParams?["obfuscateCertText"] = "false"
+	   } else {
+		  signModel.dictExtraParams?["obfuscateCertText"] = obfuscateUserIdentifiers ? "true" : "false"
+	   }
+	   
+	   let layer2Text = isPseudonym
+	   ? "Firmado por $$PSEUDONYM$$ - $$OU$$ el día $$SIGNDATE=dd/MM/yyyy$$ con un certificado emitido por $$ISSUERCN$$"
+	   : "Firmado por $$SUBJECTCN$$ el día $$SIGNDATE=dd/MM/yyyy$$ con un certificado emitido por $$ISSUERCN$$"
+	   
+	   signModel.dictExtraParams?["layer2Text"] = layer2Text
+	   
         sign()
     }
     

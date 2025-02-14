@@ -19,6 +19,12 @@ import Foundation
     }
     
     override func configure() {
+	   let key = "obfuscateUserIdentifiers"
+	   let obfuscateUserIdentifiers = UserDefaults.standard.object(forKey: key) == nil ? true : UserDefaults.standard.bool(forKey: key)
+	   signModel.dictExtraParams?["obfuscateCertText"] = obfuscateUserIdentifiers ? "true" : "false"
+	   
+	   let layer2Text = "Firmado por $$SUBJECTCN$$ el día $$SIGNDATE=dd/MM/yyyy$$ con un certificado emitido por $$ISSUERCN$$"
+	   signModel.dictExtraParams?["layer2Text"] = layer2Text
 	   wrapper?.getDNIe(completion: self)
     }
     

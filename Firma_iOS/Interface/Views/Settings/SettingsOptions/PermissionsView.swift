@@ -14,77 +14,81 @@ struct PermissionsView: View {
     @State private var isSignatureVisible: Bool = false
     @State private var obfuscateUserIdentifiers: Bool = true
     @State private var showToast = false
-    
+
     var body: some View {
-		  VStack {
-			 List {
-				Section {
-				    VStack(alignment: .leading) {
-					   Toggle(isOn: $isNfcEnabled) {
-						  AccessibleText(content: NSLocalizedString("permissions_nfc_description", bundle: Bundle.main, comment: ""))
-							 .regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
-					   }
-					   .toggleStyle(CustomToggleStyle())
-					   
-					   Divider()
-					   
-					   Toggle(isOn: $isSignatureVisible) {
-						  AccessibleText(content: NSLocalizedString("permissions_signature_visible", bundle: Bundle.main, comment: ""))
-							 .regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
-					   }
-					   .toggleStyle(CustomToggleStyle())
-					   
-					   Divider()
-					   
-					   Toggle(isOn: $obfuscateUserIdentifiers) {
-						  AccessibleText(content: NSLocalizedString("permissions_obfuscate_identifiers", bundle: Bundle.main, comment: ""))
-							 .regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
-					   }
-					   .toggleStyle(CustomToggleStyle())
-					   
-					   Divider()
+	   VStack {
+		  List {
+			 Section {
+				VStack(alignment: .leading) {
+				    Toggle(isOn: $isNfcEnabled) {
+					   AccessibleText(content: NSLocalizedString("permissions_nfc_description", bundle: Bundle.main, comment: ""))
+						  .regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
 				    }
+				    .toggleStyle(CustomToggleStyle())
+				    .onChange(of: isNfcEnabled) { newValue in
+					   UserDefaults.standard.set(newValue, forKey: "isNfcEnabled")
+				    }
+
+				    Divider()
+
+				    Toggle(isOn: $isSignatureVisible) {
+					   AccessibleText(content: NSLocalizedString("permissions_signature_visible", bundle: Bundle.main, comment: ""))
+						  .regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
+				    }
+				    .toggleStyle(CustomToggleStyle())
+				    .onChange(of: isSignatureVisible) { newValue in
+					   UserDefaults.standard.set(newValue, forKey: "isSignatureVisible")
+				    }
+
+				    Divider()
+
+				    Toggle(isOn: $obfuscateUserIdentifiers) {
+					   AccessibleText(content: NSLocalizedString("permissions_obfuscate_identifiers", bundle: Bundle.main, comment: ""))
+						  .regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
+				    }
+				    .toggleStyle(CustomToggleStyle())
+				    .onChange(of: obfuscateUserIdentifiers) { newValue in
+					   UserDefaults.standard.set(newValue, forKey: "obfuscateUserIdentifiers")
+				    }
+
+				    Divider()
 				}
-				.frame(maxWidth: .infinity)
 			 }
-			 .scrollContentBackground(.hidden)
 			 .frame(maxWidth: .infinity)
-			 
-			 Spacer()
-			 
-			 Button(action: {
-				UserDefaults.standard.set(isNfcEnabled, forKey: "isNfcEnabled")
-				UserDefaults.standard.set(isSignatureVisible, forKey: "isSignatureVisible")
-				UserDefaults.standard.set(obfuscateUserIdentifiers, forKey: "obfuscateUserIdentifiers")
-				
-				showToast = true
-				
-				DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-				    showToast = false
-				    self.presentationMode.wrappedValue.dismiss()
-				}
-			 }) {
-				AccessibleText(content: NSLocalizedString("permissions_button_title", bundle: Bundle.main, comment: ""))
-			 }
-			 .buttonStyle(CustomButtonStyle(isEnabled: true))
-			 .padding(.bottom, 20)
 		  }
+		  .scrollContentBackground(.hidden)
 		  .frame(maxWidth: .infinity)
-		  .background(Color.white.edgesIgnoringSafeArea(.all))
-		  .navigationBarTitle(NSLocalizedString("permissions_title", bundle: Bundle.main, comment: ""), displayMode: .inline)
-		  .onAppear {
-			 isNfcEnabled = UserDefaults.standard.object(forKey: "isNfcEnabled") as? Bool ?? true
-			 isSignatureVisible = UserDefaults.standard.object(forKey: "isSignatureVisible") as? Bool ?? true
-			 obfuscateUserIdentifiers = UserDefaults.standard.object(forKey: "obfuscateUserIdentifiers") as? Bool ?? false
+
+		  Spacer()
+
+		  Button(action: {
+			 showToast = true
+			 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+				showToast = false
+				self.presentationMode.wrappedValue.dismiss()
+			 }
+		  }) {
+			 AccessibleText(content: NSLocalizedString("permissions_button_title", bundle: Bundle.main, comment: ""))
 		  }
-		  
-		  if showToast {
-			 ToastView(message: NSLocalizedString("nfc_permission_set", bundle: Bundle.main, comment: ""))
-				.transition(.opacity)
-				.animation(.easeInOut)
-				.padding(.bottom, 50)
-		  }
+		  .buttonStyle(CustomButtonStyle(isEnabled: true))
+		  .padding(.bottom, 20)
 	   }
+	   .frame(maxWidth: .infinity)
+	   .background(Color.white.edgesIgnoringSafeArea(.all))
+	   .navigationBarTitle(NSLocalizedString("permissions_title", bundle: Bundle.main, comment: ""), displayMode: .inline)
+	   .onAppear {
+		  isNfcEnabled = UserDefaults.standard.object(forKey: "isNfcEnabled") as? Bool ?? true
+		  isSignatureVisible = UserDefaults.standard.object(forKey: "isSignatureVisible") as? Bool ?? true
+		  obfuscateUserIdentifiers = UserDefaults.standard.object(forKey: "obfuscateUserIdentifiers") as? Bool ?? true
+	   }
+
+	   if showToast {
+		  ToastView(message: NSLocalizedString("nfc_permission_set", bundle: Bundle.main, comment: ""))
+			 .transition(.opacity)
+			 .animation(.easeInOut)
+			 .padding(.bottom, 50)
+	   }
+    }
 }
 
 struct CustomToggleStyle: ToggleStyle {
@@ -114,8 +118,3 @@ struct CustomToggleStyle: ToggleStyle {
     }
 }
 
-struct PermissionsView_Previews: PreviewProvider {
-    static var previews: some View {
-	   PermissionsView()
-    }
-}
