@@ -79,7 +79,7 @@ class FileUtils {
 	   }
 	   
 	   do {
-		  let data = try Data(contentsOf: url)
+		  let data = try Data(contentsOf: url, options: .uncached)
             let fileName = url.lastPathComponent
 		  completion(.success(FileData(data: data, fileName: fileName)))
 	   } catch let error {

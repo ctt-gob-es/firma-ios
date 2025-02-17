@@ -155,9 +155,14 @@ struct PDFCoordinatesModalWrapper: View {
 			 }
 		  }
 		  .onAppear {
+			 clearPDFDocumentVariables()
 			 loadPDFDocument()
 		  }
 	   }
+    }
+    
+    private func clearPDFDocumentVariables() {
+	   password = ""
     }
     
     private func loadPDFDocument() {
