@@ -9,7 +9,7 @@
 import Foundation
 import Security
 
-class PadesUtilsSwift {
+/*class PadesUtilsSwift {
     func signPdf(
 	   pdfData: Data,
 	   privateKey: SecKey,
@@ -39,4 +39,4 @@ class PadesUtilsSwift {
             return .failure(HandeThirdPartyErrors.getLocalSignError(codigo: 1))
         }
     }
-}
+}*/
