@@ -35,7 +35,7 @@ class GenericLocalSignUseCase : NSObject {
             return
         }
 
-        let utils = PAdESSigner()
+        let utils = PAdESSignatureUtils()
         let extraParams = signModel.dictExtraParams
 
         

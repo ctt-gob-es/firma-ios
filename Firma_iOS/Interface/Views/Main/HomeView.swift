@@ -100,6 +100,13 @@ struct HomeView: View {
                 .presentationDetents([.height(contentSheetHeight)])
 			 .accessibility(addTraits: .isModal)
 			 .interactiveDismissDisabled(true)
+			 .onDisappear() {
+				DispatchQueue.main.async {
+				    if !shouldCancelOperation {
+					   viewModel.handleOperationSign()
+				    }
+				}
+			 }
 	   }
         .fileImporter(
             isPresented: $appStatus.showDocumentImportingPicker,

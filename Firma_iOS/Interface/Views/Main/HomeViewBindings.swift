@@ -110,6 +110,7 @@ extension View {
 				viewModel.areCertificatesSelectable = false
 				appStatus.showErrorModal = true
 				appStatus.appError = AppError.userOperationCanceled
+				viewModel.resetHomeViewModelVariables()
 			 }
 		  }
 		  .onChange(of: shouldSendStopSign.wrappedValue) { _, newValue in
@@ -118,6 +119,7 @@ extension View {
 			 }
 		  }
 		  .onChange(of: viewModel.showTextfieldModal) { _, newValue in
+			 appStatus.isLoading = false
 			 if !newValue {
 				if password.wrappedValue != "" {
 				    viewModel.signModel?.updateExtraParams(dict: ["ownerPassword": password.wrappedValue])

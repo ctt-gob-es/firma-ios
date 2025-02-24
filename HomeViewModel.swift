@@ -116,11 +116,11 @@ class HomeViewModel: ObservableObject {
         if viewMode == .sign {
             self.areCertificatesSelectable = false
             if let urlReceived = urlReceived {
-                isLoading = true
+			 self.appStatus.isLoading = true
                 
                 let parseDataUrlUseCase = ParseDataURLOperationUseCase()
                 parseDataUrlUseCase.execute(url: urlReceived.absoluteString) { result in
-                    self.isLoading = false
+                    self.appStatus.isLoading = false
                     switch result {
                     case .success(let dictionary):
                         self.signModel = SignModel(dictionary: dictionary)
@@ -204,11 +204,11 @@ class HomeViewModel: ObservableObject {
     }
     
     func handleImportedDataURLsChange(_ value: [URL]?) {
-        self.isLoading = true
+        self.appStatus.isLoading = true
         LoadDataLocalFileUseCase().execute(urlFile: value, signModel: signModel) {result in
             switch result {
             case .success(let (filename, stringData)):
-                self.isLoading = false
+                self.appStatus.isLoading = false
                 
                 // Si tenemos firma visible opcional o requerida y es una firma PDF comprobamos que el formatp sea PDF
                 if self.signModel?.isSignatureCoordinatesRequired() ?? false {
@@ -397,7 +397,7 @@ class HomeViewModel: ObservableObject {
         }
         
         SendCertificateUseCase().execute(base64Certificate: certificateData, signModel: signModel) { appError in
-            self.isLoading = false
+            self.appStatus.isLoading = false
             if let appError = appError {
                 self.showError(appError: appError)
             } else {
@@ -409,7 +409,10 @@ class HomeViewModel: ObservableObject {
         }
     }
     
-    private func handleOperationSign() {
+    func handleOperationSign() {
+	   DispatchQueue.main.async {
+		  self.appStatus.isLoading = true
+	   }
         if isLocalSign {
             signLocalPdf()
         } else {
@@ -427,7 +430,7 @@ class HomeViewModel: ObservableObject {
         }
         
         batchSignUseCase?.signBatch(dataOperation: parameters as! [String : Any]) { result in
-            self.isLoading = false
+            self.appStatus.isLoading = false
             
             switch result {
             case .success(_):
@@ -479,7 +482,6 @@ class HomeViewModel: ObservableObject {
                 archiveName: archiveName,
                 base64Data: receivedStringData
             ) { result in
-                self.isLoading = false
                 switch result {
                 case .success(let url):
                     self.downloadedData = url
@@ -493,7 +495,7 @@ class HomeViewModel: ObservableObject {
     
     func showError(appError: AppError) {
         resetHomeViewModelVariables()
-        self.isLoading = false
+        self.appStatus.isLoading = false
         DispatchQueue.main.async {
            self.showErrorModal = false
            DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
@@ -509,7 +511,7 @@ class HomeViewModel: ObservableObject {
 	   self.signUseCase = SingleSignUseCase(signModel: signModel, certificateUtils: certificateUtils)
 	   self.signUseCase?.singleSign { result in
 		  DispatchQueue.main.async {
-			 self.isLoading = false
+			 self.appStatus.isLoading = false
 			 
 			 switch result {
 			 case .success(let shouldRetry):
@@ -542,8 +544,10 @@ class HomeViewModel: ObservableObject {
     private func signLocalPdf() {
 	   guard let signModel = self.signModel else { return }
 	   self.localSignUseCase = CertificateLocalSignUseCase(signModel: signModel, certificateUtils: certificateUtils)
+	   DispatchQueue.main.async {
+		  self.appStatus.isLoading = true
+	   }
 	   self.localSignUseCase?.executeSign(completion: { result in
-		  self.isLoading = false
 		  switch result {
 			 case .success(let shouldRetry):
 				if shouldRetry {
@@ -561,7 +565,6 @@ class HomeViewModel: ObservableObject {
 				    
 				    HistoricalUseCase().saveHistory(history: history) { result in
 					   // Independientemente del resultado del guardado en historico, mostramos que la firma ha sido correcta
-					   self.isLoading = false
 					   self.appStatus.showDocumentSavingPicker = true
 					   self.handleOperationSaveData()
 					   self.resetHomeViewModelVariables()
@@ -641,8 +644,6 @@ class HomeViewModel: ObservableObject {
     private func handleOperationSignWithElectronicCertificate() {
         guard let signModel = self.signModel else { return }
         guard let operation = signModel.operation else { return }
-        
-        isLoading = true
 	   switch operation {
 		  case OPERATION_SELECT_CERTIFICATE:
                 handleOperationSelectCertificate()
@@ -694,6 +695,7 @@ class HomeViewModel: ObservableObject {
 	   self.showDocumentSavingPicker = false
         appStatus.showSuccessModal = true
         appStatus.successModalState = .successArhiveAdded
+	   appStatus.isLoading = false
 	   if !isLocalSign {
 		  SendSuccessOperationUseCase().execute(signModel: self.signModel)
 	   }

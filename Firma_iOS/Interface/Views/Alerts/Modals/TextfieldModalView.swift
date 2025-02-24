@@ -96,6 +96,9 @@ struct TextfieldModalView: View {
                         showFieldError = false
                     }
                 })
+			 .onAppear() {
+				password = ""
+			 }
             }
             .background(GeometryReader { geometry in
                 Color.white.onAppear {

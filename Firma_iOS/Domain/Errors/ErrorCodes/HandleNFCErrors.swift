@@ -31,7 +31,6 @@ struct HandleNFCErrors {
             return AppError.nfcNdefReaderSessionErrorZeroLengthMessage
         case .readerErrorRadioDisabled:
             return AppError.nfcReaderErrorRadioDisabled
-            
         case .readerErrorUnsupportedFeature:
             return AppError.nfcReaderErrorUnsupportedFeature
         case .readerErrorSecurityViolation:
