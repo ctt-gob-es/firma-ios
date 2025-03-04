@@ -4221,7 +4221,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Los certificados importados en Autofirma App son de uso exclusivo para firma electrónica en páginas Web diseñadas a tal efecto. Para usar un certificado digital para identificación en páginas Web deberá seguir las instrucciones de su navegador Web y de Apple respecto al proceso de instalación de los certificados y sus claves en el sistema operativo iOS y en el propio navegador Web si fuese preciso."
+            "value" : "Autofirma App permite firmar con certificado trámites web compatibles con la aplicación. Para firmar un trámite, complételo normalmente a través de su navegador web. Si el trámite está preparado para la firma con Autofirma App, esta se ejecutará en el momento de la firma, permitirá al usuario seleccionar el certificado de firma y completará la operación.\n \nTambién puede abrir la aplicación y firmar directamente un documento PDF mediante el botón \"Firma local\". Si desea además que la firma sea visible en una página de su documento, habilite la opción \"Hacer firma visible\" en el apartado \"Permisos\" de la App. Esto le pemitirá seleccionar un área de firma dentro de las páginas del documento para que se imprima ahí la información de firma. Si no desea que su número de DNI/NIE completo aparecezca en el texto de la firma, asegúrese de tener habilitada la opción \"Ofuscar identificadores de usuario en las firmas\" en el apartado \"Permisos\"."
           }
         },
         "eu" : {
@@ -4249,37 +4249,37 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Autofirma App permet signar amb certificat tràmits web compatibles amb l'aplicació. Per a signar un tràmit, completi'l normalment a través del seu navegador web. Si el tràmit està preparat per a la signatura amb Autofirma App, aquesta s'executarà en el moment de la signatura, permetrà a l'usuari seleccionar el certificat de signatura i executi l'operació.També existeix la possibilitat d'obrir l'aplicació i signar directament un fitxer per a ús personal. Als documents PDF se'ls agregarà una signatura, mentre que per als altres fitxers es generarà un fitxer de signatura independent.Recordeu que abans d'iniciar el tràmit heu d'haver importat el vostre certificat de signatura a Autofirma App iOS."
+            "value" : "Autofirma App permet signar amb certificat tràmits web compatibles amb l'aplicació. Per a signar un tràmit, completi'l normalment a través del seu navegador web. Si el tràmit està preparat per a la signatura amb Autofirma App, aquesta s'executarà en el moment de la signatura, permetrà a l'usuari seleccionar el certificat de signatura i completarà l'operació.\n \nTambé pot obrir l'aplicació i signar directament un document PDF mitjançant el botó \"Signatura local\". Si desitja a més que la signatura sigui visible en una pàgina del seu document, habiliti l'opció \"Fer signatura visible\" en l'apartat \"Permisos\" de l'App. Això le pemitirá seleccionar una àrea de signatura dins de les pàgines del document perquè s'imprimeixi aquí la informació de signatura. Si no desitja que el seu número de DNI/NIE complet aparecezca en el text de la signatura, asseguri's de tenir habilitada l'opció \"Ofuscar identificadors d'usuari en les signatures\" en l'apartat \"Permisos\".\n \nRecordi que per a poder signar abans ha d'haver importat el seu certificat de signatura en l'Autofirma App."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Autofirma App allows you to sign with certified web formalities compatible with the application. To sign a paperwork, please complete it normally through your web browser. If the procedure is ready for signature with Autofirma App, it will be executed at the time of signature, will allow the user to select the signing certificate and run the operation.There is also the possibility of opening the application and signing a file directly for personal use. A signature will be added to the PDF documents, while for the other files a separate signature file will be generated. Remember that before starting the procedure you must have imported your signature certificate into the iOS @firma Client."
+            "value" : "Autofirma App allows you to sign with certified web formalities compatible with the application. To sign a paperwork, please complete it normally through your web browser. If the procedure is ready for signature with Autofirma App, it will be executed at the time of signature, allow the user to select the signing certificate and complete the operation.\n\nYou can also open the application and directly sign a PDF document using the \"Local Signature\" button. If you also want the signature to be visible on a page of your document, enable the \"Make Visible Signature\" option in the \"Permissions\" section of the App. This will allow you to select a signature area within the pages of the document so that the signature information is printed there. If you do not want your full DNI/NIE number to appear in the signature text, make sure you have the option \"Ofuscar User Identifiers in the signatures\" in the \"Permissions\" section.\n\nRemember that in order to be able to sign before you must have imported your signature certificate in the Autofirma App."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Autofirma App permite firmar con certificado trámites web compatibles con la aplicación. Para firmar un trámite, complételo normalmente a través de su navegador web. Si el trámite está preparado para la firma con Autofirma App, esta se ejecutará en el momento de la firma, permitirá al usuario seleccionar el certificado de firma y ejecute la operación. También existe la posibilidad de abrir la aplicación y firmar directamente un fichero para uso personal. A los documentos PDF se les agregará una firma, mientras que para los demás ficheros se generará un fichero de firma independiente. Recuerde que antes de iniciar el trámite debe haber importado su certificado de firma en Autofirma App iOS."
+            "value" : "Autofirma App permite firmar con certificado trámites web compatibles con la aplicación. Para firmar un trámite, complételo normalmente a través de su navegador web. Si el trámite está preparado para la firma con Autofirma App, esta se ejecutará en el momento de la firma, permitirá al usuario seleccionar el certificado de firma y completará la operación.\n \nTambién puede abrir la aplicación y firmar directamente un documento PDF mediante el botón \"Firma local\". Si desea además que la firma sea visible en una página de su documento, habilite la opción \"Hacer firma visible\" en el apartado \"Permisos\" de la App. Esto le pemitirá seleccionar un área de firma dentro de las páginas del documento para que se imprima ahí la información de firma. Si no desea que su número de DNI/NIE completo aparecezca en el texto de la firma, asegúrese de tener habilitada la opción \"Ofuscar identificadores de usuario en las firmas\" en el apartado \"Permisos\"."
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aplikazioarekin bateragarriak diren web-izapideak ziurtagiri bidez sinatzeko aukera ematen du Autofirma App-ek. Izapide bat sinatzeko, osa ezazu normalean zure web nabigatzailearen bidez. Izapidea prest badago Autofirma App-ekin sinatzeko, sinatzeko unean exekutatuko da, erabiltzaileari sinaduraren ziurtagiria hautatzeko eta eragiketa exekutatzeko aukera emango dio. Aplikazioa irekitzeko eta zuzenean erabilera pertsonalerako fitxategi bat sinatzeko aukera ere badago. PDF dokumentuei sinadura bat erantsiko zaie; gainerako fitxategiei, berriz, sinadura-fitxategi independente bat sortuko zaie. Gogoratu prozesua hasi aurretik zure sinadura-ziurtagiria Autofirma App iOS-era inportatu behar duzula."
+            "value" : "Aplikazioarekin bateragarriak diren web-izapideak ziurtagiri bidez sinatzeko aukera ematen du Autofirma App-ek. Izapide bat sinatzeko, osa ezazu normalean zure web nabigatzailearen bidez. Izapidea prest badago Autofirma App-ekin sinatzeko, sinatzeko unean exekutatuko da, erabiltzaileari sinaduraren ziurtagiria hautatzeko aukera emango dio eta eragiketa osatuko du.\n\nHalaber, aplikazioa ireki dezakezu eta zuzenean PDF dokumentu bat sinatu \"Sinadura lokala\" botoiaren bidez. Gainera, sinadura zure dokumentuko orri batean ikusi nahi baduzu, gaitu \"Sinadura ikusgarria egin\" aukera aplikazioaren \"Baimenak\" atalean. Horrek agiriaren orrien barruan sinadura-eremu bat hautatzea eskatuko dizu, hor sinaduraren informazioa inprima dadin. Zure NAN/AIZ osoa sinadura-testuan agertzea nahi ez baduzu, ziurta ezazu \"Sinaduren erabiltzaile-identifikatzaileen erregistroa\" aukera gaituta duzula \"Baimenak\" atalean.\n\nGogoan izan lehen sinatu ahal izateko zure sinadura-ziurtagiria autofirma app-ean inportatu behar duzula."
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Autofirma App permite asinar con certificado trámites web compatibles coa aplicación. Para asinar un trámite, compléteo normalmente a través do seu navegador web. Se o trámite está preparado para a firma con Autofirma App, esta executarase no momento da firma, permitirá ao usuario seleccionar o certificado de firma e execute a operación.&lt;/p> &lt;p>Tamén existe a posibilidade de abrir a aplicación e asinar directamente un ficheiro para uso persoal. Aos documentos PDF agregaráselles unha firma, mentres que para os demais ficheiros xerarase un ficheiro de firma independente. Lembre que antes de iniciar o proceso debes ter importado o teu certificado de sinatura na App Autofirma iOS."
+            "value" : "Autofirma App permite asinar con certificado trámites web compatibles coa aplicación. Para asinar un trámite, compléteo normalmente a través do seu navegador web. Se o trámite está preparado para a firma con Autofirma App, esta executarase no momento da firma, permitirá ao usuario seleccionar o certificado de firma e completará a operación.\n \nTamén pode abrir a aplicación e asinar directamente un documento PDF mediante o botón \"Firma local\". Se desexa ademais que a firma sexa visible nunha páxina do seu documento, habilite a opción \"Facer firma visible\" nos apartado \"Permisos\" da App. Isto le pemitirá seleccionar unha área de sinatura dentro das páxinas do documento para que se imprima aí a información de firma. Se non desexa que o seu número de DNI/NIE completo aparecezca no texto da firma, asegúrese de ter habilitada a opción \"Ofuscar identificadores de usuario nas firmas\" nos apartado \"Permisos\".\n \nLembre que para poder asinar antes debe importar o seu certificado de firma na Autofirma App."
           }
         },
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Autofirma App permet signar amb certificat tramits web compatibles amb l'aplicacio. Per a signar un tramite, complete'l normalment a traves del seu navegador web. Si el tramite esta preparat per a la signatura amb Autofirma App, esta s'executara en el moment de la signatura, permetra a l'usuari seleccionar el certificat de signatura i execute l'operacio. Tambe existeix la possibilitat d'obrir l'aplicacio i signar directament un fitxer per a us personal. Als documents PDF se'ls agregara una signatura, mentre que per als altres fitxers es generara un fitxer de signatura independent. Recorde que abans d'iniciar el tràmit ha d'haver importat el seu certificat de firma en autofirma App iOS."
+            "value" : "Autofirma App permet signar amb certificat tràmits web compatibles amb l'aplicació. Per a signar un tràmit, complete'l normalment a través del seu navegador web. Si el tràmit està preparat per a la signatura amb Autofirma App, esta s'executarà en el moment de la signatura, permetrà a l'usuari seleccionar el certificat de signatura i completarà l'operació.\n \nTambé pot obrir l'aplicació i signar directament un document PDF mitjançant el botó \"Signatura local\". Si desitja a més que la signatura siga visible en una pàgina del seu document, habilite l'opció \"Fer signatura visible\" en l'apartat \"Permisos\" de l'App. Això le pemitirá seleccionar una àrea de signatura dins de les pàgines del document perquè s'imprimisca ací la informació de signatura. Si no desitja que el seu número de DNI/NIE complet aparecezca en el text de la signatura, assegure's de tindre habilitada l'opció \"Ofuscar identificadors d'usuari en les signatures\" en l'apartat \"Permisos\".\n \nRecorde que per a poder signar abans ha d'haver importat el seu certificat de signatura en l'Autofirma App."
           }
         }
       }
@@ -4409,37 +4409,37 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Com puc fer signatures electròniques amb aquest programa?"
+            "value" : "Com puc fer signatures electròniques amb aquest app?"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "How can I make electronic signatures with this program?"
+            "value" : "How can I make electronic signatures with this app?"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "¿Cómo puedo realizar firmas electrónicas con este programa?"
+            "value" : "¿Cómo puedo realizar firmas electrónicas con esta app?"
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nola egin ditzaket sinadura elektronikoak programa honekin?"
+            "value" : "Nola egin ditzaket sinadura elektronikoak aplikazio honekin?"
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Como podo realizar firmas electrónicas con este programa?"
+            "value" : "Como podo realizar firmas electrónicas con esta app?"
           }
         },
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Com puc realitzar firmes electròniques amb este programa?"
+            "value" : "Com puc realitzar firmes electròniques amb esta app?"
           }
         }
       }
