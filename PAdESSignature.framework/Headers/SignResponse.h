@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PostsignResponse : NSObject
+@interface SignResponse : NSObject
 
 @property (nonatomic, strong, nullable) NSString *signedString;
 @property (nonatomic, strong, nullable) NSError *error;

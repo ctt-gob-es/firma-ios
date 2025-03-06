@@ -6,33 +6,30 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <PAdESSignature/PresignResponse.h>
 #import <PAdESSignature/HashAlgorithmType.h>
-#import <PAdESSignature/PostsignResponse.h>
+#import <PAdESSignature/PresignResponse.h>
+#import <PAdESSignature/SignResponse.h>
 
 @class EsGobAfirmaIosPresignResult;
 @class IOSByteArray;
 
-@interface PAdESSignatureUtils : NSObject
-
-typedef void (^SignPdfCompletionHandler)(NSString * result, NSError * error);
+@interface PAdESSigner : NSObject
 
 /**
- *  Realiza la operacion de firma sobre el data de un PDF
+ *  Realiza la operacion de firma completa sobre el data de un PDF (Prefrima, firma y posfirma)
  *
  *  @param pdfData Objeto NSData con el PDF a firmar
  *  @param hashAlgorithmType El algoritmo de hash (SHA1, SHA256, SHA384 o SHA512.).
  *  @param privateKey La clave privada del certificado con el que se desea firmar
  *  @param certificate El certificado con el que se desea firmar
  *  @param extraParams Dicionario con parrametros extras para la firma (firmavisible, ofuscación, mensaje a mostrsar en la firma visible, coordenadas de firma, ...)
- *  @param completion función a invocar cuando termine la firma que develve el PDF firmado o un error
+ *  @return Resultado de la operacion
  */
-- (void)signPdfWithData:(NSData *)pdfData
+- (SignResponse *)signPdfWithData:(NSData *)pdfData
       hashAlgorithmType:(HashAlgorithmType)hashAlgorithmType
 			 privateKey:(SecKeyRef)privateKey
 			certificate:(SecCertificateRef)certificate
-			extraParams:(NSDictionary *)extraParams
-			 completion:(SignPdfCompletionHandler)completion;
+			extraParams:(NSDictionary *)extraParams;
 
 /**
  *  Realiza la operacion de prefirma sobre el data de un PDF
@@ -43,7 +40,7 @@ typedef void (^SignPdfCompletionHandler)(NSString * result, NSError * error);
  *  @param extraParams Dicionario con parrametros extras para la prefirma (firmavisible, ofuscación, mensaje a mostrsar en la firma visible, coordenadas de firma, ...)
  *  @return Resultado de la prefirma
  */
-- (PresignResponse *)dniePresignPdfWithData:(NSData *)pdfData
+- (PresignResponse *)presignPdfWithData:(NSData *)pdfData
                           hashAlgorithmType:(HashAlgorithmType)hashAlgorithmType
                                 certificate:(SecCertificateRef)certificate
                                 extraParams:(NSDictionary *)extraParams;
@@ -59,7 +56,7 @@ typedef void (^SignPdfCompletionHandler)(NSString * result, NSError * error);
  *  @param pkcs1 La firma PKCS1 del NSData del PDF
  *  @return Resultado de la posfirma
  */
-- (PostsignResponse *)dniePostsignPdfWithData:(NSData *)pdfData
+- (SignResponse *)postsignPdfWithData:(NSData *)pdfData
                             hashAlgorithmType:(HashAlgorithmType)hashAlgorithmType
                                   certificate:(SecCertificateRef)certificate
                                   extraParams:(NSDictionary *)extraParams

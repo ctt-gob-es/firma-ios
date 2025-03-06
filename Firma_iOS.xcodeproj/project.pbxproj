@@ -1516,7 +1516,7 @@
 		83FC0C482C48120B00BBB5A8 /* FloatingPlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC0C472C48120A00BBB5A8 /* FloatingPlaceholderTextView.swift */; };
 		83FD0B092C3FC96200902E19 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FD0B082C3FC96200902E19 /* OnboardingView.swift */; };
 		83FD0B0B2C3FCBB000902E19 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FD0B0A2C3FCBB000902E19 /* OnboardingViewController.swift */; };
-		A04C97A42D5DDB4E00F4FFB9 /* PAdESSignature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04C97A32D5DDB4E00F4FFB9 /* PAdESSignature.framework */; };
+		A04C97C72D78996F00F4FFB9 /* PAdESSignature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04C97C62D78996F00F4FFB9 /* PAdESSignature.framework */; };
 		A065483D2CE969BF00C9D8DE /* SSLBypassDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A065483C2CE969BF00C9D8DE /* SSLBypassDelegate.swift */; };
 		A065483F2CE969D500C9D8DE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A065483E2CE969D500C9D8DE /* NetworkManager.swift */; };
 		A06548422CE96F8A00C9D8DE /* NetworkUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06548412CE96F8A00C9D8DE /* NetworkUtility.swift */; };
@@ -4473,7 +4473,7 @@
 		83FD0B072C3FC96200902E19 /* Cliente @firma-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cliente @firma-Bridging-Header.h"; sourceTree = "<group>"; };
 		83FD0B082C3FC96200902E19 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		83FD0B0A2C3FCBB000902E19 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
-		A04C97A32D5DDB4E00F4FFB9 /* PAdESSignature.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PAdESSignature.framework; sourceTree = "<group>"; };
+		A04C97C62D78996F00F4FFB9 /* PAdESSignature.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PAdESSignature.framework; sourceTree = "<group>"; };
 		A065483C2CE969BF00C9D8DE /* SSLBypassDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLBypassDelegate.swift; sourceTree = "<group>"; };
 		A065483E2CE969D500C9D8DE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A06548412CE96F8A00C9D8DE /* NetworkUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtility.swift; sourceTree = "<group>"; };
@@ -4571,7 +4571,7 @@
 				A08F818D2CF356EF0067266C /* libsqlite3.tbd in Frameworks */,
 				C3AF7F7517FD62180084D916 /* SystemConfiguration.framework in Frameworks */,
 				A08F818E2CF356EF0067266C /* libz.tbd in Frameworks */,
-				A04C97A42D5DDB4E00F4FFB9 /* PAdESSignature.framework in Frameworks */,
+				A04C97C72D78996F00F4FFB9 /* PAdESSignature.framework in Frameworks */,
 				A08F81882CF355B30067266C /* libAdIdAccess.a in Frameworks */,
 				C3AF7F7217FD61EF0084D916 /* CoreData.framework in Frameworks */,
 				A08F81862CF355B30067266C /* libcrypto.a in Frameworks */,
@@ -9273,7 +9273,7 @@
 		C30B322A163804620072A515 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A04C97A32D5DDB4E00F4FFB9 /* PAdESSignature.framework */,
+				A04C97C62D78996F00F4FFB9 /* PAdESSignature.framework */,
 				C3AF7F7317FD62090084D916 /* SystemConfiguration.framework */,
 				C3AF7F7017FD61CE0084D916 /* CoreData.framework */,
 				C31649D6175F2A3C009F3B67 /* QuartzCore.framework */,
