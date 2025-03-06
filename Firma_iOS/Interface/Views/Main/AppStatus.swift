@@ -36,7 +36,23 @@ class AppStatus: ObservableObject {
     
     @Published var userIDCAN: String? = nil
     @Published var userIDPIN: String? = nil
-
     
-    var errorPublisher = PassthroughSubject<String, Never>()
+    @Published var shouldAutosign: Bool = false {
+	   didSet {
+		  if shouldAutosign {
+			 resetSticky()
+		  }
+	   }
+    }
+    
+    private var stickyTimer: Timer?
+    
+    private func resetSticky() {
+	   stickyTimer?.invalidate()
+	   stickyTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(STICKY_TIMER), repeats: false) { [weak self] _ in
+		  DispatchQueue.main.async {
+			 self?.shouldAutosign = false
+		  }
+	   }
+    }
 }

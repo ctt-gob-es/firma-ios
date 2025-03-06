@@ -232,6 +232,10 @@ class HomeViewModel: ObservableObject {
         // Por defecto la firma es externa
         dataType = .external
 	   
+	   if let sticky = signModel.sticky {
+		  appStatus.shouldAutosign = true
+	   }
+	   
         if (signModel.operation == OPERATION_SIGN || signModel.operation == OPERATION_COSIGN || signModel.operation == OPERATION_COUNTERSIGN) {
 		  // Si el NFC está deshabilitado, deberemos comprobar si hay certificados antes de escoger archivo, sólo podremos comprobarlo si está deshabilitado, ya que si no podría escoger firmar con DNI
 		  let nfcEnabled = UserDefaults.standard.object(forKey: "isNfcEnabled") == nil ? true : UserDefaults.standard.bool(forKey: "isNfcEnabled")

@@ -37,6 +37,8 @@ class SignModel {
     
     var filename: String? // Nombre del fichero que se está procesando
     
+    var sticky: String? // Maneja el firmado automático de archivos
+    
     init(dictionary: NSMutableDictionary) {
 	   self.operation = dictionary[PARAMETER_NAME_OPERATION] as? String
 	   self.datosInUse = dictionary[PARAMETER_NAME_DAT] as? String
@@ -85,6 +87,10 @@ class SignModel {
 	   
 	   if let appNameString = dictionary[PARAMETER_NAME_APP_NAME] as? String {
 		  self.appname = appNameString
+	   }
+	   
+	   if let stickyString = dictionary[PARAMETER_NAME_STICKY] as? String {
+		  self.sticky = stickyString
 	   }
     }
     
