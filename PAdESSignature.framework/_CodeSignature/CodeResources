@@ -4,10 +4,6 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>.DS_Store</key>
-		<data>
-		uNT3TRu1iUtyqosX6Op6G0tmCrQ=
-		</data>
 		<key>Courier-Bold.afm</key>
 		<data>
 		SzkUwU50rHGgISJz2gpei+v46xA=
@@ -66,7 +62,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Nfw6jGYa877CTcuzUjTUuogAgdU=
+		5fqb5PwVnA9TV+vWmLC09e289b0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
