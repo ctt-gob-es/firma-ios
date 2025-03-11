@@ -10543,6 +10543,86 @@
           }
         }
       }
+    },
+    "visible_sign_overlay" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Signat per $$SUBJECTCN$$ el dia $$SIGNDATE=dd/MM/yyyy$$ amb un certificat em\\u00e8s per $$ISSUERCN$$"
+          }
+        },
+        "ca-ES-valencia" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Firmat per $$SUBJECTCN$$ el dia $$SIGNDATE=dd/MM/yyyy$$ amb un certificat em\\u00e8s per $$ISSUERCN$$"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " Signed by $$SUBJECTCN$$ on $$SIGNDATE=dd/MM/yyyy$$ with a certificate issued by $$ISSUERCN$$"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Firmado por $$SUBJECTCN$$ el día $$SIGNDATE=dd/MM/yyyy$$ con un certificado emitido por $$ISSUERCN$$"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "$$SUBJECTCN$$ k sinatuzuen $$SIGNDATE=dd/MM/yyyy$$ an $$ISSUERCN$$ ek emandako ziurtagiriarekin"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Asinado por $$SUBJECTCN$$ o d\\u00eda $$SIGNDATE=dd/MM/yyyy$$ con certificado expedido por $$ISSUERCN$$"
+          }
+        }
+      }
+    },
+    "visible_sign_overlay_pseudonym" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Signat per $$PSEUDONYM$$ - $$OUS$$ el dia $$SIGNDATE=dd/MM/yyyy$$ amb un certificat em\\u00e8s per $$ISSUERCN$$"
+          }
+        },
+        "ca-ES-valencia" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Firmat per $$PSEUDONYM$$ - $$OUS$$ el dia $$SIGNDATE=dd/MM/yyyy$$ amb un certificat em\\u00e8s per $$ISSUERCN$$"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Signed by $$PSEUDONYM$$ - $$OUS$$ on $$SIGNDATE=dd/MM/yyyy$$ with a certificate issued by $$ISSUERCN$$"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Firmado por $$PSEUDONYM$$ - $$OU$$ el día $$SIGNDATE=dd/MM/yyyy$$ con un certificado emitido por $$ISSUERCN$$"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "$$PSEUDONYM$$ - $$OUS$$k sinatuzuen $$SIGNDATE=dd/MM/yyyy$$ an $$ISSUERCN$$ ek emandako ziurtagiriarekin"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Asinado por $$PSEUDONYM$$ - $$OUS$$ o d\\u00eda $$SIGNDATE=dd/MM/yyyy$$ con certificado expedido por $$ISSUERCN$$"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
