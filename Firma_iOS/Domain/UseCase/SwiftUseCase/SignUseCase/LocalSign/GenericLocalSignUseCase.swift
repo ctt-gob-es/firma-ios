@@ -35,11 +35,10 @@ class GenericLocalSignUseCase : NSObject {
             return
         }
 
-        let utils = PAdESSignatureUtils()
+        let padesSigner = PAdESSigner()
         let extraParams = signModel.dictExtraParams
-
         
-        guard let presignResponse = utils.dniePresignPdf(
+        guard let presignResponse = padesSigner.presignPdf(
             with: pdfData,
             hashAlgorithmType: HashAlgorithmType.SHA256,
             certificate: secCert,
@@ -54,14 +53,14 @@ class GenericLocalSignUseCase : NSObject {
             return handleErrorLocalSign(errorCode: errorCode)
         }
         
-        let signAlgorithm = utils.getSignAlgorithm(HashAlgorithmType.SHA256, with: secCert)
+        let signAlgorithm = padesSigner.getSignAlgorithm(HashAlgorithmType.SHA256, with: secCert)
         
         guard let pkcs1 = generatePKCS1(preSignResult: presignData, signAlgorithm: signAlgorithm ?? "SHA256withRSA") else {
             completionCallback?(.failure(AppError.localSignSignatureError))
             return
         }
 
-        guard let signatureResponse = utils.dniePostsignPdf(
+        guard let signatureResponse = padesSigner.postsignPdf(
             with: pdfData,
             hashAlgorithmType: HashAlgorithmType.SHA256,
             certificate: secCert,
@@ -81,7 +80,7 @@ class GenericLocalSignUseCase : NSObject {
         completionCallback?(.success(false))
     }
     
-    private func handleErrorLocalSign(errorCode: Int) {
+    func handleErrorLocalSign(errorCode: Int) {
        let error = HandeThirdPartyErrors.getLocalSignError(codigo: errorCode)
        if HandeThirdPartyErrors.shouldRetry(error: error) {
           completionCallback?(.success(true))

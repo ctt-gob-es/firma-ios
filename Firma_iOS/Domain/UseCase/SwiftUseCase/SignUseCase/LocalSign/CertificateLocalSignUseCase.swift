@@ -34,8 +34,8 @@ class CertificateLocalSignUseCase: GenericLocalSignUseCase {
 	   }
 	   
 	   let layer2Text = isPseudonym
-	   ? "Firmado por $$PSEUDONYM$$ - $$OU$$ el día $$SIGNDATE=dd/MM/yyyy$$ con un certificado emitido por $$ISSUERCN$$"
-	   : "Firmado por $$SUBJECTCN$$ el día $$SIGNDATE=dd/MM/yyyy$$ con un certificado emitido por $$ISSUERCN$$"
+	   ? NSLocalizedString("visible_sign_overlay_pseudonym",bundle: Bundle.main, comment: "")
+	   : NSLocalizedString("visible_sign_overlay",bundle: Bundle.main, comment: "")
 	   
 	   signModel.dictExtraParams?["layer2Text"] = layer2Text
 	   
