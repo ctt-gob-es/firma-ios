@@ -54,6 +54,7 @@ NSString *const PARAMETER_NAME_RETURN_URL = @"returnURL";
 NSString *const PARAMETER_NAME_VISIBLE_SIGNATURE = @"visibleSignature";
 NSString *const PARAMETER_NAME_APP_NAME = @"appname";
 NSString *const PARAMETER_NAME_STICKY = @"sticky";
+NSString *const PARAMETER_NAME_RESET_STICKY = @"resetsticky";
 
 NSString *const PARAMETER_LOCAL_SIGNATURE = @"local";
 NSString *const PARAMETER_LOCAL_CLOUD_NAME = @"cloudname";

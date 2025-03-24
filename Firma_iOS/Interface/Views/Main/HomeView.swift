@@ -232,7 +232,7 @@ struct HomeView: View {
 				CertificateCellView(
 				    certificateInfo: certificate,
 				    isSelectable: $viewModel.areCertificatesSelectable,
-				    isSelected: appStatus.selectedCertificate == certificate
+				    isSelected: appStatus.selectedCertificate?.subject == certificate.subject
 				)
 				.listRowSeparator(.hidden)
 			 }

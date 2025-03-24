@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import SwiftUI
 
 @objc class MainViewModel: NSObject, ObservableObject {
+    
     @Published var navigationTitle = "Autofirma"
     @objc @Published var viewMode: ViewModes = .home
     @objc @Published var urlReceived: URL?
@@ -16,12 +18,11 @@ import Foundation
     @Published var isNavigationDisabled: Bool = false
     @Published var shouldCancel: Bool = false
     
-    var appStatus: AppStatus
+    @EnvironmentObject var appStatus: AppStatus
     
-    init(viewMode: ViewModes, urlReceived: URL?, appStatus: AppStatus) {
+    init(viewMode: ViewModes, urlReceived: URL?) {
         self.viewMode = viewMode
         self.urlReceived = urlReceived
-        self.appStatus = appStatus
     }
     
     /*func reset() {

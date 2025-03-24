@@ -11,7 +11,7 @@ struct CertificateCellView: View {
     @EnvironmentObject private var appStatus : AppStatus
     var certificateInfo: AOCertificateInfo
     @Binding var isSelectable: Bool?
-    var isSelected: Bool?
+    var isSelected: Bool = false
     @State private var geometryHeight: CGFloat = 0
     
     var body: some View {
@@ -53,12 +53,10 @@ struct CertificateCellView: View {
 			 
 			 if isSelectable ?? false {
 				Spacer()
-				if let isSelected = isSelected {
-				    if isSelected {
-					   Image("circle-border-fill")
-				    } else {
-					   Image("circle")
-				    }
+				if isSelected {
+				    Image("circle-border-fill")
+				} else {
+				    Image("circle")
 				}
 			 }
 		  }

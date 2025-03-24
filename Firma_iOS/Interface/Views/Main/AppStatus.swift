@@ -10,6 +10,8 @@ import Foundation
 import Combine
 
 class AppStatus: ObservableObject {
+    static let shared = AppStatus()
+    
     @Published var showingInfoModal: Bool = false
     @Published var showDeleteModal: Bool = false
     @Published var showSuccessModal: Bool = false
@@ -40,19 +42,37 @@ class AppStatus: ObservableObject {
     @Published var shouldAutosign: Bool = false {
 	   didSet {
 		  if shouldAutosign {
-			 resetSticky()
+			 autosign()
 		  }
 	   }
     }
     
-    private var stickyTimer: Timer?
+    @Published var shouldResetAutosign: Bool = false {
+	   didSet {
+		  resetAutosign()
+	   }
+    }
     
-    private func resetSticky() {
-	   stickyTimer?.invalidate()
-	   stickyTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(STICKY_TIMER), repeats: false) { [weak self] _ in
+    private var autosignTimer: Timer?
+    
+    private func resetAutosign() {
+	   cleanAutosignVariables()
+    }
+    
+    private func autosign() {
+	   autosignTimer?.invalidate()
+	   autosignTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(STICKY_TIMER), repeats: false) { [weak self] _ in
 		  DispatchQueue.main.async {
-			 self?.shouldAutosign = false
+			 self?.cleanAutosignVariables()
+			 self?.autosignTimer?.invalidate()
 		  }
 	   }
     }
+    
+    private func cleanAutosignVariables() {
+	   self.shouldAutosign = false
+	   self.selectedCertificate = nil
+    }
+    
+    private init() {}
 }

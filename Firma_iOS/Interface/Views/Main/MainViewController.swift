@@ -32,6 +32,7 @@ import SwiftUI
 	   super.viewDidLoad()
 	   
 	   let contentView = ParentView(viewMode: viewMode, urlReceived: urlReceived)
+		  .environmentObject(AppStatus.shared)
 	   let hostingController = UIHostingController(rootView: contentView)
 	   addChild(hostingController)
 	   hostingController.view.frame = self.view.bounds

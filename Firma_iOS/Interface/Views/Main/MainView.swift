@@ -10,7 +10,7 @@ import SwiftUI
 // Vista padre que inicializa el Environment Object de AppStatus. La necesitamos para poder ararncar desde el AppDelegate en objetive-c al recibir la url
 struct ParentView: View {
     
-    @StateObject var appStatus = AppStatus()
+    @EnvironmentObject var appStatus: AppStatus
     let viewMode: ViewModes?
     let urlReceived: URL?
     
@@ -21,7 +21,8 @@ struct ParentView: View {
     
     var body: some View {
         VStack {
-            MainView(viewModel: MainViewModel(viewMode: viewMode ?? .home, urlReceived: urlReceived, appStatus: appStatus)).environmentObject(appStatus)
+            MainView(viewModel: MainViewModel(viewMode: viewMode ?? .home, urlReceived: urlReceived))
+			 .environmentObject(appStatus)
         }
     }
     
@@ -179,7 +180,4 @@ struct MainView: View {
     }
     
     private func onDisappear() {}
-    
-    
-
 }

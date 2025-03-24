@@ -108,11 +108,11 @@ class HomeViewModel: ObservableObject {
     
     func onAppear() {
         getCertificates(true)
+	   certificateUtils = CertificateUtils()
         loadData()
     }
     
     func loadData() {
-        certificateUtils = CertificateUtils()
         if viewMode == .sign {
             self.areCertificatesSelectable = false
             if let urlReceived = urlReceived {
@@ -210,7 +210,7 @@ class HomeViewModel: ObservableObject {
             case .success(let (filename, stringData)):
                 self.appStatus.isLoading = false
                 
-                // Si tenemos firma visible opcional o requerida y es una firma PDF comprobamos que el formatp sea PDF
+                // Si tenemos firma visible opcional o requerida y es una firma PDF comprobamos que el formato sea PDF
                 if self.signModel?.isSignatureCoordinatesRequired() ?? false {
                     //Check if the data is a PDF
                     if !FileUtils.isBase64StringPDF(stringData) {
@@ -221,7 +221,15 @@ class HomeViewModel: ObservableObject {
                 }
                 self.signModel?.datosInUse = stringData
                 self.signModel?.filename = filename
-                self.selectSignMode()
+				
+			 if let sticky = self.signModel?.sticky,
+			    sticky == "true",
+			    let signModel = self.signModel {
+				self.configureStickyMode(signModel: signModel)
+			 } else {
+				self.selectSignMode()
+			 }
+                
             case .failure(let error):
                 self.showError(appError: error)
             }
@@ -229,54 +237,79 @@ class HomeViewModel: ObservableObject {
     }
     
     private func configureMode(signModel: SignModel) {
-        // Por defecto la firma es externa
-        dataType = .external
+	   var shouldSelectSignMode = false
+	   var shouldConfigureSticky = false
 	   
-	   if let sticky = signModel.sticky {
-		  appStatus.shouldAutosign = true
-	   }
-	   
-        if (signModel.operation == OPERATION_SIGN || signModel.operation == OPERATION_COSIGN || signModel.operation == OPERATION_COUNTERSIGN) {
-		  // Si el NFC está deshabilitado, deberemos comprobar si hay certificados antes de escoger archivo, sólo podremos comprobarlo si está deshabilitado, ya que si no podría escoger firmar con DNI
+	   dataType = .external
+
+	   if [OPERATION_SIGN, OPERATION_COSIGN, OPERATION_COUNTERSIGN].contains(signModel.operation) {
 		  let nfcEnabled = UserDefaults.standard.object(forKey: "isNfcEnabled") == nil ? true : UserDefaults.standard.bool(forKey: "isNfcEnabled")
-		  if !nfcEnabled {
-                if certificates.isEmpty {
-				sendErrorOperation(error: AppError.certificateNeeded)
-				return
-			 }
+
+		  if !nfcEnabled && certificates.isEmpty {
+			 sendErrorOperation(error: AppError.certificateNeeded)
+			 return
 		  }
-		  
-            if signModel.datosInUse == nil && signModel.fileId == nil {
-                // No tenemos datos para firmar. Es una firma seleccionando fichero local. Mostramos el picker y establecemos el dataType a .local
-                appStatus.showDocumentImportingPicker = true
-                dataType = .local
-            }
-        }
-        
-        // Si es firma o batch hay que seleccionar con que se quiere realizar (certificado o dnie). Para el sendcertificate o save, es siempre certificado
-        if (signModel.operation == OPERATION_SIGN || signModel.operation == OPERATION_COSIGN || signModel.operation == OPERATION_COUNTERSIGN || signModel.operation == OPERATION_BATCH) {
-            if(!appStatus.showDocumentImportingPicker) {
-                selectSignMode()
-            }
-	   } else {
-		  // La operación de guardado no necesita certificados
-		  if signModel.operation == OPERATION_SAVE {
-			 areCertificatesSelectable = false
-			 viewMode = .home
-			 handleOperationSaveData()
+
+		  if signModel.datosInUse == nil && signModel.fileId == nil {
+			 //Prevent warning while presenting a view whose is not in the window hierarchy
+			 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+				self.appStatus.showDocumentImportingPicker = true
+			 }
+			 dataType = .local
+		  }
+	   }
+
+	   if [OPERATION_SIGN, OPERATION_COSIGN, OPERATION_COUNTERSIGN, OPERATION_BATCH].contains(signModel.operation) {
+		  if let sticky = signModel.sticky, sticky == "true" {
+			 shouldConfigureSticky = true
 		  } else {
-			 // Ya que esta operación solo es para certificados, debemos comprobar si disponemos de ellos
-                if certificates.isEmpty {
-				sendErrorOperation(error: AppError.certificateNeeded)
-			 } else {
-				signMode = .electronicCertificate
-				areCertificatesSelectable = true
+			 shouldSelectSignMode = true
+		  }
+	   } else if signModel.operation == OPERATION_SAVE {
+		  areCertificatesSelectable = false
+		  viewMode = .home
+		  handleOperationSaveData()
+	   } else {
+		  if certificates.isEmpty {
+			 sendErrorOperation(error: AppError.certificateNeeded)
+		  } else {
+			 signMode = .electronicCertificate
+			 areCertificatesSelectable = true
+		  }
+	   }
+
+	   DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+		  if self.appStatus.showDocumentImportingPicker == false {
+			 if shouldConfigureSticky {
+				self.configureStickyMode(signModel: signModel)
+			 } else if shouldSelectSignMode {
+				self.selectSignMode()
 			 }
 		  }
 	   }
-	   
-	   // Establecemos el nombre del boton
+
 	   chooseButtonTitle()
+    }
+    
+    private func configureStickyMode(signModel: SignModel) {
+	   appStatus.shouldAutosign = true
+	   
+	   if let resetSticky = signModel.resetSticky,
+		     resetSticky == "true" {
+		  if appStatus.selectedCertificate != nil {
+			 appStatus.selectedCertificate = nil
+		  }
+	   }
+	   
+	   areCertificatesSelectable = true
+	   signMode = .electronicCertificate
+	   
+	   // We need to ask for coordinates before signing
+	   if self.signModel?.isSignatureCoordinatesRequired() ?? false {
+		  self.showSignCoordinatesModal = true
+	   } else {
+		  stickySign()
+	   }
     }
     
     private func chooseButtonTitle() {
@@ -307,7 +340,7 @@ class HomeViewModel: ObservableObject {
                 if let signModel = signModel, let operation = signModel.operation, operation == OPERATION_SAVE {
                     handleOperationSignWithElectronicCertificate()
                 } else {
-                    // Compronbamos el certificado seleccionado por si hay que mostrar avisos y continua la operacion
+                    // Comprobamos el certificado seleccionado por si hay que mostrar avisos y continua la operacion
                     checkCertificateSelected()
                 }
 		  }
@@ -668,6 +701,9 @@ class HomeViewModel: ObservableObject {
     func handleCoordinatesSelection(annotation: PDFAnnotation) {
 	   if let signModel = signModel {
 		  PDFCoordinateUtils.setCoordinatesFromAnnotation(signModel: signModel, annotation: annotation)
+		  if let sticky = signModel.sticky, sticky == "true" {
+			 stickySign()
+		  }
 	   }
     }
     
@@ -721,12 +757,30 @@ class HomeViewModel: ObservableObject {
     }
     
     func resetHomeViewModelVariables() {
+	   if !appStatus.shouldAutosign {
+		  self.appStatus.selectedCertificate = nil
+	   }
+	   
 	   self.selectElectronicCertificate = false
 	   self.selectDNIe = false
 	   self.viewMode = .home
 	   self.areCertificatesSelectable = false
 	   self.appStatus.keepParentController = false
-	   self.appStatus.selectedCertificate = nil
 	   self.annotations = []
+    }
+    
+    func stickySign() {
+	   if let selectedCertificate = appStatus.selectedCertificate {
+		  Task {
+			 _ = SwiftCertificateUtils.updateSelectedCertificate(
+				certificateUtils: certificateUtils,
+				selectedCertificate.subject
+			 )
+
+			 await MainActor.run {
+				handleOperationSignWithElectronicCertificate()
+			 }
+		  }
+	   }
     }
 }
