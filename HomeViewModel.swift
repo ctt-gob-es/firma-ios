@@ -260,22 +260,20 @@ class HomeViewModel: ObservableObject {
 	   }
 
 	   if [OPERATION_SIGN, OPERATION_COSIGN, OPERATION_COUNTERSIGN, OPERATION_BATCH].contains(signModel.operation) {
+		  // MARK: Sign operation
 		  if let sticky = signModel.sticky, sticky == "true" {
 			 shouldConfigureSticky = true
 		  } else {
 			 shouldSelectSignMode = true
 		  }
 	   } else if signModel.operation == OPERATION_SAVE {
+		  // MARK: Save operation
 		  areCertificatesSelectable = false
 		  viewMode = .home
 		  handleOperationSaveData()
 	   } else {
-		  if certificates.isEmpty {
-			 sendErrorOperation(error: AppError.certificateNeeded)
-		  } else {
-			 signMode = .electronicCertificate
-			 areCertificatesSelectable = true
-		  }
+		  // MARK: Certificate selection
+		  handleCertificateSelectionAction()
 	   }
 
 	   DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -308,7 +306,20 @@ class HomeViewModel: ObservableObject {
 	   if self.signModel?.isSignatureCoordinatesRequired() ?? false {
 		  self.showSignCoordinatesModal = true
 	   } else {
-		  stickySign()
+		  stickyOperation()
+	   }
+    }
+    
+    private func handleCertificateSelectionAction() {
+	   if certificates.isEmpty {
+		  sendErrorOperation(error: AppError.certificateNeeded)
+	   } else {
+		  signMode = .electronicCertificate
+		  areCertificatesSelectable = true
+		  
+		  if let sticky = signModel?.sticky, sticky == "true" {
+			 stickyOperation()
+		  }
 	   }
     }
     
@@ -433,17 +444,22 @@ class HomeViewModel: ObservableObject {
             return
         }
         
-        SendCertificateUseCase().execute(base64Certificate: certificateData, signModel: signModel) { appError in
-            self.appStatus.isLoading = false
-            if let appError = appError {
-                self.showError(appError: appError)
-            } else {
-                self.viewMode = .home
-                self.successModalState = .successCertificateSent
-                self.showSuccessModal = true
-                self.areCertificatesSelectable = false
-            }
-        }
+	   self.appStatus.isLoading = true
+	   
+	   SendCertificateUseCase().execute(base64Certificate: certificateData, signModel: signModel) { appError in
+		  DispatchQueue.main.async {
+			 self.appStatus.isLoading = false
+
+			 if let appError = appError {
+				self.showError(appError: appError)
+			 } else {
+				self.viewMode = .home
+				self.successModalState = .successCertificateSent
+				self.showSuccessModal = true
+				self.areCertificatesSelectable = false
+			 }
+		  }
+	   }
     }
     
     func handleOperationSign() {
@@ -702,7 +718,7 @@ class HomeViewModel: ObservableObject {
 	   if let signModel = signModel {
 		  PDFCoordinateUtils.setCoordinatesFromAnnotation(signModel: signModel, annotation: annotation)
 		  if let sticky = signModel.sticky, sticky == "true" {
-			 stickySign()
+			 stickyOperation()
 		  }
 	   }
     }
@@ -757,7 +773,10 @@ class HomeViewModel: ObservableObject {
     }
     
     func resetHomeViewModelVariables() {
-	   if !appStatus.shouldAutosign {
+	   // We keep the certificate selected & We reset the sticky timer
+	   if appStatus.shouldAutosign {
+		  self.appStatus.resetStickyTimer()
+	   } else {
 		  self.appStatus.selectedCertificate = nil
 	   }
 	   
@@ -769,7 +788,7 @@ class HomeViewModel: ObservableObject {
 	   self.annotations = []
     }
     
-    func stickySign() {
+    func stickyOperation() {
 	   if let selectedCertificate = appStatus.selectedCertificate {
 		  Task {
 			 _ = SwiftCertificateUtils.updateSelectedCertificate(

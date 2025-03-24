@@ -42,7 +42,7 @@ class AppStatus: ObservableObject {
     @Published var shouldAutosign: Bool = false {
 	   didSet {
 		  if shouldAutosign {
-			 autosign()
+			 resetStickyTimer()
 		  }
 	   }
     }
@@ -53,18 +53,18 @@ class AppStatus: ObservableObject {
 	   }
     }
     
-    private var autosignTimer: Timer?
+    private var stickyTimer: Timer?
     
     private func resetAutosign() {
 	   cleanAutosignVariables()
     }
     
-    private func autosign() {
-	   autosignTimer?.invalidate()
-	   autosignTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(STICKY_TIMER), repeats: false) { [weak self] _ in
+    func resetStickyTimer() {
+	   stickyTimer?.invalidate()
+	   stickyTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(STICKY_TIMER), repeats: false) { [weak self] _ in
 		  DispatchQueue.main.async {
 			 self?.cleanAutosignVariables()
-			 self?.autosignTimer?.invalidate()
+			 self?.stickyTimer?.invalidate()
 		  }
 	   }
     }
