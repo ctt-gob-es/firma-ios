@@ -30,7 +30,7 @@ struct OnboardingView: View {
 				Spacer()
 				
 				VStack {
-				    NavigationLink(destination: PrivacyView()) {
+				    NavigationLink(destination: IntroPolicyView()) {
 					   AccessibleText(content: NSLocalizedString("onboarding_button_title",bundle: Bundle.main ,comment: ""))
 					}
 				    .buttonStyle(CustomButtonStyle(isEnabled: true))

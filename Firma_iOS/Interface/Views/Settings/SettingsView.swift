@@ -51,6 +51,15 @@ struct SettingsView: View {
 	   .navigationBarTitle(NSLocalizedString("settings_title", bundle: Bundle.main, comment: ""), displayMode: .inline)
     }
     
+    func loadSavedLanguage() -> LocalizedLanguage{
+	   let savedLanguageCode = UserDefaults.standard.string(forKey: "appLanguage") ?? Locale.current.language.languageCode?.identifier ?? "es"
+	   if let language = LocalizedLanguage.allLanguages.first(where: { $0.code == savedLanguageCode }) {
+		 return language
+	   } else {
+		  return LocalizedLanguage.allLanguages.first!
+	   }
+    }
+    
     private func createSettingsSections() -> [SettingsSection] {
 	   return [
 		  SettingsSection(
@@ -72,8 +81,8 @@ struct SettingsView: View {
 			 rows: [
 				SettingsRowItem(icon: "clock", text: NSLocalizedString("settings_historical_row", bundle: Bundle.main, comment: ""), detailText: nil, destination: AnyView(HistoricalView())),
                     SettingsRowItem(icon: "accessibility", text: NSLocalizedString("settings_accesibility_info_row", bundle: Bundle.main, comment: ""), detailText: nil, destination: AnyView(WebView(settingKey: .accesibility))),
-                    SettingsRowItem(icon: "shield", text: NSLocalizedString("settings_legal_advice_row", bundle: Bundle.main, comment: ""), detailText: nil, destination: AnyView(WebView(settingKey: .legal_advise))),
-                    SettingsRowItem(icon: "lock", text: NSLocalizedString("settings_privacy_policy_row", bundle: Bundle.main, comment: ""), detailText: nil, destination: AnyView(WebView(settingKey: .privacy_policy))),
+				SettingsRowItem(icon: "shield", text: NSLocalizedString("settings_legal_advice_row", bundle: Bundle.main, comment: ""), detailText: nil, destination: AnyView(LegalAdviceView(selectedLanguage: self.loadSavedLanguage()))),
+                    SettingsRowItem(icon: "lock", text: NSLocalizedString("settings_privacy_policy_row", bundle: Bundle.main, comment: ""), detailText: nil, destination: AnyView(PrivacyPolicyView(selectedLanguage: self.loadSavedLanguage()))),
                     SettingsRowItem(icon: "iphone", text:String(format: NSLocalizedString("settings_version_row", bundle: Bundle.main, comment: ""), Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""), detailText: nil, destination: AnyView(VersionView()))
 			 ]
 		  )
