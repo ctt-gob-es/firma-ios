@@ -379,8 +379,10 @@ class HomeViewModel: ObservableObject {
             }
         } else {
             // si no tienen return URL mostramos dialogo de success
-            self.successModalState = successState
-            self.showSuccessModal = true
+		  DispatchQueue.main.async {
+			 self.successModalState = successState
+			 self.showSuccessModal = true
+		  }
         }
     }
     
@@ -483,8 +485,10 @@ class HomeViewModel: ObservableObject {
         }
         
         batchSignUseCase?.signBatch(dataOperation: parameters as! [String : Any]) { result in
-            self.appStatus.isLoading = false
-            
+		  DispatchQueue.main.async {
+			 self.appStatus.isLoading = false
+		  }
+		  
             switch result {
             case .success(_):
                 let history = HistoryModel(
@@ -780,12 +784,14 @@ class HomeViewModel: ObservableObject {
 		  self.appStatus.selectedCertificate = nil
 	   }
 	   
+	   DispatchQueue.main.async {
 	   self.selectElectronicCertificate = false
 	   self.selectDNIe = false
 	   self.viewMode = .home
 	   self.areCertificatesSelectable = false
-	   self.appStatus.keepParentController = false
-	   self.annotations = []
+		  self.appStatus.keepParentController = false
+		  self.annotations = []
+	   }
     }
     
     func stickyOperation() {
