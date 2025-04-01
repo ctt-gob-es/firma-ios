@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct PrivacyView: View {
+struct IntroPolicyView: View {
     @State private var isPrivacyPolicyAccepted: Bool = false
     @State private var isTermsAccepted: Bool = false
     @State private var selectedLanguage: LocalizedLanguage = LocalizedLanguage.allLanguages.first!
@@ -17,7 +17,7 @@ struct PrivacyView: View {
 	   VStack(alignment: .leading) {
 		  LanguageSelectorView(selectedLanguage: $selectedLanguage)
 		  VStack(alignment: .leading, spacing: 20) {
-			 PrivacyPolicyHTMLWeb(htmlFileName: "privacy_policy", languageCode: selectedLanguage.code)
+			 HTMLWeb(htmlFileName: "intro_policy", languageCode: selectedLanguage.code)
 				.padding()
 				.border(Color.gray)
 				
