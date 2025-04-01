@@ -10549,13 +10549,7 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Signat per $$SUBJECTCN$$ el dia $$SIGNDATE=dd/MM/yyyy$$ amb un certificat em\\u00e8s per $$ISSUERCN$$"
-          }
-        },
-        "ca-ES-valencia" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Firmat per $$SUBJECTCN$$ el dia $$SIGNDATE=dd/MM/yyyy$$ amb un certificat em\\u00e8s per $$ISSUERCN$$"
+            "value" : "Signat per $$SUBJECTCN$$ el dia $$SIGNDATE=dd/MM/yyyy$$ amb un certificat emès per $$ISSUERCN$$"
           }
         },
         "en" : {
@@ -10579,7 +10573,13 @@
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Asinado por $$SUBJECTCN$$ o d\\u00eda $$SIGNDATE=dd/MM/yyyy$$ con certificado expedido por $$ISSUERCN$$"
+            "value" : "Asinado por $$SUBJECTCN$$ o día $$SIGNDATE=dd/MM/yyyy$$ con certificado expedido por $$ISSUERCN$$"
+          }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Firmat per $$SUBJECTCN$$ el dia $$SIGNDATE=dd/MM/yyyy$$ amb un certificat emès per $$ISSUERCN$$"
           }
         }
       }
@@ -10589,13 +10589,7 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Signat per $$PSEUDONYM$$ - $$OUS$$ el dia $$SIGNDATE=dd/MM/yyyy$$ amb un certificat em\\u00e8s per $$ISSUERCN$$"
-          }
-        },
-        "ca-ES-valencia" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Firmat per $$PSEUDONYM$$ - $$OUS$$ el dia $$SIGNDATE=dd/MM/yyyy$$ amb un certificat em\\u00e8s per $$ISSUERCN$$"
+            "value" : "Signat per $$PSEUDONYM$$ - $$OUS$$ el dia $$SIGNDATE=dd/MM/yyyy$$ amb un certificat emès per $$ISSUERCN$$"
           }
         },
         "en" : {
@@ -10619,7 +10613,13 @@
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Asinado por $$PSEUDONYM$$ - $$OUS$$ o d\\u00eda $$SIGNDATE=dd/MM/yyyy$$ con certificado expedido por $$ISSUERCN$$"
+            "value" : "Asinado por $$PSEUDONYM$$ - $$OUS$$ o día $$SIGNDATE=dd/MM/yyyy$$ con certificado expedido por $$ISSUERCN$$"
+          }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Firmat per $$PSEUDONYM$$ - $$OUS$$ el dia $$SIGNDATE=dd/MM/yyyy$$ amb un certificat emès per $$ISSUERCN$$"
           }
         }
       }
