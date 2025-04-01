@@ -31,7 +31,7 @@ class ThreePhaseJsonServerRest {
             let task = session.dataTask(with: request) { data, response, error in
                 
                 if let _ = error {
-                    completion(nil, AppError.threePhaseServerPreSignCommunicationError)
+                    completion(nil, AppError.threePhaseServerPreSignBatchCommunicationError)
                     return
                 }
                 
@@ -88,7 +88,7 @@ class ThreePhaseJsonServerRest {
             let task = session.dataTask(with: request) { data, response, error in
                 
                 if let _ = error {
-                    completion(nil, AppError.threePhaseServerPosSignCommunicationError)
+                    completion(nil, AppError.threePhaseServerPosSignBatchCommunicationError)
                     return
                 }
                 
