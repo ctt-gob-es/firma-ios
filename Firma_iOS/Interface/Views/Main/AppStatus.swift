@@ -61,7 +61,7 @@ class AppStatus: ObservableObject {
     
     func resetStickyTimer() {
 	   stickyTimer?.invalidate()
-	   stickyTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(STICKY_TIMER), repeats: false) { [weak self] _ in
+	   stickyTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(TimeoutConstants.stickyTimeoutInSeconds), repeats: false) { [weak self] _ in
 		  DispatchQueue.main.async {
 			 self?.cleanAutosignVariables()
 			 self?.stickyTimer?.invalidate()

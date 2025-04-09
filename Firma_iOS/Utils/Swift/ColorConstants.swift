@@ -14,6 +14,7 @@ struct ColorConstants {
 	   static let main = Color(hex: "#F5F7FA")
 	   static let buttonEnabled = Color(hex: "#B44D3D")
 	   static let buttonDisabled = Color(hex: "#E5E5E5")
+	   static let chip = Color(hex: "#EDF3FA")
     }
     
     struct Text {
@@ -27,6 +28,7 @@ struct ColorConstants {
     
     struct Border {
 	   static let borderColor = Color(hex: "#767676")
+	   static let chip = Color(hex: "#A0B4CC")
     }
     
     struct Status {

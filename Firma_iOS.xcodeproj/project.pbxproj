@@ -1434,6 +1434,10 @@
 		83AFFFFD2CA2C95D00A26C0F /* DigestAlgorithmIdentifiers.c in Sources */ = {isa = PBXBuildFile; fileRef = 83AFFF512CA2C95D00A26C0F /* DigestAlgorithmIdentifiers.c */; };
 		83AFFFFE2CA2C95D00A26C0F /* DisplayText.c in Sources */ = {isa = PBXBuildFile; fileRef = 83AFFF532CA2C95D00A26C0F /* DisplayText.c */; };
 		83AFFFFF2CA2C95D00A26C0F /* EncapsulatedContentInfo.c in Sources */ = {isa = PBXBuildFile; fileRef = 83AFFF552CA2C95D00A26C0F /* EncapsulatedContentInfo.c */; };
+		83B4780C2DA682D100D4E3D1 /* TimeoutSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B4780B2DA682D100D4E3D1 /* TimeoutSelectionView.swift */; };
+		83B4780E2DA6840000D4E3D1 /* TimeoutSelectionModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B4780D2DA6840000D4E3D1 /* TimeoutSelectionModalView.swift */; };
+		83B478102DA685E700D4E3D1 /* ChipButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B4780F2DA685E700D4E3D1 /* ChipButton.swift */; };
+		83B478122DA6910300D4E3D1 /* TimeoutConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B478112DA6910300D4E3D1 /* TimeoutConstants.swift */; };
 		83B60AEC2CC2565B0096BB3E /* ErrorModalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B60AEB2CC2565B0096BB3E /* ErrorModalState.swift */; };
 		83C0EC852C3FE6B300244071 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC842C3FE6B300244071 /* PrivacyView.swift */; };
 		83C0EC8A2C3FEDB500244071 /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC892C3FEDB500244071 /* CheckBoxView.swift */; };
@@ -4387,6 +4391,10 @@
 		83AFFFD72CA2C95D00A26C0F /* Utiles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utiles.h; sourceTree = "<group>"; };
 		83AFFFD92CA2C95D00A26C0F /* CADESSigner.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CADESSigner.c; sourceTree = "<group>"; };
 		83AFFFDA2CA2C95D00A26C0F /* CADESSigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADESSigner.h; sourceTree = "<group>"; };
+		83B4780B2DA682D100D4E3D1 /* TimeoutSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeoutSelectionView.swift; sourceTree = "<group>"; };
+		83B4780D2DA6840000D4E3D1 /* TimeoutSelectionModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeoutSelectionModalView.swift; sourceTree = "<group>"; };
+		83B4780F2DA685E700D4E3D1 /* ChipButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipButton.swift; sourceTree = "<group>"; };
+		83B478112DA6910300D4E3D1 /* TimeoutConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeoutConstants.swift; sourceTree = "<group>"; };
 		83B60AEB2CC2565B0096BB3E /* ErrorModalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModalState.swift; sourceTree = "<group>"; };
 		83C0EC842C3FE6B300244071 /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
 		83C0EC892C3FEDB500244071 /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
@@ -4656,6 +4664,7 @@
 				83AF00512CA4284E00A26C0F /* PrivateConstants.swift */,
 				83D390092CA544BA00D16BA6 /* LogUtils.swift */,
 				83D3900B2CA5455200D16BA6 /* ByteArrayUtils.swift */,
+				83B478112DA6910300D4E3D1 /* TimeoutConstants.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -8918,6 +8927,7 @@
 		83C0EC882C3FEDA300244071 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				83B4780B2DA682D100D4E3D1 /* TimeoutSelectionView.swift */,
 				83C0EC892C3FEDB500244071 /* CheckBoxView.swift */,
 				83C0EC8B2C3FEDD000244071 /* NavigationBarModifier.swift */,
 				83C0EC922C3FF6CB00244071 /* NavigationBarButton.swift */,
@@ -8931,6 +8941,7 @@
 				83FC0C472C48120A00BBB5A8 /* FloatingPlaceholderTextView.swift */,
 				83DF46832C494B00000C3F31 /* LoadingView.swift */,
 				83A5EDCA2C53E53100F93B6D /* DocumentSavingPicker.swift */,
+				83B4780F2DA685E700D4E3D1 /* ChipButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -8996,6 +9007,7 @@
 				832037672C661FA700755F7E /* DeleteHistoricalModalView.swift */,
 				832037692C6645F900755F7E /* TextfieldModalView.swift */,
 				A0DACD4E2CF2092F00D645CB /* CertificateInfoModalView.swift */,
+				83B4780D2DA6840000D4E3D1 /* TimeoutSelectionModalView.swift */,
 			);
 			path = Modals;
 			sourceTree = "<group>";
@@ -10012,6 +10024,7 @@
 				8325D3CC2CAADD17007224E9 /* Pkcs15Object.m in Sources */,
 				8325D7C32CAADD18007224E9 /* XMSSSignature.m in Sources */,
 				8325D61D2CAADD18007224E9 /* X509CRLImpl.m in Sources */,
+				83B4780C2DA682D100D4E3D1 /* TimeoutSelectionView.swift in Sources */,
 				8325D4572CAADD17007224E9 /* InvalidCardException.m in Sources */,
 				8325D6292CAADD18007224E9 /* AlgorithmParametersUtils.m in Sources */,
 				83AF00112CA2C95D00A26C0F /* OCTET_STRING.c in Sources */,
@@ -10062,6 +10075,7 @@
 				8325D7182CAADD18007224E9 /* FrodoParameters.m in Sources */,
 				8325D3822CAADD17007224E9 /* VerifyApduCommand.m in Sources */,
 				8325D5052CAADD17007224E9 /* ASN1EncodableVector.m in Sources */,
+				83B4780E2DA6840000D4E3D1 /* TimeoutSelectionModalView.swift in Sources */,
 				8325D6242CAADD18007224E9 /* ClassUtil.m in Sources */,
 				83AFFFEF2CA2C95D00A26C0F /* CertPolicyId.c in Sources */,
 				8325D7362CAADD18007224E9 /* LMSSignedPubKey.m in Sources */,
@@ -10102,6 +10116,7 @@
 				8393EEDF2C590387009FDE6E /* SettingsHeaderView.swift in Sources */,
 				8325D4E22CAADD17007224E9 /* Extensions.m in Sources */,
 				8325D6492CAADD18007224E9 /* SM2P256V1Point.m in Sources */,
+				83B478122DA6910300D4E3D1 /* TimeoutConstants.swift in Sources */,
 				8325D6BC2CAADD18007224E9 /* ECMultiplier.m in Sources */,
 				8325D7212CAADD18007224E9 /* HSSPublicKeyParameters.m in Sources */,
 				8325D7C02CAADD18007224E9 /* XMSSPrivateKeyParameters.m in Sources */,
@@ -10735,6 +10750,7 @@
 				8325D7622CAADD18007224E9 /* ComputeInField.m in Sources */,
 				8325D4082CAADD17007224E9 /* CustomTextInputCallback.m in Sources */,
 				83AF00172CA2C95D00A26C0F /* per_support.c in Sources */,
+				83B478102DA685E700D4E3D1 /* ChipButton.swift in Sources */,
 				8325D38A2CAADD17007224E9 /* GeneralAuthenticateApduCommand.m in Sources */,
 				8325D7942CAADD18007224E9 /* SPHINCSPlusPrivateKeyParameters.m in Sources */,
 				8325D6F22CAADD18007224E9 /* DefaultSignatureNameFinder.m in Sources */,

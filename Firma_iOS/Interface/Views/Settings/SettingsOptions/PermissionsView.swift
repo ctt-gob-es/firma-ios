@@ -10,10 +10,13 @@ import SwiftUI
 
 struct PermissionsView: View {
     @Environment(\.presentationMode) var presentationMode
+    @State private var contentSheetHeight: CGFloat = 0
     @State private var isNfcEnabled: Bool = true
     @State private var isSignatureVisible: Bool = false
     @State private var obfuscateUserIdentifiers: Bool = true
     @State private var showToast = false
+    @State private var showCacheTimeoutSheet = false
+    @State private var selectedTimeout: Int = TimeoutConstants.defaultTimeout
 
     var body: some View {
 	   VStack {
@@ -52,6 +55,12 @@ struct PermissionsView: View {
 				    }
 
 				    Divider()
+				    
+				    TimeoutSelectionView(selectedTimeout: selectedTimeout) {
+					   showCacheTimeoutSheet = true
+				    }
+
+				    Divider()
 				}
 			 }
 			 .frame(maxWidth: .infinity)
@@ -76,10 +85,21 @@ struct PermissionsView: View {
 	   .frame(maxWidth: .infinity)
 	   .background(Color.white.edgesIgnoringSafeArea(.all))
 	   .navigationBarTitle(NSLocalizedString("permissions_title", bundle: Bundle.main, comment: ""), displayMode: .inline)
+	   .sheet(isPresented: $showCacheTimeoutSheet) {
+		  TimeoutSelectionModalView(
+			 contentHeight: $contentSheetHeight,
+			 selectedTimeout: $selectedTimeout,
+			 isPresented: $showCacheTimeoutSheet
+		  )
+		  .presentationDetents([.height(contentSheetHeight)])
+		  .accessibility(addTraits: .isModal)
+		  .interactiveDismissDisabled(true)
+	   }
 	   .onAppear {
 		  isNfcEnabled = UserDefaults.standard.object(forKey: "isNfcEnabled") as? Bool ?? true
 		  isSignatureVisible = UserDefaults.standard.object(forKey: "isSignatureVisible") as? Bool ?? true
 		  obfuscateUserIdentifiers = UserDefaults.standard.object(forKey: "obfuscateUserIdentifiers") as? Bool ?? true
+		  selectedTimeout = UserDefaults.standard.object(forKey: "cacheTimeout") as? Int ?? TimeoutConstants.defaultTimeout
 	   }
 
 	   if showToast {
@@ -88,6 +108,7 @@ struct PermissionsView: View {
 			 .animation(.easeInOut)
 			 .padding(.bottom, 50)
 	   }
+	   
     }
 }
 
