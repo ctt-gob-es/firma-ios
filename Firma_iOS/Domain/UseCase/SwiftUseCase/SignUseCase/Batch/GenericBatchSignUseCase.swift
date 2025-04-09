@@ -92,33 +92,37 @@ class GenericBatchSignUseCase: NSObject {
             // Procesamos las firmas correctas que llegan en la prefirma
             if var signsArray = presignsOk["signs"] as? [[String: Any]] {
                 for (index, var sign) in signsArray.enumerated() {
-                    if var signInfo = sign["signinfo"] as? [[String: Any]],
-                       var params = signInfo.first?["params"] as? [String: Any] {
-                        let pre = params[PRE] as? String ?? ""
-                        let pk1Decoded = params[PK1_DECODED] as? Bool ?? false
-                        
-                        let result = self.sign(pre: pre, algorithm: getAlgorithm(), pk1Decoded: pk1Decoded)
-                        
-                        let pk1: String
-                        switch result {
-                        case .success(let pk1String):
-                            pk1 = pk1String
-                        case .failure(let appError):
-                            sendError(appError: appError)
-                            return
+                    if var signInfoArray = sign["signinfo"] as? [[String: Any]] {
+                        for (indexSignInfo, var signInfo) in signInfoArray.enumerated() {
+                            if var params = signInfo["params"] as? [String: Any] {
+                                let pre = params[PRE] as? String ?? ""
+                                let pk1Decoded = params[PK1_DECODED] as? Bool ?? false
+                                
+                                let result = self.sign(pre: pre, algorithm: getAlgorithm(), pk1Decoded: pk1Decoded)
+                                
+                                let pk1: String
+                                switch result {
+                                case .success(let pk1String):
+                                    pk1 = pk1String
+                                case .failure(let appError):
+                                    sendError(appError: appError)
+                                    return
+                                }
+                                
+                                params["PK1"] = pk1
+                                
+                                if (params["NEED_PRE"] == nil || (params["NEED_PRE"] as? String) == "false") {
+                                    params.removeValue(forKey: "PRE")
+                                    params.removeValue(forKey: "NEED_PRE")
+                                }
+                                
+                                signInfo["params"] = params
+                                signInfoArray[indexSignInfo] = signInfo
+                            }
                         }
-                        
-                        params["PK1"] = pk1
-                        
-                        if (params["NEED_PRE"] == nil || (params["NEED_PRE"] as? String) == "false") {
-                            params.removeValue(forKey: "PRE")
-                            params.removeValue(forKey: "NEED_PRE")
-                        }
-                        
-                        signInfo[0]["params"] = params
-                        sign["signinfo"] = signInfo
-                        signsArray[index] = sign
+                        sign["signinfo"] = signInfoArray
                     }
+                    signsArray[index] = sign
                 }
                 presignsOk["signs"] = signsArray
             }
