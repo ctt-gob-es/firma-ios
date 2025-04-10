@@ -227,6 +227,7 @@ class HomeViewModel: ObservableObject {
 			    let signModel = self.signModel {
 				self.configureStickyMode(signModel: signModel)
 			 } else {
+				self.removeCurrentSelectedCertificate()
 				self.selectSignMode()
 			 }
                 
@@ -281,6 +282,7 @@ class HomeViewModel: ObservableObject {
 			 if shouldConfigureSticky {
 				self.configureStickyMode(signModel: signModel)
 			 } else if shouldSelectSignMode {
+				self.removeCurrentSelectedCertificate()
 				self.selectSignMode()
 			 }
 		  }
@@ -294,9 +296,7 @@ class HomeViewModel: ObservableObject {
 	   
 	   if let resetSticky = signModel.resetSticky,
 		     resetSticky == "true" {
-		  if appStatus.selectedCertificate != nil {
-			 appStatus.selectedCertificate = nil
-		  }
+		  removeCurrentSelectedCertificate()
 	   }
 	   
 	   areCertificatesSelectable = true
@@ -812,5 +812,10 @@ class HomeViewModel: ObservableObject {
 			 }
 		  }
 	   }
+    }
+    
+    private func removeCurrentSelectedCertificate() {
+	   self.appStatus.selectedCertificate = nil
+	   _ = SwiftCertificateUtils.updateSelectedCertificate(certificateUtils: self.certificateUtils, "")
     }
 }
