@@ -1551,13 +1551,13 @@
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Documento de autofirma"
+            "value" : "Documento de Autofirma"
           }
         },
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Document autofirma"
+            "value" : "Document Autofirma"
           }
         }
       }
@@ -4279,7 +4279,7 @@
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Els certificats importats en autofirma App són d'ús exclusiu per a firma electrònica en pàgines Web dissenyades a este efecte. Per a usar un certificat digital per a identificació en pàgines Web haurà de seguir les instruccions del seu navegador Web i d'Apple respecte al procés d'instal·lació dels certificats i les seues claus en el sistema operatiu iOS i en el propi navegador Web si calguera."
+            "value" : "Els certificats importats en Autofirma App són d'ús exclusiu per a firma electrònica en pàgines Web dissenyades a este efecte. Per a usar un certificat digital per a identificació en pàgines Web haurà de seguir les instruccions del seu navegador Web i d'Apple respecte al procés d'instal·lació dels certificats i les seues claus en el sistema operatiu iOS i en el propi navegador Web si calguera."
           }
         }
       }
@@ -4307,7 +4307,7 @@
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aplikazioarekin bateragarriak diren web-izapideak ziurtagiri bidez sinatzeko aukera ematen du Autofirma App-ek. Izapide bat sinatzeko, osa ezazu normalean zure web nabigatzailearen bidez. Izapidea prest badago Autofirma App-ekin sinatzeko, sinatzeko unean exekutatuko da, erabiltzaileari sinaduraren ziurtagiria hautatzeko aukera emango dio eta eragiketa osatuko du.\n\nHalaber, aplikazioa ireki dezakezu eta zuzenean PDF dokumentu bat sinatu \"Sinadura lokala\" botoiaren bidez. Gainera, sinadura zure dokumentuko orri batean ikusi nahi baduzu, gaitu \"Sinadura ikusgarria egin\" aukera aplikazioaren \"Baimenak\" atalean. Horrek agiriaren orrien barruan sinadura-eremu bat hautatzea eskatuko dizu, hor sinaduraren informazioa inprima dadin. Zure NAN/AIZ osoa sinadura-testuan agertzea nahi ez baduzu, ziurta ezazu \"Sinaduren erabiltzaile-identifikatzaileen erregistroa\" aukera gaituta duzula \"Baimenak\" atalean.\n\nGogoan izan lehen sinatu ahal izateko zure sinadura-ziurtagiria autofirma app-ean inportatu behar duzula."
+            "value" : "Aplikazioarekin bateragarriak diren web-izapideak ziurtagiri bidez sinatzeko aukera ematen du Autofirma App-ek. Izapide bat sinatzeko, osa ezazu normalean zure web nabigatzailearen bidez. Izapidea prest badago Autofirma App-ekin sinatzeko, sinatzeko unean exekutatuko da, erabiltzaileari sinaduraren ziurtagiria hautatzeko aukera emango dio eta eragiketa osatuko du.\n\nHalaber, aplikazioa ireki dezakezu eta zuzenean PDF dokumentu bat sinatu \"Sinadura lokala\" botoiaren bidez. Gainera, sinadura zure dokumentuko orri batean ikusi nahi baduzu, gaitu \"Sinadura ikusgarria egin\" aukera aplikazioaren \"Baimenak\" atalean. Horrek agiriaren orrien barruan sinadura-eremu bat hautatzea eskatuko dizu, hor sinaduraren informazioa inprima dadin. Zure NAN/AIZ osoa sinadura-testuan agertzea nahi ez baduzu, ziurta ezazu \"Sinaduren erabiltzaile-identifikatzaileen erregistroa\" aukera gaituta duzula \"Baimenak\" atalean.\n\nGogoan izan lehen sinatu ahal izateko zure sinadura-ziurtagiria Autofirma app-ean inportatu behar duzula."
           }
         },
         "gl" : {
@@ -4439,7 +4439,7 @@
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "He importat els certificats correctament en autofirma App, però així i tot no aconseguisc identificar-me amb ells en les seus electròniques i altres pàgines Web que ho requerixen Per què?"
+            "value" : "He importat els certificats correctament en Autofirma App, però així i tot no aconseguisc identificar-me amb ells en les seus electròniques i altres pàgines Web que ho requerixen Per què?"
           }
         }
       }
@@ -5882,7 +5882,7 @@
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Des d'autofirma pots afegir nous certificats amb els quals podràs processar les teues firmes, o eliminar els certificats instal·lats en el teu dispositiu."
+            "value" : "Des d'Autofirma pots afegir nous certificats amb els quals podràs processar les teues firmes, o eliminar els certificats instal·lats en el teu dispositiu."
           }
         }
       }
@@ -6282,7 +6282,7 @@
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Actualització obligatòria autofirma"
+            "value" : "Actualització obligatòria Autofirma"
           }
         }
       }
@@ -6482,7 +6482,7 @@
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Entás"
+            "value" : "Entés"
           }
         }
       }
@@ -6544,7 +6544,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Extensiones pérmitidas: .p12 y .pfx. Recuerda que necesitas la contraseña de exportación de tu certificado, y que éste debe de incluir la clave privada. "
+            "value" : "Extensiones permitidas: .p12 y .pfx. Recuerda que necesitas la contraseña de exportación de tu certificado, y que éste debe de incluir la clave privada. "
           }
         },
         "eu" : {
@@ -6562,7 +6562,7 @@
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Extensions pérmitidas: .p12 i .pfx. Recorda que necessites la contrasenya d'exportació del teu certificat, i que este ha d'incloure la clau privada. "
+            "value" : "Extensions permeses: .p12 i .pfx. Recorda que necessites la contrasenya d'exportació del teu certificat, i que este ha d'incloure la clau privada. "
           }
         }
       }
@@ -6732,7 +6732,7 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Para quin serveix Autofirma?"
+            "value" : "Per a què serveix Autofirma?"
           }
         },
         "en" : {
@@ -6762,7 +6762,7 @@
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Para quin servix Autofirma?"
+            "value" : "Per a què serveix Autofirma?"
           }
         }
       }
@@ -8864,7 +8864,7 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "El fitxer ha estat guardat correctament."
+            "value" : "El fitxer ha estat desat correctament."
           }
         },
         "en" : {
@@ -8894,7 +8894,7 @@
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "El fitxer ha sigut desat correctament."
+            "value" : "El fitxer ha estat desat correctament."
           }
         }
       }
@@ -10296,7 +10296,7 @@
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hi ha disponible una nova actualització d'autofirma."
+            "value" : "Hi ha disponible una nova actualització d'Autofirma."
           }
         }
       }
@@ -10659,7 +10659,7 @@
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "“Autofirma App” v%@ 2025 Govern d'Espanya\n\nAutofirma App és Programari Lliure; pots redistribuir-ho i/o modificar-ho sota els termes de la següent llicència: “European Software License 1.1”, el text complet del qual pot consultar-se en la següent pàgina Web: http://ec.europa.eu/idabc/eupl.html\n\nEl codi font d'este programa, així com de la resta dels components del projecte es poden descarregar lliurement des de: http://forja-ctt.administracionelectronica.gob.es\n\nEl projecte autofirma App és un projecte col·laboratiu, si desitja participar en ell, no dubte a unir-se a la comunitat, accessible des de la següent pàgina Web: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc"
+            "value" : "“Autofirma App” v%@ 2025 Govern d'Espanya\n\nAutofirma App és Programari Lliure; pots redistribuir-ho i/o modificar-ho sota els termes de la següent llicència: “European Software License 1.1”, el text complet del qual pot consultar-se en la següent pàgina Web: http://ec.europa.eu/idabc/eupl.html\n\nEl codi font d'este programa, així com de la resta dels components del projecte es poden descarregar lliurement des de: http://forja-ctt.administracionelectronica.gob.es\n\nEl projecte Autofirma App és un projecte col·laboratiu, si desitja participar en ell, no dubte a unir-se a la comunitat, accessible des de la següent pàgina Web: \nhttps://administracionelectronica.gob.es/ctt/clienteafirma/mas#.Xxp7T0I7mhc"
           }
         }
       }
@@ -10709,13 +10709,7 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Signat per $$SUBJECTCN$$ el dia $$SIGNDATE=dd/MM/yyyy$$ amb un certificat em\\u00e8s per $$ISSUERCN$$"
-          }
-        },
-        "ca-ES-valencia" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Firmat per $$SUBJECTCN$$ el dia $$SIGNDATE=dd/MM/yyyy$$ amb un certificat em\\u00e8s per $$ISSUERCN$$"
+            "value" : "Signat per $$SUBJECTCN$$ el dia $$SIGNDATE=dd/MM/yyyy$$ amb un certificat emès per $$ISSUERCN$$"
           }
         },
         "en" : {
@@ -10739,7 +10733,13 @@
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Asinado por $$SUBJECTCN$$ o d\\u00eda $$SIGNDATE=dd/MM/yyyy$$ con certificado expedido por $$ISSUERCN$$"
+            "value" : "Asinado por $$SUBJECTCN$$ o día $$SIGNDATE=dd/MM/yyyy$$ con certificado expedido por $$ISSUERCN$$"
+          }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Firmat per $$SUBJECTCN$$ el dia $$SIGNDATE=dd/MM/yyyy$$ amb un certificat emès per $$ISSUERCN$$"
           }
         }
       }
@@ -10749,13 +10749,7 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Signat per $$PSEUDONYM$$ - $$OUS$$ el dia $$SIGNDATE=dd/MM/yyyy$$ amb un certificat em\\u00e8s per $$ISSUERCN$$"
-          }
-        },
-        "ca-ES-valencia" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Firmat per $$PSEUDONYM$$ - $$OUS$$ el dia $$SIGNDATE=dd/MM/yyyy$$ amb un certificat em\\u00e8s per $$ISSUERCN$$"
+            "value" : "Signat per $$PSEUDONYM$$ - $$OUS$$ el dia $$SIGNDATE=dd/MM/yyyy$$ amb un certificat emès per $$ISSUERCN$$"
           }
         },
         "en" : {
@@ -10779,7 +10773,13 @@
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Asinado por $$PSEUDONYM$$ - $$OUS$$ o d\\u00eda $$SIGNDATE=dd/MM/yyyy$$ con certificado expedido por $$ISSUERCN$$"
+            "value" : "Asinado por $$PSEUDONYM$$ - $$OUS$$ o día $$SIGNDATE=dd/MM/yyyy$$ con certificado expedido por $$ISSUERCN$$"
+          }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Firmat per $$PSEUDONYM$$ - $$OUS$$ el dia $$SIGNDATE=dd/MM/yyyy$$ amb un certificat emès per $$ISSUERCN$$"
           }
         }
       }

@@ -359,54 +359,56 @@ class HomeViewModel: ObservableObject {
     }
     
     func handleOperationSuccess(successState: SuccessModalState) {
-        resetHomeViewModelVariables()
-        
-        if let baseURL = signModel?.returnURL,
-             let stservlet = signModel?.urlServlet,
-             let docId = signModel?.docId {
-            
-            // Si tiene url de retorno navegamos y no se muuestra pop up
-            var urlComponents = URLComponents(string: baseURL + "success")!
-            urlComponents.queryItems = [
-                URLQueryItem(name: "stservlet", value: stservlet),
-                URLQueryItem(name: "docId", value: docId)
-            ]
-            
-            if let finalURL = urlComponents.url {
-                UIApplication.shared.open(finalURL) { success in
-                    
-                }
-            }
-        } else {
-            // si no tienen return URL mostramos dialogo de success
-		  DispatchQueue.main.async {
+	   DispatchQueue.main.async {
+		  self.resetHomeViewModelVariables()
+		  
+		  if let baseURL = self.signModel?.returnURL,
+			let stservlet = self.signModel?.urlServlet,
+			let docId = self.signModel?.docId {
+			 
+			 // Si tiene url de retorno navegamos y no se muuestra pop up
+			 var urlComponents = URLComponents(string: baseURL + "success")!
+			 urlComponents.queryItems = [
+				URLQueryItem(name: "stservlet", value: stservlet),
+				URLQueryItem(name: "docId", value: docId)
+			 ]
+			 
+			 if let finalURL = urlComponents.url {
+				UIApplication.shared.open(finalURL) { success in
+				    
+				}
+			 }
+		  } else {
+			 // si no tienen return URL mostramos dialogo de success
 			 self.successModalState = successState
 			 self.showSuccessModal = true
 		  }
-        }
+	   }
     }
     
     func handleOperationError(appError: AppError) {
-        resetHomeViewModelVariables()
-        
-        if let baseURL = signModel?.returnURL {
-            
-            // Si tiene url de retorno navegamos y no se muuestra pop up
-            var urlComponents = URLComponents(string: baseURL + "failure")!
-            urlComponents.queryItems = [
-               URLQueryItem(name: "code", value: String(appError.code)),
-                  URLQueryItem(name: "description", value: String(appError.description))
-            ]
-            
-            if let finalURL = urlComponents.url {
-                UIApplication.shared.open(finalURL) { success in
-                    
-                }
-            }
-        } else {
-            // si no tienen return URL mostramos dialogo de error
-            self.showError(appError: appError)
-        }
+	   DispatchQueue.main.async {
+		  self.resetHomeViewModelVariables()
+		  
+		  if let baseURL = self.signModel?.returnURL {
+			 
+			 // Si tiene url de retorno navegamos y no se muuestra pop up
+			 var urlComponents = URLComponents(string: baseURL + "failure")!
+			 urlComponents.queryItems = [
+				URLQueryItem(name: "code", value: String(appError.code)),
+				URLQueryItem(name: "description", value: String(appError.description))
+			 ]
+			 
+			 if let finalURL = urlComponents.url {
+				UIApplication.shared.open(finalURL) { success in
+				    
+				}
+			 }
+		  } else {
+			 // si no tienen return URL mostramos dialogo de error
+			 self.showError(appError: appError)
+		  }
+	   }
     }
     
     /*func handleOpenReturnURL(success: Bool) -> Bool {
@@ -483,12 +485,15 @@ class HomeViewModel: ObservableObject {
             }
             batchSignUseCase = CertificateBatchSignUseCase(certificate: certificateData, privateKey: privateKey)
         }
-        
+	   
+	   DispatchQueue.main.async {
+		  self.appStatus.isLoading = true
+	   }
+	   
         batchSignUseCase?.signBatch(dataOperation: parameters as! [String : Any]) { result in
 		  DispatchQueue.main.async {
 			 self.appStatus.isLoading = false
 		  }
-		  
             switch result {
             case .success(_):
                 let history = HistoryModel(

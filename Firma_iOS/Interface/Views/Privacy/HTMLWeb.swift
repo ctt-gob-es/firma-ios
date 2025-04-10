@@ -1,5 +1,5 @@
 //
-//  PrivacyPolicyHTMLWeb.swift
+//  HTMLWeb.swift
 //  Autofirma
 //
 //  Created by Desarrollo Abamobile on 20/11/24.
@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 import WebKit
 
-struct PrivacyPolicyHTMLWeb: UIViewRepresentable {
+struct HTMLWeb: UIViewRepresentable {
     let htmlFileName: String
     let languageCode: String
 
@@ -66,9 +66,9 @@ struct PrivacyPolicyHTMLWeb: UIViewRepresentable {
     }
 
     class Coordinator: NSObject, WKNavigationDelegate {
-	   let parent: PrivacyPolicyHTMLWeb
+	   let parent: HTMLWeb
 
-	   init(_ parent: PrivacyPolicyHTMLWeb) {
+	   init(_ parent: HTMLWeb) {
 		  self.parent = parent
 	   }
 
