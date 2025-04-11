@@ -17,17 +17,32 @@ class NetworkManager {
     
     // Método para obtener un URLSession con delegado personalizado
     func getSession() -> URLSession {
-        return getSessionSSLDisabled()
+        return getSession(withTimeout: nil, withSSLDisabled: true)
     }
     
-    private func getSessionSSLDisabled() -> URLSession {
-        let configuration = URLSessionConfiguration.default
-        let delegate = SSLBypassDelegate()
-        let session = URLSession(configuration: configuration, delegate: delegate, delegateQueue: nil)
-        return session
+    func getSession(withTimeout timeout: Int) -> URLSession {
+        return getSession(withTimeout: timeout, withSSLDisabled: true)
     }
     
-    private func getSessionSSLEnabled() -> URLSession {
-        return URLSession.shared
+    private func getSession(withTimeout timeout: Int?, withSSLDisabled sslDisabled: Bool) -> URLSession {
+        let config = getConfiguration(withTimeout: timeout)
+        
+        if (sslDisabled) {
+            let delegate = SSLBypassDelegate()
+            return URLSession(configuration: config, delegate: delegate, delegateQueue: nil)
+        } else {
+            return URLSession(configuration: config)
+        }
+    }
+    
+    private func getConfiguration(withTimeout timeout: Int?) -> URLSessionConfiguration {
+        let config = URLSessionConfiguration.default
+        
+        if let timeout = timeout {
+            let timeoutInterval = TimeInterval(timeout)
+            config.timeoutIntervalForRequest = timeoutInterval
+            config.timeoutIntervalForResource = timeoutInterval
+        }
+        return config
     }
 }

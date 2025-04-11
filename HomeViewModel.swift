@@ -360,6 +360,7 @@ class HomeViewModel: ObservableObject {
     
     func handleOperationSuccess(successState: SuccessModalState) {
 	   DispatchQueue.main.async {
+		  self.allowScreenSleep()
 		  self.resetHomeViewModelVariables()
 		  
 		  if let baseURL = self.signModel?.returnURL,
@@ -388,6 +389,7 @@ class HomeViewModel: ObservableObject {
     
     func handleOperationError(appError: AppError) {
 	   DispatchQueue.main.async {
+		  self.allowScreenSleep()
 		  self.resetHomeViewModelVariables()
 		  
 		  if let baseURL = self.signModel?.returnURL {
@@ -468,6 +470,7 @@ class HomeViewModel: ObservableObject {
     
     func handleOperationSign() {
 	   DispatchQueue.main.async {
+		  self.preventScreenSleep()
 		  self.appStatus.isLoading = true
 	   }
         if isLocalSign {
@@ -487,6 +490,7 @@ class HomeViewModel: ObservableObject {
         }
 	   
 	   DispatchQueue.main.async {
+		  self.preventScreenSleep()
 		  self.appStatus.isLoading = true
 	   }
 	   
@@ -706,6 +710,7 @@ class HomeViewModel: ObservableObject {
     private func handleOperationSignWithElectronicCertificate() {
         guard let signModel = self.signModel else { return }
         guard let operation = signModel.operation else { return }
+	   self.preventScreenSleep()
 	   switch operation {
 		  case OPERATION_SELECT_CERTIFICATE:
                 handleOperationSelectCertificate()
@@ -745,6 +750,7 @@ class HomeViewModel: ObservableObject {
     }
     
     func cancelOperation() {
+	   self.allowScreenSleep()
         if (self.viewMode == .sign) {
 		  if !isLocalSign {
 			 SendErrorOperationUseCase().execute(error: AppError.userOperationCanceled, signModel: signModel)
@@ -782,6 +788,7 @@ class HomeViewModel: ObservableObject {
     }
     
     func resetHomeViewModelVariables() {
+	   self.allowScreenSleep()
 	   // We keep the certificate selected & We reset the sticky timer
 	   if appStatus.shouldAutosign {
 		  self.appStatus.resetStickyTimer()
@@ -817,5 +824,13 @@ class HomeViewModel: ObservableObject {
     private func removeCurrentSelectedCertificate() {
 	   self.appStatus.selectedCertificate = nil
 	   _ = SwiftCertificateUtils.updateSelectedCertificate(certificateUtils: self.certificateUtils, "")
+    }
+    
+    private func preventScreenSleep() {
+	   UIApplication.shared.isIdleTimerDisabled = true
+    }
+
+    private func allowScreenSleep() {
+	   UIApplication.shared.isIdleTimerDisabled = false
     }
 }
