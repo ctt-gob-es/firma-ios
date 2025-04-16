@@ -265,6 +265,7 @@ class HomeViewModel: ObservableObject {
 		  if let sticky = signModel.sticky, sticky == "true" {
 			 shouldConfigureSticky = true
 		  } else {
+			 self.removeCurrentSelectedCertificate()
 			 shouldSelectSignMode = true
 		  }
 	   } else if signModel.operation == OPERATION_SAVE {
@@ -733,6 +734,8 @@ class HomeViewModel: ObservableObject {
 		  PDFCoordinateUtils.setCoordinatesFromAnnotation(signModel: signModel, annotation: annotation)
 		  if let sticky = signModel.sticky, sticky == "true" {
 			 stickyOperation()
+		  } else {
+			 removeCurrentSelectedCertificate()
 		  }
 	   }
     }
@@ -790,17 +793,22 @@ class HomeViewModel: ObservableObject {
     func resetHomeViewModelVariables() {
 	   self.allowScreenSleep()
 	   // We keep the certificate selected & We reset the sticky timer
-	   if appStatus.shouldAutosign {
-		  self.appStatus.resetStickyTimer()
+	   if let sticky = signModel?.sticky, sticky == "true" {
+		  if let resetSticky = signModel?.resetSticky,
+			    resetSticky == "true" {
+			 removeCurrentSelectedCertificate()
+		  } else {
+			 self.appStatus.resetStickyTimer()
+		  }
 	   } else {
-		  self.appStatus.selectedCertificate = nil
+		  removeCurrentSelectedCertificate()
 	   }
 	   
 	   DispatchQueue.main.async {
-	   self.selectElectronicCertificate = false
-	   self.selectDNIe = false
-	   self.viewMode = .home
-	   self.areCertificatesSelectable = false
+		  self.selectElectronicCertificate = false
+		  self.selectDNIe = false
+		  self.viewMode = .home
+		  self.areCertificatesSelectable = false
 		  self.appStatus.keepParentController = false
 		  self.annotations = []
 	   }
