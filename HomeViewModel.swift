@@ -139,16 +139,19 @@ class HomeViewModel: ObservableObject {
     }
     
     func handleLocalSing() {
+        self.signModel = SignModel(dictionary: NSMutableDictionary())
+        
+        if let signModel = self.signModel {
+            checkStickyData(signModel: signModel)
+        }
+        
 	   self.viewMode = .sign
 	   self.isLocalSign = true
-	   self.signModel = SignModel(dictionary: NSMutableDictionary())
 	   self.signModel?.operation = OPERATION_SIGN
 	   self.signModel?.signFormat = PADES_FORMAT
 	   self.signModel?.visibleSignature =
 		  (UserDefaults.standard.object(forKey: "isSignatureVisible") == nil ||
 		   UserDefaults.standard.bool(forKey: "isSignatureVisible")) ? .want : VisibleSignatureType.none
-	   let key = "isSignatureVisible"
-	   let isSignatureVisible = UserDefaults.standard.object(forKey: key) == nil ? true : UserDefaults.standard.bool(forKey: key)
 	   chooseButtonTitle()
 	   appStatus.showDocumentImportingPicker = true
     }
