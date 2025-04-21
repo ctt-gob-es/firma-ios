@@ -70,11 +70,11 @@ struct MainView: View {
 	   HStack(spacing: 4) {
 		  switch viewModel.viewMode {
 			 case .home:
-				NavigationBarButton(imageName: "info", action: { appStatus.showingInfoModal = true })
-				NavigationBarButtonLink(destination: SettingsView(), imageName: "settings")
+				NavigationBarButton(imageName: "info", accesibilityLabel: NSLocalizedString("info", comment: ""), action: { appStatus.showingInfoModal = true })
+                NavigationBarButtonLink(destination: SettingsView(), accesibilityLabel: NSLocalizedString("settings_title", comment: ""), imageName: "settings")
 			 case .sign:
-				NavigationBarButton(imageName: "close", action: {
-				    viewModel.cancelSign()
+				NavigationBarButton(imageName: "close", accesibilityLabel: NSLocalizedString("close", comment: ""), action: {
+                        viewModel.cancelSign()
 				})
 		  }
 	   }
