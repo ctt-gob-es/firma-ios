@@ -774,10 +774,10 @@ class HomeViewModel: ObservableObject {
 	   }
 	   
 	   DispatchQueue.main.async {
-	   self.selectElectronicCertificate = false
-	   self.selectDNIe = false
-	   self.viewMode = .home
-	   self.areCertificatesSelectable = false
+		  self.selectElectronicCertificate = false
+		  self.selectDNIe = false
+		  self.viewMode = .home
+		  self.areCertificatesSelectable = false
 		  self.appStatus.keepParentController = false
 		  self.annotations = []
 	   }
