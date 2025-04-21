@@ -74,6 +74,14 @@ NSDictionary *attributeDictionary;
             if([key isEqualToString:PARAMETER_NAME_FILENAME]){
                 currentEntidad.filename = [attributeDictionary valueForKey:@"v"];
             }
+            
+            if([key isEqualToString:PARAMETER_NAME_STICKY]){
+                currentEntidad.sticky = [attributeDictionary valueForKey:@"v"];
+            }
+            
+            if([key isEqualToString:PARAMETER_NAME_RESET_STICKY]){
+                currentEntidad.resetsticky = [attributeDictionary valueForKey:@"v"];
+            }
         }
 	}
 }

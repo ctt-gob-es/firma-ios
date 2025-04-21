@@ -176,6 +176,13 @@ public class ParseDataURLOperationUseCase: NSObject {
         opParameters[PARAMETER_NAME_BATCH_JSON] = (entidad as AnyObject).batchjson ?? ""
         opParameters[PARAMETER_NAME_FILENAME] = (entidad as AnyObject).filename ?? ""
         
+        if let sticky = (entidad as AnyObject).sticky {
+            opParameters[PARAMETER_NAME_STICKY] =  sticky
+        }
+        if let resetsticky = (entidad as AnyObject).resetsticky {
+            opParameters[PARAMETER_NAME_RESET_STICKY] = resetsticky
+        }
+        
         DispatchQueue.main.async {
             completion(.success(self.opParameters))
         }
