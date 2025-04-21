@@ -39,39 +39,22 @@ class AppStatus: ObservableObject {
     @Published var userIDCAN: String? = nil
     @Published var userIDPIN: String? = nil
     
-    @Published var shouldAutosign: Bool = false {
-	   didSet {
-		  if shouldAutosign {
-			 resetStickyTimer()
-		  }
-	   }
-    }
-    
-    @Published var shouldResetAutosign: Bool = false {
-	   didSet {
-		  resetAutosign()
-	   }
-    }
-    
+    @Published var shouldAutosign: Bool = false
     private var stickyTimer: Timer?
-    
-    private func resetAutosign() {
-	   cleanAutosignVariables()
-    }
     
     func resetStickyTimer() {
 	   stickyTimer?.invalidate()
 	   stickyTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(TimeoutConstants.stickyTimeoutInSeconds), repeats: false) { [weak self] _ in
 		  DispatchQueue.main.async {
 			 self?.cleanAutosignVariables()
-			 self?.stickyTimer?.invalidate()
 		  }
 	   }
     }
     
-    private func cleanAutosignVariables() {
+    func cleanAutosignVariables() {
 	   self.shouldAutosign = false
 	   self.selectedCertificate = nil
+        self.stickyTimer?.invalidate()
     }
     
     private init() {}

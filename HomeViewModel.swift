@@ -186,18 +186,25 @@ class HomeViewModel: ObservableObject {
         }
     }
     
+    
     func selectSignMode() {
-	   let nfcEnabled = UserDefaults.standard.object(forKey: "isNfcEnabled") == nil ? true : UserDefaults.standard.bool(forKey: "isNfcEnabled")
-	   if nfcEnabled {
-		  showSelectSignMode = true
-	   } else {
-		  if certificates.isEmpty {
-			 sendErrorOperation(error: AppError.certificateNeeded)
+        let nfcEnabled = UserDefaults.standard.object(forKey: "isNfcEnabled") == nil ? true : UserDefaults.standard.bool(forKey: "isNfcEnabled")
+        
+        if nfcEnabled && !self.appStatus.shouldAutosign {
+            showSelectSignMode = true
+        } else {
+            if certificates.isEmpty {
+                sendErrorOperation(error: AppError.certificateNeeded)
             } else {
                 areCertificatesSelectable = true
                 signMode = .electronicCertificate
+                
                 if self.signModel?.isSignatureCoordinatesRequired() ?? false {
                     self.showSignCoordinatesModal = true
+                } else {
+                    if (self.appStatus.shouldAutosign) {
+                        stickyOperation()
+                    }
                 }
             }
         }
@@ -222,15 +229,7 @@ class HomeViewModel: ObservableObject {
                 self.signModel?.datosInUse = stringData
                 self.signModel?.filename = filename
 				
-			 if let sticky = self.signModel?.sticky,
-			    sticky == "true",
-			    let signModel = self.signModel {
-				self.configureStickyMode(signModel: signModel)
-			 } else {
-				self.removeCurrentSelectedCertificate()
-				self.selectSignMode()
-			 }
-                
+			 self.selectSignMode()
             case .failure(let error):
                 self.showError(appError: error)
             }
@@ -239,8 +238,9 @@ class HomeViewModel: ObservableObject {
     
     private func configureMode(signModel: SignModel) {
 	   var shouldSelectSignMode = false
-	   var shouldConfigureSticky = false
 	   
+        checkStickyData(signModel: signModel)
+        
 	   dataType = .external
 
 	   if [OPERATION_SIGN, OPERATION_COSIGN, OPERATION_COUNTERSIGN].contains(signModel.operation) {
@@ -262,11 +262,7 @@ class HomeViewModel: ObservableObject {
 
 	   if [OPERATION_SIGN, OPERATION_COSIGN, OPERATION_COUNTERSIGN, OPERATION_BATCH].contains(signModel.operation) {
 		  // MARK: Sign operation
-		  if let sticky = signModel.sticky, sticky == "true" {
-			 shouldConfigureSticky = true
-		  } else {
-			 shouldSelectSignMode = true
-		  }
+		  shouldSelectSignMode = true
 	   } else if signModel.operation == OPERATION_SAVE {
 		  // MARK: Save operation
 		  areCertificatesSelectable = false
@@ -279,35 +275,13 @@ class HomeViewModel: ObservableObject {
 
 	   DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
 		  if self.appStatus.showDocumentImportingPicker == false {
-			 if shouldConfigureSticky {
-				self.configureStickyMode(signModel: signModel)
-			 } else if shouldSelectSignMode {
-				self.removeCurrentSelectedCertificate()
-				self.selectSignMode()
+			 if shouldSelectSignMode {
+                    self.selectSignMode()
 			 }
 		  }
 	   }
 
 	   chooseButtonTitle()
-    }
-    
-    private func configureStickyMode(signModel: SignModel) {
-	   appStatus.shouldAutosign = true
-	   
-	   if let resetSticky = signModel.resetSticky,
-		     resetSticky == "true" {
-		  removeCurrentSelectedCertificate()
-	   }
-	   
-	   areCertificatesSelectable = true
-	   signMode = .electronicCertificate
-	   
-	   // We need to ask for coordinates before signing
-	   if self.signModel?.isSignatureCoordinatesRequired() ?? false {
-		  self.showSignCoordinatesModal = true
-	   } else {
-		  stickyOperation()
-	   }
     }
     
     private func handleCertificateSelectionAction() {
@@ -317,7 +291,7 @@ class HomeViewModel: ObservableObject {
 		  signMode = .electronicCertificate
 		  areCertificatesSelectable = true
 		  
-		  if let sticky = signModel?.sticky, sticky == "true" {
+            if appStatus.shouldAutosign {
 			 stickyOperation()
 		  }
 	   }
@@ -731,7 +705,7 @@ class HomeViewModel: ObservableObject {
     func handleCoordinatesSelection(annotation: PDFAnnotation) {
 	   if let signModel = signModel {
 		  PDFCoordinateUtils.setCoordinatesFromAnnotation(signModel: signModel, annotation: annotation)
-		  if let sticky = signModel.sticky, sticky == "true" {
+            if appStatus.shouldAutosign {
 			 stickyOperation()
 		  }
 	   }
@@ -739,6 +713,9 @@ class HomeViewModel: ObservableObject {
     
     func handlePasswordEncryption(password: String) {
 	   self.signModel?.updateExtraParams(dict: ["ownerPassword": password])
+        if appStatus.shouldAutosign {
+            stickyOperation()
+        }
     }
     
     /// Envia el error en la operación al servidor intermedio, resetea la vista y muestra la pantalla de error
@@ -821,9 +798,23 @@ class HomeViewModel: ObservableObject {
 	   }
     }
     
-    private func removeCurrentSelectedCertificate() {
-	   self.appStatus.selectedCertificate = nil
-	   _ = SwiftCertificateUtils.updateSelectedCertificate(certificateUtils: self.certificateUtils, "")
+    private func checkStickyData(signModel: SignModel) {
+        var clearDataSticky = false
+        
+        if signModel.sticky == "true" {
+            appStatus.shouldAutosign = true
+            
+            if signModel.resetSticky == "true" {
+                clearDataSticky = true
+            }
+        } else {
+            clearDataSticky = true
+        }
+        
+        if (clearDataSticky) {
+            self.appStatus.cleanAutosignVariables()
+            _ = SwiftCertificateUtils.updateSelectedCertificate(certificateUtils: self.certificateUtils, "")
+        }
     }
     
     private func preventScreenSleep() {

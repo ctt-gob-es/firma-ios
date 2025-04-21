@@ -37,8 +37,8 @@ class SignModel {
     
     var filename: String? // Nombre del fichero que se está procesando
     
-    var sticky: String? // Maneja el firmado automático de archivos
-    var resetSticky: String?
+    var sticky: String = "false" // Maneja el firmado automático de archivos
+    var resetSticky: String = "false"
     
     init(dictionary: NSMutableDictionary) {
 	   self.operation = dictionary[PARAMETER_NAME_OPERATION] as? String
@@ -90,13 +90,13 @@ class SignModel {
 		  self.appname = appNameString
 	   }
 	   
-	   if let stickyString = dictionary[PARAMETER_NAME_STICKY] as? String {
-		  self.sticky = stickyString
+        if let stickyString = dictionary[PARAMETER_NAME_STICKY] as? String {
+            self.sticky = stickyString
+        }
 		  
-		  if let resetStickyString = dictionary[PARAMETER_NAME_RESET_STICKY] as? String {
-			 self.resetSticky = resetStickyString
-		  }
-	   }
+        if let resetStickyString = dictionary[PARAMETER_NAME_RESET_STICKY] as? String {
+            self.resetSticky = resetStickyString
+        }
     }
     
     func updateExtraParams(dict: [String: Any]?) {
