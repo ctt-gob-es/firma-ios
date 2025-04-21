@@ -1442,6 +1442,47 @@
         }
       }
     },
+    "close" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tancar"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Close"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerrar"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Itxi"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pechar"
+          }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tancar"
+          }
+        }
+      }
+    },
     "close_app_button_title" : {
       "localizations" : {
         "ca" : {
@@ -3699,7 +3740,7 @@
         },
         "es" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Se ha superado el tiempo de espera de conexión. Por favor, vuelve a intentarlo. Recuerda mantenerlo en una superficie lisa y mantener tu teléfono móvil unos segundos fijo sobre la tarjeta para su correcta lectura."
           }
         },
@@ -4880,6 +4921,47 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Alguna cosa va eixir malament!"
+          }
+        }
+      }
+    },
+    "go_back" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tornar"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Go back"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atrás"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Itzuli"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volver"
+          }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tornar"
           }
         }
       }
@@ -6258,25 +6340,25 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "We were unable to add your certificate to the Portafirmas application correctly. Please try again later."
+            "value" : "We were unable to add your certificate to the Autofirma App correctly. Please try again later."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No hemos podido añadir tu certificado a la aplicación de Portafirmas de manera correcta. Inténtalo de nuevo más tade."
+            "value" : "No hemos podido añadir tu certificado a la aplicación de Autofirma App de manera correcta. Inténtalo de nuevo más tade."
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ezin izan dugu zure ziurtagiria Portafirmas aplikazioan behar bezala gehitu. Saiatu berriro geroago."
+            "value" : "Ezin izan dugu zure ziurtagiria Autofirma app behar bezala gehitu. Saiatu berriro geroago."
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Non puidemos engadir correctamente o teu certificado á aplicación Portafirmas. Téntao de novo máis tarde."
+            "value" : "Non puidemos engadir correctamente o teu certificado á aplicación Autofirma App. Téntao de novo máis tarde."
           }
         },
         "va" : {
@@ -6338,25 +6420,25 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "We were unable to add your files to the Portafirmas application correctly. Please try again later."
+            "value" : "We were unable to add your files to the Autofirma App correctly. Please try again later."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No hemos podido añadir tu archivo a la aplicación de Portafirmas de manera correcta. Inténtalo de nuevo más tade."
+            "value" : "No hemos podido añadir tu archivo a la aplicación de Autofirma App de manera correcta. Inténtalo de nuevo más tade."
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ezin izan dugu zure fitxategia Portafirmas aplikazioan behar bezala gehitu. Saiatu berriro geroago."
+            "value" : "Ezin izan dugu zure fitxategia Autofirma App aplikazioan behar bezala gehitu. Saiatu berriro geroago."
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Non puidemos engadir correctamente o teu ficheiro á aplicación Portafirmas. Téntao de novo máis tarde."
+            "value" : "Non puidemos engadir correctamente o teu ficheiro á aplicación Autofirma App. Téntao de novo máis tarde."
           }
         },
         "va" : {
@@ -6403,6 +6485,47 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No hem pogut afegir el teu arxiu"
+          }
+        }
+      }
+    },
+    "info" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Informació"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Information"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Información"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Informazioa"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Información"
+          }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Informació"
           }
         }
       }
@@ -7332,37 +7455,37 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Valenciano"
+            "value" : "Valencià"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Valenciano"
+            "value" : "Valencià"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Valenciano"
+            "value" : "Valencià"
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Valenciano"
+            "value" : "Valencià"
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Valenciano"
+            "value" : "Valencià"
           }
         },
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Valenciano"
+            "value" : "Valencià"
           }
         }
       }

@@ -10,6 +10,7 @@ import SwiftUI
 
 struct NavigationBarButtonLink<Destination: View>: View {
     let destination: Destination
+    let accesibilityLabel: String
     let imageName: String
     
     var body: some View {
@@ -19,6 +20,7 @@ struct NavigationBarButtonLink<Destination: View>: View {
 			 .scaledToFit()
 			 .frame(height: 40)
 			 .padding(.vertical,8)
+                .accessibilityLabel(accesibilityLabel)
 	   }
     }
 }

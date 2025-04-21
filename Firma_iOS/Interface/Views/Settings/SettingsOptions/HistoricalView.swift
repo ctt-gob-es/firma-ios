@@ -39,7 +39,8 @@ struct HistoricalView: View {
                 .background(Color.white)
 			 .navigationBarTitle(NSLocalizedString("historical_view_title", bundle: Bundle.main, comment: ""))
 			 .navigationBarItems(trailing: HStack(spacing: 4) {
-                    NavigationBarButton(imageName: "trash_gray", isNativeIcon: false, action: {
+                    NavigationBarButton(imageName: "trash_gray", accesibilityLabel: NSLocalizedString("certificate_delete", comment: ""),
+                                        isNativeIcon: false, action: {
                         showDeleteModal.toggle()
                     })
 			 })
