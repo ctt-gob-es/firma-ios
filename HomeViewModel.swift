@@ -193,7 +193,7 @@ class HomeViewModel: ObservableObject {
     func selectSignMode() {
         let nfcEnabled = UserDefaults.standard.object(forKey: "isNfcEnabled") == nil ? true : UserDefaults.standard.bool(forKey: "isNfcEnabled")
         
-        if nfcEnabled && !self.appStatus.shouldAutosign {
+        if nfcEnabled && !(self.appStatus.shouldAutosign && appStatus.selectedCertificate != nil){
             showSelectSignMode = true
         } else {
             if certificates.isEmpty {
@@ -801,24 +801,29 @@ class HomeViewModel: ObservableObject {
 	   }
     }
     
+    /**
+     Check Sticky values. If sticky is true set autosing in other case clear all data Sticky. If resetSticky is true clear all data Sticky
+     */
     private func checkStickyData(signModel: SignModel) {
-        var clearDataSticky = false
+        if signModel.resetSticky == "true" {
+            clearDataSticky()
+        }
         
         if signModel.sticky == "true" {
             appStatus.shouldAutosign = true
-            
-            if signModel.resetSticky == "true" {
-                clearDataSticky = true
-            }
         } else {
-            clearDataSticky = true
-        }
-        
-        if (clearDataSticky) {
-            self.appStatus.cleanAutosignVariables()
-            _ = SwiftCertificateUtils.updateSelectedCertificate(certificateUtils: self.certificateUtils, "")
+            clearDataSticky()
         }
     }
+    
+    /**
+        Clean all data related Sticky: All data of appstatus and selected certificate
+     */
+    func clearDataSticky() {
+        self.appStatus.cleanAutosignVariables()
+        _ = SwiftCertificateUtils.updateSelectedCertificate(certificateUtils: self.certificateUtils, "")
+    }
+    
     
     private func preventScreenSleep() {
 	   UIApplication.shared.isIdleTimerDisabled = true

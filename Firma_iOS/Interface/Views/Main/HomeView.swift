@@ -118,11 +118,15 @@ struct HomeView: View {
 	   .sheet(isPresented: $viewModel.showSelectSignMode,
 			onDismiss: {
 		  if viewMode == .sign {
-			 if (appStatus.keepParentController == false && viewModel.selectDNIe == false) {
+                if (appStatus.keepParentController == false && viewModel.selectDNIe == false) {
 				//User aborted sign
                     viewModel.cancelOperation()
                     shouldCancelOperation = true
 			 } else {
+                    if (viewModel.selectDNIe) {
+                         viewModel.clearDataSticky()
+                    }
+                    
                     if appStatus.keepParentController && self.viewModel.certificates.isEmpty {
 				    //There is no certificate in the app
                         viewModel.sendErrorOperation(error: AppError.certificateNeeded)
@@ -137,7 +141,7 @@ struct HomeView: View {
                         } else{
                             viewModel.sendErrorOperation(error: AppError.receivedFileIsNotPDF)
                         }
-				}
+                    }
 			 }
 		  } else {
 			 if (appStatus.navigateToSelectCertificate == false && viewModel.selectDNIe == false) {
@@ -196,7 +200,7 @@ struct HomeView: View {
            )
         }
 	   .navigationDestination(isPresented: $viewModel.selectDNIe) {
-		  DNIView(
+            DNIView(
 			 signModel: viewModel.signModel,
 			 parameters: viewModel.parameters,
 			 isLocalSign: viewModel.isLocalSign,
