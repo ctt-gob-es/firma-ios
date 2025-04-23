@@ -18,6 +18,6 @@ struct TimeoutConstants {
 
     static var stickyTimeoutInSeconds: Int {
 	   let saved = UserDefaults.standard.integer(forKey: "cacheTimeout")
-	   return (saved > 0 ? saved : defaultTimeout) * 60
+        return (saved > 0 ? saved : defaultTimeout) * 60
     }
 }

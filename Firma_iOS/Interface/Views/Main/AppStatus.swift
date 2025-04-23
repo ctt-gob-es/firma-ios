@@ -40,21 +40,12 @@ class AppStatus: ObservableObject {
     @Published var userIDPIN: String? = nil
     
     @Published var shouldAutosign: Bool = false
-    private var stickyTimer: Timer?
-    
-    func resetStickyTimer() {
-	   stickyTimer?.invalidate()
-	   stickyTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(TimeoutConstants.stickyTimeoutInSeconds), repeats: false) { [weak self] _ in
-		  DispatchQueue.main.async {
-			 self?.cleanAutosignVariables()
-		  }
-	   }
-    }
+    @Published var lastDateAutoSign: Date?
     
     func cleanAutosignVariables() {
 	   self.shouldAutosign = false
 	   self.selectedCertificate = nil
-        self.stickyTimer?.invalidate()
+        self.lastDateAutoSign = nil
     }
     
     private init() {}

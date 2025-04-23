@@ -769,10 +769,10 @@ class HomeViewModel: ObservableObject {
     
     func resetHomeViewModelVariables() {
 	   self.allowScreenSleep()
-	   // We keep the certificate selected & We reset the sticky timer
-	   if appStatus.shouldAutosign {
-		  self.appStatus.resetStickyTimer()
-	   } else {
+	   // We set lastDateAutoSign or delete selected certicate
+        if appStatus.shouldAutosign {
+            self.appStatus.lastDateAutoSign = Date()
+        } else {
 		  self.appStatus.selectedCertificate = nil
 	   }
 	   
@@ -805,6 +805,16 @@ class HomeViewModel: ObservableObject {
      Check Sticky values. If sticky is true set autosing in other case clear all data Sticky. If resetSticky is true clear all data Sticky
      */
     private func checkStickyData(signModel: SignModel) {
+        // First check if date is expired. In that case, clear data Sticky
+        if let lastDateAutoSign = appStatus.lastDateAutoSign {
+            let secondsPassed = Date().timeIntervalSince(lastDateAutoSign)
+            if Int(secondsPassed) > TimeoutConstants.stickyTimeoutInSeconds {
+                clearDataSticky()
+            }
+        } else {
+            clearDataSticky()
+        }
+        
         if signModel.resetSticky == "true" {
             clearDataSticky()
         }
