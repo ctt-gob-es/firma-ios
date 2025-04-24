@@ -284,6 +284,7 @@ struct HomeView: View {
 		  }
 	   }
 	   .buttonStyle(CustomButtonStyle(isEnabled: viewModel.buttonEnabled ?? false))
+	   .disabled(!(viewModel.buttonEnabled ?? false))
     }
     
     private func handleFileImport(result: Result<[URL], Error>) {
