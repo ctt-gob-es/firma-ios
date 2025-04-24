@@ -77,15 +77,50 @@ class FileUtils {
 	   defer {
 		  url.stopAccessingSecurityScopedResource()
 	   }
-	   
-	   do {
-		  let data = try Data(contentsOf: url, options: .uncached)
-            let fileName = url.lastPathComponent
-		  completion(.success(FileData(data: data, fileName: fileName)))
-	   } catch let error {
+
+	   let fileCoordinator = NSFileCoordinator()
+	   var coordinationError: NSError?
+
+	   fileCoordinator.coordinate(readingItemAt: url, options: [], error: &coordinationError) { safeURL in
+		  do {
+			 let data = try Data(contentsOf: safeURL, options: .uncached)
+			 let fileName = safeURL.lastPathComponent
+			 completion(.success(FileData(data: data, fileName: fileName)))
+		  } catch {
+			 completion(.failure(error))
+		  }
+	   }
+
+	   if let error = coordinationError {
 		  completion(.failure(error))
 	   }
     }
+    
+    private func loadFileSafely(from url: URL, completion: @escaping (Result<FileData, Error>) -> Void) {
+	   guard url.startAccessingSecurityScopedResource() else {
+		   completion(.failure(NSError(domain: "AccessDenied", code: 1, userInfo: [NSLocalizedDescriptionKey: "Unable to access file"])))
+		   return
+	   }
+
+	   defer { url.stopAccessingSecurityScopedResource() }
+
+	   let fileCoordinator = NSFileCoordinator()
+	   var error: NSError?
+
+	   fileCoordinator.coordinate(readingItemAt: url, options: [], error: &error) { safeURL in
+		   do {
+			   let data = try Data(contentsOf: safeURL)
+			   let fileName = safeURL.lastPathComponent
+			   completion(.success(FileData(data: data, fileName: fileName)))
+		   } catch {
+			   completion(.failure(error))
+		   }
+	   }
+
+	   if let coordError = error {
+		   completion(.failure(coordError))
+	   }
+   }
     
     static func getArchiveNameFromParameters(parameters: NSMutableDictionary?) -> String{
 	   let archiveName = parameters?[PARAMETER_NAME_FILENAME] as? String
