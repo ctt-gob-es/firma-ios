@@ -57,6 +57,9 @@ class HomeViewModel: ObservableObject {
     @Published var titleCertificateInfoModal: String = ""
     @Published var messageCertificateInfoModal: String = ""
     
+    @Published var shouldLoad: Bool = true
+    @Published var shouldSendStopSign: Bool = false
+    
     var appStatus: AppStatus
     
     var isLocalSign: Bool = false
@@ -108,7 +111,12 @@ class HomeViewModel: ObservableObject {
     
     func onAppear() {
         getCertificates(true)
-        loadData()
+	   certificateUtils = CertificateUtils()
+	   if shouldLoad {
+		  loadData()
+	   } else {
+		  cancelOperation()
+	   }
     }
     
     func loadData() {
@@ -737,6 +745,8 @@ class HomeViewModel: ObservableObject {
     func resetHomeViewModelVariables() {
 	   self.allowScreenSleep()
 	   self.selectElectronicCertificate = false
+        self.showSignCoordinatesModal = false
+        self.appStatus.showDocumentImportingPicker = false
 	   self.selectDNIe = false
 	   self.viewMode = .home
 	   self.areCertificatesSelectable = false

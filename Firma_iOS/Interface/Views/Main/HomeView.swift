@@ -19,7 +19,6 @@ struct HomeView: View {
     
     @State var password: String = ""
     @Binding var shouldCancelOperation: Bool
-    @State var shouldSendStopSign: Bool = false
     
     init(viewMode: Binding<ViewModes>,
 	    shouldSign: Binding<Bool>,
@@ -46,7 +45,6 @@ struct HomeView: View {
 		  appStatus: appStatus,
 		  shouldSign: $shouldSign,
 		  shouldCancelOperation: $shouldCancelOperation,
-		  shouldSendStopSign: $shouldSendStopSign,
 		  viewMode: $viewMode,
 		  password: $password
 	   )
@@ -200,8 +198,14 @@ struct HomeView: View {
 			 signModel: viewModel.signModel,
 			 parameters: viewModel.parameters,
 			 isLocalSign: viewModel.isLocalSign,
-			 hasDismissed: $shouldSendStopSign
+			 hasDismissed: viewModel.shouldSendStopSign
 		  )
+		  .onDisappear(perform: {
+			 //In case it has been already presented, we don't need to load the data
+			 if viewModel.shouldLoad {
+				viewModel.shouldLoad.toggle()
+			 }
+		  })
         }
     }
     

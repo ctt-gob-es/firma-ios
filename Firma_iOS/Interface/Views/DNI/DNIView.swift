@@ -18,7 +18,7 @@ struct DNIView: View {
     @State var signModel: SignModel? = nil
     @State var parameters: NSMutableDictionary? = nil
     @State var isLocalSign: Bool
-    @Binding var hasDismissed: Bool
+    @State var hasDismissed: Bool
     
     var body: some View {
 	   VStack(alignment: .center, spacing: 20) {

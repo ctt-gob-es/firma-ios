@@ -15,7 +15,6 @@ extension View {
 	   appStatus: AppStatus,
 	   shouldSign: Binding<Bool>,
 	   shouldCancelOperation: Binding<Bool>,
-	   shouldSendStopSign: Binding<Bool>,
 	   viewMode: Binding<ViewModes>,
 	   password: Binding<String>
     ) -> some View {
@@ -29,7 +28,6 @@ extension View {
 			 viewModel: viewModel,
 			 shouldSign: shouldSign,
 			 shouldCancelOperation: shouldCancelOperation,
-			 shouldSendStopSign: shouldSendStopSign,
 			 password: password
 		  )
     }
@@ -98,7 +96,6 @@ extension View {
 	   viewModel: HomeViewModel,
 	   shouldSign: Binding<Bool>,
 	   shouldCancelOperation: Binding<Bool>,
-	   shouldSendStopSign: Binding<Bool>,
 	   password: Binding<String>
     ) -> some View {
 	   self
@@ -113,8 +110,9 @@ extension View {
 				viewModel.resetHomeViewModelVariables()
 			 }
 		  }
-		  .onChange(of: shouldSendStopSign.wrappedValue) { _, newValue in
+		  .onChange(of: viewModel.shouldSendStopSign) { _, newValue in
 			 if newValue == true {
+				viewModel.shouldLoad = false
 				viewModel.cancelOperation()
 			 }
 		  }
