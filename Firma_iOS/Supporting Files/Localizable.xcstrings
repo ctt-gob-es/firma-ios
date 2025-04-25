@@ -3008,37 +3008,37 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "PIN En fer-te el DNIe vas rebre un codi PIN que pots recuperar o canviar en comissaries sense cita prévia."
+            "value" : "Amb el DNI vas rebre un sobre amb un codi PIN. Si no el tens o no el recordes, el pots recuperar a comissaries sense cita prèvia."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "When you get the DNIe you received a PIN code that you can retrieve or change in police stations without appointment."
+            "value" : "With your DNI, you received an envelope containing a PIN code. If you don’t have it or don’t remember it, you can recover it at police stations without an appointment."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Al hacerte el DNIe recibiste un sobre con un código PIN. Lo puedes recuperar o cambiar en comisarías sin cita previa."
+            "value" : "Con el DNI recibiste un sobre con un código PIN. Si no lo tienes o no lo recuerdas, puedes recuperarlo en comisarías sin cita previa"
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "NANa egitean, PIN kode bat jaso zenuen, eta komisarietan berreskuratu edo alda dezakezu, aurrez hitzordurik eman gabe."
+            "value" : "NANarekin batera PIN kodea duen gutun-azal bat jaso zenuen. Ez baduzu edo ez baduzu gogoratzen, aurrez hitzordurik gabe jaso dezakezu komisaria batean."
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ao facerche o DNIe recibiches un código PIN que podes recuperar ou cambiar en comisarías sen cita previa."
+            "value" : "Co DNI recibiches un sobre cun código PIN. Se non o tes ou non o lembras, podes recuperalo nas comisarías sen cita previa."
           }
         },
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "PIN En fer-te el DNIe vas rebre un codi PIN que pots recuperar o canviar en comissaries sense cita prévia."
+            "value" : "Amb el DNI vas rebre un sobre amb un codi PIN. Si no el tens o no el recordes, el pots recuperar a comissaries sense cita prèvia."
           }
         }
       }
