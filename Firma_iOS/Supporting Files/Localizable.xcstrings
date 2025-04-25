@@ -2807,38 +2807,38 @@
       "localizations" : {
         "ca" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Col·loca el teu DNIe sobre una superfície llisa i col·loca el teu mòbil"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Place your e-ID on a flat surface and place your mobile phone on it "
+            "value" : "Place your e-ID on a flat surface and place your mobile phone on it"
           }
         },
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Coloca tu DNIe sobre una superficie lisa y coloca tu móvil "
+            "state" : "needs_review",
+            "value" : "Coloca tu DNIe sobre una superficie lisa y coloca tu móvil"
           }
         },
         "eu" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Jarri NANa gainazal leun batean eta jarri mugikorra"
           }
         },
         "gl" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Coloca o teu DNIe nunha superficie lisa e coloca o teu móbil"
           }
         },
         "va" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Col·loca el teu DNIe sobre una superfície llisa i col·loca el teu mòbil "
+            "state" : "needs_review",
+            "value" : "Col·loca el teu DNIe sobre una superfície llisa i col·loca el teu mòbil"
           }
         }
       }
@@ -2847,7 +2847,7 @@
       "localizations" : {
         "ca" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : " sense funda "
           }
         },
@@ -2859,25 +2859,25 @@
         },
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : " sin funda "
           }
         },
         "eu" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : " estalkirik gabe "
           }
         },
         "gl" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : " sen cuberta "
           }
         },
         "va" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : " sense funda "
           }
         }
