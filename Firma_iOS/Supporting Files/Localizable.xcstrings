@@ -242,6 +242,46 @@
         }
       }
     },
+    "add_certificates_description" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introdueix la contrasenya per registrar el certificat seleccionat"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter the password to register the selected certificate"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introduce la contraseña para registrar el certificado seleccionado"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hautatutako ziurtagiria erregistratzeko pasahitza sartu"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introduce o contrasinal para rexistrar o certificado seleccionado"
+          }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introdueix la contrasenya per registrar el certificat seleccionat"
+          }
+        }
+      }
+    },
     "add_certificates_error_placeholder" : {
       "localizations" : {
         "ca" : {
@@ -278,6 +318,46 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Contrasenya incorrecta. Intenta-ho de nou."
+          }
+        }
+      }
+    },
+    "add_certificates_title" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afegir Certificat"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Certificate"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Añadir Certificado"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ziurtagiria Gehitu"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Engadir Certificado"
+          }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afegir Certificat"
           }
         }
       }
@@ -5210,6 +5290,7 @@
       }
     },
     "historical_local_sign_type" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {

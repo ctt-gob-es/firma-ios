@@ -18,11 +18,11 @@ struct AddCertificateView: View {
 	   VStack {
 		  VStack(alignment: .center, spacing: 20) {
 			 VStack(alignment: .leading) {
-				AccessibleText(content: NSLocalizedString("home_certificates_label", bundle: Bundle.main, comment: ""))
+				AccessibleText(content: NSLocalizedString("add_certificates_title", bundle: Bundle.main, comment: ""))
 				    .titleStyleBlack(foregroundColor: ColorConstants.Text.primary)
 				    .accessibilityAddTraits(.isHeader)
 				
-				AccessibleText(content: NSLocalizedString("select_certificates_description", bundle: Bundle.main, comment: ""))
+				AccessibleText(content: NSLocalizedString("add_certificates_description", bundle: Bundle.main, comment: ""))
 				    .regularStyle(foregroundColor: ColorConstants.Text.secondary)
 			 }
 			 .padding([.horizontal, .top])
