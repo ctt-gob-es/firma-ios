@@ -7656,37 +7656,37 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No mogueu el DNI o la lectura fallarà."
+            "value" : "Mantén el xip NFC a la part posterior de l’iPhone"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Do not move the DNI or the reading will fail."
+            "value" : "Hold the NFC chip on the back of the iPhone"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No muevas el DNI o la lectura fallará."
+            "value" : "Mantén el chip NFC en la parte posterior del iPhone"
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ez mugitu NAN edo irakurketak huts egingo du."
+            "value" : "Eutsi NFC txipari iPhonearen atzealdean"
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Non movas o ID ou fallará a lectura."
+            "value" : "Mantén o chip NFC na parte traseira do iPhone"
           }
         },
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No mogues el DNI o la lectura fallarà."
+            "value" : "Mantín el xip NFC en la part posterior de l’iPhone"
           }
         }
       }
