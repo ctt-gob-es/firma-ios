@@ -25,7 +25,8 @@ struct InstallCertificateView: View {
 				},
 				currentPage: selectedTab,
 				numberOfPages: 2
-			 )
+			 ),
+			 currentPage: $selectedTab
 		  )
 		  .tag(0)
 		  
@@ -40,7 +41,8 @@ struct InstallCertificateView: View {
 				},
 				currentPage: selectedTab,
 				numberOfPages: 2
-			 )
+			 ),
+			 currentPage: $selectedTab
 		  )
 		  .tag(1)
 	   }

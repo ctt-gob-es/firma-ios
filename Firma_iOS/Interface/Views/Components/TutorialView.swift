@@ -10,6 +10,7 @@ import SwiftUI
 
 struct TutorialView: View {
     @StateObject var viewModel: TutorialViewModel
+    @Binding var currentPage: Int
     
     var body: some View {
 	   VStack {
@@ -30,7 +31,7 @@ struct TutorialView: View {
 
 		  Spacer()
 
-		  PageControl(numberOfPages: viewModel.numberOfPages, currentPage: .constant(viewModel.currentPage))
+		  PageControl(numberOfPages: viewModel.numberOfPages, currentPage: $currentPage)
 			 .padding(.vertical)
 			 .accessibility(label: Text("\(viewModel.currentPage + 1) of \(viewModel.numberOfPages)"))
 
