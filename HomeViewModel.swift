@@ -710,10 +710,12 @@ class HomeViewModel: ObservableObject {
         viewMode = .home
 	   self.showDocumentSavingPicker = false
         appStatus.showSuccessModal = true
-        appStatus.successModalState = .successArhiveAdded
 	   appStatus.isLoading = false
 	   if !isLocalSign {
+		  appStatus.successModalState = .successArhiveAdded
 		  SendSuccessOperationUseCase().execute(signModel: self.signModel)
+	   } else {
+		  appStatus.successModalState = .successSign
 	   }
 	   resetHomeViewModelVariables()
     }
