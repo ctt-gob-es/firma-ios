@@ -265,7 +265,7 @@ struct HomeView: View {
 		  Button(action: {
 			 viewModel.handleLocalSing()
 		 }) {
-			AccessibleText(content: NSLocalizedString("historical_local_sign_type", bundle: Bundle.main, comment: ""))
+			AccessibleText(content: NSLocalizedString("home_certificates_sign_button_title", bundle: Bundle.main, comment: ""))
 		 }
 		 .buttonStyle(CustomButtonStyle(isEnabled: true))
 		  Button(action: {
