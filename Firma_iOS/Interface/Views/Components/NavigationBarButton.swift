@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NavigationBarButton: View {
     let imageName: String
+    let accesibilityLabel: String
     var isNativeIcon: Bool = false
     let action: () -> Void
     
@@ -21,12 +22,14 @@ struct NavigationBarButton: View {
 				.frame(height: 30)
 				.padding(.vertical,6)
 				.foregroundColor(ColorConstants.Text.secondary)
+                    .accessibilityLabel(accesibilityLabel)
 		  } else {
 			 Image(imageName)
 				.resizable()
 				.scaledToFit()
 				.frame(height: 40)
 				.padding(.vertical,6)
+                    .accessibilityLabel(accesibilityLabel)
 		  }
 	   }
     }

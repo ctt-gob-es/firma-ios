@@ -68,7 +68,7 @@ struct DNIConnectionView: View {
 	   .dismissKeyboardOnTap()
 	   .navigationBarBackButtonHidden(true)
 	   .navigationBarItems(trailing: HStack(spacing: 4) {
-		  NavigationBarButton(imageName: "cross_gray", action: {
+            NavigationBarButton(imageName: "cross_gray", accesibilityLabel: NSLocalizedString("close", comment: ""), action: {
 			 DispatchQueue.main.async {
                     NotificationCenter.default.post(name: .ErrorModalCancelButtonAction, object: nil, userInfo: nil)
                 }
@@ -77,7 +77,7 @@ struct DNIConnectionView: View {
 		  .padding(.bottom, 4)
 	   )
 	   .navigationBarItems(leading: HStack(spacing: 4) {
-		  NavigationBarButton(imageName: "backbutton", action: {
+            NavigationBarButton(imageName: "backbutton", accesibilityLabel: NSLocalizedString("go_back", comment: ""), action: {
 			 if step == .canStep {
 				isPresented = false
 			 } else if step == .pinStep {
