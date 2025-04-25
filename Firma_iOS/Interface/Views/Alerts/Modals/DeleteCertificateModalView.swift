@@ -39,7 +39,7 @@ struct DeleteCertificateModalView: View {
                             Text(NSLocalizedString("delete_certificate_subtitle", bundle: Bundle.main, comment: ""))
                                 .regularStyle(foregroundColor: ColorConstants.Text.secondary)
                             + Text(" ")
-                            + Text(certificate.issuer)
+                            + Text(certificate.subject)
                                 .regularBoldStyle(foregroundColor: ColorConstants.Text.secondary)
                             + Text("?")
                                 .regularStyle(foregroundColor: ColorConstants.Text.secondary)
