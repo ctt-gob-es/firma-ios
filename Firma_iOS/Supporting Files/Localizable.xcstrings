@@ -6252,37 +6252,37 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No hem pogut afegir el vostre certificat a l'aplicació de Portafirmes de manera correcta. Intenta-ho de nou més tade."
+            "value" : "No hem pogut afegir el vostre certificat a l'aplicació de Autofirma de manera correcta. Intenta-ho de nou més tade."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "We were unable to add your certificate to the Portafirmas application correctly. Please try again later."
+            "value" : "We were unable to add your certificate to the Autofirma application correctly. Please try again later."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No hemos podido añadir tu certificado a la aplicación de Portafirmas de manera correcta. Inténtalo de nuevo más tade."
+            "value" : "No hemos podido añadir tu certificado a la aplicación de Autofirma de manera correcta. Inténtalo de nuevo más tade."
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ezin izan dugu zure ziurtagiria Portafirmas aplikazioan behar bezala gehitu. Saiatu berriro geroago."
+            "value" : "Ezin izan dugu zure ziurtagiria Autofirma aplikazioan behar bezala gehitu. Saiatu berriro geroago."
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Non puidemos engadir correctamente o teu certificado á aplicación Portafirmas. Téntao de novo máis tarde."
+            "value" : "Non puidemos engadir correctamente o teu certificado á aplicación Autofirma. Téntao de novo máis tarde."
           }
         },
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No hem pogut afegir el teu certificat a l'aplicació de Portafirmes de manera correcta. Intenta-ho de nou més tade."
+            "value" : "No hem pogut afegir el teu certificat a l'aplicació de Autofirma de manera correcta. Intenta-ho de nou més tade."
           }
         }
       }
@@ -6331,38 +6331,38 @@
       "localizations" : {
         "ca" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "No hem pogut afegir el fitxer a l'aplicació de Portafirmes de manera correcta. Intenta-ho de nou més tade."
+            "state" : "needs_review",
+            "value" : "No hem pogut afegir el fitxer a l'aplicació de Autofirma de manera correcta. Intenta-ho de nou més tade."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "We were unable to add your files to the Portafirmas application correctly. Please try again later."
+            "value" : "We were unable to add your files to the Autofirma application correctly. Please try again later."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No hemos podido añadir tu archivo a la aplicación de Portafirmas de manera correcta. Inténtalo de nuevo más tade."
+            "value" : "No hemos podido añadir tu archivo a la aplicación de Autofirma de manera correcta. Inténtalo de nuevo más tade."
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ezin izan dugu zure fitxategia Portafirmas aplikazioan behar bezala gehitu. Saiatu berriro geroago."
+            "value" : "Ezin izan dugu zure fitxategia Autofirma aplikazioan behar bezala gehitu. Saiatu berriro geroago."
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Non puidemos engadir correctamente o teu ficheiro á aplicación Portafirmas. Téntao de novo máis tarde."
+            "value" : "Non puidemos engadir correctamente o teu ficheiro á aplicación Autofirma. Téntao de novo máis tarde."
           }
         },
         "va" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "No hem pogut afegir el teu arxiu a l'aplicació de Portafirmes de manera correcta. Intenta-ho de nou més tade."
+            "state" : "needs_review",
+            "value" : "No hem pogut afegir el teu arxiu a l'aplicació de Autofirma de manera correcta. Intenta-ho de nou més tade."
           }
         }
       }
