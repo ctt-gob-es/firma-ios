@@ -2848,37 +2848,37 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Identificació amb DNIe"
+            "value" : "Signa amb el DNIe"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Identification with DNIe"
+            "value" : "Sign with DNIe"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Identificación con DNIe"
+            "value" : "Firma con DNIe"
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "NANe-rekin identifikatzea"
+            "value" : "Sinatu DNIe-rekin"
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Identificación con DNIe"
+            "value" : "Asinar co DNIe"
           }
         },
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Identificació amb DNIe"
+            "value" : "Signa amb el DNIe"
           }
         }
       }
@@ -3929,37 +3929,37 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Per identificar-te mitjançant DNIe és necessari que tinguis un DNI electrónic amb"
+            "value" : "Per a signar amb DNIe és necessari que tinguis un DNI electrónic amb"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "To identify yourself using DNIe, you need to have an electronic ID with"
+            "value" : "To sign using DNIe, you need to have an electronic ID with"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Para identificarte mediante DNIe es necesario que tengas un DNI electrónico con "
+            "value" : "Para firmar mediante DNIe es necesario que tengas un DNI electrónico con "
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "NAN elektronikoaren bidez identifikatzeko, "
+            "value" : "NAN elektronikoaren bidez sinatzeko, "
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Para identificarche mediante DNIe é necesario que teñas un DNI electrónico con"
+            "value" : "Para asinar mediante DNIe é necesario que teñas un DNI electrónico con"
           }
         },
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Per a identificar-te mitjançant DNIe és necessari que tingues un DNI electrónic amb"
+            "value" : "Per a signar amb DNIe és necessari que tingues un DNI electrónic amb"
           }
         }
       }
