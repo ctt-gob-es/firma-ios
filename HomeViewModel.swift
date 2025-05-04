@@ -57,6 +57,9 @@ class HomeViewModel: ObservableObject {
     @Published var titleCertificateInfoModal: String = ""
     @Published var messageCertificateInfoModal: String = ""
     
+    @Published var shouldLoad: Bool = true
+    @Published var shouldSendStopSign: Bool = false
+    
     var appStatus: AppStatus
     
     var isLocalSign: Bool = false
@@ -109,7 +112,11 @@ class HomeViewModel: ObservableObject {
     func onAppear() {
         getCertificates(true)
 	   certificateUtils = CertificateUtils()
-        loadData()
+	   if shouldLoad {
+		  loadData()
+	   } else {
+		  cancelOperation()
+	   }
     }
     
     func loadData() {
@@ -745,10 +752,12 @@ class HomeViewModel: ObservableObject {
         viewMode = .home
 	   self.showDocumentSavingPicker = false
         appStatus.showSuccessModal = true
-        appStatus.successModalState = .successArhiveAdded
 	   appStatus.isLoading = false
 	   if !isLocalSign {
+		  appStatus.successModalState = .successArhiveAdded
 		  SendSuccessOperationUseCase().execute(signModel: self.signModel)
+	   } else {
+		  appStatus.successModalState = .successSign
 	   }
 	   resetHomeViewModelVariables()
     }
@@ -778,10 +787,13 @@ class HomeViewModel: ObservableObject {
 	   
 	   DispatchQueue.main.async {
 		  self.selectElectronicCertificate = false
+          self.showSignCoordinatesModal = false
+          self.appStatus.showDocumentImportingPicker = false
 		  self.selectDNIe = false
 		  self.viewMode = .home
 		  self.areCertificatesSelectable = false
 		  self.appStatus.keepParentController = false
+          self.appStatus.selectedCertificate = nil
 		  self.annotations = []
 	   }
     }

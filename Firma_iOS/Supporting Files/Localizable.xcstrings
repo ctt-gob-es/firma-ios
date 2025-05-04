@@ -242,6 +242,46 @@
         }
       }
     },
+    "add_certificates_description" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introdueix la contrasenya per registrar el certificat seleccionat"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter the password to register the selected certificate"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introduce la contraseña para registrar el certificado seleccionado"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hautatutako ziurtagiria erregistratzeko pasahitza sartu"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introduce o contrasinal para rexistrar o certificado seleccionado"
+          }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introdueix la contrasenya per registrar el certificat seleccionat"
+          }
+        }
+      }
+    },
     "add_certificates_error_placeholder" : {
       "localizations" : {
         "ca" : {
@@ -278,6 +318,46 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Contrasenya incorrecta. Intenta-ho de nou."
+          }
+        }
+      }
+    },
+    "add_certificates_title" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afegir Certificat"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Certificate"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Añadir Certificado"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ziurtagiria Gehitu"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Engadir Certificado"
+          }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afegir Certificat"
           }
         }
       }
@@ -2808,37 +2888,37 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Identificació amb DNIe"
+            "value" : "Signa amb el DNIe"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Identification with DNIe"
+            "value" : "Sign with DNIe"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Identificación con DNIe"
+            "value" : "Firma con DNIe"
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "NANe-rekin identifikatzea"
+            "value" : "Sinatu DNIe-rekin"
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Identificación con DNIe"
+            "value" : "Asinar co DNIe"
           }
         },
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Identificació amb DNIe"
+            "value" : "Signa amb el DNIe"
           }
         }
       }
@@ -2847,38 +2927,38 @@
       "localizations" : {
         "ca" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Col·loca el teu DNIe sobre una superfície llisa i col·loca el teu mòbil"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Place your e-ID on a flat surface and place your mobile phone on it "
+            "value" : "Place your e-ID on a flat surface and place your mobile phone on it"
           }
         },
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Coloca tu DNIe sobre una superficie lisa y coloca tu móvil "
+            "state" : "needs_review",
+            "value" : "Coloca tu DNIe sobre una superficie lisa y coloca tu móvil"
           }
         },
         "eu" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Jarri NANa gainazal leun batean eta jarri mugikorra"
           }
         },
         "gl" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Coloca o teu DNIe nunha superficie lisa e coloca o teu móbil"
           }
         },
         "va" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Col·loca el teu DNIe sobre una superfície llisa i col·loca el teu mòbil "
+            "state" : "needs_review",
+            "value" : "Col·loca el teu DNIe sobre una superfície llisa i col·loca el teu mòbil"
           }
         }
       }
@@ -2887,7 +2967,7 @@
       "localizations" : {
         "ca" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : " sense funda "
           }
         },
@@ -2899,25 +2979,25 @@
         },
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : " sin funda "
           }
         },
         "eu" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : " estalkirik gabe "
           }
         },
         "gl" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : " sen cuberta "
           }
         },
         "va" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : " sense funda "
           }
         }
@@ -2968,37 +3048,37 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "PIN En fer-te el DNIe vas rebre un codi PIN que pots recuperar o canviar en comissaries sense cita prévia."
+            "value" : "Amb el DNI vas rebre un sobre amb un codi PIN. Si no el tens o no el recordes, el pots recuperar a comissaries sense cita prèvia."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "When you get the DNIe you received a PIN code that you can retrieve or change in police stations without appointment."
+            "value" : "With your DNI, you received an envelope containing a PIN code. If you don’t have it or don’t remember it, you can recover it at police stations without an appointment."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Al hacerte el DNIe recibiste un sobre con un código PIN. Lo puedes recuperar o cambiar en comisarías sin cita previa."
+            "value" : "Con el DNI recibiste un sobre con un código PIN. Si no lo tienes o no lo recuerdas, puedes recuperarlo en comisarías sin cita previa"
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "NANa egitean, PIN kode bat jaso zenuen, eta komisarietan berreskuratu edo alda dezakezu, aurrez hitzordurik eman gabe."
+            "value" : "NANarekin batera PIN kodea duen gutun-azal bat jaso zenuen. Ez baduzu edo ez baduzu gogoratzen, aurrez hitzordurik gabe jaso dezakezu komisaria batean."
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ao facerche o DNIe recibiches un código PIN que podes recuperar ou cambiar en comisarías sen cita previa."
+            "value" : "Co DNI recibiches un sobre cun código PIN. Se non o tes ou non o lembras, podes recuperalo nas comisarías sen cita previa."
           }
         },
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "PIN En fer-te el DNIe vas rebre un codi PIN que pots recuperar o canviar en comissaries sense cita prévia."
+            "value" : "Amb el DNI vas rebre un sobre amb un codi PIN. Si no el tens o no el recordes, el pots recuperar a comissaries sense cita prèvia."
           }
         }
       }
@@ -3889,37 +3969,37 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Per identificar-te mitjançant DNIe és necessari que tinguis un DNI electrónic amb"
+            "value" : "Per a signar amb DNIe és necessari que tinguis un DNI electrónic amb"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "To identify yourself using DNIe, you need to have an electronic ID with"
+            "value" : "To sign using DNIe, you need to have an electronic ID with"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Para identificarte mediante DNIe es necesario que tengas un DNI electrónico con "
+            "value" : "Para firmar mediante DNIe es necesario que tengas un DNI electrónico con "
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "NAN elektronikoaren bidez identifikatzeko, "
+            "value" : "NAN elektronikoaren bidez sinatzeko, "
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Para identificarche mediante DNIe é necesario que teñas un DNI electrónico con"
+            "value" : "Para asinar mediante DNIe é necesario que teñas un DNI electrónico con"
           }
         },
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Per a identificar-te mitjançant DNIe és necessari que tingues un DNI electrónic amb"
+            "value" : "Per a signar amb DNIe és necessari que tingues un DNI electrónic amb"
           }
         }
       }
@@ -5250,6 +5330,7 @@
       }
     },
     "historical_local_sign_type" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -6374,7 +6455,7 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No hem pogut afegir el vostre certificat a l'aplicació de Portafirmes de manera correcta. Intenta-ho de nou més tade."
+            "value" : "No hem pogut afegir el vostre certificat a l'aplicació de Autofirma de manera correcta. Intenta-ho de nou més tade."
           }
         },
         "en" : {
@@ -6404,7 +6485,7 @@
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No hem pogut afegir el teu certificat a l'aplicació de Portafirmes de manera correcta. Intenta-ho de nou més tade."
+            "value" : "No hem pogut afegir el teu certificat a l'aplicació de Autofirma de manera correcta. Intenta-ho de nou més tade."
           }
         }
       }
@@ -6454,7 +6535,7 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No hem pogut afegir el fitxer a l'aplicació de Portafirmes de manera correcta. Intenta-ho de nou més tade."
+            "value" : "No hem pogut afegir el fitxer a l'aplicació de Autofirma de manera correcta. Intenta-ho de nou més tade."
           }
         },
         "en" : {
@@ -6484,7 +6565,7 @@
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No hem pogut afegir el teu arxiu a l'aplicació de Portafirmes de manera correcta. Intenta-ho de nou més tade."
+            "value" : "No hem pogut afegir el teu arxiu a l'aplicació de Autofirma de manera correcta. Intenta-ho de nou més tade."
           }
         }
       }
@@ -7615,37 +7696,37 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No mogueu el DNI o la lectura fallarà."
+            "value" : "Mantén el xip NFC a la part posterior de l’iPhone"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Do not move the DNI or the reading will fail."
+            "value" : "Hold the NFC chip on the back of the iPhone"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No muevas el DNI o la lectura fallará."
+            "value" : "Mantén el chip NFC en la parte posterior del iPhone"
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ez mugitu NAN edo irakurketak huts egingo du."
+            "value" : "Eutsi NFC txipari iPhonearen atzealdean"
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Non movas o ID ou fallará a lectura."
+            "value" : "Mantén o chip NFC na parte traseira do iPhone"
           }
         },
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No mogues el DNI o la lectura fallarà."
+            "value" : "Mantín el xip NFC en la part posterior de l’iPhone"
           }
         }
       }

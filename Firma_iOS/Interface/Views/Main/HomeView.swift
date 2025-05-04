@@ -19,7 +19,6 @@ struct HomeView: View {
     
     @State var password: String = ""
     @Binding var shouldCancelOperation: Bool
-    @State var shouldSendStopSign: Bool = false
     
     init(viewMode: Binding<ViewModes>,
 	    shouldSign: Binding<Bool>,
@@ -46,7 +45,6 @@ struct HomeView: View {
 		  appStatus: appStatus,
 		  shouldSign: $shouldSign,
 		  shouldCancelOperation: $shouldCancelOperation,
-		  shouldSendStopSign: $shouldSendStopSign,
 		  viewMode: $viewMode,
 		  password: $password
 	   )
@@ -204,8 +202,14 @@ struct HomeView: View {
 			 signModel: viewModel.signModel,
 			 parameters: viewModel.parameters,
 			 isLocalSign: viewModel.isLocalSign,
-			 hasDismissed: $shouldSendStopSign
+			 hasDismissed: viewModel.shouldSendStopSign
 		  )
+		  .onDisappear(perform: {
+			 //In case it has been already presented, we don't need to load the data
+			 if viewModel.shouldLoad {
+				viewModel.shouldLoad.toggle()
+			 }
+		  })
         }
     }
     
@@ -269,7 +273,7 @@ struct HomeView: View {
 		  Button(action: {
 			 viewModel.handleLocalSing()
 		 }) {
-			AccessibleText(content: NSLocalizedString("historical_local_sign_type", bundle: Bundle.main, comment: ""))
+			AccessibleText(content: NSLocalizedString("home_certificates_sign_button_title", bundle: Bundle.main, comment: ""))
 		 }
 		 .buttonStyle(CustomButtonStyle(isEnabled: true))
 		  Button(action: {
@@ -288,6 +292,7 @@ struct HomeView: View {
 		  }
 	   }
 	   .buttonStyle(CustomButtonStyle(isEnabled: viewModel.buttonEnabled ?? false))
+	   .disabled(!(viewModel.buttonEnabled ?? false))
     }
     
     private func handleFileImport(result: Result<[URL], Error>) {
