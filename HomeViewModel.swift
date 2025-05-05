@@ -782,9 +782,7 @@ class HomeViewModel: ObservableObject {
 	   // We set lastDateAutoSign or delete selected certicate
         if appStatus.shouldAutosign {
             self.appStatus.lastDateAutoSign = Date()
-        } else {
-		  self.appStatus.selectedCertificate = nil
-	   }
+        }
 	   
 	   DispatchQueue.main.async {
 		  self.selectElectronicCertificate = false
@@ -794,7 +792,10 @@ class HomeViewModel: ObservableObject {
 		  self.viewMode = .home
 		  self.areCertificatesSelectable = false
 		  self.appStatus.keepParentController = false
-          self.appStatus.selectedCertificate = nil
+		  if !self.appStatus.shouldAutosign {
+			 self.appStatus.selectedCertificate = nil
+		  }
+          //self.appStatus.selectedCertificate = nil
 		  self.annotations = []
 	   }
     }
