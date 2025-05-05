@@ -34,7 +34,10 @@ struct IntroPolicyView: View {
 			 
 			 Spacer()
 			 
-			 NavigationLink(destination: ParentView(viewMode: ViewModes.home, urlReceived: nil)) {
+			 NavigationLink(destination:
+						  ParentView(viewMode: ViewModes.home, urlReceived: nil)
+				.environmentObject(AppStatus.shared)
+			 ) {
 				AccessibleText(content: NSLocalizedString("accept_button_title", bundle: Bundle.main, comment: ""))
 			 }
 			 .buttonStyle(CustomButtonStyle(isEnabled: (isPrivacyPolicyAccepted && isTermsAccepted)))
@@ -52,7 +55,7 @@ struct IntroPolicyView: View {
 
 struct LanguageSelectorView: View {
     @Binding var selectedLanguage: LocalizedLanguage
-
+    
     var body: some View {
 	   HStack {
 		  AccessibleText(content: NSLocalizedString("language_title", bundle: Bundle.main, comment: ""))
@@ -91,13 +94,13 @@ struct LanguageSelectorView: View {
 		  loadSavedLanguage()
 	   }
     }
-
+    
     private func selectLanguage(_ language: LocalizedLanguage) {
 	   selectedLanguage = language
 	   UserDefaults.standard.set(language.code, forKey: "appLanguage")
 	   Bundle.setLanguage(language.code)
     }
-
+    
     private func loadSavedLanguage() {
 	   let savedLanguageCode = UserDefaults.standard.string(forKey: "appLanguage") ?? Locale.current.language.languageCode?.identifier ?? "es"
 	   if let language = LocalizedLanguage.allLanguages.first(where: { $0.code == savedLanguageCode }) {
