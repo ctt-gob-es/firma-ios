@@ -207,6 +207,9 @@ struct HomeView: View {
 			 }
 		  })
         }
+	   .navigationDestination(isPresented: $viewModel.navigateToInstallCertificateTutorial) {
+		  InstallCertificateView()
+	   }
     }
     
     private var mainContent: some View {
@@ -273,7 +276,7 @@ struct HomeView: View {
 		 }
 		 .buttonStyle(CustomButtonStyle(isEnabled: true))
 		  Button(action: {
-			appStatus.showDocumentPicker.toggle()
+			 viewModel.navigateToInstallCertificateTutorial = true
 		 }) {
 			AccessibleText(content: NSLocalizedString("home_certificates_add_certificate_button_title", bundle: Bundle.main, comment: ""))
 		 }
