@@ -34,6 +34,7 @@ enum ErrorModalState {
     case jailbreakError
     case updateError
     
+    case fileSignNotLoad
     case certificateNotImported
     
     case dataNotImported
@@ -87,7 +88,9 @@ enum ErrorModalState {
                 return NSLocalizedString("user_cancelled_save_error_title", bundle: Bundle.main, comment: "")
             case .fileSelectedNoPDF:
                 return NSLocalizedString("file_not_pdf_title", bundle: Bundle.main, comment: "")
-	   }
+            case .fileSignNotLoad:
+                return NSLocalizedString("file_load_error_title", bundle: Bundle.main, comment: "")
+        }
     }
     
     var description: String {
@@ -140,6 +143,8 @@ enum ErrorModalState {
                 return NSLocalizedString("user_cancelled_save_error_description", bundle: Bundle.main, comment: "")
             case .fileSelectedNoPDF:
                 return NSLocalizedString("file_not_pdf_description", bundle: Bundle.main, comment: "")
+            case .fileSignNotLoad:
+                return NSLocalizedString("file_sign_load_error_description", bundle: Bundle.main, comment: "")
 	   }
     }
     
@@ -149,7 +154,7 @@ enum ErrorModalState {
 			 return "cross"
             case .certificateGenericError, .certificateGenericErrorLong, .dniReadingError, .dniCanceledSession, .dniReadingErrorLong, .dniTimeoutError, .dniBroken, .dniBlockedPin, .dniIncorrectPin, .dniIncorrectCan, .dniExpired, .jailbreakError, .userCancelled, .userCancelledSave:
 			 return "warning"
-            case .certificateExpired, .certificateRevoked, .certificateNearExpiry, .globalError, .trackingError, .fileSelectedNoPDF:
+            case .certificateExpired, .certificateRevoked, .certificateNearExpiry, .globalError, .trackingError, .fileSelectedNoPDF, .fileSignNotLoad:
 			 return "info_red"
 		  case .updateError:
 			 return "reload"
@@ -160,14 +165,14 @@ enum ErrorModalState {
 	   switch self {
 		  case .certificateGenericError, .certificateGenericErrorLong, .certificateExpired, .certificateRevoked, .certificateNearExpiry:
 			 return true
-        case .certificateNeeded, .dniReadingError, .dniBroken, .dniReadingErrorLong, .dniTimeoutError, .dniBlockedPin, .dniIncorrectPin, .dniIncorrectCan, .dniExpired, .globalError, .trackingError, .jailbreakError, .updateError, .certificateNotImported, .dataNotImported, .userCancelled, .userCancelledSave, .dniCanceledSession, .fileSelectedNoPDF:
+        case .certificateNeeded, .dniReadingError, .dniBroken, .dniReadingErrorLong, .dniTimeoutError, .dniBlockedPin, .dniIncorrectPin, .dniIncorrectCan, .dniExpired, .globalError, .trackingError, .jailbreakError, .updateError, .certificateNotImported, .dataNotImported, .userCancelled, .userCancelledSave, .dniCanceledSession, .fileSelectedNoPDF, .fileSignNotLoad:
 			 return false
 	   }
     }
     
     var hasCancelButton: Bool {
 	   switch self {
-        case .certificateNeeded, .certificateGenericError, .certificateGenericErrorLong, .certificateExpired, .certificateRevoked, .certificateNearExpiry, .dniIncorrectPin, .globalError, .trackingError, .jailbreakError, .updateError, .userCancelled, .userCancelledSave, .dniCanceledSession:
+        case .certificateNeeded, .certificateGenericError, .certificateGenericErrorLong, .certificateExpired, .certificateRevoked, .certificateNearExpiry, .dniIncorrectPin, .globalError, .trackingError, .jailbreakError, .updateError, .userCancelled, .userCancelledSave, .dniCanceledSession, .fileSignNotLoad:
 			 return false
 		  case .dniReadingError, .dniBroken, .dniReadingErrorLong, .dniTimeoutError, .dniBlockedPin,.dniIncorrectCan, .dniExpired, .certificateNotImported, .dataNotImported, .fileSelectedNoPDF:
 			 return true
@@ -182,7 +187,7 @@ enum ErrorModalState {
 			 return NSLocalizedString("accept_button_title", bundle: Bundle.main, comment: "")
             case .dniReadingError, .dniBroken, .dniReadingErrorLong, .dniTimeoutError, .dniBlockedPin,.dniIncorrectCan, .dniExpired, .certificateNotImported, .dataNotImported, .dniCanceledSession, .fileSelectedNoPDF:
 			 return NSLocalizedString("retry_button_title", bundle: Bundle.main, comment: "")
-		  case .globalError, .trackingError, .updateError, .jailbreakError:
+            case .globalError, .trackingError, .updateError, .jailbreakError, .fileSignNotLoad:
 			 return nil
 	   }
     }
