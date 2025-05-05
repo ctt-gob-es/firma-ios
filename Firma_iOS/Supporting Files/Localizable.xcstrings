@@ -2887,7 +2887,7 @@
       "localizations" : {
         "ca" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Col·loca el teu DNIe sobre una superfície llisa i col·loca el teu mòbil"
           }
         },
@@ -2899,25 +2899,25 @@
         },
         "es" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Coloca tu DNIe sobre una superficie lisa y coloca tu móvil"
           }
         },
         "eu" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Jarri NANa gainazal leun batean eta jarri mugikorra"
           }
         },
         "gl" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Coloca o teu DNIe nunha superficie lisa e coloca o teu móbil"
           }
         },
         "va" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Col·loca el teu DNIe sobre una superfície llisa i col·loca el teu mòbil"
           }
         }
@@ -2927,7 +2927,7 @@
       "localizations" : {
         "ca" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : " sense funda "
           }
         },
@@ -2939,25 +2939,25 @@
         },
         "es" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : " sin funda "
           }
         },
         "eu" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : " estalkirik gabe "
           }
         },
         "gl" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : " sen cuberta "
           }
         },
         "va" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : " sense funda "
           }
         }
@@ -3929,13 +3929,13 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Per a signar amb DNIe és necessari que tinguis un DNI electrónic amb"
+            "value" : "Per a signar amb DNIe és necessari que tinguis un DNI electrónic amb "
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "To sign using DNIe, you need to have an electronic ID with"
+            "value" : "To sign using DNIe, you need to have an electronic ID with "
           }
         },
         "es" : {
@@ -3953,13 +3953,13 @@
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Para asinar mediante DNIe é necesario que teñas un DNI electrónico con"
+            "value" : "Para asinar mediante DNIe é necesario que teñas un DNI electrónico con "
           }
         },
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Per a signar amb DNIe és necessari que tingues un DNI electrónic amb"
+            "value" : "Per a signar amb DNIe és necessari que tingues un DNI electrónic amb "
           }
         }
       }
@@ -3969,7 +3969,7 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "certificats vigent"
+            "value" : "certificats vigent "
           }
         },
         "en" : {
@@ -3987,19 +3987,19 @@
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "indarrean dauden ziurtagiriak"
+            "value" : "indarrean dauden ziurtagiriak "
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "certificados vixentes"
+            "value" : "certificados vixentes "
           }
         },
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "certificats vigents"
+            "value" : "certificats vigents "
           }
         }
       }
@@ -4009,7 +4009,7 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "i coneguis"
+            "value" : "i coneguis "
           }
         },
         "en" : {
@@ -4027,19 +4027,19 @@
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "dituen NAN elektronikoa izan behar duzu, eta"
+            "value" : "dituen NAN elektronikoa izan behar duzu, eta "
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "y conozcas el "
+            "value" : " y conozcas el "
           }
         },
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "i conegues"
+            "value" : "i conegues "
           }
         }
       }
@@ -4685,6 +4685,47 @@
         }
       }
     },
+    "file_load_error_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No hem pogut carregar el fitxer"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We were unable to load the file"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No hemos podido cargar el fichero"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ezin izan fugu fitxategia kargatu"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non puidemos cargar o ficheiro"
+          }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No hem pogut carregar el fitxer"
+          }
+        }
+      }
+    },
     "file_not_pdf_description" : {
       "localizations" : {
         "ca" : {
@@ -4761,6 +4802,47 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "El fitxer no és un PDF"
+          }
+        }
+      }
+    },
+    "file_sign_load_error_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error en carregar el fitxer local per fer la signatura des de la ubicació seleccionada"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error al cargar el fichero local para realizar la firma desde la ubicación seleccionada"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error al cargar el fichero local para realizar la firma desde la ubicación seleccionada"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Errorea hautatutako kokapenetik sinadura egiteko tokiko fitxategia kargatzean"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Produciuse un erro ao cargar o ficheiro local para realizar a sinatura desde a localización seleccionada"
+          }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error en carregar el fitxer local per a realitzar la firma des de la ubicació seleccionada"
           }
         }
       }
@@ -8131,9 +8213,6 @@
           }
         }
       }
-    },
-    "operation_(operationKey)" : {
-
     },
     "operation_batch" : {
       "comment" : "Operation: Batch",
