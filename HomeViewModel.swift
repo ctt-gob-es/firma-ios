@@ -795,7 +795,6 @@ class HomeViewModel: ObservableObject {
 		  if !self.appStatus.shouldAutosign {
 			 self.appStatus.selectedCertificate = nil
 		  }
-          //self.appStatus.selectedCertificate = nil
 		  self.annotations = []
 	   }
     }
