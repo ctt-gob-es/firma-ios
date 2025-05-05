@@ -154,7 +154,6 @@ extension AppError {
     // 2001XX: Operación de firma
     static let signingCipherSignError = AppError.internalSoftware(200100, "Error al cifrar la firma para enviarla al servidor intermedio")
     static let signingCipherCertificateError = AppError.internalSoftware(200101, "Error al cifrar el certificado para enviarlo al servidor intermedio")
-    static let signingLoadLocalFile = AppError.internalSoftware(201002, "Error al cargar el fichero local para realizar la firma desde la ubicación seleccionada")
     static let generatePK1Certificate = AppError.internalSoftware(200103, "Error realizando la firma del fichero con certificado")
     static let generatePK1DNIe = AppError.internalSoftware(200104, "Error realizando la firma del fichero con DNIe")
     static let selectedFileIsNotPDF = AppError.internalSoftware(200106, "El usuario selecciono un documento no PDF sobre el que realizar una firma PAdES", .fileSelectedNoPDF)
@@ -188,6 +187,7 @@ extension AppError {
 
     //2010XX: Carga de ficheros (en esta categoría se agregarán todos los errores de carga de ficheros, aunque sea como parte de la operación de firma web o local).
     static let fileLoadingLocalFile = AppError.internalSoftware(201000, "Error en la carga de fichero local para firmar")
+    static let signingLoadLocalFile = AppError.internalSoftware(201001, "Error al cargar el fichero local para realizar la firma desde la ubicación seleccionada", .fileSignNotLoad)
     
     //2011XX: Carga/listado de certificados (en esta categoría se agregarán todos los errores de carga de certificado, independientemente de que se cargue para firmar un documento o para seleccionar el certificado.)
     static let certificateImportingError = AppError.internalSoftware(201100, "Error en la carga de certificado para importar", .certificateNotImported)

@@ -51,6 +51,7 @@ class HomeViewModel: ObservableObject {
     @Published var shouldReloadCertificates: Bool = false
     @Published var certificateURL: URL?
     @Published var navigateToAddCertificate: Bool = false
+    @Published var navigateToInstallCertificateTutorial: Bool = false
     
     // Variables para el modal de certificado (Expirado o a punto de expirar)
     @Published var showCertificateInfoModal: Bool = false
