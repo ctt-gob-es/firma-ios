@@ -18,7 +18,7 @@ struct DNIView: View {
     @State var signModel: SignModel? = nil
     @State var parameters: NSMutableDictionary? = nil
     @State var isLocalSign: Bool
-    @State var hasDismissed: Bool
+    @Binding var hasDismissed: Bool
     
     var body: some View {
 	   VStack(alignment: .center, spacing: 20) {
@@ -105,7 +105,9 @@ struct DNIView: View {
     
     // MARK: - Custom Back Button Handler
     private func handleBackButton() {
-	   hasDismissed = true
-	   presentationMode.wrappedValue.dismiss()  // Optionally dismiss the view
+	   DispatchQueue.main.async {
+		  hasDismissed = true
+		  presentationMode.wrappedValue.dismiss()
+	   }
     }
 }

@@ -202,12 +202,12 @@ struct HomeView: View {
 			 signModel: viewModel.signModel,
 			 parameters: viewModel.parameters,
 			 isLocalSign: viewModel.isLocalSign,
-			 hasDismissed: viewModel.shouldSendStopSign
+			 hasDismissed: $viewModel.shouldSendStopSign
 		  )
 		  .onDisappear(perform: {
 			 //In case it has been already presented, we don't need to load the data
 			 if viewModel.shouldLoad {
-				viewModel.shouldLoad.toggle()
+				viewModel.shouldLoad = false
 			 }
 		  })
         }
