@@ -73,14 +73,22 @@ struct DNIView: View {
 			 )
 			 .padding(.bottom)
 		  
-		  let descriptionText = NSLocalizedString("dni_view_description_1", bundle: Bundle.main, comment: "")
-			 + NSLocalizedString("dni_view_description_2", bundle: Bundle.main, comment: "")
-			 + NSLocalizedString("dni_view_description_3", bundle: Bundle.main, comment: "")
-			 + NSLocalizedString("dni_view_description_4", bundle: Bundle.main, comment: "")
+		  let accessibilityText = NSLocalizedString("dni_view_description_1", bundle: Bundle.main, comment: "")
+               + NSLocalizedString("dni_view_description_2", bundle: Bundle.main, comment: "")
+               + NSLocalizedString("dni_view_description_3", bundle: Bundle.main, comment: "")
+               + NSLocalizedString("dni_view_description_4", bundle: Bundle.main, comment: "")
 		  
-		  Text(descriptionText)
-			 .regularStyle(foregroundColor: ColorConstants.Text.secondary)
-			 .accessibilityLabel(Text(descriptionText))
+            (
+               Text(NSLocalizedString("dni_view_description_1", bundle: Bundle.main, comment: ""))
+                   .regularStyle(foregroundColor: ColorConstants.Text.secondary)
+               + Text(NSLocalizedString("dni_view_description_2", bundle: Bundle.main, comment: ""))
+                   .regularBoldStyle(foregroundColor: ColorConstants.Text.secondary)
+               + Text(NSLocalizedString("dni_view_description_3", bundle: Bundle.main, comment: ""))
+                   .regularStyle(foregroundColor: ColorConstants.Text.secondary)
+               + Text(NSLocalizedString("dni_view_description_4", bundle: Bundle.main, comment: ""))
+                   .regularBoldStyle(foregroundColor: ColorConstants.Text.secondary)
+            )
+            .accessibilityLabel(Text(accessibilityText))
 	   }
     }
     

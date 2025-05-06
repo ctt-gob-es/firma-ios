@@ -3964,47 +3964,6 @@
         }
       }
     },
-    "dni_view_description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Per a signar amb DNIe és necessari que tinguis un DNI electrónic amb certificats vigent i coneguis el codi PIN."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "To sign using DNIe, you need to have an electronic ID with certificates in effect and know the PIN code."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Para firmar mediante DNIe es necesario que tengas un DNI electrónico con certificados vigentes y conozcas el código PIN."
-          }
-        },
-        "eu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "NAN elektronikoaren bidez sinatzeko, indarrean dauden ziurtagiriak dituen NAN elektronikoa izan behar duzu, eta PIN kodea jakin."
-          }
-        },
-        "gl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Para asinar mediante DNIe é necesario que teñas un DNI electrónico con certificados vixentes  y conozcas el código PIN."
-          }
-        },
-        "va" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Per a signar amb DNIe és necessari que tingues un DNI electrónic amb certificats vigents i conegues el codi PIN."
-          }
-        }
-      }
-    },
     "dni_view_description_1" : {
       "localizations" : {
         "ca" : {
