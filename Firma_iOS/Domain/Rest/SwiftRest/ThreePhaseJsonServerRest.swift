@@ -84,7 +84,7 @@ class ThreePhaseJsonServerRest {
         ]
         
         if let request = NetworkUtility.shared.createPostRequest(url: urlPostsign!, parameters: parameters) {
-            let session = NetworkManager.shared.getSession(withTimeout: 120)
+            let session = NetworkManager.shared.getSession(withTimeout: 180)
             let task = session.dataTask(with: request) { data, response, error in
                 
                 if let _ = error {
