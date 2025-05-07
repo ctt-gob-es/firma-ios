@@ -30,21 +30,27 @@ struct DeleteCertificateModalView: View {
                     }
                     
                     VStack(alignment: .leading, spacing: 0) {
+                        let accesibilityText =
+                        "\(NSLocalizedString("delete_certificate_subtitle", bundle: Bundle.main, comment: "")) \(certificate.subject ?? "") \(NSLocalizedString("delete_certificate_subtitle_2", bundle: Bundle.main, comment: "")) \(certificate.issuer ?? ""))"
+                         
                         AccessibleText(content: NSLocalizedString("delete_certificate_title", bundle: Bundle.main, comment: ""))
                             .titleStyleBlack(foregroundColor: ColorConstants.Text.primary)
                             .accessibilityAddTraits(.isHeader)
                             .padding(.bottom)
                         
                         (
-                            Text(NSLocalizedString("delete_certificate_subtitle", bundle: Bundle.main, comment: ""))
+                            Text(NSLocalizedString("delete_certificate_subtitle", bundle: Bundle.main, comment: "") + " ")
                                 .regularStyle(foregroundColor: ColorConstants.Text.secondary)
-                            + Text(" ")
                             + Text(certificate.subject)
+                                .regularBoldStyle(foregroundColor: ColorConstants.Text.secondary)
+                            + Text(" " + NSLocalizedString("delete_certificate_subtitle_2", bundle: Bundle.main, comment: "") + " ")
+                                .regularStyle(foregroundColor: ColorConstants.Text.secondary)
+                            + Text(certificate.issuer)
                                 .regularBoldStyle(foregroundColor: ColorConstants.Text.secondary)
                             + Text("?")
                                 .regularStyle(foregroundColor: ColorConstants.Text.secondary)
                         )
-                        .accessibilityLabel(Text(NSLocalizedString("delete_certificate_subtitle", bundle: Bundle.main, comment: "") + certificate.issuer + "?"))
+                        .accessibilityLabel(Text(accesibilityText))
                         
                         AccessibleText(content: NSLocalizedString("delete_certificate_description", bundle: Bundle.main, comment: ""))
                             .regularStyle(foregroundColor: ColorConstants.Text.secondary)
