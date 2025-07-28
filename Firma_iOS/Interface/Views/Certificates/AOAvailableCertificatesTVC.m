@@ -1,14 +1,16 @@
-//
-//  AOAvailableCertificatesTVC.m
-//  Firma_iOS
-//
-//  Created by Rocio Tovar on 25/3/15.
-//  Copyright (c) 2015 Atos. All rights reserved.
-//
+    //
+    //  AOAvailableCertificatesTVC.m
+    //  Firma_iOS
+    //
+    //  Created by Rocio Tovar on 25/3/15.
+    //  Copyright (c) 2015 Atos. All rights reserved.
+    //
 
 #import "AOAvailableCertificatesTVC.h"
 #import "GlobalConstants.h"
 #import <MobileCoreServices/MobileCoreServices.h>
+#import "AOAvailableCertificatesCell.h"
+#import "UIFont+Utils.h"
 
 static NSString *const kAOAvailableCertificatesTVCCellIdentifier = @"AOCertificateFileCell";
 
@@ -45,16 +47,30 @@ int const kFilesAppButtonZeroHeightConstraint = 0;
     [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
     [self.availableCertificatesDescriptionLabel setText: @"available_certificates_description_label".localized];
     self.title = @"available_certificates".localized;
-    [self.filesAppButton setTitle: @"files_app_button".localized forState:UIControlStateNormal];
-
+    
+        // Back button
+    self.backButton.title = @"back".localized;
+    
+    
+        // Logo
+    self.logo.accessibilityLabel = @"logo".localized;
+    
+        // Files app button
+    [self.filesAppButton setAttributedTitle: @"files_app_button".localized.linkStyle  forState:UIControlStateNormal];
+    self.filesAppButton.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.filesAppButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     if (@available(iOS 11, *)) {
-	   self.filesAppButton.hidden = NO;
-	   self.filesAppButtonHeightConstraint.constant = kFilesAppButtonNormalHeightConstraint;
+        self.filesAppButton.hidden = NO;
+        self.filesAppButtonHeightConstraint.constant = kFilesAppButtonNormalHeightConstraint;
     } else {
-	   self.filesAppButton.hidden = YES;
-	   self.filesAppButtonHeightConstraint.constant = kFilesAppButtonZeroHeightConstraint;
+        self.filesAppButton.hidden = YES;
+        self.filesAppButtonHeightConstraint.constant = kFilesAppButtonZeroHeightConstraint;
     }
-
+    
+        // Table
+        // Along with auto layout, these are the keys for enabling variable cell height
+    self.tableView.estimatedRowHeight = 44.0;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
 - (void)didReceiveMemoryWarning
@@ -127,8 +143,11 @@ int const kFilesAppButtonZeroHeightConstraint = 0;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kAOAvailableCertificatesTVCCellIdentifier];
-    cell.textLabel.text = _filesArray[indexPath.row];
+    AOAvailableCertificatesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AOCertificateFileCell"];
+    
+    [cell setCellLabel:_filesArray[indexPath.row]];
+    [cell setSelectionStyle: UITableViewCellSelectionStyleDefault];
+    [cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
     
     return cell;
 }
@@ -139,8 +158,8 @@ int const kFilesAppButtonZeroHeightConstraint = 0;
 {
     _selectedCertificate = _filesArray[indexPath.row];
     if (!_selectedCertificate) {
-	   NSIndexPath *selectedRowIndexPath = [self.tableView indexPathForSelectedRow];
-	   _selectedCertificate = _filesArray[selectedRowIndexPath.row];
+        NSIndexPath *selectedRowIndexPath = [self.tableView indexPathForSelectedRow];
+        _selectedCertificate = _filesArray[selectedRowIndexPath.row];
     }
     AORegisterCertificateVC *registerCertificateVC  = [_segue destinationViewController];
     registerCertificateVC.selectedCertificate = _selectedCertificate;
@@ -164,41 +183,41 @@ int const kFilesAppButtonZeroHeightConstraint = 0;
 
 - (void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentAtURL:(NSURL *)url {
     if (controller.documentPickerMode == UIDocumentPickerModeImport) {
-
-	   NSString* fileType = [url.lastPathComponent pathExtension];
-	   Boolean correctFileType = false ;
-	   NSString *alertMessage = [NSString stringWithFormat: @"files_app_alert_message_incorrect_file".localized, [url lastPathComponent]];
-	   if ([fileType  isEqualToString: P12EXTENSION] || [fileType  isEqualToString: PFXEXTENSION]) {
-		  correctFileType = true;
-	   }
-	   
-	   if (correctFileType) {
-		  NSFileManager *fileManager = [NSFileManager defaultManager];
-		  NSError *copyError = nil;
-		  NSURL* documentDirectory = [[fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] objectAtIndex:0];
-		  NSURL* fileDirectory = [documentDirectory URLByAppendingPathComponent: url.lastPathComponent isDirectory:YES];
-		  [fileManager copyItemAtURL:url toURL: fileDirectory error:&copyError];
-		  if (!copyError)
-		  {
-			 alertMessage = [NSString stringWithFormat: @"files_app_alert_message_success".localized, [url lastPathComponent]];
-		  }
-		  else
-		  {
-			 alertMessage = [NSString stringWithFormat: @"files_app_alert_message_cannot_add_certificate".localized, [url lastPathComponent]];
-		  }
-		   _filesArray = [self findFiles:@[P12EXTENSION, PFXEXTENSION]];
-		  [self.tableView reloadData];
-	   }
-	   
-	   dispatch_async(dispatch_get_main_queue(), ^{
-		  UIAlertController *alertController = [UIAlertController
-										alertControllerWithTitle: nil
-										message:alertMessage
-										preferredStyle:UIAlertControllerStyleAlert];
-		  [alertController addAction:[UIAlertAction actionWithTitle: @"files_app_alert_affirmative_button".localized style:UIAlertActionStyleDefault handler:nil]];
-		  [self presentViewController:alertController animated:YES completion:nil];
-
-	   });
+        
+        NSString* fileType = [url.lastPathComponent pathExtension];
+        Boolean correctFileType = false ;
+        NSString *alertMessage = [NSString stringWithFormat: @"files_app_alert_message_incorrect_file".localized, [url lastPathComponent]];
+        if ([fileType  isEqualToString: P12EXTENSION] || [fileType  isEqualToString: PFXEXTENSION]) {
+            correctFileType = true;
+        }
+        
+        if (correctFileType) {
+            NSFileManager *fileManager = [NSFileManager defaultManager];
+            NSError *copyError = nil;
+            NSURL* documentDirectory = [[fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] objectAtIndex:0];
+            NSURL* fileDirectory = [documentDirectory URLByAppendingPathComponent: url.lastPathComponent isDirectory:YES];
+            [fileManager copyItemAtURL:url toURL: fileDirectory error:&copyError];
+            if (!copyError)
+            {
+                alertMessage = [NSString stringWithFormat: @"files_app_alert_message_success".localized, [url lastPathComponent]];
+            }
+            else
+            {
+                alertMessage = [NSString stringWithFormat: @"files_app_alert_message_cannot_add_certificate".localized, [url lastPathComponent]];
+            }
+            _filesArray = [self findFiles:@[P12EXTENSION, PFXEXTENSION]];
+            [self.tableView reloadData];
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UIAlertController *alertController = [UIAlertController
+                                                  alertControllerWithTitle: nil
+                                                  message:alertMessage
+                                                  preferredStyle:UIAlertControllerStyleAlert];
+            [alertController addAction:[UIAlertAction actionWithTitle: @"files_app_alert_affirmative_button".localized style:UIAlertActionStyleDefault handler:nil]];
+            [self presentViewController:alertController animated:YES completion:nil];
+            
+        });
     }
 }
 

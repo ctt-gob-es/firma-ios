@@ -13,6 +13,11 @@
 		83EBF99E289BAB2C00E80A7E /* ParentRest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EBF99D289BAB2C00E80A7E /* ParentRest.m */; };
 		83EBF9A0289BB48A00E80A7E /* ServletRest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EBF99B289BAA9300E80A7E /* ServletRest.m */; };
 		9226967323C6512400F099F0 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9226967223C6512400F099F0 /* NSString+Extension.m */; };
+		9A64AD762AC6AFB50089A289 /* NSMutableAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A64AD752AC6AFB40089A289 /* NSMutableAttributedString.m */; };
+		9A7018FB2ACFECB4000B11D6 /* AOHelpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7018FA2ACFECB4000B11D6 /* AOHelpCell.m */; };
+		9A7018FE2AD00478000B11D6 /* StoryboardUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7018FD2AD00478000B11D6 /* StoryboardUtils.m */; };
+		9A7019012AD03102000B11D6 /* AOAvailableCertificatesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7019002AD03102000B11D6 /* AOAvailableCertificatesCell.m */; };
+		9AB783512ACA9B98005C2B82 /* UIFont+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB783502ACA9B98005C2B82 /* UIFont+Utils.m */; };
 		A073AA7C2893E7FC00FE30CE /* BatchSignUseCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A073AA7B2893E7FC00FE30CE /* BatchSignUseCase.m */; };
 		A073AA7F2893F71E00FE30CE /* InputParametersBatch.m in Sources */ = {isa = PBXBuildFile; fileRef = A073AA7E2893F71E00FE30CE /* InputParametersBatch.m */; };
 		B2406F2E20C5CACA008ED085 /* AORegisteredCertificatesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B2406F2920C5CACA008ED085 /* AORegisteredCertificatesTVC.m */; };
@@ -204,6 +209,16 @@
 		83EBF99F289BAB3800E80A7E /* ParentRest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParentRest.h; sourceTree = "<group>"; };
 		9226967123C6510700F099F0 /* NSString+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		9226967223C6512400F099F0 /* NSString+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		9A64AD732AC6AED80089A289 /* NSMutableAttributedString+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+Extension.h"; sourceTree = "<group>"; };
+		9A64AD752AC6AFB40089A289 /* NSMutableAttributedString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSMutableAttributedString.m; sourceTree = "<group>"; };
+		9A7018F72ACFE816000B11D6 /* AOHelpCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOHelpCell.h; sourceTree = "<group>"; };
+		9A7018FA2ACFECB4000B11D6 /* AOHelpCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AOHelpCell.m; sourceTree = "<group>"; };
+		9A7018FC2AD00416000B11D6 /* StoryboardUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoryboardUtils.h; sourceTree = "<group>"; };
+		9A7018FD2AD00478000B11D6 /* StoryboardUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoryboardUtils.m; sourceTree = "<group>"; };
+		9A7018FF2AD0308A000B11D6 /* AOAvailableCertificatesCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOAvailableCertificatesCell.h; sourceTree = "<group>"; };
+		9A7019002AD03102000B11D6 /* AOAvailableCertificatesCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AOAvailableCertificatesCell.m; sourceTree = "<group>"; };
+		9AB7834F2ACA9A8A005C2B82 /* UIFont+Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIFont+Utils.h"; sourceTree = "<group>"; };
+		9AB783502ACA9B98005C2B82 /* UIFont+Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Utils.m"; sourceTree = "<group>"; };
 		A073AA7A2893E7FC00FE30CE /* BatchSignUseCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BatchSignUseCase.h; sourceTree = "<group>"; };
 		A073AA7B2893E7FC00FE30CE /* BatchSignUseCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BatchSignUseCase.m; sourceTree = "<group>"; };
 		A073AA7D2893F71E00FE30CE /* InputParametersBatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputParametersBatch.h; sourceTree = "<group>"; };
@@ -590,6 +605,8 @@
 			children = (
 				9226967123C6510700F099F0 /* NSString+Extension.h */,
 				9226967223C6512400F099F0 /* NSString+Extension.m */,
+				9A64AD732AC6AED80089A289 /* NSMutableAttributedString+Extension.h */,
+				9A64AD752AC6AFB40089A289 /* NSMutableAttributedString.m */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -626,6 +643,8 @@
 				B2406F2920C5CACA008ED085 /* AORegisteredCertificatesTVC.m */,
 				B2406F3E20C5D043008ED085 /* AOSignViewController.h */,
 				B2406F3F20C5D043008ED085 /* AOSignViewController.m */,
+				9A7018FF2AD0308A000B11D6 /* AOAvailableCertificatesCell.h */,
+				9A7019002AD03102000B11D6 /* AOAvailableCertificatesCell.m */,
 			);
 			path = Certificates;
 			sourceTree = "<group>";
@@ -697,6 +716,8 @@
 				B24384B820C541620087BAE0 /* AOHelpMenuViewController.h */,
 				B24384B920C541620087BAE0 /* AOHelpMenuViewController.m */,
 				B24384BA20C541620087BAE0 /* AOAcercadeViewController.m */,
+				9A7018F72ACFE816000B11D6 /* AOHelpCell.h */,
+				9A7018FA2ACFECB4000B11D6 /* AOHelpCell.m */,
 			);
 			path = HelpViews;
 			sourceTree = "<group>";
@@ -731,6 +752,8 @@
 		B27395E120A43E2800A7D05A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				9AB7834F2ACA9A8A005C2B82 /* UIFont+Utils.h */,
+				9AB783502ACA9B98005C2B82 /* UIFont+Utils.m */,
 				B27395E220A43E2800A7D05A /* AOCounterSignPreItems.h */,
 				B27395E320A43E2800A7D05A /* AOCounterSignPreItems.m */,
 				B27395E420A43E2800A7D05A /* AOCounterSignXMLParser.h */,
@@ -769,6 +792,8 @@
 				B2952CB420D981F700A4467B /* UITextView+Boldify.m */,
 				B2AE16972133E3330082C892 /* GlobalConstants.h */,
 				B2AE16982133E3330082C892 /* GlobalConstants.m */,
+				9A7018FC2AD00416000B11D6 /* StoryboardUtils.h */,
+				9A7018FD2AD00478000B11D6 /* StoryboardUtils.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1263,6 +1288,7 @@
 				C3B11DC616FB642B00C0D623 /* AttributeTypeAndValue.c in Sources */,
 				C3B11DC816FB642B00C0D623 /* AttributeValue.c in Sources */,
 				C3B11DCA16FB642B00C0D623 /* ber_decoder.c in Sources */,
+				9AB783512ACA9B98005C2B82 /* UIFont+Utils.m in Sources */,
 				B273961220A43E2800A7D05A /* NSDateFormatter+Utils.m in Sources */,
 				3C57FA171AC1BB9D00FF7292 /* AOCertificateInfo.m in Sources */,
 				C3B11DCC16FB642B00C0D623 /* ber_tlv_length.c in Sources */,
@@ -1327,6 +1353,7 @@
 				B2406F4020C5D043008ED085 /* AOSignViewController.m in Sources */,
 				B273960C20A43E2800A7D05A /* CertificateUtils.m in Sources */,
 				C3B11E2616FB642B00C0D623 /* SignatureValue.c in Sources */,
+				9A7018FB2ACFECB4000B11D6 /* AOHelpCell.m in Sources */,
 				C3B11E2816FB642B00C0D623 /* SignedAttributes.c in Sources */,
 				C3B11E2A16FB642B00C0D623 /* SignedData.c in Sources */,
 				C3B11E2C16FB642B00C0D623 /* SignerIdentifier.c in Sources */,
@@ -1342,6 +1369,8 @@
 				C33A9D0E19AA3CE2002F83B6 /* CertificateUtil.c in Sources */,
 				83EBF99E289BAB2C00E80A7E /* ParentRest.m in Sources */,
 				C3B11E3C16FB642B00C0D623 /* UnsignedAttributes.c in Sources */,
+				9A7018FE2AD00478000B11D6 /* StoryboardUtils.m in Sources */,
+				9A64AD762AC6AFB50089A289 /* NSMutableAttributedString.m in Sources */,
 				C3B11E3E16FB642B00C0D623 /* UTCTime.c in Sources */,
 				C3B11E4016FB642B00C0D623 /* xer_decoder.c in Sources */,
 				C3B11E4216FB642B00C0D623 /* xer_encoder.c in Sources */,
@@ -1361,6 +1390,7 @@
 				B2406F3620C5CD4D008ED085 /* AOCertificateCell.m in Sources */,
 				C3A44B74170C3B60000B551C /* SignaturePolicyId.c in Sources */,
 				C3A44B75170C3B60000B551C /* SigPolicyHash.c in Sources */,
+				9A7019012AD03102000B11D6 /* AOAvailableCertificatesCell.m in Sources */,
 				C3A44B76170C3B60000B551C /* SigPolicyId.c in Sources */,
 				C3A44B77170C3B60000B551C /* SigPolicyQualifierId.c in Sources */,
 				9226967323C6512400F099F0 /* NSString+Extension.m in Sources */,
@@ -1546,48 +1576,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 9;
-				DEVELOPMENT_TEAM = 2H36E8KFN2;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)\"",
-				);
-				GCC_NO_COMMON_BLOCKS = NO;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Firma_iOS/Firma_iOS-Prefix.pch";
-				HEADER_SEARCH_PATHS = "include/**";
-				INFOPLIST_FILE = "Firma_iOS/Supporting Files/Firma_iOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					lib,
-					"$(PROJECT_DIR)/lib",
-					"$(PROJECT_DIR)",
-				);
-				MARKETING_VERSION = 1.8;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "es.gob.afirma.Cliente--firma";
-				PRODUCT_NAME = "Cliente @firma";
-				PROVISIONING_PROFILE = "c08ed7da-989b-4719-b284-d895789fd7db";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "c08ed7da-989b-4719-b284-d895789fd7db";
-				PROVISIONING_PROFILE_SPECIFIER = "Cliente Afirma Movil - Development";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		C30B3265163804620072A515 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_ENTITLEMENTS = "Cliente @firma.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 2H36E8KFN2;
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2H36E8KFN2;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1606,7 +1595,50 @@
 					"$(PROJECT_DIR)/lib",
 					"$(PROJECT_DIR)",
 				);
-				MARKETING_VERSION = 1.8;
+				MARKETING_VERSION = 1.8.3;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "es.gob.afirma.Cliente--firma";
+				PRODUCT_NAME = "Cliente @firma";
+				PROVISIONING_PROFILE = "c08ed7da-989b-4719-b284-d895789fd7db";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "c08ed7da-989b-4719-b284-d895789fd7db";
+				PROVISIONING_PROFILE_SPECIFIER = "Cliente Afirma Movil - Development";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Cliente AFirma Development ABA";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C30B3265163804620072A515 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = "Cliente @firma.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 11;
+				DEVELOPMENT_TEAM = 2H36E8KFN2;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2H36E8KFN2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_NO_COMMON_BLOCKS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Firma_iOS/Firma_iOS-Prefix.pch";
+				HEADER_SEARCH_PATHS = "include/**";
+				INFOPLIST_FILE = "Firma_iOS/Supporting Files/Firma_iOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					lib,
+					"$(PROJECT_DIR)/lib",
+					"$(PROJECT_DIR)",
+				);
+				MARKETING_VERSION = 1.8.3;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "es.gob.afirma.Cliente--firma";
 				PRODUCT_NAME = "Cliente @firma";

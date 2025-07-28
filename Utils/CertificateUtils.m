@@ -11,6 +11,8 @@
 #import <UIKit/UIKit.h>
 #import "Base64.h"
 #import "GlobalConstants.h"
+#import "OpenSSLCertificateHelper.h"
+#import <openssl/x509.h>
 
 
 #define SHA1_DIGESTINFO_HEADER_LENGTH 15
@@ -216,52 +218,20 @@ static CertificateUtils *_sharedWrapper = nil;
 - (BOOL)searchIdentityByName:(NSString *)certificateName
 {
     OSStatus status = noErr;
-    CFTypeRef result;
     
-    const char *certLabelString = [certificateName cStringUsingEncoding:NSUTF8StringEncoding ];
-    CFStringRef certLabel = CFStringCreateWithCString(NULL, certLabelString, kCFStringEncodingUTF8);
+    SecIdentityRef identityRef = [self getIdentityBySubjectNameCertificate:certificateName];
     
-    NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
-    [dict setObject:(id)kSecClassIdentity forKey:(id)kSecClass];
-    [dict setObject:(CFTypeRef)certLabel forKey:(id)kSecAttrLabel];
-    [dict setObject:[NSNumber numberWithBool:YES] forKey:(id)kSecReturnRef];
-    
-    if (certLabel) {
-        CFRelease(certLabel);
-    }
-    
-#if TARGET_IPHONE_SIMULATOR
-    // Ignore the access group if running on the iPhone simulator.
-    //
-    // Apps that are built for the simulator aren't signed, so there's no keychain access group
-    // for the simulator to check. This means that all apps can see all keychain items when run
-    // on the simulator.
-    //
-    // If a SecItem contains an access group attribute, SecItemAdd and SecItemUpdate on the
-    // simulator will return -25243 (errSecNoAccessForItem).
-#else
-    [dict setObject:[CertificateUtils accessgroup] forKey:(id)kSecAttrAccessGroup];
-#endif
-    
-    status = SecItemCopyMatching((CFDictionaryRef)dict, &result);
-    
-    if (dict) {
-        CFRelease(dict);
-    }
-    
-    if (status != noErr) {
+    if (identityRef == nil ) {
         return false;
     }
     
-    if (status == noErr) {
-        status = SecIdentityCopyPrivateKey((SecIdentityRef)result, &_privateKey);
+    status = SecIdentityCopyPrivateKey(identityRef, &_privateKey);
         
-        if (status != noErr) {
-            return false;
-        }
+    if (status != noErr) {
+        return false;
     }
     SecCertificateRef certificate;
-    status = SecIdentityCopyCertificate((SecIdentityRef)result, &(certificate));
+    status = SecIdentityCopyCertificate(identityRef, &(certificate));
     
     if (status != noErr) {
         return false;
@@ -302,6 +272,68 @@ static CertificateUtils *_sharedWrapper = nil;
     _publicKeyBits = publicKey2; // (NSData *)certificateData;
     
     return true;
+}
+
+- (SecIdentityRef) getIdentityBySubjectNameCertificate:(NSString *)subjectNameCerrificate
+{
+    OSStatus status = noErr;
+    CFArrayRef resultsArray;
+
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
+    [dict setObject:(id)kSecClassIdentity forKey:(id)kSecClass];
+    [dict setObject:[NSNumber numberWithBool:YES] forKey:(id)kSecReturnRef];
+    dict[(__bridge __strong id)(kSecMatchLimit)] = (__bridge id)(kSecMatchLimitAll);
+    
+#if TARGET_IPHONE_SIMULATOR
+    // Ignore the access group if running on the iPhone simulator.
+    //
+    // Apps that are built for the simulator aren't signed, so there's no keychain access group
+    // for the simulator to check. This means that all apps can see all keychain items when run
+    // on the simulator.
+    //
+    // If a SecItem contains an access group attribute, SecItemAdd and SecItemUpdate on the
+    // simulator will return -25243 (errSecNoAccessForItem).
+#else
+    [dict setObject:[CertificateUtils accessgroup] forKey:(id)kSecAttrAccessGroup];
+#endif
+    
+    status = SecItemCopyMatching((CFDictionaryRef)dict, &resultsArray);
+    
+    if (dict) {
+        CFRelease(dict);
+    }
+    
+    if (status != noErr) {
+        return nil;
+    }
+    
+    CFIndex resultCount = CFArrayGetCount(resultsArray);
+    if (resultCount == 0) {
+        return nil;
+    }
+    
+    SecIdentityRef identityRef = nil;
+    for (CFIndex resultIndex = 0; resultIndex < resultCount; resultIndex++) {
+        SecIdentityRef identityRefAux = (SecIdentityRef) CFArrayGetValueAtIndex(resultsArray, resultIndex);
+        
+        SecCertificateRef certificateRef;
+        status = SecIdentityCopyCertificate(identityRefAux, &(certificateRef));
+        
+        if (status == noErr) {
+            NSData *certificateData = (__bridge NSData *) SecCertificateCopyData(certificateRef);
+            
+            const unsigned char *certificateDataBytes = (const unsigned char *)[certificateData bytes];
+            X509 *certificateX509 = d2i_X509(NULL, &certificateDataBytes, [certificateData length]);
+            
+            NSString *labelCertificate = [OpenSSLCertificateHelper getSubjectNameForCertificate: certificateX509];
+            
+            if ([labelCertificate isEqualToString: subjectNameCerrificate]) {
+                identityRef = identityRefAux;
+                break;
+            }
+        }
+    }
+    return identityRef;
 }
 
 - (NSData *)getHashBytesSHA1:(NSData *)plainText

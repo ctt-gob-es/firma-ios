@@ -21,4 +21,5 @@
 @property (strong, nonatomic) IBOutlet UINavigationItem *howToNavigationItem;
 @property (strong, nonatomic) IBOutlet UINavigationItem *questionsNavigationItem;
 -(IBAction)buttonPressed:(id)sender;
+@property (strong,nonatomic) IBOutlet UIImageView *logo;
 @end

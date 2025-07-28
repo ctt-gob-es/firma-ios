@@ -1,11 +1,14 @@
-//
-//  AOHelpMenuViewController.m
-//  Firma_iOS
-//
-//
+    //
+    //  AOHelpMenuViewController.m
+    //  Firma_iOS
+    //
+    //
 
 #import "AOHelpMenuViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "NSMutableAttributedString+Extension.h"
+#import "AOHelpCell.h"
+#import "GlobalConstants.h"
 
 @interface AOHelpMenuViewController ()
 
@@ -20,7 +23,7 @@ NSMutableArray *tableData = NULL;
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+            // Custom initialization
     }
     return self;
 }
@@ -28,21 +31,55 @@ NSMutableArray *tableData = NULL;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view.
     
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     
     [self populateTable];
-    //definimos los bordes de la tabla.
+        //definimos los bordes de la tabla.
     self.tblViewHelp.layer.borderWidth = 0.5;
     self.tblViewHelp.layer.borderColor = [[UIColor grayColor] CGColor];
     self.tblViewHelp.layer.cornerRadius = 6.0f;
-    self.tblViewHelp.scrollEnabled=NO;
+    
     self.screenName = @"IOS AOHelpMenuViewController - Help menu";
-    [self.helpMenuDescriptionLabel setText:@"help_menu_description_label".localized];
+    
+        // Help menu description
+    NSMutableAttributedString *helpMenuDescriptionAttributedString = [@"help_menu_description_label".localized getHtml:[UIFont systemFontOfSize:14]];
+    [helpMenuDescriptionAttributedString align:NSTextAlignmentCenter];
+    [self.helpMenuDescriptionLabel setAttributedText:helpMenuDescriptionAttributedString];
+    
     [self.helpMenuTitle setText: @"help_menu_title".localized];
     self.title = @"help".localized ;
+    
+        // Logo
+    self.logo.accessibilityLabel = @"logo".localized;
+    
+        // Necessary for the cells to adjust their height automatically
+    self.tblViewHelp.estimatedRowHeight = 44.0;
+    self.tblViewHelp.rowHeight = UITableViewAutomaticDimension;
+    
+        // If it is an iPad we increase it and it is in a vertical position, we increase the height of the text below the table
+    if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation) && ([(NSString*)[UIDevice currentDevice].model hasPrefix:IPAD] )) {
+        
+        self.tblViewHelp.translatesAutoresizingMaskIntoConstraints = YES;
+        
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            CGFloat descriptionLabelNewSize = 300;
+            
+                // Update helpMenuDescriptionLabel height
+            CGRect descriptionLabelFrame= self.helpMenuDescriptionLabel.frame;
+            descriptionLabelFrame.size.height = descriptionLabelNewSize;
+            [self.helpMenuDescriptionLabel setFrame:descriptionLabelFrame];
+            
+                // Update tblViewHelp height
+            CGRect tableFrame= self.tblViewHelp.frame;
+            tableFrame.size.height = tableFrame.size.height - descriptionLabelNewSize;
+            [self.tblViewHelp setFrame:tableFrame];
+            [self.tblViewHelp setNeedsDisplay];
+        });
+    }
 }
+
 - (IBAction)goBackHome:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
@@ -50,11 +87,10 @@ NSMutableArray *tableData = NULL;
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+        // Dispose of any resources that can be recreated.
 }
 
-
-//Carga en la lista de almacenes los almacenes encontrados en Itunes.
+    //Carga en la lista de almacenes los almacenes encontrados en Itunes.
 -(void)populateTable {
     
     tableData = [[NSMutableArray alloc] init];
@@ -62,7 +98,9 @@ NSMutableArray *tableData = NULL;
     [tableData addObject: @"help_acercade".localized];
     [tableData addObject: @"help_instalar_certificados".localized];
     [tableData addObject: @"help_preguntas".localized];
-
+    [tableData addObject: @"privacy_policy".localized];
+    [tableData addObject: @"accesibility_statement".localized];
+    
 }
 
 /******************************************************************/
@@ -71,73 +109,63 @@ NSMutableArray *tableData = NULL;
 
 #pragma mark -
 #pragma mark Table view data source
-// Detalla el numbre de secciones en la tabla.
+    // Detalla el numbre de secciones en la tabla.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
-// Detalla el número de filas en la tabla.
+    // Detalla el número de filas en la tabla.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [tableData count];
 }
 
-// Detalla la apariencia de las celdas.
+    // Detalla la apariencia de las celdas.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    AOHelpCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HelpCell"];
     
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    
-    //Cell View
-    CGFloat cellOriginX = 0;
-    CGFloat cellOriginY = 0;
-    CGFloat cellWidth = 320;
-    CGFloat cellHeight = 65;
-    UIView *cellView = [[UIView alloc]initWithFrame:CGRectMake(cellOriginX, cellOriginY, cellWidth, cellHeight)];
-       
-    //Label
-    CGFloat lblForOriginX = 10;
-    CGFloat lblForOriginY = 15;
-    CGFloat lblForWidth = 200;
-    CGFloat lblForHeight = 21;
-    UILabel *lblFor = [[UILabel alloc]initWithFrame:CGRectMake(lblForOriginX, lblForOriginY, lblForWidth, lblForHeight)];
-    lblFor.text = [tableData objectAtIndex:indexPath.row];
-    lblFor.backgroundColor = [UIColor clearColor];
-    lblFor.font = [UIFont fontWithName:@"ArialMT" size:14];
-    lblFor.tag =1;
-    
-    //Adding Views to Cell View
-    [cellView addSubview:lblFor];
-    
-    for(UIView *view in cell.contentView.subviews){
-        if ([view isKindOfClass:[UIView class]]) {
-            [view removeFromSuperview];
-        }
-    }
-    
-    [cell.contentView addSubview:cellView];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    [cell setCellLabel:[tableData objectAtIndex:indexPath.row]];
+    [cell setSelectionStyle: UITableViewCellSelectionStyleDefault];
+    [cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
     
     return cell;
 }
 
-//Nos devuelve la fila seleccionada.
+    //Nos devuelve la fila seleccionada.
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     int fila = (int)indexPath.row;
     @try {
-        if(fila==0)
-            [self performSegueWithIdentifier:@"toAcerca" sender:self];
-        else if(fila==1)
-            [self performSegueWithIdentifier:@"toInstalar" sender:self];
-        else if(fila==2)
-            [self performSegueWithIdentifier:@"toPregFrecuentes" sender:self];
+        if(fila==0 || fila == 1 || fila == 2){
+            NSString *destinationVCName;
+            switch(fila){
+                case 0:
+                    destinationVCName = @"AboutScreen";
+                    break;
+                case 1:
+                    destinationVCName = @"CertificateInstallationScreen";
+                    break;
+                case 2:
+                    destinationVCName = @"FrequentlyQuestionsScreen";
+                    break;
+            }
+            UIViewController *destinationController = [self.storyboard instantiateViewControllerWithIdentifier:destinationVCName];
+            [self.navigationController pushViewController:destinationController animated:YES];
+        }
+        else if (fila==3) {
+                // Open privacy policy
+            NSURL* privacyPolicyUrl = [NSURL URLWithString: @"url_privacy_policy".localized];
+            if( [[UIApplication sharedApplication] canOpenURL:privacyPolicyUrl])
+                [[UIApplication sharedApplication] openURL:privacyPolicyUrl options:@{} completionHandler:nil];
+        }
+        else if (fila==4) {
+                // Open accesibility statement
+            NSURL* accesibiltyUrl = [NSURL URLWithString: @"url_accessibility_statement".localized];
+            if( [[UIApplication sharedApplication] canOpenURL:accesibiltyUrl])
+                [[UIApplication sharedApplication] openURL:accesibiltyUrl options:@{} completionHandler:nil];
+        }
     }
     @catch (NSException *e) {
-        // Se ignora
+            // Se ignora
     }
 }
 

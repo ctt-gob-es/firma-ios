@@ -15,15 +15,17 @@ typedef NS_ENUM (NSInteger, AORegisteredCertificatesTVCMode)
     AORegisteredCertificatesTVCModeManagement
 };
 
-@interface AORegisteredCertificatesTVC : UITableViewController <NSURLConnectionDelegate, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate>
+@interface AORegisteredCertificatesTVC : UIViewController <NSURLConnectionDelegate, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate>
 
 @property (nonatomic, assign) AORegisteredCertificatesTVCMode mode;
 @property (nonatomic, strong) NSString *startURL;
 @property (strong, nonatomic) NSMutableArray *_certificatesArray;
 @property (strong, nonatomic) IBOutlet UITableView *editTableView;
-@property (strong, nonatomic) IBOutlet UILabel *certificatesDescriptionLabel;
+@property (weak, nonatomic) IBOutlet UITextView *certificatesDescriptionLabel;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *backBarButtonItem;
 @property(nonatomic, assign) int numberOfRetries;
 @property (strong, nonatomic) AlertProgressBar *alertpb;
+@property (strong,nonatomic) IBOutlet UIImageView *logo;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightIntroductionText;
 
 @end

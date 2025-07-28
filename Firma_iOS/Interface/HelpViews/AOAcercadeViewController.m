@@ -1,12 +1,13 @@
-//
-//  AOAcercadeViewController.m
-//  Firma_iOS
-//
-//
+    //
+    //  AOAcercadeViewController.m
+    //  Firma_iOS
+    //
+    //
 
 #import "AOAcercadeViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UITextView+Boldify.h"
+#import "UIFont+Utils.h"
 
 @interface AOAcercadeViewController ()
 
@@ -18,7 +19,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+            // Custom initialization
     }
     return self;
 }
@@ -26,19 +27,30 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view.
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     self.screenName = @"IOS AOAboutViewController - Help Screen";
     [self.aboutTitleLabel setText: @"about_title_label".localized];
-    [self.aboutDescriptionLabel setText:[NSString stringWithFormat: @"about_description_label".localized,[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]]];
+    
+        // About description label
+    NSString *aboutDescription = [NSString stringWithFormat: @"about_description_label".localized,[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
+    NSMutableAttributedString *aboutDescriptionAttributedString = [aboutDescription getHtml:[UIFont systemFontOfSize:13.5]];
+    [self.aboutDescriptionLabel setAttributedText:aboutDescriptionAttributedString];
+    
     [self.howToInstallCertificatesTitle setText: @"how_to_install_certificates_title".localized];
     [self.iTunesInstructionsLabel setText: @"iTunes_instructions_label".localized];
     [self.certificateInstructionsLabel setText: @"certificate_instructions_label".localized];
-    [self.masInfoButton setTitle: @"more_info_button".localized forState:UIControlStateNormal];
+    
+        // More info button
+    [self.masInfoButton setAttributedTitle: @"more_info_button".localized.linkStyle  forState:UIControlStateNormal];
+    
     [self fillTextForFrequentlyAskedQuestionsTitleLabel];
     self.aboutNavigationItem.title = @"about_navigation_title".localized;
     self.howToNavigationItem.title = @"how_to_navigation_title".localized;
     self.questionsNavigationItem.title = @"questions_navigation_title".localized;
+    
+        // Logo
+    self.logo.accessibilityLabel = @"logo".localized;
 }
 
 - (void)viewDidLayoutSubviews{
@@ -59,6 +71,7 @@
     NSString* string8 = @"frequently_asked_questions_description_label_8".localized;
     NSString* frequentlyAskedQuestionsDescriptionLabelString = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@",string1,string2,string3,string4,string5,string6,string7,string8];
     self.frequentlyAskedQuestionsDescriptionLabel.text = frequentlyAskedQuestionsDescriptionLabelString;
+    self.frequentlyAskedQuestionsDescriptionLabel.font = [[UIFont alloc] mediumSystemFontScaled];
     [self.frequentlyAskedQuestionsDescriptionLabel boldSubstring: string1];
     [self.frequentlyAskedQuestionsDescriptionLabel boldSubstring: string3];
     [self.frequentlyAskedQuestionsDescriptionLabel boldSubstring: string5];
@@ -77,7 +90,7 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+        // Dispose of any resources that can be recreated.
 }
 
 @end
