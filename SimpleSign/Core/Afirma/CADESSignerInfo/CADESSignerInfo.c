@@ -6,7 +6,7 @@
 
 #include <stdio.h>
 #include "SignerInfos.h"
-#include "SignerInfo.h"
+#include "SignerInfoIOS.h"
 #include "DigestAlgorithmIdentifier.h"
 #include "DigestAlgorithmIdentifiers.h"
 #include <openssl/x509.h>

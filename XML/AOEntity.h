@@ -16,6 +16,9 @@
     NSString *batchpresignerurl;
     NSString *batchpostsignerurl;
     NSString *batchjson;
+    NSString *filename;
+    NSString *sticky;
+    NSString *resetsticky;
 }
 
 @property (nonatomic, strong) NSString *datField;
@@ -27,6 +30,9 @@
 @property (nonatomic, strong) NSString *batchpresignerurl;
 @property (nonatomic, strong) NSString *batchpostsignerurl;
 @property (nonatomic, strong) NSString *batchjson;
+@property (nonatomic, strong) NSString *filename;
+@property (nonatomic, strong) NSString *sticky;
+@property (nonatomic, strong) NSString *resetsticky;
 
 
 @end

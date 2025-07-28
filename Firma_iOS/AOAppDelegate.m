@@ -4,13 +4,11 @@
     //
 
 #import "AOAppDelegate.h"
-#import "AOAboutViewController.h"
-#import "AORegisteredCertificatesTVC.h"
 #import "GAI.h"
 #import "GlobalConstants.h"
-#import "ColorChart.h"
 #import "UIFont+Utils.h"
-#import "StoryboardUtils.h"
+#import "Cliente__firma-Swift.h"
+#import "AONSBundle+Language.h"
 
 @implementation AOAppDelegate
 
@@ -18,8 +16,6 @@ NSString *URLString, *state = @"Inactive";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
-    [self registerDefaultsFromSettingsBundle];
     
     if (@available(iOS 15, *)) {
             // MARK: Navigation bar appearance
@@ -33,11 +29,6 @@ NSString *URLString, *state = @"Inactive";
         [UINavigationBar appearance].compactAppearance = navigationBarAppearance;
         [UINavigationBar appearance].scrollEdgeAppearance = navigationBarAppearance;
     }
-    
-    [UITextView appearance].linkTextAttributes = @{
-        NSForegroundColorAttributeName : LINK_COLOR,
-        NSUnderlineStyleAttributeName : [NSNumber numberWithInteger:NSUnderlineStyleSingle]
-    };
     
         // FONTS
     UIFont *genericFont = [[UIFont alloc] mediumSystemFontScaled];
@@ -60,7 +51,42 @@ NSString *URLString, *state = @"Inactive";
      // Initialize tracker.
      [[GAI sharedInstance] tr<ackerWithTrackingId:@"UA-41615516-1"];*/
     
+    NSString *savedLanguage = [[NSUserDefaults standardUserDefaults] stringForKey:@"appLanguage"];
+	   if (savedLanguage) {
+		  [NSBundle setLanguage:savedLanguage];
+	   } else {
+		  // Configurar el idioma por defecto basado en el idioma del sistema
+		  NSString *defaultLanguage = [[NSLocale preferredLanguages] firstObject];
+		  [NSBundle setLanguage:defaultLanguage];
+	   }
+    
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"can"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [self decideController];
+    
     return YES;
+}
+
+- (void)decideController {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    BOOL privacyAccepted = [defaults boolForKey:@"user_privacy_accepted"];
+    
+    UIViewController *rootViewController;
+    if ([defaults objectForKey:@"user_privacy_accepted"] != nil && privacyAccepted) {
+        rootViewController = [[MainViewController alloc] initWithUrlReceived:nil];
+    } else {
+	   rootViewController = [[OnboardingViewController alloc] init];
+    }
+    
+    self.window.rootViewController = rootViewController;
+}
+
+void setAppLanguage(NSString *language) {
+    [[NSUserDefaults standardUserDefaults] setObject:language forKey:@"appLanguage"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+
+    [NSBundle setLanguage:language];
 }
 
 -(BOOL)application:(UIApplication *)application openURL:(nonnull NSURL *)url options:(nonnull NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
@@ -69,18 +95,15 @@ NSString *URLString, *state = @"Inactive";
     [[NSUserDefaults standardUserDefaults] setObject:URLString forKey:URL];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    
-        // Lanzamos el controller de seleccion de certificado para firmar por root (No se permite ir atrás cuando estas firmando)
-    UIStoryboard *mainStoryboard = [StoryboardUtils getMainStoryboard];
-    
-    AORegisteredCertificatesTVC *registeredCertificatesTVC = (AORegisteredCertificatesTVC *)[mainStoryboard instantiateViewControllerWithIdentifier:@"AORegisteredCertificatesTVC"];
-    
-    [registeredCertificatesTVC setMode:AORegisteredCertificatesTVCModeSign];
-    [registeredCertificatesTVC setStartURL:URLString];
-    
-    self.window.rootViewController = registeredCertificatesTVC;
+    [self updateOrCreateMainViewControllerWithMode:ViewModesSign :url];
     
     return YES;
+}
+
+- (void)updateOrCreateMainViewControllerWithMode:(ViewModes)mode :(NSURL*)url{
+    MainViewController *rootViewController = [[MainViewController alloc] initWithUrlReceived:url];
+    self.window.rootViewController =  rootViewController;
+    [self.window makeKeyAndVisible];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -109,34 +132,6 @@ NSString *URLString, *state = @"Inactive";
 - (void)applicationWillTerminate:(UIApplication *)application
 {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
-
-/**
- Método que obtiene los datos introducidos en la pantalla de preferencias.
- */
-- (void)registerDefaultsFromSettingsBundle
-{
-    
-    NSString *settingsBundle = [[NSBundle mainBundle] pathForResource:@"Settings" ofType:@"bundle"];
-    if(!settingsBundle)
-    {
-        return;
-    }
-    
-    NSDictionary *settings = [NSDictionary dictionaryWithContentsOfFile:[settingsBundle stringByAppendingPathComponent:@"Root.plist"]];
-    NSArray *preferences = [settings objectForKey:PREFERENCE_SPECIFIERS];
-    
-    NSMutableDictionary *defaultsToRegister = [[NSMutableDictionary alloc] initWithCapacity:[preferences count]];
-    for(NSDictionary *prefSpecification in preferences)
-    {
-        NSString *key = [prefSpecification objectForKey:KEY];
-        if(key)
-        {
-            [defaultsToRegister setObject:[prefSpecification objectForKey:@"DefaultValue"] forKey:key];
-        }
-    }
-    
-    [[NSUserDefaults standardUserDefaults] registerDefaults:defaultsToRegister];
 }
 
 @end

@@ -12,7 +12,7 @@
 #include "asn_application.h"
 
 /* Including external dependencies */
-#include "AlgorithmIdentifier.h"
+#include "AlgorithmIdentifierIOS.h"
 #include "OtherHashValue.h"
 #include "constr_SEQUENCE.h"
 

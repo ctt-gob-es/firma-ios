@@ -39,6 +39,6 @@ extern asn_TYPE_descriptor_t asn_DEF_EncapsulatedSignedData;
 #endif
 
 /* Referred external types */
-#include "SignedData.h"
+#include "SignedDataIOS.h"
 
 #endif	/* _EncapsulatedSignedData_H_ */
