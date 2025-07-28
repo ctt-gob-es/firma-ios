@@ -38,6 +38,6 @@ extern asn_TYPE_descriptor_t asn_DEF_SignerInfos;
 #endif
 
 /* Referred external types */
-#include "SignerInfo.h"
+#include "SignerInfoIOS.h"
 
 #endif	/* _SignerInfos_H_ */

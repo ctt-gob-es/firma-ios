@@ -1,0 +1,131 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "CFBundleDisplayName" : {
+      "comment" : "Bundle display name",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autofirma App"
+          }
+        },
+        "ca-val" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autofirma App"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Autofirma App"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autofirma App"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autofirma App"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autofirma App"
+          }
+        }
+      }
+    },
+    "CFBundleName" : {
+      "comment" : "Bundle name",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autofirma App"
+          }
+        },
+        "ca-val" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autofirma App"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Cliente @firma"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autofirma App"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autofirma App"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autofirma App"
+          }
+        }
+      }
+    },
+    "NFCReaderUsageDescription" : {
+      "comment" : "Localized versions of Info.plist keys",
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aquesta aplicació necessita accés a NFC per poder fer la signatura amb DNIe"
+          }
+        },
+        "ca-val" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta aplicación necesita acceso a NFC para poder asinar con DNIe"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This application needs access to NFC to be able to sign with DNIe"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta aplicación necesita acceso a NFC para poder realizar la firma con DNIe"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aplikazio honek NFCrako sarbidea behar du DNIe-rekin sinatu ahal izateko"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta aplicació necessita accés a NFC per a poder realitzar la firma amb DNIe"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

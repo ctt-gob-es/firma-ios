@@ -1,0 +1,6 @@
+framework module PAdESSignature {
+  umbrella header "PAdESSignature.h"
+  export *
+
+  module * { export * }
+}

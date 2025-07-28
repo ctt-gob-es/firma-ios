@@ -8,6 +8,6 @@
 
 @implementation AOEntity
 
-@synthesize datField, formatField, algorithmField, propertiesField, idField, stServletField, batchpresignerurl, batchpostsignerurl, batchjson;
+@synthesize datField, formatField, algorithmField, propertiesField, idField, stServletField, batchpresignerurl, batchpostsignerurl, batchjson, filename;
 
 @end

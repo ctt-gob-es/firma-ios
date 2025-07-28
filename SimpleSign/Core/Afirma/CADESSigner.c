@@ -5,7 +5,7 @@
 //
 
 #include <stdio.h>
-#include "SignedData.h"
+#include "SignedDataIOS.h"
 #include "NULL.h"
 #include "CADESOID.h"
 #include <openssl/x509.h>
