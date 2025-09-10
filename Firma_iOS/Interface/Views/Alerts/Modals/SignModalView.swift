@@ -36,6 +36,7 @@ struct SignModalView: View {
                         HStack {
                             Image("documents")
                                 .foregroundColor(ColorConstants.Background.buttonEnabled)
+						  .accessibilityHidden(true)
                             AccessibleText(content: NSLocalizedString("sign_with_certificate", bundle: Bundle.main, comment: ""))
                                 .regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
                         }
@@ -48,6 +49,7 @@ struct SignModalView: View {
                         HStack {
                             Image("credit-card")
                                 .foregroundColor(isNfcEnabled ? ColorConstants.Background.buttonEnabled : Color.gray)
+						  .accessibilityHidden(true) 
                             AccessibleText(content: NSLocalizedString("sign_with_dni", bundle: Bundle.main, comment: ""))
                                 .regularBoldStyle(foregroundColor: isNfcEnabled ? ColorConstants.Text.primary : Color.gray)
                         }

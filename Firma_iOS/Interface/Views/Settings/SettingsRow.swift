@@ -18,6 +18,7 @@ struct SettingsRow: View {
 	   HStack {
 		  Image(systemName: icon)
 			 .foregroundColor(ColorConstants.Text.accent)
+			 .accessibilityHidden(true)
 		  AccessibleText(content: text)
 			 .regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
 		  

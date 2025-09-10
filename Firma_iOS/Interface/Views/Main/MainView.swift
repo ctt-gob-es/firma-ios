@@ -64,6 +64,7 @@ struct MainView: View {
 		  .scaledToFit()
 		  .frame(height: 28.94)
 		  .foregroundColor(Color(hex: "#C33400"))
+		  .accessibilityHidden(true) 
     }
     
     private var navigationBarButtons: some View {

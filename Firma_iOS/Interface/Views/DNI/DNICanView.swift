@@ -44,6 +44,7 @@ struct DNICanView: View {
 				.resizable()
 				.scaledToFit()
 				.padding()
+				.accessibilityHidden(true)
 		  }
 	   }
         .onAppear() {

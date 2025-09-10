@@ -229,6 +229,8 @@ struct HomeView: View {
 		  AccessibleText(content: NSLocalizedString("home_certificates_label", bundle: Bundle.main, comment: ""))
 			 .titleStyleBlack(foregroundColor: ColorConstants.Text.primary)
 			 .accessibilityAddTraits(.isHeader)
+			 .environment(\.locale, .init(identifier: UserDefaults.standard.string(forKey: "appLanguage") ?? "es"))
+
 		  
 		  AccessibleText(content: viewMode == .sign ? NSLocalizedString("select_certificates_description", bundle: Bundle.main, comment: "") : NSLocalizedString("home_certificates_description", bundle: Bundle.main, comment: ""))
 			 .regularStyle(foregroundColor: ColorConstants.Text.secondary)

@@ -1326,6 +1326,7 @@
 		8393EED82C58FBD3009FDE6E /* SwiftDate+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EED72C58FBD3009FDE6E /* SwiftDate+Utils.swift */; };
 		8393EEDD2C59037E009FDE6E /* SettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EEDC2C59037E009FDE6E /* SettingsRow.swift */; };
 		8393EEDF2C590387009FDE6E /* SettingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8393EEDE2C590387009FDE6E /* SettingsHeaderView.swift */; };
+		83993D342E71901300213C79 /* Accessibility.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 83993D332E71901300213C79 /* Accessibility.xcstrings */; };
 		83A47CE72D92AD1B0005BFE0 /* LegalAdviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A47CE62D92AD1B0005BFE0 /* LegalAdviceView.swift */; };
 		83A47CE92D92AD320005BFE0 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A47CE82D92AD320005BFE0 /* PrivacyPolicyView.swift */; };
 		83A47CF12D92B15E0005BFE0 /* legal_advice_eu.html in Resources */ = {isa = PBXBuildFile; fileRef = 83A47CEB2D92B15D0005BFE0 /* legal_advice_eu.html */; };
@@ -4195,6 +4196,7 @@
 		8393EED72C58FBD3009FDE6E /* SwiftDate+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftDate+Utils.swift"; sourceTree = "<group>"; };
 		8393EEDC2C59037E009FDE6E /* SettingsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRow.swift; sourceTree = "<group>"; };
 		8393EEDE2C590387009FDE6E /* SettingsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHeaderView.swift; sourceTree = "<group>"; };
+		83993D332E71901300213C79 /* Accessibility.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Accessibility.xcstrings; sourceTree = "<group>"; };
 		83A47CE62D92AD1B0005BFE0 /* LegalAdviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalAdviceView.swift; sourceTree = "<group>"; };
 		83A47CE82D92AD320005BFE0 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		83A47CEB2D92B15D0005BFE0 /* legal_advice_eu.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = legal_advice_eu.html; path = "Supporting Files/legal_advice_eu.html"; sourceTree = "<group>"; };
@@ -8630,6 +8632,14 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
+		83993D322E718FE100213C79 /* Accessibility */ = {
+			isa = PBXGroup;
+			children = (
+				83993D332E71901300213C79 /* Accessibility.xcstrings */,
+			);
+			path = Accessibility;
+			sourceTree = "<group>";
+		};
 		83A47CEA2D92B0F90005BFE0 /* LegalAdvices */ = {
 			isa = PBXGroup;
 			children = (
@@ -9370,6 +9380,7 @@
 		C30B3232163804620072A515 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				83993D322E718FE100213C79 /* Accessibility */,
 				83A47CF72D92B2D10005BFE0 /* IntroPolicies */,
 				83A47CEA2D92B0F90005BFE0 /* LegalAdvices */,
 				8309F6A92D018E1600F15CD9 /* PrivacyPolicies */,
@@ -9486,6 +9497,7 @@
 				83092A652D141E9900275A0D /* Helvetica-Oblique.afm in Resources */,
 				83092A632D141E9900275A0D /* Symbol.afm in Resources */,
 				83C0ECB92C41331200244071 /* Merriweather-Regular.ttf in Resources */,
+				83993D342E71901300213C79 /* Accessibility.xcstrings in Resources */,
 				83A47CF52D92B15E0005BFE0 /* legal_advice_es.html in Resources */,
 				83092A5E2D141E9900275A0D /* Courier-BoldOblique.afm in Resources */,
 				B2B0369C21369663009E57BB /* LaunchScreen.storyboard in Resources */,

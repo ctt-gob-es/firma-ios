@@ -1,0 +1,47 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "dni_scan_view.image.label" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Coloca el dispositivo móvil alineado con el chip del DNI, de forma que el documento sobresalga ligeramente por la parte superior del teléfono para facilitar la lectura del chip"
+          }
+        }
+      }
+    },
+    "ED2026.image.label" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "España digital 2026"
+          }
+        }
+      }
+    },
+    "ES_Financiado_UE.image.label" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Financiado por la Unión Europea NextGenerationEU"
+          }
+        }
+      }
+    },
+    "PRTR.image.label" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plan de Recuperación, Transformación y Resiliencia"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

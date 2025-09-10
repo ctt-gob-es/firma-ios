@@ -28,6 +28,7 @@ struct TutorialView: View {
 		  Image(viewModel.imageName)
 			 .resizable()
 			 .scaledToFit()
+			 .accessibilityHidden(true)
 
 		  Spacer()
 

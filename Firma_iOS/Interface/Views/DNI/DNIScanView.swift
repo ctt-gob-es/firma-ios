@@ -27,6 +27,9 @@ struct DNIScanView: View {
 				.resizable()
 				.scaledToFit()
 				.padding()
+				.accessibilityLabel(
+				    Text(String(localized: "dni_scan_view.image.label", table: "Accessibility"))
+				)
 		  }
 	   }
 	   .padding()

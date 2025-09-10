@@ -24,6 +24,8 @@ struct SuccessModalView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 64, height: 64)
+					   .accessibilityHidden(true)
+				    
                         Spacer()
                     }
                     .padding(.leading)

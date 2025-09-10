@@ -32,6 +32,7 @@ struct DNIPinView: View {
 			 .padding(.vertical)
 			 
 			 Image("email_sample")
+				.accessibilityHidden(true)
 		  }
 		  .dismissKeyboardOnTap()
 	   }
