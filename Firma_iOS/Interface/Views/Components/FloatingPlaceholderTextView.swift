@@ -23,6 +23,7 @@ struct FloatingPlaceholderTextField: View {
 				.offset(y: isFocused || !text.isEmpty ? 0 : 20)
 				.scaleEffect(isFocused || !text.isEmpty ? 0.75 : 1.0, anchor: .zero)
 				.padding(.top, 4)
+				.accessibilityHidden(true)
 			 
 			 HStack {
 				if isSecureTextEntry && !isSecureTextShown {
@@ -38,6 +39,7 @@ struct FloatingPlaceholderTextField: View {
 				    .textInputAutocapitalization(.none)
 				    .autocapitalization(.none)
 				    .focused($isInputFocused)
+				    .accessibility(label: Text(NSLocalizedString(placeholder, bundle: Bundle.main, comment: "")))
 				} else {
 				    TextField("",
 						    text: $text,
@@ -52,6 +54,7 @@ struct FloatingPlaceholderTextField: View {
 				    .font(.custom("NunitoSans10pt-Regular", size: 16))
 				    .foregroundColor(.primary)
 				    .focused($isInputFocused)
+				    .accessibility(label: Text(NSLocalizedString(placeholder, bundle: Bundle.main, comment: "")))
 				    .padding(.horizontal)
 				    .textInputAutocapitalization(.none)
 				    .autocapitalization(.none)
