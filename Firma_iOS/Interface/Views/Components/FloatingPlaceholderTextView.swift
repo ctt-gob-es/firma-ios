@@ -116,7 +116,11 @@ struct FloatingPlaceholderTextField: View {
 		  }
 		  .background(
 			 RoundedRectangle(cornerRadius: 8)
-				.stroke(showError ? ColorConstants.Status.error : (isFocused ? ColorConstants.Text.secondary : ColorConstants.Text.secondary), lineWidth: 1)
+				.stroke(
+				    showError ? ColorConstants.Status.error :
+				    ((isFocused || isInputFocused) ? ColorConstants.Text.primary : ColorConstants.Text.secondary),
+				    lineWidth: showError ? 2 : ((isFocused || isInputFocused) ? 2 : 1)
+				)
 		  )
 	   }
     }
