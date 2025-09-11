@@ -59,7 +59,7 @@ struct FloatingPlaceholderTextField: View {
 				    .textInputAutocapitalization(.none)
 				    .autocapitalization(.none)
 				    .keyboardType(keyboardType)
-				    .onChange(of: text) { newValue in
+				    .onChange(of: text) { oldValue, newValue in
 					   if newValue != "" {
 						  showError = !validation(newValue)
 					   } else {
@@ -86,10 +86,15 @@ struct FloatingPlaceholderTextField: View {
 				    Button(action: {
 					   isSecureTextShown.toggle()
 				    }) {
-					   Image("eye")
+					   Image(isSecureTextShown ? "eye_off" : "eye")
 						  .foregroundColor(.gray)
 				    }
 				    .padding(.trailing, 10)
+				    .accessibilityLabel(
+					   Text(isSecureTextShown
+						   ? String(localized: "show_password.button.label", table: "Accessibility", bundle: Bundle.main)
+						   : String(localized: "hide_password.button.label", table: "Accessibility", bundle: Bundle.main))
+				    )
 				}
 			 }
 			 .padding(.bottom, 2)

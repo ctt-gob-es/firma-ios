@@ -1,6 +1,22 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "ax.option_button" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Option Button"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Botón de opción"
+          }
+        }
+      }
+    },
     "dni_scan_view.image.label" : {
       "localizations" : {
         "es" : {
@@ -32,12 +48,49 @@
         }
       }
     },
+    "hide_password.button.label" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ocultar contraseña"
+          }
+        }
+      }
+    },
+    "page_control.label" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Page selector. You are on page %d of %d. Swipe left or right to change pages."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selector de página. Estás en la página %d de %d. Desliza hacia la izquierda o derecha para cambiar."
+          }
+        }
+      }
+    },
     "PRTR.image.label" : {
       "localizations" : {
         "es" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Plan de Recuperación, Transformación y Resiliencia"
+          }
+        }
+      }
+    },
+    "show_password.button.label" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar contraseña"
           }
         }
       }
