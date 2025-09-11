@@ -12,6 +12,10 @@ struct PageControl: UIViewRepresentable {
     var numberOfPages: Int
     @Binding var currentPage: Int
 
+    func makeCoordinator() -> Coordinator {
+	   Coordinator(self)
+    }
+    
     func makeUIView(context: Context) -> UIPageControl {
 	   let control = UIPageControl()
 	   control.numberOfPages = numberOfPages
@@ -19,12 +23,11 @@ struct PageControl: UIViewRepresentable {
 	   control.pageIndicatorTintColor = ColorConstants.Text.secondary.toUIColor()
 	   control.currentPageIndicatorTintColor = ColorConstants.Text.accent.toUIColor()
 
-	   control.setIndicatorImage(createCustomIndicatorImage(isCurrent: true), forPage: currentPage)
-	   for page in 0..<numberOfPages {
-		  if page != currentPage {
-			 control.setIndicatorImage(createCustomIndicatorImage(isCurrent: false), forPage: page)
-		  }
-	   }
+	   updateIndicators(control, current: currentPage)
+	   
+	   control.addTarget(context.coordinator,
+					 action: #selector(Coordinator.didChangePage(_:)),
+					 for: .valueChanged)
 
 	   return control
     }
@@ -37,6 +40,13 @@ struct PageControl: UIViewRepresentable {
 		  if page != currentPage {
 			 uiView.setIndicatorImage(createCustomIndicatorImage(isCurrent: false), forPage: page)
 		  }
+	   }
+    }
+    
+    private func updateIndicators(_ control: UIPageControl, current: Int) {
+	   control.setIndicatorImage(createCustomIndicatorImage(isCurrent: true), forPage: current)
+	   for page in 0..<numberOfPages where page != current {
+		  control.setIndicatorImage(createCustomIndicatorImage(isCurrent: false), forPage: page)
 	   }
     }
 
@@ -73,3 +83,15 @@ struct PageControl: UIViewRepresentable {
 	   return image
     }
 }
+
+class Coordinator: NSObject {
+	   var parent: PageControl
+
+	   init(_ parent: PageControl) {
+		  self.parent = parent
+	   }
+
+	   @objc func didChangePage(_ sender: UIPageControl) {
+		  parent.currentPage = sender.currentPage
+	   }
+    }
