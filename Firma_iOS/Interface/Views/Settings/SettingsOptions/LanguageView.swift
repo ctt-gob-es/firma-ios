@@ -22,14 +22,17 @@ struct LanguageView: View {
     var body: some View {
 	   List {
 		  ForEach(languages) { language in
-			 LanguageCell(language: language.name, isSelected: language.name == selectedLanguage)
-				.onTapGesture {
+			 LanguageCell(
+				language: language.name,
+				isSelected: language.name == selectedLanguage,
+				onSelect: {
 				    selectedLanguage = language.name
 				    UserDefaults.standard.set(language.code, forKey: "appLanguage")
 				    Bundle.setLanguage(language.code)
 				    appStatus.languageHasChanged = true
 				}
-				.listRowSeparator(.hidden)
+			 )
+			 .listRowSeparator(.hidden)
 		  }
 		  .listRowBackground(Color.white)
 	   }
@@ -48,25 +51,35 @@ struct LanguageView: View {
 struct LanguageCell: View {
     let language: String
     let isSelected: Bool
+    let onSelect: () -> Void
 
     var body: some View {
-	   VStack(spacing: 0) {
-		  HStack(spacing: 4) {
-			 AccessibleText(content: language)
-				.regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
-			 Spacer()
-			 if isSelected {
-				Image(systemName: "checkmark")
-				    .foregroundColor(ColorConstants.Text.accent)
+	   Button(action: onSelect) {
+		  VStack(spacing: 0) {
+			 HStack(spacing: 4) {
+				AccessibleText(content: language)
+				    .regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
+
+				Spacer()
+
+				if isSelected {
+				    Image(systemName: "checkmark")
+					   .foregroundColor(ColorConstants.Text.accent)
+					   .accessibilityHidden(true) // icono decorativo
+				}
+			 }
+			 .padding()
+			 .background(isSelected ? Color(UIColor.systemGray6) : Color.white)
+			 .cornerRadius(isSelected ? 10 : 0)
+
+			 if !isSelected {
+				Divider()
 			 }
 		  }
-		  .padding()
-		  .background(isSelected ? Color(UIColor.systemGray6) : Color.white)
-		  .cornerRadius(isSelected ? 10 : 0)
-		  
-		  if !isSelected {
-			 Divider()
-		  }
 	   }
+	   .buttonStyle(.plain)
+	   .accessibilityElement(children: .ignore)
+	   .accessibilityLabel(Text(language + String(localized: "ax.option_button", table: "Accessibility", bundle: Bundle.main)))
+	   .accessibilityAddTraits(isSelected ? .isSelected : [])
     }
 }
