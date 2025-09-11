@@ -14,17 +14,17 @@ struct DNIStepHeaderView: View {
     var body: some View {
 	   VStack(alignment: .leading, spacing: 10) {
 		  VStack(alignment: .leading, spacing: 5) {
-			 AccessibleText(content: NSLocalizedString("dni_connection_header_title", bundle: Bundle.main, comment: ""))
-				.boldStyleSmall(foregroundColor: ColorConstants.Text.secondary)
-				.accessibilityAddTraits(.isHeader)
-			 
 			 AccessibleText(content: step.title)
 				.titleStyleBlack(foregroundColor: ColorConstants.Text.primary)
 				.accessibilityAddTraits(.isHeader)
 			 
+			 AccessibleText(content: NSLocalizedString("dni_connection_header_title", bundle: Bundle.main, comment: ""))
+				.boldStyleSmall(foregroundColor: ColorConstants.Text.secondary)
+				.accessibilityAddTraits(.isSummaryElement)
+			 
                 AccessibleText(content: String(format: NSLocalizedString("dni_connection_step", comment: ""), step.step))
 				.regularStyle(foregroundColor: ColorConstants.Text.secondary)
-				.accessibilityAddTraits(.isHeader)
+				.accessibilityAddTraits(.isSummaryElement)
 		  }
 		  .padding()
 		  
