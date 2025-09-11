@@ -32,7 +32,7 @@ struct ColorConstants {
     }
     
     struct Status {
-	   static let success = Color(hex: "#54CF8F")
+	   static let success = Color(hex: "#2D754F")
 	   static let error = Color(hex: "#AB1228")
     }
 }
