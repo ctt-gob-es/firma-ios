@@ -24,7 +24,7 @@ struct DNICanView: View {
 				+ Text(NSLocalizedString("dni_can_view_description_3", bundle: Bundle.main, comment: ""))
 				    .regularStyle(foregroundColor: ColorConstants.Text.secondary)
 			 )
-			 .accessibilityLabel(Text(NSLocalizedString("dni_compatible_view_description_1", bundle: Bundle.main, comment: "")) + Text(NSLocalizedString("dni_compatible_view_description_2", bundle: Bundle.main, comment: "")) + Text(NSLocalizedString("dni_compatible_view_description_3", bundle: Bundle.main, comment: "")))
+			 .accessibilityLabel(Text(NSLocalizedString("dni_can_view_description_1", bundle: Bundle.main, comment: "")) + Text(NSLocalizedString("dni_can_view_description_2", bundle: Bundle.main, comment: "")) + Text(NSLocalizedString("dni_can_view_description_3", bundle: Bundle.main, comment: "")))
 			 
 			 FloatingPlaceholderTextField(
 				placeholder: NSLocalizedString("dni_connection_can_placeholder", bundle: Bundle.main, comment: ""),
