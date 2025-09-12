@@ -20,9 +20,18 @@ struct ParentView: View {
     }
     
     var body: some View {
+	   let code: String = {
+		  if let saved = UserDefaults.standard.string(forKey: "appLanguage") {
+			 return saved
+		  } else {
+			 return Locale.preferredLanguages.first ?? "es"
+		  }
+	   }()
+	   
         VStack {
             MainView(viewModel: MainViewModel(viewMode: viewMode ?? .home, urlReceived: urlReceived))
 			 .environmentObject(appStatus)
+			 .appLocale(code)
         }
     }
     
@@ -71,7 +80,7 @@ struct MainView: View {
 	   HStack(spacing: 4) {
 		  switch viewModel.viewMode {
 			 case .home:
-				NavigationBarButton(imageName: "info", accesibilityLabel: NSLocalizedString("info", comment: ""), action: { appStatus.showingInfoModal = true })
+			 NavigationBarButton(imageName: "info", accesibilityLabel: NSLocalizedString("info", comment: ""), action: { appStatus.showingInfoModal = true })
                 NavigationBarButtonLink(destination: SettingsView(), accesibilityLabel: NSLocalizedString("settings_title", comment: ""), imageName: "settings")
 			 case .sign:
 				NavigationBarButton(imageName: "close", accesibilityLabel: NSLocalizedString("close", comment: ""), action: {
