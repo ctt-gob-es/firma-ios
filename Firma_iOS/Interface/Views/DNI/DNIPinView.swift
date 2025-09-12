@@ -19,7 +19,7 @@ struct DNIPinView: View {
 				.regularStyle(foregroundColor: ColorConstants.Text.primary)
 			 
 			 FloatingPlaceholderTextField(
-				placeholder: NSLocalizedString("dni_connection_pin_placeholder", bundle: Bundle.main, comment: ""),
+				placeholder: NSLocalizedString("dni_connection_pin_placeholder", bundle: Bundle.main, comment: "") + " " + String(localized: "mandatory.textfield.suffix", table: "Accessibility", bundle: Bundle.main),
 				errorplaceholder: NSLocalizedString("dni_connection_pin_error", bundle: Bundle.main, comment: ""),
 				text: $pin,
 				showError: $showError,

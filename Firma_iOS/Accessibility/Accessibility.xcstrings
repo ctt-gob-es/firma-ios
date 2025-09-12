@@ -160,6 +160,16 @@
         }
       }
     },
+    "mandatory.textfield.suffix" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "(Obligatorio)"
+          }
+        }
+      }
+    },
     "page_control.label" : {
       "extractionState" : "manual",
       "localizations" : {

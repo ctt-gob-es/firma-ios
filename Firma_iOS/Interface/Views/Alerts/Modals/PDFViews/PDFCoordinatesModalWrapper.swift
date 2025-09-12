@@ -62,7 +62,7 @@ struct PDFCoordinatesModalWrapper: View {
 						  )
 					   
 					   FloatingPlaceholderTextField(
-						  placeholder: NSLocalizedString("password", bundle: Bundle.main, comment: ""),
+						  placeholder: NSLocalizedString("password", bundle: Bundle.main, comment: "") + " " + String(localized: "mandatory.textfield.suffix", table: "Accessibility", bundle: Bundle.main),
 						  errorplaceholder: NSLocalizedString("add_certificates_error_placeholder", bundle: Bundle.main, comment: ""),
 						  text: $password,
 						  showError: $showFieldError,
