@@ -12,23 +12,34 @@ import SwiftUI
 struct CheckBoxView: View {
     @Binding var isChecked: Bool
     var title: String
-    
+
     var body: some View {
-	   Button(action: {
-		  self.isChecked.toggle()
-	   }) {
-		  HStack {
-			 Image(systemName: isChecked ? "checkmark.square.fill" : "square")
-				.foregroundColor(isChecked ? ColorConstants.Text.primary : Color.secondary)
-			 AccessibleText(content: title)
-				.foregroundColor(ColorConstants.Text.primary)
-				.accessibility(addTraits: .isButton)
-		  }
+	   Toggle(isOn: $isChecked) {
+		  AccessibleText(content: title)
 	   }
-	   .accessibility(label: Text(LocalizedStringKey(title)))
-	   .accessibility(value: Text(isChecked ? "Checked" : "Unchecked"))
-	   .accessibility(hint: Text("Toggle"))
-	   .accessibility(addTraits: .isButton)
-	   .buttonStyle(PlainButtonStyle())
+	   .toggleStyle(CheckBoxToggleStyle())
+    }
+}
+
+struct CheckBoxToggleStyle: ToggleStyle {
+    func makeBody(configuration: Configuration) -> some View {
+	   Button(action: { configuration.isOn.toggle() }) {
+		  HStack(spacing: 8) {
+			 Image(systemName: configuration.isOn ? "checkmark.square.fill" : "square")
+				.foregroundColor(configuration.isOn ? ColorConstants.Text.primary : .secondary)
+			 configuration.label
+				.foregroundColor(ColorConstants.Text.primary)
+		  }
+		  .contentShape(Rectangle())
+	   }
+	   .buttonStyle(.plain)
+	   .accessibilityElement(children: .combine)
+	   .accessibilityValue(
+		  Text(
+			 configuration.isOn
+			 ? NSLocalizedString("checkbox.state.checked", tableName: "Accessibility", bundle: .main, comment: "")
+			 : NSLocalizedString("checkbox.state.unchecked", tableName: "Accessibility", bundle: .main, comment: "")
+		  )
+	   )
     }
 }

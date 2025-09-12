@@ -67,6 +67,26 @@
         }
       }
     },
+    "checkbox.state.checked" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aceptado"
+          }
+        }
+      }
+    },
+    "checkbox.state.unchecked" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No aceptado"
+          }
+        }
+      }
+    },
     "dni_scan_view.image.label" : {
       "localizations" : {
         "es" : {
