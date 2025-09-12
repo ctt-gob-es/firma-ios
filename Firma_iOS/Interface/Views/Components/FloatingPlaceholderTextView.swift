@@ -55,7 +55,7 @@ struct FloatingPlaceholderTextField: View {
 				    .focused($isInputFocused)
 				    .accessibility(label: Text(accessibilityLabel))
 				    .accessibilityHint(axHintText)
-				    .accessibilityValue(text.isEmpty ? String(localized: "mandatory_field.textfield.value", table: "Accessibility", bundle: Bundle.main) : text)
+				    .accessibilityValue(text.isEmpty ? NSLocalizedString("mandatory_field.textfield.value", tableName: "Accessibility", bundle: Bundle.main, comment: "") : text)
 				} else {
 				    TextField("",
 						    text: $text,
@@ -72,7 +72,7 @@ struct FloatingPlaceholderTextField: View {
 				    .focused($isInputFocused)
 				    .accessibility(label: Text(accessibilityLabel))
 				    .accessibilityHint(axHintText)
-				    .accessibilityValue(text.isEmpty ? String(localized: "mandatory_field.textfield.value", table: "Accessibility", bundle: Bundle.main) : text)
+				    .accessibilityValue(text.isEmpty ? NSLocalizedString("mandatory_field.textfield.value", tableName: "Accessibility", bundle: Bundle.main, comment: "") : text)
 				    .padding(.horizontal)
 				    .textInputAutocapitalization(.none)
 				    .autocapitalization(.none)

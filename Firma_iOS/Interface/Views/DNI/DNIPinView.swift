@@ -19,7 +19,7 @@ struct DNIPinView: View {
 				.regularStyle(foregroundColor: ColorConstants.Text.primary)
 			 
 			 FloatingPlaceholderTextField(
-				placeholder: NSLocalizedString("dni_connection_pin_placeholder", bundle: Bundle.main, comment: "") + " " + String(localized: "mandatory.textfield.suffix", table: "Accessibility", bundle: Bundle.main),
+				placeholder: NSLocalizedString("dni_connection_pin_placeholder", bundle: Bundle.main, comment: "") + " " + NSLocalizedString( "mandatory.textfield.suffix", tableName: "Accessibility", bundle: Bundle.main, comment: ""),
 				errorplaceholder: NSLocalizedString("dni_connection_pin_error", bundle: Bundle.main, comment: ""),
 				text: $pin,
 				showError: $showError,
@@ -28,7 +28,7 @@ struct DNIPinView: View {
 				validation: { pin in
 				    return pinValidation(pin: pin)
 				},
-				accessibilityLabel: String(localized: "pin.textfield.label", table: "Accessibility", bundle: Bundle.main)
+				accessibilityLabel: NSLocalizedString("pin.textfield.label", tableName: "Accessibility", bundle: Bundle.main, comment: "")
 			 )
 			 .padding(.vertical)
 			 

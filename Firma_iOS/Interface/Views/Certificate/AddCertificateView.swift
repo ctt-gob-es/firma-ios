@@ -35,7 +35,7 @@ struct AddCertificateView: View {
 				}
 				 
 				FloatingPlaceholderTextField(
-				    placeholder: NSLocalizedString("password", bundle: Bundle.main, comment: "") + " " + String(localized: "mandatory.textfield.suffix", table: "Accessibility", bundle: Bundle.main),
+				    placeholder: NSLocalizedString("password", bundle: Bundle.main, comment: "") + " " + NSLocalizedString( "mandatory.textfield.suffix", tableName: "Accessibility", bundle: Bundle.main, comment: ""),
 				    errorplaceholder: NSLocalizedString("add_certificates_error_placeholder", bundle: Bundle.main, comment: ""),
 				    text: $viewModel.password,
 				    showError: $viewModel.showFieldError,
@@ -44,7 +44,7 @@ struct AddCertificateView: View {
 				    validation: { password in
 					   return viewModel.showFieldError
 				    },
-				    accessibilityLabel: String(localized: "add_certificate.password.textfield.label", table: "Accessibility", bundle: Bundle.main)
+				    accessibilityLabel: NSLocalizedString("add_certificate.password.textfield.label", tableName: "Accessibility", bundle: Bundle.main, comment: "")
 				)
 			 }
 			 .padding([.horizontal, .top])

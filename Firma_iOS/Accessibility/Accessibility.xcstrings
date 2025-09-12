@@ -134,7 +134,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Campo de %d dígitos"
+            "value" : "%d dígitos"
           }
         }
       }
@@ -145,7 +145,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Campo de %d caracteres"
+            "value" : "%d caracteres"
           }
         }
       }
@@ -155,7 +155,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Campo de texto, campo obligatorio"
+            "value" : "Campo obligatorio"
           }
         }
       }

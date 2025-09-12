@@ -62,7 +62,7 @@ struct PDFCoordinatesModalWrapper: View {
 						  )
 					   
 					   FloatingPlaceholderTextField(
-						  placeholder: NSLocalizedString("password", bundle: Bundle.main, comment: "") + " " + String(localized: "mandatory.textfield.suffix", table: "Accessibility", bundle: Bundle.main),
+						  placeholder: NSLocalizedString("password", bundle: Bundle.main, comment: "") + " " + NSLocalizedString( "mandatory.textfield.suffix", tableName: "Accessibility", bundle: Bundle.main, comment: ""),
 						  errorplaceholder: NSLocalizedString("add_certificates_error_placeholder", bundle: Bundle.main, comment: ""),
 						  text: $password,
 						  showError: $showFieldError,
@@ -71,7 +71,7 @@ struct PDFCoordinatesModalWrapper: View {
 						  validation: { password in
 							 return showFieldError
 						  },
-						  accessibilityLabel: String(localized: "document.password.textfield.label", table: "Accessibility", bundle: Bundle.main)
+						  accessibilityLabel: NSLocalizedString("document.password.textfield.label", tableName: "Accessibility", bundle: Bundle.main, comment: "")
 					   )
 					   
 					   HStack {

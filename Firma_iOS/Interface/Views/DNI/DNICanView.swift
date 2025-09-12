@@ -27,7 +27,7 @@ struct DNICanView: View {
 			 .accessibilityLabel(Text(NSLocalizedString("dni_can_view_description_1", bundle: Bundle.main, comment: "")) + Text(NSLocalizedString("dni_can_view_description_2", bundle: Bundle.main, comment: "")) + Text(NSLocalizedString("dni_can_view_description_3", bundle: Bundle.main, comment: "")))
 			 
 			 FloatingPlaceholderTextField(
-				placeholder: NSLocalizedString("dni_connection_can_placeholder", bundle: Bundle.main, comment: "") + " " + String(localized: "mandatory.textfield.suffix", table: "Accessibility", bundle: Bundle.main),
+				placeholder: NSLocalizedString("dni_connection_can_placeholder", bundle: Bundle.main, comment: "") + " " + NSLocalizedString( "mandatory.textfield.suffix", tableName: "Accessibility", bundle: Bundle.main, comment: ""),
 				errorplaceholder: NSLocalizedString("dni_connection_can_error", bundle: Bundle.main, comment: ""),
 				text: $can,
 				showError: $showError,
@@ -37,7 +37,7 @@ struct DNICanView: View {
 				    return canValidation(can: can)
 				},
 				keyboardType: .numberPad,
-				accessibilityLabel: String(localized: "can.textfield.label", table: "Accessibility", bundle: Bundle.main),
+				accessibilityLabel: NSLocalizedString("can.textfield.label", tableName: "Accessibility", bundle: Bundle.main, comment: ""),
 				inputLength: 6
 			 )
 			 .padding(.vertical)
