@@ -6,7 +6,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cerrar y descartar anotaciones"
+            "value" : "Cerrar sin firmar"
           }
         }
       }
@@ -16,7 +16,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Confirmar anotaciones"
+            "value" : "Aceptar y firmar"
           }
         }
       }
@@ -26,7 +26,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Restablecer anotaciones"
+            "value" : "Borrar área seleccionada de firma"
           }
         }
       }
@@ -140,7 +140,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Página siguiente"
+            "value" : "Ir a la página siguiente"
           }
         }
       }
@@ -150,7 +150,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Página anterior"
+            "value" : "Ir a la página anterior"
           }
         }
       }
