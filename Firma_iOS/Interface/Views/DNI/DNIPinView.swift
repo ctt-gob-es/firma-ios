@@ -27,7 +27,8 @@ struct DNIPinView: View {
 				isSecureTextEntry: true,
 				validation: { pin in
 				    return pinValidation(pin: pin)
-				}
+				},
+				accessibilityLabel: String(localized: "pin.textfield.label", table: "Accessibility", bundle: Bundle.main)
 			 )
 			 .padding(.vertical)
 			 

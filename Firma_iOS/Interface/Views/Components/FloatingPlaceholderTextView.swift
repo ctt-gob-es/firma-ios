@@ -11,8 +11,22 @@ struct FloatingPlaceholderTextField: View {
     @State private var isFocused: Bool = false
     @State var isSecureTextShown: Bool = false
     @State var keyboardType: UIKeyboardType = .default
+    @State var accessibilityLabel: String
+    @State var inputLength: Int? = nil
     
     @FocusState private var isInputFocused: Bool
+    
+    private var axHintText: Text {
+	   guard let length = inputLength else { return Text("") }
+	   let key = (keyboardType == .numberPad)
+		  ? "length.numeric.textfield.hint"
+		  : "length.textfield.hint"
+	   let fmt = NSLocalizedString(key,
+							 tableName: "Accessibility",
+							 bundle: .main,
+							 comment: "")
+	   return Text(String(format: fmt, length))
+    }
     
     var body: some View {
 	   VStack(alignment: .leading) {
@@ -39,7 +53,9 @@ struct FloatingPlaceholderTextField: View {
 				    .textInputAutocapitalization(.none)
 				    .autocapitalization(.none)
 				    .focused($isInputFocused)
-				    .accessibility(label: Text(NSLocalizedString(placeholder, bundle: Bundle.main, comment: "")))
+				    .accessibility(label: Text(accessibilityLabel))
+				    .accessibilityHint(axHintText)
+				    .accessibilityValue(text.isEmpty ? String(localized: "mandatory_field.textfield.value", table: "Accessibility", bundle: Bundle.main) : text)
 				} else {
 				    TextField("",
 						    text: $text,
@@ -54,7 +70,9 @@ struct FloatingPlaceholderTextField: View {
 				    .font(.custom("NunitoSans10pt-Regular", size: 16))
 				    .foregroundColor(.primary)
 				    .focused($isInputFocused)
-				    .accessibility(label: Text(NSLocalizedString(placeholder, bundle: Bundle.main, comment: "")))
+				    .accessibility(label: Text(accessibilityLabel))
+				    .accessibilityHint(axHintText)
+				    .accessibilityValue(text.isEmpty ? String(localized: "mandatory_field.textfield.value", table: "Accessibility", bundle: Bundle.main) : text)
 				    .padding(.horizontal)
 				    .textInputAutocapitalization(.none)
 				    .autocapitalization(.none)

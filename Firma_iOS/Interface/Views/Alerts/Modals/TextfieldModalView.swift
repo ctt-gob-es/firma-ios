@@ -55,7 +55,8 @@ struct TextfieldModalView: View {
                             isSecureTextEntry: true,
                             validation: { password in
                                 return showFieldError
-                            }
+                            },
+					   accessibilityLabel: String(localized: "password.textfield.label", table: "Accessibility", bundle: Bundle.main)
                         )
                         
                         HStack {

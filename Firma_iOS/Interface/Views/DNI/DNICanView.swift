@@ -36,7 +36,9 @@ struct DNICanView: View {
 				validation: { can in
 				    return canValidation(can: can)
 				},
-				keyboardType: .numberPad
+				keyboardType: .numberPad,
+				accessibilityLabel: String(localized: "can.textfield.label", table: "Accessibility", bundle: Bundle.main),
+				inputLength: 6
 			 )
 			 .padding(.vertical)
 			 

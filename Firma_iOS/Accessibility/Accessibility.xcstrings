@@ -1,6 +1,16 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "add_certificate.password.textfield.label" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contraseña del certificado a añadir"
+          }
+        }
+      }
+    },
     "annotations.close_discard.label" : {
       "localizations" : {
         "es" : {
@@ -47,12 +57,32 @@
         }
       }
     },
+    "can.textfield.label" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Código del CAN del DNI"
+          }
+        }
+      }
+    },
     "dni_scan_view.image.label" : {
       "localizations" : {
         "es" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Coloca el dispositivo móvil alineado con el chip del DNI, de forma que el documento sobresalga ligeramente por la parte superior del teléfono para facilitar la lectura del chip"
+          }
+        }
+      }
+    },
+    "document.password.textfield.label" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contraseña del documento"
           }
         }
       }
@@ -94,6 +124,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ocultar contraseña"
+          }
+        }
+      }
+    },
+    "length.numeric.textfield.hint" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Campo de %d dígitos"
+          }
+        }
+      }
+    },
+    "length.textfield.hint" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Campo de %d caracteres"
+          }
+        }
+      }
+    },
+    "mandatory_field.textfield.value" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Campo de texto, campo obligatorio"
           }
         }
       }
@@ -171,6 +233,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Página %d de %d"
+          }
+        }
+      }
+    },
+    "password.textfield.label" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contraseña"
+          }
+        }
+      }
+    },
+    "pin.textfield.label" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Código PIN del DNI"
           }
         }
       }

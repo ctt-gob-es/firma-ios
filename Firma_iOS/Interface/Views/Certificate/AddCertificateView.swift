@@ -33,7 +33,7 @@ struct AddCertificateView: View {
 				    AccessibleText(content: fileName)
 					   .boldStyleSmall(foregroundColor: ColorConstants.Text.secondary)
 				}
-				
+				 
 				FloatingPlaceholderTextField(
 				    placeholder: NSLocalizedString("password", bundle: Bundle.main, comment: ""),
 				    errorplaceholder: NSLocalizedString("add_certificates_error_placeholder", bundle: Bundle.main, comment: ""),
@@ -43,7 +43,8 @@ struct AddCertificateView: View {
 				    isSecureTextEntry: true,
 				    validation: { password in
 					   return viewModel.showFieldError
-				    }
+				    },
+				    accessibilityLabel: String(localized: "add_certificate.password.textfield.label", table: "Accessibility", bundle: Bundle.main)
 				)
 			 }
 			 .padding([.horizontal, .top])

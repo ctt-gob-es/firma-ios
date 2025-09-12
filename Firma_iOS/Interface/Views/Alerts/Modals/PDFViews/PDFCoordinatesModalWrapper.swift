@@ -70,7 +70,8 @@ struct PDFCoordinatesModalWrapper: View {
 						  isSecureTextEntry: true,
 						  validation: { password in
 							 return showFieldError
-						  }
+						  },
+						  accessibilityLabel: String(localized: "document.password.textfield.label", table: "Accessibility", bundle: Bundle.main)
 					   )
 					   
 					   HStack {
