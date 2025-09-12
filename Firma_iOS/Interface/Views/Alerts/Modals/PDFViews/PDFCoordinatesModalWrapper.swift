@@ -98,27 +98,50 @@ struct PDFCoordinatesModalWrapper: View {
 				}
 				.disabled(currentPageIndex <= 0)
 				.foregroundColor(currentPageIndex > 0 ? ColorConstants.Background.buttonEnabled : .gray)
+				.accessibilityLabel(
+				    Text(String(localized: "pager.first.label", table: "Accessibility", bundle: .main))
+				)
 				
 				Button(action: goToPreviousPage) {
 				    Image(systemName: "chevron.left.circle")
 				}
 				.disabled(currentPageIndex <= 0)
 				.foregroundColor(currentPageIndex > 0 ? ColorConstants.Background.buttonEnabled : .gray)
+				.accessibilityLabel(
+				    Text(String(localized: "pager.prev.label", table: "Accessibility", bundle: .main))
+				)
 				
 				PageNumberView(currentPageIndex: currentPageIndex, totalPages: totalPages)
 				    .foregroundColor(.gray)
+				    .accessibilityLabel(
+						  Text(String(localized: "pager.status.label", table: "Accessibility", bundle: .main))
+					   )
+					   .accessibilityValue(
+						  Text(
+							 String(
+								format: NSLocalizedString("pager.status.value", tableName: "Accessibility", bundle: .main, comment: ""),
+								currentPageIndex + 1, totalPages
+							 )
+						  )
+					   )
 				
 				Button(action: goToNextPage) {
 				    Image(systemName: "chevron.right.circle")
 				}
 				.disabled(currentPageIndex >= totalPages - 1)
 				.foregroundColor(currentPageIndex < totalPages - 1 ? ColorConstants.Background.buttonEnabled : .gray)
+				.accessibilityLabel(
+				    Text(String(localized: "pager.next.label", table: "Accessibility", bundle: .main))
+				)
 				
 				Button(action: goToLastPage) {
 				    Image(systemName: "arrow.right.to.line")
 				}
 				.disabled(currentPageIndex >= totalPages - 1)
 				.foregroundColor(currentPageIndex < totalPages - 1 ? ColorConstants.Background.buttonEnabled : .gray)
+				.accessibilityLabel(
+				    Text(String(localized: "pager.last.label", table: "Accessibility", bundle: .main))
+				)
 			 }
 			 .padding()
 			 .background(Color.white)
@@ -131,6 +154,11 @@ struct PDFCoordinatesModalWrapper: View {
 				}) {
 				    Image(systemName: "xmark")
 				}
+				.accessibilityLabel(
+				    Text(String(localized: "annotations.close_discard.label",
+							 table: "Accessibility",
+							 bundle: .main))
+				)
 			 }
 			 
 			 ToolbarItem(placement: .principal) {
@@ -145,6 +173,12 @@ struct PDFCoordinatesModalWrapper: View {
 				Button(action: resetAnnotations) {
 				    Image(systemName: "arrow.counterclockwise")
 				}
+				.accessibilityLabel(
+				    Text(String(localized: "annotations.reset.label",
+							 table: "Accessibility",
+							 bundle: .main))
+				)
+				
 				Button(action: {
 				    if !annotations.isEmpty {
 					   presentationMode.wrappedValue.dismiss()
@@ -152,6 +186,11 @@ struct PDFCoordinatesModalWrapper: View {
 				}) {
 				    Image(systemName: "checkmark")
 				}
+				.accessibilityLabel(
+				    Text(String(localized: "annotations.confirm.label",
+							 table: "Accessibility",
+							 bundle: .main))
+				)
 			 }
 		  }
 		  .onAppear {

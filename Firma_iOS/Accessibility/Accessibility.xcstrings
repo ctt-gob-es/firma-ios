@@ -1,6 +1,36 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "annotations.close_discard.label" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerrar y descartar anotaciones"
+          }
+        }
+      }
+    },
+    "annotations.confirm.label" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confirmar anotaciones"
+          }
+        }
+      }
+    },
+    "annotations.reset.label" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restablecer anotaciones"
+          }
+        }
+      }
+    },
     "ax.option_button" : {
       "localizations" : {
         "en" : {
@@ -48,6 +78,16 @@
         }
       }
     },
+    "go_back.button.label" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volver atrás"
+          }
+        }
+      }
+    },
     "hide_password.button.label" : {
       "localizations" : {
         "es" : {
@@ -71,6 +111,66 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Selector de página. Estás en la página %d de %d. Desliza hacia la izquierda o derecha para cambiar."
+          }
+        }
+      }
+    },
+    "pager.first.label" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ir a la primera página"
+          }
+        }
+      }
+    },
+    "pager.last.label" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ir a la última página"
+          }
+        }
+      }
+    },
+    "pager.next.label" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Página siguiente"
+          }
+        }
+      }
+    },
+    "pager.prev.label" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Página anterior"
+          }
+        }
+      }
+    },
+    "pager.status.label" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estado de página"
+          }
+        }
+      }
+    },
+    "pager.status.value" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Página %d de %d"
           }
         }
       }
