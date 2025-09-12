@@ -28,7 +28,7 @@ struct DNIScanView: View {
 				.scaledToFit()
 				.padding()
 				.accessibilityLabel(
-				    Text(String(localized: "dni_scan_view.image.label", table: "Accessibility", bundle: Bundle.main))
+				    Text(NSLocalizedString("dni_scan_view.image.label", tableName: "Accessibility", bundle: Bundle.main, comment: ""))
 				)
 		  }
 	   }

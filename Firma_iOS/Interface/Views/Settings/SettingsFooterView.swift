@@ -18,14 +18,14 @@ struct SettingsFooterView: View {
 				.resizable()
 				.scaledToFit()
 				.accessibilityLabel(
-				    Text(String(localized: "ES_Financiado_UE.image.label", table: "Accessibility", bundle: Bundle.main))
+				    Text(NSLocalizedString("ES_Financiado_UE.image.label", tableName: "Accessibility", bundle: Bundle.main, comment: ""))
 				)
 
 			 Image("img_logo_PRTR")
 				.resizable()
 				.scaledToFit()
 				.accessibilityLabel(
-				    Text(String(localized: "PRTR.image.label", table: "Accessibility", bundle: Bundle.main))
+				    Text(NSLocalizedString("PRTR.image.label", tableName: "Accessibility", bundle: Bundle.main, comment: ""))
 				)
 		  }
 
@@ -34,7 +34,7 @@ struct SettingsFooterView: View {
 			 .scaledToFit()
 			 .frame(width: max(0, (availableWidth - 40) / 2))
 			 .accessibilityLabel(
-				Text(String(localized: "ED2026.image.label", table: "Accessibility", bundle: Bundle.main))
+				Text(NSLocalizedString("ED2026.image.label", tableName: "Accessibility", bundle: Bundle.main, comment: ""))
 			 )
 	   }
 	   .padding()

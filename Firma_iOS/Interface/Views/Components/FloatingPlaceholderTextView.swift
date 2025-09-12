@@ -110,8 +110,8 @@ struct FloatingPlaceholderTextField: View {
 				    .padding(.trailing, 10)
 				    .accessibilityLabel(
 					   Text(isSecureTextShown
-						   ? String(localized: "show_password.button.label", table: "Accessibility", bundle: Bundle.main)
-						   : String(localized: "hide_password.button.label", table: "Accessibility", bundle: Bundle.main))
+						   ? NSLocalizedString("show_password.button.label", tableName: "Accessibility", bundle: Bundle.main,comment: "")
+						   : NSLocalizedString("hide_password.button.label", tableName: "Accessibility", bundle: Bundle.main, comment: ""))
 				    )
 				}
 			 }

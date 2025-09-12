@@ -100,7 +100,7 @@ struct PDFCoordinatesModalWrapper: View {
 				.disabled(currentPageIndex <= 0)
 				.foregroundColor(currentPageIndex > 0 ? ColorConstants.Background.buttonEnabled : .gray)
 				.accessibilityLabel(
-				    Text(String(localized: "pager.first.label", table: "Accessibility", bundle: .main))
+				    Text(NSLocalizedString("pager.first.label", tableName: "Accessibility", bundle: .main, comment: ""))
 				)
 				
 				Button(action: goToPreviousPage) {
@@ -109,13 +109,13 @@ struct PDFCoordinatesModalWrapper: View {
 				.disabled(currentPageIndex <= 0)
 				.foregroundColor(currentPageIndex > 0 ? ColorConstants.Background.buttonEnabled : .gray)
 				.accessibilityLabel(
-				    Text(String(localized: "pager.prev.label", table: "Accessibility", bundle: .main))
+				    Text(NSLocalizedString("pager.prev.label", tableName: "Accessibility", bundle: .main, comment: ""))
 				)
 				
 				PageNumberView(currentPageIndex: currentPageIndex, totalPages: totalPages)
 				    .foregroundColor(.gray)
 				    .accessibilityLabel(
-						  Text(String(localized: "pager.status.label", table: "Accessibility", bundle: .main))
+						  Text(NSLocalizedString("pager.status.label", tableName: "Accessibility", bundle: .main, comment: ""))
 					   )
 					   .accessibilityValue(
 						  Text(
@@ -132,7 +132,7 @@ struct PDFCoordinatesModalWrapper: View {
 				.disabled(currentPageIndex >= totalPages - 1)
 				.foregroundColor(currentPageIndex < totalPages - 1 ? ColorConstants.Background.buttonEnabled : .gray)
 				.accessibilityLabel(
-				    Text(String(localized: "pager.next.label", table: "Accessibility", bundle: .main))
+				    Text(NSLocalizedString("pager.next.label", tableName: "Accessibility", bundle: .main, comment: ""))
 				)
 				
 				Button(action: goToLastPage) {
@@ -141,7 +141,7 @@ struct PDFCoordinatesModalWrapper: View {
 				.disabled(currentPageIndex >= totalPages - 1)
 				.foregroundColor(currentPageIndex < totalPages - 1 ? ColorConstants.Background.buttonEnabled : .gray)
 				.accessibilityLabel(
-				    Text(String(localized: "pager.last.label", table: "Accessibility", bundle: .main))
+				    Text(NSLocalizedString("pager.last.label", tableName: "Accessibility", bundle: .main, comment:""))
 				)
 			 }
 			 .padding()
@@ -156,9 +156,11 @@ struct PDFCoordinatesModalWrapper: View {
 				    Image(systemName: "xmark")
 				}
 				.accessibilityLabel(
-				    Text(String(localized: "annotations.close_discard.label",
-							 table: "Accessibility",
-							 bundle: .main))
+				    Text(NSLocalizedString("annotations.close_discard.label",
+							 tableName: "Accessibility",
+							 bundle: .main,
+					    comment:"")
+					    )
 				)
 			 }
 			 
@@ -175,9 +177,10 @@ struct PDFCoordinatesModalWrapper: View {
 				    Image(systemName: "arrow.counterclockwise")
 				}
 				.accessibilityLabel(
-				    Text(String(localized: "annotations.reset.label",
-							 table: "Accessibility",
-							 bundle: .main))
+				    Text(NSLocalizedString("annotations.reset.label",
+							 tableName: "Accessibility",
+							 bundle: .main,
+							 comment:""))
 				)
 				
 				Button(action: {
@@ -188,9 +191,10 @@ struct PDFCoordinatesModalWrapper: View {
 				    Image(systemName: "checkmark")
 				}
 				.accessibilityLabel(
-				    Text(String(localized: "annotations.confirm.label",
-							 table: "Accessibility",
-							 bundle: .main))
+				    Text(NSLocalizedString("annotations.confirm.label",
+							 tableName: "Accessibility",
+							 bundle: .main,
+							 comment:""))
 				)
 			 }
 		  }

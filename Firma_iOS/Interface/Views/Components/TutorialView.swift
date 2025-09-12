@@ -34,7 +34,18 @@ struct TutorialView: View {
 
 		  PageControl(numberOfPages: viewModel.numberOfPages, currentPage: $currentPage)
 			 .padding(.vertical)
-			 .accessibility(label: Text("\(viewModel.currentPage + 1) of \(viewModel.numberOfPages)"))
+			 .accessibilityLabel(
+				Text(
+				    String(
+					   format: NSLocalizedString("page_control.label",
+										    tableName: "Accessibility",
+										    bundle: .main,
+										    comment: ""),
+					   currentPage + 1,
+					   viewModel.numberOfPages
+				    )
+				)
+			 )
 
 		  Button(action: viewModel.buttonAction) {
 			 AccessibleText(content: viewModel.buttonText)

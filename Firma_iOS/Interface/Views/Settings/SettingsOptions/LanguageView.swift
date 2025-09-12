@@ -79,7 +79,7 @@ struct LanguageCell: View {
 	   }
 	   .buttonStyle(.plain)
 	   .accessibilityElement(children: .ignore)
-	   .accessibilityLabel(Text(language + String(localized: "ax.option_button", table: "Accessibility", bundle: Bundle.main)))
+	   .accessibilityLabel(Text(language + NSLocalizedString("ax.option_button", tableName: "Accessibility", bundle: Bundle.main, comment: "")))
 	   .accessibilityAddTraits(isSelected ? .isSelected : [])
     }
 }
