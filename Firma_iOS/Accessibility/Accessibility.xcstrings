@@ -57,6 +57,16 @@
         }
       }
     },
+    "button_delete_certificate" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eliminar certificado electrónico: %@"
+          }
+        }
+      }
+    },
     "can.textfield.label" : {
       "localizations" : {
         "es" : {
@@ -128,12 +138,42 @@
         }
       }
     },
-    "go_back.button.label" : {
+    "go_back_to_can.button.label" : {
       "localizations" : {
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Volver atrás"
+            "value" : "Volver al paso de introducir CAN"
+          }
+        }
+      }
+    },
+    "go_back_to_home.button.label" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volver al inicio del proceso de firma"
+          }
+        }
+      }
+    },
+    "go_back_to_pin.button.label" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volver al paso de introducir PIN"
+          }
+        }
+      }
+    },
+    "go_back.dniview.button.label" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancelar proceso de firma utilizando DNI electrónico"
           }
         }
       }
@@ -303,6 +343,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mostrar contraseña"
+          }
+        }
+      }
+    },
+    "sign_with_certificate.button.hint" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Firmar con certificado electrónico"
+          }
+        }
+      }
+    },
+    "sign_with_dni.button.hint.disabled" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Firmar con DNI electrónico deshabilitado"
+          }
+        }
+      }
+    },
+    "sign_with_dni.button.hint.enabled" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Firmar con DNI electrónico"
           }
         }
       }

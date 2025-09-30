@@ -1485,6 +1485,7 @@
       }
     },
     "Checked" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -10388,6 +10389,7 @@
       }
     },
     "Toggle" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -10508,6 +10510,7 @@
       }
     },
     "Unchecked" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
