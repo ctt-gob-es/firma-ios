@@ -42,6 +42,7 @@ struct ErrorModalView: View {
                                     .scaledToFit()
                                     .frame(width: 64, height: 64)
                                     .padding(.horizontal)
+							 .accessibilityHidden(true)
                             }
                             
                             Spacer()
