@@ -33,34 +33,55 @@ struct SignModalView: View {
                     }
                     
                     VStack(alignment: .leading, spacing: 20) {
-                        HStack {
-                            Image("documents")
-                                .foregroundColor(ColorConstants.Background.buttonEnabled)
-						  .accessibilityHidden(true)
-                            AccessibleText(content: NSLocalizedString("sign_with_certificate", bundle: Bundle.main, comment: ""))
-                                .regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
-                        }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .onTapGesture {
-                            self.presentationMode.wrappedValue.dismiss()
-                            certificateSignAction = true
-                        }
-                        
-                        HStack {
-                            Image("credit-card")
-                                .foregroundColor(isNfcEnabled ? ColorConstants.Background.buttonEnabled : Color.gray)
-						  .accessibilityHidden(true) 
-                            AccessibleText(content: NSLocalizedString("sign_with_dni", bundle: Bundle.main, comment: ""))
-                                .regularBoldStyle(foregroundColor: isNfcEnabled ? ColorConstants.Text.primary : Color.gray)
-                        }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .onTapGesture {
-                            if isNfcEnabled {
-                                self.presentationMode.wrappedValue.dismiss()
-                                dniSignAction = true
-                            }
-                        }
-                        .disabled(!isNfcEnabled)
+				    
+				    // Certificate
+				    Button(action: {
+					   self.presentationMode.wrappedValue.dismiss()
+					   certificateSignAction = true
+				    }) {
+					   HStack {
+						  Image("documents")
+							 .foregroundColor(ColorConstants.Background.buttonEnabled)
+							 .accessibilityHidden(true)
+
+						  AccessibleText(content: NSLocalizedString("sign_with_certificate", bundle: .main, comment: ""))
+							 .regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
+							 .accessibilityHidden(true)
+					   }
+					   .frame(maxWidth: .infinity, alignment: .leading)
+				    }
+				    .buttonStyle(.plain)
+				    .accessibilityElement(children: .ignore)
+				    .accessibilityHint(Text(NSLocalizedString("sign_with_certificate.button.hint", tableName: "Accessibility", bundle: .main, comment: "")))
+
+				    // DNIe
+				    Button(action: {
+					   if isNfcEnabled {
+						  self.presentationMode.wrappedValue.dismiss()
+						  dniSignAction = true
+					   }
+				    }) {
+					   HStack {
+						  Image("credit-card")
+							 .foregroundColor(isNfcEnabled ? ColorConstants.Background.buttonEnabled : .gray)
+							 .accessibilityHidden(true)
+
+						  AccessibleText(content: NSLocalizedString("sign_with_dni", bundle: .main, comment: ""))
+							 .regularBoldStyle(foregroundColor: isNfcEnabled ? ColorConstants.Text.primary : .gray)
+							 .accessibilityHidden(true)
+					   }
+					   .frame(maxWidth: .infinity, alignment: .leading)
+				    }
+				    .buttonStyle(.plain)
+				    .disabled(!isNfcEnabled)
+				    .accessibilityElement(children: .ignore)
+				    .accessibilityHint(
+					   Text(
+						  isNfcEnabled
+						  ? NSLocalizedString("sign_with_dni.button.hint.enabled", tableName: "Accessibility", bundle: .main, comment: "")
+						  : NSLocalizedString("sign_with_dni.button.hint.disabled", tableName: "Accessibility", bundle: .main, comment: "")
+					   )
+				    )
                     }
                     Spacer()
                 }
