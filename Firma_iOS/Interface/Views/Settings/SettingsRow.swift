@@ -37,6 +37,10 @@ struct SettingsRow: View {
 			 .foregroundColor(ColorConstants.Text.accent)
 	   }
 	   .padding(.vertical, 8)
+	   .accessibilityElement(children: .ignore)
+	   .accessibilityLabel(Text(text))
+	   .accessibilityValue(Text(detailText ?? ""))
+	   .accessibilityAddTraits(.isButton)
     }
 }
 
