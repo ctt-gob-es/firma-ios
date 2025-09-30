@@ -58,6 +58,14 @@ struct DNIView: View {
 				    Image("backbutton")
 				}
 			 }
+			 .accessibilityLabel(
+				Text(
+				    NSLocalizedString("go_back.dniview.button.label",
+					   tableName: "Accessibility",
+					   bundle: .main,
+					   comment: "")
+				)
+			 )
 		  }
 	   }
     }

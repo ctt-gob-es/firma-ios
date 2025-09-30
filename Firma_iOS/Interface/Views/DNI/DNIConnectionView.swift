@@ -77,7 +77,9 @@ struct DNIConnectionView: View {
 		  .padding(.bottom, 4)
 	   )
 	   .navigationBarItems(leading: HStack(spacing: 4) {
-            NavigationBarButton(imageName: "backbutton", accesibilityLabel: NSLocalizedString("go_back", comment: ""), action: {
+            NavigationBarButton(imageName: "backbutton",
+						  accesibilityLabel: backButtonAXLabel(for: step),
+						  action: {
 			 if step == .canStep {
 				isPresented = false
 			 } else if step == .pinStep {
@@ -222,5 +224,25 @@ struct DNIConnectionView: View {
 		  .sink { newValue in
 			 showTextfieldModal = newValue
 		  }
+    }
+    
+    private func backButtonAXLabel(for step: DNIConnectionSteps) -> String {
+	   switch step {
+		  case .canStep:
+			 return NSLocalizedString("go_back_to_home.button.label",
+								 tableName: "Accessibility",
+								 bundle: .main,
+								 comment: "")
+		  case .pinStep:
+			 return NSLocalizedString("go_back_to_can.button.label",
+								 tableName: "Accessibility",
+								 bundle: .main,
+								 comment: "")
+		  case .nfcStep:
+			 return NSLocalizedString("go_back_to_pin.button.label",
+								 tableName: "Accessibility",
+								 bundle: .main,
+								 comment: "")
+	   }
     }
 }
