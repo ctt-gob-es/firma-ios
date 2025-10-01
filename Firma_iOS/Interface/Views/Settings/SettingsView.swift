@@ -8,47 +8,54 @@ struct SettingsView: View {
     }
     
     var body: some View {
-	   VStack(spacing: 0) {
-		  List {
-			 ForEach(createSettingsSections()) { section in
-				Section(header: SettingsHeaderView(title: section.header)) {
-				    ForEach(section.rows) { row in
-					   ZStack {
-						  SettingsRow(
-							 icon: row.icon,
-							 text: row.text,
-							 detailText: row.detailText
-						  )
-						  NavigationLink(destination: row.destination) {
-							 EmptyView()
+	   GeometryReader { geometry in
+		  let isLandscape = geometry.size.width > geometry.size.height
+		  let footerMaxHeight = isLandscape ? geometry.size.height * 0.30 : geometry.size.height * 0.15
+		  
+		  VStack(spacing: 0) {
+			 List {
+				ForEach(createSettingsSections()) { section in
+				    Section(header: SettingsHeaderView(title: section.header)) {
+					   ForEach(section.rows) { row in
+						  ZStack {
+							 SettingsRow(
+								icon: row.icon,
+								text: row.text,
+								detailText: row.detailText
+							 )
+							 NavigationLink(destination: row.destination) {
+								EmptyView()
+							 }
+							 .opacity(0)
 						  }
-						  .opacity(0)
-					   }
-					   .alignmentGuide(.listRowSeparatorLeading) { viewDimensions in
-						  return -100
+						  .alignmentGuide(.listRowSeparatorLeading) { _ in -100 }
 					   }
 				    }
 				}
 			 }
-		  }
-		  .buttonStyle(.plain)
-		  .tint(ColorConstants.Text.accent)
-		  .listStyle(GroupedListStyle())
-		  .background {
-			 Color.white
-		  }
-		  .scrollContentBackground(.hidden)
-		  .onAppear {
-			 let savedLanguageCode = UserDefaults.standard.string(forKey: "appLanguage") ?? Locale.current.language.languageCode?.identifier ?? "es"
-			 self.currentLanguage = savedLanguageCode
-		  }
-		  
-		  SettingsFooterView()
-			 .frame(maxWidth: .infinity)
+			 .buttonStyle(.plain)
+			 .tint(ColorConstants.Text.accent)
+			 .listStyle(GroupedListStyle())
 			 .background(Color.white)
+			 .scrollContentBackground(.hidden)
+			 .onAppear {
+				let savedLanguageCode = UserDefaults.standard.string(forKey: "appLanguage")
+				    ?? Locale.current.language.languageCode?.identifier
+				    ?? "es"
+				self.currentLanguage = savedLanguageCode
+			 }
+			 
+			 // Footer con altura dinámica
+			 SettingsFooterView()
+				.frame(maxWidth: .infinity, maxHeight: footerMaxHeight)
+				.background(Color.white)
+		  }
+		  .background(Color.white.edgesIgnoringSafeArea(.all))
+		  .navigationBarTitle(
+			 NSLocalizedString("settings_title", bundle: Bundle.main, comment: ""),
+			 displayMode: .inline
+		  )
 	   }
-	   .background(Color.white.edgesIgnoringSafeArea(.all))
-	   .navigationBarTitle(NSLocalizedString("settings_title", bundle: Bundle.main, comment: ""), displayMode: .inline)
     }
     
     func loadSavedLanguage() -> LocalizedLanguage{

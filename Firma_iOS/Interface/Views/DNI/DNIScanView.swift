@@ -23,10 +23,7 @@ struct DNIScanView: View {
 			 .accessibilityLabel(Text(NSLocalizedString("dni_connection_nfc_description_1", bundle: Bundle.main, comment: "")) + Text(NSLocalizedString("dni_connection_nfc_description_2", bundle: Bundle.main, comment: "")) +
 							 Text(NSLocalizedString("dni_connection_nfc_description_3", bundle: Bundle.main, comment: "")))
 			 
-			 Image("nfc_sample")
-				.resizable()
-				.scaledToFit()
-				.padding()
+			 DNIResponsiveImageView(imageName: "nfc_sample")
 				.accessibilityLabel(
 				    Text(NSLocalizedString("dni_scan_view.image.label", tableName: "Accessibility", bundle: Bundle.main, comment: ""))
 				)

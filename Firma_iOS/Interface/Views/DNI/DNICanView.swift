@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct DNICanView: View {
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    
     @Binding var buttonEnabled: Bool
     @Binding var showError: Bool
     @Binding var can: String
@@ -42,10 +44,7 @@ struct DNICanView: View {
 			 )
 			 .padding(.vertical)
 			 
-			 Image("dni_sample")
-				.resizable()
-				.scaledToFit()
-				.padding()
+			 DNIResponsiveImageView(imageName: "dni_sample")
 				.accessibilityHidden(true)
 		  }
 	   }

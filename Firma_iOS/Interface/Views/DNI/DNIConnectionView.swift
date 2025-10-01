@@ -12,6 +12,8 @@ import Combine
 struct DNIConnectionView: View {
     @EnvironmentObject private var appStatus : AppStatus
     @Environment(\.presentationMode) var presentationMode
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    
     @Binding var isPresented: Bool
     
     @State private var contentSheetHeight: CGFloat = 0
@@ -32,34 +34,55 @@ struct DNIConnectionView: View {
     @State private var nfcCancellable: AnyCancellable?
     @State var isLocalSign: Bool
     
+    private var isLandscape: Bool {
+	   horizontalSizeClass == .regular
+    }
+    
     var body: some View {
-	   VStack {
-		  DNIStepHeaderView(step: $step)
+	   GeometryReader { geometry in
+		  let isLandscape = geometry.size.width > geometry.size.height
 		  
-		  if step == .canStep {
-			 DNICanView(
-				buttonEnabled: $buttonEnabled,
-				showError: $showFieldError,
-				can: $can
-			 )
-		  } else if step == .pinStep {
-			 DNIPinView(
-				pin: $pin
-			 )
-		  } else if step == .nfcStep {
-			 DNIScanView()
-		  }
-		  
-		  Spacer()
-		  
-		  Button(action: {
-			 if buttonEnabled {
-				doStep()
+		  VStack(spacing: 0) {
+			 if isLandscape {
+				ScrollView(.vertical) {
+				    VStack(alignment: .leading, spacing: 16) {
+					   DNIStepHeaderView(step: $step)
+						  .frame(maxWidth: .infinity, alignment: .leading)
+
+					   stepContent()
+						  .padding(.horizontal)
+				    }
+				}
+				.ignoresSafeArea(.container, edges: .horizontal)
+				.frame(maxWidth: .infinity, maxHeight: .infinity)
+				
+				Button(action: {
+				    if buttonEnabled {
+					   doStep()
+				    }
+				}) {
+				    AccessibleText(content: step.buttonTitle)
+				}
+				.buttonStyle(CustomButtonStyle(isEnabled: buttonEnabled))
+			 } else {
+				DNIStepHeaderView(step: $step)
+				
+				stepContent()
+				    .padding(.top)
+				
+				Spacer()
+				
+				Button(action: {
+				    if buttonEnabled {
+					   doStep()
+				    }
+				}) {
+				    AccessibleText(content: step.buttonTitle)
+				}
+				.buttonStyle(CustomButtonStyle(isEnabled: buttonEnabled))
+				.padding()
 			 }
-		  }) {
-			 AccessibleText(content: step.buttonTitle)
 		  }
-		  .buttonStyle(CustomButtonStyle(isEnabled: buttonEnabled))
 	   }
 	   .onAppear() {
 		  onAppear()
@@ -74,6 +97,7 @@ struct DNIConnectionView: View {
                 }
 		  })
 	   }
+		  .padding(.top, isLandscape ? 8 : 0)
 		  .padding(.bottom, 4)
 	   )
 	   .navigationBarItems(leading: HStack(spacing: 4) {
@@ -89,6 +113,7 @@ struct DNIConnectionView: View {
 			 }
 		  })
 	   }
+		  .padding(.top, isLandscape ? 8 : 0)
 		  .padding(.bottom, 4)
 	   )
 	   .sheet(isPresented: $isSearching) {
@@ -169,6 +194,22 @@ struct DNIConnectionView: View {
 		  } else {
 			 print("No user info available in the notification")
 		  }
+	   }
+    }
+    
+    @ViewBuilder
+    private func stepContent() -> some View {
+	   switch step {
+	   case .canStep:
+		  DNICanView(
+			 buttonEnabled: $buttonEnabled,
+			 showError: $showFieldError,
+			 can: $can
+		  )
+	   case .pinStep:
+		  DNIPinView(pin: $pin)
+	   case .nfcStep:
+		  DNIScanView()
 	   }
     }
     

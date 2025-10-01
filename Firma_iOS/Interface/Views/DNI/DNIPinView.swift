@@ -32,7 +32,7 @@ struct DNIPinView: View {
 			 )
 			 .padding(.vertical)
 			 
-			 Image("email_sample")
+			 DNIResponsiveImageView(imageName: "email_sample")
 				.accessibilityHidden(true)
 		  }
 		  .dismissKeyboardOnTap()

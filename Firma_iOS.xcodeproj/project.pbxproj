@@ -42,6 +42,7 @@
 		832037682C661FA700755F7E /* DeleteHistoricalModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832037672C661FA700755F7E /* DeleteHistoricalModalView.swift */; };
 		8320376A2C6645FA00755F7E /* TextfieldModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832037692C6645F900755F7E /* TextfieldModalView.swift */; };
 		83208C9B2E740F1A009BBCE8 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83208C9A2E740F15009BBCE8 /* View+Extension.swift */; };
+		83208C9F2E8D5267009BBCE8 /* DNIResponsiveImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83208C9E2E8D5267009BBCE8 /* DNIResponsiveImageView.swift */; };
 		8325D3782CAADD17007224E9 /* CeresLoadDataApduCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 8325C9032CAADD16007224E9 /* CeresLoadDataApduCommand.m */; };
 		8325D3792CAADD17007224E9 /* CeresSignDataApduCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 8325C9052CAADD16007224E9 /* CeresSignDataApduCommand.m */; };
 		8325D37A2CAADD17007224E9 /* CeresVerifyApduCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 8325C9072CAADD16007224E9 /* CeresVerifyApduCommand.m */; };
@@ -1651,6 +1652,7 @@
 		832037672C661FA700755F7E /* DeleteHistoricalModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteHistoricalModalView.swift; sourceTree = "<group>"; };
 		832037692C6645F900755F7E /* TextfieldModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextfieldModalView.swift; sourceTree = "<group>"; };
 		83208C9A2E740F15009BBCE8 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		83208C9E2E8D5267009BBCE8 /* DNIResponsiveImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNIResponsiveImageView.swift; sourceTree = "<group>"; };
 		8325C9022CAADD16007224E9 /* CeresLoadDataApduCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CeresLoadDataApduCommand.h; sourceTree = "<group>"; };
 		8325C9032CAADD16007224E9 /* CeresLoadDataApduCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CeresLoadDataApduCommand.m; sourceTree = "<group>"; };
 		8325C9042CAADD16007224E9 /* CeresSignDataApduCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CeresSignDataApduCommand.h; sourceTree = "<group>"; };
@@ -9184,6 +9186,7 @@
 		83FC0C3E2C47F83A00BBB5A8 /* DNI */ = {
 			isa = PBXGroup;
 			children = (
+				83208C9E2E8D5267009BBCE8 /* DNIResponsiveImageView.swift */,
 				83FC0C3F2C47F84700BBB5A8 /* DNIView.swift */,
 				83FC0C412C47F86B00BBB5A8 /* DNICompatibleModalView.swift */,
 				83FC0C432C48010E00BBB5A8 /* DNIConnectionView.swift */,
@@ -10914,6 +10917,7 @@
 				8325D43B2CAADD17007224E9 /* MalformedMrzException.m in Sources */,
 				8325D4172CAADD17007224E9 /* Dnie.m in Sources */,
 				8325D5422CAADD17007224E9 /* ConstructedBitStream.m in Sources */,
+				83208C9F2E8D5267009BBCE8 /* DNIResponsiveImageView.swift in Sources */,
 				8325D5C82CAADD18007224E9 /* PKCS7Padding.m in Sources */,
 				8325D38F2CAADD17007224E9 /* GetChallengeApduCommand.m in Sources */,
 				8325D4A52CAADD17007224E9 /* MiscObjectIdentifiers.m in Sources */,
