@@ -16,7 +16,7 @@ struct AddCertificateView: View {
     
     var body: some View {
 	   VStack {
-		  VStack(alignment: .center, spacing: 20) {
+		  VStack(alignment: .leading, spacing: 20) {
 			 VStack(alignment: .leading) {
 				AccessibleText(content: NSLocalizedString("add_certificates_title", bundle: Bundle.main, comment: ""))
 				    .titleStyleBlack(foregroundColor: ColorConstants.Text.primary)
