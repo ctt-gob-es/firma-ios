@@ -448,6 +448,7 @@ class HomeViewModel: ObservableObject {
 				self.successModalState = .successCertificateSent
 				self.showSuccessModal = true
 				self.areCertificatesSelectable = false
+				self.resetHomeViewModelVariables()
 			 }
 		  }
 	   }
@@ -786,8 +787,8 @@ class HomeViewModel: ObservableObject {
 	   
 	   DispatchQueue.main.async {
 		  self.selectElectronicCertificate = false
-          self.showSignCoordinatesModal = false
-          self.appStatus.showDocumentImportingPicker = false
+		  self.showSignCoordinatesModal = false
+		  self.appStatus.showDocumentImportingPicker = false
 		  self.selectDNIe = false
 		  self.viewMode = .home
 		  self.areCertificatesSelectable = false
