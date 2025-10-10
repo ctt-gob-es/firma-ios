@@ -29,7 +29,6 @@ struct LanguageView: View {
 				    selectedLanguage = language.name
 				    UserDefaults.standard.set(language.code, forKey: "appLanguage")
 				    Bundle.setLanguage(language.code)
-				    appStatus.languageHasChanged = true
 				}
 			 )
 			 .listRowSeparator(.hidden)

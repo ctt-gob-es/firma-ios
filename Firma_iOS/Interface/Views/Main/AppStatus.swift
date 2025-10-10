@@ -29,7 +29,6 @@ class AppStatus: ObservableObject {
     @Published var selectedCertificate: AOCertificateInfo? = nil
     @Published var importedDataArchiveName: String? = nil
     @Published var shouldUseNFC: Bool? = false
-    @Published var languageHasChanged: Bool? = false
     @Published var updateNeeded: Bool = false
     @Published var connectionError: Bool = false
     @Published var navigateToSelectCertificate = false
