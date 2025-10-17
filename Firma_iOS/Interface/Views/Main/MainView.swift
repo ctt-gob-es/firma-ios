@@ -11,6 +11,8 @@ import SwiftUI
 struct ParentView: View {
     
     @EnvironmentObject var appStatus: AppStatus
+    @AppStorage("appLanguage") private var appLanguage: String = Locale.preferredLanguages.first ?? "es"
+    
     let viewMode: ViewModes?
     let urlReceived: URL?
     
@@ -20,21 +22,12 @@ struct ParentView: View {
     }
     
     var body: some View {
-	   let code: String = {
-		  if let saved = UserDefaults.standard.string(forKey: "appLanguage") {
-			 return saved
-		  } else {
-			 return Locale.preferredLanguages.first ?? "es"
-		  }
-	   }()
-	   
         VStack {
             MainView(viewModel: MainViewModel(viewMode: viewMode ?? .home, urlReceived: urlReceived))
 			 .environmentObject(appStatus)
-			 .appLocale(code)
+			 .appLocale(appLanguage)
         }
     }
-    
 }
 
 struct MainView: View {

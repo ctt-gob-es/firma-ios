@@ -35,7 +35,8 @@ import SwiftUI
 		  .environmentObject(AppStatus.shared)
 	   
 	   let hostingController = UIHostingController(rootView: contentView)
-	   
+	   hostingController.modalPresentationStyle = .fullScreen
+	   self.navigationController?.modalPresentationStyle = .fullScreen
 	   addChild(hostingController)
     
 	   view.addSubview(hostingController.view)
