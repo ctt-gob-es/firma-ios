@@ -1482,6 +1482,7 @@
 		83C0ECC62C415A4B00244071 /* InfoModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0ECC52C415A4B00244071 /* InfoModalView.swift */; };
 		83C0ECC92C44F77900244071 /* DeleteCertificateModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0ECC82C44F77900244071 /* DeleteCertificateModalView.swift */; };
 		83C0ECCB2C44F89600244071 /* CertificateCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0ECCA2C44F89600244071 /* CertificateCellView.swift */; };
+		83CC68932EA223C300B42240 /* DeviceUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CC68922EA223C300B42240 /* DeviceUtils.swift */; };
 		83D3900A2CA544BA00D16BA6 /* LogUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D390092CA544BA00D16BA6 /* LogUtils.swift */; };
 		83D3900C2CA5455200D16BA6 /* ByteArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D3900B2CA5455200D16BA6 /* ByteArrayUtils.swift */; };
 		83DB24802CBFCD6900D1DD8C /* HomeViewBindings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DB247F2CBFCD6900D1DD8C /* HomeViewBindings.swift */; };
@@ -4457,6 +4458,7 @@
 		83C0ECC52C415A4B00244071 /* InfoModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModalView.swift; sourceTree = "<group>"; };
 		83C0ECC82C44F77900244071 /* DeleteCertificateModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCertificateModalView.swift; sourceTree = "<group>"; };
 		83C0ECCA2C44F89600244071 /* CertificateCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateCellView.swift; sourceTree = "<group>"; };
+		83CC68922EA223C300B42240 /* DeviceUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceUtils.swift; sourceTree = "<group>"; };
 		83D390092CA544BA00D16BA6 /* LogUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogUtils.swift; sourceTree = "<group>"; };
 		83D3900B2CA5455200D16BA6 /* ByteArrayUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByteArrayUtils.swift; sourceTree = "<group>"; };
 		83DB247F2CBFCD6900D1DD8C /* HomeViewBindings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewBindings.swift; sourceTree = "<group>"; };
@@ -4682,6 +4684,7 @@
 		8309F6A52D0189CC00F15CD9 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
+				83CC68922EA223C300B42240 /* DeviceUtils.swift */,
 				83208C9A2E740F15009BBCE8 /* View+Extension.swift */,
 				8326F2492D4386C800B5ED73 /* HistoricalUtils.swift */,
 				833C1E0E2CA2B6F600DFF6CD /* PadesUtilsSwift.swift */,
@@ -10235,6 +10238,7 @@
 				8325D46E2CAADD17007224E9 /* AbstractApduConnectionIso7816.m in Sources */,
 				8325D62C2CAADD18007224E9 /* JcaJceHelper.m in Sources */,
 				8325D7782CAADD18007224E9 /* HashFunctions.m in Sources */,
+				83CC68932EA223C300B42240 /* DeviceUtils.swift in Sources */,
 				8325D6442CAADD18007224E9 /* Curve25519FieldElement.m in Sources */,
 				83AF00012CA2C95D00A26C0F /* ESSCertIDIOS.c in Sources */,
 				8325D5332CAADD17007224E9 /* BERBitString.m in Sources */,
