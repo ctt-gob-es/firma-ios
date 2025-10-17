@@ -72,25 +72,25 @@ struct SettingsView: View {
 		  SettingsSection(
 			 header: NSLocalizedString("settings_my_config_title", bundle: Bundle.main, comment: ""),
 			 rows: [
-				SettingsRowItem(icon: "flag", text: NSLocalizedString("settings_language_row", bundle: Bundle.main, comment: ""), detailText: currentLanguage.uppercased(), destination: AnyView(LanguageView())),
-				SettingsRowItem(icon: "gearshape", text: NSLocalizedString("settings_permission_row", bundle: Bundle.main, comment: ""), detailText: nil, destination: AnyView(PermissionsView()))
+				SettingsRowItem(icon: "flag", text: NSLocalizedString("settings_language_row", bundle: Bundle.main, comment: ""), detailText: currentLanguage, destination: AnyView(LanguageView())),
+				SettingsRowItem(icon: "gearshape", text: NSLocalizedString("settings_permission_row", bundle: Bundle.main, comment: ""), destination: AnyView(PermissionsView()))
 			 ]
 		  ),
 		  SettingsSection(
 			 header: NSLocalizedString("settings_help_title", bundle: Bundle.main, comment: ""),
 			 rows: [
-				SettingsRowItem(icon: "questionmark.circle", text: NSLocalizedString("settings_faq_row", bundle: Bundle.main, comment: ""), detailText: nil, destination: AnyView(FAQView())),
-				SettingsRowItem(icon: "tray", text: NSLocalizedString("settings_install_certificate_row", bundle: Bundle.main, comment: ""), detailText: nil, destination: AnyView(InstallCertificateView()))
+				SettingsRowItem(icon: "questionmark.circle", text: NSLocalizedString("settings_faq_row", bundle: Bundle.main, comment: ""), destination: AnyView(FAQView())),
+				SettingsRowItem(icon: "tray", text: NSLocalizedString("settings_install_certificate_row", bundle: Bundle.main, comment: ""), destination: AnyView(InstallCertificateView()))
 			 ]
 		  ),
 		  SettingsSection(
 			 header: NSLocalizedString("settings_general_info_title", bundle: Bundle.main, comment: ""),
 			 rows: [
-				SettingsRowItem(icon: "clock", text: NSLocalizedString("settings_historical_row", bundle: Bundle.main, comment: ""), detailText: nil, destination: AnyView(HistoricalView())),
-                    SettingsRowItem(icon: "accessibility", text: NSLocalizedString("settings_accesibility_info_row", bundle: Bundle.main, comment: ""), detailText: nil, destination: AnyView(WebView(settingKey: .accesibility))),
-				SettingsRowItem(icon: "shield", text: NSLocalizedString("settings_legal_advice_row", bundle: Bundle.main, comment: ""), detailText: nil, destination: AnyView(LegalAdviceView(selectedLanguage: self.loadSavedLanguage()))),
-                    SettingsRowItem(icon: "lock", text: NSLocalizedString("settings_privacy_policy_row", bundle: Bundle.main, comment: ""), detailText: nil, destination: AnyView(PrivacyPolicyView(selectedLanguage: self.loadSavedLanguage()))),
-                    SettingsRowItem(icon: "iphone", text:String(format: NSLocalizedString("settings_version_row", bundle: Bundle.main, comment: ""), Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""), detailText: nil, destination: AnyView(VersionView()))
+				SettingsRowItem(icon: "clock", text: NSLocalizedString("settings_historical_row", bundle: Bundle.main, comment: ""), destination: AnyView(HistoricalView())),
+                    SettingsRowItem(icon: "accessibility", text: NSLocalizedString("settings_accesibility_info_row", bundle: Bundle.main, comment: ""), destination: AnyView(WebView(settingKey: .accesibility))),
+				SettingsRowItem(icon: "shield", text: NSLocalizedString("settings_legal_advice_row", bundle: Bundle.main, comment: ""), destination: AnyView(LegalAdviceView(selectedLanguage: self.loadSavedLanguage()))),
+                    SettingsRowItem(icon: "lock", text: NSLocalizedString("settings_privacy_policy_row", bundle: Bundle.main, comment: ""), destination: AnyView(PrivacyPolicyView(selectedLanguage: self.loadSavedLanguage()))),
+                    SettingsRowItem(icon: "iphone", text:String(format: NSLocalizedString("settings_version_row", bundle: Bundle.main, comment: ""), Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""), destination: AnyView(VersionView()))
 			 ]
 		  )
 	   ]

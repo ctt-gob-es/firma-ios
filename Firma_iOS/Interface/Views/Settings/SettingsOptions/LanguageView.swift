@@ -7,7 +7,6 @@
 //
 import SwiftUI
 
-
 struct LocalizedLanguage: Identifiable {
     let id = UUID()
     let name: String
@@ -35,7 +34,7 @@ struct LanguageView: View {
 		  }
 		  .listRowBackground(Color.white)
 	   }
-	   .navigationTitle(NSLocalizedString("language_title", bundle: Bundle.main, comment: ""))
+	   .navigationBarTitle(NSLocalizedString("language_title", bundle: Bundle.main, comment: ""), displayMode: .inline)
 	   .listStyle(PlainListStyle())
 	   .background(Color.white.edgesIgnoringSafeArea(.all))
 	   .onAppear {
@@ -64,7 +63,7 @@ struct LanguageCell: View {
 				if isSelected {
 				    Image(systemName: "checkmark")
 					   .foregroundColor(ColorConstants.Text.accent)
-					   .accessibilityHidden(true) // icono decorativo
+					   .accessibilityHidden(true)
 				}
 			 }
 			 .padding()
