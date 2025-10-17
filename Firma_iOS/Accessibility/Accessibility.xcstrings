@@ -230,6 +230,16 @@
         }
       }
     },
+    "opens_in_new_window.hint" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abre en ventana nueva"
+          }
+        }
+      }
+    },
     "page_control.label" : {
       "extractionState" : "manual",
       "localizations" : {

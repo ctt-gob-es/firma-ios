@@ -21,6 +21,7 @@ struct DNICompatibleModalView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 64, height: 64)
+					   .accessibilityHidden(true)
                         Spacer()
                     }
                     .padding(.leading)
@@ -61,7 +62,13 @@ struct DNICompatibleModalView: View {
                                 .underline()
                         }
                         .padding([.horizontal,.bottom])
-                        
+				    .accessibilityLabel(
+					   Text(NSLocalizedString("dni_compatible_view_web_portal_button", bundle: .main, comment: ""))
+				    )
+				    .accessibilityHint(
+					   Text(NSLocalizedString("opens_in_new_window.hint", tableName: "Accessibility", bundle: .main, comment: ""))
+				    )
+				    .accessibilityAddTraits(.isLink)
                         
                         Button(action: {
                             self.presentationMode.wrappedValue.dismiss()
