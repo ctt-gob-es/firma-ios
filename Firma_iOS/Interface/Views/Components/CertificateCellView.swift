@@ -33,6 +33,8 @@ struct CertificateCellView: View {
 			 appStatus.selectedCertificate = certificateInfo
 		  } label: {
 			 header
+				.accessibilityHidden(true)
+				.contentShape(Rectangle())
 		  }
 		  .buttonStyle(.plain)
 		  .accessibilityElement(children: .ignore)
