@@ -1,10 +1,18 @@
+//
+//  MainViewController.swift
+//  Cliente @firma
+//
+//  Created by Desarrollo Abamobile on 11/7/24.
+//  Copyright © 2024 Solid GEAR. All rights reserved.
+//
+
 import SwiftUI
 
 struct OnboardingView: View {
     var body: some View {
 	   NavigationView {
 		  ZStack {
-			 ColorConstants.Background.main.edgesIgnoringSafeArea(.all)
+			 ColorConstants.Background.main.ignoresSafeArea(.all)
 			 
 			 VStack(spacing: 20) {
 				Spacer()
@@ -13,39 +21,34 @@ struct OnboardingView: View {
 				    .resizable()
 				    .scaledToFit()
 				    .frame(height: 200)
+				    .accessibilityHidden(true)
 				
-				AccessibleText(content: NSLocalizedString("onboarding_title",bundle: Bundle.main ,comment: ""))
+				AccessibleText(content: NSLocalizedString("onboarding_title", bundle: .main, comment: ""))
 				    .titleStyleBlack(
 					   foregroundColor: ColorConstants.Text.primary,
 					   alignment: .center
 				    )
 				    .accessibilityAddTraits(.isHeader)
 				
-				AccessibleText(content: NSLocalizedString("onboarding_message",bundle: Bundle.main ,comment: ""))
+				AccessibleText(content: NSLocalizedString("onboarding_message", bundle: .main, comment: ""))
 				    .regularStyle(
 					   foregroundColor: ColorConstants.Text.onboarding,
 					   alignment: .center
 				    )
+				    .multilineTextAlignment(.center)
 				
 				Spacer()
 				
-				VStack {
-				    NavigationLink(destination: IntroPolicyView()) {
-					   AccessibleText(content: NSLocalizedString("onboarding_button_title",bundle: Bundle.main ,comment: ""))
-					}
-				    .buttonStyle(CustomButtonStyle(isEnabled: true))
+				NavigationLink(destination: IntroPolicyView()) {
+				    AccessibleText(content: NSLocalizedString("onboarding_button_title", bundle: .main, comment: ""))
 				}
-				.padding(.top)
-				.background(Color.white)
+				.buttonStyle(CustomButtonStyle(isEnabled: true))
+				.padding(.bottom)
 			 }
-			 
-			 VStack {
-				Spacer()
-				Color.white
-				    .frame(height: UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0)
-			 }
-			 .edgesIgnoringSafeArea(.bottom)
+			 .padding()
 		  }
+		  .navigationBarHidden(true)
 	   }
+	   .navigationViewStyle(StackNavigationViewStyle())
     }
 }
