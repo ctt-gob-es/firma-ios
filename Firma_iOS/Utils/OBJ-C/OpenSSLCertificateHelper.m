@@ -151,7 +151,19 @@
 + (PFCertificateInfoPurpose)getPurposeFromCertificate:(X509 *)certificateX509
 {
     PFCertificateInfoPurpose purpose = 0;
-    X509_get_ext_d2i(certificateX509, NID_key_usage, NULL, (int *)&purpose);
+    
+    ASN1_BIT_STRING *usage = X509_get_ext_d2i(certificateX509, NID_key_usage, NULL, NULL);
+    if (usage != NULL) {
+        if (ASN1_BIT_STRING_get_bit(usage, 0)) {
+            purpose |= PFCertificateInfoPurposeAuthentication;
+        }
+        if (ASN1_BIT_STRING_get_bit(usage, 1)) {
+            purpose |= PFCertificateInfoPurposeSignature;
+        }
+        if (ASN1_BIT_STRING_get_bit(usage, 3)) {
+            purpose |= PFCertificateInfoPurposeEncryption;
+        }
+    }
     
     return purpose;
 }
