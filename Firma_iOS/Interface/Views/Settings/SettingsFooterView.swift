@@ -17,25 +17,31 @@ struct SettingsFooterView: View {
 			 Image("img_logo_ES_Financiado_UE")
 				.resizable()
 				.scaledToFit()
+				.accessibilityElement(children: .ignore)
 				.accessibilityLabel(
 				    Text(NSLocalizedString("ES_Financiado_UE.image.label", tableName: "Accessibility", bundle: Bundle.main, comment: ""))
 				)
+				.accessibilityAddTraits(.isStaticText)
 
 			 Image("img_logo_PRTR")
 				.resizable()
 				.scaledToFit()
+				.accessibilityElement(children: .ignore)
 				.accessibilityLabel(
 				    Text(NSLocalizedString("PRTR.image.label", tableName: "Accessibility", bundle: Bundle.main, comment: ""))
 				)
+				.accessibilityAddTraits(.isStaticText)
 		  }
 
 		  Image("img_logo_ED2026")
 			 .resizable()
 			 .scaledToFit()
 			 .frame(width: max(0, (availableWidth - 40) / 2))
+			 .accessibilityElement(children: .ignore)
 			 .accessibilityLabel(
 				Text(NSLocalizedString("ED2026.image.label", tableName: "Accessibility", bundle: Bundle.main, comment: ""))
 			 )
+			 .accessibilityAddTraits(.isStaticText)
 	   }
 	   .padding()
 	   .frame(maxWidth: .infinity, alignment: .bottom)
