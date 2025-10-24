@@ -744,6 +744,7 @@ class HomeViewModel: ObservableObject {
 		  if !isLocalSign {
 			 SendErrorOperationUseCase().execute(error: AppError.userOperationCanceled, signModel: signModel)
 		  }
+		  appStatus.appError = AppError.userOperationCanceled
             handleOperationError(appError: AppError.userOperationCanceled)
         } else {
             resetHomeViewModelVariables()
