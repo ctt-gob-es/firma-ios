@@ -114,7 +114,6 @@ struct ErrorModalView: View {
                     }
                     .padding(.bottom)
                 }
-                .edgesIgnoringSafeArea(.all)
             }
             .background(GeometryReader { geometry in
                 Color.white.onAppear {
