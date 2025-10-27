@@ -156,16 +156,16 @@ struct DNIConnectionView: View {
 				appStatus.isLoading = false
 			 }
 	   }
-	   .onChange(of: annotations) {
-		  if $0.count > 0 {
-			 handleCoordinatesSelection(annotation: $0[0])
+	   .onChange(of: annotations) { newValue in
+		  if newValue.count > 0 {
+			 handleCoordinatesSelection(annotation: newValue[0])
 		  }
 	   }
-	   .onChange(of: password) {
-		  handlePasswordEncryption(password: password)
+	   .onChange(of: password) { newValue in
+		  handlePasswordEncryption(password: newValue)
 	   }
-	   .onChange(of: shouldCancelOperation) {
-		  if $0 {
+	   .onChange(of: shouldCancelOperation) { newValue in
+		  if newValue {
 			 DispatchQueue.main.async {
  				NotificationCenter.default.post(name: .ErrorModalCancelButtonAction, object: nil, userInfo: nil)
 			 }

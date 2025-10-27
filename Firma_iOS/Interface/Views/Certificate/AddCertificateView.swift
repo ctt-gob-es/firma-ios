@@ -67,8 +67,8 @@ struct AddCertificateView: View {
 		  }
 		  .dismissKeyboardOnTap()
 	   }
-	   .onChange(of: viewModel.password, perform: { value in
-		  if value.count > 0 {
+	   .onChange(of: viewModel.password, perform: { newValue in
+		  if newValue.count > 0 {
 			 viewModel.buttonEnabled = true
 		  } else {
 			 viewModel.buttonEnabled = false

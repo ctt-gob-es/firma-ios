@@ -1483,6 +1483,7 @@
 		83C0ECC92C44F77900244071 /* DeleteCertificateModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0ECC82C44F77900244071 /* DeleteCertificateModalView.swift */; };
 		83C0ECCB2C44F89600244071 /* CertificateCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0ECCA2C44F89600244071 /* CertificateCellView.swift */; };
 		83CC68932EA223C300B42240 /* DeviceUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CC68922EA223C300B42240 /* DeviceUtils.swift */; };
+		83CC689E2EAFB9CD00B42240 /* FilePickerResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CC689D2EAFB9CD00B42240 /* FilePickerResult.swift */; };
 		83D3900A2CA544BA00D16BA6 /* LogUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D390092CA544BA00D16BA6 /* LogUtils.swift */; };
 		83D3900C2CA5455200D16BA6 /* ByteArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D3900B2CA5455200D16BA6 /* ByteArrayUtils.swift */; };
 		83DB24802CBFCD6900D1DD8C /* HomeViewBindings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DB247F2CBFCD6900D1DD8C /* HomeViewBindings.swift */; };
@@ -4459,6 +4460,7 @@
 		83C0ECC82C44F77900244071 /* DeleteCertificateModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCertificateModalView.swift; sourceTree = "<group>"; };
 		83C0ECCA2C44F89600244071 /* CertificateCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateCellView.swift; sourceTree = "<group>"; };
 		83CC68922EA223C300B42240 /* DeviceUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceUtils.swift; sourceTree = "<group>"; };
+		83CC689D2EAFB9CD00B42240 /* FilePickerResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePickerResult.swift; sourceTree = "<group>"; };
 		83D390092CA544BA00D16BA6 /* LogUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogUtils.swift; sourceTree = "<group>"; };
 		83D3900B2CA5455200D16BA6 /* ByteArrayUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByteArrayUtils.swift; sourceTree = "<group>"; };
 		83DB247F2CBFCD6900D1DD8C /* HomeViewBindings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewBindings.swift; sourceTree = "<group>"; };
@@ -9070,6 +9072,7 @@
 		83C0ECC72C44F75C00244071 /* Modals */ = {
 			isa = PBXGroup;
 			children = (
+				83CC689D2EAFB9CD00B42240 /* FilePickerResult.swift */,
 				8393EDF42CE2096800BA2051 /* PDFViews */,
 				83C0ECC52C415A4B00244071 /* InfoModalView.swift */,
 				83C0ECC82C44F77900244071 /* DeleteCertificateModalView.swift */,
@@ -9938,6 +9941,7 @@
 				8325D8062CAADD18007224E9 /* LMSHSSKeyGenParameterSpec.m in Sources */,
 				8325D8032CAADD18007224E9 /* DigestUtil.m in Sources */,
 				83AF003D2CA2C95D00A26C0F /* Utiles.c in Sources */,
+				83CC689E2EAFB9CD00B42240 /* FilePickerResult.swift in Sources */,
 				8325D7A02CAADD18007224E9 /* BDSTreeHash.m in Sources */,
 				8325D78F2CAADD18007224E9 /* SPHINCSPlusEngine.m in Sources */,
 				8325D5E82CAADD18007224E9 /* CipherParameters.m in Sources */,
