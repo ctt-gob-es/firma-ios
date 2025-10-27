@@ -106,13 +106,19 @@ struct HomeView: View {
 				}
 			 }
 	   }
-        .fileImporter(
-            isPresented: $appStatus.showDocumentImportingPicker,
-            allowedContentTypes: viewModel.signModel?.signFormat == PADES_FORMAT || viewModel.signModel?.signFormat == PADES_TRI_FORMAT || viewModel.signModel?.signFormat == ADOBE_PDF_FORMAT ? [.pdf] : [.data],
-           allowsMultipleSelection: false,
-           onCompletion: handleFileImport,
-           onCancellation: viewModel.cancelOperation
-        )
+	   .unifiedDocumentPicker(
+			    isPresented: $appStatus.showDocumentImportingPicker,
+			    allowedContentTypes: viewModel.signModel?.signFormat == PADES_FORMAT
+			    || viewModel.signModel?.signFormat == PADES_TRI_FORMAT
+			    || viewModel.signModel?.signFormat == ADOBE_PDF_FORMAT
+			    ? [.pdf] : [.data],
+			    onResult: { result in
+				   handleFileImport(result: result)
+			    },
+			    onCancelation: {
+				   viewModel.cancelOperation()
+			    }
+			)
 	   .sheet(isPresented: $viewModel.showSelectSignMode,
 			onDismiss: {
 		  if viewMode == .sign {

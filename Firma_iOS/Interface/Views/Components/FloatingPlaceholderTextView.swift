@@ -67,7 +67,7 @@ struct FloatingPlaceholderTextField: View {
 				    .textInputAutocapitalization(.none)
 				    .autocapitalization(.none)
 				    .keyboardType(keyboardType)
-				    .onChange(of: text) { _, newValue in
+				    .onChange(of: text) { newValue in
 					   if newValue.isEmpty {
 						  showError = false
 					   } else {

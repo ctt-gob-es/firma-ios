@@ -49,7 +49,7 @@ struct SettingsFooterView: View {
 		  GeometryReader { proxy in
 			 Color.clear
 				.onAppear { availableWidth = proxy.size.width }
-				.onChange(of: proxy.size) { oldSize, newSize in
+				.onChange(of: proxy.size) { newSize in
 				    availableWidth = newSize.width
 				}
 		  }
