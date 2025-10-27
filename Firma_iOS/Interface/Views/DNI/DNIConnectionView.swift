@@ -53,7 +53,6 @@ struct DNIConnectionView: View {
 						  .padding(.horizontal)
 				    }
 				}
-				.ignoresSafeArea(.container, edges: .horizontal)
 				.frame(maxWidth: .infinity, maxHeight: .infinity)
 				
 				Button(action: {
