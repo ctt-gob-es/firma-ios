@@ -23,13 +23,15 @@ struct PermissionsView: View {
 		  List {
 			 Section {
 				VStack(alignment: .leading) {
-				    Toggle(isOn: $isNfcEnabled) {
-					   AccessibleText(content: NSLocalizedString("permissions_nfc_description", bundle: Bundle.main, comment: ""))
-						  .regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
-				    }
-				    .toggleStyle(CustomToggleStyle())
-				    .onChange(of: isNfcEnabled) { newValue in
-					   UserDefaults.standard.set(newValue, forKey: "isNfcEnabled")
+				    if DeviceUtils.isNFCSupported() {
+					   Toggle(isOn: $isNfcEnabled) {
+						  AccessibleText(content: NSLocalizedString("permissions_nfc_description", bundle: .main, comment: ""))
+							 .regularBoldStyle(foregroundColor: ColorConstants.Text.primary)
+					   }
+					   .toggleStyle(CustomToggleStyle())
+					   .onChange(of: isNfcEnabled) { newValue in
+						  UserDefaults.standard.set(newValue, forKey: "isNfcEnabled")
+					   }
 				    }
 
 				    Divider()

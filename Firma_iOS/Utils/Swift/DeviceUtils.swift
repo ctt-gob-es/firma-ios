@@ -8,6 +8,7 @@
 
 
 import SwiftUI
+import CoreNFC
 
 enum DeviceUtils {
     static func shouldShowTutorialImage(horizontalSizeClass: UserInterfaceSizeClass?, verticalSizeClass: UserInterfaceSizeClass?) -> Bool {
@@ -19,5 +20,9 @@ enum DeviceUtils {
         default:
             return true
         }
+    }
+    
+    static func isNFCSupported() -> Bool {
+	   return NFCNDEFReaderSession.readingAvailable
     }
 }

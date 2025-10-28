@@ -199,7 +199,11 @@ class HomeViewModel: ObservableObject {
     
     
     func selectSignMode() {
-        let nfcEnabled = UserDefaults.standard.object(forKey: "isNfcEnabled") == nil ? true : UserDefaults.standard.bool(forKey: "isNfcEnabled")
+        var nfcEnabled = UserDefaults.standard.object(forKey: "isNfcEnabled") == nil ? true : UserDefaults.standard.bool(forKey: "isNfcEnabled")
+	   
+	   if !DeviceUtils.isNFCSupported() {
+		  nfcEnabled = false
+	   }
         
         if nfcEnabled && !(self.appStatus.shouldAutosign && appStatus.selectedCertificate != nil){
             showSelectSignMode = true
