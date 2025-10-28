@@ -33,5 +33,6 @@ struct NoDataView: View {
 				alignment: .center
 			 )
 	   }
+	   .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
