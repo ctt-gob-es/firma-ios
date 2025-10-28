@@ -13,7 +13,7 @@ struct DNIResponsiveImageView: View {
     let imageName: String
     let landscapeMaxHeightRatio: CGFloat
 
-    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.verticalSizeClass) private var verticalSizeClass
 
     init(imageName: String, landscapeMaxHeightRatio: CGFloat = 0.3) {
         self.imageName = imageName
@@ -21,7 +21,7 @@ struct DNIResponsiveImageView: View {
     }
 
     var body: some View {
-        let isLandscape = horizontalSizeClass == .regular
+        let isLandscape = verticalSizeClass == .compact
 
         Image(imageName)
             .resizable()

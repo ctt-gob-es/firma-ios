@@ -12,7 +12,7 @@ import Combine
 struct DNIConnectionView: View {
     @EnvironmentObject private var appStatus : AppStatus
     @Environment(\.presentationMode) var presentationMode
-    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.verticalSizeClass) private var verticalSizeClass
     
     @Binding var isPresented: Bool
     
@@ -35,13 +35,10 @@ struct DNIConnectionView: View {
     @State var isLocalSign: Bool
     
     private var isLandscape: Bool {
-	   horizontalSizeClass == .regular
+	   verticalSizeClass == .compact
     }
     
     var body: some View {
-	   GeometryReader { geometry in
-		  let isLandscape = geometry.size.width > geometry.size.height
-		  
 		  VStack(spacing: 0) {
 			 if isLandscape {
 				ScrollView(.vertical) {
@@ -50,6 +47,7 @@ struct DNIConnectionView: View {
 						  .frame(maxWidth: .infinity, alignment: .leading)
 
 					   stepContent()
+						  .frame(maxWidth: .infinity, alignment: .leading)
 						  .padding(.horizontal)
 				    }
 				}
@@ -81,7 +79,6 @@ struct DNIConnectionView: View {
 				.buttonStyle(CustomButtonStyle(isEnabled: buttonEnabled))
 				.padding()
 			 }
-		  }
 	   }
 	   .onAppear() {
 		  onAppear()
