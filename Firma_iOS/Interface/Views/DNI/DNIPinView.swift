@@ -17,6 +17,7 @@ struct DNIPinView: View {
 		  ScrollView {
 			 AccessibleText(content: NSLocalizedString("dni_connection_pin_description", bundle: Bundle.main, comment: ""))
 				.regularStyle(foregroundColor: ColorConstants.Text.primary)
+				.frame(maxWidth: .infinity, alignment: .leading)
 			 
 			 FloatingPlaceholderTextField(
 				placeholder: NSLocalizedString("dni_connection_pin_placeholder", bundle: Bundle.main, comment: "") + " " + NSLocalizedString( "mandatory.textfield.suffix", tableName: "Accessibility", bundle: Bundle.main, comment: ""),

@@ -39,17 +39,15 @@ struct DNIConnectionView: View {
     }
     
     var body: some View {
-	   GeometryReader { geometry in
-		  let isLandscape = geometry.size.width > geometry.size.height
-		  
 		  VStack(spacing: 0) {
-			 if isLandscape {
+			 if UIDevice.current.orientation.isLandscape {
 				ScrollView(.vertical) {
 				    VStack(alignment: .leading, spacing: 16) {
 					   DNIStepHeaderView(step: $step)
 						  .frame(maxWidth: .infinity, alignment: .leading)
 
 					   stepContent()
+						  .frame(maxWidth: .infinity, alignment: .leading)
 						  .padding(.horizontal)
 				    }
 				}
@@ -81,7 +79,6 @@ struct DNIConnectionView: View {
 				.buttonStyle(CustomButtonStyle(isEnabled: buttonEnabled))
 				.padding()
 			 }
-		  }
 	   }
 	   .onAppear() {
 		  onAppear()
