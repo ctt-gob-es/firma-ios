@@ -15,27 +15,30 @@ struct TutorialStepOneView: View {
 
     var body: some View {
 	   VStack(alignment: .center, spacing: 20) {
-		  AccessibleText(content: NSLocalizedString("install_certificate_title_one", bundle: .main, comment: ""))
-			 .titleStyleBlack(foregroundColor: ColorConstants.Text.primary)
-			 .accessibilityAddTraits(.isHeader)
-			 .frame(maxWidth: .infinity, alignment: .leading)
-
-		  AccessibleText(content: NSLocalizedString("install_certificate_description_one", bundle: .main, comment: ""))
-			 .regularStyle(foregroundColor: ColorConstants.Text.primary)
-			 .frame(maxWidth: .infinity, alignment: .leading)
-		  
-		  Spacer()
-
-		  if DeviceUtils.shouldShowTutorialImage(horizontalSizeClass: hSize, verticalSizeClass: vSize) {
-			 Image("install_certificate_1")
-				.resizable()
-				.scaledToFit()
-				.accessibilityHidden(true)
+		  ScrollView {
+			 AccessibleText(content: NSLocalizedString("install_certificate_title_one", bundle: .main, comment: ""))
+				.titleStyleBlack(foregroundColor: ColorConstants.Text.primary)
+				.accessibilityAddTraits(.isHeader)
+				.frame(maxWidth: .infinity, alignment: .leading)
+			 
+			 AccessibleText(content: NSLocalizedString("install_certificate_description_one", bundle: .main, comment: ""))
+				.regularStyle(foregroundColor: ColorConstants.Text.primary)
+				.frame(maxWidth: .infinity, alignment: .leading)
+			 
+			 Spacer()
+			 
+			 if DeviceUtils.shouldShowTutorialImage(horizontalSizeClass: hSize, verticalSizeClass: vSize) {
+				Image("install_certificate_1")
+				    .resizable()
+				    .scaledToFit()
+				    .accessibilityHidden(true)
+				
+				Spacer()
+			 }
 		  }
-
-		  Spacer()
 		  
 		  TutorialPageIndicator(numberOfPages: 2, currentPage: 0)
+
 
 		  NavigationLink(destination: TutorialStepTwoView().environmentObject(appStatus)) {
 			 AccessibleText(content: NSLocalizedString("install_certificate_button_one_title", bundle: .main, comment: ""))
@@ -56,26 +59,26 @@ struct TutorialStepTwoView: View {
 
     var body: some View {
 	   VStack(alignment: .center, spacing: 20) {
-		  AccessibleText(content: NSLocalizedString("install_certificate_title_two", bundle: .main, comment: ""))
-			 .titleStyleBlack(foregroundColor: ColorConstants.Text.primary)
-			 .accessibilityAddTraits(.isHeader)
-			 .frame(maxWidth: .infinity, alignment: .leading)
-
-		  AccessibleText(content: NSLocalizedString("install_certificate_description_two", bundle: .main, comment: ""))
-			 .regularStyle(foregroundColor: ColorConstants.Text.primary)
-			 .frame(maxWidth: .infinity, alignment: .leading)
-
-		  Spacer()
-
-		  if DeviceUtils.shouldShowTutorialImage(horizontalSizeClass: hSize, verticalSizeClass: vSize) {
-			 Image("install_certificate_2")
-				.resizable()
-				.scaledToFit()
-				.accessibilityHidden(true)
+		  ScrollView {
+			 AccessibleText(content: NSLocalizedString("install_certificate_title_two", bundle: .main, comment: ""))
+				.titleStyleBlack(foregroundColor: ColorConstants.Text.primary)
+				.accessibilityAddTraits(.isHeader)
+				.frame(maxWidth: .infinity, alignment: .leading)
+			 
+			 AccessibleText(content: NSLocalizedString("install_certificate_description_two", bundle: .main, comment: ""))
+				.regularStyle(foregroundColor: ColorConstants.Text.primary)
+				.frame(maxWidth: .infinity, alignment: .leading)
+			 
+			 Spacer()
+			 
+			 if DeviceUtils.shouldShowTutorialImage(horizontalSizeClass: hSize, verticalSizeClass: vSize) {
+				Image("install_certificate_2")
+				    .resizable()
+				    .scaledToFit()
+				    .accessibilityHidden(true)
+				Spacer()
+			 }
 		  }
-
-		  Spacer()
-		  
 		  TutorialPageIndicator(numberOfPages: 2, currentPage: 1)
 
 		  Button {
