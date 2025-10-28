@@ -12,7 +12,7 @@ import Combine
 struct DNIConnectionView: View {
     @EnvironmentObject private var appStatus : AppStatus
     @Environment(\.presentationMode) var presentationMode
-    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.verticalSizeClass) private var verticalSizeClass
     
     @Binding var isPresented: Bool
     
@@ -35,12 +35,12 @@ struct DNIConnectionView: View {
     @State var isLocalSign: Bool
     
     private var isLandscape: Bool {
-	   horizontalSizeClass == .regular
+	   verticalSizeClass == .compact
     }
     
     var body: some View {
 		  VStack(spacing: 0) {
-			 if UIDevice.current.orientation.isLandscape {
+			 if isLandscape {
 				ScrollView(.vertical) {
 				    VStack(alignment: .leading, spacing: 16) {
 					   DNIStepHeaderView(step: $step)
