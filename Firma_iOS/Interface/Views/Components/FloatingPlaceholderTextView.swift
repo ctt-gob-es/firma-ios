@@ -68,6 +68,10 @@ struct FloatingPlaceholderTextField: View {
 				    .autocapitalization(.none)
 				    .keyboardType(keyboardType)
 				    .onChange(of: text) { newValue in
+					   if let max = inputLength, newValue.count > max {
+						  text = String(newValue.prefix(max))
+					   }
+					   
 					   if newValue.isEmpty {
 						  showError = false
 					   } else {
