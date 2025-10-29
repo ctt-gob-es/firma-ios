@@ -9468,7 +9468,7 @@
 				ORGANIZATIONNAME = "Solid GEAR";
 				TargetAttributes = {
 					C30B3226163804620072A515 = {
-						DevelopmentTeam = LCLHA32ZLW;
+						DevelopmentTeam = 2H36E8KFN2;
 						LastSwiftMigration = 1500;
 						ProvisioningStyle = Automatic;
 					};
@@ -11140,7 +11140,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "include/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				J2OBJC_HOME = "/Users/desarrolloabamobile/Downloads/j2objc-2.8";
+				J2OBJC_HOME = "/Users/luis/desarrollo/j2objc-2.8";
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "${J2OBJC_HOME}/lib";
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
@@ -11215,7 +11215,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "include/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				J2OBJC_HOME = "/Users/desarrolloabamobile/Downloads/j2objc-2.8";
+				J2OBJC_HOME = "/Users/luis/desarrollo/j2objc-2.8";
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "${J2OBJC_HOME}/lib";
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
@@ -11241,9 +11241,9 @@
 				CODE_SIGN_ENTITLEMENTS = "Cliente @firma.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 48;
+				CURRENT_PROJECT_VERSION = 51;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = LCLHA32ZLW;
+				DEVELOPMENT_TEAM = 2H36E8KFN2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/Frameworks",
@@ -11254,7 +11254,7 @@
 				GCC_PREFIX_HEADER = "Firma_iOS/Utils/Firma_iOS-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Firma_iOS/Supporting Files/Firma_iOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib",
@@ -11281,7 +11281,7 @@
 					"-l",
 					protobuf,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "es.abamobile.afirma.Cliente--firma";
+				PRODUCT_BUNDLE_IDENTIFIER = "es.gob.afirma.Cliente--firma";
 				PRODUCT_NAME = "Cliente @firma";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -11310,7 +11310,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 48;
+				CURRENT_PROJECT_VERSION = 51;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2H36E8KFN2;
@@ -11324,7 +11324,7 @@
 				GCC_PREFIX_HEADER = "Firma_iOS/Utils/Firma_iOS-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Firma_iOS/Supporting Files/Firma_iOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib",

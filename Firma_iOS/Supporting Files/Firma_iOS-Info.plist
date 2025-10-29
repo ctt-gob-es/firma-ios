@@ -2,19 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Merriweather-Black.ttf</string>
-		<string>Merriweather-BlackItalic.ttf</string>
-		<string>Merriweather-Bold.ttf</string>
-		<string>Merriweather-BoldItalic.ttf</string>
-		<string>Merriweather-Italic.ttf</string>
-		<string>Merriweather-Light.ttf</string>
-		<string>Merriweather-LightItalic.ttf</string>
-		<string>Merriweather-Regular.ttf</string>
-		<string>NunitoSans_10pt-Regular.ttf</string>
-		<string>NunitoSans_10pt-Bold.ttf</string>
-	</array>
+	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -55,16 +44,33 @@
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSApplicationCategoryType</key>
-	<string>https://valide.redsara.es/firmaMovil/</string>
+	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>LSSupportsOpeningDocumentsInPlace</key>
 	<true/>
+	<key>NFCReaderUsageDescription</key>
+	<string>This app needs NFC access to read your DNIe.</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Merriweather-Black.ttf</string>
+		<string>Merriweather-BlackItalic.ttf</string>
+		<string>Merriweather-Bold.ttf</string>
+		<string>Merriweather-BoldItalic.ttf</string>
+		<string>Merriweather-Italic.ttf</string>
+		<string>Merriweather-Light.ttf</string>
+		<string>Merriweather-LightItalic.ttf</string>
+		<string>Merriweather-Regular.ttf</string>
+		<string>NunitoSans_10pt-Regular.ttf</string>
+		<string>NunitoSans_10pt-Bold.ttf</string>
+	</array>
+	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
 	<key>UIFileSharingEnabled</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
@@ -88,29 +94,21 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
-	<key>CADisableMinimumFrameDurationOnPhone</key>
-	<true/>
-	<key>UIApplicationSupportsIndirectInputEvents</key>
-	<true/>
-	<key>LSApplicationCategoryType</key>
-	<string></string>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
-	<key>NFCReaderUsageDescription</key>
-	<string>This app needs NFC access to read your DNIe.</string>
 	<key>com.apple.developer.nfc.readersession.iso7816.select-identifiers</key>
 	<array>
-	    <string>A0000002471001</string>
-	    <string>A000000003101001</string>
-	    <string>A000000003101002</string>
-	    <string>A0000000041010</string>
-	    <string>A0000000042010</string>
-	    <string>A0000000044010</string>
-	    <string>44464D46412E44466172653234313031</string>
-	    <string>D2760000850100</string>
-	    <string>D2760000850101</string>
-	    <string>00000000000000</string>
-	    <string>4D61737465722E46696C65</string>
+		<string>A0000002471001</string>
+		<string>A000000003101001</string>
+		<string>A000000003101002</string>
+		<string>A0000000041010</string>
+		<string>A0000000042010</string>
+		<string>A0000000044010</string>
+		<string>44464D46412E44466172653234313031</string>
+		<string>D2760000850100</string>
+		<string>D2760000850101</string>
+		<string>00000000000000</string>
+		<string>4D61737465722E46696C65</string>
 	</array>
 </dict>
 </plist>
