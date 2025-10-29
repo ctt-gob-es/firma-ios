@@ -45,8 +45,11 @@ struct DNICanView: View {
 			 )
 			 .padding(.vertical)
 			 
-			 DNIResponsiveImageView(imageName: "dni_sample")
-				.accessibilityHidden(true)
+			 DNIResponsiveImageView(
+				imageName: "dni_sample",
+				imageNameLandscape: "can_mini_example"
+			 )
+			 .accessibilityHidden(true)
 		  }
 	   }
         .onAppear() {
