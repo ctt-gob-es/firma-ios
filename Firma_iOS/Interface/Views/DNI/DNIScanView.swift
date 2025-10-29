@@ -22,11 +22,14 @@ struct DNIScanView: View {
 			 )
 			 .accessibilityLabel(Text(NSLocalizedString("dni_connection_nfc_description_1", bundle: Bundle.main, comment: "")) + Text(NSLocalizedString("dni_connection_nfc_description_2", bundle: Bundle.main, comment: "")) +
 							 Text(NSLocalizedString("dni_connection_nfc_description_3", bundle: Bundle.main, comment: "")))
+			 .frame(maxWidth: .infinity, alignment: .leading)
 			 
-			 Image("nfc_sample")
-				.resizable()
-				.scaledToFit()
-				.padding()
+			 DNIResponsiveImageView(imageName: "nfc_sample")
+				.accessibilityElement(children: .ignore)
+				.accessibilityLabel(
+				    Text(NSLocalizedString("dni_scan_view.image.label", tableName: "Accessibility", bundle: Bundle.main, comment: ""))
+				)
+				.accessibilityAddTraits(.isStaticText)
 		  }
 	   }
 	   .padding()

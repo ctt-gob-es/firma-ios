@@ -19,6 +19,7 @@ struct NoDataView: View {
 			 .scaledToFit()
 			 .frame(width: 72, height: 72)
 			 .padding(.vertical, 16)
+			 .accessibilityHidden(true)
 		  
 		  AccessibleText(content: title)
 			 .titleStyleBlack(
@@ -32,5 +33,6 @@ struct NoDataView: View {
 				alignment: .center
 			 )
 	   }
+	   .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }

@@ -27,6 +27,8 @@ struct RecoveryModalView: View {
                         }
                         HStack {
                             Image("img_logo_PRTR")
+						  .accessibilityLabel(Text(NSLocalizedString("PRTR.image.label", tableName: "Accessibility", bundle: Bundle.main, comment: ""))
+						  )
                         }
                         .padding(.horizontal)
                     }
@@ -41,6 +43,8 @@ struct RecoveryModalView: View {
                         .padding(.horizontal)
                     HStack {
                         Image("img_logo_ES_Financiado_UE")
+					   .accessibilityLabel(Text(NSLocalizedString("ES_Financiado_UE.image.label", tableName: "Accessibility", bundle: Bundle.main, comment: ""))
+					   )
                     }
                     .padding(.horizontal)
                     

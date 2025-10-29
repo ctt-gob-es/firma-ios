@@ -93,5 +93,6 @@ struct IconView: View {
 		  .foregroundColor(ColorConstants.Background.buttonEnabled)
 		  .background(ColorConstants.Text.background)
 		  .cornerRadius(8)
+		  .accessibilityHidden(true) 
     }
 }

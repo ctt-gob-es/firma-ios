@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct DNICanView: View {
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    
     @Binding var buttonEnabled: Bool
     @Binding var showError: Bool
     @Binding var can: String
@@ -24,10 +26,11 @@ struct DNICanView: View {
 				+ Text(NSLocalizedString("dni_can_view_description_3", bundle: Bundle.main, comment: ""))
 				    .regularStyle(foregroundColor: ColorConstants.Text.secondary)
 			 )
-			 .accessibilityLabel(Text(NSLocalizedString("dni_compatible_view_description_1", bundle: Bundle.main, comment: "")) + Text(NSLocalizedString("dni_compatible_view_description_2", bundle: Bundle.main, comment: "")) + Text(NSLocalizedString("dni_compatible_view_description_3", bundle: Bundle.main, comment: "")))
+			 .accessibilityLabel(Text(NSLocalizedString("dni_can_view_description_1", bundle: Bundle.main, comment: "")) + Text(NSLocalizedString("dni_can_view_description_2", bundle: Bundle.main, comment: "")) + Text(NSLocalizedString("dni_can_view_description_3", bundle: Bundle.main, comment: "")))
+			 .frame(maxWidth: .infinity, alignment: .leading)
 			 
 			 FloatingPlaceholderTextField(
-				placeholder: NSLocalizedString("dni_connection_can_placeholder", bundle: Bundle.main, comment: ""),
+				placeholder: NSLocalizedString("dni_connection_can_placeholder", bundle: Bundle.main, comment: "") + " " + NSLocalizedString( "mandatory.textfield.suffix", tableName: "Accessibility", bundle: Bundle.main, comment: ""),
 				errorplaceholder: NSLocalizedString("dni_connection_can_error", bundle: Bundle.main, comment: ""),
 				text: $can,
 				showError: $showError,
@@ -36,14 +39,17 @@ struct DNICanView: View {
 				validation: { can in
 				    return canValidation(can: can)
 				},
-				keyboardType: .numberPad
+				keyboardType: .numberPad,
+				accessibilityLabel: NSLocalizedString("can.textfield.label", tableName: "Accessibility", bundle: Bundle.main, comment: ""),
+				inputLength: 6
 			 )
 			 .padding(.vertical)
 			 
-			 Image("dni_sample")
-				.resizable()
-				.scaledToFit()
-				.padding()
+			 DNIResponsiveImageView(
+				imageName: "dni_sample",
+				imageNameLandscape: "can_mini_example"
+			 )
+			 .accessibilityHidden(true)
 		  }
 	   }
         .onAppear() {

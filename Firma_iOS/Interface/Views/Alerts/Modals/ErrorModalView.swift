@@ -42,6 +42,7 @@ struct ErrorModalView: View {
                                     .scaledToFit()
                                     .frame(width: 64, height: 64)
                                     .padding(.horizontal)
+							 .accessibilityHidden(true)
                             }
                             
                             Spacer()
@@ -113,7 +114,6 @@ struct ErrorModalView: View {
                     }
                     .padding(.bottom)
                 }
-                .edgesIgnoringSafeArea(.all)
             }
             .background(GeometryReader { geometry in
                 Color.white.onAppear {

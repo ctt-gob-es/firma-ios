@@ -106,13 +106,19 @@ struct HomeView: View {
 				}
 			 }
 	   }
-        .fileImporter(
-            isPresented: $appStatus.showDocumentImportingPicker,
-            allowedContentTypes: viewModel.signModel?.signFormat == PADES_FORMAT || viewModel.signModel?.signFormat == PADES_TRI_FORMAT || viewModel.signModel?.signFormat == ADOBE_PDF_FORMAT ? [.pdf] : [.data],
-           allowsMultipleSelection: false,
-           onCompletion: handleFileImport,
-           onCancellation: viewModel.cancelOperation
-        )
+	   .unifiedDocumentPicker(
+			    isPresented: $appStatus.showDocumentImportingPicker,
+			    allowedContentTypes: viewModel.signModel?.signFormat == PADES_FORMAT
+			    || viewModel.signModel?.signFormat == PADES_TRI_FORMAT
+			    || viewModel.signModel?.signFormat == ADOBE_PDF_FORMAT
+			    ? [.pdf] : [.data],
+			    onResult: { result in
+				   handleFileImport(result: result)
+			    },
+			    onCancelation: {
+				   viewModel.cancelOperation()
+			    }
+			)
 	   .sheet(isPresented: $viewModel.showSelectSignMode,
 			onDismiss: {
 		  if viewMode == .sign {
@@ -217,10 +223,29 @@ struct HomeView: View {
     }
     
     private var mainContent: some View {
-	   VStack(alignment: .center, spacing: 20) {
-		  header
-		  certificateListOrNoDataView
-		  actionButton
+	   GeometryReader { geometry in
+		  let isLandscape = geometry.size.width > geometry.size.height
+
+		  VStack(spacing: 0) {
+			 if isLandscape {
+				ScrollView {
+				    VStack(alignment: .leading, spacing: 20) {
+					   header
+					   certificateListOrNoDataView(isLandscape: true)
+				    }
+				    .padding(.bottom)
+				}
+			 } else {
+				VStack(alignment: .leading, spacing: 20) {
+				    header
+				    certificateListOrNoDataView(isLandscape: false)
+				}
+			 }
+
+			 actionButton
+				.padding(.top)
+		  }
+		  .frame(maxWidth: .infinity, maxHeight: .infinity)
 	   }
     }
     
@@ -229,6 +254,7 @@ struct HomeView: View {
 		  AccessibleText(content: NSLocalizedString("home_certificates_label", bundle: Bundle.main, comment: ""))
 			 .titleStyleBlack(foregroundColor: ColorConstants.Text.primary)
 			 .accessibilityAddTraits(.isHeader)
+
 		  
 		  AccessibleText(content: viewMode == .sign ? NSLocalizedString("select_certificates_description", bundle: Bundle.main, comment: "") : NSLocalizedString("home_certificates_description", bundle: Bundle.main, comment: ""))
 			 .regularStyle(foregroundColor: ColorConstants.Text.secondary)
@@ -236,18 +262,37 @@ struct HomeView: View {
 	   .padding([.horizontal, .top])
     }
     
-    private var certificateListOrNoDataView: some View {
+    private func certificateListOrNoDataView(isLandscape: Bool) -> some View {
 	   Group {
-            if !viewModel.certificates.isEmpty {
-                List(viewModel.certificates, id: \.certificateRef) { certificate in
-				CertificateCellView(
-				    certificateInfo: certificate,
-				    isSelectable: $viewModel.areCertificatesSelectable,
-				    isSelected: appStatus.selectedCertificate?.subject == certificate.subject
-				)
-				.listRowSeparator(.hidden)
+		  if !viewModel.certificates.isEmpty {
+			 if isLandscape {
+				let columns = [
+				    GridItem(.flexible(), spacing: 16),
+				    GridItem(.flexible(), spacing: 16)
+				]
+
+				LazyVGrid(columns: columns, spacing: 16) {
+				    ForEach(viewModel.certificates, id: \.certificateRef) { certificate in
+					   CertificateCellView(
+						  certificateInfo: certificate,
+						  isSelectable: $viewModel.areCertificatesSelectable,
+						  isSelected: appStatus.selectedCertificate?.subject == certificate.subject
+					   )
+					   .padding()
+				    }
+				}
+				.padding(.horizontal)
+			 } else {
+				List(viewModel.certificates, id: \.certificateRef) { certificate in
+				    CertificateCellView(
+					   certificateInfo: certificate,
+					   isSelectable: $viewModel.areCertificatesSelectable,
+					   isSelected: appStatus.selectedCertificate?.subject == certificate.subject
+				    )
+				    .listRowSeparator(.hidden)
+				}
+				.listStyle(PlainListStyle())
 			 }
-			 .listStyle(PlainListStyle())
 		  } else {
 			 VStack {
 				Spacer()
@@ -257,6 +302,7 @@ struct HomeView: View {
 				)
 				Spacer()
 			 }
+			 .frame(maxWidth: .infinity, maxHeight: .infinity)
 		  }
 	   }
     }

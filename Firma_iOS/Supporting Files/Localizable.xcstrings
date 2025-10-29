@@ -164,6 +164,7 @@
       }
     },
     "%lld of %lld" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -1484,6 +1485,7 @@
       }
     },
     "Checked" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -3216,7 +3218,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Step %dof 3"
+            "value" : "Step %d of 3"
           }
         },
         "es" : {
@@ -3228,7 +3230,7 @@
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "3ko %d urratsa"
+            "value" : "3 ko %d urratsa"
           }
         },
         "gl" : {
@@ -10387,6 +10389,7 @@
       }
     },
     "Toggle" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -10507,6 +10510,7 @@
       }
     },
     "Unchecked" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {

@@ -12,6 +12,8 @@ import Combine
 struct DNIConnectionView: View {
     @EnvironmentObject private var appStatus : AppStatus
     @Environment(\.presentationMode) var presentationMode
+    @Environment(\.verticalSizeClass) private var verticalSizeClass
+    
     @Binding var isPresented: Bool
     
     @State private var contentSheetHeight: CGFloat = 0
@@ -32,34 +34,51 @@ struct DNIConnectionView: View {
     @State private var nfcCancellable: AnyCancellable?
     @State var isLocalSign: Bool
     
+    private var isLandscape: Bool {
+	   verticalSizeClass == .compact
+    }
+    
     var body: some View {
-	   VStack {
-		  DNIStepHeaderView(step: $step)
-		  
-		  if step == .canStep {
-			 DNICanView(
-				buttonEnabled: $buttonEnabled,
-				showError: $showFieldError,
-				can: $can
-			 )
-		  } else if step == .pinStep {
-			 DNIPinView(
-				pin: $pin
-			 )
-		  } else if step == .nfcStep {
-			 DNIScanView()
-		  }
-		  
-		  Spacer()
-		  
-		  Button(action: {
-			 if buttonEnabled {
-				doStep()
+		  VStack(spacing: 0) {
+			 if isLandscape {
+				ScrollView(.vertical) {
+				    VStack(alignment: .leading, spacing: 16) {
+					   DNIStepHeaderView(step: $step)
+						  .frame(maxWidth: .infinity, alignment: .leading)
+
+					   stepContent()
+						  .frame(maxWidth: .infinity, alignment: .leading)
+						  .padding(.horizontal)
+				    }
+				}
+				.frame(maxWidth: .infinity, maxHeight: .infinity)
+				
+				Button(action: {
+				    if buttonEnabled {
+					   doStep()
+				    }
+				}) {
+				    AccessibleText(content: step.buttonTitle)
+				}
+				.buttonStyle(CustomButtonStyle(isEnabled: buttonEnabled))
+			 } else {
+				DNIStepHeaderView(step: $step)
+				
+				stepContent()
+				    .padding(.top)
+				
+				Spacer()
+				
+				Button(action: {
+				    if buttonEnabled {
+					   doStep()
+				    }
+				}) {
+				    AccessibleText(content: step.buttonTitle)
+				}
+				.buttonStyle(CustomButtonStyle(isEnabled: buttonEnabled))
+				.padding()
 			 }
-		  }) {
-			 AccessibleText(content: step.buttonTitle)
-		  }
-		  .buttonStyle(CustomButtonStyle(isEnabled: buttonEnabled))
 	   }
 	   .onAppear() {
 		  onAppear()
@@ -74,10 +93,13 @@ struct DNIConnectionView: View {
                 }
 		  })
 	   }
+		  .padding(.top, isLandscape ? 8 : 0)
 		  .padding(.bottom, 4)
 	   )
 	   .navigationBarItems(leading: HStack(spacing: 4) {
-            NavigationBarButton(imageName: "backbutton", accesibilityLabel: NSLocalizedString("go_back", comment: ""), action: {
+            NavigationBarButton(imageName: "backbutton",
+						  accesibilityLabel: backButtonAXLabel(for: step),
+						  action: {
 			 if step == .canStep {
 				isPresented = false
 			 } else if step == .pinStep {
@@ -87,6 +109,7 @@ struct DNIConnectionView: View {
 			 }
 		  })
 	   }
+		  .padding(.top, isLandscape ? 8 : 0)
 		  .padding(.bottom, 4)
 	   )
 	   .sheet(isPresented: $isSearching) {
@@ -130,16 +153,16 @@ struct DNIConnectionView: View {
 				appStatus.isLoading = false
 			 }
 	   }
-	   .onChange(of: annotations) {
-		  if $0.count > 0 {
-			 handleCoordinatesSelection(annotation: $0[0])
+	   .onChange(of: annotations) { newValue in
+		  if newValue.count > 0 {
+			 handleCoordinatesSelection(annotation: newValue[0])
 		  }
 	   }
-	   .onChange(of: password) {
-		  handlePasswordEncryption(password: password)
+	   .onChange(of: password) { newValue in
+		  handlePasswordEncryption(password: newValue)
 	   }
-	   .onChange(of: shouldCancelOperation) {
-		  if $0 {
+	   .onChange(of: shouldCancelOperation) { newValue in
+		  if newValue {
 			 DispatchQueue.main.async {
  				NotificationCenter.default.post(name: .ErrorModalCancelButtonAction, object: nil, userInfo: nil)
 			 }
@@ -167,6 +190,22 @@ struct DNIConnectionView: View {
 		  } else {
 			 print("No user info available in the notification")
 		  }
+	   }
+    }
+    
+    @ViewBuilder
+    private func stepContent() -> some View {
+	   switch step {
+	   case .canStep:
+		  DNICanView(
+			 buttonEnabled: $buttonEnabled,
+			 showError: $showFieldError,
+			 can: $can
+		  )
+	   case .pinStep:
+		  DNIPinView(pin: $pin)
+	   case .nfcStep:
+		  DNIScanView()
 	   }
     }
     
@@ -222,5 +261,25 @@ struct DNIConnectionView: View {
 		  .sink { newValue in
 			 showTextfieldModal = newValue
 		  }
+    }
+    
+    private func backButtonAXLabel(for step: DNIConnectionSteps) -> String {
+	   switch step {
+		  case .canStep:
+			 return NSLocalizedString("go_back_to_home.button.label",
+								 tableName: "Accessibility",
+								 bundle: .main,
+								 comment: "")
+		  case .pinStep:
+			 return NSLocalizedString("go_back_to_can.button.label",
+								 tableName: "Accessibility",
+								 bundle: .main,
+								 comment: "")
+		  case .nfcStep:
+			 return NSLocalizedString("go_back_to_pin.button.label",
+								 tableName: "Accessibility",
+								 bundle: .main,
+								 comment: "")
+	   }
     }
 }

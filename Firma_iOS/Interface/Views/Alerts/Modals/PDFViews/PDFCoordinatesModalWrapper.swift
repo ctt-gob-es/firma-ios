@@ -62,7 +62,7 @@ struct PDFCoordinatesModalWrapper: View {
 						  )
 					   
 					   FloatingPlaceholderTextField(
-						  placeholder: NSLocalizedString("password", bundle: Bundle.main, comment: ""),
+						  placeholder: NSLocalizedString("password", bundle: Bundle.main, comment: "") + " " + NSLocalizedString( "mandatory.textfield.suffix", tableName: "Accessibility", bundle: Bundle.main, comment: ""),
 						  errorplaceholder: NSLocalizedString("add_certificates_error_placeholder", bundle: Bundle.main, comment: ""),
 						  text: $password,
 						  showError: $showFieldError,
@@ -70,7 +70,8 @@ struct PDFCoordinatesModalWrapper: View {
 						  isSecureTextEntry: true,
 						  validation: { password in
 							 return showFieldError
-						  }
+						  },
+						  accessibilityLabel: NSLocalizedString("document.password.textfield.label", tableName: "Accessibility", bundle: Bundle.main, comment: "")
 					   )
 					   
 					   HStack {
@@ -98,27 +99,50 @@ struct PDFCoordinatesModalWrapper: View {
 				}
 				.disabled(currentPageIndex <= 0)
 				.foregroundColor(currentPageIndex > 0 ? ColorConstants.Background.buttonEnabled : .gray)
+				.accessibilityLabel(
+				    Text(NSLocalizedString("pager.first.label", tableName: "Accessibility", bundle: .main, comment: ""))
+				)
 				
 				Button(action: goToPreviousPage) {
 				    Image(systemName: "chevron.left.circle")
 				}
 				.disabled(currentPageIndex <= 0)
 				.foregroundColor(currentPageIndex > 0 ? ColorConstants.Background.buttonEnabled : .gray)
+				.accessibilityLabel(
+				    Text(NSLocalizedString("pager.prev.label", tableName: "Accessibility", bundle: .main, comment: ""))
+				)
 				
 				PageNumberView(currentPageIndex: currentPageIndex, totalPages: totalPages)
 				    .foregroundColor(.gray)
+				    .accessibilityLabel(
+						  Text(NSLocalizedString("pager.status.label", tableName: "Accessibility", bundle: .main, comment: ""))
+					   )
+					   .accessibilityValue(
+						  Text(
+							 String(
+								format: NSLocalizedString("pager.status.value", tableName: "Accessibility", bundle: .main, comment: ""),
+								currentPageIndex + 1, totalPages
+							 )
+						  )
+					   )
 				
 				Button(action: goToNextPage) {
 				    Image(systemName: "chevron.right.circle")
 				}
 				.disabled(currentPageIndex >= totalPages - 1)
 				.foregroundColor(currentPageIndex < totalPages - 1 ? ColorConstants.Background.buttonEnabled : .gray)
+				.accessibilityLabel(
+				    Text(NSLocalizedString("pager.next.label", tableName: "Accessibility", bundle: .main, comment: ""))
+				)
 				
 				Button(action: goToLastPage) {
 				    Image(systemName: "arrow.right.to.line")
 				}
 				.disabled(currentPageIndex >= totalPages - 1)
 				.foregroundColor(currentPageIndex < totalPages - 1 ? ColorConstants.Background.buttonEnabled : .gray)
+				.accessibilityLabel(
+				    Text(NSLocalizedString("pager.last.label", tableName: "Accessibility", bundle: .main, comment:""))
+				)
 			 }
 			 .padding()
 			 .background(Color.white)
@@ -131,6 +155,13 @@ struct PDFCoordinatesModalWrapper: View {
 				}) {
 				    Image(systemName: "xmark")
 				}
+				.accessibilityLabel(
+				    Text(NSLocalizedString("annotations.close_discard.label",
+							 tableName: "Accessibility",
+							 bundle: .main,
+					    comment:"")
+					    )
+				)
 			 }
 			 
 			 ToolbarItem(placement: .principal) {
@@ -145,6 +176,13 @@ struct PDFCoordinatesModalWrapper: View {
 				Button(action: resetAnnotations) {
 				    Image(systemName: "arrow.counterclockwise")
 				}
+				.accessibilityLabel(
+				    Text(NSLocalizedString("annotations.reset.label",
+							 tableName: "Accessibility",
+							 bundle: .main,
+							 comment:""))
+				)
+				
 				Button(action: {
 				    if !annotations.isEmpty {
 					   presentationMode.wrappedValue.dismiss()
@@ -152,6 +190,12 @@ struct PDFCoordinatesModalWrapper: View {
 				}) {
 				    Image(systemName: "checkmark")
 				}
+				.accessibilityLabel(
+				    Text(NSLocalizedString("annotations.confirm.label",
+							 tableName: "Accessibility",
+							 bundle: .main,
+							 comment:""))
+				)
 			 }
 		  }
 		  .onAppear {

@@ -16,7 +16,7 @@ struct AddCertificateView: View {
     
     var body: some View {
 	   VStack {
-		  VStack(alignment: .center, spacing: 20) {
+		  VStack(alignment: .leading, spacing: 20) {
 			 VStack(alignment: .leading) {
 				AccessibleText(content: NSLocalizedString("add_certificates_title", bundle: Bundle.main, comment: ""))
 				    .titleStyleBlack(foregroundColor: ColorConstants.Text.primary)
@@ -33,9 +33,9 @@ struct AddCertificateView: View {
 				    AccessibleText(content: fileName)
 					   .boldStyleSmall(foregroundColor: ColorConstants.Text.secondary)
 				}
-				
+				 
 				FloatingPlaceholderTextField(
-				    placeholder: NSLocalizedString("password", bundle: Bundle.main, comment: ""),
+				    placeholder: NSLocalizedString("password", bundle: Bundle.main, comment: "") + " " + NSLocalizedString( "mandatory.textfield.suffix", tableName: "Accessibility", bundle: Bundle.main, comment: ""),
 				    errorplaceholder: NSLocalizedString("add_certificates_error_placeholder", bundle: Bundle.main, comment: ""),
 				    text: $viewModel.password,
 				    showError: $viewModel.showFieldError,
@@ -43,7 +43,8 @@ struct AddCertificateView: View {
 				    isSecureTextEntry: true,
 				    validation: { password in
 					   return viewModel.showFieldError
-				    }
+				    },
+				    accessibilityLabel: NSLocalizedString("add_certificate.password.textfield.label", tableName: "Accessibility", bundle: Bundle.main, comment: "")
 				)
 			 }
 			 .padding([.horizontal, .top])
@@ -66,8 +67,8 @@ struct AddCertificateView: View {
 		  }
 		  .dismissKeyboardOnTap()
 	   }
-	   .onChange(of: viewModel.password, perform: { value in
-		  if value.count > 0 {
+	   .onChange(of: viewModel.password, perform: { newValue in
+		  if newValue.count > 0 {
 			 viewModel.buttonEnabled = true
 		  } else {
 			 viewModel.buttonEnabled = false

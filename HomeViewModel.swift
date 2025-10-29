@@ -199,7 +199,11 @@ class HomeViewModel: ObservableObject {
     
     
     func selectSignMode() {
-        let nfcEnabled = UserDefaults.standard.object(forKey: "isNfcEnabled") == nil ? true : UserDefaults.standard.bool(forKey: "isNfcEnabled")
+        var nfcEnabled = UserDefaults.standard.object(forKey: "isNfcEnabled") == nil ? true : UserDefaults.standard.bool(forKey: "isNfcEnabled")
+	   
+	   if !DeviceUtils.isNFCSupported() {
+		  nfcEnabled = false
+	   }
         
         if nfcEnabled && !(self.appStatus.shouldAutosign && appStatus.selectedCertificate != nil){
             showSelectSignMode = true
@@ -448,6 +452,7 @@ class HomeViewModel: ObservableObject {
 				self.successModalState = .successCertificateSent
 				self.showSuccessModal = true
 				self.areCertificatesSelectable = false
+				self.resetHomeViewModelVariables()
 			 }
 		  }
 	   }
@@ -743,6 +748,7 @@ class HomeViewModel: ObservableObject {
 		  if !isLocalSign {
 			 SendErrorOperationUseCase().execute(error: AppError.userOperationCanceled, signModel: signModel)
 		  }
+		  appStatus.appError = AppError.userOperationCanceled
             handleOperationError(appError: AppError.userOperationCanceled)
         } else {
             resetHomeViewModelVariables()
@@ -786,8 +792,8 @@ class HomeViewModel: ObservableObject {
 	   
 	   DispatchQueue.main.async {
 		  self.selectElectronicCertificate = false
-          self.showSignCoordinatesModal = false
-          self.appStatus.showDocumentImportingPicker = false
+		  self.showSignCoordinatesModal = false
+		  self.appStatus.showDocumentImportingPicker = false
 		  self.selectDNIe = false
 		  self.viewMode = .home
 		  self.areCertificatesSelectable = false

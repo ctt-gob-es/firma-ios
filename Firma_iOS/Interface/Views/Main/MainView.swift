@@ -11,6 +11,8 @@ import SwiftUI
 struct ParentView: View {
     
     @EnvironmentObject var appStatus: AppStatus
+    @AppStorage("appLanguage") private var appLanguage: String = Locale.preferredLanguages.first ?? "es"
+    
     let viewMode: ViewModes?
     let urlReceived: URL?
     
@@ -23,9 +25,9 @@ struct ParentView: View {
         VStack {
             MainView(viewModel: MainViewModel(viewMode: viewMode ?? .home, urlReceived: urlReceived))
 			 .environmentObject(appStatus)
+			 .appLocale(appLanguage)
         }
     }
-    
 }
 
 struct MainView: View {
@@ -64,13 +66,14 @@ struct MainView: View {
 		  .scaledToFit()
 		  .frame(height: 28.94)
 		  .foregroundColor(Color(hex: "#C33400"))
+		  .accessibilityHidden(true) 
     }
     
     private var navigationBarButtons: some View {
 	   HStack(spacing: 4) {
 		  switch viewModel.viewMode {
 			 case .home:
-				NavigationBarButton(imageName: "info", accesibilityLabel: NSLocalizedString("info", comment: ""), action: { appStatus.showingInfoModal = true })
+			 NavigationBarButton(imageName: "info", accesibilityLabel: NSLocalizedString("info", comment: ""), action: { appStatus.showingInfoModal = true })
                 NavigationBarButtonLink(destination: SettingsView(), accesibilityLabel: NSLocalizedString("settings_title", comment: ""), imageName: "settings")
 			 case .sign:
 				NavigationBarButton(imageName: "close", accesibilityLabel: NSLocalizedString("close", comment: ""), action: {

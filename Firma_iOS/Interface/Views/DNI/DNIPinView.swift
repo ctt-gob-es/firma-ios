@@ -17,9 +17,10 @@ struct DNIPinView: View {
 		  ScrollView {
 			 AccessibleText(content: NSLocalizedString("dni_connection_pin_description", bundle: Bundle.main, comment: ""))
 				.regularStyle(foregroundColor: ColorConstants.Text.primary)
+				.frame(maxWidth: .infinity, alignment: .leading)
 			 
 			 FloatingPlaceholderTextField(
-				placeholder: NSLocalizedString("dni_connection_pin_placeholder", bundle: Bundle.main, comment: ""),
+				placeholder: NSLocalizedString("dni_connection_pin_placeholder", bundle: Bundle.main, comment: "") + " " + NSLocalizedString( "mandatory.textfield.suffix", tableName: "Accessibility", bundle: Bundle.main, comment: ""),
 				errorplaceholder: NSLocalizedString("dni_connection_pin_error", bundle: Bundle.main, comment: ""),
 				text: $pin,
 				showError: $showError,
@@ -27,11 +28,13 @@ struct DNIPinView: View {
 				isSecureTextEntry: true,
 				validation: { pin in
 				    return pinValidation(pin: pin)
-				}
+				},
+				accessibilityLabel: NSLocalizedString("pin.textfield.label", tableName: "Accessibility", bundle: Bundle.main, comment: "")
 			 )
 			 .padding(.vertical)
 			 
-			 Image("email_sample")
+			 DNIResponsiveImageView(imageName: "email_sample")
+				.accessibilityHidden(true)
 		  }
 		  .dismissKeyboardOnTap()
 	   }

@@ -43,8 +43,8 @@ extension View {
     
     private func applyViewModeBindings(viewModel: HomeViewModel, viewMode: Binding<ViewModes>) -> some View {
 	   self
-		  .onChange(of: viewModel.viewMode) {  _, newValue in viewMode.wrappedValue = newValue ?? .home }
-		  .onChange(of: viewModel.selectDNIe) { _, newValue in
+		  .onChange(of: viewModel.viewMode) { newValue in viewMode.wrappedValue = newValue ?? .home }
+		  .onChange(of: viewModel.selectDNIe) { newValue in
 			 if newValue == true {
 				viewModel.signMode = .idCard
 			 }
@@ -60,20 +60,20 @@ extension View {
     
     private func applyStatusBindings(viewModel: HomeViewModel, appStatus: AppStatus) -> some View {
 	   self
-            .onChange(of: appStatus.selectedCertificate) { _, newValue in viewModel.handleCertificateChange(newValue) }
-		  .onChange(of: viewModel.isLoading) { _, newValue in appStatus.isLoading = newValue ?? false }
-            .onChange(of: appStatus.keepParentController) { _, newValue in
+            .onChange(of: appStatus.selectedCertificate) { newValue in viewModel.handleCertificateChange(newValue) }
+		  .onChange(of: viewModel.isLoading) { newValue in appStatus.isLoading = newValue ?? false }
+            .onChange(of: appStatus.keepParentController) { newValue in
 			 if newValue {
 				viewModel.signMode = .electronicCertificate
 				viewModel.areCertificatesSelectable = true
 			 }
 		  }
-		  .onChange(of: viewModel.annotations) { _, newValue in
+		  .onChange(of: viewModel.annotations) { newValue in
 			 if newValue.count > 0 {
 				viewModel.handleCoordinatesSelection(annotation: newValue[0])
 			 }
 		  }
-		  .onChange(of: viewModel.password) { _, newValue in
+		  .onChange(of: viewModel.password) { newValue in
 			 viewModel.handlePasswordEncryption(password: newValue)
 		  }
     }
@@ -82,11 +82,11 @@ extension View {
     
     private func applyModalBindings(viewModel: HomeViewModel, appStatus: AppStatus) -> some View {
 	   self
-		  .onChange(of: viewModel.appError) {_, newValue in appStatus.appError = newValue ?? AppError.generalSoftwareError }
-		  .onChange(of: viewModel.successModalState) {_, newValue in appStatus.successModalState = newValue ?? .successSign }
-		  .onChange(of: viewModel.showErrorModal) {_, newValue in appStatus.showErrorModal = newValue ?? false }
-		  .onChange(of: viewModel.showSuccessModal) {_, newValue in appStatus.showSuccessModal = newValue ?? false }
-		  .onChange(of: viewModel.showSignCoordinatesModal) {_, newValue in appStatus.showSignCoordinatesModal = newValue }
+		  .onChange(of: viewModel.appError) { newValue in appStatus.appError = newValue ?? AppError.generalSoftwareError }
+		  .onChange(of: viewModel.successModalState) { newValue in appStatus.successModalState = newValue ?? .successSign }
+		  .onChange(of: viewModel.showErrorModal) { newValue in appStatus.showErrorModal = newValue ?? false }
+		  .onChange(of: viewModel.showSuccessModal) { newValue in appStatus.showSuccessModal = newValue ?? false }
+		  .onChange(of: viewModel.showSignCoordinatesModal) { newValue in appStatus.showSignCoordinatesModal = newValue }
     }
     
     // MARK: - Action Bindings
@@ -99,9 +99,9 @@ extension View {
 	   password: Binding<String>
     ) -> some View {
 	   self
-            .onChange(of: viewModel.shouldReloadCertificates) {_, newValue in viewModel.getCertificates(newValue) }
-            .onChange(of: shouldSign.wrappedValue) {_, newValue in viewModel.handleShouldSignChange(newValue) }
-		  .onChange(of: shouldCancelOperation.wrappedValue) { _, newValue in
+            .onChange(of: viewModel.shouldReloadCertificates) { newValue in viewModel.getCertificates(newValue) }
+            .onChange(of: shouldSign.wrappedValue) { newValue in viewModel.handleShouldSignChange(newValue) }
+		  .onChange(of: shouldCancelOperation.wrappedValue) { newValue in
 			 if newValue {
 				viewModel.viewMode = .home
 				viewModel.areCertificatesSelectable = false
@@ -110,13 +110,13 @@ extension View {
 				viewModel.resetHomeViewModelVariables()
 			 }
 		  }
-		  .onChange(of: viewModel.shouldSendStopSign) { _, newValue in
+		  .onChange(of: viewModel.shouldSendStopSign) { newValue in
 			 if newValue == true {
 				viewModel.shouldLoad = false
 				viewModel.cancelOperation()
 			 }
 		  }
-		  .onChange(of: viewModel.showTextfieldModal) { _, newValue in
+		  .onChange(of: viewModel.showTextfieldModal) { newValue in
 			 appStatus.isLoading = false
 			 if !newValue {
 				if password.wrappedValue != "" {
@@ -124,7 +124,7 @@ extension View {
 				}
 			 }
 		  }
-		  .onChange(of: viewModel.shouldCancel) {_, newValue in
+		  .onChange(of: viewModel.shouldCancel) { newValue in
 			 viewModel.areCertificatesSelectable = false
 		  }
 		  .onReceive(NotificationCenter.default.publisher(for: .DNIeSuccess)) { resultBatch in

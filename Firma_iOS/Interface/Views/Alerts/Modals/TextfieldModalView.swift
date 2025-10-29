@@ -28,6 +28,7 @@ struct TextfieldModalView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 64, height: 64)
+					   .accessibilityHidden(true)
                         Spacer()
                     }
                     .padding(.leading)
@@ -47,7 +48,7 @@ struct TextfieldModalView: View {
                             )
                         
                         FloatingPlaceholderTextField(
-                            placeholder: NSLocalizedString("password", bundle: Bundle.main, comment: ""),
+                            placeholder: NSLocalizedString("password", bundle: Bundle.main, comment: "") + " " + NSLocalizedString( "mandatory.textfield.suffix", tableName: "Accessibility", bundle: Bundle.main, comment: ""),
                             errorplaceholder: NSLocalizedString("add_certificates_error_placeholder", bundle: Bundle.main, comment: ""),
                             text: $password,
                             showError: $showFieldError,
@@ -55,7 +56,8 @@ struct TextfieldModalView: View {
                             isSecureTextEntry: true,
                             validation: { password in
                                 return showFieldError
-                            }
+                            },
+					   accessibilityLabel: NSLocalizedString("password.textfield.label", tableName: "Accessibility", bundle: Bundle.main, comment: "")
                         )
                         
                         HStack {

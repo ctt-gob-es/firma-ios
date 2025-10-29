@@ -11,8 +11,18 @@ struct FloatingPlaceholderTextField: View {
     @State private var isFocused: Bool = false
     @State var isSecureTextShown: Bool = false
     @State var keyboardType: UIKeyboardType = .default
+    @State var accessibilityLabel: String
+    @State var inputLength: Int? = nil
     
     @FocusState private var isInputFocused: Bool
+    @AccessibilityFocusState private var isErrorAXFocused: Bool
+    
+    private var axHintText: Text {
+	   guard let length = inputLength else { return Text("") }
+	   let key = (keyboardType == .numberPad) ? "length.numeric.textfield.hint" : "length.textfield.hint"
+	   let fmt = NSLocalizedString(key, tableName: "Accessibility", bundle: .main, comment: "")
+	   return Text(String(format: fmt, length))
+    }
     
     var body: some View {
 	   VStack(alignment: .leading) {
@@ -23,44 +33,49 @@ struct FloatingPlaceholderTextField: View {
 				.offset(y: isFocused || !text.isEmpty ? 0 : 20)
 				.scaleEffect(isFocused || !text.isEmpty ? 0.75 : 1.0, anchor: .zero)
 				.padding(.top, 4)
+				.accessibilityHidden(true)
 			 
 			 HStack {
 				if isSecureTextEntry && !isSecureTextShown {
-				    SecureField("", text: $text, onCommit: {
-					   isFocused = false
-				    })
-				    .onTapGesture {
-					   isFocused = true
-				    }
-				    .font(.custom("NunitoSans10pt-Regular", size: 16))
-				    .foregroundColor(.primary)
-				    .padding(.horizontal)
-				    .textInputAutocapitalization(.none)
-				    .autocapitalization(.none)
-				    .focused($isInputFocused)
+				    SecureField("", text: $text, onCommit: { isFocused = false })
+					   .onTapGesture { isFocused = true }
+					   .font(.custom("NunitoSans10pt-Regular", size: 16))
+					   .foregroundColor(.primary)
+					   .padding(.horizontal)
+					   .textInputAutocapitalization(.none)
+					   .autocapitalization(.none)
+					   .focused($isInputFocused)
+					   .accessibility(label: Text(accessibilityLabel))
+					   .accessibilityHint(axHintText)
+					   .accessibilityValue(text.isEmpty ? NSLocalizedString("mandatory_field.textfield.value", tableName: "Accessibility", bundle: .main, comment: "") : text)
 				} else {
-				    TextField("",
-						    text: $text,
-						    onEditingChanged: { editing in
+				    TextField("", text: $text, onEditingChanged: { editing in
 					   isFocused = editing
-					   if text != "" {
-						  showError = !validation(text)
-					   } else {
+					   if text.isEmpty {
 						  showError = false
+					   } else {
+						  showError = !validation(text)
 					   }
 				    })
 				    .font(.custom("NunitoSans10pt-Regular", size: 16))
 				    .foregroundColor(.primary)
 				    .focused($isInputFocused)
+				    .accessibility(label: Text(accessibilityLabel))
+				    .accessibilityHint(axHintText)
+				    .accessibilityValue(text.isEmpty ? NSLocalizedString("mandatory_field.textfield.value", tableName: "Accessibility", bundle: .main, comment: "") : text)
 				    .padding(.horizontal)
 				    .textInputAutocapitalization(.none)
 				    .autocapitalization(.none)
 				    .keyboardType(keyboardType)
 				    .onChange(of: text) { newValue in
-					   if newValue != "" {
-						  showError = !validation(newValue)
-					   } else {
+					   if let max = inputLength, newValue.count > max {
+						  text = String(newValue.prefix(max))
+					   }
+					   
+					   if newValue.isEmpty {
 						  showError = false
+					   } else {
+						  showError = !validation(newValue)
 					   }
 				    }
 				    .toolbar {
@@ -68,10 +83,10 @@ struct FloatingPlaceholderTextField: View {
 						  Spacer()
 						  Button("OK") {
 							 isFocused = false
-							 if text != "" {
-								showError = !validation(text)
-							 } else {
+							 if text.isEmpty {
 								showError = false
+							 } else {
+								showError = !validation(text)
 							 }
 							 isInputFocused = false
 						  }
@@ -80,13 +95,16 @@ struct FloatingPlaceholderTextField: View {
 				}
 				
 				if isSecureTextEntry && !text.isEmpty {
-				    Button(action: {
-					   isSecureTextShown.toggle()
-				    }) {
-					   Image("eye")
+				    Button(action: { isSecureTextShown.toggle() }) {
+					   Image(isSecureTextShown ? "eye_off" : "eye")
 						  .foregroundColor(.gray)
 				    }
 				    .padding(.trailing, 10)
+				    .accessibilityLabel(
+					   Text(isSecureTextShown
+						   ? NSLocalizedString("hide_password.button.label", tableName: "Accessibility", bundle: .main, comment: "")
+						   : NSLocalizedString("show_password.button.label", tableName: "Accessibility", bundle: .main, comment: ""))
+				    )
 				}
 			 }
 			 .padding(.bottom, 2)
@@ -101,15 +119,26 @@ struct FloatingPlaceholderTextField: View {
 				}
 				.padding(.horizontal)
 				.padding(.bottom, 4)
+				.accessibilityElement(children: .ignore)
+				.accessibilityLabel(Text(errorplaceholder))
+				.accessibilityFocused($isErrorAXFocused)
 			 }
 		  }
-		  .onTapGesture {
-			 isInputFocused = true
-		  }
+		  .onTapGesture { isInputFocused = true }
 		  .background(
 			 RoundedRectangle(cornerRadius: 8)
-				.stroke(showError ? ColorConstants.Status.error : (isFocused ? ColorConstants.Text.secondary : ColorConstants.Text.secondary), lineWidth: 1)
+				.stroke(
+				    showError ? ColorConstants.Status.error :
+				    ((isFocused || isInputFocused) ? ColorConstants.Text.primary : ColorConstants.Text.secondary),
+				    lineWidth: showError ? 2 : ((isFocused || isInputFocused) ? 2 : 1)
+				)
 		  )
+	   }
+	   .onChange(of: showError) { newValue in
+		  guard newValue else { return }
+		  DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+			 isErrorAXFocused = true
+		  }
 	   }
     }
 }

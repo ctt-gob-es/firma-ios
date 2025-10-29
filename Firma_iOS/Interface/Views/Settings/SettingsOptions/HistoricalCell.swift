@@ -29,5 +29,7 @@ struct HistoricalCell: View {
                     .mediumBoldStyle(foregroundColor: ColorConstants.Text.primary)
             }
         }
+	   .accessibilityElement(children: .combine)
+	   .accessibilityAddTraits(.isStaticText)
     }
 }
