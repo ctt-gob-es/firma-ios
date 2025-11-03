@@ -22,7 +22,9 @@ struct DNIView: View {
     
     var body: some View {
 	   VStack(alignment: .center, spacing: 20) {
-		  descriptionView
+		  ScrollView {
+			 descriptionView
+		  }
 		  
 		  Spacer()
 		  
