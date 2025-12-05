@@ -15,7 +15,8 @@ class SendCertificateUseCase {
        signModel: SignModel,
        completion: @escaping (AppError?) -> Void) {
         
-           guard let cipherCertificate = CipherUtils.cipherCertificateSend(certificateData: base64Certificate, cipherKey: signModel.cipherKey!) else {
+           
+           guard let cipherCertificate = CipherUtils.cipherCertificateSend(certificateData: base64Certificate, cipher: signModel.cipher, cipherKey: signModel.cipherKey) else {
                sendError(signModel: signModel, error: AppError.signingCipherCertificateError, completion: completion)
                return
            }
