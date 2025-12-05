@@ -19,6 +19,7 @@ class SignModel {
     var datosInUse: String?
     var signAlgoInUse: String?
     var docId: String?
+    var cipher: String?
     var cipherKey: String?
     var urlServlet: String?
     var signFormat: String?
@@ -45,6 +46,7 @@ class SignModel {
 	   self.datosInUse = dictionary[PARAMETER_NAME_DAT] as? String
 	   self.signAlgoInUse = dictionary[PARAMETER_NAME_ALGORITHM2] as? String
 	   self.docId = dictionary[PARAMETER_NAME_ID] as? String
+        self.cipher = dictionary[PARAMETER_NAME_CIPHER] as? String
 	   self.cipherKey = dictionary[PARAMETER_NAME_CIPHER_KEY] as? String
 	   self.urlServlet = dictionary[PARAMETER_NAME_STSERVLET] as? String
 	   self.signFormat = dictionary[PARAMETER_NAME_FORMAT] as? String

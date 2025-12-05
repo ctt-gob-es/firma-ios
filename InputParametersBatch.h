@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSString *operation; // Param op
 @property (strong, nonatomic) NSString *identifier; // Param id
 @property (strong, nonatomic) NSString *fileId; // Param fileid: Cuando la peticion es muy grande y necesita llamada extra para obtener los datos
+@property (strong, nonatomic) NSString *cipher; // Param cipher pra cifrado AES
 @property (strong, nonatomic) NSString *cipherKey; // Param key
 @property (strong, nonatomic) NSString *stservlet; // Param stservlet
 @property (strong, nonatomic) NSString *rtservlet; // Param rtservlet

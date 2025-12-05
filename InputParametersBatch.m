@@ -13,6 +13,7 @@
 @synthesize operation;
 @synthesize identifier;
 @synthesize fileId;
+@synthesize cipher;
 @synthesize cipherKey;
 @synthesize stservlet;
 @synthesize rtservlet;
