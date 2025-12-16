@@ -110,6 +110,8 @@ public class ParseDataURLOperationUseCase: NSObject {
         return nil
     }
     
+    
+    
     private func handleDownloadData(
 	   data: Data,
 	   completion: @escaping (Result<NSMutableDictionary, AppError>) -> Void
@@ -126,29 +128,42 @@ public class ParseDataURLOperationUseCase: NSObject {
                 sendError(error: AppError.intermediateServerDownloadErrorResponse, completion: completion)
             }
         } else {
-            var dataResponse = data
+            var dataResponse:Data? = nil
             
-            // Si llega la clave de cifrado es necesario descifrar los datos. En caso contrario no hace falta
-            if let cipherKey = self.opParameters[PARAMETER_NAME_CIPHER_KEY] as? String {
-                guard let cipherKeyCertData = cipherKey.data(using: .utf8) else {
-                    self.sendError(error: AppError.intermediateServerDownloadDataCipher, completion: completion)
-                    return
-                }
-                
-                guard let decoded = DesCypher.decypherData(String(data: data, encoding: .utf8) ?? "", sk: cipherKeyCertData) else {
-                    self.sendError(error: AppError.intermediateServerDownloadDataCipher, completion: completion)
-                    return
-                }
-             
-                dataResponse = decoded
-            } else {
-                
-                if let base64String = String(data: dataResponse, encoding: .utf8), let decoded = Data(base64Encoded: base64String) {
-                    dataResponse = decoded
+            // Obtenemos los datos de cifrado AES (Parametro Cipher), si llegan y podemos desencriptar usamos ese
+            let cipherBase64String = self.opParameters[PARAMETER_NAME_CIPHER] as? String
+            if let cipher = CipherData(base64String: cipherBase64String) {
+                do {
+                    dataResponse = try AESUtils.decrypt(data: data, key: cipher.key, iv: cipher.iv)
+                } catch {
+                    // Ponemos el dataResponse para intentar descifrar con DES
+                    dataResponse = nil
                 }
             }
             
-            loadDownloadData(dataResponse, completion: completion)
+            if (dataResponse == nil) {
+                // Si llega la clave de cifrado es necesario descifrar los datos. En caso contrario no hace falta
+                if let cipherKey = self.opParameters[PARAMETER_NAME_CIPHER_KEY] as? String {
+                    guard let cipherKeyCertData = cipherKey.data(using: .utf8) else {
+                        self.sendError(error: AppError.intermediateServerDownloadDataCipher, completion: completion)
+                        return
+                    }
+                    
+                    guard let decoded = DesCypher.decypherData(String(data: data, encoding: .utf8) ?? "", sk: cipherKeyCertData) else {
+                        self.sendError(error: AppError.intermediateServerDownloadDataCipher, completion: completion)
+                        return
+                    }
+                    
+                    dataResponse = decoded
+                } else {
+                    
+                    if let base64String = String(data: data, encoding: .utf8), let decoded = Data(base64Encoded: base64String) {
+                        dataResponse = decoded
+                    }
+                }
+            }
+            
+            loadDownloadData(dataResponse ?? data, completion: completion)
         }
     }
     

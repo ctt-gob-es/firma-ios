@@ -37,6 +37,7 @@ NSString *const PARAMETER_NAME_EXTRA_PARAM = @"params";
 NSString *const PARAMETER_NAME_VERSION = @"v";
 NSString *const PARAMETER_NAME_VERSION_1_0 = @"1_0";
 NSString *const PARAMETER_NAME_ID = @"id";
+NSString *const PARAMETER_NAME_CIPHER = @"cipher";
 NSString *const PARAMETER_NAME_CIPHER_KEY = @"key";
 NSString *const PARAMETER_NAME_DAT = @"dat";
 NSString *const PARAMETER_NAME_STSERVLET = @"stservlet";

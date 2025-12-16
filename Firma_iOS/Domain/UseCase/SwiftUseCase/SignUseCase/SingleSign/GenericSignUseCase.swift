@@ -402,13 +402,13 @@ class GenericSignUseCase {
         }
         
         // Si llega la clave de cifrado, ciframos los datos. En caso contrario no es necesario
-        if let cipherKey = signModel.cipherKey {
-            guard let cipherSign = CipherUtils.cipherDataSend(dataString: dataSign, cipherKey: cipherKey) else {
+        if signModel.cipherKey != nil || signModel.cipher != nil {
+            guard let cipherSign = CipherUtils.cipherDataSend(dataString: dataSign, cipher: signModel.cipher, cipherKey: signModel.cipherKey) else {
                 sendError(error: AppError.signingCipherSignError)
                 return nil
             }
             
-            guard let cipherCertificate = CipherUtils.cipherCertificateSend(certificateData: certificateData, cipherKey: cipherKey) else {
+            guard let cipherCertificate = CipherUtils.cipherCertificateSend(certificateData: certificateData, cipher: signModel.cipher, cipherKey: signModel.cipherKey) else {
                 sendError(error: AppError.signingCipherCertificateError)
                 return nil
             }

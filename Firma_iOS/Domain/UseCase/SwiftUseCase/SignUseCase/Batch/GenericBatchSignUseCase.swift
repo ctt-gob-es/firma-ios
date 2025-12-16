@@ -226,14 +226,16 @@ class GenericBatchSignUseCase: NSObject {
         let certificateData = getCertificateData()
         
         let cipherKey = self.parametersBatch.cipherKey
+        let cipher = self.parametersBatch.cipher
         // Si llega la clave de cifrado, ciframos los datos. En caso contrario no es necesario
-        if !cipherKey.isEmpty {
-            guard let cipherSign = DesCypher.cypherData(dataPostSign, sk: self.parametersBatch.cipherKey.data(using: .utf8)!) else {
+        if !cipherKey.isEmpty || !cipher.isEmpty {
+            
+            guard let cipherSign = CipherUtils.cipherData(data: dataPostSign, cipher: cipher, cipherKey: cipherKey) else {
                 sendError(appError: AppError.jsonBatchCipherSignError)
                 return nil
             }
             
-            guard let cipherCertificate = CipherUtils.cipherCertificateSend(certificateData: certificateData, cipherKey: self.parametersBatch.cipherKey) else {
+            guard let cipherCertificate = CipherUtils.cipherCertificateSend(certificateData: certificateData, cipher: cipher, cipherKey: cipherKey) else {
                 sendError(appError: AppError.jsonBatchCipherCertificateError)
                 return nil
             }
@@ -303,6 +305,7 @@ class GenericBatchSignUseCase: NSObject {
 	   
 	   parameters.operation = dataOperation[PARAMETER_NAME_OPERATION] as? String ?? ""
 	   parameters.identifier = dataOperation[PARAMETER_NAME_ID] as? String ?? ""
+        parameters.cipher = dataOperation[PARAMETER_NAME_CIPHER] as? String ?? ""
 	   parameters.cipherKey = dataOperation[PARAMETER_NAME_CIPHER_KEY] as? String ?? ""
 	   parameters.stservlet = dataOperation[PARAMETER_NAME_STSERVLET] as? String ?? ""
 	   parameters.batchpresignerUrl = dataOperation[PARAMETER_NAME_BATCH_PRESIGNER_URL] as? String ?? ""

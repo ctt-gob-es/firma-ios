@@ -1337,7 +1337,6 @@
 		83A47CF42D92B15E0005BFE0 /* legal_advice_en.html in Resources */ = {isa = PBXBuildFile; fileRef = 83A47CEE2D92B15E0005BFE0 /* legal_advice_en.html */; };
 		83A47CF52D92B15E0005BFE0 /* legal_advice_es.html in Resources */ = {isa = PBXBuildFile; fileRef = 83A47CEF2D92B15E0005BFE0 /* legal_advice_es.html */; };
 		83A47CF62D92B15E0005BFE0 /* legal_advice_va.html in Resources */ = {isa = PBXBuildFile; fileRef = 83A47CF02D92B15E0005BFE0 /* legal_advice_va.html */; };
-		83A5EDBD2C5255DD00F93B6D /* BachRestIOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5EDBB2C5255DD00F93B6D /* BachRestIOS.m */; };
 		83A5EDC22C53B4BB00F93B6D /* SwiftCertificateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A5EDC12C53B4BB00F93B6D /* SwiftCertificateUtils.swift */; };
 		83A5EDCB2C53E53100F93B6D /* DocumentSavingPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A5EDCA2C53E53100F93B6D /* DocumentSavingPicker.swift */; };
 		83ACD2F92CB7B18D00A3EFA5 /* DNIConnectionSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ACD2F82CB7B18D00A3EFA5 /* DNIConnectionSteps.swift */; };
@@ -1502,8 +1501,6 @@
 		83E5D8022C4847DF001A5AF1 /* DNIScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E5D8012C4847DF001A5AF1 /* DNIScanView.swift */; };
 		83E5D8042C48481A001A5AF1 /* DNIPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E5D8032C48481A001A5AF1 /* DNIPinView.swift */; };
 		83E5D8062C48483C001A5AF1 /* DNIStepHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E5D8052C48483C001A5AF1 /* DNIStepHeaderView.swift */; };
-		83EBF99E289BAB2C00E80A7E /* ParentRest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EBF99D289BAB2C00E80A7E /* ParentRest.m */; };
-		83EBF9A0289BB48A00E80A7E /* ServletRest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EBF99B289BAA9300E80A7E /* ServletRest.m */; };
 		83EF14CB2C4647A7003EC42A /* SuccessModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EF14CA2C4647A7003EC42A /* SuccessModalView.swift */; };
 		83EF14CD2C464DE5003EC42A /* ErrorModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EF14CC2C464DE5003EC42A /* ErrorModalView.swift */; };
 		83EF14CF2C465EDF003EC42A /* ExitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EF14CE2C465EDF003EC42A /* ExitButton.swift */; };
@@ -1539,6 +1536,8 @@
 		A00313442DA5221500ABCA43 /* intro_policy_eu.html in Resources */ = {isa = PBXBuildFile; fileRef = A003133E2DA5221500ABCA43 /* intro_policy_eu.html */; };
 		A00313452DA5221500ABCA43 /* intro_policy_ca.html in Resources */ = {isa = PBXBuildFile; fileRef = A003133F2DA5221500ABCA43 /* intro_policy_ca.html */; };
 		A00313462DA5221500ABCA43 /* intro_policy_es.html in Resources */ = {isa = PBXBuildFile; fileRef = A00313402DA5221500ABCA43 /* intro_policy_es.html */; };
+		A04ABEA62EE07A9800B5EF13 /* AESUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04ABEA52EE07A9500B5EF13 /* AESUtils.swift */; };
+		A04ABEA82EE0D77400B5EF13 /* CipherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04ABEA72EE0D76F00B5EF13 /* CipherData.swift */; };
 		A04C97C72D78996F00F4FFB9 /* PAdESSignature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04C97C62D78996F00F4FFB9 /* PAdESSignature.framework */; };
 		A065483D2CE969BF00C9D8DE /* SSLBypassDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A065483C2CE969BF00C9D8DE /* SSLBypassDelegate.swift */; };
 		A065483F2CE969D500C9D8DE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A065483E2CE969D500C9D8DE /* NetworkManager.swift */; };
@@ -4211,8 +4210,6 @@
 		83A47CEE2D92B15E0005BFE0 /* legal_advice_en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = legal_advice_en.html; path = "Supporting Files/legal_advice_en.html"; sourceTree = "<group>"; };
 		83A47CEF2D92B15E0005BFE0 /* legal_advice_es.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = legal_advice_es.html; path = "Supporting Files/legal_advice_es.html"; sourceTree = "<group>"; };
 		83A47CF02D92B15E0005BFE0 /* legal_advice_va.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = legal_advice_va.html; path = "Supporting Files/legal_advice_va.html"; sourceTree = "<group>"; };
-		83A5EDBA2C5255DD00F93B6D /* BachRestIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BachRestIOS.h; sourceTree = "<group>"; };
-		83A5EDBB2C5255DD00F93B6D /* BachRestIOS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BachRestIOS.m; sourceTree = "<group>"; };
 		83A5EDC12C53B4BB00F93B6D /* SwiftCertificateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCertificateUtils.swift; sourceTree = "<group>"; };
 		83A5EDCA2C53E53100F93B6D /* DocumentSavingPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentSavingPicker.swift; sourceTree = "<group>"; };
 		83ACD2F82CB7B18D00A3EFA5 /* DNIConnectionSteps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNIConnectionSteps.swift; sourceTree = "<group>"; };
@@ -4479,10 +4476,6 @@
 		83E5D8012C4847DF001A5AF1 /* DNIScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNIScanView.swift; sourceTree = "<group>"; };
 		83E5D8032C48481A001A5AF1 /* DNIPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNIPinView.swift; sourceTree = "<group>"; };
 		83E5D8052C48483C001A5AF1 /* DNIStepHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNIStepHeaderView.swift; sourceTree = "<group>"; };
-		83EBF99A289BAA8600E80A7E /* ServletRest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServletRest.h; sourceTree = "<group>"; };
-		83EBF99B289BAA9300E80A7E /* ServletRest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServletRest.m; sourceTree = "<group>"; };
-		83EBF99D289BAB2C00E80A7E /* ParentRest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParentRest.m; sourceTree = "<group>"; };
-		83EBF99F289BAB3800E80A7E /* ParentRest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParentRest.h; sourceTree = "<group>"; };
 		83EF14CA2C4647A7003EC42A /* SuccessModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessModalView.swift; sourceTree = "<group>"; };
 		83EF14CC2C464DE5003EC42A /* ErrorModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModalView.swift; sourceTree = "<group>"; };
 		83EF14CE2C465EDF003EC42A /* ExitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitButton.swift; sourceTree = "<group>"; };
@@ -4519,6 +4512,8 @@
 		A003133E2DA5221500ABCA43 /* intro_policy_eu.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = intro_policy_eu.html; path = "Supporting Files/intro_policy_eu.html"; sourceTree = "<group>"; };
 		A003133F2DA5221500ABCA43 /* intro_policy_ca.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = intro_policy_ca.html; path = "Supporting Files/intro_policy_ca.html"; sourceTree = "<group>"; };
 		A00313402DA5221500ABCA43 /* intro_policy_es.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = intro_policy_es.html; path = "Supporting Files/intro_policy_es.html"; sourceTree = "<group>"; };
+		A04ABEA52EE07A9500B5EF13 /* AESUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AESUtils.swift; sourceTree = "<group>"; };
+		A04ABEA72EE0D76F00B5EF13 /* CipherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CipherData.swift; sourceTree = "<group>"; };
 		A04C97C62D78996F00F4FFB9 /* PAdESSignature.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PAdESSignature.framework; sourceTree = "<group>"; };
 		A065483C2CE969BF00C9D8DE /* SSLBypassDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLBypassDelegate.swift; sourceTree = "<group>"; };
 		A065483E2CE969D500C9D8DE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -4637,6 +4632,7 @@
 		3C57FA141AC1BB7100FF7292 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A04ABEA72EE0D76F00B5EF13 /* CipherData.swift */,
 				A0F3951B2CE692CA00DD7AE3 /* AOCoreDataModel.xcdatamodeld */,
 				835135A12C60BEF0005081EE /* ViewModel */,
 				838114C92C5146FE00CDEC97 /* SignModel.swift */,
@@ -4686,6 +4682,7 @@
 		8309F6A52D0189CC00F15CD9 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
+				A04ABEA52EE07A9500B5EF13 /* AESUtils.swift */,
 				83CC68922EA223C300B42240 /* DeviceUtils.swift */,
 				83208C9A2E740F15009BBCE8 /* View+Extension.swift */,
 				8326F2492D4386C800B5ED73 /* HistoricalUtils.swift */,
@@ -8682,20 +8679,8 @@
 				A06548492CEA5E6400C9D8DE /* Utils */,
 				A06548402CE96F6B00C9D8DE /* Network */,
 				83094A562C58DC9B006CEB12 /* SwiftRest */,
-				83A5EDBC2C5255DD00F93B6D /* BatchRest */,
-				83EBF99C289BAB1900E80A7E /* ParentRest */,
-				83EBF999289BAA6F00E80A7E /* ServletRest */,
 			);
 			path = Rest;
-			sourceTree = "<group>";
-		};
-		83A5EDBC2C5255DD00F93B6D /* BatchRest */ = {
-			isa = PBXGroup;
-			children = (
-				83A5EDBA2C5255DD00F93B6D /* BachRestIOS.h */,
-				83A5EDBB2C5255DD00F93B6D /* BachRestIOS.m */,
-			);
-			path = BatchRest;
 			sourceTree = "<group>";
 		};
 		83AF00402CA2CB5A00A26C0F /* DNIe */ = {
@@ -9115,24 +9100,6 @@
 				83DF467A2C48F084000C3F31 /* AddCertificateView.swift */,
 			);
 			path = Certificate;
-			sourceTree = "<group>";
-		};
-		83EBF999289BAA6F00E80A7E /* ServletRest */ = {
-			isa = PBXGroup;
-			children = (
-				83EBF99A289BAA8600E80A7E /* ServletRest.h */,
-				83EBF99B289BAA9300E80A7E /* ServletRest.m */,
-			);
-			path = ServletRest;
-			sourceTree = "<group>";
-		};
-		83EBF99C289BAB1900E80A7E /* ParentRest */ = {
-			isa = PBXGroup;
-			children = (
-				83EBF99D289BAB2C00E80A7E /* ParentRest.m */,
-				83EBF99F289BAB3800E80A7E /* ParentRest.h */,
-			);
-			path = ParentRest;
 			sourceTree = "<group>";
 		};
 		83EF81CB2D534A060008920A /* Batch */ = {
@@ -9669,7 +9636,6 @@
 				8325D7AA2CAADD18007224E9 /* WOTSPlusParameters.m in Sources */,
 				8325D66B2CAADD18007224E9 /* SecP256K1Point.m in Sources */,
 				8325D4FD2CAADD17007224E9 /* ASN1ApplicationSpecific.m in Sources */,
-				83A5EDBD2C5255DD00F93B6D /* BachRestIOS.m in Sources */,
 				8325D41E2CAADD17007224E9 /* Dnie3r2UsrCwa14890Constants.m in Sources */,
 				8325D8252CAADD18007224E9 /* IntUtils.m in Sources */,
 				8325D4222CAADD17007224E9 /* DnieCertParseUtil.m in Sources */,
@@ -10198,7 +10164,6 @@
 				8325D4052CAADD17007224E9 /* package-info.m in Sources */,
 				8325D6C02CAADD18007224E9 /* FixedPointPreCompInfo.m in Sources */,
 				8325D3B52CAADD17007224E9 /* package-info.m in Sources */,
-				83EBF9A0289BB48A00E80A7E /* ServletRest.m in Sources */,
 				8325D77E2CAADD18007224E9 /* SPHINCS256KeyPairGenerator.m in Sources */,
 				8325D54F2CAADD17007224E9 /* DERIA5String.m in Sources */,
 				8325D50A2CAADD17007224E9 /* ASN1ExternalParser.m in Sources */,
@@ -10619,7 +10584,6 @@
 				8325D6422CAADD18007224E9 /* Curve25519.m in Sources */,
 				8325D55D2CAADD17007224E9 /* DERVideotexString.m in Sources */,
 				8325D44B2CAADD17007224E9 /* AbstractSmartCard.m in Sources */,
-				83EBF99E289BAB2C00E80A7E /* ParentRest.m in Sources */,
 				8325D3B62CAADD17007224E9 /* package-info.m in Sources */,
 				8325D4622CAADD17007224E9 /* InvalidCryptographicChecksumException.m in Sources */,
 				8325D7D62CAADD18007224E9 /* XMSSKey.m in Sources */,
@@ -10727,6 +10691,7 @@
 				8325D3D72CAADD17007224E9 /* X509CertificateAttributes.m in Sources */,
 				8325D5FC2CAADD18007224E9 /* MultiBlockCipher.m in Sources */,
 				8325D6E72CAADD18007224E9 /* BcDefaultDigestProvider.m in Sources */,
+				A04ABEA82EE0D77400B5EF13 /* CipherData.swift in Sources */,
 				8325D8112CAADD18007224E9 /* BigEndianConversions.m in Sources */,
 				8325D4B62CAADD17007224E9 /* RosstandartObjectIdentifiers.m in Sources */,
 				8325D5B82CAADD18007224E9 /* DESedeEngine.m in Sources */,
@@ -11040,6 +11005,7 @@
 				8325D4DA2CAADD17007224E9 /* CertificateList.m in Sources */,
 				8325D60B2CAADD18007224E9 /* BCECPrivateKey.m in Sources */,
 				8325D6572CAADD18007224E9 /* SecP160R2Point.m in Sources */,
+				A04ABEA62EE07A9800B5EF13 /* AESUtils.swift in Sources */,
 				83144EA72C3FDFDD00CC38AB /* CustomButtonStyle.swift in Sources */,
 				8325D68D2CAADD18007224E9 /* SecT193FieldElement.m in Sources */,
 				8325D4C52CAADD17007224E9 /* X9ObjectIdentifiers.m in Sources */,
@@ -11241,7 +11207,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cliente @firma.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 51;
+				CURRENT_PROJECT_VERSION = 52;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2H36E8KFN2;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -11310,7 +11276,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 51;
+				CURRENT_PROJECT_VERSION = 52;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2H36E8KFN2;
