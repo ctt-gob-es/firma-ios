@@ -275,66 +275,32 @@ static CertificateUtils *_sharedWrapper = nil;
     return true;
 }
 
-- (SecIdentityRef) getIdentityBySubjectNameCertificate:(NSString *)subjectNameCerrificate
-{
-    OSStatus status = noErr;
-    CFArrayRef resultsArray;
+- (SecIdentityRef) getIdentityBySubjectNameCertificate:(NSString *)subjectNameCerrificate {
+    // 1. Definir la consulta (Query)
+    // Usamos __bridge id para que el compilador acepte las constantes de Security dentro del NSDictionary
+    NSDictionary *query = @{
+	   (__bridge id)kSecClass: (__bridge id)kSecClassIdentity,
+	   (__bridge id)kSecAttrLabel: subjectNameCerrificate,
+	   (__bridge id)kSecReturnRef: (__bridge id)kCFBooleanTrue,
+	   (__bridge id)kSecMatchLimit: (__bridge id)kSecMatchLimitOne
+    };
 
-    NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
-    [dict setObject:(id)kSecClassIdentity forKey:(id)kSecClass];
-    [dict setObject:[NSNumber numberWithBool:YES] forKey:(id)kSecReturnRef];
-    dict[(__bridge __strong id)(kSecMatchLimit)] = (__bridge id)(kSecMatchLimitAll);
+    CFTypeRef item = NULL;
     
-#if TARGET_IPHONE_SIMULATOR
-    // Ignore the access group if running on the iPhone simulator.
-    //
-    // Apps that are built for the simulator aren't signed, so there's no keychain access group
-    // for the simulator to check. This means that all apps can see all keychain items when run
-    // on the simulator.
-    //
-    // If a SecItem contains an access group attribute, SecItemAdd and SecItemUpdate on the
-    // simulator will return -25243 (errSecNoAccessForItem).
-#else
-    [dict setObject:[CertificateUtils accessgroup] forKey:(id)kSecAttrAccessGroup];
-#endif
-    
-    status = SecItemCopyMatching((CFDictionaryRef)dict, &resultsArray);
-    
-    if (dict) {
-        CFRelease(dict);
+    // 2. Ejecutar la búsqueda
+    OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &item);
+
+    // 3. Validar el resultado
+    if (status == errSecSuccess) {
+	   // Retornamos la referencia (el llamador es responsable de liberarla si fuera necesario,
+	   // aunque SecItemCopyMatching ya le da un retain count de +1)
+	   return (SecIdentityRef)item;
+    } else {
+	   if (status != errSecItemNotFound) {
+		  NSLog(@"Error al buscar identidad en Keychain: %d", (int)status);
+	   }
+	   return NULL;
     }
-    
-    if (status != noErr) {
-        return nil;
-    }
-    
-    CFIndex resultCount = CFArrayGetCount(resultsArray);
-    if (resultCount == 0) {
-        return nil;
-    }
-    
-    SecIdentityRef identityRef = nil;
-    for (CFIndex resultIndex = 0; resultIndex < resultCount; resultIndex++) {
-        SecIdentityRef identityRefAux = (SecIdentityRef) CFArrayGetValueAtIndex(resultsArray, resultIndex);
-        
-        SecCertificateRef certificateRef;
-        status = SecIdentityCopyCertificate(identityRefAux, &(certificateRef));
-        
-        if (status == noErr) {
-            NSData *certificateData = (__bridge NSData *) SecCertificateCopyData(certificateRef);
-            
-            const unsigned char *certificateDataBytes = (const unsigned char *)[certificateData bytes];
-            X509 *certificateX509 = d2i_X509(NULL, &certificateDataBytes, [certificateData length]);
-            
-            NSString *labelCertificate = [OpenSSLCertificateHelper getSubjectNameForCertificate: certificateX509];
-            
-            if ([labelCertificate isEqualToString: subjectNameCerrificate]) {
-                identityRef = identityRefAux;
-                break;
-            }
-        }
-    }
-    return identityRef;
 }
 
 - (NSData *)getHashBytesSHA1:(NSData *)plainText

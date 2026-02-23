@@ -89,7 +89,7 @@
         AOCertificateInfo *certificateInfo = [AOCertificateInfo new];
         [certificateInfo setCertificateRef:certificateRef];
         [certificateInfo setIssuer:[self getIssuerNameForCertificate:certificateX509]];
-        [certificateInfo setSubject:[self getSubjectNameForCertificate:certificateX509]];
+        [certificateInfo setSubject:[self getLabelFromCertificate:certificateRef]];
         [certificateInfo setCreationDate:[self getCreationDateFromCertificate:certificateX509]];
         [certificateInfo setExpirationDate:[self getExpiryDateFromCertificate:certificateX509]];
         [certificateInfo setPurpose:[self getPurposeFromCertificate:certificateX509]];
@@ -98,6 +98,30 @@
     }
     
     return nil;
+}
+
+
++ (NSString *)getLabelFromCertificate:(SecCertificateRef)certificate {
+    if (certificate == NULL) return nil;
+
+    // Usamos el SecCertificateRef como referencia de búsqueda
+    NSDictionary *query = @{
+	   (__bridge id)kSecValueRef: (__bridge id)certificate,
+	   (__bridge id)kSecReturnAttributes: (__bridge id)kCFBooleanTrue
+    };
+
+    CFTypeRef result = NULL;
+    OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &result);
+
+    if (status == errSecSuccess) {
+	   NSDictionary *attributes = (__bridge_transfer NSDictionary *)result;
+	   // Extraemos el kSecAttrLabel que el sistema le asignó
+	   return attributes[(__bridge id)kSecAttrLabel];
+    } else {
+	   // Si status es -25300 (errSecItemNotFound), el certificado no está en el Keychain
+	   NSLog(@"Error al buscar atributos del certificado: %d", (int)status);
+	   return nil;
+    }
 }
 
 + (NSString *)getIssuerNameForCertificate:(X509 *)certificateX509
