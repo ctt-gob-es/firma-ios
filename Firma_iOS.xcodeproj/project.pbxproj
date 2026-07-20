@@ -1449,6 +1449,8 @@
 		83B478102DA685E700D4E3D1 /* ChipButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B4780F2DA685E700D4E3D1 /* ChipButton.swift */; };
 		83B478122DA6910300D4E3D1 /* TimeoutConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B478112DA6910300D4E3D1 /* TimeoutConstants.swift */; };
 		83B60AEC2CC2565B0096BB3E /* ErrorModalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B60AEB2CC2565B0096BB3E /* ErrorModalState.swift */; };
+		8BE267C8AC2432C7960AA5CB /* OperationResultContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131BA338F84196FC9683C62C /* OperationResultContent.swift */; };
+		34489DAE3617179CABB17638 /* OperationResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82B6B625F9CFE262C601894 /* OperationResultView.swift */; };
 		83C0EC852C3FE6B300244071 /* IntroPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC842C3FE6B300244071 /* IntroPolicyView.swift */; };
 		83C0EC8A2C3FEDB500244071 /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC892C3FEDB500244071 /* CheckBoxView.swift */; };
 		83C0EC8C2C3FEDD000244071 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0EC8B2C3FEDD000244071 /* NavigationBarModifier.swift */; };
@@ -4423,6 +4425,8 @@
 		83B4780F2DA685E700D4E3D1 /* ChipButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipButton.swift; sourceTree = "<group>"; };
 		83B478112DA6910300D4E3D1 /* TimeoutConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeoutConstants.swift; sourceTree = "<group>"; };
 		83B60AEB2CC2565B0096BB3E /* ErrorModalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModalState.swift; sourceTree = "<group>"; };
+		131BA338F84196FC9683C62C /* OperationResultContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationResultContent.swift; sourceTree = "<group>"; };
+		C82B6B625F9CFE262C601894 /* OperationResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationResultView.swift; sourceTree = "<group>"; };
 		83C0EC842C3FE6B300244071 /* IntroPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroPolicyView.swift; sourceTree = "<group>"; };
 		83C0EC892C3FEDB500244071 /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
 		83C0EC8B2C3FEDD000244071 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
@@ -9080,6 +9084,7 @@
 				83DB24902CBFD9E000D1DD8C /* ErrorCodes */,
 				83AF00412CA2CB7700A26C0F /* NFCError.swift */,
 				83B60AEB2CC2565B0096BB3E /* ErrorModalState.swift */,
+				131BA338F84196FC9683C62C /* OperationResultContent.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -9257,6 +9262,7 @@
 			isa = PBXGroup;
 			children = (
 				83C0ECC72C44F75C00244071 /* Modals */,
+				C82B6B625F9CFE262C601894 /* OperationResultView.swift */,
 			);
 			path = Alerts;
 			sourceTree = "<group>";
@@ -9435,7 +9441,7 @@
 				ORGANIZATIONNAME = "Solid GEAR";
 				TargetAttributes = {
 					C30B3226163804620072A515 = {
-						DevelopmentTeam = 2H36E8KFN2;
+						DevelopmentTeam = LCLHA32ZLW;
 						LastSwiftMigration = 1500;
 						ProvisioningStyle = Automatic;
 					};
@@ -10821,6 +10827,8 @@
 				8325D47C2CAADD17007224E9 /* BcCryptoHelper.m in Sources */,
 				8325D4A82CAADD17007224E9 /* VerisignCzagExtension.m in Sources */,
 				83B60AEC2CC2565B0096BB3E /* ErrorModalState.swift in Sources */,
+				8BE267C8AC2432C7960AA5CB /* OperationResultContent.swift in Sources */,
+				34489DAE3617179CABB17638 /* OperationResultView.swift in Sources */,
 				838114CA2C5146FE00CDEC97 /* SignModel.swift in Sources */,
 				8325D7442CAADD18007224E9 /* McElieceKeyGenerationParameters.m in Sources */,
 				83EF82022D534A070008920A /* HistoricalUseCase.swift in Sources */,
@@ -11209,7 +11217,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 53;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 2H36E8KFN2;
+				DEVELOPMENT_TEAM = LCLHA32ZLW;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/Frameworks",
@@ -11221,6 +11229,7 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Firma_iOS/Supporting Files/Firma_iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				J2OBJC_HOME = "/Users/desarrolloabamobile/Downloads/j2objc-2.8";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib",
@@ -11247,7 +11256,7 @@
 					"-l",
 					protobuf,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "es.gob.afirma.Cliente--firma";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.abamobile.afirma.Cliente--firma";
 				PRODUCT_NAME = "Cliente @firma";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -11291,6 +11300,7 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Firma_iOS/Supporting Files/Firma_iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				J2OBJC_HOME = "/Users/desarrolloabamobile/Downloads/j2objc-2.8";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib",

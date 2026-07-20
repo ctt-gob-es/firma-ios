@@ -173,20 +173,32 @@ struct DNIConnectionView: View {
 	   }
 	   .onReceive(NotificationCenter.default.publisher(for: .DNIeError)) { notification in
 		  appStatus.isLoading = false
-		  appStatus.showErrorModal = true
 		  
 		  if let userInfo = notification.userInfo,
 			let error = userInfo["error"] as? AppError {
-                
                 if (error == AppError.badCan) {
-				step = .canStep
+			   step = .canStep
                 } else if (error == AppError.badPin) {
-				step = .pinStep
-			 } else {
-				step = .nfcStep
-				initModel()
-			 }
-			 appStatus.appError = error
+			   step = .pinStep
+		        } else {
+			   step = .nfcStep
+			   initModel()
+		        }
+
+                if isLocalSign {
+                    appStatus.showErrorModal = true
+			     appStatus.appError = error
+                } else {
+                    appStatus.operationResult = OperationResultContent(
+                        isSuccess: false,
+                        iconName: error.screenType.imageName ?? "cross",
+                        title: error.screenType.title,
+                        description: error.screenErrorMessage,
+                        continuationText: OperationResultContent.continuationText(appName: signModel.appname),
+                        showRetryButton: true
+                    )
+                    appStatus.showOperationResultScreen = true
+                }
 		  } else {
 			 print("No user info available in the notification")
 		  }

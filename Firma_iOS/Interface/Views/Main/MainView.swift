@@ -180,6 +180,12 @@ struct MainView: View {
 			 .accessibility(addTraits: .isModal)
 			 .interactiveDismissDisabled(true)
 	   }
+	   .fullScreenCover(isPresented: $appStatus.showOperationResultScreen) {
+		  if let operationResult = appStatus.operationResult {
+			 OperationResultView(content: operationResult)
+				.interactiveDismissDisabled(true)
+		  }
+	   }
     }
     
     private func onDisappear() {}
