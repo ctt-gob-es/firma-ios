@@ -235,7 +235,7 @@ class GenericBatchSignUseCase: NSObject {
                 return nil
             }
             
-            guard let cipherCertificate = CipherUtils.cipherCertificateSend(certificateData: certificateData, cipher: cipher, cipherKey: cipherKey) else {
+            guard let cipherCertificate = CipherUtils.cipherData(dataString: certificateData, cipher: cipher, cipherKey: cipherKey) else {
                 sendError(appError: AppError.jsonBatchCipherCertificateError)
                 return nil
             }
