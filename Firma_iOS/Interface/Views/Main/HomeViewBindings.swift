@@ -105,8 +105,17 @@ extension View {
 			 if newValue {
 				viewModel.viewMode = .home
 				viewModel.areCertificatesSelectable = false
-				appStatus.showErrorModal = true
-				appStatus.appError = AppError.userOperationCanceled
+				if viewModel.isLocalSign {
+				    appStatus.showErrorModal = true
+				    appStatus.appError = AppError.userOperationCanceled
+				} else {
+				    viewModel.presentOperationResult(
+				        isSuccess: false,
+				        iconName: ErrorModalState.userCancelled.imageName ?? "cross",
+				        title: ErrorModalState.userCancelled.title,
+				        description: viewModel.remoteErrorDescription(for: AppError.userOperationCanceled)
+				    )
+				}
 				viewModel.resetHomeViewModelVariables()
 			 }
 		  }

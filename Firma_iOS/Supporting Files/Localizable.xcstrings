@@ -6137,6 +6137,7 @@
       }
     },
     "home_certificates_description" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -8298,6 +8299,46 @@
         }
       }
     },
+    "open_autofirma_button_title" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir Autofirma"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir Autofirma"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir Autofirma"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir Autofirma"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir Autofirma"
+          }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir Autofirma"
+          }
+        }
+      }
+    },
     "operation_batch" : {
       "comment" : "Operation: Batch",
       "localizations" : {
@@ -8417,6 +8458,86 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Contrafirmació"
+          }
+        }
+      }
+    },
+    "operation_result_continue_generic" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vuelve al trámite para continuar."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vuelve al trámite para continuar."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vuelve al trámite para continuar."
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vuelve al trámite para continuar."
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vuelve al trámite para continuar."
+          }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vuelve al trámite para continuar."
+          }
+        }
+      }
+    },
+    "operation_result_continue_with_app" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vuelve a %1$@ para continuar con el trámite."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vuelve a %1$@ para continuar con el trámite."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vuelve a %1$@ para continuar con el trámite."
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vuelve a %1$@ para continuar con el trámite."
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vuelve a %1$@ para continuar con el trámite."
+          }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vuelve a %1$@ para continuar con el trámite."
           }
         }
       }
@@ -9307,6 +9428,7 @@
       }
     },
     "select_certificates_description" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -9342,6 +9464,88 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Selecciona el certificat amb el qual vulgues firmar el fitxer."
+          }
+        }
+      }
+    },
+    "select_certificates_description_data" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecciona el certificado con el que quieras firmar los datos."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecciona el certificado con el que quieras firmar los datos."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecciona el certificado con el que quieras firmar los datos."
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecciona el certificado con el que quieras firmar los datos."
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecciona el certificado con el que quieras firmar los datos."
+          }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecciona el certificado con el que quieras firmar los datos."
+          }
+        }
+      }
+    },
+    "select_certificates_description_select_only" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecciona el certificado que desee utilizar."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecciona el certificado que desee utilizar."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecciona el certificado que desee utilizar."
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecciona el certificado que desee utilizar."
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecciona el certificado que desee utilizar."
+          }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecciona el certificado que desee utilizar."
           }
         }
       }
@@ -9964,7 +10168,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "¿Con qué firmarás el fichero?"
+            "value" : "¿Con qué firmarás?"
           }
         },
         "eu" : {
@@ -10027,6 +10231,46 @@
         }
       }
     },
+    "sign_success_description_data" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La firma se ha realizado correctamente."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La firma se ha realizado correctamente."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La firma se ha realizado correctamente."
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La firma se ha realizado correctamente."
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La firma se ha realizado correctamente."
+          }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La firma se ha realizado correctamente."
+          }
+        }
+      }
+    },
     "sign_success_title" : {
       "localizations" : {
         "ca" : {
@@ -10063,6 +10307,46 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fitxer firmat"
+          }
+        }
+      }
+    },
+    "sign_success_title_data" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Firma completada"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Firma completada"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Firma completada"
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Firma completada"
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Firma completada"
+          }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Firma completada"
           }
         }
       }
@@ -10827,6 +11111,46 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Has cancel·lat el procés de firma, si vols firmar l'arxiu, hauràs de repetir el procés complet."
+          }
+        }
+      }
+    },
+    "user_cancelled_error_description_data" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Has cancelado el proceso de firma, si quieres firmar los datos, deberás repetir el proceso completo."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Has cancelado el proceso de firma, si quieres firmar los datos, deberás repetir el proceso completo."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Has cancelado el proceso de firma, si quieres firmar los datos, deberás repetir el proceso completo."
+          }
+        },
+        "eu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Has cancelado el proceso de firma, si quieres firmar los datos, deberás repetir el proceso completo."
+          }
+        },
+        "gl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Has cancelado el proceso de firma, si quieres firmar los datos, deberás repetir el proceso completo."
+          }
+        },
+        "va" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Has cancelado el proceso de firma, si quieres firmar los datos, deberás repetir el proceso completo."
           }
         }
       }

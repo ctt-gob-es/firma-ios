@@ -256,10 +256,27 @@ struct HomeView: View {
 			 .accessibilityAddTraits(.isHeader)
 
 		  
-		  AccessibleText(content: viewMode == .sign ? NSLocalizedString("select_certificates_description", bundle: Bundle.main, comment: "") : NSLocalizedString("home_certificates_description", bundle: Bundle.main, comment: ""))
+		  AccessibleText(content: NSLocalizedString(certificateSelectionDescriptionKey, bundle: Bundle.main, comment: ""))
 			 .regularStyle(foregroundColor: ColorConstants.Text.secondary)
 	   }
 	   .padding([.horizontal, .top])
+    }
+
+    /// Texto de la pantalla de selección de certificados según la operación en curso: firma de fichero, firma/cofirma/contrafirma de datos o firma de lote (sin mencionar "fichero"), o selección de certificado
+    private var certificateSelectionDescriptionKey: String {
+        guard viewMode == .sign, let operation = viewModel.signModel?.operation else {
+            return "home_certificates_description"
+        }
+        switch operation {
+        case OPERATION_SELECT_CERTIFICATE:
+            return "select_certificates_description_select_only"
+        case OPERATION_BATCH:
+            return "select_certificates_description_data"
+        case OPERATION_SIGN, OPERATION_COSIGN, OPERATION_COUNTERSIGN:
+            return viewModel.dataType == .external ? "select_certificates_description_data" : "select_certificates_description"
+        default:
+            return "select_certificates_description"
+        }
     }
     
     private func certificateListOrNoDataView(isLandscape: Bool) -> some View {
@@ -353,8 +370,17 @@ struct HomeView: View {
                    appStatus.importedDataArchiveName = archiveName
                 }
             case .failure(_):
-                appStatus.showErrorModal = true
-                appStatus.appError = AppError.fileLoadingLocalFile
+                if viewModel.isLocalSign {
+                    appStatus.showErrorModal = true
+                    appStatus.appError = AppError.fileLoadingLocalFile
+                } else {
+                    viewModel.presentOperationResult(
+                        isSuccess: false,
+                        iconName: AppError.fileLoadingLocalFile.screenType.imageName ?? "cross",
+                        title: AppError.fileLoadingLocalFile.screenType.title,
+                        description: viewModel.remoteErrorDescription(for: AppError.fileLoadingLocalFile)
+                    )
+                }
         }
     }
 }

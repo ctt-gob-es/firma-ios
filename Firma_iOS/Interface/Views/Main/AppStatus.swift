@@ -25,6 +25,9 @@ class AppStatus: ObservableObject {
     
     @Published var successModalState: SuccessModalState = .successCertificateAdded
     @Published var appError: AppError?
+
+    @Published var showOperationResultScreen: Bool = false
+    @Published var operationResult: OperationResultContent? = nil
     
     @Published var selectedCertificate: AOCertificateInfo? = nil
     @Published var importedDataArchiveName: String? = nil

@@ -370,10 +370,39 @@ class HomeViewModel: ObservableObject {
 			 }
 		  } else {
 			 // si no tienen return URL mostramos dialogo de success
-			 self.successModalState = successState
-			 self.showSuccessModal = true
+			 if self.isLocalSign {
+				self.successModalState = successState
+				self.showSuccessModal = true
+			 } else {
+				let content = self.successResultContent(for: successState)
+				self.presentOperationResult(isSuccess: true, iconName: "tick", title: content.title, description: content.description)
+			 }
 		  }
 	   }
+    }
+
+    /// Calcula el título y la descripción de éxito según la operación en curso, evitando mencionar "fichero" cuando se firma/cofirma/contrafirma datos suministrados directamente por la app llamante o se firma un lote
+    private func successResultContent(for state: SuccessModalState) -> (title: String, description: String) {
+        switch state {
+        case .successSign where dataType == .external:
+            return (
+                NSLocalizedString("sign_success_title_data", bundle: Bundle.main, comment: ""),
+                NSLocalizedString("sign_success_description_data", bundle: Bundle.main, comment: "")
+            )
+        default:
+            return (state.title, state.description)
+        }
+    }
+
+    func presentOperationResult(isSuccess: Bool, iconName: String, title: String, description: String) {
+        appStatus.operationResult = OperationResultContent(
+            isSuccess: isSuccess,
+            iconName: iconName,
+            title: title,
+            description: description,
+            continuationText: OperationResultContent.continuationText(appName: signModel?.appname)
+        )
+        appStatus.showOperationResultScreen = true
     }
     
     func handleOperationError(appError: AppError) {
@@ -449,9 +478,18 @@ class HomeViewModel: ObservableObject {
 				self.showError(appError: appError)
 			 } else {
 				self.viewMode = .home
-				self.successModalState = .successCertificateSent
-				self.showSuccessModal = true
 				self.areCertificatesSelectable = false
+				if self.isLocalSign {
+				    self.successModalState = .successCertificateSent
+				    self.showSuccessModal = true
+				} else {
+				    self.presentOperationResult(
+				        isSuccess: true,
+				        iconName: "tick",
+				        title: SuccessModalState.successCertificateSent.title,
+				        description: SuccessModalState.successCertificateSent.description
+				    )
+				}
 				self.resetHomeViewModelVariables()
 			 }
 		  }
@@ -552,13 +590,33 @@ class HomeViewModel: ObservableObject {
     func showError(appError: AppError) {
         resetHomeViewModelVariables()
         self.appStatus.isLoading = false
-        DispatchQueue.main.async {
-           self.showErrorModal = false
-           DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-               self.appError = appError
-               self.showErrorModal = true
-               self.signModel?.returnURL = nil
-           }
+        if isLocalSign {
+            DispatchQueue.main.async {
+               self.showErrorModal = false
+               DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+                   self.appError = appError
+                   self.showErrorModal = true
+                   self.signModel?.returnURL = nil
+               }
+            }
+        } else {
+            self.signModel?.returnURL = nil
+            presentOperationResult(
+                isSuccess: false,
+                iconName: appError.screenType.imageName ?? "cross",
+                title: appError.screenType.title,
+                description: remoteErrorDescription(for: appError)
+            )
+        }
+    }
+
+    /// Igual que `appError.screenErrorMessage` pero evitando mencionar "el archivo" cuando la operación cancelada era de firma de datos o de lote
+    func remoteErrorDescription(for appError: AppError) -> String {
+        switch appError.screenType {
+        case .userCancelled where dataType == .external:
+            return "AI\(appError.code) - " + NSLocalizedString("user_cancelled_error_description_data", bundle: Bundle.main, comment: "")
+        default:
+            return appError.screenErrorMessage
         }
     }
     
@@ -758,13 +816,18 @@ class HomeViewModel: ObservableObject {
     func successOperationSaveFile() {
         viewMode = .home
 	   self.showDocumentSavingPicker = false
-        appStatus.showSuccessModal = true
 	   appStatus.isLoading = false
 	   if !isLocalSign {
-		  appStatus.successModalState = .successArhiveAdded
 		  SendSuccessOperationUseCase().execute(signModel: self.signModel)
+		  presentOperationResult(
+			 isSuccess: true,
+			 iconName: "tick",
+			 title: SuccessModalState.successArhiveAdded.title,
+			 description: SuccessModalState.successArhiveAdded.description
+		  )
 	   } else {
 		  appStatus.successModalState = .successSign
+		  appStatus.showSuccessModal = true
 	   }
 	   resetHomeViewModelVariables()
     }
