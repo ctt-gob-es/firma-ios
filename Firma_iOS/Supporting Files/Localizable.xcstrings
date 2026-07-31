@@ -1329,37 +1329,37 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "El certificat s'ha enviat correctament."
+            "value" : "El certificat s'ha seleccionat correctament"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The certificate has been sent successfully."
+            "value" : "The certificate has been successfully selected."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "El certificado se ha enviado correctamente."
+            "value" : "El certificado se ha seleccionado correctamente"
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ziurtagiria behar bezala bidali da."
+            "value" : "Ziurtagiria ongi hautatu da"
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "O certificado foi enviado correctamente."
+            "value" : "O certificado seleccionouse correctamente"
           }
         },
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "El certificat s'ha enviat correctament."
+            "value" : "El certificat s'ha seleccionat correctament"
           }
         }
       }
@@ -1369,37 +1369,37 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Certificat enviat"
+            "value" : "Certificat seleccionat"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Certificate sent"
+            "value" : "Selected certificate"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Certificado enviado"
+            "value" : "Certificado seleccionado"
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bidalitako ziurtagiria"
+            "value" : "Hautatutako ziurtagiria"
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Certificado enviado"
+            "value" : "Certificado seleccionado"
           }
         },
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Certificat enviat"
+            "value" : "Certificat seleccionat"
           }
         }
       }
@@ -8304,13 +8304,13 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Abrir Autofirma"
+            "value" : "Obrir Autofirma"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Abrir Autofirma"
+            "value" : "Open Autofirma"
           }
         },
         "es" : {
@@ -8322,7 +8322,7 @@
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Abrir Autofirma"
+            "value" : "Autofirma irekitzea"
           }
         },
         "gl" : {
@@ -8334,7 +8334,7 @@
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Abrir Autofirma"
+            "value" : "Obrir Autofirma"
           }
         }
       }
@@ -8467,13 +8467,13 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vuelve al trámite para continuar."
+            "value" : "Torna al tràmit per a continuar."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vuelve al trámite para continuar."
+            "value" : "Go back to the procedure to continue."
           }
         },
         "es" : {
@@ -8485,19 +8485,19 @@
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vuelve al trámite para continuar."
+            "value" : "Tramitera itzultzen da jarraitzeko."
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vuelve al trámite para continuar."
+            "value" : "Volve ao trámite para continuar."
           }
         },
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vuelve al trámite para continuar."
+            "value" : "Torna al tràmit per a continuar."
           }
         }
       }
@@ -8507,13 +8507,13 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vuelve a %1$@ para continuar con el trámite."
+            "value" : "Torna a %1$@ per a continuar amb el tràmit."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vuelve a %1$@ para continuar con el trámite."
+            "value" : "Return to %1$@ to continue with the procedure."
           }
         },
         "es" : {
@@ -8525,19 +8525,19 @@
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vuelve a %1$@ para continuar con el trámite."
+            "value" : "Itzuli %1$@(e)ra izapidearekin jarraitzeko."
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vuelve a %1$@ para continuar con el trámite."
+            "value" : "Volve a %1$@ para continuar co trámite."
           }
         },
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vuelve a %1$@ para continuar con el trámite."
+            "value" : "Torna a %1$@ per a continuar amb el tràmit."
           }
         }
       }
@@ -9474,13 +9474,13 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Selecciona el certificado con el que quieras firmar los datos."
+            "value" : "Selecciona el certificat amb el qual vulguis signar les dades."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Selecciona el certificado con el que quieras firmar los datos."
+            "value" : "Select the certificate with which you want to sign the data."
           }
         },
         "es" : {
@@ -9492,19 +9492,19 @@
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Selecciona el certificado con el que quieras firmar los datos."
+            "value" : "Hautatu datuak sinatzeko erabili nahi duzun ziurtagiria."
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Selecciona el certificado con el que quieras firmar los datos."
+            "value" : "Selecciona o certificado co que queiras asinar os datos."
           }
         },
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Selecciona el certificado con el que quieras firmar los datos."
+            "value" : "Selecciona el certificat amb el qual vulgues signar les dades."
           }
         }
       }
@@ -9515,13 +9515,13 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Selecciona el certificado que desee utilizar."
+            "value" : "Selecciona el certificat que desitgi utilitzar."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Selecciona el certificado que desee utilizar."
+            "value" : "Select the certificate that you want to use."
           }
         },
         "es" : {
@@ -9533,19 +9533,19 @@
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Selecciona el certificado que desee utilizar."
+            "value" : "Hautatu erabili nahi duzun ziurtagiria."
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Selecciona el certificado que desee utilizar."
+            "value" : "Selecciona o certificado que desexe utilizar."
           }
         },
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Selecciona el certificado que desee utilizar."
+            "value" : "Selecciona el certificat que desitge utilitzar."
           }
         }
       }
@@ -9555,37 +9555,37 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Enviar"
+            "value" : "Seleccionar"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Send"
+            "value" : "Select"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Enviar"
+            "value" : "Seleccionar"
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bidali"
+            "value" : "Hautatu"
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Enviar"
+            "value" : "Seleccionar"
           }
         },
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Enviar"
+            "value" : "Seleccionar"
           }
         }
       }
@@ -10156,13 +10156,13 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Amb què signaràs el fitxer?"
+            "value" : "Amb què signaràs?"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "What will you use to sign the file?"
+            "value" : "What will you sign with?"
           }
         },
         "es" : {
@@ -10174,19 +10174,19 @@
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zerekin sinatuko duzu fitxategia?"
+            "value" : "Zerekin sinatuko duzu?"
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Con que vai asinar o ficheiro?"
+            "value" : "Con que asinarás?"
           }
         },
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Amb què firmaràs el fitxer?"
+            "value" : "Amb què signaràs?"
           }
         }
       }
@@ -10236,13 +10236,13 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La firma se ha realizado correctamente."
+            "value" : "La signatura s'ha realitzat correctament."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La firma se ha realizado correctamente."
+            "value" : "The signature has been successfully performed."
           }
         },
         "es" : {
@@ -10254,19 +10254,19 @@
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La firma se ha realizado correctamente."
+            "value" : "Sinadura ondo egin da."
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La firma se ha realizado correctamente."
+            "value" : "A firma realizouse correctamente."
           }
         },
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La firma se ha realizado correctamente."
+            "value" : "La signatura s'ha realitzat correctament."
           }
         }
       }
@@ -10316,13 +10316,13 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Firma completada"
+            "value" : "Signatura completada"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Firma completada"
+            "value" : "Signature completed"
           }
         },
         "es" : {
@@ -10334,7 +10334,7 @@
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Firma completada"
+            "value" : "Sinadura burutu da"
           }
         },
         "gl" : {
@@ -10346,7 +10346,7 @@
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Firma completada"
+            "value" : "Signatura completada"
           }
         }
       }
@@ -11120,13 +11120,13 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Has cancelado el proceso de firma, si quieres firmar los datos, deberás repetir el proceso completo."
+            "value" : "Has cancel·lat el procés de signatura, si vols signar les dades, hauràs de repetir el procés complet."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Has cancelado el proceso de firma, si quieres firmar los datos, deberás repetir el proceso completo."
+            "value" : "You have canceled the signing process, if you want to sign the data, you must repeat the entire process."
           }
         },
         "es" : {
@@ -11138,19 +11138,19 @@
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Has cancelado el proceso de firma, si quieres firmar los datos, deberás repetir el proceso completo."
+            "value" : "Sinadura-prozesua bertan behera utzi duzu; datuak sinatu nahi badituzu, prozesu osoa errepikatu beharko duzu."
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Has cancelado el proceso de firma, si quieres firmar los datos, deberás repetir el proceso completo."
+            "value" : "Cancelaches o proceso de firma, se queres asinar os datos, deberás repetir o proceso completo."
           }
         },
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Has cancelado el proceso de firma, si quieres firmar los datos, deberás repetir el proceso completo."
+            "value" : "Has cancel·lat el procés de signatura, si vols signar les dades, hauràs de repetir el procés complet."
           }
         }
       }

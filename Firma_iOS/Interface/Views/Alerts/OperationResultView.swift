@@ -15,8 +15,6 @@ struct OperationResultView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            Spacer()
-
             VStack(spacing: 20) {
                 Image(content.iconName)
                     .resizable()
@@ -24,20 +22,21 @@ struct OperationResultView: View {
                     .frame(width: 96, height: 96)
                     .accessibilityHidden(true)
 
-                VStack(alignment: .leading, spacing: 12) {
-                    AccessibleText(content: content.title)
+                VStack(alignment: .center, spacing: 12) {
+                    AccessibleText(content: content.title, multilineTextAlignment: .center)
                         .titleStyleBlack(foregroundColor: ColorConstants.Text.primary)
                         .accessibilityAddTraits(.isHeader)
 
-                    AccessibleText(content: content.description)
+                    AccessibleText(content: content.description, multilineTextAlignment: .center)
                         .regularStyle(foregroundColor: ColorConstants.Text.secondary)
 
-                    AccessibleText(content: content.continuationText)
+                    AccessibleText(content: content.continuationText, multilineTextAlignment: .center)
                         .regularStyle(foregroundColor: ColorConstants.Text.secondary)
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
+                .frame(maxWidth: .infinity, alignment: .center)
             }
             .padding(.horizontal)
+            .padding(.top, 64)
 
             Spacer()
 
