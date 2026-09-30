@@ -8507,37 +8507,37 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Torna a %1$@ per a continuar amb el tràmit."
+            "value" : "Torna al navegador per a continuar amb el tràmit en %1$@"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Return to %1$@ to continue with the procedure."
+            "value" : "Go back to the browser to continue with the procedure in %1$@"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vuelve a %1$@ para continuar con el trámite."
+            "value" : "Vuelve al navegador para continuar con el trámite en %1$@"
           }
         },
         "eu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Itzuli %1$@(e)ra izapidearekin jarraitzeko."
+            "value" : "Itzuli nabigatzailera %1$@(e)n izapidearekin jarraitzeko"
           }
         },
         "gl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Volve a %1$@ para continuar co trámite."
+            "value" : "Volve ao navegador para continuar co trámite en %1$@"
           }
         },
         "va" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Torna a %1$@ per a continuar amb el tràmit."
+            "value" : "Torna al navegador per a continuar amb el tràmit en %1$@"
           }
         }
       }
