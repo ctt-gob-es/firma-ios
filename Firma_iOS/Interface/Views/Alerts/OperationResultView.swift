@@ -31,7 +31,7 @@ struct OperationResultView: View {
                         .regularStyle(foregroundColor: ColorConstants.Text.secondary)
 
                     AccessibleText(content: content.continuationText, multilineTextAlignment: .center)
-                        .regularStyle(foregroundColor: ColorConstants.Text.secondary)
+                        .regularBoldStyle(foregroundColor: ColorConstants.Text.secondary)
                 }
                 .frame(maxWidth: .infinity, alignment: .center)
             }
@@ -56,7 +56,7 @@ struct OperationResultView: View {
                 }) {
                     AccessibleText(content: NSLocalizedString("open_autofirma_button_title", bundle: Bundle.main, comment: ""))
                 }
-                .buttonStyle(CustomButtonStyle(isEnabled: true))
+                .buttonStyle(BorderedButtonStyle())
             }
             .padding(.bottom)
         }
