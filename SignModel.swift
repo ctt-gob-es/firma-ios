@@ -88,8 +88,8 @@ class SignModel {
 		  }
 	   }
 	   
-	   if let appNameString = dictionary[PARAMETER_NAME_APP_NAME] as? String {
-		  self.appname = appNameString
+	   if let appNameString = (dictionary[PARAMETER_NAME_APP_NAME] as? String) ?? (self.dictExtraParams?[PARAMETER_NAME_APP_NAME] as? String) {
+		  self.appname = appNameString.removingPercentEncoding ?? appNameString
 	   }
 	   
         if let stickyString = dictionary[PARAMETER_NAME_STICKY] as? String {

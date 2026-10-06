@@ -197,6 +197,9 @@ public class ParseDataURLOperationUseCase: NSObject {
         if let resetsticky = (entidad as AnyObject).resetsticky {
             opParameters[PARAMETER_NAME_RESET_STICKY] = resetsticky
         }
+        if opParameters[PARAMETER_NAME_APP_NAME] == nil, let appname = (entidad as? AOEntity)?.appname {
+            opParameters[PARAMETER_NAME_APP_NAME] = appname
+        }
         
         DispatchQueue.main.async {
             completion(.success(self.opParameters))

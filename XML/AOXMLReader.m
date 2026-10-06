@@ -82,6 +82,10 @@ NSDictionary *attributeDictionary;
             if([key isEqualToString:PARAMETER_NAME_RESET_STICKY]){
                 currentEntidad.resetsticky = [attributeDictionary valueForKey:@"v"];
             }
+
+            if([key isEqualToString:PARAMETER_NAME_APP_NAME]){
+                currentEntidad.appname = [attributeDictionary valueForKey:@"v"];
+            }
         }
 	}
 }
