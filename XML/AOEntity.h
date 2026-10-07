@@ -33,6 +33,7 @@
 @property (nonatomic, strong) NSString *filename;
 @property (nonatomic, strong) NSString *sticky;
 @property (nonatomic, strong) NSString *resetsticky;
+@property (nonatomic, strong) NSString *appname;
 
 
 @end
